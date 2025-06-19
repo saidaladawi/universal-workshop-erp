@@ -1,25 +1,133 @@
-# Logs
-logs
+# Universal Workshop ERP - ERPNext v15 .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.env
+.env.*
+
+# Frappe/ERPNext specific
+sites/*/private/
+sites/*/public/files/
+sites/*/logs/
+sites/*/site_config.json
+sites/*/error.log
+sites/*/access.log
+sites/common_site_config.json
+logs/
 *.log
+*.pid
+*.swp
+*.swo
+*.bak
+*.tmp
+*.sqlite
+*.db
+*.rdb
+
+# Node.js
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-dev-debug.log
+.npm
+.eslintcache
+package-lock.json
+yarn.lock
 
-# Dependency directories
-node_modules/
+# Build artifacts
+assets/
+public/
+*.min.js
+*.min.css
 
-# Environment variables
-.env
+# Database dumps
+*.sql
+*.gz
+*.backup
 
-# Editor directories and files
-.idea
-.vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# Cache and temp files
+.cache/
+*.cache
+.temp/
+temp/
 
 # OS specific
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# IDE/Editor
+.vscode/settings.json
+.idea/
+*.sublime-*
+*~
+
+# Testing
+.coverage
+.pytest_cache/
+htmlcov/
+.tox/
+
+# Documentation
+docs/_build/
+site/
+
+# Security - Never commit these!
+private_key.pem
+public_key.pem
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+secrets.json
+.secrets/
+
+# Arabic specific
+*.mo
+locale/*/LC_MESSAGES/*.mo
+
+# Universal Workshop specific
+sites/universal.local/private/backups/
+sites/universal.local/error.log
+sites/universal.local/access.log
+config/redis*.conf
+config/supervisor*.conf
+config/nginx*.conf
+
+# License management
+license_keys/
+hardware_fingerprints/
+auth_tokens/

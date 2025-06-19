@@ -1,0 +1,43 @@
+# Task ID: 7
+# Title: Build SMS/WhatsApp Communication Integration
+# Status: pending
+# Dependencies: 3, 2
+# Priority: medium
+# Description: Implement automated notification system with SMS and WhatsApp integration for customer communications
+# Details:
+Integrate Twilio API for SMS functionality and WhatsApp Business API for messaging. Create notification templates for appointment confirmations, service updates, completion alerts, and payment reminders. Implement message queuing system using Redis for reliable delivery with retry mechanisms. Build communication history tracking within customer profiles. Create opt-in/opt-out management for compliance with communication preferences. Develop delivery status tracking with 98% success rate monitoring.
+
+# Test Strategy:
+Test SMS/WhatsApp delivery within 30 seconds, verify 98% success rate achievement, validate opt-in/opt-out functionality, confirm communication history accuracy and completeness. Verify 98% of messages are delivered within 30 seconds.
+
+# Subtasks:
+## 1. Set up Twilio and WhatsApp Business API Integration [pending]
+### Dependencies: None
+### Description: Configure and integrate Twilio API for SMS functionality and WhatsApp Business API for messaging capabilities
+### Details:
+Create Twilio account and obtain API credentials. Set up WhatsApp Business API through Twilio or Facebook Business. Configure webhook endpoints for delivery status callbacks. Implement API client classes with proper authentication, error handling, and rate limiting. Create configuration management for API keys and endpoints.
+
+## 2. Implement Message Queuing System with Redis [pending]
+### Dependencies: 7.1
+### Description: Build a robust message queuing system using Redis for reliable message delivery with retry mechanisms
+### Details:
+Set up Redis instance for message queuing. Implement job queue with Bull or similar library. Create message processing workers with exponential backoff retry logic. Implement dead letter queue for failed messages. Add queue monitoring and metrics collection. Configure queue persistence and failover mechanisms.
+
+## 3. Create Dynamic Notification Templates System [pending]
+### Dependencies: 7.1
+### Description: Develop a template system for appointment confirmations, service updates, completion alerts, and payment reminders
+### Details:
+Design template schema with variable placeholders for customer data, appointment details, and service information. Create template management interface for creating, editing, and versioning templates. Implement template rendering engine with support for conditional content and formatting. Build template validation and preview functionality. Support for both SMS and WhatsApp message formats including rich media for WhatsApp.
+
+## 4. Build Communication History and Opt-in/Opt-out Management [pending]
+### Dependencies: 7.2, 7.3
+### Description: Implement communication tracking within customer profiles and compliance management for communication preferences
+### Details:
+Extend customer profile schema to include communication history and preferences. Create opt-in/opt-out management system with double opt-in for compliance. Implement communication logging with message content, delivery status, and timestamps. Build preference management interface for customers to control notification types and channels. Add compliance checks before sending messages and audit trail for regulatory requirements.
+
+## 5. Implement Delivery Status Tracking and Monitoring [pending]
+### Dependencies: 7.2, 7.4
+### Description: Build comprehensive delivery status tracking system with 98% success rate monitoring and alerting
+### Details:
+Implement webhook handlers for delivery status updates from Twilio and WhatsApp. Create delivery status tracking database schema with message states (sent, delivered, read, failed). Build monitoring dashboard showing delivery rates, failure reasons, and performance metrics. Implement alerting system for delivery rate drops below 98%. Create automated retry logic for failed messages and escalation procedures. Add reporting capabilities for delivery analytics and compliance reporting.
+

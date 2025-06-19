@@ -1,0 +1,43 @@
+# Task ID: 9
+# Title: Develop Customer Portal with Online Service Booking
+# Status: pending
+# Dependencies: 6, 7, 2
+# Priority: medium
+# Description: Build customer-facing web portal for appointment booking, service tracking, and account management
+# Details:
+Create customer portal using Frappe's web framework with responsive design supporting Arabic/English. Implement real-time appointment booking with availability checking and automatic confirmation. Build service request tracking with status updates and estimated completion times. Create account management features including profile updates, vehicle information, and service history viewing. Implement secure authentication with password reset and two-factor authentication options. Integrate with SMS/WhatsApp for booking confirmations and updates.
+
+# Test Strategy:
+Test real-time availability checking accuracy, verify appointment booking with automatic confirmation, validate service tracking updates in real-time, confirm secure authentication and account management functionality.
+
+# Subtasks:
+## 1. Set up Customer Portal Foundation with Authentication [pending]
+### Dependencies: None
+### Description: Create the basic customer portal structure using Frappe's web framework with secure authentication system including login, registration, password reset, and two-factor authentication options.
+### Details:
+Use Frappe's web pages framework to create portal structure. Implement custom authentication views with email/phone login options. Set up password reset functionality using Frappe's email system. Integrate two-factor authentication using SMS or authenticator apps. Create responsive base templates with Arabic/English language support using Frappe's translation system.
+
+## 2. Build Account Management and Profile Features [pending]
+### Dependencies: 9.1
+### Description: Develop customer account management functionality including profile updates, vehicle information management, and service history viewing with multilingual support.
+### Details:
+Create customer profile forms using Frappe's web forms. Build vehicle information management with add/edit/delete capabilities. Implement service history display with filtering and search options. Use Frappe's permission system to ensure customers only access their own data. Create responsive UI components with Arabic/English text direction support.
+
+## 3. Implement Real-time Appointment Booking System [pending]
+### Dependencies: 9.2
+### Description: Create appointment booking interface with real-time availability checking, service selection, time slot management, and automatic confirmation system.
+### Details:
+Build booking calendar interface using JavaScript libraries compatible with Frappe. Implement real-time availability checking through server-side API calls. Create service selection with pricing display. Build time slot management with conflict prevention. Set up automatic booking confirmation with email notifications. Use Frappe's background jobs for processing bookings.
+
+## 4. Develop Service Request Tracking System [pending]
+### Dependencies: 9.3
+### Description: Build comprehensive service tracking functionality with real-time status updates, estimated completion times, and progress visualization for customers.
+### Details:
+Create service tracking dashboard showing current and past services. Implement real-time status updates using Frappe's real-time features. Build progress visualization with estimated completion times. Create notification system for status changes. Implement service rating and feedback collection. Use Frappe's document events to trigger status updates automatically.
+
+## 5. Integrate SMS/WhatsApp Communication System [pending]
+### Dependencies: 9.4
+### Description: Implement automated SMS and WhatsApp integration for booking confirmations, status updates, reminders, and customer communications throughout the service lifecycle.
+### Details:
+Integrate SMS gateway (like Twilio) for automated messaging. Set up WhatsApp Business API for rich messaging. Create message templates for different scenarios (booking confirmation, status updates, reminders). Implement automated triggers based on booking and service events. Build message history tracking and delivery status monitoring. Use Frappe's background jobs for message queuing and delivery.
+

@@ -1,0 +1,99 @@
+/* Arabic RTL Support for Universal Workshop ERP */
+/* Base RTL setup */
+.rtl-layout,
+[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Form controls RTL */
+.rtl-layout .form-control,
+.rtl-layout .input-with-feedback,
+[dir="rtl"] .form-control {
+    text-align: right;
+    direction: rtl;
+}
+
+/* Table headers RTL */
+.rtl-layout .list-row-container th,
+.rtl-layout .list-header-subject {
+    text-align: right;
+}
+
+/* Navigation RTL */
+.rtl-layout .navbar-nav,
+.rtl-layout .dropdown-menu {
+    direction: rtl;
+}
+
+/* Arabic font optimization */
+.arabic-text {
+    font-family: 'Noto Sans Arabic', 'Tahoma', 'Arial Unicode MS', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Arabic number display */
+.arabic-numerals {
+    font-feature-settings: "lnum" 0; /* Disable lining numerals */
+    font-variant-numeric: tabular-nums;
+}
+
+/* Form layout adjustments */
+.rtl-layout .control-label {
+    text-align: right;
+    padding-right: 0;
+    padding-left: 15px;
+}
+
+.rtl-layout .form-column {
+    padding-right: 0;
+    padding-left: 15px;
+}
+
+/* List view RTL */
+.rtl-layout .list-row {
+    direction: rtl;
+}
+
+.rtl-layout .list-row .list-subject {
+    text-align: right;
+}
+
+/* Button alignment */
+.rtl-layout .btn-group {
+    direction: ltr; /* Keep button icons left-to-right */
+}
+
+/* Modal RTL */
+.rtl-layout .modal-header,
+.rtl-layout .modal-body,
+.rtl-layout .modal-footer {
+    text-align: right;
+}
+
+/* Sidebar RTL */
+.rtl-layout .desk-sidebar {
+    right: 0;
+    left: auto;
+}
+
+/* Responsive RTL */
+@media (max-width: 768px) {
+    .rtl-layout .form-control {
+        text-align: right;
+    }
+    
+    .rtl-layout .list-row-container {
+        direction: rtl;
+    }
+}
+
+/* Auto-detect Arabic text direction */
+[data-fieldtype="Data"]:lang(ar),
+[data-fieldtype="Text"]:lang(ar),
+[data-fieldtype="Long Text"]:lang(ar) {
+    direction: rtl;
+    text-align: right;
+} 

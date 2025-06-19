@@ -1,0 +1,43 @@
+# Task ID: 6
+# Title: Develop Workshop Management and Service Order System
+# Status: pending
+# Dependencies: 3, 4, 5
+# Priority: high
+# Description: Create service order management with appointment scheduling, technician assignment, and mobile workflow interface
+# Details:
+Build Service Order DocType with status tracking, customer/vehicle linking, and parts/labor integration. Implement calendar-based appointment scheduling using FullCalendar.js with resource allocation and conflict resolution. Create technician assignment algorithm considering skills matrix, availability, and workload balancing. Develop mobile-optimized interface using Progressive Web App (PWA) technology with offline capability for 2 hours. Build service bay utilization monitoring with capacity planning dashboard. Implement quality control checkpoints requiring supervisor approval before job completion.
+
+# Test Strategy:
+Verify service order creation under 30 seconds with automatic data population, test appointment scheduling prevents double-booking, validate mobile interface loads under 3 seconds on 3G, confirm quality control approval workflow functionality.
+
+# Subtasks:
+## 1. Create Service Order DocType with Status Tracking and Entity Linking [pending]
+### Dependencies: None
+### Description: Build the core Service Order DocType with comprehensive status tracking, customer/vehicle linking, and parts/labor integration capabilities
+### Details:
+Create Service Order DocType with fields for customer reference, vehicle details, service description, status (Draft, Scheduled, In Progress, Quality Check, Completed, Delivered), parts list with quantities and costs, labor entries with hours and rates, total cost calculation, and timestamps for each status change. Implement validation rules for required fields and status transitions. Add custom scripts for automatic calculations and status-based field visibility.
+
+## 2. Implement Calendar-Based Appointment Scheduling System [pending]
+### Dependencies: 6.1
+### Description: Develop appointment scheduling interface using FullCalendar.js with resource allocation, conflict resolution, and service bay management
+### Details:
+Integrate FullCalendar.js for visual appointment scheduling. Create Service Bay DocType to define workshop resources. Implement drag-and-drop appointment creation and modification. Build conflict detection algorithm to prevent double-booking of bays or technicians. Add time slot validation based on service duration estimates. Create appointment confirmation workflow with customer notifications. Include recurring appointment support for maintenance schedules.
+
+## 3. Develop Technician Assignment Algorithm with Skills Matrix [pending]
+### Dependencies: 6.1, 6.2
+### Description: Create intelligent technician assignment system considering skills matrix, availability, workload balancing, and service requirements
+### Details:
+Build Technician Skills DocType to map technician capabilities to service types. Implement availability tracking with shift patterns and time-off management. Create workload balancing algorithm that considers current assignments, estimated completion times, and technician capacity. Develop automatic assignment suggestions based on skill matching, availability, and workload. Add manual override capability for supervisors. Include performance metrics tracking for assignment optimization.
+
+## 4. Build Mobile-Optimized PWA Interface with Offline Capability [pending]
+### Dependencies: 6.1, 6.3
+### Description: Develop Progressive Web App interface for technicians with mobile optimization and 2-hour offline functionality for field operations
+### Details:
+Create responsive mobile interface using PWA standards with service worker implementation. Build offline data synchronization for service orders, customer data, and parts inventory. Implement local storage for 2-hour offline operation with automatic sync when connection restored. Add mobile-specific features like camera integration for progress photos, barcode scanning for parts, and GPS tracking for mobile services. Include push notifications for new assignments and updates.
+
+## 5. Implement Quality Control System and Service Bay Monitoring Dashboard [pending]
+### Dependencies: 6.1, 6.2, 6.3, 6.4
+### Description: Build quality control checkpoints with supervisor approval workflow and service bay utilization monitoring with capacity planning dashboard
+### Details:
+Create Quality Control Checkpoint DocType with configurable inspection points and approval requirements. Implement supervisor approval workflow before job completion with digital signatures and photo documentation. Build service bay utilization dashboard showing real-time occupancy, upcoming schedules, and capacity metrics. Add capacity planning tools with forecasting based on historical data and seasonal patterns. Include performance KPIs like average service time, bay utilization rates, and customer satisfaction scores.
+

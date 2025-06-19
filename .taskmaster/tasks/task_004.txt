@@ -1,0 +1,43 @@
+# Task ID: 4
+# Title: Build Vehicle Management and Registry System
+# Status: pending
+# Dependencies: 3
+# Priority: high
+# Description: Implement comprehensive vehicle registry with VIN decoder integration and service history tracking
+# Details:
+Create Vehicle DocType with owner relationships supporting multi-vehicle customers. Integrate VIN decoder API (NHTSA or similar) for automatic vehicle data population including make, model, year, and specifications. Build service history tracking with chronological display and parts/labor details. Implement predictive maintenance alert engine using mileage and time-based triggers. Create digital document storage system supporting PDF, images, and videos up to 50MB with version control. Develop vehicle inspection module with photo documentation and standardized checklists.
+
+# Test Strategy:
+Test VIN decoder 95% accuracy within 5 seconds, verify service history chronological display, validate predictive maintenance alerts trigger 30 days before scheduled service, confirm document storage supports specified file types and sizes.
+
+# Subtasks:
+## 1. Create Vehicle DocType with Owner Relationships [pending]
+### Dependencies: None
+### Description: Design and implement the core Vehicle DocType with comprehensive fields for vehicle information and establish relationships with Customer DocType to support multi-vehicle ownership scenarios.
+### Details:
+Create Vehicle DocType with fields: VIN (unique), make, model, year, color, license_plate, mileage, engine_type, transmission, fuel_type, purchase_date, warranty_info. Add Customer link field with 'Allow Multiple' enabled. Create custom fields for vehicle specifications that will be populated by VIN decoder. Set up proper permissions and validation rules for VIN format.
+
+## 2. Integrate VIN Decoder API for Automatic Data Population [pending]
+### Dependencies: 4.1
+### Description: Implement integration with NHTSA VIN decoder API to automatically populate vehicle specifications when VIN is entered, including make, model, year, and detailed vehicle specifications.
+### Details:
+Create server script or custom method to call NHTSA VIN Decoder API (https://vpic.nhtsa.dot.gov/api/). Parse API response and map fields to Vehicle DocType. Implement error handling for invalid VINs or API failures. Add client script to trigger VIN lookup on VIN field change. Cache API responses to avoid repeated calls for same VIN.
+
+## 3. Build Service History Tracking System [pending]
+### Dependencies: 4.1
+### Description: Create Service Record DocType with chronological display capabilities and detailed parts/labor tracking linked to vehicles.
+### Details:
+Create Service Record DocType with fields: vehicle (link), service_date, service_type, mileage_at_service, description, labor_hours, labor_cost, parts_used (table), total_cost, technician, status. Create Parts Used child table with part_name, part_number, quantity, unit_cost. Add custom list view sorted by service_date descending. Create dashboard view for vehicle service history timeline.
+
+## 4. Implement Predictive Maintenance Alert Engine [pending]
+### Dependencies: 4.1, 4.3
+### Description: Develop automated maintenance alert system using mileage and time-based triggers to notify when vehicles are due for service based on manufacturer recommendations and service history.
+### Details:
+Create Maintenance Schedule DocType with vehicle_type, service_type, mileage_interval, time_interval fields. Create scheduled job to check vehicles against maintenance schedules daily. Generate Maintenance Alert DocType records when due dates approach. Implement notification system via email/in-app notifications. Create dashboard showing upcoming maintenance for all vehicles.
+
+## 5. Create Digital Document Storage and Vehicle Inspection Module [pending]
+### Dependencies: 4.1
+### Description: Build comprehensive document management system with version control and implement vehicle inspection module with photo documentation and standardized checklists.
+### Details:
+Create Vehicle Document DocType with fields: vehicle (link), document_type, title, file_attachment, version, upload_date, description. Implement file size validation (50MB max) and supported formats (PDF, images, videos). Add version control with document history tracking. Create Vehicle Inspection DocType with inspection_date, inspector, checklist_items (table), photos (table), overall_rating, notes. Design standardized inspection checklist with pass/fail/needs_attention options.
+

@@ -51,6 +51,10 @@ logs/
 *.db
 *.rdb
 
+# ERPNext and Universal Workshop apps (managed separately)
+apps/erpnext/
+apps/universal_workshop/
+
 # Node.js
 node_modules/
 npm-debug.log*
@@ -75,10 +79,18 @@ public/
 # Cache and temp files
 .cache/
 *.cache
-.temp/
+.tmp/
 temp/
 
-# OS specific
+# IDE/Editor files
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
 .DS_Store
 .DS_Store?
 ._*
@@ -86,23 +98,40 @@ temp/
 .Trashes
 ehthumbs.db
 Thumbs.db
-desktop.ini
 
-# IDE/Editor
-.vscode/settings.json
-.idea/
-*.sublime-*
-*~
+# Task Master AI files (keep config but ignore temporary files)
+.taskmaster/logs/
+.taskmaster/temp/
+.taskmaster/reports/task-complexity-report.json
 
-# Testing
-.coverage
-.pytest_cache/
+# SSL Certificates
+*.pem
+*.crt
+*.key
+
+# Backup files
+*.backup
+*.bak
+
+# Coverage reports
 htmlcov/
-.tox/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
 
-# Documentation
+# Translations (except template)
+*.mo
+!locale/template.pot
+
+# Documentation builds
 docs/_build/
-site/
+docs/.doctrees/
+
+# Production files
+.production
+nginx.conf
+supervisor.conf
 
 # Security - Never commit these!
 private_key.pem

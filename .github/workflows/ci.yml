@@ -1,0 +1,191 @@
+name: Universal Workshop ERP CI/CD
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  release:
+    types: [ published ]
+
+env:
+  PYTHON_VERSION: "3.10"
+  NODE_VERSION: "18"
+  FRAPPE_BRANCH: "version-15"
+  ERPNEXT_BRANCH: "version-15"
+
+jobs:
+  test:
+    name: Test Universal Workshop ERP
+    runs-on: ubuntu-22.04
+    
+    services:
+      mariadb:
+        image: mariadb:10.6
+        env:
+          MARIADB_ROOT_PASSWORD: root
+        options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
+      
+      redis:
+        image: redis:6.2-alpine
+        options: --health-cmd="redis-cli ping" --health-interval=5s --health-timeout=2s --health-retries=3
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+        
+    - name: Install System Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          wkhtmltopdf \
+          libmysqlclient-dev \
+          libffi-dev \
+          libssl-dev \
+          python3-dev \
+          default-mysql-client
+          
+    - name: Setup Frappe Bench
+      run: |
+        pip install frappe-bench
+        bench init --skip-redis-config-generation --frappe-branch ${{ env.FRAPPE_BRANCH }} frappe-bench
+        cd frappe-bench
+        
+        # Get ERPNext
+        bench get-app --branch ${{ env.ERPNEXT_BRANCH }} erpnext
+        
+        # Get Universal Workshop app
+        cp -r ../apps/universal_workshop apps/
+        
+    - name: Create Test Site
+      working-directory: frappe-bench
+      run: |
+        bench new-site test.localhost \
+          --admin-password admin \
+          --mariadb-root-password root \
+          --install-app erpnext \
+          --install-app universal_workshop
+          
+    - name: Run Tests
+      working-directory: frappe-bench
+      run: |
+        # Python unit tests
+        bench --site test.localhost run-tests --app universal_workshop
+        
+        # JavaScript tests (if any)
+        # bench --site test.localhost run-ui-tests universal_workshop
+        
+    - name: Test Arabic Language Setup
+      working-directory: frappe-bench
+      run: |
+        bench --site test.localhost execute universal_workshop.install.setup_arabic_language
+        bench --site test.localhost set-config lang ar
+        bench --site test.localhost migrate
+        
+  build:
+    name: Build Docker Image
+    runs-on: ubuntu-22.04
+    needs: test
+    if: github.event_name == 'release'
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+      
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        
+    - name: Extract Metadata
+      id: meta
+      uses: docker/metadata-action@v5
+      with:
+        images: universalworkshop/erp
+        tags: |
+          type=ref,event=branch
+          type=ref,event=pr
+          type=semver,pattern={{version}}
+          type=semver,pattern={{major}}.{{minor}}
+          
+    - name: Build and Push Docker Image
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        push: true
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+        
+  security:
+    name: Security Scan
+    runs-on: ubuntu-22.04
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: Run Trivy Vulnerability Scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs'
+        scan-ref: '.'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+        
+    - name: Upload Trivy Scan Results
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: 'trivy-results.sarif'
+        
+  lint:
+    name: Code Quality
+    runs-on: ubuntu-22.04
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: Install Dependencies
+      run: |
+        pip install black flake8 pylint bandit
+        
+    - name: Run Black (Code Formatting)
+      run: |
+        black --check apps/universal_workshop/
+        
+    - name: Run Flake8 (Style Guide)
+      run: |
+        flake8 apps/universal_workshop/ --max-line-length=100
+        
+    - name: Run Bandit (Security)
+      run: |
+        bandit -r apps/universal_workshop/ -f json -o bandit-report.json
+        
+    - name: Upload Code Quality Reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: code-quality-reports
+        path: |
+          bandit-report.json 

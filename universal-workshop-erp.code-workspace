@@ -1,0 +1,32 @@
+{
+    "folders": [
+        {
+            "name": "Universal Workshop ERP",
+            "path": "."
+        },
+        {
+            "name": "Custom App",
+            "path": "./apps/universal_workshop"
+        },
+        {
+            "name": "Documentation",
+            "path": "./docs"
+        },
+        {
+            "name": "Task Master",
+            "path": "./.taskmaster"
+        }
+    ],
+    "settings": {
+        "python.defaultInterpreterPath": "./env/bin/python",
+        "files.watcherExclude": {
+            "**/env/**": true,
+            "**/node_modules/**": true,
+            "**/logs/**": true
+        },
+        "search.exclude": {
+            "**/env": true,
+            "**/logs": true
+        }
+    }
+}

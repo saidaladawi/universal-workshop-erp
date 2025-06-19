@@ -1,0 +1,262 @@
+PRODUCT NAME: Universal Workshop ERP
+VERSION: 2.0
+DATE: June 16, 2025
+STATUS: DRAFT
+OVERVIEW:
+- Universal Workshop ERP addresses the critical need for digital transformation in Omani automotive workshops by replacing manual processes with a comprehensive, Arabic-first ERP solution built on ERPNext v15.
+- The platform delivers measurable business value through integrated workflow automation, real-time inventory tracking, customer relationship management, and financial control with advanced anti-resale protection.
+TARGET USERS:
+- Automotive repair workshop owners and managers in Oman
+- Service advisors and receptionists handling customer interactions
+- Technicians requiring mobile workflow management
+- Parts managers controlling inventory and supplier relationships
+- Financial staff managing billing, invoicing, and compliance
+
+[RACI]
+| Role | R | A | C | I |
+| Eng. Saeed Al-Adawi | X | X | X | X |
+| Core Dev Team | X |  | X |  |
+| Beta Workshops |  |  | X |  |
+
+MODULE: Workshop Management
+PURPOSE: Streamline service operations from appointment booking to job completion with technician workflow optimization.
+KEY CAPABILITIES:
+- Service order creation, tracking, and status management with real-time updates
+- Calendar-based appointment scheduling with resource allocation and conflict resolution
+- Technician assignment based on skills, availability, and workload balancing
+- Mobile-optimized technician interface for job tracking and progress updates
+- Service bay utilization monitoring and capacity planning
+- Quality control checkpoints and approval workflows
+- Time tracking for labor cost calculation and productivity analysis
+- Work order documentation with photo/video capture capabilities
+[ACCEPTANCE CRITERIA]
+- AC1: System creates service orders in under 30 seconds with automatic customer and vehicle data population
+- AC2: Appointment scheduling prevents double-booking and shows real-time bay availability
+- AC3: Technicians can update job status via mobile interface with offline capability for 2 hours
+- AC4: Quality control requires supervisor approval before job completion
+- AC5: Time tracking accuracy within 2 minutes for labor cost calculations
+- AC6: Mobile interface loads in under 3 seconds on 3G connections
+
+[TASK SEEDS]
+- Create service order management system with status tracking
+- Build appointment scheduling module with calendar integration
+- Implement technician assignment algorithm based on skills and availability
+- Develop mobile interface for technician workflow management
+- Create service bay utilization monitoring dashboard
+- Build quality control checkpoint system with approval workflows
+- Implement time tracking for labor cost calculation
+- Develop work order documentation system with media capture
+
+MODULE: Vehicle Management
+PURPOSE: Maintain comprehensive vehicle records and service history for informed maintenance decisions.
+KEY CAPABILITIES:
+- Complete vehicle registry with owner information and multi-vehicle support
+- VIN decoder integration for automatic vehicle data lookup and parts compatibility
+- Comprehensive service history tracking with maintenance schedules
+- Digital document storage for insurance, registration, and inspection records
+- Predictive maintenance alerts based on mileage and service intervals
+- Vehicle inspection reports with photo documentation
+- Warranty information management and tracking
+- Recall notification system integration
+[ACCEPTANCE CRITERIA]
+- AC1: VIN decoder populates vehicle data within 5 seconds with 95% accuracy
+- AC2: Service history displays chronologically with parts and labor details
+- AC3: Predictive maintenance alerts trigger 30 days before scheduled service
+- AC4: Digital document storage supports PDF, image, and video files up to 50MB
+- AC5: Vehicle search returns results in under 2 seconds with multiple criteria
+- AC6: Multi-vehicle customers show consolidated view with individual vehicle access
+
+[TASK SEEDS]
+- Create vehicle registry system with owner relationship management
+- Implement VIN decoder API integration for automatic data population
+- Build comprehensive service history tracking module
+- Develop digital document storage system with version control
+- Create predictive maintenance alert engine
+- Build vehicle inspection system with photo documentation
+- Implement warranty tracking and management system
+- Develop recall notification integration system
+
+MODULE: Customer Management
+PURPOSE: Centralize customer interactions and build long-term relationships through comprehensive CRM functionality.
+KEY CAPABILITIES:
+- Complete customer profiles with contact preferences and communication history
+- Online service request portal for appointment booking and status tracking
+- SMS/WhatsApp integration for automated notifications and updates
+- Customer satisfaction tracking with feedback collection system
+- Loyalty program management with points and rewards
+- Marketing campaign tools for customer segmentation and outreach
+- Payment history and credit terms management
+- Customer analytics for lifetime value and retention analysis
+[ACCEPTANCE CRITERIA]
+- AC1: Customer profiles load completely within 3 seconds including vehicle and service history
+- AC2: SMS/WhatsApp notifications deliver within 30 seconds with 98% success rate
+- AC3: Online portal allows customers to book appointments with real-time availability
+- AC4: Customer satisfaction surveys achieve 80% response rate through automated follow-up
+- AC5: Loyalty program automatically calculates and applies rewards at checkout
+- AC6: Customer search supports Arabic and English names with fuzzy matching
+
+[TASK SEEDS]
+- Create comprehensive customer profile management system
+- Build online service request portal with real-time updates
+- Implement SMS/WhatsApp integration for automated communications
+- Develop customer satisfaction tracking and feedback system
+- Create loyalty program with points and rewards management
+- Build marketing campaign tools for customer segmentation
+- Implement payment history and credit terms tracking
+- Develop customer analytics dashboard with lifetime value calculation
+
+MODULE: Parts Inventory Management
+PURPOSE: Optimize parts availability and costs through intelligent inventory control and supplier integration.
+KEY CAPABILITIES:
+- Comprehensive parts catalog with cross-reference lookup and compatibility matrix
+- Real-time inventory tracking with barcode/QR code integration
+- Multi-location stock management with transfer capabilities
+- Automated reorder point calculation and purchase order generation
+- Supplier performance tracking and price comparison tools
+- Parts demand forecasting based on historical data
+- Inventory analytics with aging analysis and profitability reports
+- Mobile inventory counting with barcode scanning
+[ACCEPTANCE CRITERIA]
+- AC1: Parts search returns results in under 2 seconds with multiple lookup methods
+- AC2: Barcode scanning updates inventory in real-time with 99.9% accuracy
+- AC3: Automated reorder alerts trigger when stock reaches predefined levels
+- AC4: Purchase orders generate automatically with preferred supplier selection
+- AC5: Inventory accuracy maintained above 98% through cycle counting
+- AC6: Price comparison shows real-time supplier pricing for cost optimization
+
+[TASK SEEDS]
+- Create comprehensive parts catalog with cross-reference system
+- Implement real-time inventory tracking with barcode integration
+- Build multi-location stock management with transfer workflows
+- Develop automated reorder point and purchase order system
+- Create supplier performance tracking and comparison tools
+- Implement parts demand forecasting algorithm
+- Build inventory analytics dashboard with profitability analysis
+- Develop mobile inventory counting application with scanning
+
+MODULE: Billing & Financial Management
+PURPOSE: Ensure accurate financial tracking and compliance with Omani VAT requirements.
+KEY CAPABILITIES:
+- Arabic/English invoice templates with QR code compliance for Oman VAT
+- Multi-currency support with automatic exchange rate updates
+- Payment processing for cash, card, and bank transfers
+- Outstanding receivables tracking with automated collection reminders
+- Financial reporting including P&L, cash flow, and VAT reports
+- Cost tracking for labor, parts, and overhead allocation
+- Budget management with variance analysis
+- Integration with Omani banking systems for payment verification
+[ACCEPTANCE CRITERIA]
+- AC1: Invoices generate in under 5 seconds with automatic VAT calculation
+- AC2: QR codes comply with Oman tax authority requirements for digital verification
+- AC3: Payment processing supports multiple methods with instant confirmation
+- AC4: Outstanding receivables reports update in real-time with aging analysis
+- AC5: VAT reports generate automatically for government submission
+- AC6: Financial reports provide drill-down capability to transaction level
+
+[TASK SEEDS]
+- Create Arabic/English invoice templates with VAT compliance
+- Generate QR code per Oman e-Invoice specification requirements
+- Implement multi-currency payment processing system
+- Build outstanding receivables tracking with automated reminders
+- Develop comprehensive financial reporting suite
+- Create cost tracking system for labor and parts
+- Implement budget management with variance analysis
+- Build banking system integration for payment verification
+- Develop VAT reporting system for government compliance
+
+MODULE: Scrap Management
+PURPOSE: Maximize revenue from vehicle dismantling through systematic parts recovery and sales.
+KEY CAPABILITIES:
+- Vehicle acquisition with condition assessment and value estimation
+- Virtual disassembly planning for optimal parts extraction
+- Parts condition grading with quality certification system
+- Storage location management with barcode tracking
+- Sales channel integration for online and offline parts sales
+- Profit analysis with cost vs revenue tracking
+- Environmental compliance documentation and reporting
+- Market trend analysis for pricing optimization
+[ACCEPTANCE CRITERIA]
+- AC1: Vehicle assessment completes within 30 minutes with standardized condition scoring
+- AC2: Virtual disassembly provides parts list with estimated values and labor time
+- AC3: Parts grading system maintains consistent quality standards across assessors
+- AC4: Storage management tracks exact location with barcode scanning
+- AC5: Sales integration updates availability across all channels in real-time
+- AC6: Profit analysis calculates ROI within 5% accuracy for decision making
+
+[TASK SEEDS]
+- Create vehicle acquisition and condition assessment system
+- Build virtual disassembly planning with parts extraction workflow
+- Implement parts condition grading and quality certification
+- Develop storage location management with barcode tracking
+- Create sales channel integration for multi-platform selling
+- Build profit analysis system with ROI calculation
+- Implement environmental compliance documentation system
+- Develop market trend analysis for pricing optimization
+
+MODULE: License Management System
+PURPOSE: Protect intellectual property through advanced business binding and anti-resale mechanisms.
+KEY CAPABILITIES:
+- Business name binding in Arabic and English with owner verification
+- Hardware fingerprinting for device identification and limit enforcement
+- 24-hour validation cycle with offline grace period management
+- JWT token encryption with RS256 algorithm for security
+- Suspicious activity detection and automatic security responses
+- Audit trail logging for forensic analysis and compliance
+- Tamper detection with evidence collection capabilities
+- Geographic location tracking for access control
+[ACCEPTANCE CRITERIA]
+- AC1: Business name binding prevents unauthorized changes with immediate alert notification
+- AC2: Device fingerprinting achieves 99.9% accuracy in hardware identification
+- AC3: Validation system maintains 99.9% uptime with automated failover
+- AC4: Offline grace period allows 24 hours of operation without connectivity
+- AC5: Suspicious activity detection responds within 60 seconds of threat identification
+- AC6: Audit logs maintain complete activity history with tamper-proof integrity
+
+[TASK SEEDS]
+- Create business name binding system with Arabic/English support
+- Implement hardware fingerprinting for device identification
+- Build 24-hour validation cycle with offline capability
+- Develop JWT token encryption with advanced security
+- Create suspicious activity detection and response system
+- Implement comprehensive audit trail and logging system
+- Build tamper detection with evidence collection
+- Develop geographic location tracking for access control
+
+MODULE: Workshop Setup & Configuration
+PURPOSE: Simplify system deployment through guided setup and comprehensive data migration.
+KEY CAPABILITIES:
+- Step-by-step onboarding wizard with configuration validation
+- Workshop profile setup with service type and pricing definition
+- Legacy system data migration with validation and mapping tools
+- User role configuration with permission management
+- Training module delivery with progress tracking
+- System configuration backup and restore capabilities
+- Performance optimization recommendations
+- Go-live checklist with readiness verification
+[ACCEPTANCE CRITERIA]
+- AC1: Onboarding wizard completes basic setup in under 30 minutes
+- AC2: Data migration validates 100% of imported records with error reporting
+- AC3: User training modules track completion with competency verification
+- AC4: Configuration backup creates complete system snapshot for restoration
+- AC5: Performance optimization improves system response by minimum 20%
+- AC6: Go-live checklist ensures 100% readiness before production deployment
+
+[TASK SEEDS]
+- Create guided onboarding wizard with step-by-step configuration
+- Build workshop profile setup with service and pricing definition
+- Implement data migration tools with validation and error handling
+- Develop user role configuration with granular permissions
+- Create interactive training modules with progress tracking
+- Build system configuration backup and restore functionality
+- Implement performance optimization recommendation engine
+- Develop comprehensive go-live checklist and verification
+
+LOGICAL DEPENDENCY CHAIN:
+1. Workshop Setup & Configuration must be completed first to establish system foundation and user access
+2. License Management System activation is required before any functional modules can operate
+3. Vehicle Management and Customer Management can be implemented in parallel as foundational data modules
+4. Parts Inventory Management depends on basic workshop configuration and supplier setup
+5. Workshop Management requires vehicle and customer data to create and process service orders
+6. Billing & Financial Management integrates with all operational modules for transaction processing
+7. Scrap Management operates as an independent module but benefits from parts and vehicle data
+8. Final integration testing and performance optimization across all modules before production deployment

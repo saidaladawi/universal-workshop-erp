@@ -1,0 +1,65 @@
+# Task ID: 1
+# Title: Setup ERPNext v15 Foundation and Workshop Configuration System
+# Status: pending
+# Dependencies: None
+# Priority: high
+# Description: Initialize ERPNext v15 environment with Arabic language support and create guided onboarding wizard for workshop profile setup
+# Details:
+Install ERPNext v15 with Arabic localization. Create custom DocTypes for workshop profiles including service types, pricing structures, and operational parameters. Implement step-by-step onboarding wizard using Frappe's web forms with validation logic. Configure Arabic/English dual language support with RTL text rendering. Set up database schema for workshop-specific customizations including service bays, technician skills, and equipment tracking.
+
+# Test Strategy:
+Verify ERPNext installation completeness, test Arabic language rendering, validate onboarding wizard completion under 30 minutes, confirm workshop profile data persistence and retrieval accuracy.
+
+# Subtasks:
+## 1. Install and Configure ERPNext v15 with Arabic Localization [pending]
+### Dependencies: None
+### Description: Set up ERPNext v15 environment with Arabic language support and RTL text rendering capabilities
+### Details:
+Install ERPNext v15 using bench installation. Configure Arabic language pack and enable RTL support in the system. Set up dual language support (Arabic/English) with proper font rendering for Arabic text. Configure regional settings for Arabic locale including date formats, number formats, and currency settings. Install required Arabic fonts and ensure proper text direction handling across all modules.
+<info added on 2025-06-18T12:51:02.276Z>
+Implementation Progress Update:
+
+✅ COMPLETED:
+- ERPNext v15.65.2 is successfully installed and operational
+- Arabic translation files (ar.csv - 672KB) are present in the system, indicating comprehensive Arabic localization support is available
+- Frappe framework is configured and running properly
+
+🔍 FINDINGS:
+- The system infrastructure is fully ready for Arabic localization
+- Translation files indicate extensive Arabic language coverage
+- ERPNext and Frappe frameworks are properly integrated
+
+⏳ REMAINING WORK:
+- Need to enable Arabic language in System Settings
+- Configure RTL (Right-to-Left) text rendering 
+- Set up dual language support (Arabic/English)
+- Configure regional settings for Arabic locale (date formats, number formats, currency)
+- Test Arabic character rendering across forms and reports
+
+STATUS: 70% Complete - Core installation done, configuration pending
+</info added on 2025-06-18T12:51:02.276Z>
+
+## 2. Create Workshop Profile Custom DocTypes and Database Schema [pending]
+### Dependencies: 1.1
+### Description: Design and implement custom DocTypes for workshop-specific data structures including profiles, services, and operational parameters
+### Details:
+Create Workshop Profile DocType with fields for workshop name, location, contact details, and operational hours. Design Service Type DocType with service categories, descriptions, and default pricing. Create Pricing Structure DocType with flexible pricing models (flat rate, hourly, parts + labor). Implement Service Bay DocType for workshop layout management. Create Technician Skills DocType to track certifications and specializations. Design Equipment Tracking DocType for tools and machinery management. Set up proper field types, validations, and relationships between DocTypes.
+
+## 3. Implement Workshop Onboarding Wizard Backend Logic [pending]
+### Dependencies: 1.2
+### Description: Develop the backend validation and processing logic for the step-by-step workshop setup wizard
+### Details:
+Create server-side validation functions for workshop profile data including business license validation, contact information verification, and service configuration validation. Implement workflow logic to guide users through sequential setup steps: basic info, service configuration, pricing setup, technician profiles, and equipment inventory. Create API endpoints for wizard data submission and progress tracking. Implement data transformation logic to populate multiple DocTypes from wizard input. Add error handling and rollback mechanisms for incomplete setups.
+
+## 4. Create Frappe Web Forms for Onboarding Wizard UI [pending]
+### Dependencies: 1.3
+### Description: Build user-friendly web forms using Frappe's web form framework for the guided workshop setup process
+### Details:
+Design multi-step web forms using Frappe's Web Form DocType with proper field grouping and conditional logic. Create forms for: Workshop Basic Information, Service Types Configuration, Pricing Structure Setup, Technician Registration, and Equipment Inventory. Implement client-side validation using JavaScript for real-time feedback. Add progress indicators and navigation between wizard steps. Configure form styling to support both Arabic and English layouts with proper RTL handling. Integrate with backend validation APIs created in previous subtask.
+
+## 5. Integrate and Test Complete Workshop Configuration System [pending]
+### Dependencies: 1.4
+### Description: Integrate all components and perform comprehensive testing of the complete workshop onboarding system
+### Details:
+Integrate web forms with backend logic and database schema. Configure proper permissions and user roles for workshop setup process. Implement post-setup configuration including default settings, sample data creation, and system initialization. Create comprehensive test scenarios covering complete onboarding flow from start to finish. Set up monitoring and logging for the onboarding process. Create user documentation and help text in both Arabic and English. Implement backup and recovery procedures for workshop configurations.
+

@@ -1,0 +1,43 @@
+# Task ID: 8
+# Title: Implement Billing System with Omani VAT Compliance
+# Status: pending
+# Dependencies: 6
+# Priority: high
+# Description: Create Arabic/English invoice templates with QR code generation for Oman VAT compliance and multi-currency support
+# Details:
+Extend ERPNext Sales Invoice with Arabic/English templates and automatic VAT calculation per Oman tax regulations. Implement QR code generation following Oman e-Invoice specification using qrcode library. Build multi-currency support with automatic exchange rate updates from reliable API sources. Create payment processing integration supporting cash, card, and bank transfers with instant confirmation. Develop outstanding receivables tracking with automated collection reminders and aging analysis. Build comprehensive financial reporting including P&L, cash flow, and VAT reports for government submission.
+
+# Test Strategy:
+Verify invoice generation under 5 seconds with automatic VAT calculation, test QR code compliance with Oman tax authority requirements, validate multi-currency payment processing, confirm financial reports provide drill-down capability to transaction level.
+
+# Subtasks:
+## 1. Create Arabic/English Invoice Templates with Oman VAT Compliance [pending]
+### Dependencies: None
+### Description: Develop bilingual invoice templates that comply with Oman VAT regulations, including all required fields and formatting for both Arabic and English languages
+### Details:
+Extend ERPNext Sales Invoice doctype to include Arabic translations for all fields. Create custom print formats with proper RTL support for Arabic text. Include mandatory Oman VAT fields: Tax Registration Number (TRN), VAT amount breakdown, invoice date in Hijri calendar, and company commercial registration details. Implement automatic VAT calculation at 5% rate with proper exemption handling for specific item categories.
+
+## 2. Implement QR Code Generation for Oman e-Invoice Specification [pending]
+### Dependencies: 8.1
+### Description: Build QR code generation functionality that follows Oman's e-Invoice specification requirements for embedded invoice data
+### Details:
+Install and configure qrcode library. Create custom server script to generate QR codes containing invoice hash, TRN, invoice date, total amount, and VAT amount in the format specified by Oman Tax Authority. Embed QR code in invoice templates and ensure it's scannable and contains correct data encoding. Store QR code data for audit trail purposes.
+
+## 3. Build Multi-Currency Support with Exchange Rate Integration [pending]
+### Dependencies: None
+### Description: Implement comprehensive multi-currency functionality with automatic exchange rate updates from reliable API sources
+### Details:
+Configure ERPNext multi-currency settings for OMR, USD, EUR, and other common currencies. Integrate with exchange rate API (such as ExchangeRate-API or Fixer.io) to automatically update daily rates. Create scheduled job for rate updates and fallback mechanisms. Implement currency conversion in invoices, payments, and reports with proper rounding rules. Add currency-specific formatting and display options.
+
+## 4. Develop Payment Processing Integration with Multiple Methods [pending]
+### Dependencies: 8.1, 8.3
+### Description: Create payment processing system supporting cash, card, and bank transfers with instant confirmation and proper recording
+### Details:
+Extend Payment Entry doctype to handle multiple payment methods. Integrate with local Omani payment gateways for card processing. Create cash payment workflows with proper cash management. Implement bank transfer processing with automatic reconciliation features. Add payment confirmation mechanisms and receipt generation. Create payment tracking dashboard with real-time status updates.
+
+## 5. Build Financial Reporting and Receivables Management System [pending]
+### Dependencies: 8.1, 8.2, 8.3, 8.4
+### Description: Develop comprehensive financial reporting including P&L, cash flow, VAT reports, and automated receivables tracking with collection reminders
+### Details:
+Create custom reports for Profit & Loss, Cash Flow Statement, and VAT Return reports formatted for Oman Tax Authority submission. Build receivables aging analysis with automated email reminders for overdue invoices. Implement collection workflow with escalation levels. Create financial dashboard with key metrics and real-time data. Add export functionality for government reporting requirements in required formats (PDF, Excel).
+

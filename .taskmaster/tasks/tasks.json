@@ -696,7 +696,7 @@
           4,
           5
         ],
-        "status": "in-progress",
+        "status": "done",
         "subtasks": [
           {
             "id": 1,
@@ -973,7 +973,7 @@
         "dependencies": [
           1
         ],
-        "status": "in-progress",
+        "status": "done",
         "subtasks": [
           {
             "id": 1,
@@ -1025,7 +1025,7 @@
               4
             ],
             "details": "Build contextual help overlay system that detects user location and provides relevant assistance. Implement smart tooltip system with progressive disclosure and interactive elements. Create help content mapping system that links application features to relevant documentation and training modules. Build help widget with search functionality and quick access to common tasks. Implement user feedback system for help content improvement.",
-            "status": "in-progress",
+            "status": "done",
             "testStrategy": "Test contextual help accuracy across application screens, verify tooltip functionality and positioning, validate help content relevance, test feedback collection system"
           }
         ]
@@ -1047,7 +1047,7 @@
           12,
           13
         ],
-        "status": "pending",
+        "status": "in-progress",
         "subtasks": [
           {
             "id": 1,
@@ -1055,7 +1055,7 @@
             "description": "Create comprehensive integration test suites covering complete workshop workflows from customer registration through service completion and billing processes",
             "dependencies": [],
             "details": "Develop automated test scenarios using testing frameworks like Selenium or Cypress for UI testing and API testing tools for backend services. Create test data fixtures for various workshop scenarios including different service types, customer profiles, and payment methods. Implement test cases for customer registration, appointment scheduling, service assignment, technician workflows, inventory management, billing generation, and payment processing. Set up continuous integration pipeline to run these tests automatically.",
-            "status": "pending",
+            "status": "in-progress",
             "testStrategy": "Execute full workflow tests in staging environment with realistic test data, validate data consistency across all modules, and ensure proper error handling and rollback mechanisms"
           },
           {
@@ -1177,7 +1177,7 @@
     ],
     "metadata": {
       "created": "2025-06-16T18:41:05.584Z",
-      "updated": "2025-06-20T22:19:23.484Z",
+      "updated": "2025-06-20T22:46:56.930Z",
       "description": "Tasks for master context"
     }
   }

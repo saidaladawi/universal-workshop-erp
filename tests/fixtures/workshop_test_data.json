@@ -1,0 +1,263 @@
+{
+  "customers": [
+    {
+      "doctype": "Customer",
+      "customer_name": "Ahmed Al-Rashid Motors",
+      "customer_group": "Commercial",
+      "territory": "Oman",
+      "customer_type": "Company",
+      "language": "en",
+      "mobile_no": "+968 9123 4567",
+      "email_id": "ahmed@alrashidmotors.om",
+      "customer_details": "Major automotive service center in Muscat"
+    },
+    {
+      "doctype": "Customer", 
+      "customer_name": "ورشة محمد الكندي للسيارات",
+      "customer_group": "Commercial",
+      "territory": "Oman", 
+      "customer_type": "Company",
+      "language": "ar",
+      "mobile_no": "+968 9234 5678",
+      "email_id": "mohammed@kindi-motors.om",
+      "customer_details": "ورشة متخصصة في صيانة السيارات اليابانية"
+    },
+    {
+      "doctype": "Customer",
+      "customer_name": "Sarah Al-Hinai",
+      "customer_group": "Individual", 
+      "territory": "Oman",
+      "customer_type": "Individual",
+      "language": "en",
+      "mobile_no": "+968 9345 6789",
+      "email_id": "sarah.hinai@gmail.com",
+      "customer_details": "Individual customer with Toyota Camry"
+    }
+  ],
+  "vehicles": [
+    {
+      "doctype": "Vehicle",
+      "vin": "1HGBH41JXMN109186",
+      "license_plate": "A-12345",
+      "make": "Toyota",
+      "model": "Camry",
+      "year": 2023,
+      "color": "White",
+      "fuel_type": "Petrol",
+      "engine_number": "ENG123456",
+      "chassis_number": "CHS789012"
+    },
+    {
+      "doctype": "Vehicle", 
+      "vin": "JM1BL1SF6A1234567",
+      "license_plate": "B-67890",
+      "make": "Mazda",
+      "model": "CX-5", 
+      "year": 2022,
+      "color": "Blue",
+      "fuel_type": "Petrol",
+      "engine_number": "ENG234567",
+      "chassis_number": "CHS890123"
+    },
+    {
+      "doctype": "Vehicle",
+      "vin": "WBA3A5C51CF123456",
+      "license_plate": "C-11111", 
+      "make": "BMW",
+      "model": "3 Series",
+      "year": 2021,
+      "color": "Black",
+      "fuel_type": "Petrol",
+      "engine_number": "ENG345678",
+      "chassis_number": "CHS901234"
+    }
+  ],
+  "items": [
+    {
+      "doctype": "Item",
+      "item_code": "OIL-5W30-SYN",
+      "item_name": "5W-30 Synthetic Motor Oil",
+      "item_group": "Lubricants",
+      "stock_uom": "Litre",
+      "is_stock_item": 1,
+      "valuation_rate": 8.5,
+      "description": "High quality synthetic motor oil"
+    },
+    {
+      "doctype": "Item",
+      "item_code": "FILTER-OIL-TOY",
+      "item_name": "Toyota Oil Filter",
+      "item_group": "Auto Parts",
+      "stock_uom": "Nos", 
+      "is_stock_item": 1,
+      "valuation_rate": 12.0,
+      "description": "Original Toyota oil filter"
+    },
+    {
+      "doctype": "Item",
+      "item_code": "BRAKE-PAD-SET",
+      "item_name": "Brake Pad Set - Front",
+      "item_group": "Auto Parts",
+      "stock_uom": "Set",
+      "is_stock_item": 1, 
+      "valuation_rate": 45.0,
+      "description": "Premium brake pad set for front wheels"
+    },
+    {
+      "doctype": "Item",
+      "item_code": "SVC-OIL-CHANGE",
+      "item_name": "Oil Change Service",
+      "item_group": "Services",
+      "stock_uom": "Nos",
+      "is_stock_item": 0,
+      "is_service_item": 1,
+      "valuation_rate": 25.0,
+      "description": "Complete oil change service including filter"
+    },
+    {
+      "doctype": "Item",
+      "item_code": "SVC-BRAKE-SRV",
+      "item_name": "Brake Service",
+      "item_group": "Services", 
+      "stock_uom": "Nos",
+      "is_stock_item": 0,
+      "is_service_item": 1,
+      "valuation_rate": 75.0,
+      "description": "Complete brake system service and inspection"
+    }
+  ],
+  "employees": [
+    {
+      "doctype": "Employee",
+      "employee_name": "Ahmed Al-Kindi",
+      "first_name": "Ahmed",
+      "last_name": "Al-Kindi",
+      "designation": "Senior Technician",
+      "department": "Workshop",
+      "status": "Active",
+      "date_of_joining": "2023-01-15",
+      "employee_number": "EMP-001"
+    },
+    {
+      "doctype": "Employee",
+      "employee_name": "محمد الراشد", 
+      "first_name": "محمد",
+      "last_name": "الراشد",
+      "designation": "Technician",
+      "department": "Workshop", 
+      "status": "Active",
+      "date_of_joining": "2023-03-01",
+      "employee_number": "EMP-002"
+    },
+    {
+      "doctype": "Employee",
+      "employee_name": "Fatima Al-Zahra",
+      "first_name": "Fatima",
+      "last_name": "Al-Zahra",
+      "designation": "Service Advisor",
+      "department": "Customer Service",
+      "status": "Active", 
+      "date_of_joining": "2023-02-01",
+      "employee_number": "EMP-003"
+    }
+  ],
+  "service_types": [
+    {
+      "doctype": "Service Type",
+      "service_name": "Oil Change",
+      "service_category": "Maintenance",
+      "estimated_duration": 60,
+      "standard_rate": 25.0,
+      "description": "Engine oil and filter change",
+      "description_arabic": "تغيير زيت المحرك والفلتر"
+    },
+    {
+      "doctype": "Service Type",
+      "service_name": "Brake Service", 
+      "service_category": "Repair",
+      "estimated_duration": 120,
+      "standard_rate": 75.0,
+      "description": "Brake system inspection and repair",
+      "description_arabic": "فحص وإصلاح نظام المكابح"
+    },
+    {
+      "doctype": "Service Type",
+      "service_name": "Tire Rotation",
+      "service_category": "Maintenance", 
+      "estimated_duration": 30,
+      "standard_rate": 15.0,
+      "description": "Rotate all four tires for even wear",
+      "description_arabic": "تدوير الإطارات الأربعة للتآكل المتساوي"
+    },
+    {
+      "doctype": "Service Type",
+      "service_name": "Engine Diagnostic",
+      "service_category": "Diagnostic",
+      "estimated_duration": 90, 
+      "standard_rate": 50.0,
+      "description": "Complete engine diagnostic scan",
+      "description_arabic": "فحص تشخيصي شامل للمحرك"
+    }
+  ],
+  "warehouses": [
+    {
+      "doctype": "Warehouse",
+      "warehouse_name": "Main Store",
+      "warehouse_type": "Store",
+      "company": "Universal Workshop",
+      "is_group": 0
+    },
+    {
+      "doctype": "Warehouse", 
+      "warehouse_name": "Parts Counter",
+      "warehouse_type": "Store",
+      "company": "Universal Workshop",
+      "is_group": 0
+    },
+    {
+      "doctype": "Warehouse",
+      "warehouse_name": "Used Parts",
+      "warehouse_type": "Store", 
+      "company": "Universal Workshop",
+      "is_group": 0
+    }
+  ],
+  "tax_templates": [
+    {
+      "doctype": "Sales Taxes and Charges Template",
+      "title": "Oman VAT - UW",
+      "company": "Universal Workshop",
+      "taxes": [
+        {
+          "charge_type": "On Net Total",
+          "account_head": "VAT 5% - UW",
+          "description": "VAT @ 5%",
+          "rate": 5.0
+        }
+      ]
+    }
+  ],
+  "test_scenarios": {
+    "complete_workflow": {
+      "customer": "Ahmed Al-Rashid Motors",
+      "vehicle": "Toyota Camry 2023",
+      "services": ["Oil Change", "Brake Service"],
+      "expected_duration": 180,
+      "expected_total": 100.0
+    },
+    "arabic_workflow": {
+      "customer": "ورشة محمد الكندي للسيارات", 
+      "vehicle": "Mazda CX-5 2022",
+      "services": ["Engine Diagnostic"],
+      "expected_duration": 90,
+      "expected_total": 50.0
+    },
+    "multi_service": {
+      "customer": "Sarah Al-Hinai",
+      "vehicle": "BMW 3 Series 2021", 
+      "services": ["Oil Change", "Tire Rotation", "Engine Diagnostic"],
+      "expected_duration": 180,
+      "expected_total": 90.0
+    }
+  }
+}

@@ -1,7 +1,13 @@
 ---
-description: Guidelines for creating and maintaining Roo Code rules to ensure consistency and effectiveness.
+description: 
+globs: 
+alwaysApply: false
+---
+
+---
+description: Rule formatting and structure guidelines for Roo Code development environment
 globs: .roo/rules/*.md
-alwaysApply: true
+alwaysApply: false
 ---
 
 - **Required Rule Structure:**

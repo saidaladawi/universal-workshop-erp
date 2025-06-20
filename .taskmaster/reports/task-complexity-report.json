@@ -1,12 +1,12 @@
 {
 	"meta": {
-		"generatedAt": "2025-06-16T18:52:36.850Z",
-		"tasksAnalyzed": 15,
-		"totalTasks": 15,
+		"generatedAt": "2025-06-19T19:32:01.745Z",
+		"tasksAnalyzed": 1,
+		"totalTasks": 16,
 		"analysisCount": 15,
 		"thresholdScore": 5,
 		"projectName": "Taskmaster",
-		"usedResearch": false
+		"usedResearch": true
 	},
 	"complexityAnalysis": [
 		{
@@ -66,14 +66,6 @@
 			"reasoning": "Moderate complexity with external API integration and queuing system. Current 5 subtasks cover all functional requirements effectively."
 		},
 		{
-			"taskId": 8,
-			"taskTitle": "Implement Billing System with Omani VAT Compliance",
-			"complexityScore": 7,
-			"recommendedSubtasks": 5,
-			"expansionPrompt": "Break into: 1) Arabic/English invoice templates with VAT compliance, 2) QR code generation for e-Invoice specification, 3) Multi-currency support with exchange rates, 4) Payment processing integration, and 5) Financial reporting and receivables management",
-			"reasoning": "Moderate-high complexity due to regulatory compliance, multi-currency handling, and financial reporting. Current 5 subtasks address all requirements."
-		},
-		{
 			"taskId": 9,
 			"taskTitle": "Develop Customer Portal with Online Service Booking",
 			"complexityScore": 6,
@@ -128,6 +120,14 @@
 			"recommendedSubtasks": 5,
 			"expansionPrompt": "Structure as: 1) End-to-end integration testing framework, 2) Load testing and performance benchmarking, 3) Database and application optimization, 4) Security testing and vulnerability assessment, and 5) Production deployment and monitoring infrastructure",
 			"reasoning": "High complexity involving comprehensive testing, performance optimization, and production deployment. Current 5 subtasks cover all critical aspects of system readiness."
+		},
+		{
+			"taskId": 8,
+			"taskTitle": "Implement Billing System with Omani VAT Compliance",
+			"complexityScore": 10,
+			"recommendedSubtasks": 8,
+			"expansionPrompt": "Break down the implementation of a billing system with Omani VAT compliance into detailed subtasks covering: requirements analysis, ERPNext customization, bilingual invoice template development, VAT logic implementation, QR code generation per Oman e-Invoice spec, multi-currency integration, payment gateway integration, receivables management, financial reporting, user training, and compliance testing.",
+			"reasoning": "This task involves extensive customization of ERPNext, compliance with specific Omani VAT and e-invoice regulations, bilingual template development, QR code generation, multi-currency support, payment gateway integration, receivables management, and advanced financial reporting. Each area requires specialized knowledge, integration with external APIs, and rigorous compliance testing, making the overall complexity very high. The breadth and regulatory depth justify a high number of subtasks to ensure thorough coverage and risk mitigation.[2][3][4][5]"
 		}
 	]
 }

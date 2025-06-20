@@ -1,7 +1,13 @@
 ---
 description: Guidelines for continuously improving Roo Code rules based on emerging code patterns and best practices.
-globs: **/*
-alwaysApply: true
+globs: 
+alwaysApply: false
+---
+
+---
+description: Guidelines for AI agents to improve and maintain development rules based on codebase evolution
+globs: .roo/rules/*.md
+alwaysApply: false
 ---
 
 - **Rule Improvement Triggers:**

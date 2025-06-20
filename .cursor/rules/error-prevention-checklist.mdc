@@ -1,0 +1,260 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Universal Workshop ERP - Error Prevention Checklist
+
+## **Pre-Development Checklist**
+
+### **Before Writing Any Code**
+- [ ] Import `frappe` and `_` properly at the top of files
+- [ ] Add `# pylint: disable=no-member` for DocType controllers
+- [ ] Check if similar functionality already exists in ERPNext
+- [ ] Plan dual-language (Arabic/English) field structure
+- [ ] Consider Oman-specific validation requirements
+
+### **DocType Design Checklist**
+- [ ] Use singular names for DocTypes (e.g., `Technician`, not `Technicians`)
+- [ ] Add `_ar` suffix for Arabic fields
+- [ ] Include `created_by` and `created_date` metadata fields
+- [ ] Set proper field types (`Data`, `Select`, `Link`, etc.)
+- [ ] Define validation patterns for regional compliance
+
+## **Code Quality Checklist**
+
+### **Python Code Review**
+- [ ] All user-facing strings wrapped with `_()`
+- [ ] No bare `except:` statements (use specific exceptions)
+- [ ] SQL queries use parameterized format (`%s` placeholders)
+- [ ] Functions are under 10 lines when possible
+- [ ] Proper error handling with try/except blocks
+- [ ] No unused imports or variables
+- [ ] Consistent indentation (4 spaces, no tabs)
+
+### **Frappe Framework Compliance**
+- [ ] API methods decorated with `@frappe.whitelist()`
+- [ ] Use `frappe.get_doc()` for document operations
+- [ ] Use `frappe.db.get_value()` for single value queries
+- [ ] Use `frappe.get_list()` for filtered lists
+- [ ] Proper validation in `validate()` method
+- [ ] Default values set in `before_save()`
+
+### **Arabic Localization Checks**
+- [ ] Both English and Arabic field validation
+- [ ] RTL text direction handling in JavaScript
+- [ ] Arabic character encoding support (UTF-8)
+- [ ] Regional phone number validation (+968 for Oman)
+- [ ] Business license format validation (7 digits)
+- [ ] Currency formatting (OMR with 3 decimal places)
+- [ ] VAT calculation (5% for Oman)
+
+## **Common Error Fixes**
+
+### **F821: Undefined Name '_'**
+```python
+# ❌ ERROR: Using _() without import
+frappe.throw(_("Error message"))
+
+# ✅ FIX: Import translation function
+from frappe import _
+frappe.throw(_("Error message"))
+```
+
+### **E722: Bare Except Statement**
+```python
+# ❌ ERROR: Bare except
+try:
+    risky_operation()
+except:
+    pass
+
+# ✅ FIX: Specific exception handling
+try:
+    risky_operation()
+except (frappe.ValidationError, Exception) as e:
+    frappe.log_error(f"Operation failed: {e}")
+```
+
+### **SIM102: Collapsible If Statements**
+```python
+# ❌ ERROR: Nested if statements
+if condition1:
+    if condition2:
+        do_something()
+
+# ✅ FIX: Combined conditions
+if condition1 and condition2:
+    do_something()
+```
+
+### **Dynamic Field Access (Pylint no-member)**
+```python
+# ✅ FIX: Add pylint disable comment
+class WorkshopProfile(Document):
+    # pylint: disable=no-member
+    # Frappe framework dynamically adds DocType fields
+    
+    def validate(self):
+        if not self.workshop_name_ar:  # This is a dynamic field
+            frappe.throw(_("Arabic name required"))
+```
+
+## **SQL Query Security Checklist**
+
+### **Injection-Safe Queries**
+- [ ] Use `%s` placeholders for parameters
+- [ ] Pass parameters as separate list/tuple
+- [ ] Never use string formatting or f-strings in SQL
+- [ ] Validate input parameters before queries
+
+```python
+# ✅ SECURE: Parameterized query
+customers = frappe.db.sql("""
+    SELECT name, customer_name 
+    FROM `tabCustomer` 
+    WHERE disabled = %s AND city = %s
+""", [0, city_name], as_dict=True)
+
+# ❌ INSECURE: String formatting
+customers = frappe.db.sql(f"""
+    SELECT * FROM tabCustomer WHERE city = '{city_name}'
+""")  # SQL injection risk!
+```
+
+## **Performance Optimization Checklist**
+
+### **Database Operations**
+- [ ] Use `frappe.get_list()` with specific fields instead of `SELECT *`
+- [ ] Add appropriate database indexes for search fields
+- [ ] Use bulk operations for large datasets
+- [ ] Limit query results when possible
+- [ ] Avoid N+1 query problems in loops
+
+### **Client-Side Performance**
+- [ ] Minimize API calls in form events
+- [ ] Use appropriate form event triggers
+- [ ] Cache frequently accessed data
+- [ ] Lazy load heavy components
+
+## **Testing Checklist**
+
+### **Manual Testing**
+- [ ] Test with Arabic text input
+- [ ] Test with mixed Arabic/English content
+- [ ] Test form validation with empty fields
+- [ ] Test with maximum field lengths
+- [ ] Test regional formats (dates, numbers, currency)
+
+### **Automated Testing**
+- [ ] Unit tests for validation methods
+- [ ] API endpoint testing
+- [ ] Arabic character encoding tests
+- [ ] Regional compliance tests
+- [ ] Error handling scenario tests
+
+## **Deployment Checklist**
+
+### **Pre-Deployment**
+- [ ] Run `python -m ruff check --fix` to fix auto-correctable errors
+- [ ] Run `python -m ruff format` for consistent formatting
+- [ ] Verify all translations are in place
+- [ ] Test with production-like data volumes
+- [ ] Check database migrations work correctly
+
+### **Post-Deployment**
+- [ ] Monitor error logs for runtime issues
+- [ ] Verify Arabic text renders correctly
+- [ ] Test user workflows end-to-end
+- [ ] Confirm regional settings are active
+
+## **Documentation Checklist**
+
+### **Code Documentation**
+- [ ] Comprehensive docstrings for all functions
+- [ ] Inline comments for complex logic
+- [ ] API method documentation
+- [ ] DocType field descriptions
+- [ ] Usage examples for custom functions
+
+### **User Documentation**
+- [ ] Arabic/English dual-language help
+- [ ] Field-level help text
+- [ ] Workflow documentation
+- [ ] Regional compliance notes
+
+## **Maintenance Checklist**
+
+### **Regular Reviews**
+- [ ] Monitor linting error trends
+- [ ] Review performance metrics
+- [ ] Update translation files
+- [ ] Check for deprecated API usage
+- [ ] Validate regional compliance updates
+
+### **Error Monitoring**
+- [ ] Set up error logging alerts
+- [ ] Monitor user feedback for issues
+- [ ] Track performance regression
+- [ ] Review security vulnerabilities
+
+## **Quick Fix Commands**
+
+### **Automatic Error Fixing**
+```bash
+# Fix auto-correctable linting errors
+python -m ruff check --fix
+
+# Format code consistently
+python -m ruff format
+
+# Run comprehensive error fixer (Universal Workshop specific)
+python scripts/fix_all_errors.py
+
+# Fix indentation issues
+python scripts/fix_indentation.py
+```
+
+### **Error Analysis**
+```bash
+# Get error statistics
+python -m ruff check --statistics
+
+# Check specific file
+python -m ruff check universal_workshop/workshop_management/doctype/technician/technician.py
+
+# Generate error report
+python -m ruff check --output-format=json > errors.json
+```
+
+## **Emergency Error Fixes**
+
+### **If Build Fails Due to Linting Errors**
+1. **Immediate Fix**: Add `# pylint: disable=all` temporarily
+2. **Identify Root Cause**: Run `python -m ruff check --statistics`
+3. **Apply Targeted Fixes**: Use automated tools first
+4. **Manual Review**: Fix remaining structural issues
+5. **Remove Temporary Disables**: Once errors are resolved
+
+### **If Arabic Text Displays Incorrectly**
+1. **Check Encoding**: Ensure UTF-8 encoding in all files
+2. **Verify Database**: Check database charset settings
+3. **CSS Direction**: Ensure RTL styles are applied
+4. **Font Support**: Verify Arabic font availability
+
+## **Memory Aid: The 101 Error Lesson**
+
+Remember: Universal Workshop started with **101 linting errors**. Following this checklist prevents:
+- **F821 errors**: Import `_` from frappe
+- **E722 errors**: Use specific exception types
+- **SIM102 errors**: Combine nested if statements
+- **Indentation errors**: Use consistent spacing
+- **SQL injection**: Use parameterized queries
+- **No-member errors**: Add pylint disable for DocTypes
+
+## **File References**
+
+- Main best practices: [python-frappe-best-practices.mdc](mdc:.cursor/rules/python-frappe-best-practices.mdc)
+- Development workflow: [dev_workflow.mdc](mdc:.cursor/rules/dev_workflow.mdc)
+- Project tasks: [tasks.json](mdc:.taskmaster/tasks/tasks.json)
+- Error fixing scripts: [fix_all_errors.py](mdc:apps/universal_workshop/scripts/fix_all_errors.py)

@@ -160,3 +160,19 @@ config/nginx*.conf
 license_keys/
 hardware_fingerprints/
 auth_tokens/
+
+# Added by Task Master AI
+# Logs
+logs
+dev-debug.log
+# Dependency directories
+# Environment variables
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+# OS specific

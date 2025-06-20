@@ -4,6 +4,12 @@ globs: **/*
 alwaysApply: true
 ---
 
+---
+description: Standard development workflow process using Task Master AI for project management
+globs: **/*
+alwaysApply: true
+---
+
 # Taskmaster Development Workflow
 
 This guide outlines the standard process for using Taskmaster to manage software development projects. It is written as a set of instructions for you, the AI agent.

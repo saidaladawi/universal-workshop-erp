@@ -1,8 +1,14 @@
 ---
-description: Comprehensive reference for Taskmaster MCP tools and CLI commands.
-globs: **/*
-alwaysApply: true
+description: 
+globs: 
+alwaysApply: false
 ---
+---
+description: Task Master tool and command reference for MCP and CLI operations
+globs: .taskmaster/**/*
+alwaysApply: false
+---
+
 # Taskmaster Tool & Command Reference
 
 This document provides a detailed reference for interacting with Taskmaster, covering both the recommended MCP tools, suitable for integrations like Roo Code, and the corresponding `task-master` CLI commands, designed for direct user interaction or fallback.

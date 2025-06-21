@@ -1,0 +1,58 @@
+[
+  {
+    "test": "API Authentication",
+    "status": "PASS",
+    "details": "API authentication properly enforced",
+    "severity": "info",
+    "timestamp": "2025-06-21T10:09:59.095197"
+  },
+  {
+    "test": "API Authorization",
+    "status": "PASS",
+    "details": "API authorization appears proper",
+    "severity": "info",
+    "timestamp": "2025-06-21T10:09:59.122743"
+  },
+  {
+    "test": "API Rate Limiting",
+    "status": "FAIL",
+    "details": "No rate limiting detected - 171.9 req/s",
+    "severity": "medium",
+    "timestamp": "2025-06-21T10:09:59.128595"
+  },
+  {
+    "test": "API Input Validation",
+    "status": "PASS",
+    "details": "API input validation appears adequate",
+    "severity": "info",
+    "timestamp": "2025-06-21T10:09:59.194637"
+  },
+  {
+    "test": "API Security Headers",
+    "status": "FAIL",
+    "details": "Security header issues: Missing: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Strict-Transport-Security, Content-Security-Policy, Referrer-Policy",
+    "severity": "medium",
+    "timestamp": "2025-06-21T10:09:59.196805"
+  },
+  {
+    "test": "API Error Handling",
+    "status": "PASS",
+    "details": "Error handling appears secure",
+    "severity": "info",
+    "timestamp": "2025-06-21T10:09:59.214551"
+  },
+  {
+    "test": "API Version Disclosure",
+    "status": "PASS",
+    "details": "No excessive version disclosure detected",
+    "severity": "info",
+    "timestamp": "2025-06-21T10:09:59.232296"
+  },
+  {
+    "test": "CORS Configuration",
+    "status": "PASS",
+    "details": "CORS configuration appears secure",
+    "severity": "info",
+    "timestamp": "2025-06-21T10:09:59.234613"
+  }
+]

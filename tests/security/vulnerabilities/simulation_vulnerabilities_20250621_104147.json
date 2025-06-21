@@ -1,0 +1,10 @@
+[
+  {
+    "type": "Missing Rate Limiting",
+    "description": "API endpoints lack rate limiting protection against abuse",
+    "severity": "medium",
+    "location": "All API endpoints",
+    "remediation": "Implement rate limiting (e.g., 100 requests per minute per user)",
+    "timestamp": "2025-06-21T10:41:45.660921"
+  }
+]

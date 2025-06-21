@@ -1,0 +1,12 @@
+[
+  {
+    "regulation": "GDPR (General Data Protection Regulation)",
+    "status": "COMPLIANT",
+    "details": "Data minimization, encryption, and user consent mechanisms in place",
+    "recommendations": [
+      "Implement data retention policies",
+      "Add data export functionality",
+      "Regular privacy impact assessments"
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "test": "Password Policy",
+    "status": "PASS",
+    "details": "Weak passwords properly rejected",
+    "severity": "info",
+    "timestamp": "2025-06-21T10:09:55.619197"
+  },
+  {
+    "test": "Brute Force Protection",
+    "status": "PASS",
+    "details": "Brute force protection appears active",
+    "severity": "info",
+    "timestamp": "2025-06-21T10:09:55.653611"
+  },
+  {
+    "test": "Session Timeout",
+    "status": "WARN",
+    "details": "Session timeout configuration not clearly visible",
+    "severity": "low",
+    "timestamp": "2025-06-21T10:09:55.658415"
+  },
+  {
+    "test": "JWT Security",
+    "status": "PASS",
+    "details": "JWT security appears adequate",
+    "severity": "info",
+    "timestamp": "2025-06-21T10:09:55.662907"
+  },
+  {
+    "test": "RBAC Enforcement",
+    "status": "PASS",
+    "details": "RBAC enforcement appears effective",
+    "severity": "info",
+    "timestamp": "2025-06-21T10:09:55.687803"
+  },
+  {
+    "test": "MFA Availability",
+    "status": "WARN",
+    "details": "MFA not clearly available - consider implementing",
+    "severity": "low",
+    "timestamp": "2025-06-21T10:09:55.700102"
+  },
+  {
+    "test": "Account Enumeration",
+    "status": "PASS",
+    "details": "Consistent responses for login attempts",
+    "severity": "info",
+    "timestamp": "2025-06-21T10:09:55.710609"
+  }
+]

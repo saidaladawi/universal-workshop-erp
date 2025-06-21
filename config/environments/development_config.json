@@ -1,0 +1,25 @@
+{
+  "debug": true,
+  "auto_reload": true,
+  "developer_mode": true,
+  "database": {
+    "host": "localhost",
+    "port": 3306,
+    "name": "workshop_dev",
+    "pool_size": 5
+  },
+  "redis": {
+    "cache_host": "localhost",
+    "cache_port": 6379,
+    "queue_host": "localhost",
+    "queue_port": 6380
+  },
+  "security": {
+    "csrf_protection": false,
+    "session_timeout": 7200
+  },
+  "logging": {
+    "level": "DEBUG",
+    "file": "/var/log/frappe/development.log"
+  }
+}

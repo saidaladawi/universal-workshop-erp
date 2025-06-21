@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: workshop-erp
+  labels:
+    name: workshop-erp
+    environment: production
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: erpnext-config
+  namespace: workshop-erp
+data:
+  FRAPPE_SITE_NAME: "workshop.local"
+  DB_HOST: "mariadb"
+  DB_PORT: "3306"
+  REDIS_CACHE: "redis-cache:6379"
+  REDIS_QUEUE: "redis-queue:6379"
+  REDIS_SOCKETIO: "redis-socketio:6379"
+  WORKER_TIMEOUT: "300"
+  GUNICORN_WORKERS: "4"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: erpnext-secrets
+  namespace: workshop-erp
+type: Opaque
+data:
+  DB_ROOT_PASSWORD: bXlzZWNyZXRwYXNzd29yZA== # Base64 encoded
+  DB_PASSWORD: ZXJwbmV4dHBhc3M= # Base64 encoded
+  ADMIN_PASSWORD: YWRtaW5wYXNzMTIz # Base64 encoded
+  SECRET_KEY: c2VjcmV0a2V5Zm9yand0 # Base64 encoded

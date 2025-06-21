@@ -1,0 +1,46 @@
+{
+  "debug": false,
+  "auto_reload": false,
+  "developer_mode": false,
+  "database": {
+    "host": "prod-db-cluster.internal",
+    "port": 3306,
+    "name": "workshop_production",
+    "pool_size": 20,
+    "connection_timeout": 30,
+    "read_replicas": [
+      "prod-db-read-1.internal",
+      "prod-db-read-2.internal"
+    ]
+  },
+  "redis": {
+    "cache_host": "prod-redis-cluster.internal",
+    "cache_port": 6379,
+    "queue_host": "prod-redis-cluster.internal",
+    "queue_port": 6380,
+    "sentinel": true
+  },
+  "security": {
+    "csrf_protection": true,
+    "session_timeout": 1800,
+    "force_https": true,
+    "rate_limiting": true,
+    "max_requests_per_minute": 1000
+  },
+  "logging": {
+    "level": "WARNING",
+    "file": "/var/log/frappe/production.log",
+    "syslog": true
+  },
+  "monitoring": {
+    "enable_metrics": true,
+    "metrics_port": 9090,
+    "health_check_endpoint": "/api/method/ping"
+  },
+  "performance": {
+    "worker_processes": 4,
+    "max_workers": 20,
+    "worker_timeout": 300,
+    "keep_alive": 2
+  }
+}

@@ -1,0 +1,22 @@
+# Logstash Configuration
+http.host: "0.0.0.0"
+xpack.monitoring.enabled: true
+xpack.monitoring.elasticsearch.hosts: ["http://elasticsearch:9200"]
+
+# Pipeline settings
+pipeline.workers: 2
+pipeline.batch.size: 125
+pipeline.batch.delay: 50
+
+# Queue settings
+queue.type: persisted
+queue.max_events: 1000
+queue.max_bytes: 1024mb
+
+# Dead letter queue
+dead_letter_queue.enable: true
+dead_letter_queue.max_bytes: 1024mb
+
+# Logging
+log.level: info
+path.logs: /var/log/logstash

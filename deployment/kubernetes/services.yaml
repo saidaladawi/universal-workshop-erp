@@ -1,0 +1,193 @@
+# Kubernetes Services Configuration
+apiVersion: v1
+kind: Service
+metadata:
+  name: erpnext-web-service
+  namespace: workshop-system
+  labels:
+    app: erpnext
+    component: web
+spec:
+  selector:
+    app: erpnext
+    component: web
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8000
+      protocol: TCP
+  type: ClusterIP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: erpnext-socketio-service
+  namespace: workshop-system
+  labels:
+    app: erpnext
+    component: socketio
+spec:
+  selector:
+    app: erpnext
+    component: socketio
+  ports:
+    - name: socketio
+      port: 9000
+      targetPort: 9000
+      protocol: TCP
+  type: ClusterIP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mariadb-service
+  namespace: workshop-system
+  labels:
+    app: mariadb
+spec:
+  selector:
+    app: mariadb
+  ports:
+    - name: mysql
+      port: 3306
+      targetPort: 3306
+      protocol: TCP
+  type: ClusterIP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-cache-service
+  namespace: workshop-system
+  labels:
+    app: redis
+    component: cache
+spec:
+  selector:
+    app: redis
+    component: cache
+  ports:
+    - name: redis
+      port: 6379
+      targetPort: 6379
+      protocol: TCP
+  type: ClusterIP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-queue-service
+  namespace: workshop-system
+  labels:
+    app: redis
+    component: queue
+spec:
+  selector:
+    app: redis
+    component: queue
+  ports:
+    - name: redis
+      port: 6380
+      targetPort: 6379
+      protocol: TCP
+  type: ClusterIP
+
+---
+# Ingress Configuration
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: erpnext-ingress
+  namespace: workshop-system
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
+    nginx.ingress.kubernetes.io/rate-limit: "100"
+    nginx.ingress.kubernetes.io/rate-limit-window: "1m"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  tls:
+    - hosts:
+        - workshop.yourdomain.com
+        - www.workshop.yourdomain.com
+      secretName: erpnext-tls
+  rules:
+    - host: workshop.yourdomain.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: erpnext-web-service
+                port:
+                  number: 80
+          - path: /socket.io
+            pathType: Prefix
+            backend:
+              service:
+                name: erpnext-socketio-service
+                port:
+                  number: 9000
+    - host: www.workshop.yourdomain.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: erpnext-web-service
+                port:
+                  number: 80
+
+---
+# Monitoring Ingress
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: monitoring-ingress
+  namespace: workshop-system
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/auth-type: basic
+    nginx.ingress.kubernetes.io/auth-secret: monitoring-auth
+    nginx.ingress.kubernetes.io/auth-realm: 'Authentication Required - Monitoring'
+spec:
+  tls:
+    - hosts:
+        - monitoring.workshop.yourdomain.com
+      secretName: monitoring-tls
+  rules:
+    - host: monitoring.workshop.yourdomain.com
+      http:
+        paths:
+          - path: /grafana
+            pathType: Prefix
+            backend:
+              service:
+                name: grafana-service
+                port:
+                  number: 3000
+          - path: /prometheus
+            pathType: Prefix
+            backend:
+              service:
+                name: prometheus-service
+                port:
+                  number: 9090
+          - path: /kibana
+            pathType: Prefix
+            backend:
+              service:
+                name: kibana-service
+                port:
+                  number: 5601

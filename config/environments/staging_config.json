@@ -1,0 +1,31 @@
+{
+  "debug": false,
+  "auto_reload": false,
+  "developer_mode": false,
+  "database": {
+    "host": "staging-db.internal",
+    "port": 3306,
+    "name": "workshop_staging",
+    "pool_size": 10,
+    "connection_timeout": 30
+  },
+  "redis": {
+    "cache_host": "staging-redis.internal",
+    "cache_port": 6379,
+    "queue_host": "staging-redis.internal",
+    "queue_port": 6380
+  },
+  "security": {
+    "csrf_protection": true,
+    "session_timeout": 3600,
+    "force_https": true
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "/var/log/frappe/staging.log"
+  },
+  "monitoring": {
+    "enable_metrics": true,
+    "metrics_port": 9090
+  }
+}

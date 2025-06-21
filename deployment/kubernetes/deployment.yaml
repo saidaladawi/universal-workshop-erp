@@ -1,0 +1,311 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: erpnext-web
+  namespace: workshop-erp
+  labels:
+    app: erpnext-web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: erpnext-web
+  template:
+    metadata:
+      labels:
+        app: erpnext-web
+    spec:
+      containers:
+      - name: erpnext-web
+        image: workshop-erpnext:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: FRAPPE_SITE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: erpnext-config
+              key: FRAPPE_SITE_NAME
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: erpnext-config
+              key: DB_HOST
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: erpnext-secrets
+              key: DB_PASSWORD
+        - name: REDIS_CACHE
+          valueFrom:
+            configMapKeyRef:
+              name: erpnext-config
+              key: REDIS_CACHE
+        - name: REDIS_QUEUE
+          valueFrom:
+            configMapKeyRef:
+              name: erpnext-config
+              key: REDIS_QUEUE
+        resources:
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /api/method/ping
+            port: 8000
+          initialDelaySeconds: 60
+          periodSeconds: 30
+        readinessProbe:
+          httpGet:
+            path: /api/method/ping
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        volumeMounts:
+        - name: sites-volume
+          mountPath: /home/frappe/frappe-bench/sites
+      volumes:
+      - name: sites-volume
+        persistentVolumeClaim:
+          claimName: erpnext-sites-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: erpnext-worker
+  namespace: workshop-erp
+  labels:
+    app: erpnext-worker
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: erpnext-worker
+  template:
+    metadata:
+      labels:
+        app: erpnext-worker
+    spec:
+      containers:
+      - name: erpnext-worker
+        image: workshop-erpnext:latest
+        command: ["bench", "worker"]
+        env:
+        - name: FRAPPE_SITE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: erpnext-config
+              key: FRAPPE_SITE_NAME
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: erpnext-config
+              key: DB_HOST
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: erpnext-secrets
+              key: DB_PASSWORD
+        - name: REDIS_QUEUE
+          valueFrom:
+            configMapKeyRef:
+              name: erpnext-config
+              key: REDIS_QUEUE
+        resources:
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+        volumeMounts:
+        - name: sites-volume
+          mountPath: /home/frappe/frappe-bench/sites
+      volumes:
+      - name: sites-volume
+        persistentVolumeClaim:
+          claimName: erpnext-sites-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadb
+  namespace: workshop-erp
+  labels:
+    app: mariadb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mariadb
+  template:
+    metadata:
+      labels:
+        app: mariadb
+    spec:
+      containers:
+      - name: mariadb
+        image: mariadb:10.6
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: erpnext-secrets
+              key: DB_ROOT_PASSWORD
+        - name: MYSQL_DATABASE
+          value: "workshop_erp"
+        - name: MYSQL_USER
+          value: "erpnext"
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: erpnext-secrets
+              key: DB_PASSWORD
+        resources:
+          limits:
+            memory: "4Gi"
+            cpu: "2000m"
+          requests:
+            memory: "2Gi"
+            cpu: "1000m"
+        livenessProbe:
+          exec:
+            command:
+            - mysqladmin
+            - ping
+            - -h
+            - localhost
+            - -u
+            - root
+            - -p$(MYSQL_ROOT_PASSWORD)
+          initialDelaySeconds: 30
+          periodSeconds: 30
+        readinessProbe:
+          exec:
+            command:
+            - mysqladmin
+            - ping
+            - -h
+            - localhost
+            - -u
+            - root
+            - -p$(MYSQL_ROOT_PASSWORD)
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        volumeMounts:
+        - name: mariadb-storage
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: mariadb-storage
+        persistentVolumeClaim:
+          claimName: mariadb-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-cache
+  namespace: workshop-erp
+  labels:
+    app: redis-cache
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-cache
+  template:
+    metadata:
+      labels:
+        app: redis-cache
+    spec:
+      containers:
+      - name: redis-cache
+        image: redis:7-alpine
+        ports:
+        - containerPort: 6379
+        command: ["redis-server", "--appendonly", "yes", "--maxmemory", "512mb", "--maxmemory-policy", "allkeys-lru"]
+        resources:
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+        livenessProbe:
+          exec:
+            command:
+            - redis-cli
+            - ping
+          initialDelaySeconds: 30
+          periodSeconds: 30
+        readinessProbe:
+          exec:
+            command:
+            - redis-cli
+            - ping
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        volumeMounts:
+        - name: redis-cache-storage
+          mountPath: /data
+      volumes:
+      - name: redis-cache-storage
+        persistentVolumeClaim:
+          claimName: redis-cache-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-queue
+  namespace: workshop-erp
+  labels:
+    app: redis-queue
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-queue
+  template:
+    metadata:
+      labels:
+        app: redis-queue
+    spec:
+      containers:
+      - name: redis-queue
+        image: redis:7-alpine
+        ports:
+        - containerPort: 6379
+        command: ["redis-server", "--appendonly", "yes"]
+        resources:
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+        livenessProbe:
+          exec:
+            command:
+            - redis-cli
+            - ping
+          initialDelaySeconds: 30
+          periodSeconds: 30
+        readinessProbe:
+          exec:
+            command:
+            - redis-cli
+            - ping
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        volumeMounts:
+        - name: redis-queue-storage
+          mountPath: /data
+      volumes:
+      - name: redis-queue-storage
+        persistentVolumeClaim:
+          claimName: redis-queue-pvc

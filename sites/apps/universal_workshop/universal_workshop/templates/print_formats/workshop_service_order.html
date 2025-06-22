@@ -1,0 +1,54 @@
+
+        <!-- Service Order Document Title -->
+        <h2 class="document-title">
+            {% if is_arabic %}أمر خدمة{% else %}SERVICE ORDER{% endif %}
+        </h2>
+        
+        <!-- Service Order Details -->
+        <div class="service-details" style="margin-bottom: 20px;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="width: 50%; vertical-align: top;">
+                        <strong>{% if is_arabic %}العميل:{% else %}Customer:{% endif %}</strong><br>
+                        {{ doc.customer_name }}<br>
+                        {% if doc.vehicle_number %}<strong>{% if is_arabic %}رقم المركبة:{% else %}Vehicle:{% endif %}</strong> {{ doc.vehicle_number }}{% endif %}
+                    </td>
+                    <td style="width: 50%; vertical-align: top; text-align: {% if is_arabic %}left{% else %}right{% endif %};">
+                        <strong>{% if is_arabic %}رقم الأمر:{% else %}Order #:{% endif %}</strong> {{ doc.name }}<br>
+                        <strong>{% if is_arabic %}التاريخ:{% else %}Date:{% endif %}</strong> {{ doc.posting_date }}<br>
+                        <strong>{% if is_arabic %}الحالة:{% else %}Status:{% endif %}</strong> {{ doc.status }}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Services Table -->
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+            <thead>
+                <tr class="table-header">
+                    <th style="border: 1px solid #ddd; padding: 8px;">{% if is_arabic %}الخدمة{% else %}Service{% endif %}</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">{% if is_arabic %}الوصف{% else %}Description{% endif %}</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">{% if is_arabic %}الفني{% else %}Technician{% endif %}</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">{% if is_arabic %}التكلفة{% else %}Cost{% endif %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for service in doc.services %}
+                <tr class="table-row">
+                    <td style="border: 1px solid #ddd; padding: 8px;">{{ service.service_name }}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">{{ service.description or '' }}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">{{ service.technician or '' }}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: right;">{{ service.cost or '' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <!-- Instructions -->
+        {% if doc.instructions %}
+        <div style="margin-top: 20px;">
+            <h4>{% if is_arabic %}تعليمات خاصة:{% else %}Special Instructions:{% endif %}</h4>
+            <div style="font-size: 12px; border: 1px solid #ddd; padding: 10px;">{{ doc.instructions }}</div>
+        </div>
+        {% endif %}
+        

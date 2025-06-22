@@ -1,0 +1,21 @@
+customer_name,mobile_no,email,vehicle_make,vehicle_model,service_type
+Ahmed Al-Saidi,+96890123456,ahmed.saidi@example.com,Toyota,Camry,Oil Change
+Fatima Al-Balushi,+96890234567,fatima.balushi@example.com,Nissan,Altima,Brake Service
+Mohammed Al-Shamsi,+96890345678,mohammed.shamsi@example.com,Honda,Civic,Tire Rotation
+Khadija Al-Hinai,+96890456789,khadija.hinai@example.com,Hyundai,Elantra,Engine Diagnostic
+Said Al-Maqbali,+96890567890,said.maqbali@example.com,Ford,Focus,AC Repair
+Mariam Al-Riyami,+96890678901,mariam.riyami@example.com,Chevrolet,Cruze,Battery Replacement
+Omar Al-Zadjali,+96890789012,omar.zadjali@example.com,BMW,X3,Transmission Service
+Aisha Al-Busaidi,+96890890123,aisha.busaidi@example.com,Mercedes,C-Class,General Inspection
+Ali Al-Harthi,+96890901234,ali.harthi@example.com,Toyota,Corolla,Oil Change
+Noura Al-Sabti,+96890012345,noura.sabti@example.com,Nissan,Sentra,Brake Service
+Hassan Al-Rawi,+96891123456,hassan.rawi@example.com,Honda,Accord,Tire Rotation
+Layla Al-Amri,+96891234567,layla.amri@example.com,Hyundai,Sonata,Engine Diagnostic
+Khalid Al-Habsi,+96891345678,khalid.habsi@example.com,Ford,Explorer,AC Repair
+Zainab Al-Kindi,+96891456789,zainab.kindi@example.com,Chevrolet,Tahoe,Battery Replacement
+Saeed Al-Ghafri,+96891567890,saeed.ghafri@example.com,BMW,X5,Transmission Service
+Huda Al-Mamari,+96891678901,huda.mamari@example.com,Mercedes,E-Class,General Inspection
+Rashid Al-Azri,+96891789012,rashid.azri@example.com,Toyota,Prius,Oil Change
+Muna Al-Salti,+96891890123,muna.salti@example.com,Nissan,Maxima,Brake Service
+Tariq Al-Wahaibi,+96891901234,tariq.wahaibi@example.com,Honda,Pilot,Tire Rotation
+Samira Al-Maawali,+96892012345,samira.maawali@example.com,Hyundai,Tucson,Engine Diagnostic

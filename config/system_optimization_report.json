@@ -1,0 +1,122 @@
+{
+  "timestamp": "2025-06-21T09:52:06.857197",
+  "optimization_summary": {
+    "site_config": [
+      "Backed up config to /home/said/frappe-dev/frappe-bench/sites/common_site_config.json.backup_20250621_095206",
+      "Applied performance configurations to common_site_config.json",
+      "Backed up site config to /home/said/frappe-dev/frappe-bench/sites/universal.local/site_config.json.backup_20250621_095206",
+      "Applied site-specific performance configurations"
+    ],
+    "redis_config": [
+      "Applied Redis cache performance optimizations",
+      "Applied Redis queue performance optimizations"
+    ],
+    "database_config": [
+      "Created database optimization configuration: /home/said/frappe-dev/frappe-bench/config/database_optimization.cnf"
+    ],
+    "application_config": [
+      "Created application performance configuration",
+      "Created performance monitoring utilities"
+    ]
+  },
+  "configuration_changes": [
+    {
+      "file": "common_site_config.json",
+      "changes": {
+        "db_timeout": 30,
+        "db_socket_timeout": 30,
+        "redis_cache": "redis://127.0.0.1:13000",
+        "redis_queue": "redis://127.0.0.1:11000",
+        "redis_socketio": "redis://127.0.0.1:13000",
+        "background_workers": 2,
+        "gunicorn_workers": 8,
+        "enable_scheduler": 1,
+        "scheduler_tick_interval": 60,
+        "session_expiry": "06:00:00",
+        "session_expiry_mobile": "24:00:00",
+        "monitor": 1,
+        "log_level": "INFO",
+        "deny_multiple_sessions": 0,
+        "ignore_csrf": 0,
+        "max_file_size": 26214400,
+        "enable_prepared_report_auto_export": 1,
+        "limits": {
+          "get": 200,
+          "post": 50,
+          "put": 50,
+          "delete": 20
+        }
+      },
+      "timestamp": "2025-06-21T09:52:06.852700"
+    },
+    {
+      "file": "site_config.json",
+      "changes": {
+        "developer_mode": 0,
+        "disable_website_cache": 0,
+        "enable_scheduler": 1,
+        "auto_update": 0,
+        "allow_tests": 1,
+        "workshop_config": {
+          "appointment_booking_lookahead_days": 30,
+          "service_history_default_limit": 50,
+          "customer_search_limit": 100,
+          "vehicle_search_limit": 100
+        }
+      },
+      "timestamp": "2025-06-21T09:52:06.854463"
+    },
+    {
+      "file": "redis_cache.conf",
+      "changes": "Performance tuning parameters",
+      "timestamp": "2025-06-21T09:52:06.855226"
+    },
+    {
+      "file": "redis_queue.conf",
+      "changes": "Queue performance tuning parameters",
+      "timestamp": "2025-06-21T09:52:06.856657"
+    },
+    {
+      "file": "database_optimization.cnf",
+      "changes": {
+        "innodb_buffer_pool_size": "70% of available RAM",
+        "innodb_log_file_size": "256M",
+        "innodb_log_buffer_size": "16M",
+        "innodb_flush_method": "O_DIRECT",
+        "innodb_file_per_table": "ON",
+        "query_cache_size": "128M",
+        "query_cache_type": "ON",
+        "max_connections": "500",
+        "thread_cache_size": "50",
+        "table_open_cache": "4000",
+        "tmp_table_size": "64M",
+        "max_heap_table_size": "64M"
+      },
+      "timestamp": "2025-06-21T09:52:06.856834"
+    },
+    {
+      "file": "performance.py",
+      "changes": "Application performance configuration",
+      "timestamp": "2025-06-21T09:52:06.857189"
+    }
+  ],
+  "restart_required": [
+    "Redis services (for Redis configuration changes)",
+    "MariaDB/MySQL (for database configuration changes)",
+    "Frappe services (for site configuration changes)"
+  ],
+  "validation_steps": [
+    "Restart Redis services: sudo systemctl restart redis-server",
+    "Restart database: sudo systemctl restart mariadb",
+    "Restart Frappe: bench restart",
+    "Run performance tests to validate improvements",
+    "Monitor system metrics for 24 hours"
+  ],
+  "expected_improvements": {
+    "database_query_performance": "50-80% improvement on indexed queries",
+    "cache_hit_ratio": "85-95% for frequently accessed data",
+    "overall_response_time": "30-60% improvement",
+    "concurrent_user_capacity": "2-3x improvement",
+    "system_stability": "Reduced memory usage and better resource management"
+  }
+}

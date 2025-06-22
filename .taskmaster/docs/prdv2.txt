@@ -1,0 +1,929 @@
+PRODUCT NAME: Universal Workshop ERP - Complete System
+VERSION: 2.1 (Security & UX Enhancement)
+DATE: June 22, 2025
+STATUS: FINAL SPECIFICATION
+OVERVIEW:
+- Universal Workshop ERP v2.1 addresses critical security gaps and user experience deficiencies identified in comprehensive system review
+- This version focuses on completing missing authentication frameworks, implementing comprehensive KPI systems, and ensuring production-ready security compliance
+- The platform transforms from a feature-rich but incomplete system into a commercially-viable, secure, and user-friendly workshop management solution with Arabic-first design and Oman market compliance
+- Enhanced with enterprise-grade role-based access control, comprehensive dashboard analytics, and seamless mobile-desktop user experience
+
+TARGET USERS:
+- Workshop owners requiring secure multi-user environments with role-based access control
+- Service advisors and receptionists needing real-time KPI dashboards and secure customer interactions
+- Technicians requiring protected mobile access with offline capabilities and progress tracking
+- Parts managers controlling inventory with secure authentication and real-time analytics
+- Financial staff managing billing with VAT compliance and secure audit trails
+- System administrators managing users, roles, backups, and security configurations
+
+[RACI]
+| Role | R | A | C | I |
+| Eng. Saeed Al-Adawi | X | X | X | X |
+| Core Dev Team | X |  | X |  |
+| Security Team | X |  | X |  |
+| Beta Workshops |  |  | X | X |
+| End Users |  |  |  | X |
+
+MODULE: Authentication & Security Framework
+PURPOSE: Implement enterprise-grade authentication system with role-based access control and comprehensive security monitoring
+KEY CAPABILITIES:
+- Unified login system protecting all web pages with role-based access control
+- Session management with automatic timeout and security monitoring
+- Multi-factor authentication support for sensitive operations
+- Password policy enforcement with complexity requirements and expiration
+- IP-based access control with geo-location validation
+- Comprehensive audit logging for security compliance and forensic analysis
+- Automated security threat detection with real-time alerting
+- Single sign-on (SSO) integration for enterprise environments
+[ACCEPTANCE CRITERIA]
+- AC1: All web pages redirect unauthenticated users to login within 200ms
+- AC2: Role-based access control prevents unauthorized page access with immediate blocking
+- AC3: Session timeout after 30 minutes of inactivity with graceful warning
+- AC4: Password policy enforces 8+ characters with mixed case, numbers, and symbols
+- AC5: Multi-factor authentication supports SMS and email verification
+- AC6: Security audit logs maintain complete activity history with tamper detection
+- AC7: Failed login attempts trigger progressive delays and account locking
+- AC8: IP whitelisting supports workshop-specific access control requirements
+
+[TASK SEEDS]
+- Create unified authentication middleware for all web routes
+- Implement role-based access control with granular permissions
+- Build session management system with security monitoring
+- Develop multi-factor authentication framework
+- Create password policy enforcement system
+- Implement comprehensive security audit logging
+- Build automated threat detection and response system
+- Develop IP-based access control with geo-validation
+
+MODULE: Universal Dashboard & KPI System
+PURPOSE: Provide comprehensive real-time analytics and performance indicators across all system modules
+KEY CAPABILITIES:
+- Unified dashboard with customizable widgets and real-time data updates
+- Module-specific KPI sections for vehicles, customers, inventory, and financial metrics
+- Interactive charts and graphs with drill-down capabilities for detailed analysis
+- Performance benchmarking against industry standards and historical data
+- Automated alert system for critical KPIs and threshold violations
+- Mobile-responsive dashboard design with touch-friendly interactions
+- Export capabilities for reports in PDF, Excel, and CSV formats
+- Predictive analytics using historical data for trend forecasting
+[ACCEPTANCE CRITERIA]
+- AC1: Main dashboard loads completely within 2 seconds with all KPIs populated
+- AC2: Vehicle page displays utilization rates, service completion metrics, and efficiency indicators
+- AC3: Customer page shows satisfaction scores, retention rates, and lifetime value analytics
+- AC4: Inventory page provides stock levels, turnover rates, and reorder recommendations
+- AC5: Financial dashboard displays revenue trends, profit margins, and cash flow analysis
+- AC6: All KPIs update in real-time with automated refresh every 30 seconds
+- AC7: Mobile dashboard maintains full functionality with responsive design
+- AC8: Custom alerts trigger within 60 seconds of threshold violations
+
+[TASK SEEDS]
+- Create unified dashboard framework with real-time data binding
+- Implement vehicle management KPI section with utilization metrics
+- Build customer analytics KPI dashboard with satisfaction tracking
+- Develop inventory KPI system with automated reorder alerts
+- Create financial KPI dashboard with profit analysis
+- Implement mobile-responsive dashboard design
+- Build automated alerting system for critical metrics
+- Develop export functionality for all reports and analytics
+
+MODULE: Protected Workshop Identity Management
+PURPOSE: Secure workshop identity information and prevent unauthorized modifications after initial setup
+KEY CAPABILITIES:
+- Workshop profile lock system preventing unauthorized identity changes
+- Owner verification system requiring multi-level approval for modifications
+- Business license validation with government database integration
+- Immutable audit trail for all identity-related changes
+- Emergency unlock procedures with administrator verification
+- Legal compliance documentation for business registration changes
+- Backup and recovery system for critical identity information
+- Integration with license management system for business binding validation
+[ACCEPTANCE CRITERIA]
+- AC1: Workshop name and owner details become read-only after onboarding completion
+- AC2: Identity modification requests require administrator approval and documentation
+- AC3: Business license changes validate against government databases within 24 hours
+- AC4: All identity changes create immutable audit entries with timestamps and user identification
+- AC5: Emergency unlock requires two-factor authentication and approval workflow
+- AC6: System prevents license sharing through business identity validation
+- AC7: Legal compliance documentation generates automatically for regulatory submissions
+- AC8: Identity backup creates encrypted snapshots with restoration capabilities
+
+[TASK SEEDS]
+- Create workshop identity lock mechanism with approval workflows
+- Implement owner verification system with government integration
+- Build business license validation with real-time verification
+- Develop immutable audit system for identity changes
+- Create emergency unlock procedures with security verification
+- Implement legal compliance documentation system
+- Build encrypted backup system for critical identity data
+- Develop identity restoration capabilities with audit trails
+
+MODULE: Comprehensive System Settings & Administration
+PURPOSE: Provide complete system administration interface with user management, security configuration, and maintenance tools
+KEY CAPABILITIES:
+- User management interface with role assignment and permission configuration
+- Role-based permission system with granular access control definitions
+- Automated backup system with configurable schedules and retention policies
+- Data import/export tools with validation and error handling
+- System configuration management with change tracking and rollback capabilities
+- Logo and branding customization with Arabic/English layout support
+- Language switching interface with RTL/LTR layout management
+- System maintenance tools including cache management and database optimization
+[ACCEPTANCE CRITERIA]
+- AC1: User management interface supports creation, modification, and deletion with audit trails
+- AC2: Role permissions system provides granular control over page and feature access
+- AC3: Automated backups run daily with 30-day retention and integrity verification
+- AC4: Import/export tools handle large datasets with progress tracking and error reporting
+- AC5: System configuration changes require approval and create restoration points
+- AC6: Logo customization supports multiple formats with automatic optimization
+- AC7: Language switching preserves user preferences and maintains session state
+- AC8: Maintenance tools execute without disrupting active user sessions
+
+[TASK SEEDS]
+- Create comprehensive user management interface with role assignment
+- Implement granular permission system with access control matrix
+- Build automated backup system with scheduling and retention management
+- Develop data import/export tools with validation and progress tracking
+- Create system configuration management with change control
+- Implement logo and branding customization interface
+- Build language switching system with layout adaptation
+- Develop system maintenance tools and optimization utilities
+
+MODULE: Enhanced Customer Portal Experience
+PURPOSE: Deliver secure, feature-rich customer self-service portal with Arabic/English support and mobile optimization
+KEY CAPABILITIES:
+- Secure customer authentication with password reset and account recovery
+- Vehicle management interface with service history and document access
+- Online appointment booking with real-time availability and confirmation
+- Service request submission with photo upload and priority classification
+- Communication center with message history and notification preferences
+- Invoice and payment management with multiple payment method support
+- Loyalty program interface with points tracking and reward redemption
+- Mobile-first design with offline capability for viewing service history
+[ACCEPTANCE CRITERIA]
+- AC1: Customer authentication supports secure login with password complexity requirements
+- AC2: Vehicle interface displays complete service history with searchable records
+- AC3: Appointment booking shows real-time availability with instant confirmation
+- AC4: Service requests support photo uploads up to 10MB with automatic compression
+- AC5: Communication center maintains threaded message history with read receipts
+- AC6: Payment interface integrates with local Omani payment gateways
+- AC7: Loyalty program automatically calculates and displays available rewards
+- AC8: Mobile interface works offline for 24 hours with automatic synchronization
+
+[TASK SEEDS]
+- Create secure customer authentication system with recovery options
+- Build comprehensive vehicle management interface with history tracking
+- Implement real-time appointment booking with availability checking
+- Develop service request system with photo upload capabilities
+- Create communication center with message threading and notifications
+- Build payment management interface with local gateway integration
+- Implement loyalty program interface with automated calculations
+- Develop mobile-first design with offline synchronization
+
+MODULE: Advanced Technician Mobile Application
+PURPOSE: Provide technicians with comprehensive mobile interface supporting offline operations and real-time job management
+KEY CAPABILITIES:
+- Secure technician authentication with biometric support where available
+- Job queue management with priority sorting and skill-based assignment
+- Real-time job status updates with photo and video documentation
+- Parts lookup and inventory checking with barcode scanning integration
+- Time tracking with automatic break detection and overtime calculations
+- Quality control checklist with supervisor approval workflow
+- Offline operation support for 8 hours with automatic synchronization
+- Push notifications for new assignments and urgent updates
+[ACCEPTANCE CRITERIA]
+- AC1: Technician authentication supports fingerprint and face recognition on compatible devices
+- AC2: Job queue displays assignments with estimated completion times and priority indicators
+- AC3: Status updates sync in real-time with automatic conflict resolution
+- AC4: Photo documentation supports high-resolution images with metadata tagging
+- AC5: Parts lookup returns results within 2 seconds with availability confirmation
+- AC6: Time tracking accuracy maintains precision within 1-minute intervals
+- AC7: Offline operation preserves all functionality except real-time synchronization
+- AC8: Push notifications deliver within 30 seconds with delivery confirmation
+
+[TASK SEEDS]
+- Create secure technician authentication with biometric support
+- Build job queue management with intelligent assignment algorithms
+- Implement real-time status synchronization with conflict resolution
+- Develop photo/video documentation system with metadata support
+- Create parts lookup integration with inventory verification
+- Build time tracking system with automatic overtime detection
+- Implement offline operation capabilities with 8-hour autonomy
+- Develop push notification system with delivery tracking
+
+MODULE: Footer Branding & Developer Information
+PURPOSE: Establish developer brand presence and provide contact information in all customer-facing interfaces
+KEY CAPABILITIES:
+- Professional footer design with developer contact information
+- Consistent branding across all web pages and mobile interfaces
+- Multi-language support for developer information display
+- Contact links including email, phone, and website information
+- Copyright and legal information with proper attribution
+- Social media links for developer presence and support channels
+- Responsive design maintaining footer visibility across all devices
+- Integration with customer portal and public-facing pages
+[ACCEPTANCE CRITERIA]
+- AC1: Footer appears on all public-facing pages including login and customer portal
+- AC2: Developer contact information displays correctly in Arabic and English
+- AC3: Contact links function properly and open in appropriate applications
+- AC4: Footer design maintains consistency across desktop and mobile devices
+- AC5: Copyright information displays current year with automatic updates
+- AC6: Social media links open in new tabs without disrupting user sessions
+- AC7: Footer remains visible and accessible on all screen sizes
+- AC8: Integration preserves footer across all customer-facing interfaces
+
+[TASK SEEDS]
+- Design professional footer with developer branding
+- Implement contact information display with multi-language support
+- Create responsive footer design for all device types
+- Develop contact link functionality with proper application integration
+- Implement automatic copyright date updates
+- Create social media integration with external link handling
+- Build footer visibility management across all interfaces
+- Develop integration system for customer portal and public pages
+
+MODULE: Performance Optimization & Scalability
+PURPOSE: Ensure system performance meets enterprise standards with optimized database queries and caching strategies
+KEY CAPABILITIES:
+- Database query optimization with indexing and performance monitoring
+- Intelligent caching system with automatic invalidation and refresh
+- CDN integration for static assets and media file delivery
+- Load balancing support for high-availability deployments
+- Background job processing with queue management and monitoring
+- Memory optimization with garbage collection and resource management
+- API rate limiting with throttling and abuse prevention
+- Performance monitoring with real-time alerts and historical analysis
+[ACCEPTANCE CRITERIA]
+- AC1: Database queries execute within 100ms for 95% of operations
+- AC2: Page load times remain under 2 seconds for all interfaces
+- AC3: Caching system achieves 90% hit rate for frequently accessed data
+- AC4: System supports 100 concurrent users without performance degradation
+- AC5: Background jobs process within 5 minutes of queue submission
+- AC6: Memory usage remains stable during peak operation periods
+- AC7: API responses maintain sub-second response times under normal load
+- AC8: Performance monitoring provides real-time insights with historical trending
+
+[TASK SEEDS]
+- Implement database query optimization with intelligent indexing
+- Create comprehensive caching system with automatic management
+- Develop CDN integration for static asset delivery
+- Build load balancing infrastructure for high availability
+- Implement background job processing with queue management
+- Create memory optimization system with resource monitoring
+- Develop API rate limiting with abuse prevention
+- Build performance monitoring dashboard with alerting
+
+MODULE: Data Migration & Integration Services
+PURPOSE: Provide comprehensive data migration tools and third-party integration capabilities for existing workshop systems
+KEY CAPABILITIES:
+- Legacy system data extraction with format conversion and validation
+- Automated data mapping with field matching and transformation rules
+- Real-time data synchronization with external systems and APIs
+- Backup verification with integrity checking and restoration testing
+- Migration rollback capabilities with point-in-time recovery
+- Third-party integration framework with webhook and API support
+- Data validation and cleansing with error reporting and correction
+- Migration progress tracking with detailed logging and status reporting
+[ACCEPTANCE CRITERIA]
+- AC1: Legacy data extraction handles multiple formats including CSV, XML, and database dumps
+- AC2: Data mapping achieves 99.5% accuracy with automated validation
+- AC3: Real-time synchronization maintains data consistency within 30 seconds
+- AC4: Backup verification confirms 100% data integrity before migration
+- AC5: Rollback procedures restore previous state within 15 minutes
+- AC6: Third-party integrations support REST and SOAP protocols
+- AC7: Data validation identifies and reports all inconsistencies and conflicts
+- AC8: Migration tracking provides real-time progress with detailed error logs
+
+[TASK SEEDS]
+- Create legacy system data extraction tools with format support
+- Implement automated data mapping with validation rules
+- Build real-time synchronization engine with conflict resolution
+- Develop backup verification system with integrity checking
+- Create migration rollback capabilities with point-in-time recovery
+- Implement third-party integration framework with webhook support
+- Build data validation and cleansing tools with error reporting
+- Develop migration progress tracking with comprehensive logging
+
+MODULE: Arabic-First Internationalization
+PURPOSE: Ensure comprehensive Arabic language support with proper RTL layout and cultural adaptation for Oman market
+KEY CAPABILITIES:
+- Complete Arabic translation with cultural context and local terminology
+- RTL layout engine with automatic text direction detection and handling
+- Arabic number formatting with proper digit display and calculations
+- Date and time formatting according to Arabic/Islamic calendar preferences
+- Currency formatting with Omani Rial display and Arabic decimal notation
+- Cultural adaptation including business hours, weekend schedules, and holidays
+- Font management with Arabic typography support and fallback handling
+- Keyboard input optimization with Arabic character support and IME integration
+[ACCEPTANCE CRITERIA]
+- AC1: Arabic translation covers 100% of user interface elements and messages
+- AC2: RTL layout maintains proper text flow and element positioning
+- AC3: Arabic numbers display correctly in forms, reports, and calculations
+- AC4: Date formatting supports both Gregorian and Hijri calendar systems
+- AC5: Currency displays follow Omani standards with proper decimal notation
+- AC6: Business hours accommodate Friday-Saturday weekend schedule
+- AC7: Arabic fonts render consistently across all devices and browsers
+- AC8: Keyboard input supports seamless switching between Arabic and English
+
+[TASK SEEDS]
+- Complete comprehensive Arabic translation with cultural context
+- Implement RTL layout engine with automatic detection
+- Create Arabic number formatting system with proper display
+- Build date/time formatting with calendar support
+- Implement currency formatting with Omani standards
+- Develop cultural adaptation system for local business practices
+- Create font management system with Arabic typography support
+- Build keyboard input optimization with IME integration
+
+MODULE: Backup & Recovery Management System
+PURPOSE: Provide comprehensive backup and recovery capabilities with automated scheduling and disaster recovery procedures
+KEY CAPABILITIES:
+- Automated daily backups with configurable retention policies and compression
+- Full system restoration capabilities with point-in-time recovery options
+- Database backup verification with integrity checking and corruption detection
+- File system backup including documents, media, and configuration files
+- Remote backup storage with cloud integration and encryption support
+- Disaster recovery procedures with step-by-step restoration guides
+- Backup monitoring dashboard with success/failure alerts and storage usage
+- Emergency recovery tools with minimal downtime restoration procedures
+[ACCEPTANCE CRITERIA]
+- AC1: Daily backups execute automatically with 99.9% success rate and notification
+- AC2: Full restoration completes within 4 hours for complete system recovery
+- AC3: Backup verification confirms 100% data integrity before storage
+- AC4: File system backups include all user documents and system configurations
+- AC5: Remote storage supports encrypted transmission and secure cloud storage
+- AC6: Recovery procedures restore system to operational state within 2 hours
+- AC7: Monitoring dashboard provides real-time backup status and historical logs
+- AC8: Emergency tools enable rapid recovery with documented step-by-step procedures
+
+[TASK SEEDS]
+- Create automated backup scheduling system with retention management
+- Implement full system restoration with point-in-time recovery
+- Build backup verification system with integrity checking
+- Develop file system backup including documents and configurations
+- Create remote backup storage with cloud integration and encryption
+- Implement disaster recovery procedures with detailed documentation
+- Build backup monitoring dashboard with alerting system
+- Develop emergency recovery tools with minimal downtime procedures
+
+MODULE: System Update & Patch Management
+PURPOSE: Provide secure, reliable system update mechanisms with rollback capabilities and minimal downtime deployment
+KEY CAPABILITIES:
+- Automated update checking with security patch identification and priority classification
+- Staged deployment system with testing environment validation before production
+- Database migration management with automatic schema updates and data preservation
+- Configuration backup and restoration during update processes
+- Update rollback capabilities with complete system state recovery
+- Dependency management ensuring compatibility across all system components
+- Update scheduling with maintenance window planning and user notification
+- Security update priority system with emergency patching capabilities
+[ACCEPTANCE CRITERIA]
+- AC1: Update checking identifies new releases within 24 hours of publication
+- AC2: Staged deployment validates updates in isolated environment before production
+- AC3: Database migrations execute without data loss or corruption
+- AC4: Configuration backups enable complete settings restoration after updates
+- AC5: Rollback procedures restore previous version within 30 minutes
+- AC6: Dependency validation prevents incompatible component updates
+- AC7: Scheduled updates execute during maintenance windows with user notification
+- AC8: Emergency security patches deploy within 4 hours of availability
+
+[TASK SEEDS]
+- Create automated update checking with security classification
+- Implement staged deployment system with testing validation
+- Build database migration management with data preservation
+- Develop configuration backup and restoration for updates
+- Create update rollback system with complete state recovery
+- Implement dependency management with compatibility checking
+- Build update scheduling with maintenance window management
+- Develop emergency security patching with rapid deployment
+
+MODULE: System Health Monitoring & Alerting
+PURPOSE: Provide comprehensive system monitoring with proactive alerting and performance analytics for production environments
+KEY CAPABILITIES:
+- Real-time system health monitoring with CPU, memory, and disk usage tracking
+- Application performance monitoring with response time analysis and bottleneck identification
+- License validation monitoring with expiration alerts and renewal reminders
+- Database performance monitoring with query analysis and optimization recommendations
+- Security monitoring with intrusion detection and unauthorized access alerts
+- Custom alert configuration with escalation procedures and notification channels
+- Historical performance trending with capacity planning and growth analysis
+- System diagnostic tools with automated troubleshooting and issue resolution
+[ACCEPTANCE CRITERIA]
+- AC1: Health monitoring provides real-time system metrics with 1-minute update intervals
+- AC2: Performance monitoring identifies bottlenecks with sub-second precision
+- AC3: License monitoring alerts 30 days before expiration with renewal procedures
+- AC4: Database monitoring provides query optimization recommendations weekly
+- AC5: Security monitoring detects and alerts on suspicious activity within 60 seconds
+- AC6: Custom alerts support multiple notification channels including SMS and email
+- AC7: Performance trending enables capacity planning with 6-month projections
+- AC8: Diagnostic tools resolve 80% of common issues automatically without intervention
+
+[TASK SEEDS]
+- Create real-time system health monitoring with comprehensive metrics
+- Implement application performance monitoring with bottleneck analysis
+- Build license validation monitoring with expiration alerting
+- Develop database performance monitoring with optimization recommendations
+- Create security monitoring with intrusion detection and alerting
+- Implement custom alert configuration with escalation procedures
+- Build historical performance trending with capacity planning
+- Develop system diagnostic tools with automated troubleshooting
+
+MODULE: Advanced Security & Compliance Framework
+PURPOSE: Implement enterprise-grade security measures with compliance reporting and advanced threat protection
+KEY CAPABILITIES:
+- Advanced threat detection with behavioral analysis and anomaly identification
+- Data encryption at rest and in transit with key management and rotation
+- Compliance reporting with audit trail generation and regulatory documentation
+- Access control matrix with granular permissions and segregation of duties
+- Security incident response with automated containment and escalation procedures
+- Vulnerability scanning with automated patching and risk assessment
+- Data privacy controls with GDPR compliance and data retention policies
+- Security training system with awareness modules and compliance tracking
+[ACCEPTANCE CRITERIA]
+- AC1: Threat detection identifies anomalies with 95% accuracy and minimal false positives
+- AC2: Data encryption uses AES-256 standard with automated key rotation every 90 days
+- AC3: Compliance reports generate automatically with complete audit trail documentation
+- AC4: Access control matrix supports role-based permissions with conflict detection
+- AC5: Incident response contains threats within 15 minutes of detection
+- AC6: Vulnerability scanning executes weekly with critical patch deployment within 48 hours
+- AC7: Data privacy controls ensure GDPR compliance with automated retention management
+- AC8: Security training achieves 100% staff completion with annual recertification
+
+[TASK SEEDS]
+- Create advanced threat detection with behavioral analysis
+- Implement comprehensive data encryption with key management
+- Build compliance reporting with automated audit trail generation
+- Develop access control matrix with granular permission management
+- Create security incident response with automated containment
+- Implement vulnerability scanning with automated patching
+- Build data privacy controls with GDPR compliance framework
+- Develop security training system with compliance tracking
+
+MODULE: Customer Support & Helpdesk System
+PURPOSE: Provide comprehensive customer support capabilities with ticketing, knowledge base, and multi-channel communication
+KEY CAPABILITIES:
+- Integrated ticketing system with priority classification and SLA tracking
+- Knowledge base with searchable articles and video tutorials in Arabic/English
+- Multi-channel support including email, phone, chat, and WhatsApp integration
+- Remote assistance capabilities with screen sharing and system diagnostics
+- Customer feedback management with satisfaction surveys and improvement tracking
+- Escalation procedures with automatic routing to technical specialists
+- Support analytics with resolution time tracking and performance metrics
+- Training material integration with contextual help and guided assistance
+[ACCEPTANCE CRITERIA]
+- AC1: Ticketing system categorizes issues with automatic priority assignment
+- AC2: Knowledge base provides instant search results with relevance ranking
+- AC3: Multi-channel support maintains conversation history across all platforms
+- AC4: Remote assistance establishes secure connections within 2 minutes
+- AC5: Customer feedback collection achieves 80% response rate with actionable insights
+- AC6: Escalation procedures route complex issues to specialists within 4 hours
+- AC7: Support analytics provide real-time metrics with trend analysis
+- AC8: Training integration delivers contextual help with guided step-by-step assistance
+
+[TASK SEEDS]
+- Create integrated ticketing system with priority classification and SLA tracking
+- Build comprehensive knowledge base with multimedia content and search
+- Implement multi-channel support with unified conversation management
+- Develop remote assistance capabilities with secure screen sharing
+- Create customer feedback management with satisfaction tracking
+- Implement escalation procedures with automatic specialist routing
+- Build support analytics dashboard with performance metrics
+- Develop training material integration with contextual assistance
+
+MODULE: External System Integration & API Management
+PURPOSE: Provide robust integration capabilities with external systems, APIs, and third-party services for enhanced functionality
+KEY CAPABILITIES:
+- RESTful API framework with comprehensive documentation and authentication
+- Webhook system for real-time data synchronization with external applications
+- Third-party service integration including payment gateways and communication services
+- Data import/export utilities with format conversion and validation
+- Integration monitoring with error tracking and retry mechanisms
+- API versioning with backward compatibility and deprecation management
+- Rate limiting and throttling with abuse prevention and fair usage policies
+- Integration testing framework with automated validation and quality assurance
+[ACCEPTANCE CRITERIA]
+- AC1: RESTful API provides complete CRUD operations with comprehensive documentation
+- AC2: Webhook system delivers real-time updates with 99.9% reliability
+- AC3: Third-party integrations maintain stable connections with automatic reconnection
+- AC4: Import/export utilities handle large datasets with progress tracking
+- AC5: Integration monitoring detects failures within 30 seconds with automatic alerts
+- AC6: API versioning maintains backward compatibility for at least 12 months
+- AC7: Rate limiting prevents abuse while allowing legitimate high-volume usage
+- AC8: Integration testing validates all external connections with automated quality checks
+
+[TASK SEEDS]
+- Create comprehensive RESTful API framework with authentication
+- Implement webhook system for real-time external synchronization
+- Build third-party service integration with payment and communication services
+- Develop data import/export utilities with format validation
+- Create integration monitoring with error tracking and retry mechanisms
+- Implement API versioning with backward compatibility management
+- Build rate limiting system with abuse prevention
+- Develop integration testing framework with automated validation
+
+MODULE: First-Run Wizard & Initial System Setup
+PURPOSE: Guide new users through comprehensive system initialization with step-by-step workshop configuration and licensing activation
+KEY CAPABILITIES:
+- Multi-step guided setup wizard with progress tracking and validation at each stage
+- Workshop information collection including business license and owner verification
+- Service types configuration with pricing templates and Arabic/English descriptions
+- Technician profile setup with skills matching and certification tracking
+- Initial inventory configuration with supplier integration and stock level setup
+- License activation with hardware fingerprinting and digital signature verification
+- System validation with connectivity testing and performance benchmarking
+- Completion verification with final system check and user acceptance confirmation
+[ACCEPTANCE CRITERIA]
+- AC1: Setup wizard completes in 5 clear steps with progress indicators and estimated completion times
+- AC2: Workshop information validates against government databases within 30 seconds
+- AC3: Service configuration supports unlimited service types with Arabic/English descriptions
+- AC4: Technician setup includes skill verification and certification document upload
+- AC5: Inventory initialization connects to supplier APIs for automatic part cataloging
+- AC6: License activation generates unique digital signature with hardware binding
+- AC7: System validation confirms all components operational with performance metrics
+- AC8: Setup completion generates certificate of installation with activation timestamp
+
+[TASK SEEDS]
+- Create multi-step setup wizard with progress tracking and validation
+- Implement workshop information collection with government database integration
+- Build service types configuration with pricing templates and localization
+- Develop technician profile setup with skills verification and document management
+- Create inventory initialization with supplier API integration and cataloging
+- Implement license activation with digital signature generation and hardware binding
+- Build system validation with connectivity testing and performance verification
+- Develop completion certification with installation verification and documentation
+
+MODULE: Digital License Management & Cryptographic Security
+PURPOSE: Implement enterprise-grade digital licensing with RSA signatures, hardware binding, and anti-tampering protection
+KEY CAPABILITIES:
+- RSA-4096 digital signature generation with hardware-specific key derivation
+- Hardware fingerprinting using CPU, motherboard, and network adapter identifiers
+- Business identity binding with encrypted workshop details and owner verification
+- License validation engine with offline grace period and automatic renewal
+- Anti-tampering protection with checksum verification and integrity monitoring
+- Secure key storage with encrypted key vaults and access control management
+- License audit trail with immutable logging and forensic investigation capabilities
+- Emergency license recovery with secure backup procedures and restoration protocols
+[ACCEPTANCE CRITERIA]
+- AC1: Digital signatures use RSA-4096 encryption with unique key generation per installation
+- AC2: Hardware fingerprinting achieves 99.9% accuracy with tolerance for minor hardware changes
+- AC3: Business binding prevents license sharing with cross-validation against workshop database
+- AC4: Offline operation supports 72-hour grace period with secure timestamp validation
+- AC5: Anti-tampering detection triggers immediate license suspension with audit logging
+- AC6: Key storage implements AES-256 encryption with secure vault access control
+- AC7: Audit trail maintains immutable records with cryptographic hash verification
+- AC8: Emergency recovery restores valid licenses within 4 hours with proper authorization
+
+[TASK SEEDS]
+- Implement RSA-4096 digital signature system with hardware-specific key generation
+- Create comprehensive hardware fingerprinting with multi-component identification
+- Build business identity binding with encrypted workshop verification
+- Develop license validation engine with offline grace period management
+- Implement anti-tampering protection with real-time integrity monitoring
+- Create secure key storage with encrypted vault and access control
+- Build license audit trail with immutable logging and forensic capabilities
+- Develop emergency license recovery with secure backup and restoration
+
+MODULE: Advanced Login System & Session Management
+PURPOSE: Provide secure, user-friendly authentication with multi-factor support and comprehensive session security
+KEY CAPABILITIES:
+- Unified login interface supporting username/email with Arabic/English display
+- Multi-factor authentication with SMS, email, and authenticator app integration
+- Remember device functionality with secure token storage and device fingerprinting
+- Password strength validation with complexity requirements and breach detection
+- Account lockout protection with progressive delays and administrator override
+- Session security with automatic timeout, concurrent session management, and activity monitoring
+- Single sign-on integration with LDAP/Active Directory for enterprise environments
+- Accessibility compliance with screen reader support and keyboard navigation
+[ACCEPTANCE CRITERIA]
+- AC1: Login interface loads within 1 second with responsive design for all devices
+- AC2: Multi-factor authentication supports 3+ methods with fallback options
+- AC3: Remember device tokens expire after 30 days with automatic renewal
+- AC4: Password validation enforces 12+ characters with complexity scoring
+- AC5: Account lockout implements exponential backoff with maximum 24-hour lock
+- AC6: Session timeout occurs after 30 minutes with 5-minute warning notification
+- AC7: SSO integration supports enterprise directory services with group mapping
+- AC8: Accessibility compliance achieves WCAG 2.1 AA rating with audit verification
+
+[TASK SEEDS]
+- Create unified login interface with multi-language support and responsive design
+- Implement multi-factor authentication with multiple provider integration
+- Build remember device functionality with secure token management
+- Develop password strength validation with real-time complexity assessment
+- Create account lockout protection with progressive security measures
+- Implement session security with timeout management and activity monitoring
+- Build single sign-on integration with enterprise directory services
+- Develop accessibility compliance with screen reader and keyboard support
+
+MODULE: Dynamic KPI Dashboard Framework
+PURPOSE: Deliver real-time, customizable dashboard with intelligent analytics and predictive insights for workshop operations
+KEY CAPABILITIES:
+- Real-time KPI widgets with customizable layouts and drag-drop functionality
+- Intelligent analytics engine with trend analysis and performance prediction
+- Workshop-specific metrics including efficiency ratios, customer satisfaction, and profitability
+- Interactive charts with drill-down capabilities and export functionality
+- Alert system with configurable thresholds and escalation procedures
+- Mobile dashboard optimization with touch-friendly interactions and offline viewing
+- Role-based dashboard customization with permission-controlled access to sensitive metrics
+- Integration with external analytics platforms and business intelligence tools
+[ACCEPTANCE CRITERIA]
+- AC1: Dashboard loads all widgets within 2 seconds with real-time data updates
+- AC2: KPI calculations update every 30 seconds with accurate data synchronization
+- AC3: Customization interface supports unlimited widget arrangements with save/restore
+- AC4: Analytics engine provides 90-day trend analysis with 85% prediction accuracy
+- AC5: Interactive charts respond to user input within 500ms with smooth animations
+- AC6: Alert notifications deliver within 60 seconds via configured channels
+- AC7: Mobile dashboard maintains full functionality with responsive design optimization
+- AC8: Role-based access controls restrict sensitive financial data to authorized users
+
+[TASK SEEDS]
+- Create real-time KPI widget framework with customizable layouts
+- Implement intelligent analytics engine with trend analysis and prediction
+- Build workshop-specific metrics calculation with real-time updates
+- Develop interactive charts with drill-down capabilities and export functions
+- Create configurable alert system with multi-channel notification delivery
+- Implement mobile dashboard optimization with touch-friendly interface design
+- Build role-based customization with permission-controlled access management
+- Develop integration framework for external analytics and business intelligence
+
+MODULE: Core System Pages & Navigation
+PURPOSE: Establish consistent, secure, and user-friendly page structure with comprehensive navigation and access control
+KEY CAPABILITIES:
+- Unified page template system with consistent header, navigation, and footer across all interfaces
+- Breadcrumb navigation with contextual help and quick action buttons
+- Responsive grid system adapting to desktop, tablet, and mobile screen sizes
+- Page-level security with role-based access control and audit logging
+- Search functionality with global search bar and context-sensitive filters
+- Notification center with real-time alerts and message management
+- Language switching with immediate layout adaptation and content translation
+- Performance optimization with lazy loading and intelligent caching strategies
+[ACCEPTANCE CRITERIA]
+- AC1: Page templates maintain visual consistency across 100% of system interfaces
+- AC2: Breadcrumb navigation provides clear hierarchy with one-click parent navigation
+- AC3: Responsive design adapts seamlessly to screen sizes from 320px to 4K displays
+- AC4: Page security validates user permissions within 100ms with audit trail logging
+- AC5: Global search returns relevant results within 2 seconds with highlighting
+- AC6: Notification center displays updates in real-time with categorization and filtering
+- AC7: Language switching completes within 1 second with layout preservation
+- AC8: Page loading achieves under 2-second load times with progressive enhancement
+
+[TASK SEEDS]
+- Create unified page template system with consistent design elements
+- Implement comprehensive breadcrumb navigation with contextual assistance
+- Build responsive grid system with device-specific optimization
+- Develop page-level security with role-based access control integration
+- Create global search functionality with intelligent filtering and ranking
+- Implement notification center with real-time updates and management
+- Build language switching with immediate adaptation and content translation
+- Develop performance optimization with caching and progressive loading
+
+MODULE: Signature & Document Management System
+PURPOSE: Provide comprehensive digital signature capabilities with legal compliance and document workflow management
+KEY CAPABILITIES:
+- Digital signature creation with RSA/ECDSA cryptographic standards and certificate authority integration
+- Document workflow management with approval chains and electronic signature collection
+- Legal compliance framework supporting e-signature regulations and audit requirements
+- Certificate management with PKI infrastructure and trusted authority validation
+- Multi-party signature workflows with sequential and parallel signing processes
+- Document version control with signature preservation and tamper detection
+- Integration with external signature providers including DocuSign and Adobe Sign
+- Mobile signature support with biometric authentication and offline capability
+[ACCEPTANCE CRITERIA]
+- AC1: Digital signatures comply with eIDAS/ESIGN regulations with legal validity
+- AC2: Document workflows support unlimited participants with customizable approval chains
+- AC3: Certificate validation confirms signer identity with trusted authority verification
+- AC4: Multi-party workflows complete within 48 hours with automatic reminders
+- AC5: Version control maintains signature integrity across document revisions
+- AC6: External provider integration maintains seamless user experience
+- AC7: Mobile signatures support touch, stylus, and biometric authentication methods
+- AC8: Offline signature capability syncs automatically when connectivity restored
+
+[TASK SEEDS]
+- Implement digital signature system with cryptographic standards compliance
+- Create document workflow management with approval chain configuration
+- Build legal compliance framework with regulation adherence and audit support
+- Develop certificate management with PKI infrastructure integration
+- Create multi-party signature workflows with parallel and sequential processing
+- Implement document version control with signature preservation
+- Build external signature provider integration with seamless user experience
+- Develop mobile signature support with biometric authentication and offline sync
+
+MODULE: Customer & Vehicle Management Pages
+PURPOSE: Provide comprehensive customer and vehicle management with Arabic/English support and advanced search capabilities
+KEY CAPABILITIES:
+- Customer database with advanced search using Arabic name matching and phonetic algorithms
+- Vehicle registration with VIN decoding and automatic make/model population
+- Service history tracking with detailed records and photo documentation
+- Customer communication portal with SMS/WhatsApp integration and message history
+- Vehicle maintenance scheduling with predictive alerts and service recommendations
+- Customer loyalty program with points tracking and reward management
+- Document management with secure storage and digital signature integration
+- Import/export functionality with Excel/CSV support and data validation
+[ACCEPTANCE CRITERIA]
+- AC1: Customer search supports Arabic fuzzy matching with 95% accuracy
+- AC2: Vehicle registration auto-populates fields from VIN with 99% accuracy
+- AC3: Service history displays chronological records with photo galleries
+- AC4: Communication portal maintains threaded conversations with delivery status
+- AC5: Maintenance scheduling predicts service needs with 30-day advance notice
+- AC6: Loyalty program calculations update in real-time with automatic point awards
+- AC7: Document storage supports PDF, images, and Office formats with encryption
+- AC8: Import/export handles 10,000+ records with progress tracking and error reporting
+
+[TASK SEEDS]
+- Create advanced customer search with Arabic name matching algorithms
+- Implement vehicle registration with VIN decoding and auto-population
+- Build comprehensive service history with photo documentation management
+- Develop customer communication portal with multi-channel integration
+- Create predictive maintenance scheduling with automated alert system
+- Implement loyalty program with real-time calculation and reward management
+- Build secure document management with encryption and access control
+- Develop import/export functionality with validation and progress tracking
+
+MODULE: Inventory & Parts Management Interface
+PURPOSE: Deliver comprehensive inventory control with barcode integration, supplier management, and automated reordering
+KEY CAPABILITIES:
+- Real-time inventory tracking with barcode scanning and RFID support
+- Automated reorder system with supplier integration and purchase order generation
+- Parts compatibility matrix with vehicle make/model cross-referencing
+- Price management with supplier comparison and profit margin analysis
+- Stock movement tracking with detailed audit trails and adjustment procedures
+- Warehouse management with multiple location support and transfer capabilities
+- Supplier portal integration with order status tracking and delivery confirmation
+- Mobile inventory management with offline capability and batch processing
+[ACCEPTANCE CRITERIA]
+- AC1: Barcode scanning updates inventory instantly with 99.9% accuracy
+- AC2: Automated reordering triggers at configurable stock levels with supplier selection
+- AC3: Parts compatibility displays vehicle matches with 95% accuracy
+- AC4: Price analysis compares supplier costs with real-time margin calculations
+- AC5: Stock movements maintain complete audit trail with timestamp and user tracking
+- AC6: Warehouse transfers complete within 24 hours with status updates
+- AC7: Supplier portal provides real-time order status with delivery tracking
+- AC8: Mobile inventory supports 8-hour offline operation with automatic sync
+
+[TASK SEEDS]
+- Implement real-time inventory tracking with barcode and RFID integration
+- Create automated reorder system with supplier integration and PO generation
+- Build parts compatibility matrix with vehicle cross-referencing database
+- Develop price management with supplier comparison and margin analysis
+- Create stock movement tracking with comprehensive audit trail system
+- Implement warehouse management with multi-location support and transfers
+- Build supplier portal integration with order tracking and delivery confirmation
+- Develop mobile inventory interface with offline capability and batch sync
+
+MODULE: Billing & Financial Management System
+PURPOSE: Provide comprehensive financial management with Omani VAT compliance, multi-currency support, and payment processing
+KEY CAPABILITIES:
+- Invoice generation with automatic VAT calculation and QR code compliance
+- Multi-currency support with real-time exchange rates and conversion tracking
+- Payment processing integration with local Omani banks and international gateways
+- Financial reporting with profit/loss analysis and cash flow projections
+- Accounts receivable management with automated reminders and collection workflows
+- Expense tracking with receipt capture and approval workflows
+- Tax compliance reporting with automatic VAT return generation
+- Integration with accounting software including Sage, QuickBooks, and local systems
+[ACCEPTANCE CRITERIA]
+- AC1: Invoice generation completes within 3 seconds with accurate VAT calculations
+- AC2: Multi-currency transactions display in base currency with real-time conversion
+- AC3: Payment processing supports 5+ local banks with immediate confirmation
+- AC4: Financial reports generate within 10 seconds with export to PDF/Excel
+- AC5: Receivables management sends automated reminders with customizable schedules
+- AC6: Expense capture processes receipts with OCR and automatic categorization
+- AC7: VAT reporting generates compliant returns with government submission format
+- AC8: Accounting integration syncs transactions within 1 hour with error handling
+
+[TASK SEEDS]
+- Create comprehensive invoice system with VAT calculation and QR compliance
+- Implement multi-currency support with real-time exchange rate integration
+- Build payment processing with local and international gateway integration
+- Develop financial reporting with P&L analysis and cash flow projections
+- Create accounts receivable management with automated collection workflows
+- Implement expense tracking with receipt capture and approval processing
+- Build tax compliance reporting with automatic VAT return generation
+- Develop accounting software integration with real-time transaction sync
+
+MODULE: Service Order Management & Workflow
+PURPOSE: Streamline service operations with intelligent workflow management, technician assignment, and quality control
+KEY CAPABILITIES:
+- Intelligent service order creation with automatic technician assignment based on skills
+- Workflow management with customizable stages and approval requirements
+- Real-time progress tracking with photo documentation and time logging
+- Quality control system with inspection checklists and customer approval workflows
+- Parts allocation with automatic reservation and availability checking
+- Customer communication with automated status updates and completion notifications
+- Performance analytics with technician efficiency and customer satisfaction metrics
+- Mobile technician interface with offline capability and real-time synchronization
+[ACCEPTANCE CRITERIA]
+- AC1: Service order creation auto-assigns technicians within 30 seconds based on availability
+- AC2: Workflow progression updates in real-time with notification to all stakeholders
+- AC3: Progress tracking captures photos with GPS metadata and timestamp verification
+- AC4: Quality control enforces mandatory inspections with sign-off requirements
+- AC5: Parts allocation reserves inventory with automatic back-order management
+- AC6: Customer notifications deliver within 2 minutes of status changes
+- AC7: Performance analytics update hourly with trend analysis and benchmarking
+- AC8: Mobile interface operates offline for 4 hours with automatic sync capability
+
+[TASK SEEDS]
+- Create intelligent service order system with skill-based technician assignment
+- Implement customizable workflow management with approval stage configuration
+- Build real-time progress tracking with photo documentation and time logging
+- Develop quality control system with inspection checklists and approval workflows
+- Create parts allocation with reservation and availability checking
+- Implement customer communication with automated status update delivery
+- Build performance analytics with efficiency metrics and satisfaction tracking
+- Develop mobile technician interface with offline operation and sync capability
+
+MODULE: Reporting & Analytics Dashboard
+PURPOSE: Deliver comprehensive business intelligence with customizable reports, predictive analytics, and performance insights
+KEY CAPABILITIES:
+- Executive dashboard with key performance indicators and trend visualization
+- Customizable report builder with drag-drop interface and formula calculations
+- Scheduled report generation with automatic delivery to stakeholders
+- Predictive analytics using machine learning for demand forecasting and optimization
+- Comparative analysis with industry benchmarks and historical performance
+- Export functionality supporting PDF, Excel, CSV, and direct email delivery
+- Real-time data visualization with interactive charts and drill-down capabilities
+- Mobile reporting with optimized layouts and touch-friendly interactions
+[ACCEPTANCE CRITERIA]
+- AC1: Executive dashboard loads within 3 seconds with current-day metrics
+- AC2: Report builder supports unlimited fields with complex calculations
+- AC3: Scheduled reports deliver automatically with 99.9% reliability
+- AC4: Predictive analytics achieve 80% accuracy for 30-day forecasts
+- AC5: Benchmark comparisons provide industry percentile rankings
+- AC6: Export operations complete within 30 seconds for 10,000+ records
+- AC7: Interactive charts respond to user input within 500ms
+- AC8: Mobile reports maintain full functionality with responsive optimization
+
+[TASK SEEDS]
+- Create executive dashboard with KPI visualization and trend analysis
+- Implement customizable report builder with drag-drop interface and calculations
+- Build scheduled report system with automatic delivery and notification
+- Develop predictive analytics engine with machine learning algorithms
+- Create comparative analysis with industry benchmarking integration
+- Implement comprehensive export functionality with multiple format support
+- Build real-time data visualization with interactive charts and drill-down
+- Develop mobile reporting interface with touch optimization and responsiveness
+
+LOGICAL DEPENDENCY CHAIN:
+1. Digital License Management & Cryptographic Security must be implemented first for system foundation
+2. First-Run Wizard & Initial System Setup requires license management for activation
+3. Advanced Login System & Session Management builds on license validation and security
+4. Authentication & Security Framework integrates with login system for comprehensive protection
+5. Core System Pages & Navigation requires authentication for secured page access
+6. Protected Workshop Identity Management depends on authentication and license binding
+7. Dynamic KPI Dashboard Framework requires secured access and data protection
+8. Customer & Vehicle Management Pages build on authentication and KPI integration
+9. Inventory & Parts Management Interface requires secured access and dashboard integration
+10. Service Order Management & Workflow depends on customer, vehicle, and inventory systems
+11. Billing & Financial Management System integrates with service orders and inventory
+12. Reporting & Analytics Dashboard requires data from all operational modules
+13. Signature & Document Management System integrates across all modules requiring documentation
+14. Universal Dashboard & KPI System consolidates all module-specific dashboards
+15. Enhanced Customer Portal builds on authentication, billing, and service management
+16. Advanced Technician Mobile Application requires service orders, inventory, and authentication
+17. Comprehensive System Settings requires all core modules for administration
+18. Footer Branding & Developer Information integrates across all customer-facing modules
+19. Performance Optimization ensures all modules operate efficiently under load
+20. Data Migration & Integration Services supports deployment and third-party connections
+21. Arabic-First Internationalization spans all modules ensuring cultural compliance
+22. Backup & Recovery Management System provides critical data protection capabilities
+23. System Update & Patch Management ensures reliable and secure software maintenance
+24. System Health Monitoring & Alerting enables proactive performance management
+25. Advanced Security & Compliance Framework implements enterprise-grade security measures
+26. Customer Support & Helpdesk System delivers comprehensive support capabilities
+27. External System Integration & API Management provides robust integration with third-party services
+28. Final integration testing and security validation across complete system before production
+
+CRITICAL SUCCESS FACTORS:
+- Zero tolerance for authentication bypasses or unauthorized access
+- Real-time KPI updates across all modules without performance degradation
+- Seamless Arabic/English experience with proper cultural adaptation
+- Mobile-first design supporting offline operations and real-time synchronization
+- Enterprise-grade security with comprehensive audit trails and compliance reporting
+- Scalable architecture supporting growth from single workshop to multi-location operations
+
+DEFINITION OF DONE:
+- Digital license management operational with RSA-4096 signatures and hardware binding
+- First-run wizard guides users through complete system setup with validation
+- Advanced login system provides secure authentication with multi-factor support
+- All web pages protected by authentication with proper role-based access control
+- Core system pages maintain consistent navigation and responsive design
+- Dynamic KPI dashboard delivers real-time analytics with customizable widgets
+- Customer and vehicle management supports Arabic search with 95% accuracy
+- Inventory management provides barcode integration with automated reordering
+- Service order workflow enables intelligent technician assignment and quality control
+- Billing system complies with Omani VAT regulations with QR code generation
+- Reporting system delivers comprehensive analytics with predictive insights
+- Digital signature system supports legal compliance with document workflows
+- Workshop identity locked with secure modification procedures and audit trails
+- System settings interface provides complete administration capabilities
+- Customer portal delivers secure self-service with Arabic/English support
+- Technician mobile application operates offline with real-time synchronization
+- Developer footer information displays across all customer-facing interfaces
+- Performance benchmarks achieved for response times and concurrent user support
+- Automated backup system operational with verified recovery procedures
+- System update mechanism validated with rollback capabilities
+- Health monitoring dashboard provides real-time system status with alerting
+- Advanced security framework operational with compliance reporting
+- Customer support system functional with multi-channel communication
+- External API integration framework operational with comprehensive documentation
+- Security compliance verified through penetration testing and vulnerability assessment
+- Arabic-first internationalization validated by native Arabic speakers in Oman market
+- Enterprise-grade deployment ready for production with full documentation and support capabilities

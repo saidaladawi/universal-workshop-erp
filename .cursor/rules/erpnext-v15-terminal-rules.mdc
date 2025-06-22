@@ -1,0 +1,306 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# ERPNext v15 Terminal Rules - Universal Workshop ERP
+
+This guide provides structured rules for executing terminal commands in ERPNext v15 specifically for the Universal Workshop ERP project - an Arabic-first automotive workshop management system built on ERPNext v15.65.2.
+
+## **1. General Usage Principles**
+
+- **User Context**: Execute `bench` commands as the `frappe` user whenever possible. For system-level operations (e.g., firewall, service management), use `sudo`.
+- **Working Directory**: Always run `bench` commands from the `frappe-bench` directory.
+- **Site Specification**: Always specify `--site universal.local` to avoid accidental operations on wrong sites.
+- **Backups First**: Before any significant operation (update, migrate, restore), always create a backup:
+  ```bash
+  # ✅ DO: Always back up before major changes
+  bench --site universal.local backup
+  ```
+- **Log Monitoring**: For troubleshooting, actively monitor logs in a separate terminal session:
+  ```bash
+  # ✅ DO: Tail logs to monitor activity
+  bench --site universal.local logs
+  tail -f logs/bench.log logs/worker.error.log logs/scheduler.log
+  ```
+
+## **2. Universal Workshop ERP Specific Commands**
+
+### **Arabic Localization & RTL Support**
+
+| Purpose                     | Command Template                                           | Notes                                          |
+| --------------------------- | ---------------------------------------------------------- | ---------------------------------------------- |
+| **Build Arabic Translations** | `bench build --locale ar`                                | After updating Arabic translations             |
+| **Rebuild RTL Assets**      | `bench build --apps universal_workshop`                   | After CSS/JS changes for RTL support          |
+| **Clear Translation Cache** | `bench --site universal.local clear-cache --doctype Translation` | When translations aren't reflecting           |
+| **Test Arabic Forms**       | `bench --site universal.local console`                    | Interactive testing with Arabic data          |
+
+### **Custom App Development Workflow**
+
+| Purpose                        | Command Template                                         | Notes                                                |
+| ------------------------------ | -------------------------------------------------------- | ---------------------------------------------------- |
+| **Apply Custom DocType Changes** | `bench --site universal.local migrate`                 | After modifying Workshop, Vehicle, Customer DocTypes |
+| **Reload Custom Scripts**     | `bench --site universal.local clear-cache && bench restart` | After JS/Python controller changes                  |
+| **Test Oman Compliance**      | `bench --site universal.local execute universal_workshop.tests.test_vat_compliance` | Validate 5% VAT calculations                        |
+| **License Management Test**    | `bench --site universal.local execute universal_workshop.license.validate_license` | Test hardware fingerprinting & business binding     |
+
+## **3. Command Templates & Best Practices**
+
+### **Installation & Setup**
+
+| Purpose                  | Command Template                                    | Notes                               |
+| ------------------------ | --------------------------------------------------- | ----------------------------------- |
+| **Firewall Config (Oman)** | `sudo ufw allow 22,25,143,80,443,3306,3022,8000/tcp` | Includes port 3022 for SSH backup  |
+| **Enable Firewall**      | `sudo ufw enable`                                   |                                     |
+| **Create Universal Site** | `bench new-site universal.local --db-name universal_workshop_db` | Project-specific site creation     |
+| **Install Workshop App** | `bench --site universal.local install-app universal_workshop` | Install custom workshop application |
+
+### **Development & Maintenance**
+
+| Purpose                  | Command Template                                     | Notes                                                            |
+| ------------------------ | ---------------------------------------------------- | ---------------------------------------------------------------- |
+| **Start Dev Server**     | `bench start`                                        | For development only. Monitor Arabic form rendering.             |
+| **Stop Dev Server**      | `bench stop`                                         |                                                                  |
+| **Update & Patch**       | `bench update --patch`                               | Applies patches and updates apps.                                |
+| **Force Clean Update**   | `bench update --reset`                               | Use if a standard update fails. Resets local changes.            |
+| **Database Migration**   | `bench --site universal.local migrate`              | Apply schema changes after modifying DocTypes or apps.           |
+| **Restore from Backup**  | `bench --site universal.local restore [path_to_backup]` | Restores database, public, and private files.                    |
+| **Enable Maintenance**   | `bench --site universal.local set-maintenance-mode on` | Use during major updates or deployment                           |
+
+### **Testing & Quality Assurance**
+
+| Purpose                  | Command Template                                                       | Notes                                                                  |
+| ------------------------ | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| **Build Assets**         | `bench build --apps universal_workshop`                               | Builds JS/CSS assets for workshop app                                 |
+| **Run Workshop Tests**   | `bench --site universal.local run-tests universal_workshop`           | Execute comprehensive test suite                                       |
+| **Run UI Tests**         | `bench --site universal.local run-ui-tests universal_workshop --headless` | Arabic UI and RTL layout testing                                      |
+| **Execute Server Script**| `bench --site universal.local execute [method_path]`                  | Execute whitelisted Python functions for debugging                    |
+| **Validate Arabic Data** | `bench --site universal.local execute universal_workshop.utils.test_arabic_encoding` | Test Arabic character encoding and display                            |
+
+### **Production Deployment**
+
+| Purpose                     | Command Template                                         | Notes                                              |
+| --------------------------- | -------------------------------------------------------- | -------------------------------------------------- |
+| **Setup Production**        | `sudo bench setup production frappe`                    | Configure nginx and supervisor for production     |
+| **Enable Scheduler**        | `bench --site universal.local enable-scheduler`         | Required for workshop reminders and notifications |
+| **SSL Certificate**         | `sudo bench setup lets-encrypt universal.local`         | Enable HTTPS for production                       |
+| **Backup Schedule**         | `bench --site universal.local backup --frequency daily` | Automated daily backups                           |
+
+## **4. Arabic Development Workflow**
+
+### **Complete Arabic Update Cycle**
+```bash
+# ✅ DO: Full Arabic localization update workflow
+# 1. Update translation files
+bench --site universal.local export-translations ar
+
+# 2. Edit translations in apps/universal_workshop/translations/ar.csv
+
+# 3. Import updated translations  
+bench --site universal.local import-translations ar
+
+# 4. Build assets with Arabic support
+bench build --locale ar --apps universal_workshop
+
+# 5. Clear cache and restart
+bench --site universal.local clear-cache
+bench restart
+
+# 6. Verify in browser with Arabic interface
+```
+
+### **RTL CSS/JS Development**
+```bash
+# ✅ DO: After modifying RTL styles or Arabic JS
+# 1. Build specific assets
+bench build --apps universal_workshop
+
+# 2. Clear website cache (for portal pages)
+bench --site universal.local clear-website-cache
+
+# 3. Test Arabic forms and RTL layout
+# 4. Verify on mobile devices for Arabic input
+```
+
+## **5. Upgrading Universal Workshop ERP**
+
+The upgrade process for the custom workshop application:
+
+1.  **Pre-Upgrade Preparation**:
+    ```bash
+    # Create comprehensive backup
+    bench --site universal.local backup --with-files
+    
+    # Enable maintenance mode
+    bench --site universal.local set-maintenance-mode on
+    
+    # Stop services
+    bench stop
+    ```
+
+2.  **Core Framework Upgrade**:
+    ```bash
+    # Switch to version 15 (if not already)
+    bench switch-to-branch version-15 frappe erpnext --upgrade
+    
+    # Update core applications
+    bench update --patch
+    ```
+
+3.  **Custom App Migration**:
+    ```bash
+    # Apply custom app migrations
+    bench --site universal.local migrate
+    
+    # Rebuild custom assets
+    bench build --apps universal_workshop
+    bench build --locale ar
+    ```
+
+4.  **Post-Upgrade Validation**:
+    ```bash
+    # Test Arabic functionality
+    bench --site universal.local execute universal_workshop.tests.test_arabic_features
+    
+    # Validate Oman compliance features
+    bench --site universal.local execute universal_workshop.tests.test_oman_compliance
+    
+    # Test license management
+    bench --site universal.local execute universal_workshop.license.validate_system
+    ```
+
+5.  **Service Restart**:
+    ```bash
+    # Restart all services
+    sudo supervisorctl restart all
+    
+    # Disable maintenance mode
+    bench --site universal.local set-maintenance-mode off
+    
+    # Verify version
+    bench version
+    ```
+
+## **6. Frappe Console for Workshop Development**
+
+Enhanced console usage for Universal Workshop ERP:
+
+```bash
+# ✅ DO: Start console for workshop development
+bench --site universal.local console
+```
+
+**Workshop-Specific Console Operations**:
+```python
+# Test Arabic customer creation
+customer = frappe.new_doc("Customer")
+customer.customer_name = "Ahmed Al-Rashid"
+customer.customer_name_ar = "أحمد الراشد"
+customer.insert()
+
+# Test workshop profile with Arabic
+workshop = frappe.get_doc("Workshop Profile", "WS-2024-0001")
+print(workshop.workshop_name_ar)
+
+# Test Oman VAT calculation
+from universal_workshop.utils.vat import calculate_oman_vat
+vat_result = calculate_oman_vat(100.000)  # 5% VAT for OMR 100
+print(f"Total with VAT: {vat_result['total_amount']}")
+
+# Test license validation
+from universal_workshop.license.validator import check_license_status
+license_status = check_license_status()
+print(f"License valid: {license_status['is_valid']}")
+
+# Always commit changes
+frappe.db.commit()
+```
+
+## **7. Performance Monitoring Commands**
+
+### **Universal Workshop Specific Performance**
+```bash
+# ✅ DO: Monitor workshop-specific performance
+# Monitor database performance for Arabic queries
+bench --site universal.local mariadb
+
+# Check Arabic text indexing performance
+SHOW INDEX FROM `tabCustomer`;
+EXPLAIN SELECT * FROM `tabCustomer` WHERE customer_name_ar LIKE '%أحمد%';
+
+# Monitor vehicle lookup performance  
+bench --site universal.local execute universal_workshop.performance.check_vin_decoder_speed
+
+# Check license validation performance
+bench --site universal.local execute universal_workshop.license.performance_test
+```
+
+## **8. Common Workshop ERP Mistakes & Anti-Patterns**
+
+| Mistake                                    | Why It's Wrong                                       | Correction                                                       |
+| ------------------------------------------ | ---------------------------------------------------- | ---------------------------------------------------------------- |
+| **Running `bench update` on production**   | Can break Arabic localization and custom features   | Use staging first, then `bench update --patch`                  |
+| **Modifying core ERPNext files**          | Changes lost on update, breaks Arabic support       | Use universal_workshop app for all customizations               |
+| **Ignoring Arabic character encoding**    | Corrupted Arabic text in database                   | Always use UTF-8, test with `arabic_text_validator.py`          |
+| **Missing site specification**             | Commands run on wrong site                          | Always use `--site universal.local`                             |
+| **Forgetting Arabic asset builds**        | Arabic translations not reflected in UI             | Run `bench build --locale ar` after translation changes        |
+| **Running as root user**                  | File permission issues, security risks              | Always use `frappe` user for bench commands                     |
+| **Skipping license validation**            | App runs without proper authorization               | Always validate license after deployment                        |
+
+## **9. Emergency Recovery Commands**
+
+### **Universal Workshop ERP Recovery**
+```bash
+# ✅ DO: Emergency recovery for workshop system
+# If Arabic data appears corrupted
+bench --site universal.local execute universal_workshop.recovery.fix_arabic_encoding
+
+# If license validation fails
+bench --site universal.local execute universal_workshop.license.reset_license_cache
+
+# If custom DocTypes are missing
+bench --site universal.local migrate --force
+
+# If assets are broken
+bench build --apps universal_workshop --force
+bench --site universal.local clear-cache
+
+# Complete system recovery
+bench --site universal.local restore /path/to/last-known-good-backup.sql.gz
+```
+
+## **10. Task Master Integration Commands**
+
+### **Development Workflow with Task Master**
+```bash
+# ✅ DO: Integrate with Task Master workflow
+# After completing a development task
+task-master update-subtask --id=2.3 --prompt="ERPNext Arabic localization completed:
+- Enabled Arabic in System Settings
+- Configured RTL CSS layouts  
+- Tested Arabic customer data entry
+- Validated Oman VAT calculations (5%)
+- All tests passing"
+
+# Before major deployment
+task-master set-status --id=2 --status=done
+task-master next-task
+
+# Log terminal command results
+task-master update-subtask --id=1.1 --prompt="
+Executed bench commands successfully:
+- bench --site universal.local migrate ✅
+- bench build --locale ar ✅  
+- bench restart ✅
+System ready for Arabic workshop data entry"
+```
+
+## **11. File References**
+
+- Workshop configuration: [apps/universal_workshop/](mdc:apps/universal_workshop)
+- Task management: [.taskmaster/tasks/tasks.json](mdc:.taskmaster/tasks/tasks.json)
+- Development workflow: [.cursor/rules/dev_workflow.mdc](mdc:.cursor/rules/dev_workflow.mdc)
+- Arabic localization: [.cursor/rules/arabic-localization.mdc](mdc:.cursor/rules/arabic-localization.mdc)
+- Project documentation: [docs/](mdc:docs)
+
+By following these Enhanced ERPNext v15 terminal rules specifically tailored for Universal Workshop ERP, you ensure safe, efficient, and culturally-appropriate development of the Arabic-first automotive workshop management system.

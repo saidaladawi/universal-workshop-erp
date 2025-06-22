@@ -1,0 +1,20 @@
+{
+    "license_id": "UW-2025-001",
+    "workshop_name_ar": "ورشة الخليج للسيارات",
+    "workshop_name_en": "Gulf Automotive Workshop",
+    "license_type": "Professional",
+    "issue_date": "2025-01-21",
+    "expiry_date": "2026-01-21",
+    "features": [
+        "vehicle_management",
+        "service_orders",
+        "inventory_management",
+        "customer_analytics",
+        "financial_reporting",
+        "multi_language_support"
+    ],
+    "max_users": 25,
+    "max_vehicles": 1000,
+    "issued_by": "Universal Workshop Systems",
+    "status": "active"
+}

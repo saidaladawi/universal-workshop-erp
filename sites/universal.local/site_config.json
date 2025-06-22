@@ -1,7 +1,18 @@
 {
- "allow_tests": true,
+ "allow_tests": 1,
+ "auto_update": 0,
  "db_name": "_74f7a35b377fdaa8",
  "db_password": "3XpxCTCFpf2f7Wjk",
  "db_type": "mariadb",
- "developer_mode": 1
+ "default_site": "universal.local",
+ "developer_mode": 1,
+ "disable_website_cache": 0,
+ "enable_scheduler": 1,
+ "maintenance_mode": 0,
+ "workshop_config": {
+  "appointment_booking_lookahead_days": 30,
+  "customer_search_limit": 100,
+  "service_history_default_limit": 50,
+  "vehicle_search_limit": 100
+ }
 }

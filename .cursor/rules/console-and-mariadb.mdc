@@ -1,0 +1,117 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Console & MariaDB Usage Guide for Universal Workshop ERP
+
+## **Frappe/ERPNext Python Console (bench console)**
+
+### **How to Open the Console**
+- Always run from the `frappe-bench` directory.
+- Use the following command:
+  ```bash
+  bench --site universal.local console
+  ```
+- This opens an interactive Python shell with full Frappe context for the `universal.local` site.
+
+### **Best Practices**
+- Use for testing DocType logic, running scripts, and debugging.
+- Always commit changes with `frappe.db.commit()` if you make database modifications.
+- Use `frappe.get_doc()`, `frappe.new_doc()`, and Frappe ORM methods for all operations.
+- Avoid raw SQL unless necessary.
+- To exit: Press `Ctrl+D` or type `exit()`
+
+### **Common Console Commands**
+```python
+# Create a new Customer with Arabic name
+customer = frappe.new_doc("Customer")
+customer.customer_name = "Ahmed Al-Rashid"
+customer.customer_name_ar = "أحمد الراشد"
+customer.insert()
+
+# Fetch a Workshop Profile
+workshop = frappe.get_doc("Workshop Profile", "WS-2024-0001")
+print(workshop.workshop_name_ar)
+
+# Test VAT calculation
+from universal_workshop.utils.vat import calculate_oman_vat
+vat_result = calculate_oman_vat(100.000)
+print(f"Total with VAT: {vat_result['total_amount']}")
+
+# Always commit after changes
+frappe.db.commit()
+```
+
+### **Arabic Notes (ملاحظات بالعربية)**
+- استخدم الكونسول لاختبار منطق الدوكتايب أو تصحيح البيانات مباشرة.
+- تأكد من استخدام `frappe.db.commit()` بعد أي تعديل على البيانات.
+- للخروج من الكونسول: اضغط `Ctrl+D` أو اكتب `exit()`.
+
+---
+
+## **MariaDB SQL Console (mariadb client)**
+
+### **How to Open the MariaDB Console**
+- Always run from the `frappe-bench` directory.
+- Use the following command to connect to the site database:
+  ```bash
+  bench --site universal.local mariadb
+  ```
+- This opens the MariaDB SQL prompt for the `universal.local` site database.
+
+### **How to Use the MariaDB Console**
+- SQL statements must end with a semicolon `;`.
+- To display results vertically (for long text), end your query with `\G` instead of `;`.
+- To exit: Type `exit;` or `quit;` or press `Ctrl+D`.
+- To clear the current input: Type `\c` and press Enter.
+- To see help: Type `help;` or `\h`.
+
+### **Common MariaDB Commands**
+```sql
+-- Show all tables
+SHOW TABLES;
+
+-- Describe a table structure
+DESCRIBE `tabCustomer`;
+
+-- Select data (limit results)
+SELECT name, customer_name_ar FROM `tabCustomer` LIMIT 10;
+
+-- Search for Arabic names
+SELECT name FROM `tabCustomer` WHERE customer_name_ar LIKE '%أحمد%';
+
+-- Show current database
+SELECT DATABASE();
+
+-- Show user and host
+SELECT USER(), CURRENT_USER();
+
+-- Exit the console
+exit;
+```
+
+### **Best Practices**
+- Always use parameterized queries in scripts (not in console) to avoid SQL injection.
+- Never run destructive commands (like `DROP TABLE`) unless you have a backup.
+- Use `SHOW WARNINGS;` after running queries to see any issues.
+- For large outputs, use `\P cat` to disable the pager and print to screen.
+
+### **Arabic Notes (ملاحظات بالعربية)**
+- الكونسول الخاص بقاعدة البيانات مفيد لفحص الجداول أو تصحيح البيانات مباشرة.
+- يجب إنهاء كل أمر بـ `;` حتى يتم تنفيذه.
+- للخروج: اكتب `exit;` أو `quit;` أو اضغط `Ctrl+D`.
+- لعرض النتائج بشكل رأسي (أسهل للقراءة): استخدم `\G` بدلاً من `;` في نهاية الاستعلام.
+
+---
+
+## **References**
+- [MariaDB Command-Line Client Documentation](mdc:https:/mariadb.com/docs/server/clients-and-utilities/mariadb-client/mariadb-command-line-client)
+- [ERPNext Console Usage](mdc:https:/frappeframework.com/docs/v15/user/en/command-line-interface#console)
+- [Universal Workshop ERP Terminal Rules](mdc:erpnext-v15-terminal-rules.mdc)
+
+---
+
+**Rule Owner:** Universal Workshop ERP Team
+
+**Last Updated:** 2024-06-21

@@ -1714,7 +1714,7 @@
             "description": "Create a mobile-optimized interface for goods receiving, allowing users to process receipts and inspections on handheld devices.",
             "dependencies": [],
             "details": "Design responsive forms for Purchase Receipt and Quality Inspection, supporting barcode scanning and Arabic localization.",
-            "status": "in-progress"
+            "status": "done"
           },
           {
             "id": 8,
@@ -1722,7 +1722,7 @@
             "description": "Ensure quality inspection results feed into supplier performance tracking and cost analysis dashboards.",
             "dependencies": [],
             "details": "Automate the update of Supplier Scorecard metrics and analytics dashboards based on inspection outcomes, with full Arabic support.",
-            "status": "pending"
+            "status": "in-progress"
           }
         ]
       },
@@ -1823,7 +1823,7 @@
     ],
     "metadata": {
       "created": "2025-06-16T18:41:05.584Z",
-      "updated": "2025-06-23T16:15:42.290Z",
+      "updated": "2025-06-23T18:25:39.025Z",
       "description": "Tasks for master context"
     }
   }

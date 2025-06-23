@@ -1535,8 +1535,107 @@
           18,
           19
         ],
-        "status": "pending",
-        "subtasks": []
+        "status": "in-progress",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Design and Implement Service Estimate DocType",
+            "description": "Create a custom DocType for service estimates, defining necessary fields, relationships, and permissions in ERPNext.",
+            "dependencies": [],
+            "details": "Specify fields such as service description, estimated parts, labor, costs, and customer details. Ensure compatibility with existing ERPNext modules.\n<info added on 2025-06-23T07:45:21.920Z>\nService Estimate DocType foundation is now complete and ready for parts auto-suggestion integration. The Service Estimate Parts child DocType includes part_name_ar field for Arabic localization and supplier integration fields that will support the auto-suggestion functionality. The Python controller includes WhiteListed API methods that can be extended to provide real-time parts suggestions based on service descriptions and vehicle specifications. Integration points are established with existing Customer and Vehicle modules, providing the necessary context for intelligent parts recommendations.\n</info added on 2025-06-23T07:45:21.920Z>",
+            "status": "done"
+          },
+          {
+            "id": 2,
+            "title": "Develop Parts Auto-Suggestion Feature",
+            "description": "Implement an automated system to suggest parts based on service type, historical data, and inventory availability.",
+            "dependencies": [
+              1
+            ],
+            "details": "Integrate with the Item master and use rules or ML models to recommend parts during estimate creation.",
+            "status": "pending"
+          },
+          {
+            "id": 3,
+            "title": "Build Order Conversion Workflow",
+            "description": "Enable seamless conversion of service estimates into sales orders, purchase orders, or work orders.",
+            "dependencies": [
+              1,
+              2
+            ],
+            "details": "Automate document transitions and ensure data consistency across related DocTypes.",
+            "status": "pending"
+          },
+          {
+            "id": 4,
+            "title": "Implement Progress Tracking Mechanism",
+            "description": "Develop tools to track the status and progress of service orders from estimate to completion.",
+            "dependencies": [
+              3
+            ],
+            "details": "Add status fields, progress bars, and timeline views to relevant DocTypes for real-time tracking.",
+            "status": "pending"
+          },
+          {
+            "id": 5,
+            "title": "Set Up Customer Notification System",
+            "description": "Configure automated notifications for customers at key workflow stages (estimate, approval, order, completion).",
+            "dependencies": [
+              3,
+              4
+            ],
+            "details": "Use ERPNext's notification and email alert features to keep customers informed.",
+            "status": "pending"
+          },
+          {
+            "id": 6,
+            "title": "Integrate Labor Time Tracking",
+            "description": "Add functionality to log and monitor labor hours spent on each service order.",
+            "dependencies": [
+              4
+            ],
+            "details": "Link time logs to service orders and estimates for accurate costing and reporting.",
+            "status": "pending"
+          },
+          {
+            "id": 7,
+            "title": "Establish Quality Control Workflow",
+            "description": "Implement quality control checks and approvals within the service workflow.",
+            "dependencies": [
+              4,
+              6
+            ],
+            "details": "Add QC steps, checklists, and approval fields to ensure service standards are met before completion.",
+            "status": "pending"
+          },
+          {
+            "id": 8,
+            "title": "Automate VAT Calculation",
+            "description": "Ensure VAT is calculated and applied correctly on estimates, orders, and invoices.",
+            "dependencies": [
+              3
+            ],
+            "details": "Integrate with ERPNext's tax rules and customize as needed for compliance.",
+            "status": "pending"
+          },
+          {
+            "id": 9,
+            "title": "Develop Mobile Interface",
+            "description": "Create a mobile-friendly interface for field staff and customers to interact with the service workflow.",
+            "dependencies": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "details": "Leverage ERPNext's mobile capabilities or build custom pages for estimate creation, order tracking, and notifications.",
+            "status": "pending"
+          }
+        ]
       },
       {
         "id": 22,
@@ -1649,7 +1748,7 @@
     ],
     "metadata": {
       "created": "2025-06-16T18:41:05.584Z",
-      "updated": "2025-06-23T07:30:56.103Z",
+      "updated": "2025-06-23T07:45:30.718Z",
       "description": "Tasks for master context"
     }
   }

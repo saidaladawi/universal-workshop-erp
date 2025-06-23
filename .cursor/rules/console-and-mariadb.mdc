@@ -3,115 +3,507 @@ description:
 globs: 
 alwaysApply: true
 ---
-# Console & MariaDB Usage Guide for Universal Workshop ERP
+# ERPNext Console & MariaDB Usage Guide for Universal Workshop ERP
 
-## **Frappe/ERPNext Python Console (bench console)**
+## **ERPNext/Frappe Python Console (bench console)**
 
-### **How to Open the Console**
-- Always run from the `frappe-bench` directory.
-- Use the following command:
+### **How to Access the Console**
+- **Always run from the `frappe-bench` directory**
+- **Always specify the site** to avoid accidental operations on wrong databases:
   ```bash
   bench --site universal.local console
   ```
-- This opens an interactive Python shell with full Frappe context for the `universal.local` site.
+- This opens an interactive Python shell with full Frappe context for the `universal.local` site
+- The console provides direct access to DocTypes, database operations, and business logic testing
 
-### **Best Practices**
-- Use for testing DocType logic, running scripts, and debugging.
-- Always commit changes with `frappe.db.commit()` if you make database modifications.
-- Use `frappe.get_doc()`, `frappe.new_doc()`, and Frappe ORM methods for all operations.
-- Avoid raw SQL unless necessary.
-- To exit: Press `Ctrl+D` or type `exit()`
+### **Console Best Practices**
 
-### **Common Console Commands**
+#### **1. Safety First**
+- **Always specify the target site** using `--site universal.local`
+- **Start with read-only operations** to inspect data before making changes
+- **Use transactions for bulk operations** to ensure atomicity
+- **Test in development first** - never run untested scripts in production
+- **Always commit changes** with `frappe.db.commit()` after database modifications
+- **Keep audit trail** - Document all console interventions for debugging and compliance
+- **Avoid long-running operations** - Console sessions are synchronous and can block resources
+
+#### **2. Preferred Methods**
+- **Use Frappe ORM** over raw SQL: `frappe.get_doc()`, `frappe.new_doc()`, `frappe.get_list()`
+- **Prefer frappe.db.get_value()** for single value queries instead of raw SQL
+- **Use frappe.get_all()** with specific fields to avoid SELECT * performance issues
+- **Avoid raw SQL** unless absolutely necessary for complex queries
+- **Use parameterized queries** if raw SQL is required to prevent injection
+- **Leverage Frappe APIs** for consistency and safety
+
+#### **3. Session Management**
+- **To exit**: Press `Ctrl+D` or type `exit()`
+- **Clear cache after changes**: Run `bench --site universal.local clear-cache`
+- **Monitor logs**: Check `frappe-bench/logs` for errors during console operations
+- **Use version control** for custom scripts and document all changes
+- **Background jobs for heavy tasks**: Use `bench execute` for resource-intensive operations
+
+### **Common Console Operations for Universal Workshop ERP**
+
+#### **Customer Management with Arabic Support**
 ```python
-# Create a new Customer with Arabic name
+# Create customer with Arabic name
 customer = frappe.new_doc("Customer")
 customer.customer_name = "Ahmed Al-Rashid"
 customer.customer_name_ar = "أحمد الراشد"
+customer.phone = "+968 24123456"
 customer.insert()
-
-# Fetch a Workshop Profile
-workshop = frappe.get_doc("Workshop Profile", "WS-2024-0001")
-print(workshop.workshop_name_ar)
-
-# Test VAT calculation
-from universal_workshop.utils.vat import calculate_oman_vat
-vat_result = calculate_oman_vat(100.000)
-print(f"Total with VAT: {vat_result['total_amount']}")
-
-# Always commit after changes
 frappe.db.commit()
+
+# Search customers with Arabic names
+arabic_customers = frappe.get_list("Customer", 
+    filters={"customer_name_ar": ["like", "%أحمد%"]},
+    fields=["name", "customer_name", "customer_name_ar"]
+)
 ```
 
-### **Arabic Notes (ملاحظات بالعربية)**
-- استخدم الكونسول لاختبار منطق الدوكتايب أو تصحيح البيانات مباشرة.
-- تأكد من استخدام `frappe.db.commit()` بعد أي تعديل على البيانات.
-- للخروج من الكونسول: اضغط `Ctrl+D` أو اكتب `exit()`.
+#### **Workshop Profile Operations**
+```python
+# Fetch workshop profile with Arabic details
+workshop = frappe.get_doc("Workshop Profile", "WS-2024-0001")
+print(f"Arabic Name: {workshop.workshop_name_ar}")
+print(f"Business License: {workshop.business_license}")
+
+# Test Oman business license validation
+try:
+    workshop.validate_business_license()
+    print("License validation passed")
+except frappe.ValidationError as e:
+    print(f"License validation failed: {e}")
+```
+
+#### **License Management and Security Testing**
+```python
+# Test license validation
+from universal_workshop.license.validator import validate_license
+result = validate_license("BUSINESS-123", "HW-FINGERPRINT-XYZ")
+print(f"License valid: {result['is_valid']}")
+
+# Check hardware fingerprints
+fingerprints = frappe.get_list("Hardware Fingerprint", 
+    filters={"business": "Al-Najah"},
+    fields=["name", "fingerprint", "created_on"]
+)
+```
+
+#### **VAT and Financial Calculations**
+```python
+# Test Oman VAT calculation (5%)
+from universal_workshop.utils.vat import calculate_oman_vat
+vat_result = calculate_oman_vat(100.000)  # For 100 OMR
+print(f"Base: {vat_result['base_amount']} OMR")
+print(f"VAT (5%): {vat_result['vat_amount']} OMR") 
+print(f"Total: {vat_result['total_amount']} OMR")
+```
+
+#### **Vehicle and Service Operations**
+```python
+# Test VIN decoder integration
+from universal_workshop.vehicle.vin_decoder import decode_vin
+vin_info = decode_vin("1HGBH41JXMN109186")
+print(f"Make: {vin_info.get('make')}")
+print(f"Model: {vin_info.get('model')}")
+
+# Check service orders
+service_orders = frappe.get_list("Service Order",
+    filters={"status": "In Progress"},
+    fields=["name", "customer", "vehicle", "service_date"]
+)
+```
+
+#### **Bulk Data Operations with Transaction Safety**
+```python
+# Safe bulk update example
+from frappe import db
+
+try:
+    db.begin()  # Start transaction
+    
+    # Update multiple records
+    customers = frappe.get_list("Customer", 
+        filters={"disabled": 0},
+        fields=["name", "customer_name"]
+    )
+    
+    for customer in customers:
+        doc = frappe.get_doc("Customer", customer.name)
+        doc.customer_name = doc.customer_name.title()
+        doc.save()
+    
+    db.commit()  # Commit all changes
+    print(f"Successfully updated {len(customers)} customers")
+    
+except Exception as e:
+    db.rollback()  # Rollback on error
+    print(f"Error occurred: {e}")
+    raise
+```
+
+#### **Debugging and Troubleshooting**
+```python
+# Check system settings
+system_settings = frappe.get_doc("System Settings")
+print(f"Language: {system_settings.language}")
+print(f"Country: {system_settings.country}")
+print(f"Currency: {system_settings.currency}")
+
+# Test user permissions
+frappe.set_user("technician@workshop.com")
+has_permission = frappe.has_permission("Service Order", "read")
+print(f"User has read permission: {has_permission}")
+
+# Check workflow states
+service_order = frappe.get_doc("Service Order", "SO-0001")
+print(f"Workflow state: {service_order.workflow_state}")
+
+# Debug DocType permissions
+frappe.core.doctype.docperm.get_doc_permissions("Service Order")
+
+# Check user roles and permissions
+user_roles = frappe.get_roles("technician@workshop.com")
+print(f"User roles: {user_roles}")
+
+# Validate business logic
+try:
+    doc = frappe.get_doc("Service Order", "SO-0001")
+    doc.validate()  # Run validation without saving
+    print("Validation passed")
+except frappe.ValidationError as e:
+    print(f"Validation failed: {e}")
+
+# Check for orphaned records
+orphaned_items = frappe.db.sql("""
+    SELECT poi.name, poi.item_code 
+    FROM `tabPurchase Order Item` poi
+    LEFT JOIN `tabItem` i ON poi.item_code = i.item_code
+    WHERE i.item_code IS NULL
+    LIMIT 10
+""", as_dict=True)
+print(f"Found {len(orphaned_items)} orphaned items")
+```
 
 ---
 
-## **MariaDB SQL Console (mariadb client)**
+## **MariaDB/MySQL Console (mariadb client)**
 
-### **How to Open the MariaDB Console**
-- Always run from the `frappe-bench` directory.
-- Use the following command to connect to the site database:
+### **How to Access MariaDB Console**
+- **Always run from the `frappe-bench` directory**
+- **Use bench command for automatic credentials**:
   ```bash
   bench --site universal.local mariadb
   ```
-- This opens the MariaDB SQL prompt for the `universal.local` site database.
+- This automatically connects with the correct database credentials for the site
+- **Alternative direct connection**:
+  ```bash
+  mariadb -u [username] -p -h localhost -P 3306
+  ```
 
-### **How to Use the MariaDB Console**
-- SQL statements must end with a semicolon `;`.
-- To display results vertically (for long text), end your query with `\G` instead of `;`.
-- To exit: Type `exit;` or `quit;` or press `Ctrl+D`.
-- To clear the current input: Type `\c` and press Enter.
-- To see help: Type `help;` or `\h`.
+### **MariaDB Console Usage**
 
-### **Common MariaDB Commands**
+#### **Basic Console Operations**
+- **SQL statements must end with semicolon** `;`
+- **For vertical display** (better for long text): Use `\G` instead of `;`
+- **To exit**: Type `exit;` or `quit;` or press `Ctrl+D`
+- **Clear current input**: Type `\c` and press Enter
+- **Get help**: Type `help;` or `\h`
+
+#### **Essential MariaDB Commands**
 ```sql
--- Show all tables
+-- Show all tables in current database
 SHOW TABLES;
 
--- Describe a table structure
-DESCRIBE `tabCustomer`;
-
--- Select data (limit results)
-SELECT name, customer_name_ar FROM `tabCustomer` LIMIT 10;
-
--- Search for Arabic names
-SELECT name FROM `tabCustomer` WHERE customer_name_ar LIKE '%أحمد%';
-
--- Show current database
+-- Show database information
 SELECT DATABASE();
-
--- Show user and host
 SELECT USER(), CURRENT_USER();
 
--- Exit the console
-exit;
+-- Describe table structure
+DESCRIBE `tabCustomer`;
+DESCRIBE `tabWorkshop Profile`;
+
+-- Show table indexes
+SHOW INDEX FROM `tabCustomer`;
+
+-- Check table size and row count
+SELECT 
+    table_name, 
+    table_rows, 
+    data_length, 
+    index_length 
+FROM information_schema.tables 
+WHERE table_schema = DATABASE();
 ```
 
-### **Best Practices**
-- Always use parameterized queries in scripts (not in console) to avoid SQL injection.
-- Never run destructive commands (like `DROP TABLE`) unless you have a backup.
-- Use `SHOW WARNINGS;` after running queries to see any issues.
-- For large outputs, use `\P cat` to disable the pager and print to screen.
+### **Universal Workshop ERP Specific Queries**
 
-### **Arabic Notes (ملاحظات بالعربية)**
-- الكونسول الخاص بقاعدة البيانات مفيد لفحص الجداول أو تصحيح البيانات مباشرة.
-- يجب إنهاء كل أمر بـ `;` حتى يتم تنفيذه.
-- للخروج: اكتب `exit;` أو `quit;` أو اضغط `Ctrl+D`.
-- لعرض النتائج بشكل رأسي (أسهل للقراءة): استخدم `\G` بدلاً من `;` في نهاية الاستعلام.
+#### **Customer and Arabic Data Queries**
+```sql
+-- Search customers with Arabic names
+SELECT name, customer_name, customer_name_ar, phone 
+FROM `tabCustomer` 
+WHERE customer_name_ar LIKE '%أحمد%' 
+LIMIT 10;
+
+-- Check Arabic text encoding
+SELECT name, customer_name_ar, 
+    CHAR_LENGTH(customer_name_ar) as char_length,
+    LENGTH(customer_name_ar) as byte_length
+FROM `tabCustomer` 
+WHERE customer_name_ar IS NOT NULL 
+LIMIT 5;
+```
+
+#### **Workshop and License Queries**
+```sql
+-- Check workshop profiles
+SELECT name, workshop_name, workshop_name_ar, business_license, vat_number
+FROM `tabWorkshop Profile`
+WHERE disabled = 0;
+
+-- Validate Oman business licenses (should be 7 digits)
+SELECT name, business_license
+FROM `tabWorkshop Profile`
+WHERE LENGTH(business_license) != 7 OR business_license NOT REGEXP '^[0-9]+$';
+```
+
+#### **Service and Financial Analysis**
+```sql
+-- Service order summary
+SELECT 
+    status,
+    COUNT(*) as total_orders,
+    SUM(grand_total) as total_amount
+FROM `tabService Order`
+WHERE docstatus = 1
+GROUP BY status;
+
+-- VAT analysis (5% for Oman)
+SELECT 
+    DATE_FORMAT(posting_date, '%Y-%m') as month,
+    COUNT(*) as invoice_count,
+    SUM(total) as net_total,
+    SUM(total_taxes_and_charges) as vat_total,
+    SUM(grand_total) as gross_total
+FROM `tabSales Invoice`
+WHERE docstatus = 1
+GROUP BY month
+ORDER BY month DESC
+LIMIT 12;
+```
+
+#### **Performance and Monitoring Queries**
+```sql
+-- Check slow operations
+SHOW PROCESSLIST;
+
+-- Check table locks
+SHOW OPEN TABLES WHERE In_use > 0;
+
+-- Database size analysis
+SELECT 
+    table_schema as 'Database',
+    ROUND(SUM(data_length + index_length) / 1024 / 1024, 2) as 'Size (MB)'
+FROM information_schema.tables
+GROUP BY table_schema;
+
+-- Check InnoDB status
+SHOW ENGINE INNODB STATUS\G
+```
+
+### **Security and Best Practices**
+
+#### **Query Safety Guidelines**
+- **Always use LIMIT** for large result sets to prevent console hanging
+- **Use WHERE clauses** to filter data and improve performance  
+- **Never run UPDATE/DELETE** without WHERE clause in production
+- **Test destructive queries** in development environment first
+- **Use EXPLAIN** to analyze query performance before running expensive operations
+
+#### **Arabic Data Handling**
+```sql
+-- Verify UTF-8 encoding
+SHOW VARIABLES LIKE 'character_set%';
+SHOW VARIABLES LIKE 'collation%';
+
+-- Check for Arabic data corruption
+SELECT name, customer_name_ar
+FROM `tabCustomer`
+WHERE customer_name_ar REGEXP '[^\u0000-\u007F]'  -- Non-ASCII characters
+AND customer_name_ar NOT REGEXP '[\u0600-\u06FF]'  -- Not Arabic range
+LIMIT 10;
+```
+
+### **Troubleshooting Common Issues**
+
+#### **Connection Problems**
+```bash
+# Check MariaDB service status
+sudo systemctl status mariadb
+
+# Check socket files and active connections
+sudo netstat -ln | grep mysql
+sudo ss -tulpn | grep mysql
+
+# Check configuration
+sudo cat /etc/mysql/my.cnf | grep -E "(socket|port)"
+
+# Test connectivity
+telnet localhost 3306
+
+# Check MariaDB error logs
+sudo tail -f /var/log/mysql/error.log
+
+# Verify user permissions
+mysql -u root -p -e "SELECT user, host FROM mysql.user;"
+```
+
+#### **Database Recovery**
+```sql
+-- Check for corrupted tables
+CHECK TABLE `tabCustomer`;
+CHECK TABLE `tabService Order`;
+CHECK TABLE `tabSales Invoice`;
+
+-- Repair if needed (use with caution)
+REPAIR TABLE `tabCustomer`;
+
+-- Optimize tables
+OPTIMIZE TABLE `tabCustomer`;
+
+-- Check InnoDB table integrity
+CHECK TABLE `tabCustomer` FOR UPGRADE;
+
+-- Analyze table statistics
+ANALYZE TABLE `tabCustomer`;
+
+-- Check for foreign key constraints issues
+SELECT 
+    TABLE_NAME, COLUMN_NAME, CONSTRAINT_NAME, REFERENCED_TABLE_NAME, REFERENCED_COLUMN_NAME
+FROM information_schema.KEY_COLUMN_USAGE 
+WHERE REFERENCED_TABLE_SCHEMA = DATABASE()
+AND TABLE_NAME LIKE 'tab%';
+```
+
+#### **Emergency InnoDB Recovery**
+```bash
+# If MariaDB fails to start due to InnoDB corruption:
+
+# 1. Add recovery mode to my.cnf (start with 1, increase if needed)
+# [mysqld]
+# innodb_force_recovery = 1
+
+# 2. Start MariaDB in recovery mode
+sudo systemctl start mariadb
+
+# 3. Immediately backup all data
+mysqldump --all-databases --routines --triggers --events > emergency_backup.sql
+
+# 4. Stop MariaDB and remove recovery setting
+sudo systemctl stop mariadb
+# Remove innodb_force_recovery from my.cnf
+
+# 5. Restore from backup if needed
+mysql -u root -p < emergency_backup.sql
+```
+
+#### **Performance Issues**
+```sql
+-- Find slow queries
+SELECT * FROM mysql.slow_log 
+ORDER BY start_time DESC 
+LIMIT 5;
+
+-- Check for long-running queries
+SELECT * FROM information_schema.processlist 
+WHERE command != 'Sleep' 
+AND time > 60;
+```
+
+### **Integration with ERPNext Operations**
+
+#### **Post-Console Cleanup**
+After making database changes directly in MariaDB:
+
+```bash
+# Clear ERPNext cache
+bench --site universal.local clear-cache
+
+# Run migrations if schema changed
+bench --site universal.local migrate
+
+# Restart services if needed
+bench restart
+```
+
+#### **Backup and Recovery**
+```bash
+# Create backup before major operations
+bench --site universal.local backup --with-files
+
+# Restore from backup if needed
+bench --site universal.local restore /path/to/backup.sql.gz
+```
+
+## **Emergency Procedures**
+
+### **If Console Operations Fail**
+1. **Check error logs**: `tail -f frappe-bench/logs/frappe.log`
+2. **Verify database connection**: Test MariaDB console access
+3. **Clear cache and restart**: `bench --site universal.local clear-cache && bench restart`
+4. **Check site configuration**: Verify `sites/universal.local/site_config.json`
+5. **Test with minimal operations**: Try simple `frappe.get_doc("System Settings")`
+6. **Check permissions**: Verify database user has required privileges
+
+### **If Database Corruption Occurs**
+1. **Stop ERPNext**: `bench stop`
+2. **Check table integrity**: Use `CHECK TABLE` in MariaDB console
+3. **Restore from backup**: Use most recent verified backup
+4. **Run migrations**: `bench --site universal.local migrate`
+5. **Verify data consistency**: Test critical business operations
+6. **Update Task Master**: Document the incident and resolution steps
+
+## **Task Master Integration**
+
+### **Documenting Console Work**
+Always update your task progress when using console for development:
+
+```bash
+# After successful console debugging session
+task-master update-subtask --id=2.3 --prompt="
+Console debugging completed:
+- Verified Arabic customer data encoding ✅
+- Fixed license validation logic ✅
+- Tested VAT calculations (5% Oman) ✅
+- All workshop profiles validated ✅
+Next: Integration testing with service orders
+"
+
+# After database maintenance
+task-master update-subtask --id=15.1 --prompt="
+Database maintenance completed:
+- Checked table integrity for all core tables ✅
+- Optimized Customer and Service Order tables ✅  
+- Verified Arabic text encoding consistency ✅
+- Database performance improved by 15% ✅
+"
+```
 
 ---
 
-## **References**
-- [MariaDB Command-Line Client Documentation](mdc:https:/mariadb.com/docs/server/clients-and-utilities/mariadb-client/mariadb-command-line-client)
-- [ERPNext Console Usage](mdc:https:/frappeframework.com/docs/v15/user/en/command-line-interface#console)
-- [Universal Workshop ERP Terminal Rules](mdc:erpnext-v15-terminal-rules.mdc)
+## **File References**
+
+- **ERPNext Development**: [erpnext-development.mdc](mdc:.cursor/rules/erpnext-development.mdc)
+- **Arabic Localization**: [arabic-localization.mdc](mdc:.cursor/rules/arabic-localization.mdc)
+- **Terminal Commands**: [erpnext-v15-terminal-rules.mdc](mdc:.cursor/rules/erpnext-v15-terminal-rules.mdc)
+- **Python Best Practices**: [python-frappe-best-practices.mdc](mdc:.cursor/rules/python-frappe-best-practices.mdc)
+- **Project Tasks**: [tasks.json](mdc:.taskmaster/tasks/tasks.json)
+- **Workshop Configuration**: [apps/universal_workshop/universal_workshop/](mdc:apps/universal_workshop/universal_workshop)
 
 ---
 
-**Rule Owner:** Universal Workshop ERP Team
+**Purpose**: This rule teaches Cursor AI how to effectively use ERPNext console and MariaDB for Universal Workshop ERP development, debugging, and maintenance operations with enhanced troubleshooting and recovery procedures.
 
-**Last Updated:** 2024-06-21
+**Last Updated**: 2025-06-23

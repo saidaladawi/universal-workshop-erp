@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-06-25T09:50:37.718559",
+  "validation_status": "ACCEPTABLE",
+  "critical_tests": {
+    "database_connectivity": "PASSED",
+    "app_installation": "FAILED",
+    "core_doctypes": "INSUFFICIENT"
+  },
+  "performance_tests": {
+    "query_speed": "PASSED (0.92s)"
+  },
+  "functional_tests": {
+    "arabic_support": "PASSED",
+    "seed_data": "PASSED"
+  },
+  "summary": {
+    "total_validations": 6,
+    "passed_validations": 4,
+    "critical_issues": 1,
+    "warnings": 1
+  }
+}

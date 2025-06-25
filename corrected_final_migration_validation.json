@@ -1,0 +1,43 @@
+{
+  "timestamp": "2025-06-25T09:54:10.475496",
+  "validations": [
+    {
+      "test": "Database Connectivity",
+      "status": "PASS",
+      "details": "Database accessible"
+    },
+    {
+      "test": "App Installation",
+      "status": "PASS",
+      "details": "Universal Workshop app installed"
+    },
+    {
+      "test": "Workshop DocTypes",
+      "status": "FAIL",
+      "details": "0 workshop DocTypes found"
+    },
+    {
+      "test": "Query Performance",
+      "status": "WARN",
+      "details": "Query time: 3.07 seconds"
+    },
+    {
+      "test": "Arabic Support",
+      "status": "FAIL",
+      "details": "0 Arabic fields found"
+    },
+    {
+      "test": "Seed Data",
+      "status": "FAIL",
+      "details": "0 roles, 0 themes"
+    }
+  ],
+  "summary": {
+    "total_tests": 6,
+    "passed": 2,
+    "critical_issues": 3,
+    "warnings": 1,
+    "success_rate": 33.33333333333333,
+    "overall_status": "NEEDS_ATTENTION"
+  }
+}

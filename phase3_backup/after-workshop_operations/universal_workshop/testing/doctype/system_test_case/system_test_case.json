@@ -1,0 +1,752 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 0,
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "beta": 0,
+    "creation": "2025-06-24 18:35:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "document_type": "Document",
+    "engine": "InnoDB",
+    "field_order": [
+        "basic_information_section",
+        "naming_series",
+        "test_case_title",
+        "test_case_title_ar",
+        "test_category",
+        "test_module",
+        "test_priority",
+        "test_type",
+        "column_break_8",
+        "test_status",
+        "estimated_duration",
+        "created_by",
+        "created_date",
+        "last_executed",
+        "next_execution_due",
+        "test_description_section",
+        "test_description",
+        "test_description_ar",
+        "test_objective",
+        "test_objective_ar",
+        "prerequisites",
+        "prerequisites_ar",
+        "test_steps_section",
+        "test_steps",
+        "test_data_section",
+        "test_data_requirements",
+        "test_environment",
+        "required_roles",
+        "required_permissions",
+        "column_break_21",
+        "sample_data_file",
+        "test_configuration",
+        "browser_requirements",
+        "api_endpoints",
+        "database_setup",
+        "expected_results_section",
+        "expected_results",
+        "expected_results_ar",
+        "acceptance_criteria",
+        "performance_benchmarks",
+        "column_break_29",
+        "error_scenarios",
+        "edge_cases",
+        "compliance_checks",
+        "arabic_localization_checks",
+        "execution_tracking_section",
+        "execution_count",
+        "success_rate",
+        "last_execution_result",
+        "last_execution_duration",
+        "column_break_36",
+        "total_failures",
+        "last_failure_reason",
+        "automated_test_available",
+        "automation_script_path",
+        "integration_points_section",
+        "related_modules",
+        "dependent_test_cases",
+        "api_integrations",
+        "marketplace_integrations",
+        "column_break_43",
+        "database_dependencies",
+        "external_system_dependencies",
+        "workflow_dependencies",
+        "scrap_vehicle_components",
+        "reporting_validation_section",
+        "report_validation_required",
+        "dashboard_validation_required",
+        "financial_calculation_validation",
+        "roi_analysis_validation",
+        "column_break_49",
+        "arabic_report_validation",
+        "export_functionality_validation",
+        "chart_rendering_validation",
+        "real_time_update_validation",
+        "compliance_testing_section",
+        "oman_vat_compliance",
+        "environmental_compliance",
+        "regulatory_documentation",
+        "audit_trail_validation",
+        "column_break_55",
+        "data_privacy_compliance",
+        "security_validation",
+        "role_permission_validation",
+        "backup_recovery_validation",
+        "metadata_section",
+        "test_case_version",
+        "last_updated_by",
+        "last_updated_date",
+        "review_status",
+        "column_break_61",
+        "reviewer",
+        "review_date",
+        "review_comments",
+        "approval_required"
+    ],
+    "fields": [
+        {
+            "fieldname": "basic_information_section",
+            "fieldtype": "Section Break",
+            "label": "Basic Information | المعلومات الأساسية"
+        },
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Naming Series",
+            "options": "STC-YYYY-####",
+            "reqd": 1,
+            "default": "STC-YYYY-####"
+        },
+        {
+            "fieldname": "test_case_title",
+            "fieldtype": "Data",
+            "label": "Test Case Title",
+            "reqd": 1,
+            "in_list_view": 1,
+            "in_standard_filter": 1
+        },
+        {
+            "fieldname": "test_case_title_ar",
+            "fieldtype": "Data",
+            "label": "عنوان حالة الاختبار",
+            "translatable": 1
+        },
+        {
+            "fieldname": "test_category",
+            "fieldtype": "Select",
+            "label": "Test Category",
+            "options": "\nFunctional Testing\nIntegration Testing\nPerformance Testing\nSecurity Testing\nUsability Testing\nRegression Testing\nCompliance Testing\nArabic Localization Testing",
+            "reqd": 1,
+            "in_list_view": 1,
+            "in_standard_filter": 1
+        },
+        {
+            "fieldname": "test_module",
+            "fieldtype": "Select",
+            "label": "Test Module",
+            "options": "\nScrap Vehicle Processing\nVehicle Dismantling\nParts Grading\nStorage Management\nMarketplace Integration\nProfit Analysis\nEnvironmental Compliance\nReporting & Analytics\nWorkflow Management\nUser Management",
+            "reqd": 1,
+            "in_list_view": 1,
+            "in_standard_filter": 1
+        },
+        {
+            "fieldname": "test_priority",
+            "fieldtype": "Select",
+            "label": "Priority",
+            "options": "\nCritical\nHigh\nMedium\nLow",
+            "default": "Medium",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "test_type",
+            "fieldtype": "Select",
+            "label": "Test Type",
+            "options": "\nManual\nAutomated\nSemi-Automated\nAPI Testing\nDatabase Testing\nUI Testing",
+            "default": "Manual",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_8",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "test_status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "\nDraft\nReady for Testing\nIn Progress\nPassed\nFailed\nBlocked\nSkipped\nObsolete",
+            "default": "Draft",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "estimated_duration",
+            "fieldtype": "Int",
+            "label": "Estimated Duration (minutes)",
+            "description": "Estimated time to execute this test case"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "created_date",
+            "fieldtype": "Datetime",
+            "label": "Created Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_executed",
+            "fieldtype": "Datetime",
+            "label": "Last Executed",
+            "read_only": 1
+        },
+        {
+            "fieldname": "next_execution_due",
+            "fieldtype": "Date",
+            "label": "Next Execution Due",
+            "description": "For regression testing schedule"
+        },
+        {
+            "fieldname": "test_description_section",
+            "fieldtype": "Section Break",
+            "label": "Test Description | وصف الاختبار"
+        },
+        {
+            "fieldname": "test_description",
+            "fieldtype": "Text Editor",
+            "label": "Test Description",
+            "reqd": 1
+        },
+        {
+            "fieldname": "test_description_ar",
+            "fieldtype": "Text Editor",
+            "label": "وصف الاختبار",
+            "translatable": 1
+        },
+        {
+            "fieldname": "test_objective",
+            "fieldtype": "Text",
+            "label": "Test Objective",
+            "reqd": 1
+        },
+        {
+            "fieldname": "test_objective_ar",
+            "fieldtype": "Text",
+            "label": "هدف الاختبار",
+            "translatable": 1
+        },
+        {
+            "fieldname": "prerequisites",
+            "fieldtype": "Text Editor",
+            "label": "Prerequisites",
+            "description": "Required setup, data, or conditions before test execution"
+        },
+        {
+            "fieldname": "prerequisites_ar",
+            "fieldtype": "Text Editor",
+            "label": "المتطلبات المسبقة",
+            "translatable": 1
+        },
+        {
+            "fieldname": "test_steps_section",
+            "fieldtype": "Section Break",
+            "label": "Test Steps | خطوات الاختبار"
+        },
+        {
+            "fieldname": "test_steps",
+            "fieldtype": "Table",
+            "label": "Test Steps",
+            "options": "System Test Step",
+            "reqd": 1
+        },
+        {
+            "fieldname": "test_data_section",
+            "fieldtype": "Section Break",
+            "label": "Test Data & Environment | بيانات الاختبار والبيئة"
+        },
+        {
+            "fieldname": "test_data_requirements",
+            "fieldtype": "Text Editor",
+            "label": "Test Data Requirements",
+            "description": "Specific data needed for test execution"
+        },
+        {
+            "fieldname": "test_environment",
+            "fieldtype": "Select",
+            "label": "Test Environment",
+            "options": "\nDevelopment\nTesting\nStaging\nProduction",
+            "default": "Testing"
+        },
+        {
+            "fieldname": "required_roles",
+            "fieldtype": "Text",
+            "label": "Required User Roles",
+            "description": "Comma-separated list of roles needed for testing"
+        },
+        {
+            "fieldname": "required_permissions",
+            "fieldtype": "Text",
+            "label": "Required Permissions",
+            "description": "Specific permissions needed for test execution"
+        },
+        {
+            "fieldname": "column_break_21",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "sample_data_file",
+            "fieldtype": "Attach",
+            "label": "Sample Data File",
+            "description": "Upload sample data files for testing"
+        },
+        {
+            "fieldname": "test_configuration",
+            "fieldtype": "Code",
+            "label": "Test Configuration",
+            "options": "JSON",
+            "description": "JSON configuration for automated tests"
+        },
+        {
+            "fieldname": "browser_requirements",
+            "fieldtype": "Text",
+            "label": "Browser Requirements",
+            "description": "Specific browser or device requirements"
+        },
+        {
+            "fieldname": "api_endpoints",
+            "fieldtype": "Text",
+            "label": "API Endpoints",
+            "description": "List of API endpoints to be tested"
+        },
+        {
+            "fieldname": "database_setup",
+            "fieldtype": "Text Editor",
+            "label": "Database Setup",
+            "description": "Required database state or setup scripts"
+        },
+        {
+            "fieldname": "expected_results_section",
+            "fieldtype": "Section Break",
+            "label": "Expected Results | النتائج المتوقعة"
+        },
+        {
+            "fieldname": "expected_results",
+            "fieldtype": "Text Editor",
+            "label": "Expected Results",
+            "reqd": 1
+        },
+        {
+            "fieldname": "expected_results_ar",
+            "fieldtype": "Text Editor",
+            "label": "النتائج المتوقعة",
+            "translatable": 1
+        },
+        {
+            "fieldname": "acceptance_criteria",
+            "fieldtype": "Text Editor",
+            "label": "Acceptance Criteria",
+            "description": "Specific criteria that must be met for test to pass"
+        },
+        {
+            "fieldname": "performance_benchmarks",
+            "fieldtype": "Text",
+            "label": "Performance Benchmarks",
+            "description": "Expected performance metrics (response time, etc.)"
+        },
+        {
+            "fieldname": "column_break_29",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "error_scenarios",
+            "fieldtype": "Text Editor",
+            "label": "Error Scenarios",
+            "description": "Expected error conditions and handling"
+        },
+        {
+            "fieldname": "edge_cases",
+            "fieldtype": "Text Editor",
+            "label": "Edge Cases",
+            "description": "Boundary conditions and edge cases to test"
+        },
+        {
+            "fieldname": "compliance_checks",
+            "fieldtype": "Text",
+            "label": "Compliance Checks",
+            "description": "Regulatory compliance points to validate"
+        },
+        {
+            "fieldname": "arabic_localization_checks",
+            "fieldtype": "Text Editor",
+            "label": "Arabic Localization Checks",
+            "description": "Specific Arabic/RTL validation points"
+        },
+        {
+            "fieldname": "execution_tracking_section",
+            "fieldtype": "Section Break",
+            "label": "Execution Tracking | تتبع التنفيذ"
+        },
+        {
+            "fieldname": "execution_count",
+            "fieldtype": "Int",
+            "label": "Execution Count",
+            "read_only": 1,
+            "default": 0
+        },
+        {
+            "fieldname": "success_rate",
+            "fieldtype": "Percent",
+            "label": "Success Rate",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "last_execution_result",
+            "fieldtype": "Select",
+            "label": "Last Execution Result",
+            "options": "\nPassed\nFailed\nBlocked\nSkipped",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_execution_duration",
+            "fieldtype": "Int",
+            "label": "Last Execution Duration (minutes)",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_36",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "total_failures",
+            "fieldtype": "Int",
+            "label": "Total Failures",
+            "read_only": 1,
+            "default": 0
+        },
+        {
+            "fieldname": "last_failure_reason",
+            "fieldtype": "Text",
+            "label": "Last Failure Reason",
+            "read_only": 1
+        },
+        {
+            "fieldname": "automated_test_available",
+            "fieldtype": "Check",
+            "label": "Automated Test Available",
+            "default": 0
+        },
+        {
+            "fieldname": "automation_script_path",
+            "fieldtype": "Data",
+            "label": "Automation Script Path",
+            "depends_on": "automated_test_available"
+        },
+        {
+            "fieldname": "integration_points_section",
+            "fieldtype": "Section Break",
+            "label": "Integration Points | نقاط التكامل"
+        },
+        {
+            "fieldname": "related_modules",
+            "fieldtype": "Text",
+            "label": "Related Modules",
+            "description": "Modules that this test case covers or depends on"
+        },
+        {
+            "fieldname": "dependent_test_cases",
+            "fieldtype": "Text",
+            "label": "Dependent Test Cases",
+            "description": "Other test cases that must pass before this one"
+        },
+        {
+            "fieldname": "api_integrations",
+            "fieldtype": "Text",
+            "label": "API Integrations",
+            "description": "External APIs or services involved"
+        },
+        {
+            "fieldname": "marketplace_integrations",
+            "fieldtype": "Text",
+            "label": "Marketplace Integrations",
+            "description": "Marketplace platforms involved in testing"
+        },
+        {
+            "fieldname": "column_break_43",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "database_dependencies",
+            "fieldtype": "Text",
+            "label": "Database Dependencies",
+            "description": "Database tables or records required"
+        },
+        {
+            "fieldname": "external_system_dependencies",
+            "fieldtype": "Text",
+            "label": "External System Dependencies",
+            "description": "External systems or services required"
+        },
+        {
+            "fieldname": "workflow_dependencies",
+            "fieldtype": "Text",
+            "label": "Workflow Dependencies",
+            "description": "Workflow states or approvals required"
+        },
+        {
+            "fieldname": "scrap_vehicle_components",
+            "fieldtype": "Text",
+            "label": "Scrap Vehicle Components",
+            "description": "Specific scrap vehicle processing components tested"
+        },
+        {
+            "fieldname": "reporting_validation_section",
+            "fieldtype": "Section Break",
+            "label": "Reporting Validation | التحقق من التقارير"
+        },
+        {
+            "fieldname": "report_validation_required",
+            "fieldtype": "Check",
+            "label": "Report Validation Required",
+            "default": 0
+        },
+        {
+            "fieldname": "dashboard_validation_required",
+            "fieldtype": "Check",
+            "label": "Dashboard Validation Required",
+            "default": 0
+        },
+        {
+            "fieldname": "financial_calculation_validation",
+            "fieldtype": "Check",
+            "label": "Financial Calculation Validation",
+            "default": 0
+        },
+        {
+            "fieldname": "roi_analysis_validation",
+            "fieldtype": "Check",
+            "label": "ROI Analysis Validation",
+            "default": 0
+        },
+        {
+            "fieldname": "column_break_49",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "arabic_report_validation",
+            "fieldtype": "Check",
+            "label": "Arabic Report Validation",
+            "default": 0
+        },
+        {
+            "fieldname": "export_functionality_validation",
+            "fieldtype": "Check",
+            "label": "Export Functionality Validation",
+            "default": 0
+        },
+        {
+            "fieldname": "chart_rendering_validation",
+            "fieldtype": "Check",
+            "label": "Chart Rendering Validation",
+            "default": 0
+        },
+        {
+            "fieldname": "real_time_update_validation",
+            "fieldtype": "Check",
+            "label": "Real-time Update Validation",
+            "default": 0
+        },
+        {
+            "fieldname": "compliance_testing_section",
+            "fieldtype": "Section Break",
+            "label": "Compliance Testing | اختبار الامتثال"
+        },
+        {
+            "fieldname": "oman_vat_compliance",
+            "fieldtype": "Check",
+            "label": "Oman VAT Compliance (5%)",
+            "default": 0
+        },
+        {
+            "fieldname": "environmental_compliance",
+            "fieldtype": "Check",
+            "label": "Environmental Compliance",
+            "default": 0
+        },
+        {
+            "fieldname": "regulatory_documentation",
+            "fieldtype": "Check",
+            "label": "Regulatory Documentation",
+            "default": 0
+        },
+        {
+            "fieldname": "audit_trail_validation",
+            "fieldtype": "Check",
+            "label": "Audit Trail Validation",
+            "default": 0
+        },
+        {
+            "fieldname": "column_break_55",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "data_privacy_compliance",
+            "fieldtype": "Check",
+            "label": "Data Privacy Compliance",
+            "default": 0
+        },
+        {
+            "fieldname": "security_validation",
+            "fieldtype": "Check",
+            "label": "Security Validation",
+            "default": 0
+        },
+        {
+            "fieldname": "role_permission_validation",
+            "fieldtype": "Check",
+            "label": "Role Permission Validation",
+            "default": 0
+        },
+        {
+            "fieldname": "backup_recovery_validation",
+            "fieldtype": "Check",
+            "label": "Backup Recovery Validation",
+            "default": 0
+        },
+        {
+            "fieldname": "metadata_section",
+            "fieldtype": "Section Break",
+            "label": "Metadata | البيانات الوصفية"
+        },
+        {
+            "fieldname": "test_case_version",
+            "fieldtype": "Data",
+            "label": "Version",
+            "default": "1.0",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_updated_by",
+            "fieldtype": "Link",
+            "label": "Last Updated By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_updated_date",
+            "fieldtype": "Datetime",
+            "label": "Last Updated Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "review_status",
+            "fieldtype": "Select",
+            "label": "Review Status",
+            "options": "\nPending Review\nUnder Review\nApproved\nRejected\nRevision Required",
+            "default": "Pending Review"
+        },
+        {
+            "fieldname": "column_break_61",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "reviewer",
+            "fieldtype": "Link",
+            "label": "Reviewer",
+            "options": "User"
+        },
+        {
+            "fieldname": "review_date",
+            "fieldtype": "Date",
+            "label": "Review Date"
+        },
+        {
+            "fieldname": "review_comments",
+            "fieldtype": "Text Editor",
+            "label": "Review Comments"
+        },
+        {
+            "fieldname": "approval_required",
+            "fieldtype": "Check",
+            "label": "Approval Required",
+            "default": 0,
+            "description": "Check if this test case requires approval before execution"
+        }
+    ],
+    "has_web_view": 0,
+    "hide_heading": 0,
+    "hide_toolbar": 0,
+    "idx": 0,
+    "image_view": 0,
+    "in_create": 0,
+    "is_submittable": 0,
+    "issingle": 0,
+    "istable": 0,
+    "max_attachments": 5,
+    "modified": "2025-06-24 18:35:00.000000",
+    "modified_by": "Administrator",
+    "module": "Testing",
+    "name": "System Test Case",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 0,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Supervisor",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 0,
+            "delete": 0,
+            "email": 0,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician",
+            "share": 0,
+            "write": 0
+        }
+    ],
+    "quick_entry": 0,
+    "read_only": 0,
+    "read_only_onload": 0,
+    "show_name_in_global_search": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "test_case_title",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

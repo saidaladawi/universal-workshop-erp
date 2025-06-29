@@ -1,0 +1,328 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:document_code",
+ "creation": "2025-06-19 10:00:00.000000",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "document_information_section",
+  "document_code",
+  "vehicle",
+  "customer",
+  "column_break_bhjd",
+  "document_type",
+  "title",
+  "title_ar",
+  "file_details_section",
+  "file_attachment",
+  "file_size_mb",
+  "file_format",
+  "column_break_kjds",
+  "upload_date",
+  "uploaded_by",
+  "version_control_section",
+  "version",
+  "is_latest_version",
+  "column_break_klmn",
+  "previous_version",
+  "version_notes",
+  "description_section",
+  "description",
+  "description_ar",
+  "column_break_mnop",
+  "tags",
+  "is_confidential",
+  "access_control_section",
+  "accessible_by_customer",
+  "accessible_by_technician",
+  "column_break_qrst",
+  "expiry_date",
+  "status",
+  "validation_section",
+  "document_verified",
+  "verified_by",
+  "column_break_uvwx",
+  "verification_date",
+  "verification_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "document_information_section",
+   "fieldtype": "Section Break",
+   "label": "Document Information"
+  },
+  {
+   "fieldname": "document_code",
+   "fieldtype": "Data",
+   "label": "Document Code",
+   "unique": 1,
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "label": "Vehicle",
+   "options": "Vehicle",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_bhjd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "document_type",
+   "fieldtype": "Select",
+   "label": "Document Type",
+   "options": "Registration Certificate\nInsurance Policy\nDriver License\nService Manual\nWarranty Certificate\nInspection Report\nAccident Report\nRepair Invoice\nParts Invoice\nOwnership Transfer\nCustoms Declaration\nImport Permit\nTechnical Inspection\nEmission Test\nOther",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Document Title",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "title_ar",
+   "fieldtype": "Data",
+   "label": "عنوان الوثيقة",
+   "translatable": 1
+  },
+  {
+   "fieldname": "file_details_section",
+   "fieldtype": "Section Break",
+   "label": "File Details"
+  },
+  {
+   "fieldname": "file_attachment",
+   "fieldtype": "Attach",
+   "label": "File Attachment",
+   "reqd": 1
+  },
+  {
+   "fieldname": "file_size_mb",
+   "fieldtype": "Float",
+   "label": "File Size (MB)",
+   "read_only": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "file_format",
+   "fieldtype": "Data",
+   "label": "File Format",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_kjds",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "upload_date",
+   "fieldtype": "Datetime",
+   "label": "Upload Date",
+   "default": "Now",
+   "read_only": 1
+  },
+  {
+   "fieldname": "uploaded_by",
+   "fieldtype": "Link",
+   "label": "Uploaded By",
+   "options": "User",
+   "read_only": 1,
+   "default": "user"
+  },
+  {
+   "fieldname": "version_control_section",
+   "fieldtype": "Section Break",
+   "label": "Version Control",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "version",
+   "fieldtype": "Data",
+   "label": "Version",
+   "default": "1.0",
+   "reqd": 1
+  },
+  {
+   "fieldname": "is_latest_version",
+   "fieldtype": "Check",
+   "label": "Latest Version",
+   "default": 1
+  },
+  {
+   "fieldname": "column_break_klmn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "previous_version",
+   "fieldtype": "Link",
+   "label": "Previous Version",
+   "options": "Vehicle Document"
+  },
+  {
+   "fieldname": "version_notes",
+   "fieldtype": "Small Text",
+   "label": "Version Notes"
+  },
+  {
+   "fieldname": "description_section",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "description_ar",
+   "fieldtype": "Text",
+   "label": "الوصف",
+   "translatable": 1
+  },
+  {
+   "fieldname": "column_break_mnop",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tags",
+   "fieldtype": "Data",
+   "label": "Tags",
+   "description": "Comma-separated tags for easy searching"
+  },
+  {
+   "fieldname": "is_confidential",
+   "fieldtype": "Check",
+   "label": "Confidential Document"
+  },
+  {
+   "fieldname": "access_control_section",
+   "fieldtype": "Section Break",
+   "label": "Access Control",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "accessible_by_customer",
+   "fieldtype": "Check",
+   "label": "Accessible by Customer",
+   "default": 1
+  },
+  {
+   "fieldname": "accessible_by_technician",
+   "fieldtype": "Check",
+   "label": "Accessible by Technician",
+   "default": 1
+  },
+  {
+   "fieldname": "column_break_qrst",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "label": "Expiry Date",
+   "description": "For documents with expiration (insurance, registration, etc.)"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nExpired\nArchived\nDeleted",
+   "default": "Active",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "validation_section",
+   "fieldtype": "Section Break",
+   "label": "Document Validation",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "document_verified",
+   "fieldtype": "Check",
+   "label": "Document Verified"
+  },
+  {
+   "fieldname": "verified_by",
+   "fieldtype": "Link",
+   "label": "Verified By",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_uvwx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "verification_date",
+   "fieldtype": "Datetime",
+   "label": "Verification Date"
+  },
+  {
+   "fieldname": "verification_notes",
+   "fieldtype": "Small Text",
+   "label": "Verification Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 0,
+ "links": [],
+ "modified": "2025-06-19 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Vehicle Management",
+ "name": "Vehicle Document",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Technician",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Workshop Customer"
+  }
+ ],
+ "search_fields": "vehicle,document_type,title,title_ar,tags",
+ "show_name_in_global_search": 1,
+ "sort_field": "upload_date",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+} 

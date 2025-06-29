@@ -1,0 +1,268 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:MS-{vehicle_type}-{service_type}",
+ "creation": "2024-06-19 06:35:00.000000",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "vehicle_information_section",
+  "vehicle_type",
+  "make",
+  "model_from_year",
+  "model_to_year",
+  "column_break_5",
+  "engine_type",
+  "transmission_type",
+  "is_active",
+  "maintenance_schedule_section",
+  "service_type",
+  "service_type_ar",
+  "service_description",
+  "service_description_ar",
+  "column_break_11",
+  "mileage_interval",
+  "time_interval_months",
+  "priority_level",
+  "notification_settings_section",
+  "advance_notification_days",
+  "notification_methods",
+  "column_break_17",
+  "send_to_customer",
+  "send_to_workshop",
+  "alert_threshold_section",
+  "critical_threshold_days",
+  "warning_threshold_days",
+  "column_break_21",
+  "overdue_escalation_days",
+  "auto_create_service_record"
+ ],
+ "fields": [
+  {
+   "fieldname": "vehicle_information_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Information"
+  },
+  {
+   "fieldname": "vehicle_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Vehicle Type",
+   "options": "Sedan\nSUV\nHatchback\nPickup Truck\nCoupe\nConvertible\nWagon\nMinivan\nCrossover\nLuxury\nCommercial\nMotorcycle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "make",
+   "fieldtype": "Data",
+   "label": "Make (Optional)",
+   "description": "Leave blank for all makes"
+  },
+  {
+   "fieldname": "model_from_year",
+   "fieldtype": "Int",
+   "label": "Model Year From"
+  },
+  {
+   "fieldname": "model_to_year",
+   "fieldtype": "Int",
+   "label": "Model Year To"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "engine_type",
+   "fieldtype": "Select",
+   "label": "Engine Type (Optional)",
+   "options": "\nGasoline\nDiesel\nHybrid\nElectric\nTurbo\nV6\nV8\n4-Cylinder",
+   "description": "Leave blank for all engine types"
+  },
+  {
+   "fieldname": "transmission_type",
+   "fieldtype": "Select",
+   "label": "Transmission Type (Optional)",
+   "options": "\nManual\nAutomatic\nCVT\nDual-Clutch",
+   "description": "Leave blank for all transmission types"
+  },
+  {
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active",
+   "default": 1
+  },
+  {
+   "fieldname": "maintenance_schedule_section",
+   "fieldtype": "Section Break",
+   "label": "Maintenance Schedule"
+  },
+  {
+   "fieldname": "service_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Service Type",
+   "options": "Oil Change\nBrake Service\nEngine Repair\nTransmission Service\nTire Replacement\nBattery Replacement\nAir Filter Replacement\nSpark Plug Replacement\nCooling System Service\nElectrical Repair\nGeneral Maintenance\nInspection\nTiming Belt Replacement\nBrake Fluid Change\nCoolant Flush",
+   "reqd": 1
+  },
+  {
+   "fieldname": "service_type_ar",
+   "fieldtype": "Data",
+   "label": "نوع الخدمة",
+   "translatable": 1
+  },
+  {
+   "fieldname": "service_description",
+   "fieldtype": "Long Text",
+   "label": "Service Description"
+  },
+  {
+   "fieldname": "service_description_ar",
+   "fieldtype": "Long Text",
+   "label": "وصف الخدمة",
+   "translatable": 1
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mileage_interval",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Mileage Interval (KM)",
+   "description": "Service due every X kilometers"
+  },
+  {
+   "fieldname": "time_interval_months",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Time Interval (Months)",
+   "description": "Service due every X months"
+  },
+  {
+   "fieldname": "priority_level",
+   "fieldtype": "Select",
+   "label": "Priority Level",
+   "options": "Critical\nHigh\nMedium\nLow",
+   "default": "Medium"
+  },
+  {
+   "fieldname": "notification_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Notification Settings"
+  },
+  {
+   "fieldname": "advance_notification_days",
+   "fieldtype": "Int",
+   "label": "Advance Notification (Days)",
+   "default": 30,
+   "description": "Send notifications X days before due date"
+  },
+  {
+   "fieldname": "notification_methods",
+   "fieldtype": "Select",
+   "label": "Notification Methods",
+   "options": "Email Only\nSMS Only\nEmail + SMS\nIn-App Only\nAll Methods",
+   "default": "Email + SMS"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "send_to_customer",
+   "fieldtype": "Check",
+   "label": "Send to Customer",
+   "default": 1
+  },
+  {
+   "fieldname": "send_to_workshop",
+   "fieldtype": "Check",
+   "label": "Send to Workshop",
+   "default": 1
+  },
+  {
+   "fieldname": "alert_threshold_section",
+   "fieldtype": "Section Break",
+   "label": "Alert Thresholds"
+  },
+  {
+   "fieldname": "critical_threshold_days",
+   "fieldtype": "Int",
+   "label": "Critical Threshold (Days)",
+   "default": 3,
+   "description": "Mark as critical when due within X days"
+  },
+  {
+   "fieldname": "warning_threshold_days",
+   "fieldtype": "Int",
+   "label": "Warning Threshold (Days)",
+   "default": 7,
+   "description": "Mark as warning when due within X days"
+  },
+  {
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "overdue_escalation_days",
+   "fieldtype": "Int",
+   "label": "Overdue Escalation (Days)",
+   "default": 7,
+   "description": "Escalate notifications after X days overdue"
+  },
+  {
+   "fieldname": "auto_create_service_record",
+   "fieldtype": "Check",
+   "label": "Auto-Create Service Record",
+   "description": "Automatically create draft service record when due"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-06-19 06:35:00.000000",
+ "modified_by": "Administrator",
+ "module": "Vehicle Management",
+ "name": "Maintenance Schedule",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Workshop Technician"
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+} 

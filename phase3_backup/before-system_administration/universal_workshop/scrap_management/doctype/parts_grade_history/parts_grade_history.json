@@ -1,0 +1,501 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2024-01-20 10:00:00.000000",
+    "default_view": "List",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "grade_change_id",
+        "section_break_basic",
+        "part_quality_assessment",
+        "assessment_title",
+        "part_name",
+        "part_name_ar",
+        "part_category",
+        "column_break_part",
+        "vehicle_make",
+        "vehicle_model",
+        "vehicle_year",
+        "vin_number",
+        "section_break_grade_change",
+        "change_type",
+        "previous_grade",
+        "new_grade",
+        "grade_change_reason",
+        "grade_change_reason_ar",
+        "column_break_change",
+        "changed_by",
+        "change_date",
+        "change_time",
+        "inspector_qualification",
+        "section_break_justification",
+        "change_justification",
+        "change_justification_ar",
+        "supporting_evidence",
+        "column_break_justification",
+        "reviewer_employee",
+        "review_status",
+        "review_notes",
+        "review_notes_ar",
+        "section_break_impact",
+        "price_impact",
+        "previous_suggested_price",
+        "new_suggested_price",
+        "price_change_amount",
+        "column_break_impact",
+        "market_impact",
+        "time_to_sell_impact",
+        "roi_impact_percentage",
+        "section_break_approval",
+        "approval_required",
+        "approved_by",
+        "approval_date",
+        "approval_notes",
+        "approval_notes_ar",
+        "column_break_approval",
+        "approval_status",
+        "rejection_reason",
+        "rejection_reason_ar",
+        "section_break_metadata",
+        "created_by",
+        "created_date",
+        "modified_by",
+        "modified_date",
+        "column_break_metadata",
+        "workflow_state",
+        "reference_document",
+        "external_reference"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Naming Series",
+            "options": "PGH-.YYYY.-\nPGH-EMRG-.YYYY.-\nPGH-REV-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "fieldname": "grade_change_id",
+            "fieldtype": "Data",
+            "label": "Grade Change ID",
+            "read_only": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "section_break_basic",
+            "fieldtype": "Section Break",
+            "label": "Basic Information"
+        },
+        {
+            "fieldname": "part_quality_assessment",
+            "fieldtype": "Link",
+            "label": "Part Quality Assessment",
+            "options": "Part Quality Assessment",
+            "reqd": 1
+        },
+        {
+            "fieldname": "assessment_title",
+            "fieldtype": "Data",
+            "label": "Assessment Title",
+            "fetch_from": "part_quality_assessment.assessment_title",
+            "read_only": 1
+        },
+        {
+            "fieldname": "part_name",
+            "fieldtype": "Data",
+            "label": "Part Name",
+            "fetch_from": "part_quality_assessment.part_name",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "part_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم القطعة",
+            "fetch_from": "part_quality_assessment.part_name_ar",
+            "translatable": 1
+        },
+        {
+            "fieldname": "part_category",
+            "fieldtype": "Select",
+            "label": "Part Category",
+            "options": "\nEngine\nTransmission\nBrakes\nSuspension\nElectrical\nElectronics\nBody\nInterior\nSafety Systems\nExhaust\nCooling\nFuel System\nSteering\nWheels & Tires\nLighting\nOther",
+            "fetch_from": "part_quality_assessment.part_category",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "column_break_part",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "vehicle_make",
+            "fieldtype": "Data",
+            "label": "Vehicle Make",
+            "fetch_from": "part_quality_assessment.vehicle_make"
+        },
+        {
+            "fieldname": "vehicle_model",
+            "fieldtype": "Data",
+            "label": "Vehicle Model",
+            "fetch_from": "part_quality_assessment.vehicle_model"
+        },
+        {
+            "fieldname": "vehicle_year",
+            "fieldtype": "Int",
+            "label": "Vehicle Year",
+            "fetch_from": "part_quality_assessment.vehicle_year"
+        },
+        {
+            "fieldname": "vin_number",
+            "fieldtype": "Data",
+            "label": "VIN Number",
+            "fetch_from": "part_quality_assessment.vin_number"
+        },
+        {
+            "fieldname": "section_break_grade_change",
+            "fieldtype": "Section Break",
+            "label": "Grade Change Details"
+        },
+        {
+            "fieldname": "change_type",
+            "fieldtype": "Select",
+            "label": "Change Type",
+            "options": "\nUpgrade\nDowngrade\nCorrection\nRe-assessment\nSecond Opinion\nApproval Override",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "previous_grade",
+            "fieldtype": "Select",
+            "label": "Previous Grade",
+            "options": "\nA\nB\nC\nD\nE\nF",
+            "reqd": 1
+        },
+        {
+            "fieldname": "new_grade",
+            "fieldtype": "Select",
+            "label": "New Grade",
+            "options": "\nA\nB\nC\nD\nE\nF",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "grade_change_reason",
+            "fieldtype": "Select",
+            "label": "Grade Change Reason",
+            "options": "\nAdditional Testing\nBetter Photo Documentation\nExpert Re-evaluation\nMarket Condition Change\nCustomer Feedback\nQuality Defect Found\nImproved After Cleaning\nFunctional Test Results\nSecond Opinion Required\nInspector Error Correction\nCompliance Issue\nSafety Concern\nOther",
+            "reqd": 1
+        },
+        {
+            "fieldname": "grade_change_reason_ar",
+            "fieldtype": "Data",
+            "label": "سبب تغيير التقييم",
+            "translatable": 1
+        },
+        {
+            "fieldname": "column_break_change",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "changed_by",
+            "fieldtype": "Link",
+            "label": "Changed By",
+            "options": "User",
+            "reqd": 1,
+            "default": "__user"
+        },
+        {
+            "fieldname": "change_date",
+            "fieldtype": "Date",
+            "label": "Change Date",
+            "reqd": 1,
+            "default": "Today"
+        },
+        {
+            "fieldname": "change_time",
+            "fieldtype": "Time",
+            "label": "Change Time",
+            "reqd": 1,
+            "default": "now"
+        },
+        {
+            "fieldname": "inspector_qualification",
+            "fieldtype": "Select",
+            "label": "Inspector Qualification",
+            "options": "\nBasic\nIntermediate\nAdvanced\nCertified Expert",
+            "reqd": 1
+        },
+        {
+            "fieldname": "section_break_justification",
+            "fieldtype": "Section Break",
+            "label": "Change Justification"
+        },
+        {
+            "fieldname": "change_justification",
+            "fieldtype": "Text",
+            "label": "Change Justification",
+            "reqd": 1
+        },
+        {
+            "fieldname": "change_justification_ar",
+            "fieldtype": "Text",
+            "label": "مبرر التغيير",
+            "translatable": 1
+        },
+        {
+            "fieldname": "supporting_evidence",
+            "fieldtype": "Attach Image",
+            "label": "Supporting Evidence"
+        },
+        {
+            "fieldname": "column_break_justification",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "reviewer_employee",
+            "fieldtype": "Link",
+            "label": "Reviewer",
+            "options": "User"
+        },
+        {
+            "fieldname": "review_status",
+            "fieldtype": "Select",
+            "label": "Review Status",
+            "options": "\nPending Review\nApproved\nRejected\nRequires More Information"
+        },
+        {
+            "fieldname": "review_notes",
+            "fieldtype": "Text",
+            "label": "Review Notes"
+        },
+        {
+            "fieldname": "review_notes_ar",
+            "fieldtype": "Text",
+            "label": "ملاحظات المراجعة",
+            "translatable": 1
+        },
+        {
+            "fieldname": "section_break_impact",
+            "fieldtype": "Section Break",
+            "label": "Financial Impact"
+        },
+        {
+            "fieldname": "price_impact",
+            "fieldtype": "Check",
+            "label": "Has Price Impact",
+            "default": 0
+        },
+        {
+            "fieldname": "previous_suggested_price",
+            "fieldtype": "Currency",
+            "label": "Previous Suggested Price (OMR)",
+            "options": "currency",
+            "precision": 3
+        },
+        {
+            "fieldname": "new_suggested_price",
+            "fieldtype": "Currency",
+            "label": "New Suggested Price (OMR)",
+            "options": "currency",
+            "precision": 3
+        },
+        {
+            "fieldname": "price_change_amount",
+            "fieldtype": "Currency",
+            "label": "Price Change Amount (OMR)",
+            "options": "currency",
+            "precision": 3,
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_impact",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "market_impact",
+            "fieldtype": "Select",
+            "label": "Market Impact",
+            "options": "\nPositive\nNegative\nNeutral\nUnknown"
+        },
+        {
+            "fieldname": "time_to_sell_impact",
+            "fieldtype": "Select",
+            "label": "Time to Sell Impact",
+            "options": "\nFaster\nSlower\nNo Change\nUnknown"
+        },
+        {
+            "fieldname": "roi_impact_percentage",
+            "fieldtype": "Percent",
+            "label": "ROI Impact (%)",
+            "precision": 2
+        },
+        {
+            "fieldname": "section_break_approval",
+            "fieldtype": "Section Break",
+            "label": "Approval Details"
+        },
+        {
+            "fieldname": "approval_required",
+            "fieldtype": "Check",
+            "label": "Approval Required",
+            "default": 0
+        },
+        {
+            "fieldname": "approved_by",
+            "fieldtype": "Link",
+            "label": "Approved By",
+            "options": "User"
+        },
+        {
+            "fieldname": "approval_date",
+            "fieldtype": "Datetime",
+            "label": "Approval Date"
+        },
+        {
+            "fieldname": "approval_notes",
+            "fieldtype": "Text",
+            "label": "Approval Notes"
+        },
+        {
+            "fieldname": "approval_notes_ar",
+            "fieldtype": "Text",
+            "label": "ملاحظات الموافقة",
+            "translatable": 1
+        },
+        {
+            "fieldname": "column_break_approval",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "approval_status",
+            "fieldtype": "Select",
+            "label": "Approval Status",
+            "options": "\nPending\nApproved\nRejected\nNot Required",
+            "default": "Not Required"
+        },
+        {
+            "fieldname": "rejection_reason",
+            "fieldtype": "Text",
+            "label": "Rejection Reason"
+        },
+        {
+            "fieldname": "rejection_reason_ar",
+            "fieldtype": "Text",
+            "label": "سبب الرفض",
+            "translatable": 1
+        },
+        {
+            "fieldname": "section_break_metadata",
+            "fieldtype": "Section Break",
+            "label": "Metadata"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1,
+            "default": "__user"
+        },
+        {
+            "fieldname": "created_date",
+            "fieldtype": "Datetime",
+            "label": "Created Date",
+            "read_only": 1,
+            "default": "now"
+        },
+        {
+            "fieldname": "modified_by",
+            "fieldtype": "Link",
+            "label": "Modified By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "modified_date",
+            "fieldtype": "Datetime",
+            "label": "Modified Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_metadata",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "workflow_state",
+            "fieldtype": "Select",
+            "label": "Workflow State",
+            "options": "\nDraft\nPending Review\nApproved\nRejected\nImplemented",
+            "default": "Draft"
+        },
+        {
+            "fieldname": "reference_document",
+            "fieldtype": "Data",
+            "label": "Reference Document"
+        },
+        {
+            "fieldname": "external_reference",
+            "fieldtype": "Data",
+            "label": "External Reference"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2024-01-20 10:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Scrap Management",
+    "name": "Parts Grade History",
+    "naming_rule": "By Naming Series",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Supervisor",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "print": 1,
+            "read": 1,
+            "role": "Technician",
+            "write": 1
+        },
+        {
+            "read": 1,
+            "role": "Workshop Customer"
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "grade_change_id",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

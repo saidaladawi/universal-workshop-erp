@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Path Administration</title>
+    <link rel="stylesheet" href="/assets/frappe/css/bootstrap.css">
+    <link rel="stylesheet" href="/assets/frappe/css/frappe.css">
+    <script src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
+    <script src="/assets/frappe/js/frappe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .training-admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .role-section {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .role-header {
+            background: #f8f9fa;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            font-weight: bold;
+        }
+        .path-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .path-item:last-child {
+            border-bottom: none;
+        }
+        .progress-bar-container {
+            width: 200px;
+            background: #e9ecef;
+            border-radius: 4px;
+            height: 20px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: #28a745;
+            transition: width 0.3s ease;
+        }
+        .btn-group {
+            gap: 5px;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: black;
+        }
+        .enrollment-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .enrollment-table th,
+        .enrollment-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .enrollment-table th {
+            background: #f8f9fa;
+        }
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .status-completed { background: #d4edda; color: #155724; }
+        .status-in-progress { background: #fff3cd; color: #856404; }
+        .status-not-started { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <div class="training-admin-container">
+        <div class="page-header">
+            <h1>Training Path Administration</h1>
+            <p class="text-muted">Manage role-based training paths and user enrollments</p>
+        </div>
+
+        <!-- Overview Statistics -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <h3 id="totalPaths">0</h3>
+                    <p class="text-muted">Training Paths</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <h3 id="totalEnrollments">0</h3>
+                    <p class="text-muted">Total Enrollments</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <h3 id="completionRate">0%</h3>
+                    <p class="text-muted">Completion Rate</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <h3 id="activeUsers">0</h3>
+                    <p class="text-muted">Active Learners</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons mb-4">
+            <button class="btn btn-primary" onclick="openCreatePathModal()">
+                <i class="fa fa-plus"></i> Create New Path
+            </button>
+            <button class="btn btn-secondary" onclick="openBulkEnrollModal()">
+                <i class="fa fa-users"></i> Bulk Enrollment
+            </button>
+            <button class="btn btn-info" onclick="exportPathsReport()">
+                <i class="fa fa-download"></i> Export Report
+            </button>
+            <button class="btn btn-success" onclick="openRecommendationsModal()">
+                <i class="fa fa-lightbulb"></i> Recommendations
+            </button>
+        </div>
+
+        <!-- Analytics Charts -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="stat-card">
+                    <h5>Enrollment by Role</h5>
+                    <canvas id="enrollmentByRoleChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="stat-card">
+                    <h5>Completion Trends</h5>
+                    <canvas id="completionTrendsChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paths by Role -->
+        <div id="pathsByRole">
+            <!-- Content will be loaded dynamically -->
+        </div>
+    </div>
+
+    <!-- Create Path Modal -->
+    <div id="createPathModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('createPathModal')">&times;</span>
+            <h3>Create New Training Path</h3>
+            <form id="createPathForm">
+                <div class="form-group">
+                    <label for="pathName">Path Name</label>
+                    <input type="text" class="form-control" id="pathName" required>
+                </div>
+                <div class="form-group">
+                    <label for="pathNameAr">Path Name (Arabic)</label>
+                    <input type="text" class="form-control" id="pathNameAr">
+                </div>
+                <div class="form-group">
+                    <label for="targetRole">Target Role</label>
+                    <select class="form-control" id="targetRole" required>
+                        <!-- Options will be loaded dynamically -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" id="description" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="difficultyLevel">Difficulty Level</label>
+                    <select class="form-control" id="difficultyLevel">
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                        <option value="Expert">Expert</option>
+                    </select>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="mandatoryCompletion">
+                    <label class="form-check-label" for="mandatoryCompletion">
+                        Mandatory Completion
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="autoEnrollment">
+                    <label class="form-check-label" for="autoEnrollment">
+                        Auto Enrollment
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="enableAdaptiveLearning">
+                    <label class="form-check-label" for="enableAdaptiveLearning">
+                        Enable Adaptive Learning
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Create Path</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bulk Enrollment Modal -->
+    <div id="bulkEnrollModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('bulkEnrollModal')">&times;</span>
+            <h3>Bulk User Enrollment</h3>
+            <form id="bulkEnrollForm">
+                <div class="form-group">
+                    <label for="bulkTrainingPath">Training Path</label>
+                    <select class="form-control" id="bulkTrainingPath" required>
+                        <!-- Options will be loaded dynamically -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="enrollmentCriteria">Enrollment Criteria</label>
+                    <select class="form-control" id="enrollmentCriteria">
+                        <option value="by_role">By Role</option>
+                        <option value="by_department">By Department</option>
+                        <option value="manual_select">Manual Selection</option>
+                    </select>
+                </div>
+                <div id="criteriaOptions">
+                    <!-- Dynamic options based on criteria -->
+                </div>
+                <button type="submit" class="btn btn-primary">Enroll Users</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Path Details Modal -->
+    <div id="pathDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('pathDetailsModal')">&times;</span>
+            <div id="pathDetailsContent">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="training-path-admin.js"></script>
+</body>
+</html>

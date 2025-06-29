@@ -1,0 +1,177 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2025-06-25 19:15:00.000000",
+    "default_view": "List",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "section_break_1",
+        "naming_series",
+        "session_id",
+        "user",
+        "scan_mode",
+        "warehouse",
+        "column_break_2",
+        "start_time",
+        "end_time",
+        "total_scans",
+        "status",
+        "sync_status",
+        "section_break_3",
+        "scans",
+        "section_break_4",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "section_break_1",
+            "fieldtype": "Section Break",
+            "label": "Session Information"
+        },
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Naming Series",
+            "options": "MSS-.YYYY.-.MM.-.DD.-.#####",
+            "reqd": 1
+        },
+        {
+            "fieldname": "session_id",
+            "fieldtype": "Data",
+            "label": "Session ID",
+            "unique": 1,
+            "reqd": 1
+        },
+        {
+            "fieldname": "user",
+            "fieldtype": "Link",
+            "label": "User",
+            "options": "User",
+            "reqd": 1
+        },
+        {
+            "fieldname": "scan_mode",
+            "fieldtype": "Select",
+            "label": "Scan Mode",
+            "options": "Lookup\nReceive\nIssue\nAdjust\nStock Take\nCycle Count",
+            "reqd": 1
+        },
+        {
+            "fieldname": "warehouse",
+            "fieldtype": "Link",
+            "label": "Warehouse",
+            "options": "Warehouse"
+        },
+        {
+            "fieldname": "column_break_2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "start_time",
+            "fieldtype": "Datetime",
+            "label": "Start Time",
+            "reqd": 1
+        },
+        {
+            "fieldname": "end_time",
+            "fieldtype": "Datetime",
+            "label": "End Time"
+        },
+        {
+            "fieldname": "total_scans",
+            "fieldtype": "Int",
+            "label": "Total Scans",
+            "default": "0"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "Active\nCompleted\nCancelled",
+            "default": "Active"
+        },
+        {
+            "fieldname": "sync_status",
+            "fieldtype": "Select",
+            "label": "Sync Status",
+            "options": "Pending\nSynced\nError",
+            "default": "Pending"
+        },
+        {
+            "fieldname": "section_break_3",
+            "fieldtype": "Section Break",
+            "label": "Scan Details"
+        },
+        {
+            "fieldname": "scans",
+            "fieldtype": "Table",
+            "label": "Scans",
+            "options": "Mobile Scan Detail"
+        },
+        {
+            "fieldname": "section_break_4",
+            "fieldtype": "Section Break",
+            "label": "Additional Information"
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Text Editor",
+            "label": "Notes"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "istable": 0,
+    "links": [],
+    "modified": "2025-06-25 19:15:00.000000",
+    "modified_by": "Administrator",
+    "module": "Parts Inventory",
+    "name": "Mobile Scan Session",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

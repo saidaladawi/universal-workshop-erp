@@ -1,0 +1,618 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 1,
+    "allow_rename": 1,
+    "autoname": "field:channel_code",
+    "beta": 0,
+    "creation": "2025-06-20 19:55:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "document_type": "Document",
+    "engine": "InnoDB",
+    "field_order": [
+        "basic_information_section",
+        "channel_name",
+        "channel_name_ar",
+        "channel_code",
+        "channel_type",
+        "platform",
+        "status",
+        "column_break_1",
+        "commission_rate",
+        "currency",
+        "country",
+        "language",
+        "priority_level",
+        "api_integration_section",
+        "api_endpoint",
+        "api_key",
+        "api_secret",
+        "access_token",
+        "refresh_token",
+        "column_break_2",
+        "oauth_url",
+        "webhook_url",
+        "rate_limit_per_minute",
+        "api_version",
+        "last_sync_time",
+        "inventory_sync_section",
+        "auto_sync_inventory",
+        "sync_frequency",
+        "last_inventory_sync",
+        "inventory_buffer_percentage",
+        "column_break_3",
+        "sync_pricing",
+        "sync_descriptions",
+        "sync_images",
+        "min_stock_threshold",
+        "pricing_strategy_section",
+        "pricing_rule",
+        "markup_percentage",
+        "minimum_profit_margin",
+        "competitor_pricing_check",
+        "column_break_5",
+        "dynamic_pricing_enabled",
+        "price_adjustment_frequency",
+        "seasonal_adjustment",
+        "financial_tracking_section",
+        "total_sales_omr",
+        "total_orders",
+        "average_order_value",
+        "commission_paid_omr",
+        "column_break_6",
+        "gross_profit_omr",
+        "net_profit_omr",
+        "roi_percentage",
+        "last_settlement_date",
+        "analytics_and_reporting_section",
+        "conversion_rate",
+        "click_through_rate",
+        "return_rate_percentage",
+        "customer_rating",
+        "column_break_9",
+        "best_selling_categories",
+        "seasonal_trends",
+        "peak_hours",
+        "average_delivery_time",
+        "system_information_section",
+        "created_by",
+        "created_date",
+        "last_modified_by",
+        "last_modified_date",
+        "column_break_10",
+        "integration_status",
+        "error_log",
+        "next_sync_scheduled",
+        "maintenance_mode"
+    ],
+    "fields": [
+        {
+            "fieldname": "basic_information_section",
+            "fieldtype": "Section Break",
+            "label": "Basic Information | المعلومات الأساسية"
+        },
+        {
+            "fieldname": "channel_name",
+            "fieldtype": "Data",
+            "label": "Channel Name",
+            "reqd": 1,
+            "in_list_view": 1,
+            "description": "English name of the sales channel"
+        },
+        {
+            "fieldname": "channel_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم القناة",
+            "reqd": 1,
+            "in_list_view": 1,
+            "translatable": 1,
+            "description": "Arabic name of the sales channel"
+        },
+        {
+            "fieldname": "channel_code",
+            "fieldtype": "Data",
+            "label": "Channel Code",
+            "reqd": 1,
+            "unique": 1,
+            "description": "Unique identifier for the channel (e.g., EBAY-OM-01)"
+        },
+        {
+            "fieldname": "channel_type",
+            "fieldtype": "Select",
+            "label": "Channel Type",
+            "options": "Online Marketplace\nOffline Store\nSocial Media\nB2B Platform\nDirect Sales\nWholesale",
+            "reqd": 1
+        },
+        {
+            "fieldname": "platform",
+            "fieldtype": "Select",
+            "label": "Platform",
+            "options": "eBay\nAmazon\nOpenSooq\nDubizzle\nOmanicar\nShopify\nWooCommerce\nInstagram\nWhatsApp Business\nOther",
+            "reqd": 1
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "Active\nInactive\nSuspended\nPending Approval\nIntegration Error",
+            "default": "Pending Approval",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "commission_rate",
+            "fieldtype": "Percent",
+            "label": "Commission Rate",
+            "description": "Platform commission percentage per sale"
+        },
+        {
+            "fieldname": "currency",
+            "fieldtype": "Link",
+            "label": "Currency",
+            "options": "Currency",
+            "default": "OMR"
+        },
+        {
+            "fieldname": "country",
+            "fieldtype": "Link",
+            "label": "Country",
+            "options": "Country",
+            "default": "Oman"
+        },
+        {
+            "fieldname": "language",
+            "fieldtype": "Select",
+            "label": "Primary Language",
+            "options": "Arabic\nEnglish\nArabic & English",
+            "default": "Arabic & English"
+        },
+        {
+            "fieldname": "priority_level",
+            "fieldtype": "Select",
+            "label": "Priority Level",
+            "options": "High\nMedium\nLow",
+            "default": "Medium"
+        },
+        {
+            "fieldname": "api_integration_section",
+            "fieldtype": "Section Break",
+            "label": "API Integration | تكامل API"
+        },
+        {
+            "fieldname": "api_endpoint",
+            "fieldtype": "Data",
+            "label": "API Endpoint",
+            "description": "Base URL for API calls"
+        },
+        {
+            "fieldname": "api_key",
+            "fieldtype": "Password",
+            "label": "API Key"
+        },
+        {
+            "fieldname": "api_secret",
+            "fieldtype": "Password",
+            "label": "API Secret"
+        },
+        {
+            "fieldname": "access_token",
+            "fieldtype": "Password",
+            "label": "Access Token"
+        },
+        {
+            "fieldname": "refresh_token",
+            "fieldtype": "Password",
+            "label": "Refresh Token"
+        },
+        {
+            "fieldname": "column_break_2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "oauth_url",
+            "fieldtype": "Data",
+            "label": "OAuth URL",
+            "description": "URL for OAuth authentication"
+        },
+        {
+            "fieldname": "webhook_url",
+            "fieldtype": "Data",
+            "label": "Webhook URL",
+            "description": "URL to receive webhook notifications"
+        },
+        {
+            "fieldname": "rate_limit_per_minute",
+            "fieldtype": "Int",
+            "label": "Rate Limit (per minute)",
+            "default": 100
+        },
+        {
+            "fieldname": "api_version",
+            "fieldtype": "Data",
+            "label": "API Version"
+        },
+        {
+            "fieldname": "last_sync_time",
+            "fieldtype": "Datetime",
+            "label": "Last Sync Time",
+            "read_only": 1
+        },
+        {
+            "fieldname": "inventory_sync_section",
+            "fieldtype": "Section Break",
+            "label": "Inventory Synchronization | مزامنة المخزون"
+        },
+        {
+            "fieldname": "auto_sync_inventory",
+            "fieldtype": "Check",
+            "label": "Auto Sync Inventory",
+            "default": 1
+        },
+        {
+            "fieldname": "sync_frequency",
+            "fieldtype": "Select",
+            "label": "Sync Frequency",
+            "options": "Real-time\nEvery 5 minutes\nEvery 15 minutes\nEvery 30 minutes\nEvery hour\nTwice daily\nDaily",
+            "default": "Every 15 minutes"
+        },
+        {
+            "fieldname": "last_inventory_sync",
+            "fieldtype": "Datetime",
+            "label": "Last Inventory Sync",
+            "read_only": 1
+        },
+        {
+            "fieldname": "inventory_buffer_percentage",
+            "fieldtype": "Percent",
+            "label": "Inventory Buffer %",
+            "description": "Reserve percentage of stock for safety",
+            "default": 10
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "sync_pricing",
+            "fieldtype": "Check",
+            "label": "Sync Pricing",
+            "default": 1
+        },
+        {
+            "fieldname": "sync_descriptions",
+            "fieldtype": "Check",
+            "label": "Sync Descriptions",
+            "default": 1
+        },
+        {
+            "fieldname": "sync_images",
+            "fieldtype": "Check",
+            "label": "Sync Images",
+            "default": 1
+        },
+        {
+            "fieldname": "min_stock_threshold",
+            "fieldtype": "Int",
+            "label": "Min Stock Threshold",
+            "description": "Minimum stock to maintain listings",
+            "default": 1
+        },
+        {
+            "fieldname": "pricing_strategy_section",
+            "fieldtype": "Section Break",
+            "label": "Pricing Strategy | استراتيجية التسعير"
+        },
+        {
+            "fieldname": "pricing_rule",
+            "fieldtype": "Select",
+            "label": "Pricing Rule",
+            "options": "Fixed Markup\nDynamic Pricing\nCompetitor Based\nCost Plus\nMarket Trend",
+            "default": "Fixed Markup"
+        },
+        {
+            "fieldname": "markup_percentage",
+            "fieldtype": "Percent",
+            "label": "Markup Percentage",
+            "description": "Default markup over cost price",
+            "default": 35
+        },
+        {
+            "fieldname": "minimum_profit_margin",
+            "fieldtype": "Percent",
+            "label": "Minimum Profit Margin",
+            "description": "Minimum acceptable profit margin",
+            "default": 15
+        },
+        {
+            "fieldname": "competitor_pricing_check",
+            "fieldtype": "Check",
+            "label": "Competitor Pricing Check",
+            "default": 0
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "dynamic_pricing_enabled",
+            "fieldtype": "Check",
+            "label": "Dynamic Pricing Enabled",
+            "default": 0
+        },
+        {
+            "fieldname": "price_adjustment_frequency",
+            "fieldtype": "Select",
+            "label": "Price Adjustment Frequency",
+            "options": "Hourly\nDaily\nWeekly\nMonthly",
+            "default": "Daily",
+            "depends_on": "dynamic_pricing_enabled"
+        },
+        {
+            "fieldname": "seasonal_adjustment",
+            "fieldtype": "Check",
+            "label": "Seasonal Adjustment",
+            "default": 0
+        },
+        {
+            "fieldname": "financial_tracking_section",
+            "fieldtype": "Section Break",
+            "label": "Financial Tracking | التتبع المالي"
+        },
+        {
+            "fieldname": "total_sales_omr",
+            "fieldtype": "Currency",
+            "label": "Total Sales (OMR)",
+            "read_only": 1,
+            "precision": 3,
+            "options": "OMR"
+        },
+        {
+            "fieldname": "total_orders",
+            "fieldtype": "Int",
+            "label": "Total Orders",
+            "read_only": 1
+        },
+        {
+            "fieldname": "average_order_value",
+            "fieldtype": "Currency",
+            "label": "Average Order Value",
+            "read_only": 1,
+            "precision": 3,
+            "options": "OMR"
+        },
+        {
+            "fieldname": "commission_paid_omr",
+            "fieldtype": "Currency",
+            "label": "Commission Paid (OMR)",
+            "read_only": 1,
+            "precision": 3,
+            "options": "OMR"
+        },
+        {
+            "fieldname": "column_break_6",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "gross_profit_omr",
+            "fieldtype": "Currency",
+            "label": "Gross Profit (OMR)",
+            "read_only": 1,
+            "precision": 3,
+            "options": "OMR"
+        },
+        {
+            "fieldname": "net_profit_omr",
+            "fieldtype": "Currency",
+            "label": "Net Profit (OMR)",
+            "read_only": 1,
+            "precision": 3,
+            "options": "OMR"
+        },
+        {
+            "fieldname": "roi_percentage",
+            "fieldtype": "Percent",
+            "label": "ROI Percentage",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "last_settlement_date",
+            "fieldtype": "Date",
+            "label": "Last Settlement Date"
+        },
+        {
+            "fieldname": "analytics_and_reporting_section",
+            "fieldtype": "Section Break",
+            "label": "Analytics & Reporting | التحليلات والتقارير"
+        },
+        {
+            "fieldname": "conversion_rate",
+            "fieldtype": "Percent",
+            "label": "Conversion Rate",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "click_through_rate",
+            "fieldtype": "Percent",
+            "label": "Click Through Rate",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "return_rate_percentage",
+            "fieldtype": "Percent",
+            "label": "Return Rate %",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "customer_rating",
+            "fieldtype": "Rating",
+            "label": "Customer Rating",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_9",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "best_selling_categories",
+            "fieldtype": "JSON",
+            "label": "Best Selling Categories",
+            "read_only": 1
+        },
+        {
+            "fieldname": "seasonal_trends",
+            "fieldtype": "JSON",
+            "label": "Seasonal Trends",
+            "read_only": 1
+        },
+        {
+            "fieldname": "peak_hours",
+            "fieldtype": "Data",
+            "label": "Peak Hours",
+            "read_only": 1
+        },
+        {
+            "fieldname": "average_delivery_time",
+            "fieldtype": "Int",
+            "label": "Average Delivery Time (Days)",
+            "read_only": 1
+        },
+        {
+            "fieldname": "system_information_section",
+            "fieldtype": "Section Break",
+            "label": "System Information | معلومات النظام"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "created_date",
+            "fieldtype": "Datetime",
+            "label": "Created Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_modified_by",
+            "fieldtype": "Link",
+            "label": "Last Modified By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_modified_date",
+            "fieldtype": "Datetime",
+            "label": "Last Modified Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_10",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "integration_status",
+            "fieldtype": "Select",
+            "label": "Integration Status",
+            "options": "Connected\nDisconnected\nError\nSyncing\nTesting",
+            "default": "Disconnected",
+            "read_only": 1
+        },
+        {
+            "fieldname": "error_log",
+            "fieldtype": "Text",
+            "label": "Error Log",
+            "read_only": 1
+        },
+        {
+            "fieldname": "next_sync_scheduled",
+            "fieldtype": "Datetime",
+            "label": "Next Sync Scheduled",
+            "read_only": 1
+        },
+        {
+            "fieldname": "maintenance_mode",
+            "fieldtype": "Check",
+            "label": "Maintenance Mode",
+            "default": 0
+        }
+    ],
+    "has_web_view": 0,
+    "hide_heading": 0,
+    "hide_toolbar": 0,
+    "icon": "fa fa-shopping-cart",
+    "idx": 0,
+    "in_create": 0,
+    "is_child": 0,
+    "is_published_field": 0,
+    "is_single": 0,
+    "is_submittable": 0,
+    "is_tree": 0,
+    "is_virtual": 0,
+    "istable": 0,
+    "modified": "2025-06-20 19:55:00.000000",
+    "modified_by": "Administrator",
+    "module": "Scrap Management",
+    "name": "Sales Channel",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 0,
+            "delete": 0,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician",
+            "share": 0,
+            "write": 0
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "search_fields": "channel_name,channel_name_ar,platform,status",
+    "show_name_in_global_search": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "channel_name",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

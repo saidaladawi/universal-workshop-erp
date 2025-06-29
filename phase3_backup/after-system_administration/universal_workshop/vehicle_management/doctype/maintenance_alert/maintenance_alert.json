@@ -1,0 +1,326 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:alert_id",
+ "creation": "2025-06-19 09:45:00.000000",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "alert_information_section",
+  "alert_id",
+  "vehicle",
+  "customer",
+  "column_break_bdjd",
+  "alert_type",
+  "priority",
+  "status",
+  "maintenance_details_section",
+  "service_type",
+  "service_type_ar",
+  "column_break_hjks",
+  "due_date",
+  "overdue_days",
+  "mileage_details_section",
+  "current_mileage",
+  "service_due_mileage",
+  "column_break_klmn",
+  "mileage_overdue",
+  "last_service_date",
+  "notification_section",
+  "notification_sent",
+  "notification_date",
+  "column_break_pqrs",
+  "email_sent",
+  "sms_sent",
+  "description_section",
+  "description",
+  "description_ar",
+  "column_break_tuvw",
+  "recommendations",
+  "recommendations_ar",
+  "system_section",
+  "created_by_system",
+  "maintenance_schedule_ref",
+  "column_break_xyza",
+  "acknowledged",
+  "acknowledged_by",
+  "acknowledged_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "alert_information_section",
+   "fieldtype": "Section Break",
+   "label": "Alert Information"
+  },
+  {
+   "fieldname": "alert_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Alert ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vehicle",
+   "options": "Vehicle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_bdjd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "alert_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Alert Type",
+   "options": "Time Based\nMileage Based\nCombined\nOverdue",
+   "reqd": 1
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Priority",
+   "options": "Critical\nHigh\nMedium\nLow",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Active\nAcknowledged\nScheduled\nCompleted\nDismissed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "maintenance_details_section",
+   "fieldtype": "Section Break",
+   "label": "Maintenance Details"
+  },
+  {
+   "fieldname": "service_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Service Type",
+   "options": "Oil Change\nBrake Service\nTire Rotation\nEngine Tune-up\nTransmission Service\nAir Filter Replacement\nBattery Check\nCooling System\nElectrical System\nGeneral Inspection\nTiming Belt\nSpark Plugs\nFuel Filter\nBelts and Hoses\nWheel Alignment",
+   "reqd": 1
+  },
+  {
+   "fieldname": "service_type_ar",
+   "fieldtype": "Data",
+   "label": "نوع الخدمة",
+   "read_only": 1,
+   "translatable": 1
+  },
+  {
+   "fieldname": "column_break_hjks",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Due Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "overdue_days",
+   "fieldtype": "Int",
+   "label": "Overdue Days",
+   "read_only": 1
+  },
+  {
+   "fieldname": "mileage_details_section",
+   "fieldtype": "Section Break",
+   "label": "Mileage Details"
+  },
+  {
+   "fieldname": "current_mileage",
+   "fieldtype": "Int",
+   "label": "Current Mileage (KM)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "service_due_mileage",
+   "fieldtype": "Int",
+   "label": "Service Due Mileage (KM)"
+  },
+  {
+   "fieldname": "column_break_klmn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mileage_overdue",
+   "fieldtype": "Int",
+   "label": "Mileage Overdue (KM)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_service_date",
+   "fieldtype": "Date",
+   "label": "Last Service Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notification_section",
+   "fieldtype": "Section Break",
+   "label": "Notification Details"
+  },
+  {
+   "fieldname": "notification_sent",
+   "fieldtype": "Check",
+   "label": "Notification Sent"
+  },
+  {
+   "fieldname": "notification_date",
+   "fieldtype": "Datetime",
+   "label": "Notification Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_pqrs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "email_sent",
+   "fieldtype": "Check",
+   "label": "Email Sent"
+  },
+  {
+   "fieldname": "sms_sent",
+   "fieldtype": "Check",
+   "label": "SMS Sent"
+  },
+  {
+   "fieldname": "description_section",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "description_ar",
+   "fieldtype": "Text Editor",
+   "label": "الوصف",
+   "translatable": 1
+  },
+  {
+   "fieldname": "column_break_tuvw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "recommendations",
+   "fieldtype": "Text Editor",
+   "label": "Recommendations"
+  },
+  {
+   "fieldname": "recommendations_ar",
+   "fieldtype": "Text Editor",
+   "label": "التوصيات",
+   "translatable": 1
+  },
+  {
+   "fieldname": "system_section",
+   "fieldtype": "Section Break",
+   "label": "System Information"
+  },
+  {
+   "fieldname": "created_by_system",
+   "fieldtype": "Check",
+   "label": "Created by System"
+  },
+  {
+   "fieldname": "maintenance_schedule_ref",
+   "fieldtype": "Link",
+   "label": "Maintenance Schedule Reference",
+   "options": "Maintenance Schedule"
+  },
+  {
+   "fieldname": "column_break_xyza",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "acknowledged",
+   "fieldtype": "Check",
+   "label": "Acknowledged"
+  },
+  {
+   "fieldname": "acknowledged_by",
+   "fieldtype": "Link",
+   "label": "Acknowledged By",
+   "options": "User"
+  },
+  {
+   "fieldname": "acknowledged_date",
+   "fieldtype": "Datetime",
+   "label": "Acknowledged Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-19 09:45:00.000000",
+ "modified_by": "Administrator",
+ "module": "Vehicle Management",
+ "name": "Maintenance Alert",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Technician",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Customer",
+   "share": 1
+  }
+ ],
+ "show_name_in_global_search": 1,
+ "sort_field": "due_date",
+ "sort_order": "ASC",
+ "states": [],
+ "title_field": "alert_id",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+} 

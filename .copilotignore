@@ -1,0 +1,11 @@
+# Exclude large directories from Copilot indexing
+logs/
+env/
+archived/
+test_results/
+delivery_reports/
+restore_reports/
+config/pids/
+*.log
+*.log.*
+dump.rdb

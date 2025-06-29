@@ -1,0 +1,518 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 0,
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "beta": 0,
+    "creation": "2025-06-24 18:37:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "document_type": "Document",
+    "engine": "InnoDB",
+    "field_order": [
+        "basic_information_section",
+        "naming_series",
+        "test_case",
+        "test_case_title",
+        "execution_date",
+        "executed_by",
+        "column_break_5",
+        "execution_status",
+        "execution_duration",
+        "test_environment",
+        "browser_version",
+        "execution_details_section",
+        "execution_summary",
+        "execution_summary_ar",
+        "steps_executed",
+        "steps_passed",
+        "steps_failed",
+        "column_break_13",
+        "critical_steps_passed",
+        "performance_metrics",
+        "screenshots_captured",
+        "automation_used",
+        "results_section",
+        "test_results",
+        "failure_details",
+        "failure_details_ar",
+        "error_logs",
+        "column_break_20",
+        "defects_found",
+        "recommendations",
+        "recommendations_ar",
+        "follow_up_required",
+        "compliance_validation_section",
+        "arabic_localization_validated",
+        "oman_vat_compliance_validated",
+        "environmental_compliance_validated",
+        "security_validation_passed",
+        "column_break_26",
+        "performance_benchmarks_met",
+        "integration_points_validated",
+        "regression_issues_found",
+        "audit_trail_verified",
+        "technical_details_section",
+        "system_configuration",
+        "test_data_used",
+        "api_responses",
+        "database_state",
+        "column_break_32",
+        "log_files",
+        "error_screenshots",
+        "performance_reports",
+        "automation_logs",
+        "review_approval_section",
+        "reviewed_by",
+        "review_date",
+        "review_status",
+        "review_comments",
+        "column_break_38",
+        "approved_by",
+        "approval_date",
+        "retesting_required",
+        "next_execution_scheduled"
+    ],
+    "fields": [
+        {
+            "fieldname": "basic_information_section",
+            "fieldtype": "Section Break",
+            "label": "Basic Information | المعلومات الأساسية"
+        },
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Naming Series",
+            "options": "TEL-YYYY-####",
+            "reqd": 1,
+            "default": "TEL-YYYY-####"
+        },
+        {
+            "fieldname": "test_case",
+            "fieldtype": "Link",
+            "label": "Test Case",
+            "options": "System Test Case",
+            "reqd": 1,
+            "in_list_view": 1,
+            "in_standard_filter": 1
+        },
+        {
+            "fieldname": "test_case_title",
+            "fieldtype": "Data",
+            "label": "Test Case Title",
+            "fetch_from": "test_case.test_case_title",
+            "read_only": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "execution_date",
+            "fieldtype": "Datetime",
+            "label": "Execution Date",
+            "reqd": 1,
+            "in_list_view": 1,
+            "default": "Now"
+        },
+        {
+            "fieldname": "executed_by",
+            "fieldtype": "Link",
+            "label": "Executed By",
+            "options": "User",
+            "reqd": 1,
+            "default": "__user"
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "execution_status",
+            "fieldtype": "Select",
+            "label": "Execution Status",
+            "options": "\nIn Progress\nPassed\nFailed\nBlocked\nSkipped\nAborted",
+            "reqd": 1,
+            "in_list_view": 1,
+            "default": "In Progress"
+        },
+        {
+            "fieldname": "execution_duration",
+            "fieldtype": "Int",
+            "label": "Execution Duration (minutes)",
+            "description": "Actual time taken to execute the test"
+        },
+        {
+            "fieldname": "test_environment",
+            "fieldtype": "Select",
+            "label": "Test Environment",
+            "options": "\nDevelopment\nTesting\nStaging\nProduction",
+            "reqd": 1
+        },
+        {
+            "fieldname": "browser_version",
+            "fieldtype": "Data",
+            "label": "Browser/Device Version",
+            "description": "Browser or device version used for testing"
+        },
+        {
+            "fieldname": "execution_details_section",
+            "fieldtype": "Section Break",
+            "label": "Execution Details | تفاصيل التنفيذ"
+        },
+        {
+            "fieldname": "execution_summary",
+            "fieldtype": "Text Editor",
+            "label": "Execution Summary",
+            "reqd": 1
+        },
+        {
+            "fieldname": "execution_summary_ar",
+            "fieldtype": "Text Editor",
+            "label": "ملخص التنفيذ",
+            "translatable": 1
+        },
+        {
+            "fieldname": "steps_executed",
+            "fieldtype": "Int",
+            "label": "Steps Executed",
+            "reqd": 1
+        },
+        {
+            "fieldname": "steps_passed",
+            "fieldtype": "Int",
+            "label": "Steps Passed",
+            "reqd": 1
+        },
+        {
+            "fieldname": "steps_failed",
+            "fieldtype": "Int",
+            "label": "Steps Failed",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_13",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "critical_steps_passed",
+            "fieldtype": "Int",
+            "label": "Critical Steps Passed"
+        },
+        {
+            "fieldname": "performance_metrics",
+            "fieldtype": "Code",
+            "label": "Performance Metrics",
+            "options": "JSON",
+            "description": "JSON object with performance measurements"
+        },
+        {
+            "fieldname": "screenshots_captured",
+            "fieldtype": "Int",
+            "label": "Screenshots Captured",
+            "default": 0
+        },
+        {
+            "fieldname": "automation_used",
+            "fieldtype": "Check",
+            "label": "Automation Used",
+            "default": 0
+        },
+        {
+            "fieldname": "results_section",
+            "fieldtype": "Section Break",
+            "label": "Results | النتائج"
+        },
+        {
+            "fieldname": "test_results",
+            "fieldtype": "Table",
+            "label": "Step Results",
+            "options": "Test Step Result"
+        },
+        {
+            "fieldname": "failure_details",
+            "fieldtype": "Text Editor",
+            "label": "Failure Details",
+            "depends_on": "eval:doc.execution_status=='Failed'"
+        },
+        {
+            "fieldname": "failure_details_ar",
+            "fieldtype": "Text Editor",
+            "label": "تفاصيل الفشل",
+            "translatable": 1,
+            "depends_on": "eval:doc.execution_status=='Failed'"
+        },
+        {
+            "fieldname": "error_logs",
+            "fieldtype": "Code",
+            "label": "Error Logs",
+            "options": "Text",
+            "depends_on": "eval:doc.execution_status=='Failed'"
+        },
+        {
+            "fieldname": "column_break_20",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "defects_found",
+            "fieldtype": "Table",
+            "label": "Defects Found",
+            "options": "Test Defect"
+        },
+        {
+            "fieldname": "recommendations",
+            "fieldtype": "Text Editor",
+            "label": "Recommendations"
+        },
+        {
+            "fieldname": "recommendations_ar",
+            "fieldtype": "Text Editor",
+            "label": "التوصيات",
+            "translatable": 1
+        },
+        {
+            "fieldname": "follow_up_required",
+            "fieldtype": "Check",
+            "label": "Follow-up Required",
+            "default": 0
+        },
+        {
+            "fieldname": "compliance_validation_section",
+            "fieldtype": "Section Break",
+            "label": "Compliance Validation | التحقق من الامتثال"
+        },
+        {
+            "fieldname": "arabic_localization_validated",
+            "fieldtype": "Check",
+            "label": "Arabic Localization Validated",
+            "default": 0
+        },
+        {
+            "fieldname": "oman_vat_compliance_validated",
+            "fieldtype": "Check",
+            "label": "Oman VAT Compliance Validated",
+            "default": 0
+        },
+        {
+            "fieldname": "environmental_compliance_validated",
+            "fieldtype": "Check",
+            "label": "Environmental Compliance Validated",
+            "default": 0
+        },
+        {
+            "fieldname": "security_validation_passed",
+            "fieldtype": "Check",
+            "label": "Security Validation Passed",
+            "default": 0
+        },
+        {
+            "fieldname": "column_break_26",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "performance_benchmarks_met",
+            "fieldtype": "Check",
+            "label": "Performance Benchmarks Met",
+            "default": 0
+        },
+        {
+            "fieldname": "integration_points_validated",
+            "fieldtype": "Check",
+            "label": "Integration Points Validated",
+            "default": 0
+        },
+        {
+            "fieldname": "regression_issues_found",
+            "fieldtype": "Check",
+            "label": "Regression Issues Found",
+            "default": 0
+        },
+        {
+            "fieldname": "audit_trail_verified",
+            "fieldtype": "Check",
+            "label": "Audit Trail Verified",
+            "default": 0
+        },
+        {
+            "fieldname": "technical_details_section",
+            "fieldtype": "Section Break",
+            "label": "Technical Details | التفاصيل التقنية"
+        },
+        {
+            "fieldname": "system_configuration",
+            "fieldtype": "Code",
+            "label": "System Configuration",
+            "options": "JSON",
+            "description": "System configuration during test execution"
+        },
+        {
+            "fieldname": "test_data_used",
+            "fieldtype": "Attach",
+            "label": "Test Data Used",
+            "description": "File containing test data used"
+        },
+        {
+            "fieldname": "api_responses",
+            "fieldtype": "Code",
+            "label": "API Responses",
+            "options": "JSON",
+            "description": "API responses captured during testing"
+        },
+        {
+            "fieldname": "database_state",
+            "fieldtype": "Code",
+            "label": "Database State",
+            "options": "SQL",
+            "description": "Database state before and after test"
+        },
+        {
+            "fieldname": "column_break_32",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "log_files",
+            "fieldtype": "Attach",
+            "label": "Log Files",
+            "description": "System log files from test execution"
+        },
+        {
+            "fieldname": "error_screenshots",
+            "fieldtype": "Attach",
+            "label": "Error Screenshots",
+            "description": "Screenshots of errors or failures"
+        },
+        {
+            "fieldname": "performance_reports",
+            "fieldtype": "Attach",
+            "label": "Performance Reports",
+            "description": "Performance analysis reports"
+        },
+        {
+            "fieldname": "automation_logs",
+            "fieldtype": "Code",
+            "label": "Automation Logs",
+            "options": "Text",
+            "description": "Logs from automated test execution"
+        },
+        {
+            "fieldname": "review_approval_section",
+            "fieldtype": "Section Break",
+            "label": "Review & Approval | المراجعة والموافقة"
+        },
+        {
+            "fieldname": "reviewed_by",
+            "fieldtype": "Link",
+            "label": "Reviewed By",
+            "options": "User"
+        },
+        {
+            "fieldname": "review_date",
+            "fieldtype": "Date",
+            "label": "Review Date"
+        },
+        {
+            "fieldname": "review_status",
+            "fieldtype": "Select",
+            "label": "Review Status",
+            "options": "\nPending Review\nUnder Review\nApproved\nRejected\nRevision Required",
+            "default": "Pending Review"
+        },
+        {
+            "fieldname": "review_comments",
+            "fieldtype": "Text Editor",
+            "label": "Review Comments"
+        },
+        {
+            "fieldname": "column_break_38",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "approved_by",
+            "fieldtype": "Link",
+            "label": "Approved By",
+            "options": "User"
+        },
+        {
+            "fieldname": "approval_date",
+            "fieldtype": "Date",
+            "label": "Approval Date"
+        },
+        {
+            "fieldname": "retesting_required",
+            "fieldtype": "Check",
+            "label": "Retesting Required",
+            "default": 0
+        },
+        {
+            "fieldname": "next_execution_scheduled",
+            "fieldtype": "Date",
+            "label": "Next Execution Scheduled"
+        }
+    ],
+    "has_web_view": 0,
+    "hide_heading": 0,
+    "hide_toolbar": 0,
+    "idx": 0,
+    "image_view": 0,
+    "in_create": 0,
+    "is_submittable": 0,
+    "issingle": 0,
+    "istable": 0,
+    "max_attachments": 10,
+    "modified": "2025-06-24 18:37:00.000000",
+    "modified_by": "Administrator",
+    "module": "Testing",
+    "name": "Test Execution Log",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 0,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Supervisor",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 0,
+            "email": 0,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Quality Assurance",
+            "share": 0,
+            "write": 1
+        }
+    ],
+    "quick_entry": 0,
+    "read_only": 0,
+    "read_only_onload": 0,
+    "show_name_in_global_search": 1,
+    "sort_field": "execution_date",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "test_case_title",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

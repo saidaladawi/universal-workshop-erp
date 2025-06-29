@@ -1,0 +1,315 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2025-06-22 08:00:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "workshop_info_section",
+        "workshop_name",
+        "owner_name",
+        "column_break_3",
+        "phone_number",
+        "email",
+        "address_section",
+        "address",
+        "city",
+        "column_break_8",
+        "country",
+        "postal_code",
+        "branding_section",
+        "logo",
+        "primary_color",
+        "column_break_13",
+        "secondary_color",
+        "theme_style",
+        "system_settings_section",
+        "default_currency",
+        "time_zone",
+        "column_break_18",
+        "language",
+        "date_format",
+        "notification_settings_section",
+        "enable_email_notifications",
+        "enable_sms_notifications",
+        "column_break_22",
+        "notification_email",
+        "sms_gateway",
+        "module_settings_section",
+        "enable_inventory",
+        "enable_billing",
+        "column_break_27",
+        "enable_scheduling",
+        "enable_crm",
+        "advanced_settings_section",
+        "backup_frequency",
+        "auto_cleanup_days",
+        "column_break_32",
+        "enable_api_access",
+        "api_key"
+    ],
+    "fields": [
+        {
+            "fieldname": "workshop_info_section",
+            "fieldtype": "Section Break",
+            "label": "Workshop Information"
+        },
+        {
+            "fieldname": "workshop_name",
+            "fieldtype": "Data",
+            "label": "Workshop Name",
+            "reqd": 1
+        },
+        {
+            "fieldname": "owner_name",
+            "fieldtype": "Data",
+            "label": "Owner Name",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "phone_number",
+            "fieldtype": "Data",
+            "label": "Phone Number",
+            "reqd": 1
+        },
+        {
+            "fieldname": "email",
+            "fieldtype": "Data",
+            "label": "Email Address"
+        },
+        {
+            "fieldname": "address_section",
+            "fieldtype": "Section Break",
+            "label": "Address Information"
+        },
+        {
+            "fieldname": "address",
+            "fieldtype": "Small Text",
+            "label": "Address",
+            "reqd": 1
+        },
+        {
+            "fieldname": "city",
+            "fieldtype": "Data",
+            "label": "City",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_8",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "country",
+            "fieldtype": "Select",
+            "label": "Country",
+            "options": "Oman\\nUAE\\nSaudi Arabia\\nKuwait\\nQatar\\nBahrain",
+            "reqd": 1
+        },
+        {
+            "fieldname": "postal_code",
+            "fieldtype": "Data",
+            "label": "Postal Code"
+        },
+        {
+            "fieldname": "branding_section",
+            "fieldtype": "Section Break",
+            "label": "Branding & Theme"
+        },
+        {
+            "fieldname": "logo",
+            "fieldtype": "Attach Image",
+            "label": "Workshop Logo"
+        },
+        {
+            "fieldname": "primary_color",
+            "fieldtype": "Color",
+            "label": "Primary Color",
+            "default": "#1976d2"
+        },
+        {
+            "fieldname": "column_break_13",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "secondary_color",
+            "fieldtype": "Color",
+            "label": "Secondary Color",
+            "default": "#424242"
+        },
+        {
+            "fieldname": "theme_style",
+            "fieldtype": "Select",
+            "label": "Theme Style",
+            "options": "Modern\\nClassic\\nMinimalist\\nIndustrial",
+            "default": "Modern"
+        },
+        {
+            "fieldname": "system_settings_section",
+            "fieldtype": "Section Break",
+            "label": "System Settings"
+        },
+        {
+            "fieldname": "default_currency",
+            "fieldtype": "Select",
+            "label": "Default Currency",
+            "options": "OMR\\nAED\\nSAR\\nKWD\\nQAR\\nBHD\\nUSD",
+            "default": "OMR"
+        },
+        {
+            "fieldname": "time_zone",
+            "fieldtype": "Select",
+            "label": "Time Zone",
+            "options": "Asia/Muscat\\nAsia/Dubai\\nAsia/Riyadh\\nAsia/Kuwait\\nAsia/Qatar\\nAsia/Bahrain",
+            "default": "Asia/Muscat"
+        },
+        {
+            "fieldname": "column_break_18",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "language",
+            "fieldtype": "Select",
+            "label": "Default Language",
+            "options": "ar\\nen",
+            "default": "ar"
+        },
+        {
+            "fieldname": "date_format",
+            "fieldtype": "Select",
+            "label": "Date Format",
+            "options": "dd-mm-yyyy\\nmm-dd-yyyy\\nyyyy-mm-dd",
+            "default": "dd-mm-yyyy"
+        },
+        {
+            "fieldname": "notification_settings_section",
+            "fieldtype": "Section Break",
+            "label": "Notification Settings"
+        },
+        {
+            "fieldname": "enable_email_notifications",
+            "fieldtype": "Check",
+            "label": "Enable Email Notifications",
+            "default": 1
+        },
+        {
+            "fieldname": "enable_sms_notifications",
+            "fieldtype": "Check",
+            "label": "Enable SMS Notifications"
+        },
+        {
+            "fieldname": "column_break_22",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "notification_email",
+            "fieldtype": "Data",
+            "label": "Notification Email"
+        },
+        {
+            "fieldname": "sms_gateway",
+            "fieldtype": "Select",
+            "label": "SMS Gateway",
+            "options": "Twilio\\nClickatell\\nLocal Provider"
+        },
+        {
+            "fieldname": "module_settings_section",
+            "fieldtype": "Section Break",
+            "label": "Module Settings"
+        },
+        {
+            "fieldname": "enable_inventory",
+            "fieldtype": "Check",
+            "label": "Parts Inventory Management",
+            "default": 1
+        },
+        {
+            "fieldname": "enable_billing",
+            "fieldtype": "Check",
+            "label": "Advanced Billing",
+            "default": 1
+        },
+        {
+            "fieldname": "column_break_27",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "enable_scheduling",
+            "fieldtype": "Check",
+            "label": "Appointment Scheduling",
+            "default": 1
+        },
+        {
+            "fieldname": "enable_crm",
+            "fieldtype": "Check",
+            "label": "Customer Management",
+            "default": 1
+        },
+        {
+            "fieldname": "advanced_settings_section",
+            "fieldtype": "Section Break",
+            "label": "Advanced Settings"
+        },
+        {
+            "fieldname": "backup_frequency",
+            "fieldtype": "Select",
+            "label": "Backup Frequency",
+            "options": "Daily\\nWeekly\\nMonthly",
+            "default": "Daily"
+        },
+        {
+            "fieldname": "auto_cleanup_days",
+            "fieldtype": "Int",
+            "label": "Auto Cleanup (Days)",
+            "default": 90
+        },
+        {
+            "fieldname": "column_break_32",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "enable_api_access",
+            "fieldtype": "Check",
+            "label": "Enable API Access"
+        },
+        {
+            "fieldname": "api_key",
+            "fieldtype": "Data",
+            "label": "API Key",
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 0,
+    "issingle": 1,
+    "links": [],
+    "modified": "2025-06-22 08:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Workshop Management",
+    "name": "Workshop Settings",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "print": 1,
+            "read": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "read": 1,
+            "role": "Workshop Manager",
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1
+}

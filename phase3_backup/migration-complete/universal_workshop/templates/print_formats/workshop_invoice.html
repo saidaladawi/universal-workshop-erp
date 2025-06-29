@@ -1,0 +1,254 @@
+{% set branding_context = get_print_branding_context() %}
+{% set language = frappe.local.lang or 'en' %}
+{% set is_arabic = language == 'ar' %}
+
+<!-- Workshop Branding CSS -->
+{{ branding_context.print_css | safe }}
+
+<!-- Document Container -->
+<div class="print-format" {% if is_arabic %}dir="rtl"{% endif %}>
+    
+    <!-- Workshop Header -->
+    {{ branding_context.header_html | safe }}
+    
+    <!-- Document Content -->
+    <div class="document-content">
+        
+        <!-- Invoice Document Title -->
+        <h2 class="document-title">
+            {% if is_arabic %}فاتورة{% else %}INVOICE{% endif %}
+        </h2>
+        
+        <!-- Invoice Details -->
+        <div class="invoice-details" style="margin-bottom: 20px;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="width: 50%; vertical-align: top;">
+                        <strong>{% if is_arabic %}إلى:{% else %}To:{% endif %}</strong><br>
+                        <div style="margin-top: 5px; padding: 10px; border: 1px solid #eee; border-radius: 3px;">
+                            {{ doc.customer_name }}<br>
+                            {% if doc.customer_address %}
+                                {{ doc.customer_address }}<br>
+                            {% endif %}
+                            {% if doc.contact_phone %}
+                                📞 {{ doc.contact_phone }}<br>
+                            {% endif %}
+                            {% if doc.contact_email %}
+                                ✉️ {{ doc.contact_email }}
+                            {% endif %}
+                        </div>
+                    </td>
+                    <td style="width: 50%; vertical-align: top; text-align: {% if is_arabic %}left{% else %}right{% endif %};">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td><strong>{% if is_arabic %}رقم الفاتورة:{% else %}Invoice #:{% endif %}</strong></td>
+                                <td style="text-align: {% if is_arabic %}left{% else %}right{% endif %};">{{ doc.name }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>{% if is_arabic %}التاريخ:{% else %}Date:{% endif %}</strong></td>
+                                <td style="text-align: {% if is_arabic %}left{% else %}right{% endif %};">{{ doc.posting_date }}</td>
+                            </tr>
+                            {% if doc.due_date %}
+                            <tr>
+                                <td><strong>{% if is_arabic %}تاريخ الاستحقاق:{% else %}Due Date:{% endif %}</strong></td>
+                                <td style="text-align: {% if is_arabic %}left{% else %}right{% endif %};">{{ doc.due_date }}</td>
+                            </tr>
+                            {% endif %}
+                            {% if doc.po_no %}
+                            <tr>
+                                <td><strong>{% if is_arabic %}رقم أمر الشراء:{% else %}PO Number:{% endif %}</strong></td>
+                                <td style="text-align: {% if is_arabic %}left{% else %}right{% endif %};">{{ doc.po_no }}</td>
+                            </tr>
+                            {% endif %}
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Items Table -->
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+            <thead>
+                <tr class="table-header">
+                    <th style="border: 1px solid #ddd; padding: 12px; text-align: {% if is_arabic %}right{% else %}left{% endif %};">
+                        {% if is_arabic %}الصنف{% else %}Item{% endif %}
+                    </th>
+                    <th style="border: 1px solid #ddd; padding: 12px; text-align: center; width: 80px;">
+                        {% if is_arabic %}الكمية{% else %}Qty{% endif %}
+                    </th>
+                    <th style="border: 1px solid #ddd; padding: 12px; text-align: right; width: 100px;">
+                        {% if is_arabic %}السعر{% else %}Rate{% endif %}
+                    </th>
+                    <th style="border: 1px solid #ddd; padding: 12px; text-align: right; width: 120px;">
+                        {% if is_arabic %}المجموع{% else %}Amount{% endif %}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in doc.items %}
+                <tr class="table-row">
+                    <td style="border: 1px solid #ddd; padding: 12px;">
+                        <strong>{{ item.item_name }}</strong>
+                        {% if item.description %}
+                            <br><small style="color: #666;">{{ item.description }}</small>
+                        {% endif %}
+                        {% if item.item_code and item.item_code != item.item_name %}
+                            <br><small style="color: #888;">{% if is_arabic %}الكود:{% else %}Code:{% endif %} {{ item.item_code }}</small>
+                        {% endif %}
+                    </td>
+                    <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">
+                        {{ item.qty }}
+                        {% if item.uom %}
+                            <br><small>{{ item.uom }}</small>
+                        {% endif %}
+                    </td>
+                    <td style="border: 1px solid #ddd; padding: 12px; text-align: right;">
+                        {{ "OMR {:,.3f}".format(item.rate) }}
+                    </td>
+                    <td style="border: 1px solid #ddd; padding: 12px; text-align: right;">
+                        <strong>{{ "OMR {:,.3f}".format(item.amount) }}</strong>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <!-- Totals Section -->
+        <div class="total-section">
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="width: 60%;"></td>
+                    <td style="width: 40%;">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr>
+                                <td style="padding: 8px; text-align: {% if is_arabic %}right{% else %}left{% endif %};">
+                                    <strong>{% if is_arabic %}المجموع الفرعي:{% else %}Subtotal:{% endif %}</strong>
+                                </td>
+                                <td style="padding: 8px; text-align: right; border-bottom: 1px solid #ddd;">
+                                    <strong>{{ "OMR {:,.3f}".format(doc.total) }}</strong>
+                                </td>
+                            </tr>
+                            {% if doc.total_taxes_and_charges %}
+                            <tr>
+                                <td style="padding: 8px; text-align: {% if is_arabic %}right{% else %}left{% endif %};">
+                                    <strong>{% if is_arabic %}ضريبة القيمة المضافة (٥٪):{% else %}VAT (5%):{% endif %}</strong>
+                                </td>
+                                <td style="padding: 8px; text-align: right; border-bottom: 1px solid #ddd;">
+                                    <strong>{{ "OMR {:,.3f}".format(doc.total_taxes_and_charges) }}</strong>
+                                </td>
+                            </tr>
+                            {% endif %}
+                            {% if doc.discount_amount %}
+                            <tr>
+                                <td style="padding: 8px; text-align: {% if is_arabic %}right{% else %}left{% endif %};">
+                                    <strong>{% if is_arabic %}الخصم:{% else %}Discount:{% endif %}</strong>
+                                </td>
+                                <td style="padding: 8px; text-align: right; border-bottom: 1px solid #ddd;">
+                                    <strong>-{{ "OMR {:,.3f}".format(doc.discount_amount) }}</strong>
+                                </td>
+                            </tr>
+                            {% endif %}
+                            <tr style="border-top: 3px solid {{ branding_context.branding.primary_color }};">
+                                <td style="padding: 12px; text-align: {% if is_arabic %}right{% else %}left{% endif %};">
+                                    <strong style="font-size: 16px;">{% if is_arabic %}المجموع الإجمالي:{% else %}Grand Total:{% endif %}</strong>
+                                </td>
+                                <td style="padding: 12px; text-align: right;">
+                                    <strong style="font-size: 16px; color: {{ branding_context.branding.primary_color }};">
+                                        {{ "OMR {:,.3f}".format(doc.grand_total) }}
+                                    </strong>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Payment Information -->
+        {% if doc.payment_terms_template or doc.payment_schedule %}
+        <div style="margin-top: 30px;">
+            <h4 style="color: {{ branding_context.branding.primary_color }};">
+                {% if is_arabic %}شروط الدفع:{% else %}Payment Terms:{% endif %}
+            </h4>
+            {% if doc.payment_terms_template %}
+                <p>{{ doc.payment_terms_template }}</p>
+            {% endif %}
+            {% if doc.payment_schedule %}
+                <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                    <thead>
+                        <tr style="background-color: #f8f9fa;">
+                            <th style="border: 1px solid #ddd; padding: 8px;">{% if is_arabic %}تاريخ الاستحقاق{% else %}Due Date{% endif %}</th>
+                            <th style="border: 1px solid #ddd; padding: 8px;">{% if is_arabic %}المبلغ{% else %}Amount{% endif %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for schedule in doc.payment_schedule %}
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 8px;">{{ schedule.due_date }}</td>
+                            <td style="border: 1px solid #ddd; padding: 8px; text-align: right;">{{ "OMR {:,.3f}".format(schedule.payment_amount) }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+        {% endif %}
+        
+        <!-- Terms and Conditions -->
+        {% if doc.terms %}
+        <div style="margin-top: 30px;">
+            <h4 style="color: {{ branding_context.branding.primary_color }};">
+                {% if is_arabic %}الشروط والأحكام:{% else %}Terms and Conditions:{% endif %}
+            </h4>
+            <div style="font-size: 12px; border: 1px solid #ddd; padding: 15px; background-color: #f9f9f9; border-radius: 3px;">
+                {{ doc.terms | replace('\n', '<br>') | safe }}
+            </div>
+        </div>
+        {% endif %}
+        
+        <!-- Notes -->
+        {% if doc.remarks %}
+        <div style="margin-top: 20px;">
+            <h4 style="color: {{ branding_context.branding.secondary_color }};">
+                {% if is_arabic %}ملاحظات:{% else %}Notes:{% endif %}
+            </h4>
+            <div style="font-size: 12px; font-style: italic; color: #666;">
+                {{ doc.remarks | replace('\n', '<br>') | safe }}
+            </div>
+        </div>
+        {% endif %}
+        
+    </div>
+    
+    <!-- Workshop Footer -->
+    {{ branding_context.footer_html | safe }}
+    
+</div>
+
+<!-- Print-specific styles -->
+<style>
+@media print {
+    .print-format {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .workshop-header {
+        break-inside: avoid;
+    }
+    
+    .document-title {
+        break-after: avoid;
+    }
+    
+    .total-section {
+        break-inside: avoid;
+    }
+    
+    .workshop-footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+}
+</style> 

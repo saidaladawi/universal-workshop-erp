@@ -1,0 +1,618 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2025-06-22 08:00:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "company_settings_section",
+        "workshop_logo",
+        "company_name",
+        "primary_color",
+        "secondary_color",
+        "column_break_5",
+        "theme_style",
+        "language",
+        "currency",
+        "time_zone",
+        "system_settings_section",
+        "enable_notifications",
+        "enable_sms",
+        "enable_email",
+        "column_break_13",
+        "enable_reports",
+        "enable_analytics",
+        "enable_backup",
+        "modules_section",
+        "enable_inventory",
+        "enable_billing",
+        "enable_scheduling",
+        "column_break_20",
+        "enable_crm",
+        "enable_mobile",
+        "enable_pos",
+        "backup_management_section",
+        "automated_backup_enabled",
+        "backup_frequency",
+        "backup_time",
+        "backup_retention_days",
+        "column_break_backup",
+        "backup_location",
+        "backup_verification",
+        "backup_compression",
+        "performance_monitoring_section",
+        "performance_monitoring_enabled",
+        "cpu_threshold",
+        "memory_threshold",
+        "disk_threshold",
+        "column_break_performance",
+        "network_monitoring",
+        "database_monitoring",
+        "response_time_threshold",
+        "license_management_section",
+        "license_key",
+        "license_status",
+        "license_expiry_date",
+        "license_user_count",
+        "column_break_license",
+        "renewal_notification_days",
+        "license_compliance_mode",
+        "hardware_fingerprint",
+        "integration_management_section",
+        "api_monitoring_enabled",
+        "external_integrations",
+        "webhook_monitoring",
+        "column_break_integration",
+        "api_rate_limiting",
+        "integration_timeout",
+        "error_logging_section",
+        "error_logging_level",
+        "max_log_size_mb",
+        "log_retention_days",
+        "column_break_error",
+        "email_error_alerts",
+        "critical_error_notification",
+        "system_health_section",
+        "health_monitoring_enabled",
+        "uptime_monitoring",
+        "service_health_checks",
+        "column_break_health",
+        "maintenance_window",
+        "alert_escalation",
+        "mobile_device_management_section",
+        "mdm_enabled",
+        "device_registration_required",
+        "device_policy_enforcement",
+        "column_break_mdm",
+        "remote_wipe_enabled",
+        "device_compliance_monitoring"
+    ],
+    "fields": [
+        {
+            "fieldname": "company_settings_section",
+            "fieldtype": "Section Break",
+            "label": "إعدادات الشركة والهوية البصرية"
+        },
+        {
+            "fieldname": "workshop_logo",
+            "fieldtype": "Attach Image",
+            "label": "شعار الورشة"
+        },
+        {
+            "fieldname": "company_name",
+            "fieldtype": "Data",
+            "label": "اسم الورشة",
+            "reqd": 1
+        },
+        {
+            "fieldname": "primary_color",
+            "fieldtype": "Color",
+            "label": "اللون الأساسي",
+            "default": "#1976d2"
+        },
+        {
+            "fieldname": "secondary_color",
+            "fieldtype": "Color",
+            "label": "اللون الثانوي",
+            "default": "#424242"
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "theme_style",
+            "fieldtype": "Select",
+            "label": "نمط التصميم",
+            "options": "Modern\nClassic\nMinimalist\nIndustrial",
+            "default": "Modern"
+        },
+        {
+            "fieldname": "language",
+            "fieldtype": "Select",
+            "label": "اللغة الافتراضية",
+            "options": "ar\nen",
+            "default": "ar"
+        },
+        {
+            "fieldname": "currency",
+            "fieldtype": "Select",
+            "label": "العملة الافتراضية",
+            "options": "OMR\nAED\nSAR\nKWD\nQAR\nBHD\nUSD",
+            "default": "OMR"
+        },
+        {
+            "fieldname": "time_zone",
+            "fieldtype": "Select",
+            "label": "المنطقة الزمنية",
+            "options": "Asia/Muscat\nAsia/Dubai\nAsia/Riyadh\nAsia/Kuwait\nAsia/Qatar\nAsia/Bahrain",
+            "default": "Asia/Muscat"
+        },
+        {
+            "fieldname": "system_settings_section",
+            "fieldtype": "Section Break",
+            "label": "إعدادات النظام"
+        },
+        {
+            "fieldname": "enable_notifications",
+            "fieldtype": "Check",
+            "label": "تفعيل الإشعارات",
+            "default": 1
+        },
+        {
+            "fieldname": "enable_sms",
+            "fieldtype": "Check",
+            "label": "تفعيل الرسائل النصية",
+            "default": 1
+        },
+        {
+            "fieldname": "enable_email",
+            "fieldtype": "Check",
+            "label": "تفعيل البريد الإلكتروني",
+            "default": 1
+        },
+        {
+            "fieldname": "column_break_13",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "enable_reports",
+            "fieldtype": "Check",
+            "label": "تفعيل التقارير المتقدمة",
+            "default": 1
+        },
+        {
+            "fieldname": "enable_analytics",
+            "fieldtype": "Check",
+            "label": "تفعيل التحليلات",
+            "default": 1
+        },
+        {
+            "fieldname": "enable_backup",
+            "fieldtype": "Check",
+            "label": "النسخ الاحتياطي التلقائي",
+            "default": 1
+        },
+        {
+            "fieldname": "modules_section",
+            "fieldtype": "Section Break",
+            "label": "الوحدات والميزات"
+        },
+        {
+            "fieldname": "enable_inventory",
+            "fieldtype": "Check",
+            "label": "إدارة المخزون وقطع الغيار",
+            "default": 1
+        },
+        {
+            "fieldname": "enable_billing",
+            "fieldtype": "Check",
+            "label": "الفوترة والمدفوعات",
+            "default": 1
+        },
+        {
+            "fieldname": "enable_scheduling",
+            "fieldtype": "Check",
+            "label": "جدولة المواعيد",
+            "default": 1
+        },
+        {
+            "fieldname": "column_break_20",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "enable_crm",
+            "fieldtype": "Check",
+            "label": "إدارة علاقات العملاء",
+            "default": 1
+        },
+        {
+            "fieldname": "enable_mobile",
+            "fieldtype": "Check",
+            "label": "تطبيق الهاتف المحمول",
+            "default": 0
+        },
+        {
+            "fieldname": "enable_pos",
+            "fieldtype": "Check",
+            "label": "نقطة البيع السريعة",
+            "default": 1
+        },
+        {
+            "fieldname": "backup_management_section",
+            "fieldtype": "Section Break",
+            "label": "إدارة النسخ الاحتياطي",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "automated_backup_enabled",
+            "fieldtype": "Check",
+            "label": "تفعيل النسخ الاحتياطي التلقائي",
+            "default": 1,
+            "description": "تمكين النسخ الاحتياطي المجدول تلقائياً"
+        },
+        {
+            "fieldname": "backup_frequency",
+            "fieldtype": "Select",
+            "label": "تكرار النسخ الاحتياطي",
+            "options": "Daily\nWeekly\nMonthly",
+            "default": "Daily",
+            "depends_on": "automated_backup_enabled"
+        },
+        {
+            "fieldname": "backup_time",
+            "fieldtype": "Time",
+            "label": "وقت النسخ الاحتياطي",
+            "default": "02:00:00",
+            "depends_on": "automated_backup_enabled",
+            "description": "الوقت المحدد لتشغيل النسخ الاحتياطي"
+        },
+        {
+            "fieldname": "backup_retention_days",
+            "fieldtype": "Int",
+            "label": "مدة الاحتفاظ بالنسخ (أيام)",
+            "default": 30,
+            "depends_on": "automated_backup_enabled"
+        },
+        {
+            "fieldname": "column_break_backup",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "backup_location",
+            "fieldtype": "Select",
+            "label": "موقع تخزين النسخ",
+            "options": "Local\nCloud Storage\nFTP Server",
+            "default": "Local",
+            "depends_on": "automated_backup_enabled"
+        },
+        {
+            "fieldname": "backup_verification",
+            "fieldtype": "Check",
+            "label": "التحقق من صحة النسخ",
+            "default": 1,
+            "depends_on": "automated_backup_enabled"
+        },
+        {
+            "fieldname": "backup_compression",
+            "fieldtype": "Check",
+            "label": "ضغط النسخ الاحتياطي",
+            "default": 1,
+            "depends_on": "automated_backup_enabled"
+        },
+        {
+            "fieldname": "performance_monitoring_section",
+            "fieldtype": "Section Break",
+            "label": "مراقبة الأداء",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "performance_monitoring_enabled",
+            "fieldtype": "Check",
+            "label": "تفعيل مراقبة الأداء",
+            "default": 1,
+            "description": "مراقبة أداء النظام في الوقت الفعلي"
+        },
+        {
+            "fieldname": "cpu_threshold",
+            "fieldtype": "Percent",
+            "label": "حد تحذير المعالج (%)",
+            "default": 80,
+            "depends_on": "performance_monitoring_enabled"
+        },
+        {
+            "fieldname": "memory_threshold",
+            "fieldtype": "Percent",
+            "label": "حد تحذير الذاكرة (%)",
+            "default": 85,
+            "depends_on": "performance_monitoring_enabled"
+        },
+        {
+            "fieldname": "disk_threshold",
+            "fieldtype": "Percent",
+            "label": "حد تحذير القرص الصلب (%)",
+            "default": 90,
+            "depends_on": "performance_monitoring_enabled"
+        },
+        {
+            "fieldname": "column_break_performance",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "network_monitoring",
+            "fieldtype": "Check",
+            "label": "مراقبة الشبكة",
+            "default": 1,
+            "depends_on": "performance_monitoring_enabled"
+        },
+        {
+            "fieldname": "database_monitoring",
+            "fieldtype": "Check",
+            "label": "مراقبة قاعدة البيانات",
+            "default": 1,
+            "depends_on": "performance_monitoring_enabled"
+        },
+        {
+            "fieldname": "response_time_threshold",
+            "fieldtype": "Int",
+            "label": "حد زمن الاستجابة (مللي ثانية)",
+            "default": 2000,
+            "depends_on": "performance_monitoring_enabled"
+        },
+        {
+            "fieldname": "license_management_section",
+            "fieldtype": "Section Break",
+            "label": "إدارة الترخيص",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "license_key",
+            "fieldtype": "Password",
+            "label": "مفتاح الترخيص",
+            "description": "مفتاح ترخيص النظام الحالي"
+        },
+        {
+            "fieldname": "license_status",
+            "fieldtype": "Select",
+            "label": "حالة الترخيص",
+            "options": "Active\nExpired\nInvalid\nPending",
+            "read_only": 1
+        },
+        {
+            "fieldname": "license_expiry_date",
+            "fieldtype": "Date",
+            "label": "تاريخ انتهاء الترخيص",
+            "read_only": 1
+        },
+        {
+            "fieldname": "license_user_count",
+            "fieldtype": "Int",
+            "label": "عدد المستخدمين المرخص",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_license",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "renewal_notification_days",
+            "fieldtype": "Int",
+            "label": "تنبيه التجديد (أيام)",
+            "default": 30,
+            "description": "عدد الأيام قبل انتهاء الترخيص لإرسال التنبيه"
+        },
+        {
+            "fieldname": "license_compliance_mode",
+            "fieldtype": "Check",
+            "label": "وضع الامتثال الصارم",
+            "default": 1,
+            "description": "منع الوصول عند انتهاء الترخيص"
+        },
+        {
+            "fieldname": "hardware_fingerprint",
+            "fieldtype": "Data",
+            "label": "بصمة الجهاز",
+            "read_only": 1
+        },
+        {
+            "fieldname": "integration_management_section",
+            "fieldtype": "Section Break",
+            "label": "إدارة التكاملات",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "api_monitoring_enabled",
+            "fieldtype": "Check",
+            "label": "مراقبة API",
+            "default": 1,
+            "description": "مراقبة حالة وأداء التكاملات الخارجية"
+        },
+        {
+            "fieldname": "external_integrations",
+            "fieldtype": "Table",
+            "label": "التكاملات الخارجية",
+            "depends_on": "api_monitoring_enabled",
+            "options": "External Integration"
+        },
+        {
+            "fieldname": "webhook_monitoring",
+            "fieldtype": "Check",
+            "label": "مراقبة Webhooks",
+            "default": 1,
+            "depends_on": "api_monitoring_enabled"
+        },
+        {
+            "fieldname": "column_break_integration",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "api_rate_limiting",
+            "fieldtype": "Check",
+            "label": "تحديد معدل API",
+            "default": 1,
+            "depends_on": "api_monitoring_enabled"
+        },
+        {
+            "fieldname": "integration_timeout",
+            "fieldtype": "Int",
+            "label": "مهلة التكامل (ثواني)",
+            "default": 30,
+            "depends_on": "api_monitoring_enabled"
+        },
+        {
+            "fieldname": "error_logging_section",
+            "fieldtype": "Section Break",
+            "label": "تسجيل الأخطاء",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "error_logging_level",
+            "fieldtype": "Select",
+            "label": "مستوى تسجيل الأخطاء",
+            "options": "DEBUG\nINFO\nWARNING\nERROR\nCRITICAL",
+            "default": "ERROR"
+        },
+        {
+            "fieldname": "max_log_size_mb",
+            "fieldtype": "Int",
+            "label": "الحد الأقصى لحجم السجل (ميجابايت)",
+            "default": 100
+        },
+        {
+            "fieldname": "log_retention_days",
+            "fieldtype": "Int",
+            "label": "مدة الاحتفاظ بالسجلات (أيام)",
+            "default": 90
+        },
+        {
+            "fieldname": "column_break_error",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "email_error_alerts",
+            "fieldtype": "Check",
+            "label": "تنبيهات الأخطاء بالبريد",
+            "default": 1
+        },
+        {
+            "fieldname": "critical_error_notification",
+            "fieldtype": "Data",
+            "label": "بريد التنبيهات الحرجة",
+            "depends_on": "email_error_alerts"
+        },
+        {
+            "fieldname": "system_health_section",
+            "fieldtype": "Section Break",
+            "label": "مراقبة صحة النظام",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "health_monitoring_enabled",
+            "fieldtype": "Check",
+            "label": "تفعيل مراقبة صحة النظام",
+            "default": 1
+        },
+        {
+            "fieldname": "uptime_monitoring",
+            "fieldtype": "Check",
+            "label": "مراقبة وقت التشغيل",
+            "default": 1,
+            "depends_on": "health_monitoring_enabled"
+        },
+        {
+            "fieldname": "service_health_checks",
+            "fieldtype": "Table",
+            "label": "فحوصات صحة الخدمات",
+            "depends_on": "health_monitoring_enabled",
+            "options": "Service Health Check"
+        },
+        {
+            "fieldname": "column_break_health",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "maintenance_window",
+            "fieldtype": "Data",
+            "label": "نافذة الصيانة",
+            "description": "التوقيت المسموح للصيانة (مثل: 02:00-04:00)",
+            "depends_on": "health_monitoring_enabled"
+        },
+        {
+            "fieldname": "alert_escalation",
+            "fieldtype": "Check",
+            "label": "تصعيد التنبيهات",
+            "default": 1,
+            "depends_on": "health_monitoring_enabled"
+        },
+        {
+            "fieldname": "mobile_device_management_section",
+            "fieldtype": "Section Break",
+            "label": "إدارة الأجهزة المحمولة",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "mdm_enabled",
+            "fieldtype": "Check",
+            "label": "تفعيل إدارة الأجهزة المحمولة",
+            "default": 0,
+            "description": "إدارة الأجهزة اللوحية والهواتف المحمولة للفنيين"
+        },
+        {
+            "fieldname": "device_registration_required",
+            "fieldtype": "Check",
+            "label": "تسجيل الجهاز مطلوب",
+            "default": 1,
+            "depends_on": "mdm_enabled"
+        },
+        {
+            "fieldname": "device_policy_enforcement",
+            "fieldtype": "Check",
+            "label": "فرض سياسات الجهاز",
+            "default": 1,
+            "depends_on": "mdm_enabled"
+        },
+        {
+            "fieldname": "column_break_mdm",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "remote_wipe_enabled",
+            "fieldtype": "Check",
+            "label": "تمكين المسح عن بُعد",
+            "default": 1,
+            "depends_on": "mdm_enabled"
+        },
+        {
+            "fieldname": "device_compliance_monitoring",
+            "fieldtype": "Check",
+            "label": "مراقبة امتثال الأجهزة",
+            "default": 1,
+            "depends_on": "mdm_enabled"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "issingle": 1,
+    "links": [],
+    "modified": "2025-06-24 05:45:00.000000",
+    "modified_by": "Administrator",
+    "module": "Config",
+    "name": "Universal Workshop Settings",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "print": 1,
+            "read": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

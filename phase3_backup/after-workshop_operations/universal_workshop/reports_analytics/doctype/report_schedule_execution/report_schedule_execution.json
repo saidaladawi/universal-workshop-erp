@@ -1,0 +1,365 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 0,
+    "allow_rename": 0,
+    "autoname": "RSE-{YYYY}-{#####}",
+    "beta": 0,
+    "creation": "2025-01-15 14:30:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "document_type": "System",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "execution_info_section",
+        "execution_id",
+        "execution_time",
+        "column_break_3",
+        "execution_status",
+        "execution_duration",
+        "section_break_6",
+        "scheduled_time",
+        "column_break_8",
+        "retry_count",
+        "max_retries",
+        "report_details_section",
+        "report_name",
+        "column_break_12",
+        "report_format",
+        "filters_applied",
+        "section_break_15",
+        "rows_generated",
+        "column_break_17",
+        "file_size",
+        "delivery_details_section",
+        "delivery_method",
+        "column_break_20",
+        "recipients",
+        "delivery_status",
+        "section_break_23",
+        "email_sent_count",
+        "column_break_25",
+        "notification_sent",
+        "error_details_section",
+        "error_message",
+        "column_break_28",
+        "error_traceback",
+        "section_break_30",
+        "resolution_notes",
+        "column_break_32",
+        "resolved_by",
+        "file_details_section",
+        "file_path",
+        "column_break_35",
+        "file_url",
+        "download_count",
+        "section_break_38",
+        "file_expiry_date",
+        "column_break_40",
+        "file_deleted"
+    ],
+    "fields": [
+        {
+            "fieldname": "execution_info_section",
+            "fieldtype": "Section Break",
+            "label": "Execution Information / معلومات التنفيذ"
+        },
+        {
+            "fieldname": "execution_id",
+            "fieldtype": "Data",
+            "label": "Execution ID",
+            "read_only": 1,
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "execution_time",
+            "fieldtype": "Datetime",
+            "label": "Execution Time",
+            "read_only": 1,
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "execution_status",
+            "fieldtype": "Select",
+            "label": "Execution Status",
+            "options": "Queued\nRunning\nCompleted\nFailed\nCancelled\nRetrying",
+            "read_only": 1,
+            "reqd": 1
+        },
+        {
+            "fieldname": "execution_duration",
+            "fieldtype": "Duration",
+            "label": "Execution Duration (seconds)",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_6",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "scheduled_time",
+            "fieldtype": "Datetime",
+            "label": "Scheduled Time",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_8",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "retry_count",
+            "fieldtype": "Int",
+            "label": "Retry Count",
+            "read_only": 1,
+            "default": "0"
+        },
+        {
+            "fieldname": "max_retries",
+            "fieldtype": "Int",
+            "label": "Max Retries",
+            "read_only": 1,
+            "default": "3"
+        },
+        {
+            "fieldname": "report_details_section",
+            "fieldtype": "Section Break",
+            "label": "Report Details / تفاصيل التقرير"
+        },
+        {
+            "fieldname": "report_name",
+            "fieldtype": "Data",
+            "label": "Report Name",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_12",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "report_format",
+            "fieldtype": "Select",
+            "label": "Report Format",
+            "options": "PDF\nXLSX\nCSV\nHTML",
+            "read_only": 1
+        },
+        {
+            "fieldname": "filters_applied",
+            "fieldtype": "Long Text",
+            "label": "Filters Applied",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_15",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "rows_generated",
+            "fieldtype": "Int",
+            "label": "Rows Generated",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_17",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "file_size",
+            "fieldtype": "Data",
+            "label": "File Size",
+            "read_only": 1
+        },
+        {
+            "fieldname": "delivery_details_section",
+            "fieldtype": "Section Break",
+            "label": "Delivery Details / تفاصيل التسليم"
+        },
+        {
+            "fieldname": "delivery_method",
+            "fieldtype": "Select",
+            "label": "Delivery Method",
+            "options": "Email\nNotification\nDownload\nFTP\nWebhook",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_20",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "recipients",
+            "fieldtype": "Long Text",
+            "label": "Recipients",
+            "read_only": 1
+        },
+        {
+            "fieldname": "delivery_status",
+            "fieldtype": "Select",
+            "label": "Delivery Status",
+            "options": "Pending\nSent\nDelivered\nFailed\nBounced",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_23",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "email_sent_count",
+            "fieldtype": "Int",
+            "label": "Email Sent Count",
+            "read_only": 1,
+            "default": "0"
+        },
+        {
+            "fieldname": "column_break_25",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "notification_sent",
+            "fieldtype": "Check",
+            "label": "Notification Sent",
+            "read_only": 1,
+            "default": "0"
+        },
+        {
+            "fieldname": "error_details_section",
+            "fieldtype": "Section Break",
+            "label": "Error Details / تفاصيل الأخطاء"
+        },
+        {
+            "fieldname": "error_message",
+            "fieldtype": "Long Text",
+            "label": "Error Message",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_28",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "error_traceback",
+            "fieldtype": "Long Text",
+            "label": "Error Traceback",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_30",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "resolution_notes",
+            "fieldtype": "Long Text",
+            "label": "Resolution Notes"
+        },
+        {
+            "fieldname": "column_break_32",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "resolved_by",
+            "fieldtype": "Link",
+            "label": "Resolved By",
+            "options": "User"
+        },
+        {
+            "fieldname": "file_details_section",
+            "fieldtype": "Section Break",
+            "label": "File Details / تفاصيل الملف"
+        },
+        {
+            "fieldname": "file_path",
+            "fieldtype": "Data",
+            "label": "File Path",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_35",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "file_url",
+            "fieldtype": "Data",
+            "label": "File URL",
+            "read_only": 1
+        },
+        {
+            "fieldname": "download_count",
+            "fieldtype": "Int",
+            "label": "Download Count",
+            "read_only": 1,
+            "default": "0"
+        },
+        {
+            "fieldname": "section_break_38",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "file_expiry_date",
+            "fieldtype": "Date",
+            "label": "File Expiry Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_40",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "file_deleted",
+            "fieldtype": "Check",
+            "label": "File Deleted",
+            "read_only": 1,
+            "default": "0"
+        }
+    ],
+    "hide_toolbar": 0,
+    "idx": 0,
+    "in_create": 0,
+    "is_submittable": 0,
+    "istable": 1,
+    "modified": "2025-01-15 14:30:00.000000",
+    "modified_by": "Administrator",
+    "module": "Reports Analytics",
+    "name": "Report Schedule Execution",
+    "naming_rule": "Expression",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Supervisor",
+            "share": 1
+        },
+        {
+            "read": 1,
+            "role": "Workshop Technician"
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

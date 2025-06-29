@@ -1,0 +1,138 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "field:skill_name",
+    "creation": "2025-06-19 13:28:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "skill_name",
+        "skill_name_ar",
+        "skill_category",
+        "difficulty_level",
+        "column_break_5",
+        "description",
+        "description_ar",
+        "is_active",
+        "section_break_9",
+        "created_by",
+        "created_date"
+    ],
+    "fields": [
+        {
+            "fieldname": "skill_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Skill Name (English)",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "skill_name_ar",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "اسم المهارة",
+            "reqd": 1,
+            "translatable": 1
+        },
+        {
+            "fieldname": "skill_category",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Skill Category",
+            "options": "Engine\nTransmission\nBrakes\nElectrical\nAir Conditioning\nBodywork\nPainting\nDiagnostics\nGeneral Maintenance\nSpecialized Repair",
+            "reqd": 1
+        },
+        {
+            "fieldname": "difficulty_level",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Difficulty Level",
+            "options": "Beginner\nIntermediate\nAdvanced\nExpert",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "description",
+            "fieldtype": "Text",
+            "label": "Description (English)"
+        },
+        {
+            "fieldname": "description_ar",
+            "fieldtype": "Text",
+            "label": "الوصف",
+            "translatable": 1
+        },
+        {
+            "fieldname": "is_active",
+            "fieldtype": "Check",
+            "label": "Is Active",
+            "default": 1
+        },
+        {
+            "fieldname": "section_break_9",
+            "fieldtype": "Section Break",
+            "label": "Metadata"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "created_date",
+            "fieldtype": "Date",
+            "label": "Created Date",
+            "read_only": 1
+        }
+    ],
+    "has_web_view": 0,
+    "hide_toolbar": 0,
+    "idx": 0,
+    "in_create": 0,
+    "is_submittable": 0,
+    "issingle": 0,
+    "istable": 0,
+    "max_attachments": 0,
+    "modified": "2025-06-19 13:28:00.000000",
+    "modified_by": "Administrator",
+    "module": "Workshop Management",
+    "name": "Skill",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "read": 1,
+            "role": "Workshop Technician"
+        }
+    ],
+    "quick_entry": 1,
+    "route": "skill",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "skill_name",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 0
+}

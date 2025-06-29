@@ -1,0 +1,252 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2024-12-28 00:00:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "mapping_name",
+        "mapping_name_ar",
+        "legacy_system_type",
+        "source_schema_version",
+        "column_break_1",
+        "target_doctype",
+        "mapping_status",
+        "created_by",
+        "created_date",
+        "section_break_2",
+        "legacy_table_name",
+        "legacy_database_type",
+        "connection_config",
+        "section_break_3",
+        "field_mappings",
+        "transformation_rules",
+        "validation_config",
+        "section_break_4",
+        "test_query",
+        "sample_data",
+        "mapping_notes",
+        "mapping_notes_ar",
+        "section_break_5",
+        "last_tested",
+        "test_results",
+        "performance_metrics"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Series",
+            "options": "LSM-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "fieldname": "mapping_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Mapping Name",
+            "reqd": 1
+        },
+        {
+            "fieldname": "mapping_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم التطابق",
+            "translatable": 1
+        },
+        {
+            "fieldname": "legacy_system_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Legacy System Type",
+            "options": "MySQL\nPostgreSQL\nSQL Server\nOracle\nAccess\nExcel\nCSV\nCustom",
+            "reqd": 1
+        },
+        {
+            "fieldname": "source_schema_version",
+            "fieldtype": "Data",
+            "label": "Source Schema Version"
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "target_doctype",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Target DocType",
+            "options": "DocType",
+            "reqd": 1
+        },
+        {
+            "fieldname": "mapping_status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Status",
+            "options": "Draft\nTesting\nValidated\nActive\nDeprecated",
+            "reqd": 1
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "created_date",
+            "fieldtype": "Datetime",
+            "label": "Created Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_2",
+            "fieldtype": "Section Break",
+            "label": "Legacy System Configuration"
+        },
+        {
+            "fieldname": "legacy_table_name",
+            "fieldtype": "Data",
+            "label": "Legacy Table/Source Name",
+            "reqd": 1
+        },
+        {
+            "fieldname": "legacy_database_type",
+            "fieldtype": "Select",
+            "label": "Database Type",
+            "options": "MySQL\nPostgreSQL\nSQL Server\nOracle\nSQLite"
+        },
+        {
+            "fieldname": "connection_config",
+            "fieldtype": "JSON",
+            "label": "Connection Configuration"
+        },
+        {
+            "fieldname": "section_break_3",
+            "fieldtype": "Section Break",
+            "label": "Field Mapping and Transformation"
+        },
+        {
+            "fieldname": "field_mappings",
+            "fieldtype": "JSON",
+            "label": "Field Mappings",
+            "description": "JSON configuration mapping legacy fields to ERPNext fields"
+        },
+        {
+            "fieldname": "transformation_rules",
+            "fieldtype": "JSON",
+            "label": "Data Transformation Rules",
+            "description": "Rules for data format conversion and cleansing"
+        },
+        {
+            "fieldname": "validation_config",
+            "fieldtype": "JSON",
+            "label": "Validation Configuration",
+            "description": "Custom validation rules for this mapping"
+        },
+        {
+            "fieldname": "section_break_4",
+            "fieldtype": "Section Break",
+            "label": "Testing and Documentation"
+        },
+        {
+            "fieldname": "test_query",
+            "fieldtype": "Text",
+            "label": "Test Query",
+            "description": "SQL query to test the mapping"
+        },
+        {
+            "fieldname": "sample_data",
+            "fieldtype": "JSON",
+            "label": "Sample Data",
+            "description": "Sample records for testing"
+        },
+        {
+            "fieldname": "mapping_notes",
+            "fieldtype": "Text",
+            "label": "Mapping Notes"
+        },
+        {
+            "fieldname": "mapping_notes_ar",
+            "fieldtype": "Text",
+            "label": "ملاحظات التطابق",
+            "translatable": 1
+        },
+        {
+            "fieldname": "section_break_5",
+            "fieldtype": "Section Break",
+            "label": "Testing Results"
+        },
+        {
+            "fieldname": "last_tested",
+            "fieldtype": "Datetime",
+            "label": "Last Tested",
+            "read_only": 1
+        },
+        {
+            "fieldname": "test_results",
+            "fieldtype": "JSON",
+            "label": "Test Results",
+            "read_only": 1
+        },
+        {
+            "fieldname": "performance_metrics",
+            "fieldtype": "JSON",
+            "label": "Performance Metrics",
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 0,
+    "links": [],
+    "modified": "2024-12-28 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Data Migration",
+    "name": "Legacy Schema Mapping",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop User",
+            "share": 1
+        }
+    ],
+    "quick_entry": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1,
+    "track_seen": 1
+}

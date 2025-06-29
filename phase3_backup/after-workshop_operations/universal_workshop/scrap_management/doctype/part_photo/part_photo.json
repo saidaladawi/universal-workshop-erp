@@ -1,0 +1,131 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 0,
+    "allow_rename": 0,
+    "beta": 0,
+    "creation": "2025-06-20 19:28:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "document_type": "",
+    "engine": "InnoDB",
+    "field_order": [
+        "photo_type",
+        "photo_type_ar",
+        "column_break_cszb",
+        "photo_description",
+        "photo_description_ar",
+        "photo_section",
+        "photo_attachment",
+        "defect_details_section",
+        "shows_defect",
+        "defect_severity",
+        "column_break_defect",
+        "defect_description",
+        "repair_recommendation"
+    ],
+    "fields": [
+        {
+            "fieldname": "photo_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Photo Type",
+            "options": "Front View\nBack View\nLeft Side\nRight Side\nTop View\nBottom View\nClose-up Detail\nDefect/Damage\nSerial Number\nBefore Cleaning\nAfter Cleaning\nInstallation Point\nInternal View\nConnections\nOverall Condition",
+            "reqd": 1
+        },
+        {
+            "fieldname": "photo_type_ar",
+            "fieldtype": "Data",
+            "label": "نوع الصورة",
+            "read_only": 1,
+            "translatable": 1
+        },
+        {
+            "fieldname": "column_break_cszb",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "photo_description",
+            "fieldtype": "Small Text",
+            "label": "Photo Description"
+        },
+        {
+            "fieldname": "photo_description_ar",
+            "fieldtype": "Small Text",
+            "label": "وصف الصورة",
+            "translatable": 1
+        },
+        {
+            "fieldname": "photo_section",
+            "fieldtype": "Section Break",
+            "label": "Photo"
+        },
+        {
+            "fieldname": "photo_attachment",
+            "fieldtype": "Attach Image",
+            "in_list_view": 1,
+            "label": "Photo",
+            "reqd": 1
+        },
+        {
+            "fieldname": "defect_details_section",
+            "fieldtype": "Section Break",
+            "label": "Defect Details (if applicable)"
+        },
+        {
+            "default": 0,
+            "fieldname": "shows_defect",
+            "fieldtype": "Check",
+            "label": "Shows Defect/Damage"
+        },
+        {
+            "depends_on": "shows_defect",
+            "fieldname": "defect_severity",
+            "fieldtype": "Select",
+            "label": "Defect Severity",
+            "options": "Minor\nModerate\nMajor\nCritical"
+        },
+        {
+            "fieldname": "column_break_defect",
+            "fieldtype": "Column Break"
+        },
+        {
+            "depends_on": "shows_defect",
+            "fieldname": "defect_description",
+            "fieldtype": "Small Text",
+            "label": "Defect Description"
+        },
+        {
+            "depends_on": "shows_defect",
+            "fieldname": "repair_recommendation",
+            "fieldtype": "Small Text",
+            "label": "Repair Recommendation"
+        }
+    ],
+    "has_web_view": 0,
+    "hide_toolbar": 0,
+    "idx": 0,
+    "in_create": 0,
+    "is_submittable": 0,
+    "issingle": 0,
+    "istable": 1,
+    "max_attachments": 1,
+    "modified": "2025-06-20 19:28:00.000000",
+    "modified_by": "Administrator",
+    "module": "Scrap Management",
+    "name": "Part Photo",
+    "naming_rule": "",
+    "owner": "Administrator",
+    "permissions": [],
+    "quick_entry": 0,
+    "restrict_to_domain": "Manufacturing",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 0,
+    "track_seen": 0,
+    "track_views": 0
+}

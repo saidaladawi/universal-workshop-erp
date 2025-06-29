@@ -1,0 +1,294 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "field:template_name",
+    "creation": "2025-01-01 12:00:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "template_name",
+        "channel_type",
+        "language",
+        "template_category",
+        "column_break_1",
+        "is_active",
+        "version",
+        "approval_status",
+        "section_break_2",
+        "template_subject",
+        "template_body",
+        "template_variables_help",
+        "section_break_3",
+        "conditional_logic",
+        "fallback_template",
+        "column_break_2",
+        "max_length",
+        "estimated_segments",
+        "section_break_4",
+        "whatsapp_template_id",
+        "whatsapp_template_status",
+        "template_preview_section",
+        "preview_context_json",
+        "rendered_preview",
+        "section_break_5",
+        "created_by",
+        "approved_by",
+        "approved_on",
+        "column_break_3",
+        "last_used",
+        "usage_count",
+        "error_count"
+    ],
+    "fields": [
+        {
+            "fieldname": "template_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Template Name",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "channel_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Channel Type",
+            "options": "SMS\nWhatsApp\nEmail",
+            "reqd": 1
+        },
+        {
+            "fieldname": "language",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Language",
+            "options": "English\nArabic",
+            "reqd": 1
+        },
+        {
+            "fieldname": "template_category",
+            "fieldtype": "Select",
+            "label": "Template Category",
+            "options": "Appointment Confirmation\nAppointment Reminder\nService Update\nService Completion\nInvoice Notification\nPayment Reminder\nQuotation\nPromotion\nGeneral",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "1",
+            "fieldname": "is_active",
+            "fieldtype": "Check",
+            "label": "Is Active"
+        },
+        {
+            "default": "1",
+            "fieldname": "version",
+            "fieldtype": "Int",
+            "label": "Version",
+            "read_only": 1
+        },
+        {
+            "default": "Draft",
+            "fieldname": "approval_status",
+            "fieldtype": "Select",
+            "label": "Approval Status",
+            "options": "Draft\nPending Approval\nApproved\nRejected",
+            "reqd": 1
+        },
+        {
+            "fieldname": "section_break_2",
+            "fieldtype": "Section Break",
+            "label": "Template Content"
+        },
+        {
+            "fieldname": "template_subject",
+            "fieldtype": "Data",
+            "label": "Template Subject",
+            "description": "For Email templates only"
+        },
+        {
+            "fieldname": "template_body",
+            "fieldtype": "Text Editor",
+            "label": "Template Body",
+            "reqd": 1,
+            "description": "Use Jinja2 syntax for variables: {{ doc.customer_name }}. Supports conditionals: {% if condition %}"
+        },
+        {
+            "fieldname": "template_variables_help",
+            "fieldtype": "HTML",
+            "label": "Available Variables",
+            "options": "<div class=\"text-muted\"><strong>Common Variables:</strong><br/>{{ doc.customer_name }}, {{ doc.customer_name_ar }}<br/>{{ doc.appointment_date }}, {{ doc.appointment_time }}<br/>{{ doc.vehicle_number }}, {{ doc.service_type }}<br/>{{ doc.total_amount }}, {{ doc.workshop_name }}<br/><br/><strong>Conditional Logic:</strong><br/>{% if doc.language == \"ar\" %}Arabic text{% else %}English text{% endif %}<br/>{{ doc.customer_name or \"Valued Customer\" }}</div>"
+        },
+        {
+            "fieldname": "section_break_3",
+            "fieldtype": "Section Break",
+            "label": "Advanced Options"
+        },
+        {
+            "fieldname": "conditional_logic",
+            "fieldtype": "Text",
+            "label": "Conditional Logic Notes",
+            "description": "Document any complex conditional logic used in this template"
+        },
+        {
+            "fieldname": "fallback_template",
+            "fieldtype": "Link",
+            "label": "Fallback Template",
+            "options": "Notification Template",
+            "description": "Alternative template to use if this one fails"
+        },
+        {
+            "fieldname": "column_break_2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "max_length",
+            "fieldtype": "Int",
+            "label": "Max Length (Characters)",
+            "description": "For SMS: 160 per segment. For WhatsApp: 4096 max"
+        },
+        {
+            "fieldname": "estimated_segments",
+            "fieldtype": "Int",
+            "label": "Estimated SMS Segments",
+            "read_only": 1
+        },
+        {
+            "depends_on": "eval:doc.channel_type=='WhatsApp'",
+            "fieldname": "section_break_4",
+            "fieldtype": "Section Break",
+            "label": "WhatsApp Configuration"
+        },
+        {
+            "depends_on": "eval:doc.channel_type=='WhatsApp'",
+            "fieldname": "whatsapp_template_id",
+            "fieldtype": "Data",
+            "label": "WhatsApp Template ID",
+            "description": "Meta/WhatsApp approved template ID"
+        },
+        {
+            "depends_on": "eval:doc.channel_type=='WhatsApp'",
+            "fieldname": "whatsapp_template_status",
+            "fieldtype": "Select",
+            "label": "WhatsApp Template Status",
+            "options": "Pending\nApproved\nRejected\nDisabled",
+            "read_only": 1
+        },
+        {
+            "fieldname": "template_preview_section",
+            "fieldtype": "Section Break",
+            "label": "Template Preview"
+        },
+        {
+            "fieldname": "preview_context_json",
+            "fieldtype": "JSON",
+            "label": "Preview Context",
+            "description": "Sample data for template preview in JSON format"
+        },
+        {
+            "fieldname": "rendered_preview",
+            "fieldtype": "Text",
+            "label": "Rendered Preview",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_5",
+            "fieldtype": "Section Break",
+            "label": "Metadata"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "approved_by",
+            "fieldtype": "Link",
+            "label": "Approved By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "approved_on",
+            "fieldtype": "Datetime",
+            "label": "Approved On",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "last_used",
+            "fieldtype": "Datetime",
+            "label": "Last Used",
+            "read_only": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "usage_count",
+            "fieldtype": "Int",
+            "label": "Usage Count",
+            "read_only": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "error_count",
+            "fieldtype": "Int",
+            "label": "Error Count",
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2025-01-01 12:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Communication Management",
+    "name": "Notification Template",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Communication Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop User",
+            "share": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

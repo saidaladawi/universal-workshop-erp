@@ -1,0 +1,1 @@
+# Stock Transfer Log DocType 

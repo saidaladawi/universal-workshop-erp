@@ -1,0 +1,138 @@
+{
+    "add_total_row": 1,
+    "columns": [
+        {
+            "fieldname": "service_bay",
+            "fieldtype": "Link",
+            "label": "Service Bay",
+            "options": "Service Bay",
+            "width": 150
+        },
+        {
+            "fieldname": "bay_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم الحوض",
+            "width": 120
+        },
+        {
+            "fieldname": "date",
+            "fieldtype": "Date",
+            "label": "Date",
+            "width": 100
+        },
+        {
+            "fieldname": "total_hours",
+            "fieldtype": "Float",
+            "label": "Total Available Hours",
+            "precision": 2,
+            "width": 120
+        },
+        {
+            "fieldname": "utilized_hours",
+            "fieldtype": "Float",
+            "label": "Utilized Hours",
+            "precision": 2,
+            "width": 120
+        },
+        {
+            "fieldname": "utilization_percentage",
+            "fieldtype": "Percent",
+            "label": "Utilization %",
+            "width": 100
+        },
+        {
+            "fieldname": "service_orders_count",
+            "fieldtype": "Int",
+            "label": "Service Orders",
+            "width": 100
+        },
+        {
+            "fieldname": "avg_service_time",
+            "fieldtype": "Float",
+            "label": "Avg Service Time (hrs)",
+            "precision": 2,
+            "width": 140
+        },
+        {
+            "fieldname": "downtime_hours",
+            "fieldtype": "Float",
+            "label": "Downtime Hours",
+            "precision": 2,
+            "width": 120
+        },
+        {
+            "fieldname": "revenue_generated",
+            "fieldtype": "Currency",
+            "label": "Revenue Generated",
+            "width": 130
+        },
+        {
+            "fieldname": "efficiency_score",
+            "fieldtype": "Float",
+            "label": "Efficiency Score",
+            "precision": 1,
+            "width": 120
+        }
+    ],
+    "creation": "2024-06-20 14:10:00.000000",
+    "disable_prepared_report": 0,
+    "disabled": 0,
+    "docstatus": 0,
+    "doctype": "Report",
+    "filters": [
+        {
+            "fieldname": "from_date",
+            "fieldtype": "Date",
+            "label": "From Date",
+            "mandatory": 1,
+            "reqd": 1
+        },
+        {
+            "fieldname": "to_date",
+            "fieldtype": "Date",
+            "label": "To Date",
+            "mandatory": 1,
+            "reqd": 1
+        },
+        {
+            "fieldname": "service_bay",
+            "fieldtype": "Link",
+            "label": "Service Bay",
+            "options": "Service Bay"
+        },
+        {
+            "fieldname": "workshop",
+            "fieldtype": "Link",
+            "label": "Workshop",
+            "options": "Workshop Profile"
+        },
+        {
+            "fieldname": "group_by",
+            "fieldtype": "Select",
+            "label": "Group By",
+            "options": "Daily\nWeekly\nMonthly"
+        }
+    ],
+    "is_standard": "Yes",
+    "letter_head": "Universal Workshop",
+    "modified": "2024-06-20 14:10:00.000000",
+    "modified_by": "Administrator",
+    "module": "Analytics Reporting",
+    "name": "Service Bay Utilization",
+    "owner": "Administrator",
+    "query": "",
+    "ref_doctype": "Service Order",
+    "report_name": "Service Bay Utilization",
+    "report_type": "Script Report",
+    "roles": [
+        {
+            "role": "Workshop Manager"
+        },
+        {
+            "role": "System Manager"
+        },
+        {
+            "role": "Workshop User"
+        }
+    ]
+}

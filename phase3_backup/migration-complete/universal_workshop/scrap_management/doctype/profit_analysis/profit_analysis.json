@@ -1,0 +1,696 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 1,
+    "allow_rename": 0,
+    "autoname": "naming_series:",
+    "beta": 0,
+    "creation": "2025-06-20 20:15:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "document_type": "Document",
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "basic_information_section",
+        "analysis_name",
+        "analysis_name_ar",
+        "analysis_period_from",
+        "analysis_period_to",
+        "column_break_1",
+        "sales_channel",
+        "vehicle_category",
+        "part_category",
+        "analysis_status",
+        "revenue_analysis_section",
+        "total_revenue_omr",
+        "marketplace_sales_omr",
+        "direct_sales_omr",
+        "b2b_sales_omr",
+        "column_break_2",
+        "total_orders",
+        "average_order_value_omr",
+        "highest_order_value_omr",
+        "revenue_growth_percentage",
+        "cost_breakdown_section",
+        "acquisition_costs_omr",
+        "labor_costs_omr",
+        "storage_costs_omr",
+        "overhead_costs_omr",
+        "column_break_3",
+        "shipping_costs_omr",
+        "marketing_costs_omr",
+        "platform_fees_omr",
+        "total_costs_omr",
+        "profitability_analysis_section",
+        "gross_profit_omr",
+        "gross_profit_margin_percentage",
+        "net_profit_omr",
+        "net_profit_margin_percentage",
+        "column_break_4",
+        "roi_percentage",
+        "breakeven_point_days",
+        "inventory_turnover_ratio",
+        "profit_per_part_omr",
+        "sales_performance_section",
+        "best_performing_parts",
+        "worst_performing_parts",
+        "seasonal_trends",
+        "monthly_breakdown",
+        "column_break_5",
+        "customer_segments",
+        "geographic_distribution",
+        "sales_channel_performance",
+        "market_analysis_section",
+        "market_share_percentage",
+        "competitor_analysis",
+        "pricing_effectiveness",
+        "demand_forecast",
+        "column_break_6",
+        "market_trends",
+        "opportunity_areas",
+        "risk_factors",
+        "recommendations",
+        "financial_ratios_section",
+        "current_ratio",
+        "quick_ratio",
+        "debt_to_equity_ratio",
+        "return_on_assets_percentage",
+        "column_break_7",
+        "return_on_equity_percentage",
+        "asset_turnover_ratio",
+        "profit_margin_ratio",
+        "operating_margin_percentage",
+        "system_information_section",
+        "created_by",
+        "created_date",
+        "last_updated_by",
+        "last_updated_date",
+        "column_break_8",
+        "auto_generated",
+        "data_source",
+        "calculation_method",
+        "next_analysis_due"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "PROF-ANLY-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "fieldname": "basic_information_section",
+            "fieldtype": "Section Break",
+            "label": "Basic Information | المعلومات الأساسية"
+        },
+        {
+            "fieldname": "analysis_name",
+            "fieldtype": "Data",
+            "label": "Analysis Name",
+            "reqd": 1,
+            "in_list_view": 1,
+            "description": "Descriptive name for this profit analysis"
+        },
+        {
+            "fieldname": "analysis_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم التحليل",
+            "reqd": 1,
+            "translatable": 1,
+            "description": "Arabic name for the profit analysis"
+        },
+        {
+            "fieldname": "analysis_period_from",
+            "fieldtype": "Date",
+            "label": "Analysis Period From",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "analysis_period_to",
+            "fieldtype": "Date",
+            "label": "Analysis Period To",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "sales_channel",
+            "fieldtype": "Link",
+            "label": "Sales Channel",
+            "options": "Sales Channel",
+            "description": "Specific sales channel for analysis (leave blank for all)"
+        },
+        {
+            "fieldname": "vehicle_category",
+            "fieldtype": "Select",
+            "label": "Vehicle Category",
+            "options": "All\nSedan\nSUV\nTruck\nMotorcycle\nBus\nVan",
+            "default": "All"
+        },
+        {
+            "fieldname": "part_category",
+            "fieldtype": "Select",
+            "label": "Part Category",
+            "options": "All\nEngine Parts\nTransmission\nBrakes\nSuspension\nElectrical\nBody Parts\nInterior\nExterior",
+            "default": "All"
+        },
+        {
+            "fieldname": "analysis_status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "Draft\nIn Progress\nCompleted\nNeedsReview",
+            "default": "Draft",
+            "reqd": 1
+        },
+        {
+            "fieldname": "revenue_analysis_section",
+            "fieldtype": "Section Break",
+            "label": "Revenue Analysis | تحليل الإيرادات"
+        },
+        {
+            "fieldname": "total_revenue_omr",
+            "fieldtype": "Currency",
+            "label": "Total Revenue (OMR)",
+            "precision": 3,
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "marketplace_sales_omr",
+            "fieldtype": "Currency",
+            "label": "Marketplace Sales (OMR)",
+            "precision": 3,
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "direct_sales_omr",
+            "fieldtype": "Currency",
+            "label": "Direct Sales (OMR)",
+            "precision": 3,
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "b2b_sales_omr",
+            "fieldtype": "Currency",
+            "label": "B2B Sales (OMR)",
+            "precision": 3,
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "total_orders",
+            "fieldtype": "Int",
+            "label": "Total Orders",
+            "read_only": 1
+        },
+        {
+            "fieldname": "average_order_value_omr",
+            "fieldtype": "Currency",
+            "label": "Average Order Value (OMR)",
+            "precision": 3,
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "highest_order_value_omr",
+            "fieldtype": "Currency",
+            "label": "Highest Order Value (OMR)",
+            "precision": 3,
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "revenue_growth_percentage",
+            "fieldtype": "Percent",
+            "label": "Revenue Growth %",
+            "precision": 2,
+            "read_only": 1
+        },
+        {
+            "fieldname": "cost_breakdown_section",
+            "fieldtype": "Section Break",
+            "label": "Cost Breakdown | تفصيل التكاليف"
+        },
+        {
+            "fieldname": "acquisition_costs_omr",
+            "fieldtype": "Currency",
+            "label": "Acquisition Costs (OMR)",
+            "precision": 3,
+            "options": "OMR",
+            "read_only": 1,
+            "description": "Cost of acquiring/purchasing parts"
+        },
+        {
+            "fieldname": "labor_costs_omr",
+            "fieldtype": "Currency",
+            "label": "Labor Costs (OMR)",
+            "precision": 3,
+            "options": "OMR",
+            "read_only": 1,
+            "description": "Cost of extraction and processing labor"
+        },
+        {
+            "fieldname": "storage_costs_omr",
+            "fieldtype": "Currency",
+            "label": "Storage Costs (OMR)",
+            "precision": 3,
+            "options": "OMR",
+            "read_only": 1,
+            "description": "Warehouse and storage expenses"
+        },
+        {
+            "fieldname": "overhead_costs_omr",
+            "fieldtype": "Currency",
+            "label": "Overhead Costs (OMR)",
+            "precision": 3,
+            "options": "OMR",
+            "read_only": 1,
+            "description": "General business overhead expenses"
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "shipping_costs_omr",
+            "fieldtype": "Currency",
+            "label": "Shipping Costs (OMR)",
+            "precision": 3,
+            "options": "OMR",
+            "read_only": 1,
+            "description": "Delivery and logistics costs"
+        },
+        {
+            "fieldname": "marketing_costs_omr",
+            "fieldtype": "Currency",
+            "label": "Marketing Costs (OMR)",
+            "precision": 3,
+            "options": "OMR",
+            "read_only": 1,
+            "description": "Advertising and promotional expenses"
+        },
+        {
+            "fieldname": "platform_fees_omr",
+            "fieldtype": "Currency",
+            "label": "Platform Fees (OMR)",
+            "precision": 3,
+            "options": "OMR",
+            "read_only": 1,
+            "description": "Marketplace commission and fees"
+        },
+        {
+            "fieldname": "total_costs_omr",
+            "fieldtype": "Currency",
+            "label": "Total Costs (OMR)",
+            "precision": 3,
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "profitability_analysis_section",
+            "fieldtype": "Section Break",
+            "label": "Profitability Analysis | تحليل الربحية"
+        },
+        {
+            "fieldname": "gross_profit_omr",
+            "fieldtype": "Currency",
+            "label": "Gross Profit (OMR)",
+            "precision": 3,
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "gross_profit_margin_percentage",
+            "fieldtype": "Percent",
+            "label": "Gross Profit Margin %",
+            "precision": 2,
+            "read_only": 1
+        },
+        {
+            "fieldname": "net_profit_omr",
+            "fieldtype": "Currency",
+            "label": "Net Profit (OMR)",
+            "precision": 3,
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "net_profit_margin_percentage",
+            "fieldtype": "Percent",
+            "label": "Net Profit Margin %",
+            "precision": 2,
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_4",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "roi_percentage",
+            "fieldtype": "Percent",
+            "label": "ROI Percentage",
+            "precision": 2,
+            "read_only": 1
+        },
+        {
+            "fieldname": "breakeven_point_days",
+            "fieldtype": "Int",
+            "label": "Breakeven Point (Days)",
+            "read_only": 1,
+            "description": "Days to reach breakeven on investment"
+        },
+        {
+            "fieldname": "inventory_turnover_ratio",
+            "fieldtype": "Float",
+            "label": "Inventory Turnover Ratio",
+            "precision": 2,
+            "read_only": 1
+        },
+        {
+            "fieldname": "profit_per_part_omr",
+            "fieldtype": "Currency",
+            "label": "Profit per Part (OMR)",
+            "precision": 3,
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "sales_performance_section",
+            "fieldtype": "Section Break",
+            "label": "Sales Performance | أداء المبيعات"
+        },
+        {
+            "fieldname": "best_performing_parts",
+            "fieldtype": "JSON",
+            "label": "Best Performing Parts",
+            "read_only": 1
+        },
+        {
+            "fieldname": "worst_performing_parts",
+            "fieldtype": "JSON",
+            "label": "Worst Performing Parts",
+            "read_only": 1
+        },
+        {
+            "fieldname": "seasonal_trends",
+            "fieldtype": "JSON",
+            "label": "Seasonal Trends",
+            "read_only": 1
+        },
+        {
+            "fieldname": "monthly_breakdown",
+            "fieldtype": "JSON",
+            "label": "Monthly Breakdown",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "customer_segments",
+            "fieldtype": "JSON",
+            "label": "Customer Segments",
+            "read_only": 1
+        },
+        {
+            "fieldname": "geographic_distribution",
+            "fieldtype": "JSON",
+            "label": "Geographic Distribution",
+            "read_only": 1
+        },
+        {
+            "fieldname": "sales_channel_performance",
+            "fieldtype": "JSON",
+            "label": "Sales Channel Performance",
+            "read_only": 1
+        },
+        {
+            "fieldname": "market_analysis_section",
+            "fieldtype": "Section Break",
+            "label": "Market Analysis | تحليل السوق"
+        },
+        {
+            "fieldname": "market_share_percentage",
+            "fieldtype": "Percent",
+            "label": "Market Share %",
+            "precision": 2,
+            "read_only": 1
+        },
+        {
+            "fieldname": "competitor_analysis",
+            "fieldtype": "Text",
+            "label": "Competitor Analysis",
+            "read_only": 1
+        },
+        {
+            "fieldname": "pricing_effectiveness",
+            "fieldtype": "Text",
+            "label": "Pricing Effectiveness",
+            "read_only": 1
+        },
+        {
+            "fieldname": "demand_forecast",
+            "fieldtype": "JSON",
+            "label": "Demand Forecast",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_6",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "market_trends",
+            "fieldtype": "Text",
+            "label": "Market Trends",
+            "read_only": 1
+        },
+        {
+            "fieldname": "opportunity_areas",
+            "fieldtype": "Text",
+            "label": "Opportunity Areas",
+            "read_only": 1
+        },
+        {
+            "fieldname": "risk_factors",
+            "fieldtype": "Text",
+            "label": "Risk Factors",
+            "read_only": 1
+        },
+        {
+            "fieldname": "recommendations",
+            "fieldtype": "Text",
+            "label": "Recommendations",
+            "read_only": 1
+        },
+        {
+            "fieldname": "financial_ratios_section",
+            "fieldtype": "Section Break",
+            "label": "Financial Ratios | النسب المالية"
+        },
+        {
+            "fieldname": "current_ratio",
+            "fieldtype": "Float",
+            "label": "Current Ratio",
+            "precision": 2,
+            "read_only": 1
+        },
+        {
+            "fieldname": "quick_ratio",
+            "fieldtype": "Float",
+            "label": "Quick Ratio",
+            "precision": 2,
+            "read_only": 1
+        },
+        {
+            "fieldname": "debt_to_equity_ratio",
+            "fieldtype": "Float",
+            "label": "Debt to Equity Ratio",
+            "precision": 2,
+            "read_only": 1
+        },
+        {
+            "fieldname": "return_on_assets_percentage",
+            "fieldtype": "Percent",
+            "label": "Return on Assets %",
+            "precision": 2,
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_7",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "return_on_equity_percentage",
+            "fieldtype": "Percent",
+            "label": "Return on Equity %",
+            "precision": 2,
+            "read_only": 1
+        },
+        {
+            "fieldname": "asset_turnover_ratio",
+            "fieldtype": "Float",
+            "label": "Asset Turnover Ratio",
+            "precision": 2,
+            "read_only": 1
+        },
+        {
+            "fieldname": "profit_margin_ratio",
+            "fieldtype": "Float",
+            "label": "Profit Margin Ratio",
+            "precision": 2,
+            "read_only": 1
+        },
+        {
+            "fieldname": "operating_margin_percentage",
+            "fieldtype": "Percent",
+            "label": "Operating Margin %",
+            "precision": 2,
+            "read_only": 1
+        },
+        {
+            "fieldname": "system_information_section",
+            "fieldtype": "Section Break",
+            "label": "System Information | معلومات النظام"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "created_date",
+            "fieldtype": "Datetime",
+            "label": "Created Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_updated_by",
+            "fieldtype": "Link",
+            "label": "Last Updated By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_updated_date",
+            "fieldtype": "Datetime",
+            "label": "Last Updated Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_8",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "auto_generated",
+            "fieldtype": "Check",
+            "label": "Auto Generated",
+            "default": 0,
+            "read_only": 1
+        },
+        {
+            "fieldname": "data_source",
+            "fieldtype": "Select",
+            "label": "Data Source",
+            "options": "Sales Orders\nInventory Movements\nSales Channels\nMixed Sources",
+            "default": "Mixed Sources",
+            "read_only": 1
+        },
+        {
+            "fieldname": "calculation_method",
+            "fieldtype": "Select",
+            "label": "Calculation Method",
+            "options": "Real-time\nBatch Processing\nManual Input",
+            "default": "Real-time",
+            "read_only": 1
+        },
+        {
+            "fieldname": "next_analysis_due",
+            "fieldtype": "Date",
+            "label": "Next Analysis Due"
+        }
+    ],
+    "has_web_view": 0,
+    "hide_heading": 0,
+    "hide_toolbar": 0,
+    "icon": "fa fa-line-chart",
+    "idx": 0,
+    "in_create": 0,
+    "is_child": 0,
+    "is_published_field": 0,
+    "is_single": 0,
+    "is_submittable": 0,
+    "is_tree": 0,
+    "is_virtual": 0,
+    "istable": 0,
+    "modified": "2025-06-20 20:15:00.000000",
+    "modified_by": "Administrator",
+    "module": "Scrap Management",
+    "name": "Profit Analysis",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 0,
+            "delete": 0,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician",
+            "share": 0,
+            "write": 0
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "search_fields": "analysis_name,analysis_name_ar,sales_channel,analysis_status",
+    "show_name_in_global_search": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "analysis_name",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

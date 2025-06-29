@@ -1,0 +1,250 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2024-06-23 15:15:00.000000",
+    "default_view": "List",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "service_order",
+        "customer",
+        "vehicle_registration",
+        "column_break_5",
+        "checklist_type",
+        "vehicle_type",
+        "inspection_date",
+        "section_break_9",
+        "status",
+        "completion_percentage",
+        "column_break_12",
+        "approved_by",
+        "approval_date",
+        "section_break_15",
+        "inspection_items",
+        "section_break_17",
+        "approval_notes",
+        "approval_notes_ar",
+        "column_break_20",
+        "rejection_reason",
+        "rejection_reason_ar",
+        "section_break_23",
+        "last_updated",
+        "total_items",
+        "column_break_26",
+        "passed_items",
+        "failed_items"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "QIC-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "fieldname": "service_order",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Service Order",
+            "options": "Sales Order",
+            "reqd": 1
+        },
+        {
+            "fieldname": "customer",
+            "fieldtype": "Link",
+            "label": "Customer",
+            "options": "Customer",
+            "read_only": 1
+        },
+        {
+            "fieldname": "vehicle_registration",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Vehicle Registration",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "checklist_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Checklist Type",
+            "options": "Basic\nComprehensive\nSafety Only\nCustom",
+            "reqd": 1
+        },
+        {
+            "fieldname": "vehicle_type",
+            "fieldtype": "Select",
+            "label": "Vehicle Type",
+            "options": "Passenger\nCommercial\nMotorcycle\nTruck\nBus",
+            "reqd": 1
+        },
+        {
+            "fieldname": "inspection_date",
+            "fieldtype": "Datetime",
+            "label": "Inspection Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "section_break_9",
+            "fieldtype": "Section Break",
+            "label": "Status & Progress"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Status",
+            "options": "Draft\nIn Progress\nPassed\nFailed\nApproved\nRejected",
+            "reqd": 1
+        },
+        {
+            "fieldname": "completion_percentage",
+            "fieldtype": "Percent",
+            "label": "Completion %",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_12",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "approved_by",
+            "fieldtype": "Link",
+            "label": "Approved By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "approval_date",
+            "fieldtype": "Datetime",
+            "label": "Approval Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_15",
+            "fieldtype": "Section Break",
+            "label": "Inspection Items"
+        },
+        {
+            "fieldname": "inspection_items",
+            "fieldtype": "Table",
+            "label": "Inspection Items",
+            "options": "Quality Inspection Item",
+            "reqd": 1
+        },
+        {
+            "fieldname": "section_break_17",
+            "fieldtype": "Section Break",
+            "label": "Approval Notes"
+        },
+        {
+            "fieldname": "approval_notes",
+            "fieldtype": "Long Text",
+            "label": "Approval Notes (English)"
+        },
+        {
+            "fieldname": "approval_notes_ar",
+            "fieldtype": "Long Text",
+            "label": "Approval Notes (Arabic)"
+        },
+        {
+            "fieldname": "column_break_20",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "rejection_reason",
+            "fieldtype": "Long Text",
+            "label": "Rejection Reason (English)"
+        },
+        {
+            "fieldname": "rejection_reason_ar",
+            "fieldtype": "Long Text",
+            "label": "Rejection Reason (Arabic)"
+        },
+        {
+            "fieldname": "section_break_23",
+            "fieldtype": "Section Break",
+            "label": "Summary"
+        },
+        {
+            "fieldname": "last_updated",
+            "fieldtype": "Datetime",
+            "label": "Last Updated",
+            "read_only": 1
+        },
+        {
+            "fieldname": "total_items",
+            "fieldtype": "Int",
+            "label": "Total Items",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_26",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "passed_items",
+            "fieldtype": "Int",
+            "label": "Passed Items",
+            "read_only": 1
+        },
+        {
+            "fieldname": "failed_items",
+            "fieldtype": "Int",
+            "label": "Failed Items",
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2024-06-23 15:15:00.000000",
+    "modified_by": "Administrator",
+    "module": "Sales Service",
+    "name": "Quality Inspection Checklist",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician",
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Customer"
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

@@ -1,0 +1,814 @@
+{
+ "actions": [],
+ "allow_copy": 0,
+ "allow_events_in_timeline": 0,
+ "allow_guest_to_view": 0,
+ "allow_import": 0,
+ "allow_rename": 1,
+ "autoname": "format:IM-{YYYY}-{#####}",
+ "beta": 0,
+ "creation": "2025-06-24 06:59:30.708156",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "integration_info_section",
+  "integration_name",
+  "integration_name_ar",
+  "column_break_3",
+  "integration_type",
+  "integration_status",
+  "priority_level",
+  "section_break_7",
+  "description",
+  "description_ar",
+  "provider_name",
+  "provider_url",
+  "column_break_12",
+  "version",
+  "last_used",
+  "usage_count",
+  
+  "api_configuration_section",
+  "base_url",
+  "api_version",
+  "column_break_17",
+  "authentication_type",
+  "api_key",
+  "access_token",
+  "section_break_21",
+  "username",
+  "password",
+  "column_break_24",
+  "client_id",
+  "client_secret",
+  "section_break_27",
+  "custom_headers",
+  "request_timeout",
+  "column_break_30",
+  "rate_limit_requests",
+  "rate_limit_period",
+  
+  "webhook_configuration_section",
+  "webhook_enabled",
+  "webhook_url",
+  "column_break_35",
+  "webhook_events",
+  "webhook_method",
+  "webhook_secret",
+  "section_break_39",
+  "webhook_headers",
+  "webhook_payload_template",
+  "column_break_42",
+  "webhook_retry_attempts",
+  "webhook_retry_delay",
+  
+  "monitoring_section",
+  "monitoring_enabled",
+  "health_check_url",
+  "column_break_47",
+  "health_check_interval",
+  "health_check_timeout",
+  "last_health_check",
+  "section_break_51",
+  "success_count",
+  "failure_count",
+  "column_break_54",
+  "average_response_time",
+  "last_error_message",
+  "last_error_time",
+  
+  "security_section",
+  "ssl_verification",
+  "certificate_path",
+  "column_break_60",
+  "ip_whitelist",
+  "allowed_domains",
+  "section_break_63",
+  "encryption_enabled",
+  "signature_verification",
+  "column_break_66",
+  "security_token",
+  "token_expiry",
+  
+  "notification_section",
+  "email_notifications",
+  "notification_emails",
+  "column_break_71",
+  "sms_notifications",
+  "notification_phones",
+  "section_break_75",
+  "slack_notifications",
+  "slack_webhook_url",
+  "column_break_78",
+  "alert_on_failure",
+  "alert_threshold",
+  
+  "integration_logs_section",
+  "request_log",
+  "response_log",
+  "column_break_83",
+  "error_log",
+  "activity_log",
+  
+  "data_mapping_section",
+  "field_mappings",
+  "data_transformations",
+  "column_break_88",
+  "sync_direction",
+  "sync_frequency",
+  "last_sync",
+  
+  "metadata_section",
+  "created_by",
+  "created_on",
+  "column_break_94",
+  "modified_by",
+  "modified_on",
+  "section_break_97",
+  "tags",
+  "notes",
+  "column_break_100",
+  "integration_category",
+  "business_function"
+ ],
+ "fields": [
+  {
+   "fieldname": "integration_info_section",
+   "fieldtype": "Section Break",
+   "label": "Integration Information / معلومات التكامل"
+  },
+  {
+   "fieldname": "integration_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Integration Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "integration_name_ar",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "اسم التكامل",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "integration_type",
+   "fieldtype": "Select",
+   "label": "Integration Type / نوع التكامل",
+   "options": "REST API / واجهة برمجة تطبيقات REST\nWebhook / ويب هوك\nSOAP / SOAP\nGraphQL / GraphQL\nFTP / FTP\nSFTP / SFTP\nDatabase / قاعدة بيانات\nFile Import / استيراد ملف\nEmail / البريد الإلكتروني\nSMS / الرسائل النصية\nCustom / مخصص",
+   "reqd": 1
+  },
+  {
+   "fieldname": "integration_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status / الحالة",
+   "options": "Active / نشط\nInactive / غير نشط\nTesting / اختبار\nMaintenance / صيانة\nError / خطأ\nDisabled / معطل",
+   "reqd": 1
+  },
+  {
+   "fieldname": "priority_level",
+   "fieldtype": "Select",
+   "label": "Priority Level / مستوى الأولوية",
+   "options": "Critical / حرج\nHigh / عالي\nMedium / متوسط\nLow / منخفض"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "description_ar",
+   "fieldtype": "Text",
+   "label": "الوصف"
+  },
+  {
+   "fieldname": "provider_name",
+   "fieldtype": "Data",
+   "label": "Provider Name / اسم المزود"
+  },
+  {
+   "fieldname": "provider_url",
+   "fieldtype": "Data",
+   "label": "Provider URL / رابط المزود",
+   "options": "URL"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "version",
+   "fieldtype": "Data",
+   "label": "API Version / إصدار API"
+  },
+  {
+   "fieldname": "last_used",
+   "fieldtype": "Datetime",
+   "label": "Last Used / آخر استخدام",
+   "read_only": 1
+  },
+  {
+   "fieldname": "usage_count",
+   "fieldtype": "Int",
+   "label": "Usage Count / عدد الاستخدامات",
+   "read_only": 1
+  },
+  
+  {
+   "fieldname": "api_configuration_section",
+   "fieldtype": "Section Break",
+   "label": "API Configuration / إعدادات API"
+  },
+  {
+   "fieldname": "base_url",
+   "fieldtype": "Data",
+   "label": "Base URL / الرابط الأساسي",
+   "options": "URL"
+  },
+  {
+   "fieldname": "api_version",
+   "fieldtype": "Data",
+   "label": "API Version / إصدار API"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "authentication_type",
+   "fieldtype": "Select",
+   "label": "Authentication Type / نوع المصادقة",
+   "options": "None / بدون\nAPI Key / مفتاح API\nBearer Token / رمز الحامل\nBasic Auth / المصادقة الأساسية\nOAuth 2.0 / OAuth 2.0\nJWT / JWT\nCustom / مخصص"
+  },
+  {
+   "fieldname": "api_key",
+   "fieldtype": "Password",
+   "label": "API Key / مفتاح API"
+  },
+  {
+   "fieldname": "access_token",
+   "fieldtype": "Password",
+   "label": "Access Token / رمز الوصول"
+  },
+  {
+   "fieldname": "section_break_21",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "username",
+   "fieldtype": "Data",
+   "label": "Username / اسم المستخدم"
+  },
+  {
+   "fieldname": "password",
+   "fieldtype": "Password",
+   "label": "Password / كلمة المرور"
+  },
+  {
+   "fieldname": "column_break_24",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "client_id",
+   "fieldtype": "Data",
+   "label": "Client ID / معرف العميل"
+  },
+  {
+   "fieldname": "client_secret",
+   "fieldtype": "Password",
+   "label": "Client Secret / سر العميل"
+  },
+  {
+   "fieldname": "section_break_27",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "custom_headers",
+   "fieldtype": "Code",
+   "label": "Custom Headers / رؤوس مخصصة",
+   "options": "JSON"
+  },
+  {
+   "fieldname": "request_timeout",
+   "fieldtype": "Int",
+   "default": 30,
+   "label": "Request Timeout (seconds) / مهلة الطلب (ثانية)"
+  },
+  {
+   "fieldname": "column_break_30",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rate_limit_requests",
+   "fieldtype": "Int",
+   "label": "Rate Limit (requests) / حد المعدل (طلبات)"
+  },
+  {
+   "fieldname": "rate_limit_period",
+   "fieldtype": "Select",
+   "label": "Rate Limit Period / فترة حد المعدل",
+   "options": "Per Second / في الثانية\nPer Minute / في الدقيقة\nPer Hour / في الساعة\nPer Day / في اليوم"
+  },
+  
+  {
+   "fieldname": "webhook_configuration_section",
+   "fieldtype": "Section Break",
+   "label": "Webhook Configuration / إعدادات Webhook"
+  },
+  {
+   "fieldname": "webhook_enabled",
+   "fieldtype": "Check",
+   "label": "Enable Webhooks / تفعيل Webhooks"
+  },
+  {
+   "fieldname": "webhook_url",
+   "fieldtype": "Data",
+   "label": "Webhook URL / رابط Webhook",
+   "options": "URL"
+  },
+  {
+   "fieldname": "column_break_35",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "webhook_events",
+   "fieldtype": "Small Text",
+   "label": "Webhook Events / أحداث Webhook",
+   "description": "Comma-separated list of events (e.g., create, update, delete)"
+  },
+  {
+   "fieldname": "webhook_method",
+   "fieldtype": "Select",
+   "label": "Webhook Method / طريقة Webhook",
+   "options": "POST\nPUT\nPATCH"
+  },
+  {
+   "fieldname": "webhook_secret",
+   "fieldtype": "Password",
+   "label": "Webhook Secret / سر Webhook"
+  },
+  {
+   "fieldname": "section_break_39",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "webhook_headers",
+   "fieldtype": "Code",
+   "label": "Webhook Headers / رؤوس Webhook",
+   "options": "JSON"
+  },
+  {
+   "fieldname": "webhook_payload_template",
+   "fieldtype": "Code",
+   "label": "Webhook Payload Template / قالب محتوى Webhook",
+   "options": "JSON"
+  },
+  {
+   "fieldname": "column_break_42",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "webhook_retry_attempts",
+   "fieldtype": "Int",
+   "default": 3,
+   "label": "Retry Attempts / محاولات الإعادة"
+  },
+  {
+   "fieldname": "webhook_retry_delay",
+   "fieldtype": "Int",
+   "default": 5,
+   "label": "Retry Delay (seconds) / تأخير الإعادة (ثانية)"
+  },
+  
+  {
+   "fieldname": "monitoring_section",
+   "fieldtype": "Section Break",
+   "label": "Monitoring & Health / المراقبة والحالة الصحية"
+  },
+  {
+   "fieldname": "monitoring_enabled",
+   "fieldtype": "Check",
+   "default": 1,
+   "label": "Enable Monitoring / تفعيل المراقبة"
+  },
+  {
+   "fieldname": "health_check_url",
+   "fieldtype": "Data",
+   "label": "Health Check URL / رابط فحص الحالة",
+   "options": "URL"
+  },
+  {
+   "fieldname": "column_break_47",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "health_check_interval",
+   "fieldtype": "Select",
+   "default": "5 Minutes / 5 دقائق",
+   "label": "Health Check Interval / فترة فحص الحالة",
+   "options": "1 Minute / دقيقة واحدة\n5 Minutes / 5 دقائق\n15 Minutes / 15 دقيقة\n30 Minutes / 30 دقيقة\n1 Hour / ساعة واحدة"
+  },
+  {
+   "fieldname": "health_check_timeout",
+   "fieldtype": "Int",
+   "default": 10,
+   "label": "Health Check Timeout (seconds) / مهلة فحص الحالة (ثانية)"
+  },
+  {
+   "fieldname": "last_health_check",
+   "fieldtype": "Datetime",
+   "label": "Last Health Check / آخر فحص حالة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_51",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "success_count",
+   "fieldtype": "Int",
+   "default": 0,
+   "label": "Success Count / عدد النجاحات",
+   "read_only": 1
+  },
+  {
+   "fieldname": "failure_count",
+   "fieldtype": "Int",
+   "default": 0,
+   "label": "Failure Count / عدد الإخفاقات",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_54",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "average_response_time",
+   "fieldtype": "Float",
+   "label": "Average Response Time (ms) / متوسط وقت الاستجابة (مللي ثانية)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_error_message",
+   "fieldtype": "Text",
+   "label": "Last Error Message / آخر رسالة خطأ",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_error_time",
+   "fieldtype": "Datetime",
+   "label": "Last Error Time / وقت آخر خطأ",
+   "read_only": 1
+  },
+  
+  {
+   "fieldname": "security_section",
+   "fieldtype": "Section Break",
+   "label": "Security Settings / إعدادات الأمان"
+  },
+  {
+   "fieldname": "ssl_verification",
+   "fieldtype": "Check",
+   "default": 1,
+   "label": "SSL Verification / التحقق من SSL"
+  },
+  {
+   "fieldname": "certificate_path",
+   "fieldtype": "Data",
+   "label": "Certificate Path / مسار الشهادة"
+  },
+  {
+   "fieldname": "column_break_60",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ip_whitelist",
+   "fieldtype": "Small Text",
+   "label": "IP Whitelist / قائمة IP المسموحة",
+   "description": "Comma-separated list of allowed IP addresses"
+  },
+  {
+   "fieldname": "allowed_domains",
+   "fieldtype": "Small Text",
+   "label": "Allowed Domains / النطاقات المسموحة",
+   "description": "Comma-separated list of allowed domains"
+  },
+  {
+   "fieldname": "section_break_63",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "encryption_enabled",
+   "fieldtype": "Check",
+   "label": "Enable Encryption / تفعيل التشفير"
+  },
+  {
+   "fieldname": "signature_verification",
+   "fieldtype": "Check",
+   "label": "Signature Verification / التحقق من التوقيع"
+  },
+  {
+   "fieldname": "column_break_66",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "security_token",
+   "fieldtype": "Password",
+   "label": "Security Token / رمز الأمان"
+  },
+  {
+   "fieldname": "token_expiry",
+   "fieldtype": "Datetime",
+   "label": "Token Expiry / انتهاء صلاحية الرمز"
+  },
+  
+  {
+   "fieldname": "notification_section",
+   "fieldtype": "Section Break",
+   "label": "Notifications / الإشعارات"
+  },
+  {
+   "fieldname": "email_notifications",
+   "fieldtype": "Check",
+   "label": "Email Notifications / إشعارات البريد الإلكتروني"
+  },
+  {
+   "fieldname": "notification_emails",
+   "fieldtype": "Small Text",
+   "label": "Notification Emails / بريد الإشعارات",
+   "description": "Comma-separated list of email addresses"
+  },
+  {
+   "fieldname": "column_break_71",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sms_notifications",
+   "fieldtype": "Check",
+   "label": "SMS Notifications / إشعارات الرسائل النصية"
+  },
+  {
+   "fieldname": "notification_phones",
+   "fieldtype": "Small Text",
+   "label": "Notification Phones / هواتف الإشعارات",
+   "description": "Comma-separated list of phone numbers"
+  },
+  {
+   "fieldname": "section_break_75",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "slack_notifications",
+   "fieldtype": "Check",
+   "label": "Slack Notifications / إشعارات Slack"
+  },
+  {
+   "fieldname": "slack_webhook_url",
+   "fieldtype": "Data",
+   "label": "Slack Webhook URL / رابط Slack Webhook",
+   "options": "URL"
+  },
+  {
+   "fieldname": "column_break_78",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "alert_on_failure",
+   "fieldtype": "Check",
+   "default": 1,
+   "label": "Alert on Failure / تنبيه عند الفشل"
+  },
+  {
+   "fieldname": "alert_threshold",
+   "fieldtype": "Int",
+   "default": 3,
+   "label": "Alert Threshold / عتبة التنبيه",
+   "description": "Number of consecutive failures before alerting"
+  },
+  
+  {
+   "fieldname": "integration_logs_section",
+   "fieldtype": "Section Break",
+   "label": "Integration Logs / سجلات التكامل"
+  },
+  {
+   "fieldname": "request_log",
+   "fieldtype": "Code",
+   "label": "Request Log / سجل الطلبات",
+   "options": "Text",
+   "read_only": 1
+  },
+  {
+   "fieldname": "response_log",
+   "fieldtype": "Code",
+   "label": "Response Log / سجل الاستجابات",
+   "options": "Text",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_83",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "error_log",
+   "fieldtype": "Code",
+   "label": "Error Log / سجل الأخطاء",
+   "options": "Text",
+   "read_only": 1
+  },
+  {
+   "fieldname": "activity_log",
+   "fieldtype": "Code",
+   "label": "Activity Log / سجل الأنشطة",
+   "options": "Text",
+   "read_only": 1
+  },
+  
+  {
+   "fieldname": "data_mapping_section",
+   "fieldtype": "Section Break",
+   "label": "Data Mapping & Synchronization / تخطيط البيانات والمزامنة"
+  },
+  {
+   "fieldname": "field_mappings",
+   "fieldtype": "Code",
+   "label": "Field Mappings / تخطيط الحقول",
+   "options": "JSON",
+   "description": "JSON object mapping source fields to target fields"
+  },
+  {
+   "fieldname": "data_transformations",
+   "fieldtype": "Code",
+   "label": "Data Transformations / تحويل البيانات",
+   "options": "JSON",
+   "description": "JSON object defining data transformation rules"
+  },
+  {
+   "fieldname": "column_break_88",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sync_direction",
+   "fieldtype": "Select",
+   "label": "Sync Direction / اتجاه المزامنة",
+   "options": "Bidirectional / ثنائي الاتجاه\nInbound Only / وارد فقط\nOutbound Only / صادر فقط"
+  },
+  {
+   "fieldname": "sync_frequency",
+   "fieldtype": "Select",
+   "label": "Sync Frequency / تكرار المزامنة",
+   "options": "Real-time / فوري\nEvery 5 minutes / كل 5 دقائق\nEvery 15 minutes / كل 15 دقيقة\nEvery 30 minutes / كل 30 دقيقة\nHourly / كل ساعة\nDaily / يومياً\nWeekly / أسبوعياً\nManual / يدوي"
+  },
+  {
+   "fieldname": "last_sync",
+   "fieldtype": "Datetime",
+   "label": "Last Sync / آخر مزامنة",
+   "read_only": 1
+  },
+  
+  {
+   "fieldname": "metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Metadata / البيانات الوصفية"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By / أنشئ بواسطة",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_on",
+   "fieldtype": "Datetime",
+   "label": "Created On / تاريخ الإنشاء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_94",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "modified_by",
+   "fieldtype": "Link",
+   "label": "Modified By / عدل بواسطة",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "modified_on",
+   "fieldtype": "Datetime",
+   "label": "Modified On / تاريخ التعديل",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_97",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "tags",
+   "fieldtype": "Small Text",
+   "label": "Tags / العلامات",
+   "description": "Comma-separated tags for categorization"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes / ملاحظات"
+  },
+  {
+   "fieldname": "column_break_100",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "integration_category",
+   "fieldtype": "Select",
+   "label": "Integration Category / فئة التكامل",
+   "options": "Financial / مالي\nCustomer Management / إدارة العملاء\nInventory / المخزون\nCommunication / التواصل\nReporting / التقارير\nSecurity / الأمان\nUtilities / المرافق\nCustom / مخصص"
+  },
+  {
+   "fieldname": "business_function",
+   "fieldtype": "Select",
+   "label": "Business Function / الوظيفة التجارية",
+   "options": "Sales / المبيعات\nAccounting / المحاسبة\nInventory / المخزون\nHR / الموارد البشرية\nCustomer Service / خدمة العملاء\nMarketing / التسويق\nOperations / العمليات\nCompliance / الامتثال"
+  }
+ ],
+ "has_web_view": 0,
+ "hide_heading": 0,
+ "hide_toolbar": 0,
+ "idx": 0,
+ "image_view": 0,
+ "in_create": 0,
+ "is_submittable": 0,
+ "issingle": 0,
+ "istable": 0,
+ "max_attachments": 0,
+ "modified": "2025-06-24 06:59:30.708156",
+ "modified_by": "Administrator",
+ "module": "Workshop Management",
+ "name": "Integration Manager",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop User",
+   "share": 0,
+   "write": 0
+  }
+ ],
+ "quick_entry": 0,
+ "read_only": 0,
+ "read_only_onload": 0,
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "integration_name",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 0,
+ "translated_doctype": 1
+}

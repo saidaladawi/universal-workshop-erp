@@ -1,0 +1,125 @@
+{
+  "validation_summary": {
+    "timestamp": "2025-06-25T18:58:58.825084",
+    "total_tests": 5,
+    "passed_tests": 5,
+    "success_rate_percent": 100.0,
+    "assessment": "excellent"
+  },
+  "detailed_results": [
+    {
+      "test": "static_file_performance",
+      "timestamp": "2025-06-25T18:58:58.703402",
+      "files_tested": 3,
+      "detailed_results": [
+        {
+          "file": "apps/universal_workshop/universal_workshop/public/css/arabic-rtl.css",
+          "file_size_bytes": 25443,
+          "avg_read_time_ms": 0.053310394287109375,
+          "min_read_time_ms": 0.027179718017578125,
+          "max_read_time_ms": 0.14519691467285156,
+          "throughput_mb_per_sec": 455.1520572450805
+        },
+        {
+          "file": "apps/universal_workshop/universal_workshop/public/css/dynamic_branding.css",
+          "file_size_bytes": 28194,
+          "avg_read_time_ms": 0.04420280456542969,
+          "min_read_time_ms": 0.026941299438476562,
+          "max_read_time_ms": 0.17762184143066406,
+          "throughput_mb_per_sec": 608.2847896440129
+        },
+        {
+          "file": "apps/universal_workshop/universal_workshop/public/js/rtl_branding_manager.js",
+          "file_size_bytes": 22949,
+          "avg_read_time_ms": 0.21960735321044922,
+          "min_read_time_ms": 0.09489059448242188,
+          "max_read_time_ms": 0.49614906311035156,
+          "throughput_mb_per_sec": 99.65910324611878
+        }
+      ]
+    },
+    {
+      "test": "concurrent_file_access",
+      "threads": 20,
+      "total_operations": 60,
+      "successful_operations": 60,
+      "failed_operations": 0,
+      "total_time_seconds": 0.017086505889892578,
+      "throughput_ops_per_sec": 3511.5429910975918,
+      "avg_latency_ms": 0.1537958780924479,
+      "p95_latency_ms": 0.8711814880371094,
+      "timestamp": "2025-06-25T18:58:58.720716"
+    },
+    {
+      "test": "css_parsing_performance",
+      "timestamp": "2025-06-25T18:58:58.726628",
+      "files_tested": 2,
+      "detailed_results": [
+        {
+          "file": "apps/universal_workshop/universal_workshop/public/css/arabic-rtl.css",
+          "avg_parse_time_ms": 0.29931068420410156,
+          "rule_count": 186,
+          "property_count": 396,
+          "rtl_rules": 256,
+          "complexity_score": 5.82
+        },
+        {
+          "file": "apps/universal_workshop/universal_workshop/public/css/dynamic_branding.css",
+          "avg_parse_time_ms": 0.23398399353027344,
+          "rule_count": 172,
+          "property_count": 581,
+          "rtl_rules": 21,
+          "complexity_score": 7.53
+        }
+      ]
+    },
+    {
+      "test": "javascript_loading_simulation",
+      "file": "/home/said/frappe-dev/frappe-bench/apps/universal_workshop/universal_workshop/public/js/rtl_branding_manager.js",
+      "file_size_bytes": 22949,
+      "avg_load_time_ms": 0.5226612091064453,
+      "function_count": 30,
+      "class_count": 2,
+      "method_count": 26,
+      "complexity_score": 5.8,
+      "timestamp": "2025-06-25T18:58:58.730159"
+    },
+    {
+      "test": "browser_load_sequence_simulation",
+      "total_load_time_ms": 90.68354606628418,
+      "sequence_steps": [
+        {
+          "step": "HTML parsing",
+          "resource": 50,
+          "step_time_ms": 50
+        },
+        {
+          "step": "CSS loading",
+          "resource": "arabic-rtl.css",
+          "step_time_ms": 0.1842975616455078
+        },
+        {
+          "step": "CSS loading",
+          "resource": "dynamic_branding.css",
+          "step_time_ms": 0.11467933654785156
+        },
+        {
+          "step": "JavaScript loading",
+          "resource": "rtl_branding_manager.js",
+          "step_time_ms": 0.3845691680908203
+        },
+        {
+          "step": "DOM ready",
+          "resource": 10,
+          "step_time_ms": 10
+        },
+        {
+          "step": "JavaScript execution",
+          "resource": 30,
+          "step_time_ms": 30
+        }
+      ],
+      "timestamp": "2025-06-25T18:58:58.823161"
+    }
+  ]
+}

@@ -1,0 +1,794 @@
+{
+    "actions": [],
+    "autoname": "naming_series:",
+    "creation": "2024-06-24 18:15:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "basic_information_section",
+        "naming_series",
+        "listing_title",
+        "listing_title_ar",
+        "marketplace_connector",
+        "external_listing_id",
+        "column_break_basic",
+        "source_item",
+        "source_extracted_part",
+        "listing_status",
+        "listing_date",
+        "product_details_section",
+        "product_name",
+        "product_name_ar",
+        "product_description",
+        "product_description_ar",
+        "column_break_product",
+        "part_category",
+        "part_subcategory",
+        "brand_manufacturer",
+        "part_number",
+        "model_compatibility",
+        "condition_section",
+        "condition_grade",
+        "condition_description",
+        "condition_assessment_date",
+        "column_break_condition",
+        "usage_history",
+        "wear_indicators",
+        "functionality_status",
+        "pricing_section",
+        "base_price",
+        "listing_price",
+        "currency",
+        "column_break_pricing",
+        "discount_percentage",
+        "discount_amount",
+        "final_price",
+        "price_includes_vat",
+        "marketplace_details_section",
+        "marketplace_category",
+        "marketplace_subcategory",
+        "marketplace_tags",
+        "column_break_marketplace",
+        "marketplace_features",
+        "marketplace_attributes",
+        "seo_keywords",
+        "images_section",
+        "main_image",
+        "image_1",
+        "image_2",
+        "image_3",
+        "column_break_images",
+        "image_4",
+        "image_5",
+        "image_6",
+        "additional_images",
+        "shipping_section",
+        "weight_kg",
+        "dimensions_length",
+        "dimensions_width",
+        "dimensions_height",
+        "column_break_shipping",
+        "packaging_type",
+        "shipping_zones",
+        "delivery_timeframe",
+        "shipping_cost",
+        "warranty_section",
+        "warranty_period_days",
+        "warranty_terms",
+        "warranty_coverage",
+        "column_break_warranty",
+        "return_policy",
+        "return_period_days",
+        "return_conditions",
+        "compliance_section",
+        "regulatory_compliance",
+        "safety_certifications",
+        "environmental_notes",
+        "column_break_compliance",
+        "import_documentation",
+        "quality_standards",
+        "inspection_report",
+        "marketplace_sync_section",
+        "last_sync_datetime",
+        "sync_status",
+        "sync_errors",
+        "column_break_sync",
+        "auto_sync_enabled",
+        "sync_frequency",
+        "next_sync_datetime",
+        "performance_section",
+        "views_count",
+        "inquiries_count",
+        "favorites_count",
+        "column_break_performance",
+        "conversion_rate",
+        "average_response_time",
+        "competitor_price_avg",
+        "sales_section",
+        "total_quantity_sold",
+        "total_revenue",
+        "last_sale_date",
+        "column_break_sales",
+        "buyer_ratings_avg",
+        "buyer_reviews_count",
+        "repeat_customers",
+        "metadata_section",
+        "created_by",
+        "created_date",
+        "column_break_metadata",
+        "modified_by",
+        "modified_date",
+        "listing_expiry_date"
+    ],
+    "fields": [
+        {
+            "fieldname": "basic_information_section",
+            "fieldtype": "Section Break",
+            "label": "Basic Information / المعلومات الأساسية"
+        },
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Naming Series",
+            "options": "MPL-",
+            "reqd": 1
+        },
+        {
+            "fieldname": "listing_title",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Listing Title",
+            "reqd": 1
+        },
+        {
+            "fieldname": "listing_title_ar",
+            "fieldtype": "Data",
+            "label": "عنوان القائمة",
+            "translatable": 1
+        },
+        {
+            "fieldname": "marketplace_connector",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Marketplace Connector",
+            "options": "Marketplace Connector",
+            "reqd": 1
+        },
+        {
+            "fieldname": "external_listing_id",
+            "fieldtype": "Data",
+            "label": "External Listing ID",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_basic",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "source_item",
+            "fieldtype": "Link",
+            "label": "Source Item",
+            "options": "Item"
+        },
+        {
+            "fieldname": "source_extracted_part",
+            "fieldtype": "Link",
+            "label": "Source Extracted Part",
+            "options": "Scrap Vehicle Extracted Part"
+        },
+        {
+            "fieldname": "listing_status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Listing Status",
+            "options": "Draft\nActive\nPaused\nSold\nExpired\nRemoved\nError",
+            "reqd": 1
+        },
+        {
+            "fieldname": "listing_date",
+            "fieldtype": "Datetime",
+            "label": "Listing Date"
+        },
+        {
+            "fieldname": "product_details_section",
+            "fieldtype": "Section Break",
+            "label": "Product Details / تفاصيل المنتج"
+        },
+        {
+            "fieldname": "product_name",
+            "fieldtype": "Data",
+            "label": "Product Name",
+            "reqd": 1
+        },
+        {
+            "fieldname": "product_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم المنتج",
+            "translatable": 1
+        },
+        {
+            "fieldname": "product_description",
+            "fieldtype": "Text Editor",
+            "label": "Product Description"
+        },
+        {
+            "fieldname": "product_description_ar",
+            "fieldtype": "Text Editor",
+            "label": "وصف المنتج",
+            "translatable": 1
+        },
+        {
+            "fieldname": "column_break_product",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "part_category",
+            "fieldtype": "Data",
+            "label": "Part Category"
+        },
+        {
+            "fieldname": "part_subcategory",
+            "fieldtype": "Data",
+            "label": "Part Subcategory"
+        },
+        {
+            "fieldname": "brand_manufacturer",
+            "fieldtype": "Data",
+            "label": "Brand/Manufacturer"
+        },
+        {
+            "fieldname": "part_number",
+            "fieldtype": "Data",
+            "label": "Part Number"
+        },
+        {
+            "fieldname": "model_compatibility",
+            "fieldtype": "JSON",
+            "label": "Model Compatibility"
+        },
+        {
+            "fieldname": "condition_section",
+            "fieldtype": "Section Break",
+            "label": "Condition Assessment / تقييم الحالة"
+        },
+        {
+            "fieldname": "condition_grade",
+            "fieldtype": "Link",
+            "label": "Condition Grade",
+            "options": "Parts Condition Grade"
+        },
+        {
+            "fieldname": "condition_description",
+            "fieldtype": "Text",
+            "label": "Condition Description"
+        },
+        {
+            "fieldname": "condition_assessment_date",
+            "fieldtype": "Date",
+            "label": "Assessment Date"
+        },
+        {
+            "fieldname": "column_break_condition",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "usage_history",
+            "fieldtype": "Text",
+            "label": "Usage History"
+        },
+        {
+            "fieldname": "wear_indicators",
+            "fieldtype": "JSON",
+            "label": "Wear Indicators"
+        },
+        {
+            "fieldname": "functionality_status",
+            "fieldtype": "Select",
+            "label": "Functionality Status",
+            "options": "Fully Functional\nMinor Issues\nMajor Issues\nNon-Functional\nFor Parts Only"
+        },
+        {
+            "fieldname": "pricing_section",
+            "fieldtype": "Section Break",
+            "label": "Pricing / التسعير"
+        },
+        {
+            "fieldname": "base_price",
+            "fieldtype": "Currency",
+            "label": "Base Price",
+            "precision": "3"
+        },
+        {
+            "fieldname": "listing_price",
+            "fieldtype": "Currency",
+            "label": "Listing Price",
+            "precision": "3",
+            "reqd": 1
+        },
+        {
+            "fieldname": "currency",
+            "fieldtype": "Link",
+            "label": "Currency",
+            "options": "Currency"
+        },
+        {
+            "fieldname": "column_break_pricing",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "discount_percentage",
+            "fieldtype": "Percent",
+            "label": "Discount %"
+        },
+        {
+            "fieldname": "discount_amount",
+            "fieldtype": "Currency",
+            "label": "Discount Amount",
+            "precision": "3"
+        },
+        {
+            "fieldname": "final_price",
+            "fieldtype": "Currency",
+            "label": "Final Price",
+            "precision": "3",
+            "read_only": 1
+        },
+        {
+            "fieldname": "price_includes_vat",
+            "fieldtype": "Check",
+            "label": "Price Includes VAT"
+        },
+        {
+            "fieldname": "marketplace_details_section",
+            "fieldtype": "Section Break",
+            "label": "Marketplace Details / تفاصيل السوق"
+        },
+        {
+            "fieldname": "marketplace_category",
+            "fieldtype": "Data",
+            "label": "Marketplace Category"
+        },
+        {
+            "fieldname": "marketplace_subcategory",
+            "fieldtype": "Data",
+            "label": "Marketplace Subcategory"
+        },
+        {
+            "fieldname": "marketplace_tags",
+            "fieldtype": "Data",
+            "label": "Marketplace Tags"
+        },
+        {
+            "fieldname": "column_break_marketplace",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "marketplace_features",
+            "fieldtype": "JSON",
+            "label": "Marketplace Features"
+        },
+        {
+            "fieldname": "marketplace_attributes",
+            "fieldtype": "JSON",
+            "label": "Marketplace Attributes"
+        },
+        {
+            "fieldname": "seo_keywords",
+            "fieldtype": "Data",
+            "label": "SEO Keywords"
+        },
+        {
+            "fieldname": "images_section",
+            "fieldtype": "Section Break",
+            "label": "Images / الصور"
+        },
+        {
+            "fieldname": "main_image",
+            "fieldtype": "Attach Image",
+            "label": "Main Image"
+        },
+        {
+            "fieldname": "image_1",
+            "fieldtype": "Attach Image",
+            "label": "Image 1"
+        },
+        {
+            "fieldname": "image_2",
+            "fieldtype": "Attach Image",
+            "label": "Image 2"
+        },
+        {
+            "fieldname": "image_3",
+            "fieldtype": "Attach Image",
+            "label": "Image 3"
+        },
+        {
+            "fieldname": "column_break_images",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "image_4",
+            "fieldtype": "Attach Image",
+            "label": "Image 4"
+        },
+        {
+            "fieldname": "image_5",
+            "fieldtype": "Attach Image",
+            "label": "Image 5"
+        },
+        {
+            "fieldname": "image_6",
+            "fieldtype": "Attach Image",
+            "label": "Image 6"
+        },
+        {
+            "fieldname": "additional_images",
+            "fieldtype": "JSON",
+            "label": "Additional Images"
+        },
+        {
+            "fieldname": "shipping_section",
+            "fieldtype": "Section Break",
+            "label": "Shipping / الشحن"
+        },
+        {
+            "fieldname": "weight_kg",
+            "fieldtype": "Float",
+            "label": "Weight (kg)",
+            "precision": "2"
+        },
+        {
+            "fieldname": "dimensions_length",
+            "fieldtype": "Float",
+            "label": "Length (cm)",
+            "precision": "1"
+        },
+        {
+            "fieldname": "dimensions_width",
+            "fieldtype": "Float",
+            "label": "Width (cm)",
+            "precision": "1"
+        },
+        {
+            "fieldname": "dimensions_height",
+            "fieldtype": "Float",
+            "label": "Height (cm)",
+            "precision": "1"
+        },
+        {
+            "fieldname": "column_break_shipping",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "packaging_type",
+            "fieldtype": "Select",
+            "label": "Packaging Type",
+            "options": "Box\nBag\nBubble Wrap\nCustom Packaging\nNo Packaging"
+        },
+        {
+            "fieldname": "shipping_zones",
+            "fieldtype": "JSON",
+            "label": "Shipping Zones"
+        },
+        {
+            "fieldname": "delivery_timeframe",
+            "fieldtype": "Data",
+            "label": "Delivery Timeframe"
+        },
+        {
+            "fieldname": "shipping_cost",
+            "fieldtype": "Currency",
+            "label": "Shipping Cost",
+            "precision": "3"
+        },
+        {
+            "fieldname": "warranty_section",
+            "fieldtype": "Section Break",
+            "label": "Warranty & Returns / الضمان والإرجاع"
+        },
+        {
+            "fieldname": "warranty_period_days",
+            "fieldtype": "Int",
+            "label": "Warranty Period (days)"
+        },
+        {
+            "fieldname": "warranty_terms",
+            "fieldtype": "Text",
+            "label": "Warranty Terms"
+        },
+        {
+            "fieldname": "warranty_coverage",
+            "fieldtype": "Select",
+            "label": "Warranty Coverage",
+            "options": "Full Replacement\nRepair Only\nStore Credit\nNo Warranty"
+        },
+        {
+            "fieldname": "column_break_warranty",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "return_policy",
+            "fieldtype": "Text",
+            "label": "Return Policy"
+        },
+        {
+            "fieldname": "return_period_days",
+            "fieldtype": "Int",
+            "label": "Return Period (days)"
+        },
+        {
+            "fieldname": "return_conditions",
+            "fieldtype": "Text",
+            "label": "Return Conditions"
+        },
+        {
+            "fieldname": "compliance_section",
+            "fieldtype": "Section Break",
+            "label": "Compliance / الامتثال"
+        },
+        {
+            "fieldname": "regulatory_compliance",
+            "fieldtype": "JSON",
+            "label": "Regulatory Compliance"
+        },
+        {
+            "fieldname": "safety_certifications",
+            "fieldtype": "Data",
+            "label": "Safety Certifications"
+        },
+        {
+            "fieldname": "environmental_notes",
+            "fieldtype": "Text",
+            "label": "Environmental Notes"
+        },
+        {
+            "fieldname": "column_break_compliance",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "import_documentation",
+            "fieldtype": "JSON",
+            "label": "Import Documentation"
+        },
+        {
+            "fieldname": "quality_standards",
+            "fieldtype": "Data",
+            "label": "Quality Standards"
+        },
+        {
+            "fieldname": "inspection_report",
+            "fieldtype": "Attach",
+            "label": "Inspection Report"
+        },
+        {
+            "fieldname": "marketplace_sync_section",
+            "fieldtype": "Section Break",
+            "label": "Marketplace Sync / مزامنة السوق"
+        },
+        {
+            "fieldname": "last_sync_datetime",
+            "fieldtype": "Datetime",
+            "label": "Last Sync Date/Time",
+            "read_only": 1
+        },
+        {
+            "fieldname": "sync_status",
+            "fieldtype": "Select",
+            "label": "Sync Status",
+            "options": "Pending\nIn Progress\nCompleted\nFailed\nSkipped",
+            "read_only": 1
+        },
+        {
+            "fieldname": "sync_errors",
+            "fieldtype": "Text",
+            "label": "Sync Errors",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_sync",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "auto_sync_enabled",
+            "fieldtype": "Check",
+            "label": "Auto Sync Enabled"
+        },
+        {
+            "fieldname": "sync_frequency",
+            "fieldtype": "Select",
+            "label": "Sync Frequency",
+            "options": "Manual\nHourly\nDaily\nWeekly"
+        },
+        {
+            "fieldname": "next_sync_datetime",
+            "fieldtype": "Datetime",
+            "label": "Next Sync Date/Time",
+            "read_only": 1
+        },
+        {
+            "fieldname": "performance_section",
+            "fieldtype": "Section Break",
+            "label": "Performance / الأداء"
+        },
+        {
+            "fieldname": "views_count",
+            "fieldtype": "Int",
+            "label": "Views Count",
+            "read_only": 1
+        },
+        {
+            "fieldname": "inquiries_count",
+            "fieldtype": "Int",
+            "label": "Inquiries Count",
+            "read_only": 1
+        },
+        {
+            "fieldname": "favorites_count",
+            "fieldtype": "Int",
+            "label": "Favorites Count",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_performance",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "conversion_rate",
+            "fieldtype": "Percent",
+            "label": "Conversion Rate",
+            "read_only": 1
+        },
+        {
+            "fieldname": "average_response_time",
+            "fieldtype": "Float",
+            "label": "Avg Response Time (hours)",
+            "precision": "1",
+            "read_only": 1
+        },
+        {
+            "fieldname": "competitor_price_avg",
+            "fieldtype": "Currency",
+            "label": "Competitor Avg Price",
+            "precision": "3",
+            "read_only": 1
+        },
+        {
+            "fieldname": "sales_section",
+            "fieldtype": "Section Break",
+            "label": "Sales / المبيعات"
+        },
+        {
+            "fieldname": "total_quantity_sold",
+            "fieldtype": "Int",
+            "label": "Total Quantity Sold",
+            "read_only": 1
+        },
+        {
+            "fieldname": "total_revenue",
+            "fieldtype": "Currency",
+            "label": "Total Revenue",
+            "precision": "3",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_sale_date",
+            "fieldtype": "Date",
+            "label": "Last Sale Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_sales",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "buyer_ratings_avg",
+            "fieldtype": "Float",
+            "label": "Buyer Ratings (Avg)",
+            "precision": "1",
+            "read_only": 1
+        },
+        {
+            "fieldname": "buyer_reviews_count",
+            "fieldtype": "Int",
+            "label": "Buyer Reviews Count",
+            "read_only": 1
+        },
+        {
+            "fieldname": "repeat_customers",
+            "fieldtype": "Int",
+            "label": "Repeat Customers",
+            "read_only": 1
+        },
+        {
+            "fieldname": "metadata_section",
+            "fieldtype": "Section Break",
+            "label": "Metadata / البيانات الوصفية"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "created_date",
+            "fieldtype": "Date",
+            "label": "Created Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_metadata",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "modified_by",
+            "fieldtype": "Link",
+            "label": "Modified By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "modified_date",
+            "fieldtype": "Date",
+            "label": "Modified Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "listing_expiry_date",
+            "fieldtype": "Date",
+            "label": "Listing Expiry Date"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 0,
+    "links": [],
+    "modified": "2024-06-24 18:15:00.000000",
+    "modified_by": "Administrator",
+    "module": "Marketplace Integration",
+    "name": "Marketplace Product Listing",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Supervisor",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician"
+        }
+    ],
+    "search_fields": "listing_title,marketplace_connector,listing_status,part_category",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "listing_title",
+    "track_changes": 1
+}

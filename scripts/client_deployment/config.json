@@ -1,0 +1,72 @@
+{
+  "version": "3.0-Professional",
+  "installation_date": "2025-06-29T11:03:13+04:00",
+  "default_license_type": "professional",
+  "auto_backup": true,
+  "backup_retention_days": 30,
+  "log_level": "INFO",
+  "security": {
+    "require_confirmation": true,
+    "validate_client_id": true,
+    "auto_generate_ids": true
+  },
+  "paths": {
+    "licenses_dir": "./licenses",
+    "logs_dir": "./logs",
+    "backups_dir": "./backups",
+    "client_data_dir": "./client_data"
+  },
+  "license_types": {
+    "trial": {
+      "duration_days": 30,
+      "max_users": 5,
+      "features": [
+        "workshop_management",
+        "basic_inventory"
+      ]
+    },
+    "basic": {
+      "duration_days": 0,
+      "max_users": 5,
+      "features": [
+        "workshop_management",
+        "basic_inventory"
+      ]
+    },
+    "professional": {
+      "duration_days": 0,
+      "max_users": 25,
+      "features": [
+        "workshop_management",
+        "inventory",
+        "scrap_management",
+        "reports"
+      ]
+    },
+    "enterprise": {
+      "duration_days": 0,
+      "max_users": 100,
+      "features": [
+        "workshop_management",
+        "inventory",
+        "scrap_management",
+        "reports",
+        "api_access",
+        "advanced_analytics"
+      ]
+    },
+    "unlimited": {
+      "duration_days": 0,
+      "max_users": 999,
+      "features": [
+        "workshop_management",
+        "inventory",
+        "scrap_management",
+        "reports",
+        "api_access",
+        "advanced_analytics",
+        "custom_modules"
+      ]
+    }
+  }
+}

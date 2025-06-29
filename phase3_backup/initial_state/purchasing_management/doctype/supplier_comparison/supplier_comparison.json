@@ -1,0 +1,210 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2025-06-23 15:52:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "title",
+        "title_ar",
+        "section_break_4",
+        "material_request",
+        "required_by",
+        "procurement_type",
+        "priority",
+        "column_break_8",
+        "company",
+        "workshop",
+        "currency",
+        "status",
+        "section_break_13",
+        "comparison_items",
+        "section_break_15",
+        "supplier_quotations",
+        "section_break_17",
+        "selected_supplier",
+        "total_amount",
+        "notes",
+        "notes_ar",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "SC-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "fieldname": "title",
+            "fieldtype": "Data",
+            "label": "Title",
+            "reqd": 1
+        },
+        {
+            "fieldname": "title_ar",
+            "fieldtype": "Data",
+            "label": "العنوان",
+            "translatable": 1
+        },
+        {
+            "fieldname": "section_break_4",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "material_request",
+            "fieldtype": "Link",
+            "label": "Material Request",
+            "options": "Material Request"
+        },
+        {
+            "fieldname": "required_by",
+            "fieldtype": "Date",
+            "label": "Required By"
+        },
+        {
+            "fieldname": "procurement_type",
+            "fieldtype": "Select",
+            "label": "Procurement Type",
+            "options": "Parts\nService\nConsumables\nTools"
+        },
+        {
+            "fieldname": "priority",
+            "fieldtype": "Select",
+            "label": "Priority",
+            "options": "Low\nMedium\nHigh\nUrgent"
+        },
+        {
+            "fieldname": "column_break_8",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "company",
+            "fieldtype": "Link",
+            "label": "Company",
+            "options": "Company",
+            "reqd": 1
+        },
+        {
+            "fieldname": "workshop",
+            "fieldtype": "Link",
+            "label": "Workshop",
+            "options": "Workshop Profile"
+        },
+        {
+            "fieldname": "currency",
+            "fieldtype": "Link",
+            "label": "Currency",
+            "options": "Currency",
+            "default": "OMR"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "Draft\nRequest Sent\nQuotes Received\nAnalysis Complete\nSupplier Selected\nPO Created\nCancelled",
+            "default": "Draft"
+        },
+        {
+            "fieldname": "section_break_13",
+            "fieldtype": "Section Break",
+            "label": "Items for Comparison"
+        },
+        {
+            "fieldname": "comparison_items",
+            "fieldtype": "Table",
+            "label": "Comparison Items",
+            "options": "Supplier Comparison Item"
+        },
+        {
+            "fieldname": "section_break_15",
+            "fieldtype": "Section Break",
+            "label": "Supplier Quotations"
+        },
+        {
+            "fieldname": "supplier_quotations",
+            "fieldtype": "Table",
+            "label": "Supplier Quotations",
+            "options": "Supplier Comparison Quotation"
+        },
+        {
+            "fieldname": "section_break_17",
+            "fieldtype": "Section Break",
+            "label": "Decision"
+        },
+        {
+            "fieldname": "selected_supplier",
+            "fieldtype": "Link",
+            "label": "Selected Supplier",
+            "options": "Supplier"
+        },
+        {
+            "fieldname": "total_amount",
+            "fieldtype": "Currency",
+            "label": "Total Amount",
+            "read_only": 1
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Text Editor",
+            "label": "Notes"
+        },
+        {
+            "fieldname": "notes_ar",
+            "fieldtype": "Text Editor",
+            "label": "ملاحظات",
+            "translatable": 1
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Supplier Comparison",
+            "print_hide": 1,
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2025-06-23 15:52:00.000000",
+    "modified_by": "Administrator",
+    "module": "Purchasing Management",
+    "name": "Supplier Comparison",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Purchasing Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Purchasing User",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "title",
+    "track_changes": 1
+}

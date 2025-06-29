@@ -1,0 +1,324 @@
+{
+    "actions": [],
+    "allow_rename": 0,
+    "autoname": "naming_series:",
+    "beta": 0,
+    "creation": "2024-06-18 20:00:00.000000",
+    "default_view": "List",
+    "doctype": "DocType",
+    "editable_grid": 0,
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "dashboard_title",
+        "dashboard_title_ar",
+        "column_break_3",
+        "created_by",
+        "creation_date",
+        "last_updated",
+        "license_overview_section",
+        "total_licenses",
+        "active_licenses",
+        "expired_licenses",
+        "column_break_8",
+        "expiring_soon",
+        "revoked_licenses",
+        "suspended_licenses",
+        "system_health_section",
+        "system_status",
+        "last_health_check",
+        "column_break_13",
+        "monitoring_active",
+        "alerts_count",
+        "license_actions_section",
+        "issue_new_license",
+        "bulk_renewal",
+        "column_break_17",
+        "export_audit_logs",
+        "system_maintenance",
+        "recent_activity_section",
+        "recent_licenses",
+        "recent_audit_logs",
+        "quick_stats_section",
+        "hardware_fingerprints_active",
+        "business_bindings_active",
+        "column_break_24",
+        "jwt_tokens_active",
+        "offline_sessions_active"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "LMD-.YYYY.-.#####",
+            "reqd": 1
+        },
+        {
+            "fieldname": "dashboard_title",
+            "fieldtype": "Data",
+            "label": "Dashboard Title",
+            "default": "License Management Dashboard",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "dashboard_title_ar",
+            "fieldtype": "Data",
+            "label": "عنوان لوحة التحكم",
+            "default": "لوحة إدارة التراخيص",
+            "translatable": 1
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "creation_date",
+            "fieldtype": "Datetime",
+            "label": "Creation Date",
+            "default": "Now",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_updated",
+            "fieldtype": "Datetime",
+            "label": "Last Updated",
+            "read_only": 1
+        },
+        {
+            "fieldname": "license_overview_section",
+            "fieldtype": "Section Break",
+            "label": "License Overview / نظرة عامة على التراخيص"
+        },
+        {
+            "fieldname": "total_licenses",
+            "fieldtype": "Int",
+            "label": "Total Licenses",
+            "read_only": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "active_licenses",
+            "fieldtype": "Int",
+            "label": "Active Licenses",
+            "read_only": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "expired_licenses",
+            "fieldtype": "Int",
+            "label": "Expired Licenses",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_8",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "expiring_soon",
+            "fieldtype": "Int",
+            "label": "Expiring Soon",
+            "read_only": 1,
+            "description": "Licenses expiring within 30 days"
+        },
+        {
+            "fieldname": "revoked_licenses",
+            "fieldtype": "Int",
+            "label": "Revoked Licenses",
+            "read_only": 1
+        },
+        {
+            "fieldname": "suspended_licenses",
+            "fieldtype": "Int",
+            "label": "Suspended Licenses",
+            "read_only": 1
+        },
+        {
+            "fieldname": "system_health_section",
+            "fieldtype": "Section Break",
+            "label": "System Health / صحة النظام"
+        },
+        {
+            "fieldname": "system_status",
+            "fieldtype": "Select",
+            "label": "System Status",
+            "options": "Healthy\nWarning\nCritical\nMaintenance",
+            "default": "Healthy",
+            "read_only": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "last_health_check",
+            "fieldtype": "Datetime",
+            "label": "Last Health Check",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_13",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "monitoring_active",
+            "fieldtype": "Check",
+            "label": "Monitoring Active",
+            "read_only": 1,
+            "default": 1
+        },
+        {
+            "fieldname": "alerts_count",
+            "fieldtype": "Int",
+            "label": "Active Alerts",
+            "read_only": 1
+        },
+        {
+            "fieldname": "license_actions_section",
+            "fieldtype": "Section Break",
+            "label": "License Actions / إجراءات الترخيص"
+        },
+        {
+            "fieldname": "issue_new_license",
+            "fieldtype": "Button",
+            "label": "Issue New License"
+        },
+        {
+            "fieldname": "bulk_renewal",
+            "fieldtype": "Button",
+            "label": "Bulk License Renewal"
+        },
+        {
+            "fieldname": "column_break_17",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "export_audit_logs",
+            "fieldtype": "Button",
+            "label": "Export Audit Logs"
+        },
+        {
+            "fieldname": "system_maintenance",
+            "fieldtype": "Button",
+            "label": "System Maintenance"
+        },
+        {
+            "fieldname": "recent_activity_section",
+            "fieldtype": "Section Break",
+            "label": "Recent Activity / النشاط الأخير"
+        },
+        {
+            "fieldname": "recent_licenses",
+            "fieldtype": "Table",
+            "label": "Recent License Activities",
+            "options": "License Activity Log"
+        },
+        {
+            "fieldname": "recent_audit_logs",
+            "fieldtype": "Table",
+            "label": "Recent Audit Events",
+            "options": "Dashboard Audit Event"
+        },
+        {
+            "fieldname": "quick_stats_section",
+            "fieldtype": "Section Break",
+            "label": "Quick Statistics / إحصائيات سريعة"
+        },
+        {
+            "fieldname": "hardware_fingerprints_active",
+            "fieldtype": "Int",
+            "label": "Active Hardware Fingerprints",
+            "read_only": 1
+        },
+        {
+            "fieldname": "business_bindings_active",
+            "fieldtype": "Int",
+            "label": "Active Business Bindings",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_24",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "jwt_tokens_active",
+            "fieldtype": "Int",
+            "label": "Active JWT Tokens",
+            "read_only": 1
+        },
+        {
+            "fieldname": "offline_sessions_active",
+            "fieldtype": "Int",
+            "label": "Active Offline Sessions",
+            "read_only": 1
+        }
+    ],
+    "has_web_view": 0,
+    "hide_heading": 0,
+    "hide_toolbar": 0,
+    "idx": 0,
+    "in_create": 0,
+    "is_submittable": 0,
+    "issingle": 1,
+    "istable": 0,
+    "max_attachments": 0,
+    "modified": "2024-06-18 20:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "License Management",
+    "name": "License Management Dashboard",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 0,
+            "delete": 0,
+            "email": 0,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 0,
+            "write": 0
+        },
+        {
+            "create": 0,
+            "delete": 0,
+            "email": 0,
+            "export": 0,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "License Administrator",
+            "share": 0,
+            "write": 1
+        }
+    ],
+    "quick_entry": 0,
+    "read_only": 0,
+    "read_only_onload": 0,
+    "show_name_in_global_search": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "title_field": "dashboard_title",
+    "track_changes": 1,
+    "track_seen": 0,
+    "track_views": 0
+}

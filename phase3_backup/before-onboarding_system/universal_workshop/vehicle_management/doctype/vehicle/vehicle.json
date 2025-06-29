@@ -1,0 +1,316 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "field:vin",
+    "creation": "2024-06-19 05:05:00.000000",
+    "default_view": "List",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "vehicle_information_section",
+        "vin",
+        "license_plate",
+        "license_plate_ar",
+        "column_break_4",
+        "make",
+        "make_ar",
+        "model",
+        "model_ar",
+        "year",
+        "color",
+        "color_ar",
+        "vehicle_specifications_section",
+        "body_class",
+        "body_class_ar",
+        "engine_type",
+        "engine_cylinders",
+        "engine_displacement",
+        "column_break_specs",
+        "transmission_type",
+        "fuel_type_primary",
+        "drive_type",
+        "plant_country",
+        "plant_state",
+        "section_break_10",
+        "customer",
+        "ownership_type",
+        "purchase_date",
+        "column_break_14",
+        "current_mileage",
+        "warranty_expiry_date",
+        "insurance_expiry_date",
+        "last_service_date",
+        "service_interval_km",
+        "next_service_due"
+    ],
+    "fields": [
+        {
+            "fieldname": "vehicle_information_section",
+            "fieldtype": "Section Break",
+            "label": "Vehicle Information"
+        },
+        {
+            "fieldname": "vin",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "VIN (Vehicle Identification Number)",
+            "reqd": 1,
+            "unique": 1,
+            "description": "17-character Vehicle Identification Number"
+        },
+        {
+            "fieldname": "license_plate",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "License Plate Number",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "license_plate_ar",
+            "fieldtype": "Data",
+            "label": "رقم اللوحة",
+            "translatable": 1
+        },
+        {
+            "fieldname": "column_break_4",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "make",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Make",
+            "reqd": 1
+        },
+        {
+            "fieldname": "make_ar",
+            "fieldtype": "Data",
+            "label": "الماركة",
+            "translatable": 1
+        },
+        {
+            "fieldname": "model",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Model",
+            "reqd": 1
+        },
+        {
+            "fieldname": "model_ar",
+            "fieldtype": "Data",
+            "label": "الطراز",
+            "translatable": 1
+        },
+        {
+            "fieldname": "year",
+            "fieldtype": "Int",
+            "in_list_view": 1,
+            "label": "Year",
+            "reqd": 1
+        },
+        {
+            "fieldname": "color",
+            "fieldtype": "Data",
+            "label": "Color"
+        },
+        {
+            "fieldname": "color_ar",
+            "fieldtype": "Data",
+            "label": "اللون",
+            "translatable": 1
+        },
+        {
+            "fieldname": "vehicle_specifications_section",
+            "fieldtype": "Section Break",
+            "label": "Vehicle Specifications",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "body_class",
+            "fieldtype": "Data",
+            "label": "Body Class",
+            "read_only": 1
+        },
+        {
+            "fieldname": "body_class_ar",
+            "fieldtype": "Data",
+            "label": "نوع الهيكل",
+            "translatable": 1,
+            "read_only": 1
+        },
+        {
+            "fieldname": "engine_type",
+            "fieldtype": "Data",
+            "label": "Engine Type",
+            "read_only": 1
+        },
+        {
+            "fieldname": "engine_cylinders",
+            "fieldtype": "Data",
+            "label": "Engine Cylinders",
+            "read_only": 1
+        },
+        {
+            "fieldname": "engine_displacement",
+            "fieldtype": "Data",
+            "label": "Engine Displacement (L)",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_specs",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "transmission_type",
+            "fieldtype": "Data",
+            "label": "Transmission Type",
+            "read_only": 1
+        },
+        {
+            "fieldname": "fuel_type_primary",
+            "fieldtype": "Data",
+            "label": "Fuel Type",
+            "read_only": 1
+        },
+        {
+            "fieldname": "drive_type",
+            "fieldtype": "Data",
+            "label": "Drive Type",
+            "read_only": 1
+        },
+        {
+            "fieldname": "plant_country",
+            "fieldtype": "Data",
+            "label": "Manufacturing Country",
+            "read_only": 1
+        },
+        {
+            "fieldname": "plant_state",
+            "fieldtype": "Data",
+            "label": "Manufacturing State",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_10",
+            "fieldtype": "Section Break",
+            "label": "Ownership Information"
+        },
+        {
+            "fieldname": "customer",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Customer",
+            "options": "Customer",
+            "reqd": 1
+        },
+        {
+            "fieldname": "ownership_type",
+            "fieldtype": "Select",
+            "label": "Ownership Type",
+            "options": "Owner\nLessee\nFinanced\nFleet",
+            "default": "Owner"
+        },
+        {
+            "fieldname": "purchase_date",
+            "fieldtype": "Date",
+            "label": "Purchase Date"
+        },
+        {
+            "fieldname": "column_break_14",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "current_mileage",
+            "fieldtype": "Int",
+            "label": "Current Mileage (KM)"
+        },
+        {
+            "fieldname": "warranty_expiry_date",
+            "fieldtype": "Date",
+            "label": "Warranty Expiry Date"
+        },
+        {
+            "fieldname": "insurance_expiry_date",
+            "fieldtype": "Date",
+            "label": "Insurance Expiry Date"
+        },
+        {
+            "fieldname": "last_service_date",
+            "fieldtype": "Date",
+            "label": "Last Service Date"
+        },
+        {
+            "fieldname": "service_interval_km",
+            "fieldtype": "Int",
+            "label": "Service Interval (KM)",
+            "default": 10000
+        },
+        {
+            "fieldname": "next_service_due",
+            "fieldtype": "Date",
+            "label": "Next Service Due"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2024-06-19 06:15:00.000000",
+    "modified_by": "Administrator",
+    "module": "Vehicle Management",
+    "name": "Vehicle",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician",
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Customer"
+        }
+    ],
+    "quick_entry": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "license_plate",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

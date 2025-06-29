@@ -1,0 +1,257 @@
+{
+    "performance_test_config": {
+        "test_scenarios": {
+            "light_load": {
+                "description": "Light load testing - normal business hours",
+                "users": 20,
+                "spawn_rate": 2,
+                "duration": "5m",
+                "host": "http://localhost:8000",
+                "expected_failure_rate": 1.0,
+                "expected_avg_response_time": 500
+            },
+            "medium_load": {
+                "description": "Medium load testing - peak business hours",
+                "users": 100,
+                "spawn_rate": 5,
+                "duration": "10m",
+                "host": "http://localhost:8000",
+                "expected_failure_rate": 2.0,
+                "expected_avg_response_time": 1000
+            },
+            "heavy_load": {
+                "description": "Heavy load testing - stress test",
+                "users": 500,
+                "spawn_rate": 10,
+                "duration": "15m",
+                "host": "http://localhost:8000",
+                "expected_failure_rate": 5.0,
+                "expected_avg_response_time": 2000
+            },
+            "spike_test": {
+                "description": "Spike testing - sudden traffic increase",
+                "users": 1000,
+                "spawn_rate": 50,
+                "duration": "5m",
+                "host": "http://localhost:8000",
+                "expected_failure_rate": 10.0,
+                "expected_avg_response_time": 3000
+            }
+        },
+        "user_roles": {
+            "workshop_admin": {
+                "weight": 15,
+                "endpoints": [
+                    "/app/desk",
+                    "/app/workshop-dashboard",
+                    "/app/reports",
+                    "/app/user",
+                    "/app/role"
+                ],
+                "api_endpoints": [
+                    "/api/resource/User",
+                    "/api/resource/WorkOrder",
+                    "/api/resource/Customer"
+                ]
+            },
+            "technician": {
+                "weight": 30,
+                "endpoints": [
+                    "/app/desk",
+                    "/app/work-order",
+                    "/app/task",
+                    "/app/timesheet",
+                    "/app/item"
+                ],
+                "api_endpoints": [
+                    "/api/resource/WorkOrder",
+                    "/api/resource/Task",
+                    "/api/resource/Timesheet"
+                ]
+            },
+            "customer_service": {
+                "weight": 25,
+                "endpoints": [
+                    "/app/desk",
+                    "/app/customer",
+                    "/app/quotation",
+                    "/app/sales-order",
+                    "/app/communication"
+                ],
+                "api_endpoints": [
+                    "/api/resource/Customer",
+                    "/api/resource/Quotation",
+                    "/api/resource/SalesOrder"
+                ]
+            },
+            "inventory_manager": {
+                "weight": 20,
+                "endpoints": [
+                    "/app/desk",
+                    "/app/item",
+                    "/app/stock-ledger",
+                    "/app/purchase-order",
+                    "/app/delivery-note"
+                ],
+                "api_endpoints": [
+                    "/api/resource/Item",
+                    "/api/resource/StockLedger",
+                    "/api/resource/PurchaseOrder"
+                ]
+            },
+            "workshop_owner": {
+                "weight": 10,
+                "endpoints": [
+                    "/app/desk",
+                    "/app/dashboard-view",
+                    "/app/reports",
+                    "/app/analytics",
+                    "/app/company"
+                ],
+                "api_endpoints": [
+                    "/api/resource/Company",
+                    "/api/method/universal_workshop.api.dashboard_api.get_workshop_analytics"
+                ]
+            }
+        },
+        "authentication_scenarios": {
+            "concurrent_login": {
+                "description": "Test concurrent login attempts",
+                "users": 100,
+                "login_rate": 10,
+                "session_duration": 300
+            },
+            "session_persistence": {
+                "description": "Test session management and persistence",
+                "users": 50,
+                "session_checks": 20,
+                "idle_time": 60
+            },
+            "role_based_access": {
+                "description": "Test role-based access control under load",
+                "users": 200,
+                "role_switches": 5,
+                "permission_checks": 10
+            }
+        },
+        "database_scenarios": {
+            "read_heavy": {
+                "description": "Database read-heavy workload",
+                "read_ratio": 80,
+                "write_ratio": 20,
+                "concurrent_queries": 100
+            },
+            "write_heavy": {
+                "description": "Database write-heavy workload",
+                "read_ratio": 40,
+                "write_ratio": 60,
+                "concurrent_queries": 50
+            },
+            "mixed_workload": {
+                "description": "Mixed database workload",
+                "read_ratio": 60,
+                "write_ratio": 40,
+                "concurrent_queries": 75
+            }
+        },
+        "performance_thresholds": {
+            "authentication": {
+                "login_time_ms": 2000,
+                "session_validation_ms": 500,
+                "logout_time_ms": 1000
+            },
+            "navigation": {
+                "dashboard_load_ms": 3000,
+                "form_load_ms": 2000,
+                "list_view_ms": 2500
+            },
+            "api": {
+                "get_request_ms": 1000,
+                "post_request_ms": 2000,
+                "search_request_ms": 1500
+            },
+            "database": {
+                "query_time_ms": 500,
+                "transaction_time_ms": 1000,
+                "connection_time_ms": 200
+            }
+        },
+        "monitoring": {
+            "metrics_collection": {
+                "response_times": true,
+                "error_rates": true,
+                "throughput": true,
+                "concurrent_users": true,
+                "database_performance": true,
+                "memory_usage": true,
+                "cpu_usage": true
+            },
+            "alerting": {
+                "failure_rate_threshold": 5.0,
+                "response_time_threshold": 3000,
+                "error_count_threshold": 100
+            },
+            "reporting": {
+                "real_time_dashboard": true,
+                "detailed_logs": true,
+                "performance_graphs": true,
+                "comparison_reports": true
+            }
+        }
+    },
+    "test_data": {
+        "sample_users": [
+            {
+                "username": "test_admin_001",
+                "role": "Workshop Admin",
+                "password": "test_password_001"
+            },
+            {
+                "username": "test_tech_001",
+                "role": "Technician",
+                "password": "test_password_002"
+            },
+            {
+                "username": "test_cs_001",
+                "role": "Customer Service",
+                "password": "test_password_003"
+            },
+            {
+                "username": "test_inv_001",
+                "role": "Inventory Manager",
+                "password": "test_password_004"
+            },
+            {
+                "username": "test_owner_001",
+                "role": "Workshop Owner",
+                "password": "test_password_005"
+            }
+        ],
+        "sample_customers": [
+            {
+                "customer_name": "Performance Test Customer 1",
+                "customer_type": "Individual",
+                "territory": "UAE"
+            },
+            {
+                "customer_name": "Performance Test Customer 2",
+                "customer_type": "Company",
+                "territory": "UAE"
+            }
+        ],
+        "sample_vehicles": [
+            {
+                "make": "Toyota",
+                "model": "Camry",
+                "year": 2020,
+                "license_plate": "TEST001"
+            },
+            {
+                "make": "Honda",
+                "model": "Civic",
+                "year": 2019,
+                "license_plate": "TEST002"
+            }
+        ]
+    }
+}

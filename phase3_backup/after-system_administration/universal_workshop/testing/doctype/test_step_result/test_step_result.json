@@ -1,0 +1,164 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 0,
+    "allow_rename": 0,
+    "beta": 0,
+    "creation": "2025-06-24 18:38:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "step_number",
+        "step_title",
+        "step_status",
+        "execution_time",
+        "column_break_4",
+        "actual_result",
+        "expected_result",
+        "screenshot",
+        "error_message",
+        "section_break_9",
+        "validation_points_checked",
+        "performance_data",
+        "api_response_time",
+        "column_break_12",
+        "notes",
+        "tester_comments",
+        "automation_log"
+    ],
+    "fields": [
+        {
+            "fieldname": "step_number",
+            "fieldtype": "Int",
+            "label": "Step Number",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "step_title",
+            "fieldtype": "Data",
+            "label": "Step Title",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "step_status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "\nPassed\nFailed\nBlocked\nSkipped\nNot Executed",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "execution_time",
+            "fieldtype": "Int",
+            "label": "Execution Time (seconds)",
+            "description": "Time taken to execute this step"
+        },
+        {
+            "fieldname": "column_break_4",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "actual_result",
+            "fieldtype": "Text Editor",
+            "label": "Actual Result",
+            "reqd": 1
+        },
+        {
+            "fieldname": "expected_result",
+            "fieldtype": "Text Editor",
+            "label": "Expected Result"
+        },
+        {
+            "fieldname": "screenshot",
+            "fieldtype": "Attach Image",
+            "label": "Screenshot",
+            "description": "Screenshot of the step execution"
+        },
+        {
+            "fieldname": "error_message",
+            "fieldtype": "Text",
+            "label": "Error Message",
+            "depends_on": "eval:doc.step_status=='Failed'"
+        },
+        {
+            "fieldname": "section_break_9",
+            "fieldtype": "Section Break",
+            "label": "Additional Details"
+        },
+        {
+            "fieldname": "validation_points_checked",
+            "fieldtype": "Text",
+            "label": "Validation Points Checked",
+            "description": "List of validation points that were checked"
+        },
+        {
+            "fieldname": "performance_data",
+            "fieldtype": "Code",
+            "label": "Performance Data",
+            "options": "JSON",
+            "description": "Performance metrics for this step"
+        },
+        {
+            "fieldname": "api_response_time",
+            "fieldtype": "Float",
+            "label": "API Response Time (ms)",
+            "precision": 2,
+            "description": "API response time if applicable"
+        },
+        {
+            "fieldname": "column_break_12",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Text",
+            "label": "Notes",
+            "description": "Additional notes about this step execution"
+        },
+        {
+            "fieldname": "tester_comments",
+            "fieldtype": "Text",
+            "label": "Tester Comments",
+            "description": "Comments from the tester"
+        },
+        {
+            "fieldname": "automation_log",
+            "fieldtype": "Code",
+            "label": "Automation Log",
+            "options": "Text",
+            "description": "Log from automated execution"
+        }
+    ],
+    "has_web_view": 0,
+    "hide_heading": 0,
+    "hide_toolbar": 0,
+    "idx": 0,
+    "image_view": 0,
+    "in_create": 0,
+    "is_submittable": 0,
+    "issingle": 0,
+    "istable": 1,
+    "max_attachments": 0,
+    "modified": "2025-06-24 18:38:00.000000",
+    "modified_by": "Administrator",
+    "module": "Testing",
+    "name": "Test Step Result",
+    "owner": "Administrator",
+    "permissions": [],
+    "quick_entry": 0,
+    "read_only": 0,
+    "read_only_onload": 0,
+    "show_name_in_global_search": 0,
+    "sort_field": "step_number",
+    "sort_order": "ASC",
+    "states": [],
+    "track_changes": 0,
+    "track_seen": 0,
+    "track_views": 0
+} 

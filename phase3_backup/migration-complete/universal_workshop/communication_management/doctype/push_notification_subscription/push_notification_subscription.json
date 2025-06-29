@@ -1,0 +1,117 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2024-12-20 13:35:00.000000",
+    "default_view": "List",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "user",
+        "technician",
+        "endpoint",
+        "auth_key",
+        "p256dh_key",
+        "is_active",
+        "subscription_date",
+        "last_notification_sent",
+        "device_info"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "PNS-.YYYY.-.#####",
+            "reqd": 1
+        },
+        {
+            "fieldname": "user",
+            "fieldtype": "Link",
+            "label": "User",
+            "options": "User",
+            "reqd": 1
+        },
+        {
+            "fieldname": "technician",
+            "fieldtype": "Link",
+            "label": "Technician",
+            "options": "Technician"
+        },
+        {
+            "fieldname": "endpoint",
+            "fieldtype": "Long Text",
+            "label": "Push Endpoint",
+            "reqd": 1
+        },
+        {
+            "fieldname": "auth_key",
+            "fieldtype": "Data",
+            "label": "Auth Key",
+            "reqd": 1
+        },
+        {
+            "fieldname": "p256dh_key",
+            "fieldtype": "Data",
+            "label": "P256DH Key",
+            "reqd": 1
+        },
+        {
+            "fieldname": "is_active",
+            "fieldtype": "Check",
+            "label": "Is Active",
+            "default": 1
+        },
+        {
+            "fieldname": "subscription_date",
+            "fieldtype": "Datetime",
+            "label": "Subscription Date",
+            "default": "now"
+        },
+        {
+            "fieldname": "last_notification_sent",
+            "fieldtype": "Datetime",
+            "label": "Last Notification Sent"
+        },
+        {
+            "fieldname": "device_info",
+            "fieldtype": "Small Text",
+            "label": "Device Information"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2024-12-20 13:35:00.000000",
+    "modified_by": "Administrator",
+    "module": "Communication Management",
+    "name": "Push Notification Subscription",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "read": 1,
+            "role": "Technician",
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

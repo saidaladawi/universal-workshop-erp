@@ -1,0 +1,416 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 1,
+    "allow_rename": 1,
+    "autoname": "field:supplier",
+    "beta": 0,
+    "creation": "2024-01-15 11:30:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "document_type": "Document",
+    "engine": "InnoDB",
+    "field_order": [
+        "supplier",
+        "supplier_name",
+        "supplier_name_ar",
+        "column_break_3",
+        "year",
+        "evaluation_period",
+        "last_updated",
+        "section_break_7",
+        "total_inspections",
+        "passed_inspections",
+        "failed_inspections",
+        "column_break_10",
+        "pass_rate",
+        "total_quality_score",
+        "average_quality_score",
+        "section_break_14",
+        "on_time_deliveries",
+        "total_deliveries",
+        "delivery_performance",
+        "column_break_17",
+        "total_purchase_amount",
+        "average_order_value",
+        "cost_competitiveness",
+        "section_break_21",
+        "performance_rating",
+        "overall_score",
+        "column_break_24",
+        "certification_status",
+        "risk_level",
+        "section_break_27",
+        "strengths",
+        "strengths_ar",
+        "column_break_29",
+        "improvement_areas",
+        "improvement_areas_ar",
+        "section_break_32",
+        "corrective_actions_open",
+        "corrective_actions_closed",
+        "response_time_avg",
+        "column_break_35",
+        "communication_rating",
+        "technical_support_rating",
+        "commercial_terms_rating",
+        "section_break_39",
+        "next_review_date",
+        "recommended_action",
+        "column_break_42",
+        "created_by",
+        "created_date"
+    ],
+    "fields": [
+        {
+            "fieldname": "supplier",
+            "fieldtype": "Link",
+            "label": "Supplier",
+            "options": "Supplier",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fetch_from": "supplier.supplier_name",
+            "fieldname": "supplier_name",
+            "fieldtype": "Data",
+            "label": "Supplier Name (English)",
+            "read_only": 1
+        },
+        {
+            "fieldname": "supplier_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم المورد",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "year",
+            "fieldtype": "Int",
+            "label": "Evaluation Year",
+            "reqd": 1,
+            "default": "2024"
+        },
+        {
+            "fieldname": "evaluation_period",
+            "fieldtype": "Select",
+            "label": "Evaluation Period",
+            "options": "Quarterly\nHalf-Yearly\nAnnually",
+            "default": "Quarterly"
+        },
+        {
+            "fieldname": "last_updated",
+            "fieldtype": "Datetime",
+            "label": "Last Updated",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_7",
+            "fieldtype": "Section Break",
+            "label": "Quality Performance"
+        },
+        {
+            "fieldname": "total_inspections",
+            "fieldtype": "Int",
+            "label": "Total Inspections",
+            "default": 0,
+            "read_only": 1
+        },
+        {
+            "fieldname": "passed_inspections",
+            "fieldtype": "Int",
+            "label": "Passed Inspections",
+            "default": 0,
+            "read_only": 1
+        },
+        {
+            "fieldname": "failed_inspections",
+            "fieldtype": "Int",
+            "label": "Failed Inspections",
+            "default": 0,
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_10",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "pass_rate",
+            "fieldtype": "Percent",
+            "label": "Pass Rate (%)",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "total_quality_score",
+            "fieldtype": "Float",
+            "label": "Total Quality Score",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "average_quality_score",
+            "fieldtype": "Float",
+            "label": "Average Quality Score",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "section_break_14",
+            "fieldtype": "Section Break",
+            "label": "Delivery Performance"
+        },
+        {
+            "fieldname": "on_time_deliveries",
+            "fieldtype": "Int",
+            "label": "On-Time Deliveries",
+            "default": 0
+        },
+        {
+            "fieldname": "total_deliveries",
+            "fieldtype": "Int",
+            "label": "Total Deliveries",
+            "default": 0
+        },
+        {
+            "fieldname": "delivery_performance",
+            "fieldtype": "Percent",
+            "label": "Delivery Performance (%)",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "column_break_17",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "total_purchase_amount",
+            "fieldtype": "Currency",
+            "label": "Total Purchase Amount (OMR)",
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "average_order_value",
+            "fieldtype": "Currency",
+            "label": "Average Order Value (OMR)",
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "cost_competitiveness",
+            "fieldtype": "Select",
+            "label": "Cost Competitiveness",
+            "options": "Excellent\nGood\nAverage\nPoor"
+        },
+        {
+            "fieldname": "section_break_21",
+            "fieldtype": "Section Break",
+            "label": "Overall Assessment"
+        },
+        {
+            "fieldname": "performance_rating",
+            "fieldtype": "Select",
+            "label": "Performance Rating",
+            "options": "Excellent\nGood\nSatisfactory\nNeeds Improvement\nUnsatisfactory",
+            "reqd": 1
+        },
+        {
+            "fieldname": "overall_score",
+            "fieldtype": "Float",
+            "label": "Overall Score (0-100)",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "column_break_24",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "certification_status",
+            "fieldtype": "Select",
+            "label": "Certification Status",
+            "options": "ISO 9001\nISO 14001\nOther\nNone"
+        },
+        {
+            "fieldname": "risk_level",
+            "fieldtype": "Select",
+            "label": "Risk Level",
+            "options": "Low\nMedium\nHigh\nCritical",
+            "default": "Medium"
+        },
+        {
+            "fieldname": "section_break_27",
+            "fieldtype": "Section Break",
+            "label": "Performance Analysis"
+        },
+        {
+            "fieldname": "strengths",
+            "fieldtype": "Text",
+            "label": "Strengths (English)"
+        },
+        {
+            "fieldname": "strengths_ar",
+            "fieldtype": "Text",
+            "label": "نقاط القوة"
+        },
+        {
+            "fieldname": "column_break_29",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "improvement_areas",
+            "fieldtype": "Text",
+            "label": "Improvement Areas (English)"
+        },
+        {
+            "fieldname": "improvement_areas_ar",
+            "fieldtype": "Text",
+            "label": "مجالات التحسين"
+        },
+        {
+            "fieldname": "section_break_32",
+            "fieldtype": "Section Break",
+            "label": "Corrective Actions & Support"
+        },
+        {
+            "fieldname": "corrective_actions_open",
+            "fieldtype": "Int",
+            "label": "Open Corrective Actions",
+            "default": 0
+        },
+        {
+            "fieldname": "corrective_actions_closed",
+            "fieldtype": "Int",
+            "label": "Closed Corrective Actions",
+            "default": 0
+        },
+        {
+            "fieldname": "response_time_avg",
+            "fieldtype": "Float",
+            "label": "Average Response Time (Days)",
+            "precision": 1
+        },
+        {
+            "fieldname": "column_break_35",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "communication_rating",
+            "fieldtype": "Select",
+            "label": "Communication Rating",
+            "options": "Excellent\nGood\nAverage\nPoor"
+        },
+        {
+            "fieldname": "technical_support_rating",
+            "fieldtype": "Select",
+            "label": "Technical Support Rating",
+            "options": "Excellent\nGood\nAverage\nPoor"
+        },
+        {
+            "fieldname": "commercial_terms_rating",
+            "fieldtype": "Select",
+            "label": "Commercial Terms Rating",
+            "options": "Excellent\nGood\nAverage\nPoor"
+        },
+        {
+            "fieldname": "section_break_39",
+            "fieldtype": "Section Break",
+            "label": "Next Steps"
+        },
+        {
+            "fieldname": "next_review_date",
+            "fieldtype": "Date",
+            "label": "Next Review Date"
+        },
+        {
+            "fieldname": "recommended_action",
+            "fieldtype": "Select",
+            "label": "Recommended Action",
+            "options": "Continue Partnership\nConditional Approval\nImprovement Plan\nPhase Out\nTerminate"
+        },
+        {
+            "fieldname": "column_break_42",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "created_date",
+            "fieldtype": "Datetime",
+            "label": "Created Date",
+            "read_only": 1
+        }
+    ],
+    "hide_toolbar": 0,
+    "icon": "fa fa-star",
+    "idx": 0,
+    "image_view": 0,
+    "in_create": 0,
+    "is_editable_grid": 1,
+    "is_submittable": 0,
+    "is_tree": 0,
+    "issingle": 0,
+    "istable": 0,
+    "max_attachments": 5,
+    "modified": "2024-01-15 11:30:00.000000",
+    "modified_by": "Administrator",
+    "module": "Purchasing Management",
+    "name": "Supplier Scorecard",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Purchasing Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Quality Inspector",
+            "share": 1
+        }
+    ],
+    "quick_entry": 0,
+    "read_only": 0,
+    "read_only_onload": 0,
+    "show_name_in_global_search": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "title_field": "supplier_name",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

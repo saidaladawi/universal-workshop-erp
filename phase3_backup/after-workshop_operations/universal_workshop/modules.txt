@@ -1,0 +1,14 @@
+Workshop Management
+License Management
+Customer Management
+Search Integration
+Vehicle Management
+Billing Management
+Analytics Reporting
+Data Migration
+Parts Inventory
+Purchasing Management
+Scrap Management
+Training Management
+User Management
+Sales Service

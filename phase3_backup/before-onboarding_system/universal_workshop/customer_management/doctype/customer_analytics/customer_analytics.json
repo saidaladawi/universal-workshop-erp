@@ -1,0 +1,487 @@
+{
+  "actions": [],
+  "allow_copy": 0,
+  "allow_events_in_timeline": 0,
+  "allow_guest_to_view": 0,
+  "allow_import": 0,
+  "allow_rename": 0,
+  "autoname": "naming_series:",
+  "beta": 0,
+  "creation": "2025-06-19 04:00:00.000000",
+  "custom": 0,
+  "docstatus": 0,
+  "doctype": "DocType",
+  "document_type": "Document",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "basic_information_section",
+    "naming_series",
+    "customer",
+    "customer_name",
+    "customer_name_ar",
+    "calculation_date",
+    "data_period_from",
+    "data_period_to",
+    "column_break_customer",
+    "workshop_code",
+    "customer_status",
+    "segment",
+    "last_service_date",
+    "created_on",
+    "customer_lifetime_value_section",
+    "lifetime_value",
+    "total_revenue",
+    "average_order_value",
+    "total_orders",
+    "clv_calculation_date",
+    "column_break_clv",
+    "clv_trend",
+    "clv_rank",
+    "predicted_future_value",
+    "clv_growth_rate",
+    "retention_analytics_section",
+    "retention_rate",
+    "churn_probability",
+    "days_since_last_visit",
+    "visit_frequency",
+    "column_break_retention",
+    "retention_cohort",
+    "customer_age_days",
+    "reactivation_campaigns_sent",
+    "service_patterns_section",
+    "most_frequent_service",
+    "preferred_service_day",
+    "average_service_interval",
+    "seasonal_pattern",
+    "service_type_preferences",
+    "column_break_patterns",
+    "peak_service_months",
+    "service_complexity_score",
+    "loyalty_indicators_section",
+    "loyalty_points_balance",
+    "loyalty_tier",
+    "referrals_made",
+    "satisfaction_score",
+    "column_break_loyalty",
+    "repeat_customer",
+    "brand_advocacy_score",
+    "communication_preferences_section",
+    "preferred_language",
+    "preferred_contact_method",
+    "last_communication_date",
+    "communication_frequency",
+    "automated_section",
+    "needs_recalculation",
+    "calculation_notes",
+    "data_source_quality"
+  ],
+  "fields": [
+    {
+      "fieldname": "basic_information_section",
+      "fieldtype": "Section Break",
+      "label": "Basic Information"
+    },
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "CA-YYYY-",
+      "reqd": 1
+    },
+    {
+      "fieldname": "customer",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Customer",
+      "options": "Customer",
+      "reqd": 1
+    },
+    {
+      "fetch_from": "customer.customer_name",
+      "fieldname": "customer_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Customer Name (English)",
+      "read_only": 1
+    },
+    {
+      "fetch_from": "customer.customer_name_ar",
+      "fieldname": "customer_name_ar",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "اسم العميل",
+      "read_only": 1,
+      "translatable": 1
+    },
+    {
+      "default": "Today",
+      "fieldname": "calculation_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "Calculation Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "data_period_from",
+      "fieldtype": "Date",
+      "label": "Data Period From",
+      "reqd": 1
+    },
+    {
+      "fieldname": "data_period_to",
+      "fieldtype": "Date",
+      "label": "Data Period To",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_customer",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fetch_from": "customer.workshop_code",
+      "fieldname": "workshop_code",
+      "fieldtype": "Data",
+      "label": "Workshop Code",
+      "read_only": 1
+    },
+    {
+      "fetch_from": "customer.customer_status",
+      "fieldname": "customer_status",
+      "fieldtype": "Select",
+      "label": "Customer Status",
+      "options": "Active\nInactive\nSuspended\nPotential",
+      "read_only": 1
+    },
+    {
+      "fieldname": "segment",
+      "fieldtype": "Select",
+      "label": "Customer Segment",
+      "options": "VIP\nHigh Value\nRegular\nNew\nAt Risk\nLost"
+    },
+    {
+      "fieldname": "last_service_date",
+      "fieldtype": "Date",
+      "label": "Last Service Date"
+    },
+    {
+      "default": "now",
+      "fieldname": "created_on",
+      "fieldtype": "Datetime",
+      "label": "Created On",
+      "read_only": 1
+    },
+    {
+      "fieldname": "customer_lifetime_value_section",
+      "fieldtype": "Section Break",
+      "label": "Customer Lifetime Value (CLV)"
+    },
+    {
+      "fieldname": "lifetime_value",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "Customer Lifetime Value (OMR)",
+      "precision": 3
+    },
+    {
+      "fieldname": "total_revenue",
+      "fieldtype": "Currency",
+      "label": "Total Revenue (OMR)",
+      "precision": 3
+    },
+    {
+      "fieldname": "average_order_value",
+      "fieldtype": "Currency",
+      "label": "Average Order Value (OMR)",
+      "precision": 3
+    },
+    {
+      "fieldname": "total_orders",
+      "fieldtype": "Int",
+      "label": "Total Orders"
+    },
+    {
+      "fieldname": "clv_calculation_date",
+      "fieldtype": "Datetime",
+      "label": "CLV Calculation Date",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_clv",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "clv_trend",
+      "fieldtype": "Select",
+      "label": "CLV Trend",
+      "options": "Increasing\nStable\nDecreasing\nNew Customer"
+    },
+    {
+      "fieldname": "clv_rank",
+      "fieldtype": "Int",
+      "label": "CLV Rank"
+    },
+    {
+      "fieldname": "predicted_future_value",
+      "fieldtype": "Currency",
+      "label": "Predicted Future Value (OMR)",
+      "precision": 3
+    },
+    {
+      "fieldname": "clv_growth_rate",
+      "fieldtype": "Percent",
+      "label": "CLV Growth Rate (%)"
+    },
+    {
+      "fieldname": "retention_analytics_section",
+      "fieldtype": "Section Break",
+      "label": "Retention Analytics"
+    },
+    {
+      "fieldname": "retention_rate",
+      "fieldtype": "Percent",
+      "in_list_view": 1,
+      "label": "Retention Rate (%)"
+    },
+    {
+      "fieldname": "churn_probability",
+      "fieldtype": "Percent",
+      "label": "Churn Probability (%)"
+    },
+    {
+      "fieldname": "days_since_last_visit",
+      "fieldtype": "Int",
+      "label": "Days Since Last Visit"
+    },
+    {
+      "fieldname": "visit_frequency",
+      "fieldtype": "Float",
+      "label": "Visit Frequency (visits/month)",
+      "precision": 2
+    },
+    {
+      "fieldname": "column_break_retention",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "retention_cohort",
+      "fieldtype": "Select",
+      "label": "Retention Cohort",
+      "options": "New (0-3 months)\nEstablished (3-12 months)\nLoyal (1-3 years)\nChampion (3+ years)"
+    },
+    {
+      "fieldname": "customer_age_days",
+      "fieldtype": "Int",
+      "label": "Customer Age (Days)"
+    },
+    {
+      "fieldname": "reactivation_campaigns_sent",
+      "fieldtype": "Int",
+      "label": "Reactivation Campaigns Sent"
+    },
+    {
+      "fieldname": "service_patterns_section",
+      "fieldtype": "Section Break",
+      "label": "Service Patterns"
+    },
+    {
+      "fieldname": "most_frequent_service",
+      "fieldtype": "Data",
+      "label": "Most Frequent Service"
+    },
+    {
+      "fieldname": "preferred_service_day",
+      "fieldtype": "Select",
+      "label": "Preferred Service Day",
+      "options": "Sunday\nMonday\nTuesday\nWednesday\nThursday"
+    },
+    {
+      "fieldname": "average_service_interval",
+      "fieldtype": "Int",
+      "label": "Average Service Interval (Days)"
+    },
+    {
+      "fieldname": "seasonal_pattern",
+      "fieldtype": "Data",
+      "label": "Seasonal Pattern"
+    },
+    {
+      "fieldname": "service_type_preferences",
+      "fieldtype": "Small Text",
+      "label": "Service Type Preferences (JSON)"
+    },
+    {
+      "fieldname": "column_break_patterns",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "peak_service_months",
+      "fieldtype": "Data",
+      "label": "Peak Service Months"
+    },
+    {
+      "fieldname": "service_complexity_score",
+      "fieldtype": "Float",
+      "label": "Service Complexity Score",
+      "precision": 2
+    },
+    {
+      "fieldname": "loyalty_indicators_section",
+      "fieldtype": "Section Break",
+      "label": "Loyalty Indicators"
+    },
+    {
+      "fieldname": "loyalty_points_balance",
+      "fieldtype": "Int",
+      "label": "Loyalty Points Balance"
+    },
+    {
+      "fieldname": "loyalty_tier",
+      "fieldtype": "Select",
+      "label": "Loyalty Tier",
+      "options": "Bronze\nSilver\nGold\nPlatinum"
+    },
+    {
+      "fieldname": "referrals_made",
+      "fieldtype": "Int",
+      "label": "Referrals Made"
+    },
+    {
+      "fieldname": "satisfaction_score",
+      "fieldtype": "Float",
+      "label": "Average Satisfaction Score",
+      "precision": 2
+    },
+    {
+      "fieldname": "column_break_loyalty",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "0",
+      "fieldname": "repeat_customer",
+      "fieldtype": "Check",
+      "label": "Repeat Customer"
+    },
+    {
+      "fieldname": "brand_advocacy_score",
+      "fieldtype": "Float",
+      "label": "Brand Advocacy Score",
+      "precision": 2
+    },
+    {
+      "fieldname": "communication_preferences_section",
+      "fieldtype": "Section Break",
+      "label": "Communication Preferences"
+    },
+    {
+      "fetch_from": "customer.preferred_language",
+      "fieldname": "preferred_language",
+      "fieldtype": "Select",
+      "label": "Preferred Language",
+      "options": "Arabic\nEnglish",
+      "read_only": 1
+    },
+    {
+      "fieldname": "preferred_contact_method",
+      "fieldtype": "Select",
+      "label": "Preferred Contact Method",
+      "options": "SMS\nWhatsApp\nEmail\nPhone Call"
+    },
+    {
+      "fieldname": "last_communication_date",
+      "fieldtype": "Date",
+      "label": "Last Communication Date"
+    },
+    {
+      "fieldname": "communication_frequency",
+      "fieldtype": "Select",
+      "label": "Communication Frequency",
+      "options": "Daily\nWeekly\nBi-Weekly\nMonthly\nQuarterly\nRare"
+    },
+    {
+      "fieldname": "automated_section",
+      "fieldtype": "Section Break",
+      "label": "Automated Processing"
+    },
+    {
+      "default": "0",
+      "fieldname": "needs_recalculation",
+      "fieldtype": "Check",
+      "label": "Needs Recalculation"
+    },
+    {
+      "fieldname": "calculation_notes",
+      "fieldtype": "Text",
+      "label": "Calculation Notes"
+    },
+    {
+      "fieldname": "data_source_quality",
+      "fieldtype": "Select",
+      "label": "Data Source Quality",
+      "options": "Excellent\nGood\nFair\nPoor\nInsufficient Data"
+    }
+  ],
+  "has_web_view": 0,
+  "hide_heading": 0,
+  "hide_toolbar": 0,
+  "idx": 0,
+  "image_view": 0,
+  "in_create": 0,
+  "is_submittable": 0,
+  "issingle": 0,
+  "istable": 0,
+  "max_attachments": 0,
+  "modified": "2025-06-19 04:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Customer Management",
+  "name": "Customer Analytics",
+  "naming_rule": "By \"Naming Series\" field",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Workshop Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Workshop User",
+      "share": 1
+    }
+  ],
+  "quick_entry": 0,
+  "read_only": 0,
+  "read_only_onload": 0,
+  "search_fields": "customer,customer_name,customer_name_ar,segment,loyalty_tier",
+  "show_name_in_global_search": 1,
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "title_field": "customer_name",
+  "track_changes": 1,
+  "track_seen": 1,
+  "track_views": 1
+} 

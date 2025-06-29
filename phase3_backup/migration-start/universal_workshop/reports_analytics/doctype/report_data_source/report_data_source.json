@@ -1,0 +1,58 @@
+{
+ "actions": [],
+ "allow_copy": 0,
+ "allow_events_in_timeline": 0,
+ "allow_guest_to_view": 0,
+ "allow_import": 0,
+ "allow_rename": 0,
+ "beta": 0,
+ "creation": "2024-06-24 10:30:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "data_source",
+  "join_type",
+  "join_condition",
+  "alias_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "data_source",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Data Source",
+   "options": "Data Source Mapping",
+   "reqd": 1
+  },
+  {
+   "fieldname": "join_type",
+   "fieldtype": "Select",
+   "label": "Join Type",
+   "options": "INNER JOIN\\nLEFT JOIN\\nRIGHT JOIN\\nFULL JOIN"
+  },
+  {
+   "fieldname": "join_condition",
+   "fieldtype": "Text",
+   "label": "Join Condition"
+  },
+  {
+   "fieldname": "alias_name",
+   "fieldtype": "Data",
+   "label": "Alias Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-06-24 10:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Reports Analytics",
+ "name": "Report Data Source",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

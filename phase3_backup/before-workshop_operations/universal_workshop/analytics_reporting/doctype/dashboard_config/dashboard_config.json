@@ -1,0 +1,223 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "field:dashboard_name",
+    "creation": "2024-06-20 14:00:00.000000",
+    "default_view": "List",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "dashboard_details",
+        "dashboard_name",
+        "dashboard_title",
+        "dashboard_title_ar",
+        "column_break_4",
+        "dashboard_type",
+        "target_role",
+        "is_default",
+        "widget_configuration",
+        "widgets",
+        "layout_settings",
+        "grid_columns",
+        "refresh_interval",
+        "column_break_10",
+        "auto_refresh",
+        "enable_filtering",
+        "default_date_range",
+        "permissions_section",
+        "created_by",
+        "last_updated_by",
+        "column_break_15",
+        "is_active",
+        "is_public"
+    ],
+    "fields": [
+        {
+            "fieldname": "dashboard_details",
+            "fieldtype": "Section Break",
+            "label": "Dashboard Details"
+        },
+        {
+            "fieldname": "dashboard_name",
+            "fieldtype": "Data",
+            "label": "Dashboard Name",
+            "reqd": 1,
+            "unique": 1,
+            "description": "Unique name for the dashboard (e.g., executive_overview, technician_metrics)"
+        },
+        {
+            "fieldname": "dashboard_title",
+            "fieldtype": "Data",
+            "label": "Dashboard Title (English)",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "dashboard_title_ar",
+            "fieldtype": "Data",
+            "label": "عنوان لوحة المعلومات",
+            "translatable": 1
+        },
+        {
+            "fieldname": "column_break_4",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "dashboard_type",
+            "fieldtype": "Select",
+            "label": "Dashboard Type",
+            "options": "Executive\nOperational\nTechnician\nCustomer\nInventory\nFinancial",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "target_role",
+            "fieldtype": "Link",
+            "label": "Target Role",
+            "options": "Role",
+            "description": "Primary role this dashboard is designed for"
+        },
+        {
+            "fieldname": "is_default",
+            "fieldtype": "Check",
+            "label": "Is Default Dashboard",
+            "description": "Set as default dashboard for the target role"
+        },
+        {
+            "fieldname": "widget_configuration",
+            "fieldtype": "Section Break",
+            "label": "Widget Configuration"
+        },
+        {
+            "fieldname": "widgets",
+            "fieldtype": "Table",
+            "label": "Widgets",
+            "options": "Dashboard Widget",
+            "reqd": 1
+        },
+        {
+            "fieldname": "layout_settings",
+            "fieldtype": "Section Break",
+            "label": "Layout Settings"
+        },
+        {
+            "fieldname": "grid_columns",
+            "fieldtype": "Select",
+            "label": "Grid Columns",
+            "options": "2\n3\n4\n6\n12",
+            "default": "4",
+            "description": "Number of grid columns for responsive layout"
+        },
+        {
+            "fieldname": "refresh_interval",
+            "fieldtype": "Int",
+            "label": "Refresh Interval (seconds)",
+            "default": 300,
+            "description": "Auto-refresh interval in seconds (0 = no auto-refresh)"
+        },
+        {
+            "fieldname": "column_break_10",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "auto_refresh",
+            "fieldtype": "Check",
+            "label": "Enable Auto Refresh",
+            "default": 1
+        },
+        {
+            "fieldname": "enable_filtering",
+            "fieldtype": "Check",
+            "label": "Enable Date Range Filtering",
+            "default": 1
+        },
+        {
+            "fieldname": "default_date_range",
+            "fieldtype": "Select",
+            "label": "Default Date Range",
+            "options": "Today\nThis Week\nThis Month\nLast 30 Days\nThis Quarter\nThis Year",
+            "default": "This Month"
+        },
+        {
+            "fieldname": "permissions_section",
+            "fieldtype": "Section Break",
+            "label": "Permissions & Status"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_updated_by",
+            "fieldtype": "Link",
+            "label": "Last Updated By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_15",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "is_active",
+            "fieldtype": "Check",
+            "label": "Is Active",
+            "default": 1
+        },
+        {
+            "fieldname": "is_public",
+            "fieldtype": "Check",
+            "label": "Is Public",
+            "description": "Allow all users to view this dashboard"
+        }
+    ],
+    "links": [],
+    "modified": "2024-06-20 14:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Analytics Reporting",
+    "name": "Dashboard Config",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop User",
+            "share": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

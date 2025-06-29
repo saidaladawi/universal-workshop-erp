@@ -1,0 +1,1 @@
+# Profit Analysis DocType initialization

@@ -1,0 +1,275 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 0,
+    "allow_rename": 0,
+    "beta": 0,
+    "creation": "2024-01-15 10:00:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "document_type": "",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "part_sequence",
+        "part_category",
+        "part_name",
+        "part_name_ar",
+        "operation_required",
+        "column_break_1",
+        "expected_condition",
+        "estimated_value",
+        "market_demand",
+        "extraction_priority",
+        "part_details_section",
+        "part_description",
+        "part_description_ar",
+        "technical_specifications",
+        "compatibility_notes",
+        "extraction_section",
+        "extraction_difficulty",
+        "required_tools",
+        "estimated_extraction_time",
+        "safety_requirements",
+        "hazmat_considerations",
+        "financial_section",
+        "estimated_refurbishment_cost",
+        "minimum_selling_price",
+        "maximum_selling_price",
+        "profit_margin_target",
+        "storage_section",
+        "storage_requirements",
+        "barcode_label",
+        "shelf_life",
+        "weight_kg",
+        "dimensions"
+    ],
+    "fields": [
+        {
+            "fieldname": "part_sequence",
+            "fieldtype": "Int",
+            "label": "Sequence",
+            "reqd": 1,
+            "in_list_view": 1,
+            "description": "Order of part extraction"
+        },
+        {
+            "fieldname": "part_category",
+            "fieldtype": "Select",
+            "label": "Part Category",
+            "options": "\nEngine\nTransmission\nElectrical\nBody\nInterior\nSuspension\nBrakes\nExhaust\nCooling\nFuel System\nElectronics\nSafety\nOther",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "part_name",
+            "fieldtype": "Data",
+            "label": "Part Name",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "part_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم القطعة",
+            "translatable": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "operation_required",
+            "fieldtype": "Link",
+            "label": "Required Operation",
+            "options": "Vehicle Dismantling Operation",
+            "description": "Operation needed to extract this part"
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "expected_condition",
+            "fieldtype": "Select",
+            "label": "Expected Condition",
+            "options": "\nA - Like New\nB - Excellent\nC - Good\nD - Fair\nE - Poor\nF - Scrap Only",
+            "default": "C - Good",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "estimated_value",
+            "fieldtype": "Currency",
+            "label": "Estimated Value (OMR)",
+            "precision": 3,
+            "default": 0,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "market_demand",
+            "fieldtype": "Select",
+            "label": "Market Demand",
+            "options": "\nVery High\nHigh\nMedium\nLow\nVery Low",
+            "default": "Medium"
+        },
+        {
+            "fieldname": "extraction_priority",
+            "fieldtype": "Select",
+            "label": "Extraction Priority",
+            "options": "\nHigh\nMedium\nLow",
+            "default": "Medium",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "part_details_section",
+            "fieldtype": "Section Break",
+            "label": "Part Details"
+        },
+        {
+            "fieldname": "part_description",
+            "fieldtype": "Text",
+            "label": "Part Description"
+        },
+        {
+            "fieldname": "part_description_ar",
+            "fieldtype": "Text",
+            "label": "وصف القطعة",
+            "translatable": 1
+        },
+        {
+            "fieldname": "technical_specifications",
+            "fieldtype": "Small Text",
+            "label": "Technical Specifications"
+        },
+        {
+            "fieldname": "compatibility_notes",
+            "fieldtype": "Small Text",
+            "label": "Compatibility Notes",
+            "description": "Compatible vehicle models and years"
+        },
+        {
+            "fieldname": "extraction_section",
+            "fieldtype": "Section Break",
+            "label": "Extraction Requirements"
+        },
+        {
+            "fieldname": "extraction_difficulty",
+            "fieldtype": "Select",
+            "label": "Extraction Difficulty",
+            "options": "\nEasy\nModerate\nDifficult\nVery Difficult",
+            "default": "Moderate"
+        },
+        {
+            "fieldname": "required_tools",
+            "fieldtype": "Small Text",
+            "label": "Required Tools"
+        },
+        {
+            "fieldname": "estimated_extraction_time",
+            "fieldtype": "Float",
+            "label": "Estimated Extraction Time (Minutes)",
+            "precision": 1,
+            "default": 30
+        },
+        {
+            "fieldname": "safety_requirements",
+            "fieldtype": "Select",
+            "label": "Safety Requirements",
+            "options": "\nStandard PPE\nEye Protection\nRespiratory Protection\nSpecial Handling\nHazmat Protocol",
+            "default": "Standard PPE"
+        },
+        {
+            "fieldname": "hazmat_considerations",
+            "fieldtype": "Small Text",
+            "label": "Hazmat Considerations"
+        },
+        {
+            "fieldname": "financial_section",
+            "fieldtype": "Section Break",
+            "label": "Financial Analysis"
+        },
+        {
+            "fieldname": "estimated_refurbishment_cost",
+            "fieldtype": "Currency",
+            "label": "Estimated Refurbishment Cost (OMR)",
+            "precision": 3,
+            "default": 0
+        },
+        {
+            "fieldname": "minimum_selling_price",
+            "fieldtype": "Currency",
+            "label": "Minimum Selling Price (OMR)",
+            "precision": 3,
+            "default": 0
+        },
+        {
+            "fieldname": "maximum_selling_price",
+            "fieldtype": "Currency",
+            "label": "Maximum Selling Price (OMR)",
+            "precision": 3,
+            "default": 0
+        },
+        {
+            "fieldname": "profit_margin_target",
+            "fieldtype": "Percent",
+            "label": "Target Profit Margin (%)",
+            "default": 30
+        },
+        {
+            "fieldname": "storage_section",
+            "fieldtype": "Section Break",
+            "label": "Storage Management"
+        },
+        {
+            "fieldname": "storage_requirements",
+            "fieldtype": "Small Text",
+            "label": "Storage Requirements"
+        },
+        {
+            "fieldname": "barcode_label",
+            "fieldtype": "Data",
+            "label": "Barcode Label",
+            "description": "Auto-generated barcode for tracking"
+        },
+        {
+            "fieldname": "shelf_life",
+            "fieldtype": "Int",
+            "label": "Shelf Life (Days)",
+            "description": "Days before quality degradation"
+        },
+        {
+            "fieldname": "weight_kg",
+            "fieldtype": "Float",
+            "label": "Weight (KG)",
+            "precision": 2
+        },
+        {
+            "fieldname": "dimensions",
+            "fieldtype": "Small Text",
+            "label": "Dimensions (L x W x H cm)"
+        }
+    ],
+    "icon": "fa fa-cube",
+    "idx": 0,
+    "in_create": 0,
+    "is_submittable": 0,
+    "issingle": 0,
+    "istable": 1,
+    "max_attachments": 0,
+    "modified": "2024-01-15 10:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Scrap Management",
+    "name": "Vehicle Dismantling Extractable Part",
+    "owner": "Administrator",
+    "permissions": [],
+    "quick_entry": 0,
+    "read_only": 0,
+    "read_only_onload": 0,
+    "sort_field": "part_sequence",
+    "sort_order": "ASC",
+    "states": [],
+    "track_changes": 0,
+    "track_seen": 0,
+    "track_views": 0
+}

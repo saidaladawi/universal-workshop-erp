@@ -1,0 +1,197 @@
+{
+  "test_execution": {
+    "framework": "simple_mobile_validator",
+    "start_time": "2025-06-25T19:27:44.214834",
+    "duration_seconds": 7.482390403747559,
+    "total_tests": 16,
+    "successful_tests": 4,
+    "failed_tests": 12
+  },
+  "mobile_user_agents": {
+    "iPhone_13": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1",
+    "Pixel_5": "Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.91 Mobile Safari/537.36",
+    "Galaxy_S21": "Mozilla/5.0 (Linux; Android 11; SM-G991B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.91 Mobile Safari/537.36",
+    "iPad_Pro": "Mozilla/5.0 (iPad; CPU OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1"
+  },
+  "detailed_results": [
+    {
+      "test_type": "server_availability",
+      "url": "http://localhost:8000",
+      "status_code": 500,
+      "response_time": 0.764229,
+      "success": false,
+      "processing_time": 0.7670209407806396,
+      "timestamp": "2025-06-25T19:27:37.498728"
+    },
+    {
+      "test_type": "mobile_login_page",
+      "device": "iPhone_13",
+      "status_code": 500,
+      "response_time": 0.276783,
+      "content_length": 46237,
+      "has_viewport_meta": false,
+      "has_mobile_css": false,
+      "has_touch_friendly": false,
+      "has_rtl_support": false,
+      "has_arabic_lang": false,
+      "has_username_field": false,
+      "has_password_field": false,
+      "has_submit_button": false,
+      "success": false,
+      "processing_time": 0.27841758728027344,
+      "timestamp": "2025-06-25T19:27:37.777278"
+    },
+    {
+      "test_type": "mobile_login_page",
+      "device": "Pixel_5",
+      "status_code": 500,
+      "response_time": 0.329481,
+      "content_length": 46237,
+      "has_viewport_meta": false,
+      "has_mobile_css": false,
+      "has_touch_friendly": false,
+      "has_rtl_support": false,
+      "has_arabic_lang": false,
+      "has_username_field": false,
+      "has_password_field": false,
+      "has_submit_button": false,
+      "success": false,
+      "processing_time": 0.33162713050842285,
+      "timestamp": "2025-06-25T19:27:38.111606"
+    },
+    {
+      "test_type": "mobile_login_page",
+      "device": "Galaxy_S21",
+      "status_code": 500,
+      "response_time": 0.391709,
+      "content_length": 46237,
+      "has_viewport_meta": false,
+      "has_mobile_css": false,
+      "has_touch_friendly": false,
+      "has_rtl_support": false,
+      "has_arabic_lang": false,
+      "has_username_field": false,
+      "has_password_field": false,
+      "has_submit_button": false,
+      "success": false,
+      "processing_time": 0.39320874214172363,
+      "timestamp": "2025-06-25T19:27:38.504959"
+    },
+    {
+      "test_type": "mobile_login_page",
+      "device": "iPad_Pro",
+      "status_code": 500,
+      "response_time": 0.249807,
+      "content_length": 46237,
+      "has_viewport_meta": false,
+      "has_mobile_css": false,
+      "has_touch_friendly": false,
+      "has_rtl_support": false,
+      "has_arabic_lang": false,
+      "has_username_field": false,
+      "has_password_field": false,
+      "has_submit_button": false,
+      "success": false,
+      "processing_time": 0.2557356357574463,
+      "timestamp": "2025-06-25T19:27:38.760845"
+    },
+    {
+      "test_type": "css_asset",
+      "asset_url": "/assets/universal_workshop/css/arabic-rtl.css",
+      "status_code": 200,
+      "content_length": 25443,
+      "success": true,
+      "timestamp": "2025-06-25T19:27:38.767757",
+      "has_media_queries": true,
+      "has_mobile_styles": true,
+      "has_rtl_styles": true
+    },
+    {
+      "test_type": "css_asset",
+      "asset_url": "/assets/universal_workshop/css/dynamic_branding.css",
+      "status_code": 200,
+      "content_length": 28194,
+      "success": true,
+      "timestamp": "2025-06-25T19:27:38.775132",
+      "has_media_queries": true,
+      "has_mobile_styles": true,
+      "has_rtl_styles": true
+    },
+    {
+      "test_type": "css_asset",
+      "asset_url": "/assets/frappe/css/desk.min.css",
+      "status_code": 500,
+      "content_length": 46237,
+      "success": false,
+      "timestamp": "2025-06-25T19:27:39.058605"
+    },
+    {
+      "test_type": "css_asset",
+      "asset_url": "/assets/frappe/css/form.min.css",
+      "status_code": 500,
+      "content_length": 46237,
+      "success": false,
+      "timestamp": "2025-06-25T19:27:39.345219"
+    },
+    {
+      "test_type": "js_asset",
+      "asset_url": "/assets/universal_workshop/js/rtl_branding_manager.js",
+      "status_code": 200,
+      "content_length": 22949,
+      "success": true,
+      "timestamp": "2025-06-25T19:27:39.352827"
+    },
+    {
+      "test_type": "js_asset",
+      "asset_url": "/assets/frappe/js/frappe-web.min.js",
+      "status_code": 500,
+      "content_length": 46237,
+      "success": false,
+      "timestamp": "2025-06-25T19:27:39.794672"
+    },
+    {
+      "test_type": "js_asset",
+      "asset_url": "/assets/frappe/js/control.min.js",
+      "status_code": 500,
+      "content_length": 46237,
+      "success": false,
+      "timestamp": "2025-06-25T19:27:40.081017"
+    },
+    {
+      "test_type": "api_endpoint",
+      "endpoint": "/api/method/login",
+      "status_code": 500,
+      "response_time": 0.54935,
+      "success": false,
+      "timestamp": "2025-06-25T19:27:40.631381"
+    },
+    {
+      "test_type": "api_endpoint",
+      "endpoint": "/api/method/logout",
+      "status_code": 200,
+      "response_time": 3.299413,
+      "success": true,
+      "timestamp": "2025-06-25T19:27:43.932765"
+    },
+    {
+      "test_type": "api_endpoint",
+      "endpoint": "/api/method/frappe.auth.get_logged_user",
+      "status_code": 500,
+      "response_time": 0.143133,
+      "success": false,
+      "timestamp": "2025-06-25T19:27:44.077169"
+    },
+    {
+      "test_type": "api_endpoint",
+      "endpoint": "/api/resource/User",
+      "status_code": 500,
+      "response_time": 0.13496,
+      "success": false,
+      "timestamp": "2025-06-25T19:27:44.213932"
+    }
+  ],
+  "summary": {
+    "success_rate": 25.0,
+    "average_response_time": 0.6820961111111112
+  }
+}

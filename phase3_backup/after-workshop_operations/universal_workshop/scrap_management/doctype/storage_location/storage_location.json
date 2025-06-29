@@ -1,0 +1,574 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 1,
+    "allow_guest_to_view": 0,
+    "allow_import": 1,
+    "allow_rename": 1,
+    "autoname": "field:location_code",
+    "beta": 0,
+    "creation": "2025-06-20 19:36:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "document_type": "Document",
+    "engine": "InnoDB",
+    "field_order": [
+        "basic_details_section",
+        "location_code",
+        "location_name",
+        "location_name_ar",
+        "column_break_basic",
+        "warehouse",
+        "parent_location",
+        "location_type",
+        "section_break_tracking",
+        "location_barcode",
+        "qr_code",
+        "gps_coordinates",
+        "column_break_tracking",
+        "rfid_tag",
+        "nfc_enabled",
+        "mobile_accessible",
+        "capacity_section",
+        "max_weight_kg",
+        "max_volume_m3",
+        "max_items_count",
+        "column_break_capacity",
+        "current_weight_kg",
+        "current_volume_m3",
+        "current_items_count",
+        "dimensions_section",
+        "length_cm",
+        "width_cm",
+        "height_cm",
+        "column_break_dimensions",
+        "shelf_levels",
+        "compartments",
+        "access_clearance_cm",
+        "accessibility_section",
+        "accessibility_level",
+        "requires_equipment",
+        "handling_equipment",
+        "column_break_access",
+        "distance_from_entrance_m",
+        "proximity_to_loading_dock",
+        "manual_access_only",
+        "optimization_section",
+        "turnover_category",
+        "preferred_part_types",
+        "size_category",
+        "column_break_optimization",
+        "temperature_controlled",
+        "humidity_controlled",
+        "security_level",
+        "environmental_section",
+        "indoor_outdoor",
+        "climate_controlled",
+        "temperature_range",
+        "column_break_environmental",
+        "humidity_range",
+        "ventilation_required",
+        "dust_protection",
+        "safety_section",
+        "safety_equipment_required",
+        "hazmat_approved",
+        "fire_suppression",
+        "column_break_safety",
+        "emergency_access",
+        "restricted_access",
+        "access_permissions",
+        "status_section",
+        "location_status",
+        "active",
+        "last_inspection_date",
+        "column_break_status",
+        "created_by",
+        "created_date",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "basic_details_section",
+            "fieldtype": "Section Break",
+            "label": "Basic Details"
+        },
+        {
+            "fieldname": "location_code",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Location Code",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "location_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Location Name",
+            "reqd": 1
+        },
+        {
+            "fieldname": "location_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم الموقع",
+            "reqd": 1,
+            "translatable": 1
+        },
+        {
+            "fieldname": "column_break_basic",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "warehouse",
+            "fieldtype": "Link",
+            "label": "Warehouse",
+            "options": "Warehouse",
+            "reqd": 1
+        },
+        {
+            "fieldname": "parent_location",
+            "fieldtype": "Link",
+            "label": "Parent Location",
+            "options": "Storage Location"
+        },
+        {
+            "fieldname": "location_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Location Type",
+            "options": "Shelf\nRack\nBin\nArea\nSection\nCompartment\nDrawer\nContainer\nCage\nPallet Position",
+            "reqd": 1
+        },
+        {
+            "fieldname": "section_break_tracking",
+            "fieldtype": "Section Break",
+            "label": "Tracking & Identification"
+        },
+        {
+            "fieldname": "location_barcode",
+            "fieldtype": "Data",
+            "label": "Location Barcode",
+            "unique": 1
+        },
+        {
+            "fieldname": "qr_code",
+            "fieldtype": "Data",
+            "label": "QR Code",
+            "unique": 1
+        },
+        {
+            "fieldname": "gps_coordinates",
+            "fieldtype": "Data",
+            "label": "GPS Coordinates"
+        },
+        {
+            "fieldname": "column_break_tracking",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "rfid_tag",
+            "fieldtype": "Data",
+            "label": "RFID Tag ID"
+        },
+        {
+            "default": 0,
+            "fieldname": "nfc_enabled",
+            "fieldtype": "Check",
+            "label": "NFC Enabled"
+        },
+        {
+            "default": 1,
+            "fieldname": "mobile_accessible",
+            "fieldtype": "Check",
+            "label": "Mobile Accessible"
+        },
+        {
+            "fieldname": "capacity_section",
+            "fieldtype": "Section Break",
+            "label": "Capacity Management"
+        },
+        {
+            "fieldname": "max_weight_kg",
+            "fieldtype": "Float",
+            "label": "Max Weight (kg)",
+            "precision": "2"
+        },
+        {
+            "fieldname": "max_volume_m3",
+            "fieldtype": "Float",
+            "label": "Max Volume (m³)",
+            "precision": "3"
+        },
+        {
+            "fieldname": "max_items_count",
+            "fieldtype": "Int",
+            "label": "Max Items Count"
+        },
+        {
+            "fieldname": "column_break_capacity",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "0",
+            "fieldname": "current_weight_kg",
+            "fieldtype": "Float",
+            "label": "Current Weight (kg)",
+            "precision": "2",
+            "read_only": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "current_volume_m3",
+            "fieldtype": "Float",
+            "label": "Current Volume (m³)",
+            "precision": "3",
+            "read_only": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "current_items_count",
+            "fieldtype": "Int",
+            "label": "Current Items Count",
+            "read_only": 1
+        },
+        {
+            "fieldname": "dimensions_section",
+            "fieldtype": "Section Break",
+            "label": "Physical Dimensions"
+        },
+        {
+            "fieldname": "length_cm",
+            "fieldtype": "Float",
+            "label": "Length (cm)",
+            "precision": "2"
+        },
+        {
+            "fieldname": "width_cm",
+            "fieldtype": "Float",
+            "label": "Width (cm)",
+            "precision": "2"
+        },
+        {
+            "fieldname": "height_cm",
+            "fieldtype": "Float",
+            "label": "Height (cm)",
+            "precision": "2"
+        },
+        {
+            "fieldname": "column_break_dimensions",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "shelf_levels",
+            "fieldtype": "Int",
+            "label": "Shelf Levels"
+        },
+        {
+            "fieldname": "compartments",
+            "fieldtype": "Int",
+            "label": "Compartments"
+        },
+        {
+            "fieldname": "access_clearance_cm",
+            "fieldtype": "Float",
+            "label": "Access Clearance (cm)",
+            "precision": "2"
+        },
+        {
+            "fieldname": "accessibility_section",
+            "fieldtype": "Section Break",
+            "label": "Accessibility"
+        },
+        {
+            "fieldname": "accessibility_level",
+            "fieldtype": "Select",
+            "label": "Accessibility Level",
+            "options": "Easy Access\nStandard Access\nDifficult Access\nEquipment Required\nRestricted Access"
+        },
+        {
+            "default": 0,
+            "fieldname": "requires_equipment",
+            "fieldtype": "Check",
+            "label": "Requires Equipment"
+        },
+        {
+            "depends_on": "requires_equipment",
+            "fieldname": "handling_equipment",
+            "fieldtype": "Select",
+            "label": "Required Equipment",
+            "options": "Forklift\nPallet Jack\nLadder\nCrane\nConveyor\nManual Lift\nSafety Harness"
+        },
+        {
+            "fieldname": "column_break_access",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "distance_from_entrance_m",
+            "fieldtype": "Float",
+            "label": "Distance from Entrance (m)",
+            "precision": "2"
+        },
+        {
+            "default": 0,
+            "fieldname": "proximity_to_loading_dock",
+            "fieldtype": "Check",
+            "label": "Near Loading Dock"
+        },
+        {
+            "default": 0,
+            "fieldname": "manual_access_only",
+            "fieldtype": "Check",
+            "label": "Manual Access Only"
+        },
+        {
+            "fieldname": "optimization_section",
+            "fieldtype": "Section Break",
+            "label": "Storage Optimization"
+        },
+        {
+            "fieldname": "turnover_category",
+            "fieldtype": "Select",
+            "label": "Turnover Category",
+            "options": "Fast Moving\nMedium Moving\nSlow Moving\nDead Stock\nSeasonal"
+        },
+        {
+            "fieldname": "preferred_part_types",
+            "fieldtype": "Small Text",
+            "label": "Preferred Part Types"
+        },
+        {
+            "fieldname": "size_category",
+            "fieldtype": "Select",
+            "label": "Size Category",
+            "options": "Extra Small\nSmall\nMedium\nLarge\nExtra Large\nOversized"
+        },
+        {
+            "fieldname": "column_break_optimization",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": 0,
+            "fieldname": "temperature_controlled",
+            "fieldtype": "Check",
+            "label": "Temperature Controlled"
+        },
+        {
+            "default": 0,
+            "fieldname": "humidity_controlled",
+            "fieldtype": "Check",
+            "label": "Humidity Controlled"
+        },
+        {
+            "fieldname": "security_level",
+            "fieldtype": "Select",
+            "label": "Security Level",
+            "options": "Standard\nMedium\nHigh\nMaximum\nRestricted"
+        },
+        {
+            "fieldname": "environmental_section",
+            "fieldtype": "Section Break",
+            "label": "Environmental Conditions"
+        },
+        {
+            "fieldname": "indoor_outdoor",
+            "fieldtype": "Select",
+            "label": "Location",
+            "options": "Indoor\nOutdoor\nCovered Outdoor\nSemi-Indoor"
+        },
+        {
+            "default": 0,
+            "fieldname": "climate_controlled",
+            "fieldtype": "Check",
+            "label": "Climate Controlled"
+        },
+        {
+            "depends_on": "temperature_controlled",
+            "fieldname": "temperature_range",
+            "fieldtype": "Data",
+            "label": "Temperature Range (°C)"
+        },
+        {
+            "fieldname": "column_break_environmental",
+            "fieldtype": "Column Break"
+        },
+        {
+            "depends_on": "humidity_controlled",
+            "fieldname": "humidity_range",
+            "fieldtype": "Data",
+            "label": "Humidity Range (%)"
+        },
+        {
+            "default": 0,
+            "fieldname": "ventilation_required",
+            "fieldtype": "Check",
+            "label": "Ventilation Required"
+        },
+        {
+            "default": 0,
+            "fieldname": "dust_protection",
+            "fieldtype": "Check",
+            "label": "Dust Protection"
+        },
+        {
+            "fieldname": "safety_section",
+            "fieldtype": "Section Break",
+            "label": "Safety & Security"
+        },
+        {
+            "fieldname": "safety_equipment_required",
+            "fieldtype": "Small Text",
+            "label": "Safety Equipment Required"
+        },
+        {
+            "default": 0,
+            "fieldname": "hazmat_approved",
+            "fieldtype": "Check",
+            "label": "Hazmat Approved"
+        },
+        {
+            "default": 0,
+            "fieldname": "fire_suppression",
+            "fieldtype": "Check",
+            "label": "Fire Suppression System"
+        },
+        {
+            "fieldname": "column_break_safety",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": 1,
+            "fieldname": "emergency_access",
+            "fieldtype": "Check",
+            "label": "Emergency Access"
+        },
+        {
+            "default": 0,
+            "fieldname": "restricted_access",
+            "fieldtype": "Check",
+            "label": "Restricted Access"
+        },
+        {
+            "depends_on": "restricted_access",
+            "fieldname": "access_permissions",
+            "fieldtype": "Small Text",
+            "label": "Access Permissions"
+        },
+        {
+            "fieldname": "status_section",
+            "fieldtype": "Section Break",
+            "label": "Status & Maintenance"
+        },
+        {
+            "default": "Available",
+            "fieldname": "location_status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Status",
+            "options": "Available\nOccupied\nReserved\nMaintenance\nOut of Service\nTemporarily Closed"
+        },
+        {
+            "default": 1,
+            "fieldname": "active",
+            "fieldtype": "Check",
+            "label": "Active"
+        },
+        {
+            "fieldname": "last_inspection_date",
+            "fieldtype": "Date",
+            "label": "Last Inspection Date"
+        },
+        {
+            "fieldname": "column_break_status",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "created_date",
+            "fieldtype": "Date",
+            "label": "Created Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Text",
+            "label": "Notes"
+        }
+    ],
+    "has_web_view": 0,
+    "hide_toolbar": 0,
+    "idx": 0,
+    "in_create": 0,
+    "is_submittable": 0,
+    "issingle": 0,
+    "istable": 0,
+    "max_attachments": 5,
+    "modified": "2025-06-20 19:36:00.000000",
+    "modified_by": "Administrator",
+    "module": "Scrap Management",
+    "name": "Storage Location",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Warehouse User",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Stock User",
+            "share": 1
+        }
+    ],
+    "quick_entry": 1,
+    "restrict_to_domain": "Manufacturing",
+    "search_fields": "location_code,location_name,warehouse,location_type",
+    "sort_field": "location_code",
+    "sort_order": "ASC",
+    "states": [],
+    "title_field": "location_name",
+    "track_changes": 1,
+    "track_seen": 0,
+    "track_views": 0
+}

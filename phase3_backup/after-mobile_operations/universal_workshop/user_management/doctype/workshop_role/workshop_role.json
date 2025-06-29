@@ -1,0 +1,172 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "field:role_name",
+    "creation": "2025-06-22 19:58:00.000000",
+    "default_view": "List",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "role_name",
+        "role_name_ar",
+        "column_break_3",
+        "role_description",
+        "role_description_ar",
+        "section_break_6",
+        "role_type",
+        "department",
+        "column_break_9",
+        "is_active",
+        "priority_level",
+        "section_break_12",
+        "permissions_section",
+        "workshop_permissions",
+        "section_break_15",
+        "arabic_settings_section",
+        "supports_arabic_ui",
+        "arabic_role_display"
+    ],
+    "fields": [
+        {
+            "fieldname": "role_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Role Name (English)",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "role_name_ar",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "اسم الدور",
+            "reqd": 1,
+            "translatable": 1
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "role_description",
+            "fieldtype": "Text",
+            "label": "Role Description"
+        },
+        {
+            "fieldname": "role_description_ar",
+            "fieldtype": "Text",
+            "label": "وصف الدور",
+            "translatable": 1
+        },
+        {
+            "fieldname": "section_break_6",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "role_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Role Type",
+            "options": "Management\nOperational\nTechnical\nAdministrative\nFinancial",
+            "reqd": 1
+        },
+        {
+            "fieldname": "department",
+            "fieldtype": "Link",
+            "label": "Department",
+            "options": "Department"
+        },
+        {
+            "fieldname": "column_break_9",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "is_active",
+            "fieldtype": "Check",
+            "default": 1,
+            "in_list_view": 1,
+            "label": "Is Active"
+        },
+        {
+            "fieldname": "priority_level",
+            "fieldtype": "Int",
+            "default": 5,
+            "label": "Priority Level (1-10)",
+            "description": "Higher number = higher priority"
+        },
+        {
+            "fieldname": "section_break_12",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "permissions_section",
+            "fieldtype": "Section Break",
+            "label": "Workshop Permissions"
+        },
+        {
+            "fieldname": "workshop_permissions",
+            "fieldtype": "Table",
+            "label": "Workshop Permissions",
+            "options": "Workshop Role Permission"
+        },
+        {
+            "fieldname": "section_break_15",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "arabic_settings_section",
+            "fieldtype": "Section Break",
+            "label": "Arabic Settings"
+        },
+        {
+            "fieldname": "supports_arabic_ui",
+            "fieldtype": "Check",
+            "default": 1,
+            "label": "Supports Arabic UI"
+        },
+        {
+            "fieldname": "arabic_role_display",
+            "fieldtype": "Data",
+            "label": "Arabic Role Display Name",
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2025-06-22 19:58:00.000000",
+    "modified_by": "Administrator",
+    "module": "User Management",
+    "name": "Workshop Role",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

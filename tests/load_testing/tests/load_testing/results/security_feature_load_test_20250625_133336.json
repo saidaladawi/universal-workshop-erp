@@ -1,0 +1,167 @@
+{
+  "test_summary": {
+    "duration_seconds": 51.149525,
+    "start_time": "2025-06-25T13:32:45.225761",
+    "total_tests": 30,
+    "rate_limiting_effectiveness": 0.0,
+    "mfa_success_rate": 0.0,
+    "alert_trigger_rate": 0.0
+  },
+  "results": {
+    "rate_limiting": {
+      "tests_run": 12,
+      "rate_limits_triggered": 0,
+      "rate_limits_bypassed": 12,
+      "average_response_time": 0,
+      "response_times": [
+        10.013426065444946,
+        11.146514415740967,
+        12.513581037521362,
+        12.593335628509521,
+        15.951756715774536,
+        16.39585280418396,
+        16.402355432510376,
+        16.664013385772705,
+        23.874637126922607,
+        23.97865653038025,
+        24.003509521484375,
+        24.01913571357727
+      ]
+    },
+    "mfa_validation": {
+      "tests_run": 4,
+      "mfa_triggered": 0,
+      "mfa_bypassed": 0,
+      "successful_validations": 0,
+      "failed_validations": 4,
+      "response_times": [
+        0.1723647117614746,
+        0.199676513671875,
+        0.20684003829956055,
+        0.2107071876525879
+      ]
+    },
+    "security_alerts": {
+      "tests_run": 10,
+      "alerts_triggered": 0,
+      "false_positives": 0,
+      "alert_types": {},
+      "response_times": [
+        0.49738001823425293,
+        0.5279898643493652,
+        2.461242437362671,
+        2.4957358837127686,
+        2.8432018756866455,
+        5.57067084312439,
+        5.851531505584717,
+        6.002134084701538,
+        6.107255220413208,
+        6.2161455154418945
+      ]
+    },
+    "concurrent_performance": {
+      "peak_concurrent_users": 12,
+      "system_degradation": false,
+      "performance_metrics": [
+        {
+          "timestamp": 1750843996.9777951,
+          "response_time": 0.284532,
+          "status_code": 500
+        },
+        {
+          "timestamp": 1750843998.402302,
+          "response_time": 0.423083,
+          "status_code": 500
+        },
+        {
+          "timestamp": 1750843999.7472477,
+          "response_time": 0.343294,
+          "status_code": 500
+        },
+        {
+          "timestamp": 1750844001.082967,
+          "response_time": 0.334344,
+          "status_code": 500
+        },
+        {
+          "timestamp": 1750844002.3972907,
+          "response_time": 0.313175,
+          "status_code": 500
+        },
+        {
+          "timestamp": 1750844003.7319136,
+          "response_time": 0.333489,
+          "status_code": 500
+        },
+        {
+          "timestamp": 1750844005.2942011,
+          "response_time": 0.559077,
+          "status_code": 500
+        },
+        {
+          "timestamp": 1750844006.6452577,
+          "response_time": 0.349891,
+          "status_code": 500
+        },
+        {
+          "timestamp": 1750844007.9826198,
+          "response_time": 0.335629,
+          "status_code": 500
+        },
+        {
+          "timestamp": 1750844009.3482113,
+          "response_time": 0.364556,
+          "status_code": 500
+        },
+        {
+          "timestamp": 1750844010.6534898,
+          "response_time": 0.303628,
+          "status_code": 500
+        },
+        {
+          "timestamp": 1750844011.9887278,
+          "response_time": 0.334369,
+          "status_code": 500
+        },
+        {
+          "timestamp": 1750844013.3592362,
+          "response_time": 0.369151,
+          "status_code": 500
+        },
+        {
+          "timestamp": 1750844014.6777732,
+          "response_time": 0.316827,
+          "status_code": 500
+        },
+        {
+          "timestamp": 1750844015.9902265,
+          "response_time": 0.31122,
+          "status_code": 500
+        }
+      ],
+      "average_response_time": 0.351751,
+      "max_response_time": 0.559077,
+      "degradation_percentage": 0.0
+    },
+    "arabic_interface": {
+      "tests_run": 2,
+      "successful": 0,
+      "failed": 2,
+      "security_features_working": 0
+    },
+    "english_interface": {
+      "tests_run": 2,
+      "successful": 0,
+      "failed": 2,
+      "security_features_working": 0
+    },
+    "errors": [],
+    "test_scenarios": []
+  },
+  "recommendations": [
+    "Rate limiting effectiveness (0.0%) below 80% - review rate limiting configuration",
+    "MFA validation success rate (0.0%) below 95% - investigate MFA system reliability",
+    "Arabic interface security success rate (0.0%) below 90% - review RTL security implementation",
+    "English interface security success rate (0.0%) below 90% - review security implementation"
+  ]
+}

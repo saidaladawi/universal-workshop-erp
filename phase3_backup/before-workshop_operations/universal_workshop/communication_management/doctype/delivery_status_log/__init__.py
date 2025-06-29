@@ -1,0 +1,1 @@
+# Init file for Delivery Status Log DocType 

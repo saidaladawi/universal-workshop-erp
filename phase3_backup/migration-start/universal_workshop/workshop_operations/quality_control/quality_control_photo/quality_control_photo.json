@@ -1,0 +1,119 @@
+{
+    "actions": [],
+    "creation": "2025-06-19 15:00:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "photo_title",
+        "photo_title_ar",
+        "column_break_1",
+        "photo_type",
+        "section_break_2",
+        "photo_file",
+        "column_break_3",
+        "photo_description",
+        "photo_description_ar",
+        "section_break_4",
+        "captured_by",
+        "captured_date",
+        "column_break_5",
+        "device_info",
+        "gps_location"
+    ],
+    "fields": [
+        {
+            "fieldname": "photo_title",
+            "fieldtype": "Data",
+            "label": "Photo Title",
+            "reqd": 1
+        },
+        {
+            "fieldname": "photo_title_ar",
+            "fieldtype": "Data",
+            "label": "عنوان الصورة",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "photo_type",
+            "fieldtype": "Select",
+            "label": "Photo Type",
+            "options": "Before Service\nDuring Service\nAfter Service\nDefect Documentation\nCompletion Evidence\nCustomer Handover",
+            "default": "During Service",
+            "reqd": 1
+        },
+        {
+            "fieldname": "section_break_2",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "photo_file",
+            "fieldtype": "Attach Image",
+            "label": "Photo File",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "photo_description",
+            "fieldtype": "Small Text",
+            "label": "Photo Description"
+        },
+        {
+            "fieldname": "photo_description_ar",
+            "fieldtype": "Small Text",
+            "label": "وصف الصورة"
+        },
+        {
+            "fieldname": "section_break_4",
+            "fieldtype": "Section Break",
+            "label": "Capture Details - تفاصيل التقاط الصورة"
+        },
+        {
+            "fieldname": "captured_by",
+            "fieldtype": "Link",
+            "label": "Captured By",
+            "options": "User",
+            "default": "user"
+        },
+        {
+            "fieldname": "captured_date",
+            "fieldtype": "Datetime",
+            "label": "Captured Date",
+            "default": "now"
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "device_info",
+            "fieldtype": "Small Text",
+            "label": "Device Info"
+        },
+        {
+            "fieldname": "gps_location",
+            "fieldtype": "Data",
+            "label": "GPS Location"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "istable": 1,
+    "links": [],
+    "modified": "2025-06-19 15:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Workshop Management",
+    "name": "Quality Control Photo",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "captured_date",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

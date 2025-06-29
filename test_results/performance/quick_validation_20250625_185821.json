@@ -1,0 +1,125 @@
+{
+  "validation_summary": {
+    "timestamp": "2025-06-25T18:58:21.980318",
+    "total_tests": 5,
+    "passed_tests": 5,
+    "success_rate_percent": 100.0,
+    "assessment": "excellent"
+  },
+  "detailed_results": [
+    {
+      "test": "static_file_performance",
+      "timestamp": "2025-06-25T18:58:21.770625",
+      "files_tested": 3,
+      "detailed_results": [
+        {
+          "file": "apps/universal_workshop/universal_workshop/public/css/arabic-rtl.css",
+          "file_size_bytes": 25443,
+          "avg_read_time_ms": 0.2248525619506836,
+          "min_read_time_ms": 0.027179718017578125,
+          "max_read_time_ms": 1.809835433959961,
+          "throughput_mb_per_sec": 107.9122044321917
+        },
+        {
+          "file": "apps/universal_workshop/universal_workshop/public/css/dynamic_branding.css",
+          "file_size_bytes": 28194,
+          "avg_read_time_ms": 0.33965110778808594,
+          "min_read_time_ms": 0.028133392333984375,
+          "max_read_time_ms": 3.0579566955566406,
+          "throughput_mb_per_sec": 79.16327390144602
+        },
+        {
+          "file": "apps/universal_workshop/universal_workshop/public/js/rtl_branding_manager.js",
+          "file_size_bytes": 22949,
+          "avg_read_time_ms": 0.45888423919677734,
+          "min_read_time_ms": 0.1323223114013672,
+          "max_read_time_ms": 1.390695571899414,
+          "throughput_mb_per_sec": 47.693666545435654
+        }
+      ]
+    },
+    {
+      "test": "concurrent_file_access",
+      "threads": 20,
+      "total_operations": 60,
+      "successful_operations": 60,
+      "failed_operations": 0,
+      "total_time_seconds": 0.07988429069519043,
+      "throughput_ops_per_sec": 751.0863459868262,
+      "avg_latency_ms": 5.0093332926432295,
+      "p95_latency_ms": 16.108989715576172,
+      "timestamp": "2025-06-25T18:58:21.851521"
+    },
+    {
+      "test": "css_parsing_performance",
+      "timestamp": "2025-06-25T18:58:21.863789",
+      "files_tested": 2,
+      "detailed_results": [
+        {
+          "file": "apps/universal_workshop/universal_workshop/public/css/arabic-rtl.css",
+          "avg_parse_time_ms": 0.2597808837890625,
+          "rule_count": 186,
+          "property_count": 396,
+          "rtl_rules": 256,
+          "complexity_score": 5.82
+        },
+        {
+          "file": "apps/universal_workshop/universal_workshop/public/css/dynamic_branding.css",
+          "avg_parse_time_ms": 1.3451099395751953,
+          "rule_count": 172,
+          "property_count": 581,
+          "rtl_rules": 21,
+          "complexity_score": 7.53
+        }
+      ]
+    },
+    {
+      "test": "javascript_loading_simulation",
+      "file": "/home/said/frappe-dev/frappe-bench/apps/universal_workshop/universal_workshop/public/js/rtl_branding_manager.js",
+      "file_size_bytes": 22949,
+      "avg_load_time_ms": 0.4875659942626953,
+      "function_count": 30,
+      "class_count": 2,
+      "method_count": 26,
+      "complexity_score": 5.8,
+      "timestamp": "2025-06-25T18:58:21.866435"
+    },
+    {
+      "test": "browser_load_sequence_simulation",
+      "total_load_time_ms": 93.80992889404297,
+      "sequence_steps": [
+        {
+          "step": "HTML parsing",
+          "resource": 50,
+          "step_time_ms": 50
+        },
+        {
+          "step": "CSS loading",
+          "resource": "arabic-rtl.css",
+          "step_time_ms": 0.44798851013183594
+        },
+        {
+          "step": "CSS loading",
+          "resource": "dynamic_branding.css",
+          "step_time_ms": 0.2110004425048828
+        },
+        {
+          "step": "JavaScript loading",
+          "resource": "rtl_branding_manager.js",
+          "step_time_ms": 3.15093994140625
+        },
+        {
+          "step": "DOM ready",
+          "resource": 10,
+          "step_time_ms": 10
+        },
+        {
+          "step": "JavaScript execution",
+          "resource": 30,
+          "step_time_ms": 30
+        }
+      ],
+      "timestamp": "2025-06-25T18:58:21.967250"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2025-06-21 21:57:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "training_module",
+        "module_title",
+        "sequence_order",
+        "column_break_3",
+        "is_mandatory",
+        "passing_score_required",
+        "estimated_duration_hours"
+    ],
+    "fields": [
+        {
+            "fieldname": "training_module",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Training Module",
+            "options": "Training Module",
+            "reqd": 1
+        },
+        {
+            "fieldname": "module_title",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Module Title",
+            "read_only": 1
+        },
+        {
+            "fieldname": "sequence_order",
+            "fieldtype": "Int",
+            "in_list_view": 1,
+            "label": "Sequence Order",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "is_mandatory",
+            "fieldtype": "Check",
+            "in_list_view": 1,
+            "label": "Is Mandatory",
+            "default": 1
+        },
+        {
+            "fieldname": "passing_score_required",
+            "fieldtype": "Int",
+            "label": "Passing Score Required (%)",
+            "default": 70
+        },
+        {
+            "fieldname": "estimated_duration_hours",
+            "fieldtype": "Float",
+            "label": "Estimated Duration (Hours)"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "istable": 1,
+    "links": [],
+    "modified": "2025-06-21 21:57:00.000000",
+    "modified_by": "Administrator",
+    "module": "Training Management",
+    "name": "Training Path Module",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

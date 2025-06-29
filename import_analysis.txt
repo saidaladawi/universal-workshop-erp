@@ -1,0 +1,314 @@
+apps/universal_workshop/universal_workshop/reports_analytics/doctype/report_schedule/report_schedule.py:        from universal_workshop.reports_analytics.doctype.report_schedule_execution.report_schedule_execution import (
+apps/universal_workshop/universal_workshop/analytics_reporting/doctype/predictive_model/test_predictive_model.py:from universal_workshop.analytics_reporting.doctype.predictive_model.predictive_model import PredictiveModel
+apps/universal_workshop/universal_workshop/analytics_reporting/doctype/dashboard_config/dashboard_config.py:            from universal_workshop.analytics_reporting.doctype.analytics_kpi_history.analytics_kpi_history import (
+apps/universal_workshop/universal_workshop/analytics_reporting/data_aggregation.py:    from universal_workshop.analytics_reporting.doctype.analytics_kpi.analytics_kpi import (
+apps/universal_workshop/universal_workshop/customer_management/test_customer_extensions.py:from universal_workshop.customer_management.custom_fields import setup_customer_extensions
+apps/universal_workshop/universal_workshop/customer_management/customer_api.py:				from universal_workshop.customer_management.doctype.customer_analytics.customer_analytics import (
+apps/universal_workshop/universal_workshop/customer_management/doctype/customer_loyalty_points/customer_loyalty_points.py:			from universal_workshop.customer_management.loyalty_program import LoyaltyProgramManager
+apps/universal_workshop/universal_workshop/overrides/search.py:from universal_workshop.utils.arabic_utils import clean_search_term, normalize_arabic_text
+apps/universal_workshop/universal_workshop/tasks.py:					from universal_workshop.customer_management.doctype.customer_analytics.customer_analytics import (
+apps/universal_workshop/universal_workshop/billing_management/training_compliance_implementation.py:            from universal_workshop.billing_management.qr_code_generator import (
+apps/universal_workshop/universal_workshop/billing_management/compliance_testing.py:            from universal_workshop.billing_management.automatic_vat_calculation import (
+apps/universal_workshop/universal_workshop/billing_management/compliance_testing.py:            from universal_workshop.billing_management.oman_vat_config import OmanVATConfig
+apps/universal_workshop/universal_workshop/billing_management/compliance_testing.py:            from universal_workshop.billing_management.qr_code_generator import (
+apps/universal_workshop/universal_workshop/billing_management/compliance_testing.py:            from universal_workshop.billing_management.payment_gateway_integration import (
+apps/universal_workshop/universal_workshop/billing_management/compliance_testing.py:            from universal_workshop.billing_management.multi_currency_config import (
+apps/universal_workshop/universal_workshop/billing_management/compliance_testing.py:            from universal_workshop.billing_management.receivables_management import (
+apps/universal_workshop/universal_workshop/billing_management/compliance_testing.py:            from universal_workshop.billing_management.qr_code_generator import (
+apps/universal_workshop/universal_workshop/billing_management/cash_flow_forecasting.py:            from universal_workshop.billing_management.receivables_management import (
+apps/universal_workshop/universal_workshop/billing_management/test_oman_vat.py:from universal_workshop.billing_management.oman_vat_config import (
+apps/universal_workshop/universal_workshop/billing_management/test_receivables_financial.py:from universal_workshop.billing_management.receivables_management import OmanReceivablesManager
+apps/universal_workshop/universal_workshop/billing_management/test_receivables_financial.py:from universal_workshop.billing_management.financial_reporting import OmanFinancialReportingManager
+apps/universal_workshop/universal_workshop/billing_management/test_receivables_financial.py:            from universal_workshop.billing_management.financial_reporting import (
+apps/universal_workshop/universal_workshop/billing_management/automatic_vat_calculation.py:            from universal_workshop.billing_management.utils import generate_tax_invoice_number
+apps/universal_workshop/universal_workshop/billing_management/automatic_vat_calculation.py:            from universal_workshop.billing_management.utils import generate_e_invoice_uuid
+apps/universal_workshop/universal_workshop/billing_management/task_8_8_implementation.py:                # from universal_workshop.billing_management.qr_code_generator import OmanEInvoiceQRGenerator
+apps/universal_workshop/universal_workshop/user_management/ip_security_manager.py:            from universal_workshop.user_management.security_alerts import log_security_event
+apps/universal_workshop/universal_workshop/user_management/ip_security_controls.py:            from universal_workshop.user_management.security_alerts import log_security_event
+apps/universal_workshop/universal_workshop/user_management/role_redirect_integration.py:        from universal_workshop.user_management.session_manager import SessionManager
+apps/universal_workshop/universal_workshop/user_management/security_alerts.py:from universal_workshop.user_management.audit_trail_extension import (
+apps/universal_workshop/universal_workshop/user_management/test_audit_trail.py:from universal_workshop.user_management.audit_trail_extension import (
+apps/universal_workshop/universal_workshop/user_management/test_audit_trail.py:        from universal_workshop.user_management.audit_trail_extension import log_audit_event
+apps/universal_workshop/universal_workshop/user_management/test_audit_trail.py:        from universal_workshop.user_management.audit_trail_extension import log_audit_event
+apps/universal_workshop/universal_workshop/user_management/test_audit_trail.py:        from universal_workshop.user_management.audit_trail_extension import get_audit_summary
+apps/universal_workshop/universal_workshop/user_management/test_session_manager.py:from universal_workshop.user_management.session_manager import SessionManager, SessionPolicy
+apps/universal_workshop/universal_workshop/user_management/test_session_manager.py:        from universal_workshop.user_management.session_manager import get_session_status
+apps/universal_workshop/universal_workshop/user_management/test_session_manager.py:        from universal_workshop.user_management.session_manager import cleanup_expired_sessions
+apps/universal_workshop/universal_workshop/user_management/test_session_manager.py:        from universal_workshop.user_management.session_manager import get_session_statistics
+apps/universal_workshop/universal_workshop/user_management/session_manager.py:            from universal_workshop.user_management.security_dashboard import SecurityDashboard
+apps/universal_workshop/universal_workshop/user_management/test_permission_system.py:from universal_workshop.user_management.custom_permission_engine import permission_engine
+apps/universal_workshop/universal_workshop/user_management/rate_limiter.py:            from universal_workshop.user_management.security_logger import log_security_event
+apps/universal_workshop/universal_workshop/user_management/permission_hooks.py:from universal_workshop.user_management.custom_permission_engine import permission_engine
+apps/universal_workshop/universal_workshop/user_management/test_security_alerts.py:from universal_workshop.user_management.security_alerts import (
+apps/universal_workshop/universal_workshop/user_management/test_security_alerts.py:from universal_workshop.user_management.audit_trail_extension import SeverityLevel
+apps/universal_workshop/universal_workshop/user_management/test_security_alerts.py:            from universal_workshop.user_management.security_alerts import resolve_security_alert
+apps/universal_workshop/universal_workshop/user_management/auth_flow_validator.py:                from universal_workshop.user_management.session_manager import SessionManager
+apps/universal_workshop/universal_workshop/user_management/auth_flow_validator.py:                from universal_workshop.user_management.mfa_manager import MFAManager
+apps/universal_workshop/universal_workshop/user_management/auth_flow_validator.py:                from universal_workshop.user_management.permission_hooks import get_permission_query_conditions, has_permission
+apps/universal_workshop/universal_workshop/user_management/auth_flow_validator.py:                from universal_workshop.user_management.dashboard.security_dashboard import SecurityDashboard
+apps/universal_workshop/universal_workshop/user_management/auth_flow_validator.py:                from universal_workshop.user_management.audit_logger import AuditLogger
+apps/universal_workshop/universal_workshop/user_management/auth_flow_validator.py:                from universal_workshop.license_management.license_validator import validate_current_license
+apps/universal_workshop/universal_workshop/user_management/login_integration.py:        from universal_workshop.user_management.session_manager import SessionManager
+apps/universal_workshop/universal_workshop/user_management/login_integration.py:        from universal_workshop.user_management.mfa_manager import MFAManager
+apps/universal_workshop/universal_workshop/user_management/test_mfa_manager.py:from universal_workshop.user_management.mfa_manager import MFAManager
+apps/universal_workshop/universal_workshop/user_management/doctype/workshop_permission_profile/workshop_permission_profile.py:            from universal_workshop.user_management.permission_manager import (
+apps/universal_workshop/universal_workshop/user_management/test_role_permission_system.py:        from universal_workshop.user_management.doctype.workshop_role.workshop_role import (
+apps/universal_workshop/universal_workshop/user_management/test_role_permission_system.py:        from universal_workshop.user_management.permission_manager import WorkshopPermissionManager
+apps/universal_workshop/universal_workshop/user_management/test_role_permission_system.py:        from universal_workshop.user_management.doctype.workshop_role.workshop_role import (
+apps/universal_workshop/universal_workshop/user_management/test_role_permission_system.py:        from universal_workshop.user_management.doctype.workshop_permission_profile.workshop_permission_profile import (
+apps/universal_workshop/universal_workshop/install.py:        from universal_workshop.customer_management.custom_fields import setup_customer_extensions
+apps/universal_workshop/universal_workshop/install.py:        from universal_workshop.purchasing_management.workflow.workflow_installer import (
+apps/universal_workshop/universal_workshop/install.py:        from universal_workshop.purchasing_management.install_goods_receipt_integration import (
+apps/universal_workshop/universal_workshop/install.py:        from universal_workshop.purchasing_management.cost_analysis_dashboard import (
+apps/universal_workshop/universal_workshop/install.py:            from universal_workshop.parts_inventory.fixtures.custom_fields import (
+apps/universal_workshop/universal_workshop/install.py:            from universal_workshop.parts_inventory.warehouse_management import (
+apps/universal_workshop/universal_workshop/install.py:            from universal_workshop.billing_management.fixtures.vat_custom_fields import (
+apps/universal_workshop/universal_workshop/install.py:            from universal_workshop.billing_management.fixtures.invoice_custom_fields import (
+apps/universal_workshop/universal_workshop/install.py:            from universal_workshop.billing_management.fixtures.qr_code_fields import (
+apps/universal_workshop/universal_workshop/install.py:            from universal_workshop.billing_management.print_formats.bilingual_invoice import (
+apps/universal_workshop/universal_workshop/install.py:            from universal_workshop.billing_management.oman_vat_config import setup_oman_vat
+apps/universal_workshop/universal_workshop/install.py:            from universal_workshop.communication_management.setup import (
+apps/universal_workshop/universal_workshop/training_management/test_knowledge_base.py:        from universal_workshop.training_management.doctype.knowledge_base_article.knowledge_base_article import (
+apps/universal_workshop/universal_workshop/training_management/test_knowledge_base.py:        from universal_workshop.training_management.doctype.knowledge_base_article.knowledge_base_article import (
+apps/universal_workshop/universal_workshop/training_management/test_knowledge_base.py:        from universal_workshop.training_management.doctype.knowledge_base_category.knowledge_base_category import (
+apps/universal_workshop/universal_workshop/training_management/test_training_system.py:        from universal_workshop.training_management.doctype.help_content.help_content import (
+apps/universal_workshop/universal_workshop/training_management/test_training_system.py:        from universal_workshop.training_management.h5p.h5p_manager import H5PManager
+apps/universal_workshop/universal_workshop/training_management/test_training_system.py:        from universal_workshop.training_management.doctype.training_progress.training_progress import (
+apps/universal_workshop/universal_workshop/training_management/test_training_system.py:        from universal_workshop.training_management.notifications import (
+apps/universal_workshop/universal_workshop/training_management/test_training_system.py:        from universal_workshop.training_management.doctype.knowledge_base_article.knowledge_base_article import (
+apps/universal_workshop/universal_workshop/core/boot.py:        from universal_workshop.user_management.session_manager import SessionManager
+apps/universal_workshop/universal_workshop/core/hooks_handler.py:        from universal_workshop.core.boot import check_initial_setup
+apps/universal_workshop/universal_workshop/core/hooks_handler.py:        from universal_workshop.core.boot import get_boot_info
+apps/universal_workshop/universal_workshop/core/hooks_handler.py:        from universal_workshop.setup.installation import after_install
+apps/universal_workshop/universal_workshop/core/hooks_handler.py:        from universal_workshop.setup.workshop_setup import get_user_home_page
+apps/universal_workshop/universal_workshop/core/hooks_handler.py:        from universal_workshop.user_management.permission_hooks import has_permission
+apps/universal_workshop/universal_workshop/www/universal_workshop_dashboard.py:            from universal_workshop.license_management.license_validator import (
+apps/universal_workshop/universal_workshop/www/admin-setup.py:    from universal_workshop.boot import check_initial_setup_status
+apps/universal_workshop/universal_workshop/www/admin-setup.py:        from universal_workshop.workshop_management.api.onboarding_wizard import OnboardingWizard
+apps/universal_workshop/universal_workshop/www/admin-setup.py:        from universal_workshop.workshop_management.api.onboarding_wizard import complete_onboarding
+apps/universal_workshop/universal_workshop/www/onboarding/index.py:        from universal_workshop.setup.workshop_setup import check_setup_status
+apps/universal_workshop/universal_workshop/www/parts-catalog.py:        from universal_workshop.themes.api import get_theme_colors
+apps/universal_workshop/universal_workshop/www/portal/vehicles.py:from universal_workshop.customer_portal.auth import get_current_customer
+apps/universal_workshop/universal_workshop/www/portal/vehicles.py:    from universal_workshop.customer_portal.profile import get_customer_vehicles
+apps/universal_workshop/universal_workshop/www/portal/profile.py:from universal_workshop.customer_portal.auth import get_current_customer
+apps/universal_workshop/universal_workshop/www/portal/profile.py:    from universal_workshop.customer_portal.profile import get_customer_profile
+apps/universal_workshop/universal_workshop/www/portal/communication.py:from universal_workshop.customer_portal.auth import require_customer_auth
+apps/universal_workshop/universal_workshop/www/portal/communication.py:        from universal_workshop.customer_portal.communication_integration import (
+apps/universal_workshop/universal_workshop/www/portal/communication.py:        from universal_workshop.customer_portal.communication_integration import (
+apps/universal_workshop/universal_workshop/www/portal/communication.py:        from universal_workshop.customer_portal.communication_integration import (
+apps/universal_workshop/universal_workshop/www/portal/index.py:from universal_workshop.customer_portal.auth import get_current_customer
+apps/universal_workshop/universal_workshop/www/portal/booking.py:from universal_workshop.customer_portal.auth import get_current_customer
+apps/universal_workshop/universal_workshop/www/portal/booking.py:    from universal_workshop.customer_portal.profile import get_customer_vehicles
+apps/universal_workshop/universal_workshop/www/portal/booking.py:    from universal_workshop.customer_portal.booking import get_available_services
+apps/universal_workshop/universal_workshop/www/portal/tracking.py:from universal_workshop.customer_portal.auth import get_current_customer
+apps/universal_workshop/universal_workshop/www/portal/tracking.py:    from universal_workshop.customer_portal.tracking import get_active_service_requests
+apps/universal_workshop/universal_workshop/www/portal/tracking.py:    from universal_workshop.customer_portal.tracking import get_service_history_with_feedback
+apps/universal_workshop/universal_workshop/www/portal/login.py:from universal_workshop.customer_portal.auth import get_current_customer
+apps/universal_workshop/universal_workshop/www/migration-dashboard.py:            from universal_workshop.analytics_reporting.doctype.migration_dashboard.migration_dashboard import (
+apps/universal_workshop/universal_workshop/www/knowledge-base/index.py:from universal_workshop.training_management.doctype.knowledge_base_category.knowledge_base_category import get_category_tree
+apps/universal_workshop/universal_workshop/www/knowledge-base/index.py:from universal_workshop.training_management.doctype.knowledge_base_article.knowledge_base_article import search_knowledge_base
+apps/universal_workshop/universal_workshop/www/supplier-dashboard.py:        from universal_workshop.themes.api import get_theme_colors
+apps/universal_workshop/universal_workshop/www/login.py:        from universal_workshop.license_management.license_validator import validate_current_license
+apps/universal_workshop/universal_workshop/www/login.py:        from universal_workshop.user_management.secure_redirect import get_redirect_manager
+apps/universal_workshop/universal_workshop/www/login.py:        from universal_workshop.user_management.audit_logger import log_security_event
+apps/universal_workshop/universal_workshop/utils/job_utils.py:                from universal_workshop.utils.cache_utils import WorkshopCache
+apps/universal_workshop/universal_workshop/utils/job_utils.py:            from universal_workshop.utils.cache_utils import WorkshopCache
+apps/universal_workshop/universal_workshop/utils/backup_restore.py:            from universal_workshop.universal_workshop.utils.backup_automation import BackupManager
+apps/universal_workshop/universal_workshop/utils/backup_restore.py:            from universal_workshop.universal_workshop.utils.backup_automation import BackupManager
+apps/universal_workshop/universal_workshop/utils/backup_restore.py:                    from universal_workshop.universal_workshop.utils.backup_automation import BackupManager
+apps/universal_workshop/universal_workshop/tests/test_installation_process.py:            from universal_workshop.install import after_install
+apps/universal_workshop/universal_workshop/tests/test_quality_control.py:from universal_workshop.sales_service.quality_control import (
+apps/universal_workshop/universal_workshop/tests/test_customer_notifications.py:from universal_workshop.sales_service.customer_notifications import (
+apps/universal_workshop/universal_workshop/tests/test_comprehensive_doctype_validation.py:        from universal_workshop.user_management.permission_hooks import (
+apps/universal_workshop/universal_workshop/tests/test_labor_time_tracking.py:from universal_workshop.sales_service.labor_time_tracking import (
+apps/universal_workshop/universal_workshop/tests/test_installation_hooks.py:            from universal_workshop.install import after_install
+apps/universal_workshop/universal_workshop/tests/test_installation_hooks.py:            from universal_workshop.install import setup_arabic_localization
+apps/universal_workshop/universal_workshop/tests/test_installation_hooks.py:            from universal_workshop.install import setup_default_workshop_roles
+apps/universal_workshop/universal_workshop/tests/test_installation_hooks.py:            from universal_workshop.install import setup_default_workshop_data
+apps/universal_workshop/universal_workshop/tests/test_installation_hooks.py:            from universal_workshop.install import (
+apps/universal_workshop/universal_workshop/tests/test_installation_hooks.py:            from universal_workshop.install import after_install
+apps/universal_workshop/universal_workshop/tests/test_installation_hooks.py:            from universal_workshop.install import (
+apps/universal_workshop/universal_workshop/tests/test_installation_hooks.py:            from universal_workshop.install import create_default_system_preferences
+apps/universal_workshop/universal_workshop/tests/test_installation_hooks.py:            from universal_workshop.install import create_default_service_types
+apps/universal_workshop/universal_workshop/tests/test_installation_hooks.py:            from universal_workshop.install import after_install
+apps/universal_workshop/universal_workshop/parts_inventory/demand_forecasting.py:from universal_workshop.utils.arabic_utils import ArabicTextUtils
+apps/universal_workshop/universal_workshop/parts_inventory/demand_forecasting.py:            from universal_workshop.parts_inventory.reorder_management import ReorderPointCalculator
+apps/universal_workshop/universal_workshop/parts_inventory/inventory_alert_engine.py:from universal_workshop.utils.arabic_utils import ArabicTextUtils, format_arabic_date
+apps/universal_workshop/universal_workshop/parts_inventory/inventory_alert_engine.py:            from universal_workshop.parts_inventory.warehouse_management import (
+apps/universal_workshop/universal_workshop/parts_inventory/api.py:from universal_workshop.utils.arabic_utils import normalize_arabic_text
+apps/universal_workshop/universal_workshop/parts_inventory/mobile_api.py:from universal_workshop.license_management.license_validator import validate_license_for_operation
+apps/universal_workshop/universal_workshop/parts_inventory/warehouse_management.py:from universal_workshop.utils.arabic_utils import ArabicTextUtils
+apps/universal_workshop/universal_workshop/sales_service/quality_control.py:            from universal_workshop.sales_service.customer_notifications import (
+apps/universal_workshop/universal_workshop/sales_service/doctype/quality_inspection_checklist/quality_inspection_checklist.py:            from universal_workshop.sales_service.customer_notifications import (
+apps/universal_workshop/universal_workshop/sales_service/doctype/quality_inspection_checklist/quality_inspection_checklist.py:            from universal_workshop.sales_service.customer_notifications import (
+apps/universal_workshop/universal_workshop/sales_service/test_vat_automation.py:from universal_workshop.sales_service.vat_automation import OmanVATController
+apps/universal_workshop/universal_workshop/license_management/test_business_binding.py:from universal_workshop.license_management.doctype.business_registration.business_registration import (
+apps/universal_workshop/universal_workshop/license_management/test_business_binding.py:from universal_workshop.license_management.utils.business_binding import BusinessBindingManager
+apps/universal_workshop/universal_workshop/license_management/test_business_binding.py:from universal_workshop.license_management.utils.government_api import GovernmentVerificationService
+apps/universal_workshop/universal_workshop/license_management/test_jwt_authentication.py:from universal_workshop.license_management.doctype.revoked_token.revoked_token import RevokedToken
+apps/universal_workshop/universal_workshop/license_management/test_jwt_authentication.py:from universal_workshop.license_management.jwt_manager import JWTManager
+apps/universal_workshop/universal_workshop/license_management/hardware_fingerprint.py:			from universal_workshop.license_management.doctype.license_audit_log.license_audit_log import (
+apps/universal_workshop/universal_workshop/license_management/connectivity_monitor.py:			from universal_workshop.license_management.doctype.offline_session.offline_session import (
+apps/universal_workshop/universal_workshop/license_management/connectivity_monitor.py:			from universal_workshop.license_management.offline_manager import OfflineGracePeriodManager
+apps/universal_workshop/universal_workshop/license_management/connectivity_monitor.py:			from universal_workshop.license_management.doctype.license_audit_log.license_audit_log import (
+apps/universal_workshop/universal_workshop/license_management/test_license_lifecycle.py:from universal_workshop.license_management.utils.license_lifecycle_manager import (
+apps/universal_workshop/universal_workshop/license_management/utils/enhanced_business_binding.py:from universal_workshop.license_management.hardware_fingerprint import HardwareFingerprintGenerator
+apps/universal_workshop/universal_workshop/license_management/utils/license_lifecycle_manager.py:from universal_workshop.license_management.hardware_fingerprint import HardwareFingerprintGenerator
+apps/universal_workshop/universal_workshop/license_management/utils/license_lifecycle_manager.py:from universal_workshop.license_management.utils.enhanced_license_manager import (
+apps/universal_workshop/universal_workshop/license_management/utils/license_lifecycle_manager.py:from universal_workshop.license_management.utils.enhanced_business_binding import (
+apps/universal_workshop/universal_workshop/license_management/utils/enhanced_license_manager.py:from universal_workshop.license_management.hardware_fingerprint import (
+apps/universal_workshop/universal_workshop/license_management/utils/business_binding.py:from universal_workshop.license_management.utils.hardware_fingerprint import HardwareFingerprintValidator
+apps/universal_workshop/universal_workshop/license_management/utils/business_binding.py:from universal_workshop.license_management.utils.jwt_manager import JWTManager
+apps/universal_workshop/universal_workshop/license_management/tests/test_offline_manager.py:from universal_workshop.license_management.doctype.offline_session.offline_session import get_active_session
+apps/universal_workshop/universal_workshop/license_management/tests/test_offline_manager.py:from universal_workshop.license_management.offline_manager import OfflineGracePeriodManager
+apps/universal_workshop/universal_workshop/license_management/test_admin_interface.py:from universal_workshop.license_management.doctype.license_management_dashboard.license_management_dashboard import (
+apps/universal_workshop/universal_workshop/license_management/test_admin_interface.py:from universal_workshop.license_management.utils.license_lifecycle_manager import (
+apps/universal_workshop/universal_workshop/license_management/doctype/offline_session/offline_session.py:			from universal_workshop.license_management.doctype.license_audit_log.license_audit_log import (
+apps/universal_workshop/universal_workshop/license_management/doctype/revoked_token/revoked_token.py:			from universal_workshop.license_management.doctype.license_audit_log.license_audit_log import (
+apps/universal_workshop/universal_workshop/license_management/doctype/security_monitor/test_security_monitor.py:from universal_workshop.license_management.doctype.security_monitor.security_monitor import (
+apps/universal_workshop/universal_workshop/license_management/doctype/business_registration/business_registration.py:from universal_workshop.license_management.utils.government_api import GovernmentVerificationService
+apps/universal_workshop/universal_workshop/license_management/doctype/business_registration/business_registration.py:from universal_workshop.license_management.utils.license_manager import LicenseManager
+apps/universal_workshop/universal_workshop/license_management/doctype/license_management_dashboard/license_management_dashboard.py:from universal_workshop.license_management.utils.license_lifecycle_manager import (
+apps/universal_workshop/universal_workshop/license_management/doctype/license_management_dashboard/license_management_dashboard.py:from universal_workshop.license_management.utils.enhanced_license_manager import (
+apps/universal_workshop/universal_workshop/license_management/doctype/license_management_dashboard/license_management_dashboard.py:from universal_workshop.license_management.utils.enhanced_business_binding import (
+apps/universal_workshop/universal_workshop/license_management/api/offline_api.py:from universal_workshop.license_management.connectivity_monitor import get_connectivity_monitor
+apps/universal_workshop/universal_workshop/license_management/api/offline_api.py:from universal_workshop.license_management.offline_manager import OfflineGracePeriodManager
+apps/universal_workshop/universal_workshop/license_management/api/offline_api.py:		from universal_workshop.license_management.doctype.offline_session.offline_session import (
+apps/universal_workshop/universal_workshop/dashboard/kpi_scheduler.py:from universal_workshop.dashboard.realtime_kpi_engine import RealtimeKPIEngine
+apps/universal_workshop/universal_workshop/customer_satisfaction/doctype/customer_feedback/test_customer_feedback.py:from universal_workshop.customer_satisfaction.doctype.customer_feedback.customer_feedback import (
+apps/universal_workshop/universal_workshop/customer_portal/auth.py:            from universal_workshop.communication_management.api.sms_api import send_sms
+apps/universal_workshop/universal_workshop/customer_portal/auth.py:            from universal_workshop.communication_management.api.sms_api import send_sms
+apps/universal_workshop/universal_workshop/customer_portal/profile.py:from universal_workshop.customer_portal.auth import get_current_customer, require_customer_auth
+apps/universal_workshop/universal_workshop/customer_portal/event_handlers.py:        from universal_workshop.customer_portal.communication_integration import send_booking_confirmation
+apps/universal_workshop/universal_workshop/customer_portal/event_handlers.py:        from universal_workshop.customer_portal.communication_integration import send_cancellation_notice
+apps/universal_workshop/universal_workshop/customer_portal/event_handlers.py:                from universal_workshop.customer_portal.communication_integration import send_service_status_update
+apps/universal_workshop/universal_workshop/customer_portal/event_handlers.py:            from universal_workshop.customer_portal.communication_integration import send_parts_approval_request
+apps/universal_workshop/universal_workshop/customer_portal/booking.py:from universal_workshop.customer_portal.auth import get_current_customer, require_customer_auth
+apps/universal_workshop/universal_workshop/customer_portal/booking.py:        from universal_workshop.customer_portal.communication_integration import (
+apps/universal_workshop/universal_workshop/customer_portal/booking.py:        from universal_workshop.customer_portal.communication_integration import (
+apps/universal_workshop/universal_workshop/customer_portal/booking.py:        from universal_workshop.customer_portal.communication_integration import (
+apps/universal_workshop/universal_workshop/customer_portal/communication_integration.py:        from universal_workshop.communication_management.api.communication_utils import (
+apps/universal_workshop/universal_workshop/customer_portal/communication_integration.py:        from universal_workshop.communication_management.api.communication_utils import (
+apps/universal_workshop/universal_workshop/customer_portal/communication_integration.py:        from universal_workshop.communication_management.api.communication_utils import (
+apps/universal_workshop/universal_workshop/customer_portal/communication_integration.py:        from universal_workshop.communication_management.api.communication_utils import (
+apps/universal_workshop/universal_workshop/customer_portal/communication_integration.py:        from universal_workshop.communication_management.api.communication_utils import (
+apps/universal_workshop/universal_workshop/customer_portal/communication_integration.py:        from universal_workshop.communication_management.api.communication_utils import (
+apps/universal_workshop/universal_workshop/customer_portal/communication_integration.py:        from universal_workshop.communication_management.api.communication_utils import (
+apps/universal_workshop/universal_workshop/customer_portal/communication_integration.py:            from universal_workshop.communication_management.api.sms_api import send_sms_message
+apps/universal_workshop/universal_workshop/customer_portal/communication_integration.py:            from universal_workshop.communication_management.api.whatsapp_api import (
+apps/universal_workshop/universal_workshop/customer_portal/communication_integration.py:        from universal_workshop.communication_management.api.communication_utils import (
+apps/universal_workshop/universal_workshop/customer_portal/tracking.py:from universal_workshop.customer_portal.auth import get_current_customer, require_customer_auth
+apps/universal_workshop/universal_workshop/customer_portal/tracking.py:        from universal_workshop.customer_portal.communication_integration import (
+apps/universal_workshop/universal_workshop/customer_portal/tracking.py:        from universal_workshop.customer_portal.communication_integration import (
+apps/universal_workshop/universal_workshop/customer_portal/tracking.py:            from universal_workshop.customer_portal.communication_integration import (
+apps/universal_workshop/universal_workshop/data_migration/api.py:from universal_workshop.data_migration.migration_framework import MigrationFramework
+apps/universal_workshop/universal_workshop/data_migration/api.py:from universal_workshop.data_migration.validation_engine import ValidationEngine, DuplicateDetection
+apps/universal_workshop/universal_workshop/data_migration/api.py:from universal_workshop.data_migration.transaction_manager import TransactionManager
+apps/universal_workshop/universal_workshop/data_migration/rollback_api.py:from universal_workshop.data_migration.transaction_manager import (
+apps/universal_workshop/universal_workshop/data_migration/migration_framework.py:            from universal_workshop.data_migration.validation_engine import ValidationEngine
+apps/universal_workshop/universal_workshop/data_migration/doctype/migration_job/migration_job.py:        from universal_workshop.data_migration.migration_framework import MigrationFramework
+apps/universal_workshop/universal_workshop/boot.py:        from universal_workshop.license_management.license_validator import validate_current_license
+apps/universal_workshop/universal_workshop/boot.py:        from universal_workshop.user_management.session_manager import SessionManager
+apps/universal_workshop/universal_workshop/security/rate_limiting_manager.py:            from universal_workshop.user_management.security_alerts import log_security_event
+apps/universal_workshop/universal_workshop/security/rate_limiting_manager.py:            from universal_workshop.user_management.security_alerts import log_security_event
+apps/universal_workshop/universal_workshop/security/secret_rotation_manager.py:            from universal_workshop.communication.notification_manager import send_security_alert
+apps/universal_workshop/universal_workshop/security/brute_force_protection.py:from universal_workshop.security.rate_limiting_manager import WorkshopRateLimitManager
+apps/universal_workshop/universal_workshop/security/brute_force_protection.py:from universal_workshop.user_management.security_alerts import SecurityAlertManager
+apps/universal_workshop/universal_workshop/security/brute_force_protection.py:            from universal_workshop.user_management.security_alerts import log_security_event
+apps/universal_workshop/universal_workshop/communication_management/doctype/communication_consent/communication_consent.py:            from universal_workshop.communication_management.doctype.communication_settings.oman_twilio_client import (
+apps/universal_workshop/universal_workshop/communication_management/doctype/delivery_alert/delivery_alert.py:            from universal_workshop.communication_management.sms_api import queue_sms_message
+apps/universal_workshop/universal_workshop/communication_management/doctype/communication_history/communication_history.py:            from universal_workshop.communication_management.doctype.communication_consent.communication_consent import (
+apps/universal_workshop/universal_workshop/communication_management/doctype/delivery_status_log/delivery_status_log.py:            from universal_workshop.communication_management.delivery_tracking import (
+apps/universal_workshop/universal_workshop/communication_management/api/template_api.py:from universal_workshop.communication_management.doctype.notification_template.notification_template import (
+apps/universal_workshop/universal_workshop/communication_management/api/template_api.py:            from universal_workshop.communication_management.api.sms_api import send_sms_message
+apps/universal_workshop/universal_workshop/communication_management/api/template_api.py:            from universal_workshop.communication_management.api.whatsapp_api import (
+apps/universal_workshop/universal_workshop/vehicle_management/test_vehicle_management.py:        from universal_workshop.vehicle_management.api import search_vehicles
+apps/universal_workshop/universal_workshop/vehicle_management/test_vehicle_management.py:        from universal_workshop.vehicle_management.api import get_vehicles_by_customer, validate_vin
+apps/universal_workshop/universal_workshop/vehicle_management/doctype/vehicle/test_vin_decoder.py:from universal_workshop.vehicle_management.doctype.vehicle.vehicle import Vehicle
+apps/universal_workshop/universal_workshop/patches/v1_0/run_data_integrity_checks.py:from universal_workshop.universal_workshop.utils.data_integrity_checker import run_data_integrity_checks
+apps/universal_workshop/universal_workshop/patches/v1_0/integrate_session_management.py:        from universal_workshop.user_management.session_manager import SessionManager
+apps/universal_workshop/universal_workshop/patches/v1_0/integrate_session_management.py:        from universal_workshop.user_management.session_manager import SessionManager
+apps/universal_workshop/universal_workshop/patches/v1_0/integrate_session_management.py:        from universal_workshop.user_management.mfa_manager import MFAManager
+apps/universal_workshop/universal_workshop/patches/v1_0/integrate_session_management.py:        from universal_workshop.user_management.session_manager import SessionManager
+apps/universal_workshop/universal_workshop/patches/v1_0/enhance_session_management.py:            from universal_workshop.user_management.session_manager import SessionManager
+apps/universal_workshop/universal_workshop/patches/v1_0/enhance_session_management.py:            from universal_workshop.user_management.session_manager import SessionManager
+apps/universal_workshop/universal_workshop/patches/v1_0/enhance_session_management.py:                from universal_workshop.user_management.session_manager import SessionManager
+apps/universal_workshop/universal_workshop/patches/v1_0/enhance_session_management.py:        from universal_workshop.user_management.session_manager import SessionManager
+apps/universal_workshop/universal_workshop/patches/v1_0/enhance_session_management.py:        from universal_workshop.user_management.enhanced_session_timeout import session_timeout_handler
+apps/universal_workshop/universal_workshop/patches/v1_0/enhance_session_management.py:        from universal_workshop.user_management.session_error_monitor import session_error_monitor
+apps/universal_workshop/universal_workshop/patches/v1_0/enhance_session_management.py:        from universal_workshop.user_management.session_manager import SessionManager
+apps/universal_workshop/universal_workshop/patches/v1_0/setup_backup_automation.py:from universal_workshop.universal_workshop.utils.backup_automation import run_backup_automation
+apps/universal_workshop/universal_workshop/purchasing_management/install_goods_receipt_integration.py:from universal_workshop.purchasing_management.purchase_receipt_extensions import (
+apps/universal_workshop/universal_workshop/scrap_management/doctype/disassembly_step/test_disassembly_step.py:        from universal_workshop.scrap_management.doctype.disassembly_step.disassembly_step import (
+apps/universal_workshop/universal_workshop/scrap_management/doctype/disassembly_step/test_disassembly_step.py:        from universal_workshop.scrap_management.doctype.disassembly_step.disassembly_step import (
+apps/universal_workshop/universal_workshop/scrap_management/doctype/disassembly_step/test_disassembly_step.py:        from universal_workshop.scrap_management.doctype.disassembly_step.disassembly_step import (
+apps/universal_workshop/universal_workshop/scrap_management/doctype/disassembly_step/test_disassembly_step.py:        from universal_workshop.scrap_management.doctype.disassembly_step.disassembly_step import (
+apps/universal_workshop/universal_workshop/scrap_management/doctype/disassembly_step/test_disassembly_step.py:        from universal_workshop.scrap_management.doctype.disassembly_step.disassembly_step import (
+apps/universal_workshop/universal_workshop/scrap_management/doctype/disassembly_step/test_disassembly_step.py:        from universal_workshop.scrap_management.doctype.disassembly_step.disassembly_step import (
+apps/universal_workshop/universal_workshop/scrap_management/doctype/disassembly_step/test_disassembly_step.py:        from universal_workshop.scrap_management.doctype.disassembly_step.disassembly_step import (
+apps/universal_workshop/universal_workshop/scrap_management/doctype/disassembly_step/test_disassembly_step.py:        from universal_workshop.scrap_management.doctype.disassembly_step.disassembly_step import (
+apps/universal_workshop/universal_workshop/scrap_management/doctype/disassembly_step/test_disassembly_step.py:        from universal_workshop.scrap_management.doctype.disassembly_step.disassembly_step import (
+apps/universal_workshop/universal_workshop/scrap_management/doctype/storage_location/test_storage_location.py:from universal_workshop.scrap_management.doctype.storage_location.storage_location import (
+apps/universal_workshop/universal_workshop/scrap_management/doctype/disassembly_plan/test_disassembly_plan.py:from universal_workshop.scrap_management.doctype.disassembly_plan.disassembly_plan import (
+apps/universal_workshop/universal_workshop/scrap_management/doctype/disassembly_plan/test_disassembly_plan.py:        from universal_workshop.scrap_management.doctype.disassembly_plan.disassembly_plan import (
+apps/universal_workshop/universal_workshop/scrap_management/doctype/disassembly_plan/test_disassembly_plan.py:        from universal_workshop.scrap_management.doctype.disassembly_plan.disassembly_plan import (
+apps/universal_workshop/universal_workshop/scrap_management/doctype/extracted_parts/test_extracted_parts.py:from universal_workshop.scrap_management.doctype.extracted_parts.extracted_parts import (
+apps/universal_workshop/universal_workshop/scrap_management/doctype/extracted_parts/test_extracted_parts.py:        from universal_workshop.scrap_management.doctype.extracted_parts.extracted_parts import (
+apps/universal_workshop/universal_workshop/scrap_management/doctype/extracted_parts/test_extracted_parts.py:        from universal_workshop.scrap_management.doctype.extracted_parts.extracted_parts import (
+apps/universal_workshop/universal_workshop/scrap_management/doctype/extracted_parts/test_extracted_parts.py:        from universal_workshop.scrap_management.doctype.extracted_parts.extracted_parts import (
+apps/universal_workshop/universal_workshop/workshop_management/page/service_bay_dashboard/service_bay_dashboard.py:    from universal_workshop.workshop_management.utils.bay_monitoring import (
+apps/universal_workshop/universal_workshop/workshop_management/doctype/error_logger/error_logger.py:                from universal_workshop import __version__
+apps/universal_workshop/simple_test_optimization.py:        from universal_workshop.utils.image_optimizer import ImageOptimizer
+apps/universal_workshop/test_jwt_simple.py:		from universal_workshop.license_management.jwt_manager import JWTManager
+apps/universal_workshop/test_jwt_simple.py:		from universal_workshop.license_management.doctype.revoked_token.revoked_token import RevokedToken
+apps/universal_workshop/test_jwt_simple.py:		from universal_workshop.license_management.doctype.license_audit_log.license_audit_log import (
+apps/universal_workshop/test_image_optimization.py:from universal_workshop.utils.image_optimizer import ImageOptimizer
+apps/universal_workshop/test_image_optimization.py:        from universal_workshop.utils.image_optimizer import ImageOptimizer
+apps/universal_workshop/test_image_optimization.py:            from universal_workshop.print_formats.branding_utils import PrintBrandingManager
+apps/universal_workshop/test_elasticsearch.py:		from universal_workshop.search_integration.customer_indexer import CustomerIndexer
+apps/universal_workshop/test_elasticsearch.py:		from universal_workshop.search_integration.elasticsearch_client import get_elasticsearch_client
+apps/universal_workshop/test_vat_manual.py:        from universal_workshop.billing_management.oman_vat_config import OmanVATConfig
+apps/universal_workshop/test_vat_manual.py:        from universal_workshop.billing_management.oman_vat_config import OmanVATConfig
+apps/universal_workshop/test_vat_manual.py:        from universal_workshop.billing_management.fixtures.vat_custom_fields import (
+apps/universal_workshop/test_help_system.py:        from universal_workshop.training_management.help_content_samples import create_sample_help_content
+apps/universal_workshop/tests/test_progress_tracking.py:from universal_workshop.sales_service.progress_tracking import ServiceOrderProgressTracker
+apps/universal_workshop/tests/test_role_access_validation.py:            from universal_workshop.user_management.secure_redirect import SecureRedirectManager
+apps/universal_workshop/tests/test_role_based_routing.py:    from universal_workshop.user_management.secure_redirect import (
+apps/universal_workshop/tests/test_role_based_routing.py:    from universal_workshop.user_management.secure_redirect import (
+apps/universal_workshop/test_logo_injection.py:        from universal_workshop.workshop_management.doctype.workshop_profile.workshop_profile import (
+apps/universal_workshop/test_logo_injection.py:        from universal_workshop import hooks
+apps/universal_workshop/test_billing_manual.py:        from universal_workshop.billing_management.oman_vat_config import OmanVATConfig
+apps/universal_workshop/test_billing_manual.py:        from universal_workshop.billing_management.fixtures.vat_custom_fields import (
+apps/universal_workshop/test_billing_manual.py:        from universal_workshop.billing_management.fixtures.invoice_custom_fields import (
+apps/universal_workshop/test_billing_manual.py:        from universal_workshop.billing_management.print_formats.bilingual_invoice import (
+apps/universal_workshop/test_billing_manual.py:        from universal_workshop.billing_management.utils import generate_tax_invoice_number
+apps/universal_workshop/test_billing_manual.py:        from universal_workshop.billing_management.oman_vat_config import OmanVATConfig
+apps/universal_workshop/test_billing_manual.py:        from universal_workshop.billing_management.utils import convert_to_arabic_numerals
+apps/universal_workshop/test_billing_manual.py:            from universal_workshop.billing_management.utils import format_amount_in_words_arabic
+apps/universal_workshop/test_billing_manual.py:        from universal_workshop.billing_management.print_formats.bilingual_invoice import (
+apps/universal_workshop/scripts/test_vat_manual.py:    from universal_workshop.billing_management.oman_vat_config import OmanVATConfig
+apps/universal_workshop/scripts/test_vat_manual.py:    from universal_workshop.billing_management.automatic_vat_calculation import (
+apps/universal_workshop/scripts/test_vat_manual.py:    from universal_workshop.utils.arabic_utils import ArabicTextUtils
+apps/universal_workshop/scripts/test_vat_manual.py:    from universal_workshop.billing_management.oman_vat_config import OmanVATConfig
+apps/universal_workshop/scripts/test_vat_manual.py:    from universal_workshop.billing_management.automatic_vat_calculation import (
+apps/universal_workshop/scripts/test_qr_code_manual.py:        from universal_workshop.billing_management.qr_code_generator import OmanEInvoiceQRGenerator
+apps/universal_workshop/scripts/test_qr_code_manual.py:        from universal_workshop.billing_management.qr_code_generator import OmanEInvoiceQRGenerator
+apps/universal_workshop/scripts/test_qr_code_manual.py:        from universal_workshop.billing_management.qr_code_generator import OmanEInvoiceQRGenerator
+apps/universal_workshop/scripts/test_qr_code_manual.py:        from universal_workshop.billing_management.qr_code_generator import OmanEInvoiceQRGenerator
+apps/universal_workshop/scripts/test_qr_code_manual.py:        from universal_workshop.billing_management.qr_code_generator import OmanEInvoiceQRGenerator
+apps/universal_workshop/scripts/test_secure_redirect.py:from universal_workshop.user_management.secure_redirect import get_redirect_manager
+apps/universal_workshop/test_branding.py:        from universal_workshop.workshop_management.doctype.workshop_profile.workshop_profile import (
+apps/universal_workshop/test_branding.py:        from universal_workshop import hooks
+apps/universal_workshop/quick_test.py:    from universal_workshop.workshop_management.doctype.workshop_profile.workshop_profile import get_workshop_branding
+apps/universal_workshop/quick_test.py:    from universal_workshop import hooks
+apps/universal_workshop/docs/installation_guide.md:from universal_workshop.install import after_install
+apps/universal_workshop/docs/installation_guide.md:from universal_workshop.install import setup_arabic_localization
+apps/universal_workshop/docs/installation_guide.md:from universal_workshop.install import setup_default_workshop_data
+apps/universal_workshop/docs/installation_guide.md:from universal_workshop.install import setup_default_workshop_roles
+apps/universal_workshop/simple_test.py:    from universal_workshop.workshop_management.doctype.workshop_profile.workshop_profile import (
+apps/universal_workshop/simple_test.py:    from universal_workshop import hooks
+apps/universal_workshop/test_redirect_simple.py:        from universal_workshop.user_management.secure_redirect import get_redirect_manager
+apps/universal_workshop/test_training_module.py:            from universal_workshop.training_management.doctype.training_module.training_module import (
+apps/universal_workshop/test_training_module.py:            from universal_workshop.training_management.doctype.training_module.training_module import (
+apps/universal_workshop/test_training_module.py:            from universal_workshop.training_management.doctype.training_module.training_module import (
+apps/universal_workshop/test_training_module.py:            from universal_workshop.training_management.h5p.h5p_manager import H5PManager

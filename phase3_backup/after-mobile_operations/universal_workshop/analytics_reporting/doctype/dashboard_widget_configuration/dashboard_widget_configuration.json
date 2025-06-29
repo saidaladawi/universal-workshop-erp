@@ -1,0 +1,259 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "format:DWC-{YYYY}-{#####}",
+    "creation": "2024-06-24 15:10:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "widget_id",
+        "widget_type",
+        "widget_title",
+        "widget_title_ar",
+        "data_source",
+        "position_column_break",
+        "position_x",
+        "position_y",
+        "width",
+        "height",
+        "configuration_section",
+        "widget_config",
+        "refresh_settings_section",
+        "auto_refresh",
+        "refresh_interval",
+        "enable_drill_down",
+        "click_action",
+        "display_settings_section",
+        "enable_border",
+        "background_color",
+        "text_color",
+        "font_size",
+        "status_section",
+        "is_enabled",
+        "display_order",
+        "last_updated"
+    ],
+    "fields": [
+        {
+            "fieldname": "widget_id",
+            "fieldtype": "Data",
+            "label": "Widget ID",
+            "unique": 1,
+            "reqd": 1,
+            "description": "Unique identifier for the widget"
+        },
+        {
+            "fieldname": "widget_type",
+            "fieldtype": "Select",
+            "label": "Widget Type",
+            "options": "Chart\nKPI Card\nTable\nGauge\nCalendar\nMap\nText\nImage\nIframe\nCustom HTML",
+            "reqd": 1,
+            "description": "Type of widget to display"
+        },
+        {
+            "fieldname": "widget_title",
+            "fieldtype": "Data",
+            "label": "Widget Title",
+            "reqd": 1,
+            "description": "Display title for the widget"
+        },
+        {
+            "fieldname": "widget_title_ar",
+            "fieldtype": "Data",
+            "label": "عنوان الودجت",
+            "description": "Arabic title for the widget"
+        },
+        {
+            "fieldname": "data_source",
+            "fieldtype": "Link",
+            "label": "Data Source",
+            "options": "Data Source Mapping",
+            "description": "Data source for the widget"
+        },
+        {
+            "fieldname": "position_column_break",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "position_x",
+            "fieldtype": "Int",
+            "label": "Position X",
+            "default": 0,
+            "description": "Horizontal position in grid"
+        },
+        {
+            "fieldname": "position_y",
+            "fieldtype": "Int",
+            "label": "Position Y",
+            "default": 0,
+            "description": "Vertical position in grid"
+        },
+        {
+            "fieldname": "width",
+            "fieldtype": "Int",
+            "label": "Width",
+            "default": 4,
+            "description": "Widget width in grid units"
+        },
+        {
+            "fieldname": "height",
+            "fieldtype": "Int",
+            "label": "Height",
+            "default": 3,
+            "description": "Widget height in grid units"
+        },
+        {
+            "fieldname": "configuration_section",
+            "fieldtype": "Section Break",
+            "label": "Widget Configuration"
+        },
+        {
+            "fieldname": "widget_config",
+            "fieldtype": "Long Text",
+            "label": "Widget Configuration",
+            "description": "JSON configuration for the widget"
+        },
+        {
+            "fieldname": "refresh_settings_section",
+            "fieldtype": "Section Break",
+            "label": "Refresh Settings"
+        },
+        {
+            "fieldname": "auto_refresh",
+            "fieldtype": "Check",
+            "label": "Auto Refresh",
+            "default": 0,
+            "description": "Enable automatic data refresh"
+        },
+        {
+            "fieldname": "refresh_interval",
+            "fieldtype": "Int",
+            "label": "Refresh Interval (seconds)",
+            "default": 300,
+            "depends_on": "auto_refresh",
+            "description": "How often to refresh widget data"
+        },
+        {
+            "fieldname": "enable_drill_down",
+            "fieldtype": "Check",
+            "label": "Enable Drill Down",
+            "default": 0,
+            "description": "Allow clicking for detailed view"
+        },
+        {
+            "fieldname": "click_action",
+            "fieldtype": "Select",
+            "label": "Click Action",
+            "options": "None\nOpen Report\nOpen DocType\nOpen URL\nShow Details\nRun Script",
+            "default": "None",
+            "depends_on": "enable_drill_down",
+            "description": "Action to perform when widget is clicked"
+        },
+        {
+            "fieldname": "display_settings_section",
+            "fieldtype": "Section Break",
+            "label": "Display Settings"
+        },
+        {
+            "fieldname": "enable_border",
+            "fieldtype": "Check",
+            "label": "Enable Border",
+            "default": 1,
+            "description": "Show border around widget"
+        },
+        {
+            "fieldname": "background_color",
+            "fieldtype": "Color",
+            "label": "Background Color",
+            "description": "Widget background color"
+        },
+        {
+            "fieldname": "text_color",
+            "fieldtype": "Color",
+            "label": "Text Color",
+            "description": "Widget text color"
+        },
+        {
+            "fieldname": "font_size",
+            "fieldtype": "Select",
+            "label": "Font Size",
+            "options": "Small\nMedium\nLarge\nExtra Large",
+            "default": "Medium",
+            "description": "Text size for the widget"
+        },
+        {
+            "fieldname": "status_section",
+            "fieldtype": "Section Break",
+            "label": "Status"
+        },
+        {
+            "fieldname": "is_enabled",
+            "fieldtype": "Check",
+            "label": "Is Enabled",
+            "default": 1,
+            "description": "Whether the widget is active"
+        },
+        {
+            "fieldname": "display_order",
+            "fieldtype": "Int",
+            "label": "Display Order",
+            "default": 0,
+            "description": "Order for widget arrangement"
+        },
+        {
+            "fieldname": "last_updated",
+            "fieldtype": "Datetime",
+            "label": "Last Updated",
+            "description": "When the widget was last updated"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "istable": 1,
+    "links": [],
+    "modified": "2024-06-24 15:10:00.000000",
+    "modified_by": "Administrator",
+    "module": "Analytics Reporting",
+    "name": "Dashboard Widget Configuration",
+    "naming_rule": "Expression",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Customer",
+            "share": 1
+        }
+    ],
+    "sort_field": "display_order",
+    "sort_order": "ASC",
+    "states": [],
+    "track_changes": 1
+}

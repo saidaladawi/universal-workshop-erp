@@ -1,0 +1,237 @@
+{% extends "templates/web.html" %}
+
+{% block title %}{{ _("Knowledge Base") }}{% endblock %}
+
+{% block head_include %}
+<style>
+.knowledge-base-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+}
+
+.search-box {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.category-card {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.category-card:hover {
+    border-color: #007bff;
+    box-shadow: 0 4px 8px rgba(0,123,255,0.1);
+}
+
+.article-item {
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.article-item:last-child {
+    border-bottom: none;
+}
+
+.article-item:hover {
+    background-color: #f8f9fa;
+}
+
+.rtl-layout {
+    direction: rtl;
+    text-align: right;
+}
+
+.arabic-text {
+    font-family: 'Noto Sans Arabic', 'Tahoma', 'Arial Unicode MS', sans-serif;
+}
+
+.breadcrumb-rtl {
+    direction: ltr;
+}
+
+{% if is_rtl %}
+.search-box .form-control {
+    text-align: right;
+    direction: rtl;
+}
+
+.category-card {
+    text-align: right;
+}
+{% endif %}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="knowledge-base-wrapper{% if is_rtl %} rtl-layout arabic-text{% endif %}" dir="{{ text_direction }}">
+    
+    <!-- Header Section -->
+    <div class="knowledge-base-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="mb-3">{{ _("Knowledge Base") }}</h1>
+                    <p class="lead mb-4">{{ _("Find answers to your questions and learn how to use Universal Workshop ERP") }}</p>
+                    
+                    <!-- Search Box -->
+                    <div class="search-box">
+                        <form method="get" action="/knowledge-base">
+                            <div class="input-group input-group-lg">
+                                <input type="text" class="form-control" name="q" 
+                                       placeholder="{{ _('Search for help articles...') }}" 
+                                       value="{{ search_query or '' }}">
+                                <div class="input-group-append">
+                                    <button class="btn btn-light" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        {% if search_query %}
+        <!-- Search Results -->
+        <div class="row">
+            <div class="col-12">
+                <h2>{{ _("Search Results for") }} "{{ search_query }}"</h2>
+                {% if search_results %}
+                <div class="search-results">
+                    {% for article in search_results %}
+                    <div class="article-item">
+                        <h5><a href="{{ article.route }}">{{ article.title }}</a></h5>
+                        {% if article.excerpt %}
+                        <p class="text-muted">{{ article.excerpt }}</p>
+                        {% endif %}
+                        <small class="text-muted">
+                            <i class="fa fa-folder"></i> {{ article.category }}
+                            {% if article.published_date %}
+                            | <i class="fa fa-calendar"></i> {{ frappe.format_date(article.published_date) }}
+                            {% endif %}
+                        </small>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="alert alert-info">
+                    <i class="fa fa-info-circle"></i> {{ _("No articles found for your search. Try different keywords.") }}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        {% else %}
+        
+        <!-- Featured Articles -->
+        {% if featured_articles %}
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="mb-4">{{ _("Featured Articles") }}</h2>
+                <div class="row">
+                    {% for article in featured_articles %}
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="{{ article.route }}">{{ article.title }}</a>
+                                </h5>
+                                {% if article.excerpt %}
+                                <p class="card-text">{{ article.excerpt }}</p>
+                                {% endif %}
+                                <small class="text-muted">
+                                    <i class="fa fa-eye"></i> {{ article.view_count or 0 }} {{ _("views") }}
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="row">
+            <!-- Categories -->
+            <div class="col-md-8">
+                <h2 class="mb-4">{{ _("Browse by Category") }}</h2>
+                {% if popular_categories %}
+                <div class="row">
+                    {% for category in popular_categories %}
+                    <div class="col-md-6 mb-3">
+                        <div class="category-card" onclick="window.location.href='{{ category.route }}'">
+                            <div class="d-flex align-items-center">
+                                <div class="category-icon mr-3">
+                                    <i class="{{ category.icon }} fa-2x text-primary"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="mb-1">{{ category.title }}</h5>
+                                    {% if category.description %}
+                                    <p class="mb-1 text-muted">{{ category.description }}</p>
+                                    {% endif %}
+                                    <small class="text-muted">
+                                        {{ category.article_count }} {{ _("articles") }}
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Recent Articles -->
+            <div class="col-md-4">
+                <h3 class="mb-4">{{ _("Recent Articles") }}</h3>
+                {% if recent_articles %}
+                <div class="list-group list-group-flush">
+                    {% for article in recent_articles %}
+                    <a href="{{ article.route }}" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">{{ article.title }}</h6>
+                            <small>{{ frappe.format_date(article.published_date) }}</small>
+                        </div>
+                        <small class="text-muted">{{ article.category }}</small>
+                    </a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        {% endif %}
+    </div>
+</div>
+
+<script>
+// Enhanced search functionality
+$(document).ready(function() {
+    // Auto-focus search input
+    $('input[name="q"]').focus();
+    
+    // Real-time search suggestions (placeholder for future enhancement)
+    $('input[name="q"]').on('input', function() {
+        // Could implement live search suggestions here
+    });
+    
+    // Analytics tracking for category clicks
+    $('.category-card').on('click', function() {
+        const categoryName = $(this).find('h5').text();
+        // Track category click event
+        console.log('Category clicked:', categoryName);
+    });
+});
+</script>
+{% endblock %}

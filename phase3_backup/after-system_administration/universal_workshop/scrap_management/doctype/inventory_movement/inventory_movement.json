@@ -1,0 +1,490 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2024-12-20 19:00:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "basic_information_section",
+        "naming_series",
+        "movement_type",
+        "movement_date",
+        "movement_time",
+        "column_break_basic1",
+        "scanned_by",
+        "device_info",
+        "gps_location",
+        "part_information_section",
+        "extracted_part",
+        "part_code",
+        "part_name",
+        "part_name_ar",
+        "column_break_part1",
+        "part_weight_kg",
+        "part_volume_m3",
+        "part_condition_grade",
+        "movement_details_section",
+        "from_location",
+        "from_location_name",
+        "from_zone",
+        "column_break_movement1",
+        "to_location",
+        "to_location_name",
+        "to_zone",
+        "barcode_tracking_section",
+        "scanned_barcode",
+        "qr_code_data",
+        "scan_method",
+        "column_break_barcode1",
+        "verification_status",
+        "verification_time",
+        "verification_notes",
+        "quantity_tracking_section",
+        "quantity_moved",
+        "unit_of_measure",
+        "batch_number",
+        "column_break_quantity1",
+        "expected_quantity",
+        "actual_quantity",
+        "discrepancy_reason",
+        "workflow_section",
+        "movement_status",
+        "approval_required",
+        "approved_by",
+        "column_break_workflow1",
+        "completion_time",
+        "processing_duration",
+        "notes",
+        "notes_ar",
+        "system_information_section",
+        "created_by_user",
+        "creation_timestamp",
+        "modified_by_user",
+        "column_break_system1",
+        "system_generated",
+        "integration_id",
+        "sync_status"
+    ],
+    "fields": [
+        {
+            "fieldname": "basic_information_section",
+            "fieldtype": "Section Break",
+            "label": "Basic Information | المعلومات الأساسية"
+        },
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "INV-MOV-.YYYY.-\nIN-MOV-.YYYY.-\nOUT-MOV-.YYYY.-\nTRF-MOV-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "fieldname": "movement_type",
+            "fieldtype": "Select",
+            "label": "Movement Type | نوع الحركة",
+            "options": "\nStock In\nStock Out\nTransfer\nAdjustment\nReturn\nReservation\nRelease\nDamage\nLoss\nFound",
+            "reqd": 1
+        },
+        {
+            "fieldname": "movement_date",
+            "fieldtype": "Date",
+            "label": "Movement Date | تاريخ الحركة",
+            "default": "Today",
+            "reqd": 1
+        },
+        {
+            "fieldname": "movement_time",
+            "fieldtype": "Time",
+            "label": "Movement Time | وقت الحركة",
+            "default": "now"
+        },
+        {
+            "fieldname": "column_break_basic1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "scanned_by",
+            "fieldtype": "Link",
+            "label": "Scanned By | تم المسح بواسطة",
+            "options": "User",
+            "default": "user"
+        },
+        {
+            "fieldname": "device_info",
+            "fieldtype": "Data",
+            "label": "Device Information | معلومات الجهاز",
+            "description": "Mobile device or scanner used"
+        },
+        {
+            "fieldname": "gps_location",
+            "fieldtype": "Data",
+            "label": "GPS Location | موقع GPS",
+            "description": "Latitude,Longitude of scan location"
+        },
+        {
+            "fieldname": "part_information_section",
+            "fieldtype": "Section Break",
+            "label": "Part Information | معلومات القطعة"
+        },
+        {
+            "fieldname": "extracted_part",
+            "fieldtype": "Link",
+            "label": "Extracted Part | القطعة المستخرجة",
+            "options": "Extracted Parts",
+            "reqd": 1
+        },
+        {
+            "fieldname": "part_code",
+            "fieldtype": "Data",
+            "label": "Part Code | رمز القطعة",
+            "fetch_from": "extracted_part.part_code",
+            "read_only": 1
+        },
+        {
+            "fieldname": "part_name",
+            "fieldtype": "Data",
+            "label": "Part Name | اسم القطعة",
+            "fetch_from": "extracted_part.part_name",
+            "read_only": 1
+        },
+        {
+            "fieldname": "part_name_ar",
+            "fieldtype": "Data",
+            "label": "Part Name Arabic | اسم القطعة بالعربية",
+            "fetch_from": "extracted_part.part_name_ar",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_part1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "part_weight_kg",
+            "fieldtype": "Float",
+            "label": "Weight (kg) | الوزن",
+            "fetch_from": "extracted_part.weight_kg",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "part_volume_m3",
+            "fieldtype": "Float",
+            "label": "Volume (m³) | الحجم",
+            "fetch_from": "extracted_part.volume_m3",
+            "read_only": 1,
+            "precision": 3
+        },
+        {
+            "fieldname": "part_condition_grade",
+            "fieldtype": "Select",
+            "label": "Condition Grade | درجة الحالة",
+            "fetch_from": "extracted_part.condition_grade",
+            "options": "\nGrade A\nGrade B\nGrade C\nGrade D",
+            "read_only": 1
+        },
+        {
+            "fieldname": "movement_details_section",
+            "fieldtype": "Section Break",
+            "label": "Movement Details | تفاصيل الحركة"
+        },
+        {
+            "fieldname": "from_location",
+            "fieldtype": "Link",
+            "label": "From Location | من الموقع",
+            "options": "Storage Location"
+        },
+        {
+            "fieldname": "from_location_name",
+            "fieldtype": "Data",
+            "label": "From Location Name | اسم الموقع السابق",
+            "fetch_from": "from_location.location_name",
+            "read_only": 1
+        },
+        {
+            "fieldname": "from_zone",
+            "fieldtype": "Data",
+            "label": "From Zone | من المنطقة",
+            "fetch_from": "from_location.zone",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_movement1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "to_location",
+            "fieldtype": "Link",
+            "label": "To Location | إلى الموقع",
+            "options": "Storage Location"
+        },
+        {
+            "fieldname": "to_location_name",
+            "fieldtype": "Data",
+            "label": "To Location Name | اسم الموقع الجديد",
+            "fetch_from": "to_location.location_name",
+            "read_only": 1
+        },
+        {
+            "fieldname": "to_zone",
+            "fieldtype": "Data",
+            "label": "To Zone | إلى المنطقة",
+            "fetch_from": "to_location.zone",
+            "read_only": 1
+        },
+        {
+            "fieldname": "barcode_tracking_section",
+            "fieldtype": "Section Break",
+            "label": "Barcode Tracking | تتبع الباركود"
+        },
+        {
+            "fieldname": "scanned_barcode",
+            "fieldtype": "Data",
+            "label": "Scanned Barcode | الباركود الممسوح",
+            "description": "Barcode scanned during movement"
+        },
+        {
+            "fieldname": "qr_code_data",
+            "fieldtype": "Long Text",
+            "label": "QR Code Data | بيانات رمز الاستجابة",
+            "description": "Full QR code content"
+        },
+        {
+            "fieldname": "scan_method",
+            "fieldtype": "Select",
+            "label": "Scan Method | طريقة المسح",
+            "options": "\nManual Entry\nBarcode Scanner\nQR Code Scanner\nNFC Tag\nRFID Reader\nMobile Camera",
+            "default": "Mobile Camera"
+        },
+        {
+            "fieldname": "column_break_barcode1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "verification_status",
+            "fieldtype": "Select",
+            "label": "Verification Status | حالة التحقق",
+            "options": "\nPending\nVerified\nMismatch\nError\nManual Override",
+            "default": "Pending"
+        },
+        {
+            "fieldname": "verification_time",
+            "fieldtype": "Datetime",
+            "label": "Verification Time | وقت التحقق"
+        },
+        {
+            "fieldname": "verification_notes",
+            "fieldtype": "Small Text",
+            "label": "Verification Notes | ملاحظات التحقق"
+        },
+        {
+            "fieldname": "quantity_tracking_section",
+            "fieldtype": "Section Break",
+            "label": "Quantity Tracking | تتبع الكمية"
+        },
+        {
+            "fieldname": "quantity_moved",
+            "fieldtype": "Float",
+            "label": "Quantity Moved | الكمية المنقولة",
+            "default": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "unit_of_measure",
+            "fieldtype": "Link",
+            "label": "Unit of Measure | وحدة القياس",
+            "options": "UOM",
+            "default": "Nos"
+        },
+        {
+            "fieldname": "batch_number",
+            "fieldtype": "Data",
+            "label": "Batch Number | رقم الدفعة"
+        },
+        {
+            "fieldname": "column_break_quantity1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "expected_quantity",
+            "fieldtype": "Float",
+            "label": "Expected Quantity | الكمية المتوقعة",
+            "precision": 2
+        },
+        {
+            "fieldname": "actual_quantity",
+            "fieldtype": "Float",
+            "label": "Actual Quantity | الكمية الفعلية",
+            "precision": 2
+        },
+        {
+            "fieldname": "discrepancy_reason",
+            "fieldtype": "Select",
+            "label": "Discrepancy Reason | سبب الاختلاف",
+            "options": "\nNo Discrepancy\nDamaged\nLost\nFound Extra\nMiscounted\nSystem Error\nOther",
+            "depends_on": "eval:doc.expected_quantity != doc.actual_quantity"
+        },
+        {
+            "fieldname": "workflow_section",
+            "fieldtype": "Section Break",
+            "label": "Workflow | سير العمل"
+        },
+        {
+            "fieldname": "movement_status",
+            "fieldtype": "Select",
+            "label": "Movement Status | حالة الحركة",
+            "options": "\nDraft\nIn Progress\nCompleted\nCancelled\nOn Hold\nPending Approval",
+            "default": "Draft",
+            "reqd": 1
+        },
+        {
+            "fieldname": "approval_required",
+            "fieldtype": "Check",
+            "label": "Approval Required | يتطلب موافقة",
+            "default": 0
+        },
+        {
+            "fieldname": "approved_by",
+            "fieldtype": "Link",
+            "label": "Approved By | تمت الموافقة بواسطة",
+            "options": "User",
+            "depends_on": "approval_required"
+        },
+        {
+            "fieldname": "column_break_workflow1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "completion_time",
+            "fieldtype": "Datetime",
+            "label": "Completion Time | وقت الإنجاز"
+        },
+        {
+            "fieldname": "processing_duration",
+            "fieldtype": "Duration",
+            "label": "Processing Duration | مدة المعالجة",
+            "description": "Time taken to complete movement"
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Text",
+            "label": "Notes (English) | ملاحظات إنجليزي"
+        },
+        {
+            "fieldname": "notes_ar",
+            "fieldtype": "Text",
+            "label": "Notes (Arabic) | ملاحظات عربي"
+        },
+        {
+            "fieldname": "system_information_section",
+            "fieldtype": "Section Break",
+            "label": "System Information | معلومات النظام",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "created_by_user",
+            "fieldtype": "Link",
+            "label": "Created By | أنشأ بواسطة",
+            "options": "User",
+            "default": "user",
+            "read_only": 1
+        },
+        {
+            "fieldname": "creation_timestamp",
+            "fieldtype": "Datetime",
+            "label": "Creation Timestamp | وقت الإنشاء",
+            "default": "now",
+            "read_only": 1
+        },
+        {
+            "fieldname": "modified_by_user",
+            "fieldtype": "Link",
+            "label": "Modified By | عدّل بواسطة",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_system1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "system_generated",
+            "fieldtype": "Check",
+            "label": "System Generated | تم إنشاؤه تلقائياً",
+            "default": 0,
+            "read_only": 1
+        },
+        {
+            "fieldname": "integration_id",
+            "fieldtype": "Data",
+            "label": "Integration ID | معرف التكامل",
+            "description": "External system reference"
+        },
+        {
+            "fieldname": "sync_status",
+            "fieldtype": "Select",
+            "label": "Sync Status | حالة المزامنة",
+            "options": "\nNot Synced\nSynced\nFailed\nPending",
+            "default": "Not Synced"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2024-12-20 19:30:00.000000",
+    "modified_by": "Administrator",
+    "module": "Scrap Management",
+    "name": "Inventory Movement",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician",
+            "write": 1
+        },
+        {
+            "create": 1,
+            "read": 1,
+            "role": "Warehouse User",
+            "write": 1
+        }
+    ],
+    "search_fields": "movement_type,part_code,from_location,to_location,movement_status",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "part_code",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

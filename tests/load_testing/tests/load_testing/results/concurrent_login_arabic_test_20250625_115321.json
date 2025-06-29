@@ -1,0 +1,1016 @@
+{
+  "test_summary": {
+    "duration_seconds": 30.861192,
+    "start_time": "2025-06-25T11:52:50.537301",
+    "total_attempts": 66,
+    "success_rate": 0.0,
+    "average_response_time": 0
+  },
+  "results": {
+    "total_attempts": 66,
+    "successful_logins": 0,
+    "failed_logins": 66,
+    "session_errors": 0,
+    "arabic_ui_errors": 66,
+    "redirect_errors": 66,
+    "response_times": [],
+    "errors": [
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:52:52.329699"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:52:52.329707"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:52:52.329709"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:52:52.332868"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:52:52.332873"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:52:52.332875"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:52:52.349431"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:52:52.349440"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:52:52.349441"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:52:52.376680"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:52:52.376688"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:52:52.376689"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:52:52.377852"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:52:52.377857"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:52:52.377859"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:52:55.216413"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:52:55.216427"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:52:55.216429"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:52:55.218232"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:52:55.218242"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:52:55.218244"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:52:55.234372"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:52:55.234391"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:52:55.234394"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:52:55.252159"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:52:55.252170"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:52:55.252172"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:52:55.258586"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:52:55.258594"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:52:55.258597"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:52:58.213399"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:52:58.213409"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:52:58.213411"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:52:58.290270"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:52:58.290284"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:52:58.290286"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:52:58.293772"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:52:58.293782"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:52:58.293784"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:52:58.374622"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:52:58.374641"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:52:58.374644"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:52:58.375865"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:52:58.375876"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:52:58.375878"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:00.904745"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:00.904754"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:00.904755"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:01.020028"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:01.020039"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:01.020041"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:01.069237"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:01.069262"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:01.069265"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:01.104082"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:01.104092"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:01.104094"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:01.115034"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:01.115439"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:01.115444"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:03.578165"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:03.578176"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:03.578178"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:04.019933"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:04.020000"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:04.020006"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:04.063297"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:04.063311"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:04.063313"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:04.081700"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:04.081780"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:04.081786"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:04.118090"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:04.118106"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:04.118109"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:04.843664"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:04.843675"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:04.843678"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:07.354093"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:07.354106"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:07.354109"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:07.566469"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:07.566485"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:07.566487"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:07.585805"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:07.585854"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:07.585858"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:07.600693"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:07.600706"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:07.600709"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:07.673587"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:07.673598"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:07.673601"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:09.398100"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:09.398109"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:09.398110"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:10.100833"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:10.100843"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:10.100845"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:10.134167"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:10.134175"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:10.134178"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:10.136440"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:10.136448"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:10.136450"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:10.185586"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:10.185595"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:10.185598"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:10.785348"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:10.785360"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:10.785362"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:12.956892"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:12.956903"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:12.956905"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:13.035075"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:13.035086"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:13.035089"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:13.049593"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:13.049611"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:13.049613"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:13.087090"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:13.087100"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:13.087102"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:13.191641"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:13.191651"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:13.191654"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:14.381527"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:14.381551"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:14.381553"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:14.876360"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:14.876374"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:14.876377"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:14.898027"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:14.898049"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:14.898052"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:14.968610"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:14.968627"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:14.968630"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:15.034420"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:15.034430"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:15.034432"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:15.498232"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:15.498243"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:15.498244"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:16.439340"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:16.439351"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:16.439353"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:16.672856"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:16.672866"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:16.672869"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:16.812184"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:16.812196"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:16.812200"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:16.906442"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:16.906452"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:16.906454"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:17.007899"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:17.007909"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:17.007911"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:17.572468"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:17.572478"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:17.572480"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:17.798160"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:17.798179"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:17.798181"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:18.029672"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:18.029723"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:18.029725"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:18.361890"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:18.361937"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:18.361939"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:18.417191"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:18.417202"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:18.417206"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:18.797418"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:18.797429"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:18.797431"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:18.953530"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:18.953540"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:18.953542"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:19.170805"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:19.170857"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:19.170861"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:19.633171"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:19.633179"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:19.633181"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:19.649981"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:19.649988"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:19.649990"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:19.939224"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:19.939243"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:19.939245"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:20.174405"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:20.174413"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:20.174415"
+      },
+      {
+        "type": "login_failure",
+        "error": "Login page not accessible: 500",
+        "timestamp": "2025-06-25T11:53:20.396210"
+      },
+      {
+        "type": "arabic_ui_error",
+        "error": "Arabic UI validation failed",
+        "timestamp": "2025-06-25T11:53:20.396229"
+      },
+      {
+        "type": "redirect_error",
+        "error": "Role redirect validation failed",
+        "timestamp": "2025-06-25T11:53:20.396231"
+      }
+    ]
+  },
+  "recommendations": [
+    "Login success rate below 95% - investigate authentication issues",
+    "Arabic UI errors detected - validate RTL layout and translation loading",
+    "Role-based redirect errors detected - verify role mapping configuration",
+    "Error rate exceeds 10% - investigate system stability issues"
+  ]
+}

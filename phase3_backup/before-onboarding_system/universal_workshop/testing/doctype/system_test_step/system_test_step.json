@@ -1,0 +1,195 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 0,
+    "allow_rename": 0,
+    "beta": 0,
+    "creation": "2025-06-24 18:36:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "step_number",
+        "step_title",
+        "step_title_ar",
+        "step_description",
+        "step_description_ar",
+        "column_break_5",
+        "expected_result",
+        "expected_result_ar",
+        "step_type",
+        "is_critical",
+        "estimated_time",
+        "section_break_11",
+        "test_data",
+        "api_endpoint",
+        "sql_query",
+        "screenshot_required",
+        "column_break_15",
+        "validation_points",
+        "error_handling",
+        "automation_script",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "step_number",
+            "fieldtype": "Int",
+            "label": "Step Number",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "step_title",
+            "fieldtype": "Data",
+            "label": "Step Title",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "step_title_ar",
+            "fieldtype": "Data",
+            "label": "عنوان الخطوة",
+            "translatable": 1
+        },
+        {
+            "fieldname": "step_description",
+            "fieldtype": "Text Editor",
+            "label": "Step Description",
+            "reqd": 1
+        },
+        {
+            "fieldname": "step_description_ar",
+            "fieldtype": "Text Editor",
+            "label": "وصف الخطوة",
+            "translatable": 1
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "expected_result",
+            "fieldtype": "Text Editor",
+            "label": "Expected Result",
+            "reqd": 1
+        },
+        {
+            "fieldname": "expected_result_ar",
+            "fieldtype": "Text Editor",
+            "label": "النتيجة المتوقعة",
+            "translatable": 1
+        },
+        {
+            "fieldname": "step_type",
+            "fieldtype": "Select",
+            "label": "Step Type",
+            "options": "\nAction\nVerification\nSetup\nCleanup\nAPI Call\nDatabase Query\nUI Interaction\nFile Upload\nData Entry",
+            "default": "Action",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "is_critical",
+            "fieldtype": "Check",
+            "label": "Critical Step",
+            "default": 0,
+            "description": "Mark if this step is critical for test success"
+        },
+        {
+            "fieldname": "estimated_time",
+            "fieldtype": "Int",
+            "label": "Estimated Time (seconds)",
+            "description": "Expected time to complete this step"
+        },
+        {
+            "fieldname": "section_break_11",
+            "fieldtype": "Section Break",
+            "label": "Technical Details"
+        },
+        {
+            "fieldname": "test_data",
+            "fieldtype": "Code",
+            "label": "Test Data",
+            "options": "JSON",
+            "description": "JSON data required for this step"
+        },
+        {
+            "fieldname": "api_endpoint",
+            "fieldtype": "Data",
+            "label": "API Endpoint",
+            "description": "API endpoint if this is an API test step"
+        },
+        {
+            "fieldname": "sql_query",
+            "fieldtype": "Code",
+            "label": "SQL Query",
+            "options": "SQL",
+            "description": "SQL query for database validation"
+        },
+        {
+            "fieldname": "screenshot_required",
+            "fieldtype": "Check",
+            "label": "Screenshot Required",
+            "default": 0,
+            "description": "Check if screenshot is required for this step"
+        },
+        {
+            "fieldname": "column_break_15",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "validation_points",
+            "fieldtype": "Text",
+            "label": "Validation Points",
+            "description": "Specific points to validate in this step"
+        },
+        {
+            "fieldname": "error_handling",
+            "fieldtype": "Text",
+            "label": "Error Handling",
+            "description": "Expected error scenarios and handling"
+        },
+        {
+            "fieldname": "automation_script",
+            "fieldtype": "Code",
+            "label": "Automation Script",
+            "options": "Python",
+            "description": "Python script for automated execution"
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Text",
+            "label": "Notes",
+            "description": "Additional notes or comments"
+        }
+    ],
+    "has_web_view": 0,
+    "hide_heading": 0,
+    "hide_toolbar": 0,
+    "idx": 0,
+    "image_view": 0,
+    "in_create": 0,
+    "is_submittable": 0,
+    "issingle": 0,
+    "istable": 1,
+    "max_attachments": 0,
+    "modified": "2025-06-24 18:36:00.000000",
+    "modified_by": "Administrator",
+    "module": "Testing",
+    "name": "System Test Step",
+    "owner": "Administrator",
+    "permissions": [],
+    "quick_entry": 0,
+    "read_only": 0,
+    "read_only_onload": 0,
+    "show_name_in_global_search": 0,
+    "sort_field": "step_number",
+    "sort_order": "ASC",
+    "states": [],
+    "track_changes": 0,
+    "track_seen": 0,
+    "track_views": 0
+}

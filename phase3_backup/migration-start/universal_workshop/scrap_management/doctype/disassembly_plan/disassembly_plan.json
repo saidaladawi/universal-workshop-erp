@@ -1,0 +1,360 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 0,
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "beta": 0,
+    "creation": "2025-06-20 19:00:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "document_type": "Document",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "basic_information_section",
+        "naming_series",
+        "plan_id",
+        "column_break_3",
+        "scrap_vehicle",
+        "vehicle_title",
+        "vehicle_title_ar",
+        "section_break_7",
+        "plan_date",
+        "created_by",
+        "column_break_10",
+        "status",
+        "priority_level",
+        "estimated_completion_hours",
+        "dismantling_configuration_section",
+        "extraction_strategy",
+        "value_optimization",
+        "column_break_16",
+        "safety_level",
+        "technician_skill_required",
+        "special_tools_required",
+        "disassembly_steps_section",
+        "disassembly_steps",
+        "section_break_22",
+        "total_steps",
+        "completed_steps",
+        "column_break_25",
+        "progress_percentage",
+        "estimated_total_time",
+        "actual_total_time",
+        "financial_analysis_section",
+        "estimated_parts_value",
+        "estimated_labor_cost",
+        "column_break_31",
+        "total_estimated_cost",
+        "expected_profit",
+        "profit_margin_percentage",
+        "notes_and_tracking_section",
+        "dismantling_notes",
+        "column_break_36",
+        "special_instructions",
+        "safety_warnings",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "basic_information_section",
+            "fieldtype": "Section Break",
+            "label": "Basic Information"
+        },
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "DPLAN-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "fieldname": "plan_id",
+            "fieldtype": "Data",
+            "label": "Plan ID",
+            "read_only": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "scrap_vehicle",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Scrap Vehicle",
+            "options": "Scrap Vehicle",
+            "reqd": 1
+        },
+        {
+            "fieldname": "vehicle_title",
+            "fieldtype": "Data",
+            "label": "Vehicle Title",
+            "read_only": 1
+        },
+        {
+            "fieldname": "vehicle_title_ar",
+            "fieldtype": "Data",
+            "label": "عنوان المركبة",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_7",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "plan_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "Plan Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_10",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Status",
+            "options": "Draft\nPlanned\nIn Progress\nCompleted\nCancelled",
+            "reqd": 1
+        },
+        {
+            "fieldname": "priority_level",
+            "fieldtype": "Select",
+            "label": "Priority Level",
+            "options": "Low\nMedium\nHigh\nUrgent"
+        },
+        {
+            "fieldname": "estimated_completion_hours",
+            "fieldtype": "Float",
+            "label": "Estimated Completion (Hours)",
+            "precision": "2"
+        },
+        {
+            "fieldname": "dismantling_configuration_section",
+            "fieldtype": "Section Break",
+            "label": "Dismantling Configuration"
+        },
+        {
+            "fieldname": "extraction_strategy",
+            "fieldtype": "Select",
+            "label": "Extraction Strategy",
+            "options": "Value-First\nAccessibility-First\nSafety-First\nCustom"
+        },
+        {
+            "fieldname": "value_optimization",
+            "fieldtype": "Check",
+            "label": "Enable Value Optimization"
+        },
+        {
+            "fieldname": "column_break_16",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "safety_level",
+            "fieldtype": "Select",
+            "label": "Safety Level",
+            "options": "Standard\nElevated\nHigh-Risk\nHazardous"
+        },
+        {
+            "fieldname": "technician_skill_required",
+            "fieldtype": "Select",
+            "label": "Technician Skill Required",
+            "options": "Beginner\nIntermediate\nAdvanced\nExpert"
+        },
+        {
+            "fieldname": "special_tools_required",
+            "fieldtype": "Check",
+            "label": "Special Tools Required"
+        },
+        {
+            "fieldname": "disassembly_steps_section",
+            "fieldtype": "Section Break",
+            "label": "Disassembly Steps"
+        },
+        {
+            "fieldname": "disassembly_steps",
+            "fieldtype": "Table",
+            "label": "Steps",
+            "options": "Disassembly Step"
+        },
+        {
+            "fieldname": "section_break_22",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "total_steps",
+            "fieldtype": "Int",
+            "label": "Total Steps",
+            "read_only": 1
+        },
+        {
+            "fieldname": "completed_steps",
+            "fieldtype": "Int",
+            "label": "Completed Steps",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_25",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "progress_percentage",
+            "fieldtype": "Percent",
+            "label": "Progress %",
+            "read_only": 1
+        },
+        {
+            "fieldname": "estimated_total_time",
+            "fieldtype": "Float",
+            "label": "Estimated Total Time (Hours)",
+            "precision": "2",
+            "read_only": 1
+        },
+        {
+            "fieldname": "actual_total_time",
+            "fieldtype": "Float",
+            "label": "Actual Total Time (Hours)",
+            "precision": "2"
+        },
+        {
+            "fieldname": "financial_analysis_section",
+            "fieldtype": "Section Break",
+            "label": "Financial Analysis"
+        },
+        {
+            "fieldname": "estimated_parts_value",
+            "fieldtype": "Currency",
+            "label": "Estimated Parts Value (OMR)",
+            "options": "OMR",
+            "precision": "3"
+        },
+        {
+            "fieldname": "estimated_labor_cost",
+            "fieldtype": "Currency",
+            "label": "Estimated Labor Cost (OMR)",
+            "options": "OMR",
+            "precision": "3"
+        },
+        {
+            "fieldname": "column_break_31",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "total_estimated_cost",
+            "fieldtype": "Currency",
+            "label": "Total Estimated Cost (OMR)",
+            "options": "OMR",
+            "precision": "3",
+            "read_only": 1
+        },
+        {
+            "fieldname": "expected_profit",
+            "fieldtype": "Currency",
+            "label": "Expected Profit (OMR)",
+            "options": "OMR",
+            "precision": "3",
+            "read_only": 1
+        },
+        {
+            "fieldname": "profit_margin_percentage",
+            "fieldtype": "Percent",
+            "label": "Profit Margin %",
+            "read_only": 1
+        },
+        {
+            "fieldname": "notes_and_tracking_section",
+            "fieldtype": "Section Break",
+            "label": "Notes and Tracking"
+        },
+        {
+            "fieldname": "dismantling_notes",
+            "fieldtype": "Text Editor",
+            "label": "Dismantling Notes"
+        },
+        {
+            "fieldname": "column_break_36",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "special_instructions",
+            "fieldtype": "Text",
+            "label": "Special Instructions"
+        },
+        {
+            "fieldname": "safety_warnings",
+            "fieldtype": "Text",
+            "label": "Safety Warnings"
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Disassembly Plan",
+            "print_hide": 1,
+            "read_only": 1
+        }
+    ],
+    "icon": "fa fa-cogs",
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2025-06-20 19:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Scrap Management",
+    "name": "Disassembly Plan",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "read": 1,
+            "role": "Workshop Customer"
+        }
+    ],
+    "quick_entry": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

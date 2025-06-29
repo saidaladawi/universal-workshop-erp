@@ -1,0 +1,126 @@
+{
+ "actions": [],
+ "allow_copy": 0,
+ "allow_events_in_timeline": 0,
+ "allow_guest_to_view": 0,
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "beta": 0,
+ "creation": "2024-06-24 18:15:00.000000",
+ "custom": 0,
+ "docstatus": 0,
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "fields": [
+  {
+   "fieldname": "basic_information",
+   "fieldtype": "Section Break",
+   "label": "Basic Information | المعلومات الأساسية"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "ECR-.YYYY.-\nECR-OM-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "compliance_type",
+   "fieldtype": "Select",
+   "label": "Compliance Type | نوع الامتثال",
+   "options": "\nVehicle Processing\nWaste Disposal\nHazardous Material\nEnvironmental Audit\nLicense Renewal\nRegulatory Submission\nInspection Report\nCertification",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "reference_document",
+   "fieldtype": "Dynamic Link",
+   "label": "Reference Document | المستند المرجعي",
+   "options": "reference_doctype"
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Select",
+   "label": "Reference DocType",
+   "options": "\nScrap Vehicle\nVehicle Dismantling\nParts Extraction\nWaste Disposal Log\nMarketplace Listing"
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "compliance_date",
+   "fieldtype": "Date",
+   "label": "Compliance Date | تاريخ الامتثال",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Due Date | تاريخ الاستحقاق",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status | الحالة",
+   "options": "\nDraft\nPending Review\nUnder Investigation\nCompliant\nNon-Compliant\nOverdue\nClosed",
+   "default": "Draft",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority | الأولوية",
+   "options": "\nLow\nMedium\nHigh\nCritical",
+   "default": "Medium"
+  }
+ ],
+ "has_web_view": 0,
+ "hide_heading": 0,
+ "hide_toolbar": 0,
+ "idx": 0,
+ "image_view": 0,
+ "in_create": 0,
+ "is_submittable": 1,
+ "issingle": 0,
+ "istable": 0,
+ "max_attachments": 10,
+ "modified": "2024-06-24 18:15:00.000000",
+ "modified_by": "Administrator",
+ "module": "Environmental Compliance",
+ "name": "Environmental Compliance Record",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "read_only": 0,
+ "read_only_onload": 0,
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "compliance_type",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

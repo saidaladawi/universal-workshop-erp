@@ -1,0 +1,295 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 0,
+    "allow_rename": 1,
+    "beta": 0,
+    "creation": "2025-06-20 19:00:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "document_type": "Document",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "step_information",
+        "step_number",
+        "step_title",
+        "step_title_ar",
+        "column_break_4",
+        "part_category",
+        "target_part",
+        "target_part_ar",
+        "step_details",
+        "description",
+        "description_ar",
+        "column_break_8",
+        "safety_instructions",
+        "safety_instructions_ar",
+        "step_configuration",
+        "extraction_method",
+        "priority_level",
+        "column_break_12",
+        "dependency_step",
+        "parallel_possible",
+        "skip_if_damaged",
+        "time_and_tools",
+        "estimated_time_minutes",
+        "required_tools",
+        "column_break_17",
+        "technician_skill_level",
+        "safety_level",
+        "special_equipment",
+        "financial_information",
+        "estimated_part_value",
+        "labor_cost",
+        "column_break_22",
+        "total_step_cost",
+        "value_ratio",
+        "step_tracking",
+        "status",
+        "started_time",
+        "column_break_27",
+        "completed_time",
+        "actual_time_minutes",
+        "technician_assigned"
+    ],
+    "fields": [
+        {
+            "fieldname": "step_information",
+            "fieldtype": "Section Break",
+            "label": "Step Information"
+        },
+        {
+            "fieldname": "step_number",
+            "fieldtype": "Int",
+            "in_list_view": 1,
+            "label": "Step #",
+            "reqd": 1
+        },
+        {
+            "fieldname": "step_title",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Step Title",
+            "reqd": 1
+        },
+        {
+            "fieldname": "step_title_ar",
+            "fieldtype": "Data",
+            "label": "عنوان الخطوة"
+        },
+        {
+            "fieldname": "column_break_4",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "part_category",
+            "fieldtype": "Select",
+            "label": "Part Category",
+            "options": "Engine\nTransmission\nElectrical\nSafety Systems\nBody Parts\nInterior\nSuspension\nBrakes\nExhaust\nFluids\nTires & Wheels\nGlass\nMiscellaneous"
+        },
+        {
+            "fieldname": "target_part",
+            "fieldtype": "Data",
+            "label": "Target Part",
+            "reqd": 1
+        },
+        {
+            "fieldname": "target_part_ar",
+            "fieldtype": "Data",
+            "label": "القطعة المستهدفة"
+        },
+        {
+            "fieldname": "step_details",
+            "fieldtype": "Section Break",
+            "label": "Step Details"
+        },
+        {
+            "fieldname": "description",
+            "fieldtype": "Text",
+            "label": "Description"
+        },
+        {
+            "fieldname": "description_ar",
+            "fieldtype": "Text",
+            "label": "الوصف"
+        },
+        {
+            "fieldname": "column_break_8",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "safety_instructions",
+            "fieldtype": "Text",
+            "label": "Safety Instructions"
+        },
+        {
+            "fieldname": "safety_instructions_ar",
+            "fieldtype": "Text",
+            "label": "تعليمات السلامة"
+        },
+        {
+            "fieldname": "step_configuration",
+            "fieldtype": "Section Break",
+            "label": "Step Configuration"
+        },
+        {
+            "fieldname": "extraction_method",
+            "fieldtype": "Select",
+            "label": "Extraction Method",
+            "options": "Manual Removal\nCutting Required\nHydraulic Lift\nSpecial Tools\nDisconnect Only\nDrain First"
+        },
+        {
+            "fieldname": "priority_level",
+            "fieldtype": "Select",
+            "label": "Priority Level",
+            "options": "Low\nMedium\nHigh\nCritical"
+        },
+        {
+            "fieldname": "column_break_12",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "dependency_step",
+            "fieldtype": "Int",
+            "label": "Depends on Step #"
+        },
+        {
+            "fieldname": "parallel_possible",
+            "fieldtype": "Check",
+            "label": "Can be done in parallel"
+        },
+        {
+            "fieldname": "skip_if_damaged",
+            "fieldtype": "Check",
+            "label": "Skip if part is damaged"
+        },
+        {
+            "fieldname": "time_and_tools",
+            "fieldtype": "Section Break",
+            "label": "Time and Tools"
+        },
+        {
+            "fieldname": "estimated_time_minutes",
+            "fieldtype": "Int",
+            "in_list_view": 1,
+            "label": "Estimated Time (Minutes)"
+        },
+        {
+            "fieldname": "required_tools",
+            "fieldtype": "Text",
+            "label": "Required Tools"
+        },
+        {
+            "fieldname": "column_break_17",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "technician_skill_level",
+            "fieldtype": "Select",
+            "label": "Required Skill Level",
+            "options": "Beginner\nIntermediate\nAdvanced\nExpert"
+        },
+        {
+            "fieldname": "safety_level",
+            "fieldtype": "Select",
+            "label": "Safety Level",
+            "options": "Standard\nElevated\nHigh-Risk\nHazardous"
+        },
+        {
+            "fieldname": "special_equipment",
+            "fieldtype": "Text",
+            "label": "Special Equipment Required"
+        },
+        {
+            "fieldname": "financial_information",
+            "fieldtype": "Section Break",
+            "label": "Financial Information"
+        },
+        {
+            "fieldname": "estimated_part_value",
+            "fieldtype": "Currency",
+            "label": "Estimated Part Value (OMR)",
+            "options": "OMR",
+            "precision": "3"
+        },
+        {
+            "fieldname": "labor_cost",
+            "fieldtype": "Currency",
+            "label": "Labor Cost (OMR)",
+            "options": "OMR",
+            "precision": "3"
+        },
+        {
+            "fieldname": "column_break_22",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "total_step_cost",
+            "fieldtype": "Currency",
+            "label": "Total Step Cost (OMR)",
+            "options": "OMR",
+            "precision": "3",
+            "read_only": 1
+        },
+        {
+            "fieldname": "value_ratio",
+            "fieldtype": "Percent",
+            "label": "Value/Cost Ratio",
+            "read_only": 1
+        },
+        {
+            "fieldname": "step_tracking",
+            "fieldtype": "Section Break",
+            "label": "Step Tracking"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Status",
+            "options": "Pending\nIn Progress\nCompleted\nSkipped\nFailed"
+        },
+        {
+            "fieldname": "started_time",
+            "fieldtype": "Datetime",
+            "label": "Started Time"
+        },
+        {
+            "fieldname": "column_break_27",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "completed_time",
+            "fieldtype": "Datetime",
+            "label": "Completed Time"
+        },
+        {
+            "fieldname": "actual_time_minutes",
+            "fieldtype": "Int",
+            "label": "Actual Time (Minutes)"
+        },
+        {
+            "fieldname": "technician_assigned",
+            "fieldtype": "Link",
+            "label": "Technician Assigned",
+            "options": "User"
+        }
+    ],
+    "icon": "fa fa-list-ol",
+    "istable": 1,
+    "links": [],
+    "modified": "2025-06-20 19:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Scrap Management",
+    "name": "Disassembly Step",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "step_number",
+    "sort_order": "ASC",
+    "states": [],
+    "track_changes": 1
+}

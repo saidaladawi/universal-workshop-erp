@@ -1,0 +1,99 @@
+{
+  "test_summary": {
+    "duration_seconds": 8.996403,
+    "start_time": "2025-06-25T13:25:10.198948",
+    "session_success_rate": 0.0,
+    "average_response_time": 0,
+    "average_timeout_time": 0
+  },
+  "results": {
+    "session_creation": {
+      "success": 0,
+      "failed": 8,
+      "response_times": []
+    },
+    "session_persistence": {
+      "success": 0,
+      "failed": 0
+    },
+    "session_timeout": {
+      "success": 0,
+      "failed": 3,
+      "timeout_times": []
+    },
+    "session_expiration": {
+      "success": 0,
+      "failed": 2
+    },
+    "concurrent_sessions": {
+      "success": 0,
+      "failed": 1
+    },
+    "arabic_interface": {
+      "success": 0,
+      "failed": 1
+    },
+    "english_interface": {
+      "success": 0,
+      "failed": 1
+    },
+    "errors": [
+      {
+        "phase": "session_creation",
+        "error": "Login page not accessible",
+        "user": "workshop_owner@universal.local",
+        "timestamp": "2025-06-25T13:25:14.195323"
+      },
+      {
+        "phase": "session_creation",
+        "error": "Login page not accessible",
+        "user": "workshop_manager@universal.local",
+        "timestamp": "2025-06-25T13:25:14.213750"
+      },
+      {
+        "phase": "session_creation",
+        "error": "Login page not accessible",
+        "user": "workshop_manager@universal.local",
+        "timestamp": "2025-06-25T13:25:14.213838"
+      },
+      {
+        "phase": "session_creation",
+        "error": "Login page not accessible",
+        "user": "customer@universal.local",
+        "timestamp": "2025-06-25T13:25:14.217012"
+      },
+      {
+        "phase": "session_creation",
+        "error": "Login page not accessible",
+        "user": "customer@universal.local",
+        "timestamp": "2025-06-25T13:25:14.235133"
+      },
+      {
+        "phase": "session_creation",
+        "error": "Login page not accessible",
+        "user": "technician@universal.local",
+        "timestamp": "2025-06-25T13:25:14.245436"
+      },
+      {
+        "phase": "session_creation",
+        "error": "Login page not accessible",
+        "user": "technician@universal.local",
+        "timestamp": "2025-06-25T13:25:14.247391"
+      },
+      {
+        "phase": "session_creation",
+        "error": "Login page not accessible",
+        "user": "workshop_owner@universal.local",
+        "timestamp": "2025-06-25T13:25:14.248911"
+      }
+    ],
+    "session_analytics": {}
+  },
+  "recommendations": [
+    "Session creation success rate (0.0%) below 95% - investigate authentication issues",
+    "Session timeout testing failed - verify timeout configuration and handling",
+    "Arabic interface session management issues detected - verify RTL support and Arabic session handling",
+    "English interface session management issues detected - verify session handling consistency",
+    "Error rate (8/13) exceeds 10% - investigate system stability"
+  ]
+}

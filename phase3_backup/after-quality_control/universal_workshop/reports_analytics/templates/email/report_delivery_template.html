@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="{{ language or 'en' }}" dir="{{ 'rtl' if language == 'ar' else 'ltr' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ _("Scheduled Report Delivery") }}</title>
+    <style>
+        body {
+            font-family: {{ "'Noto Sans Arabic', " if language == 'ar' else "'Segoe UI', " }}Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            direction: {{ 'rtl' if language == 'ar' else 'ltr' }};
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .header .workshop-name {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .report-info {
+            background-color: #f8f9ff;
+            border: 1px solid #e1e5f2;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .report-info h2 {
+            color: #5a67d8;
+            margin-top: 0;
+            font-size: 18px;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            padding: 8px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: #4a5568;
+            {{ 'margin-left' if language == 'ar' else 'margin-right' }}: 10px;
+        }
+        
+        .info-value {
+            color: #2d3748;
+            {{ 'text-align: left' if language == 'ar' else 'text-align: right' }};
+        }
+        
+        .attachment-info {
+            background-color: #edf2f7;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .attachment-icon {
+            font-size: 48px;
+            color: #4299e1;
+            margin-bottom: 10px;
+        }
+        
+        .download-btn {
+            background-color: #4299e1;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .download-btn:hover {
+            background-color: #3182ce;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .instructions {
+            background-color: #fffbf0;
+            border: 1px solid #fbd38d;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .instructions h3 {
+            color: #c05621;
+            margin-top: 0;
+            font-size: 16px;
+        }
+        
+        .instructions ul {
+            margin: 10px 0;
+            {{ 'padding-right' if language == 'ar' else 'padding-left' }}: 20px;
+        }
+        
+        .footer {
+            background-color: #f7fafc;
+            padding: 20px 30px;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            color: #718096;
+            font-size: 12px;
+        }
+        
+        .footer a {
+            color: #4299e1;
+            text-decoration: none;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .status-success {
+            background-color: #c6f6d5;
+            color: #22543d;
+        }
+        
+        .status-warning {
+            background-color: #fef5e7;
+            color: #c05621;
+        }
+        
+        .status-error {
+            background-color: #fed7d7;
+            color: #c53030;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                border-radius: 0;
+            }
+            
+            .header, .content, .footer {
+                padding: 20px;
+            }
+            
+            .info-row {
+                flex-direction: column;
+            }
+            
+            .info-value {
+                text-align: {{ 'right' if language == 'ar' else 'left' }};
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>{{ report_name }}</h1>
+            <div class="workshop-name">{{ workshop_name or _("Universal Workshop") }}</div>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <!-- Greeting -->
+            <p>{{ _("Dear Valued User") }},</p>
+            
+            <p>
+                {% if language == 'ar' %}
+                    تم إنشاء التقرير المجدول الخاص بك بنجاح وهو جاهز للمراجعة.
+                {% else %}
+                    Your scheduled report has been successfully generated and is ready for your review.
+                {% endif %}
+            </p>
+            
+            <!-- Report Information -->
+            <div class="report-info">
+                <h2>{{ _("Report Details") }}</h2>
+                
+                <div class="info-row">
+                    <span class="info-label">{{ _("Report Name") }}:</span>
+                    <span class="info-value">{{ report_name }}</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">{{ _("Generated On") }}:</span>
+                    <span class="info-value">{{ execution_time.strftime('%d-%m-%Y %H:%M') if execution_time else '' }}</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">{{ _("Report Format") }}:</span>
+                    <span class="info-value">{{ report_format }}</span>
+                </div>
+                
+                {% if rows_generated %}
+                <div class="info-row">
+                    <span class="info-label">{{ _("Records Generated") }}:</span>
+                    <span class="info-value">{{ "{:,}".format(rows_generated) }}</span>
+                </div>
+                {% endif %}
+                
+                {% if file_size %}
+                <div class="info-row">
+                    <span class="info-label">{{ _("File Size") }}:</span>
+                    <span class="info-value">{{ file_size }}</span>
+                </div>
+                {% endif %}
+                
+                <div class="info-row">
+                    <span class="info-label">{{ _("Status") }}:</span>
+                    <span class="info-value">
+                        <span class="status-badge status-success">{{ _("Completed") }}</span>
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Attachment Information -->
+            {% if attach_report %}
+            <div class="attachment-info">
+                <div class="attachment-icon">📊</div>
+                <h3>{{ _("Report Attachment") }}</h3>
+                <p>
+                    {% if language == 'ar' %}
+                        تم إرفاق ملف التقرير مع هذا البريد الإلكتروني.
+                    {% else %}
+                        The report file has been attached to this email.
+                    {% endif %}
+                </p>
+                
+                {% if download_url %}
+                <a href="{{ download_url }}" class="download-btn">
+                    {{ _("Download Report") }}
+                </a>
+                {% endif %}
+            </div>
+            {% endif %}
+            
+            <!-- Instructions -->
+            <div class="instructions">
+                <h3>{{ _("Important Notes") }}</h3>
+                <ul>
+                    <li>
+                        {% if language == 'ar' %}
+                            هذا التقرير تم إنشاؤه تلقائياً وفقاً للجدولة المحددة
+                        {% else %}
+                            This report was generated automatically according to your scheduled settings
+                        {% endif %}
+                    </li>
+                    <li>
+                        {% if language == 'ar' %}
+                            يرجى مراجعة البيانات والتأكد من دقتها
+                        {% else %}
+                            Please review the data and verify its accuracy
+                        {% endif %}
+                    </li>
+                    <li>
+                        {% if language == 'ar' %}
+                            في حالة وجود أي استفسارات، يرجى التواصل مع فريق الدعم
+                        {% else %}
+                            If you have any questions, please contact our support team
+                        {% endif %}
+                    </li>
+                    {% if file_expiry_date %}
+                    <li>
+                        {% if language == 'ar' %}
+                            سيتم حذف ملف التقرير تلقائياً في {{ file_expiry_date.strftime('%d-%m-%Y') }}
+                        {% else %}
+                            Report file will be automatically deleted on {{ file_expiry_date.strftime('%d-%m-%Y') }}
+                        {% endif %}
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            
+            <!-- Custom Message -->
+            {% if custom_message %}
+            <div style="margin: 20px 0; padding: 15px; background-color: #f0f4f8; border-radius: 6px;">
+                {{ custom_message | safe }}
+            </div>
+            {% endif %}
+            
+            <!-- Closing -->
+            <p>
+                {% if language == 'ar' %}
+                    شكراً لكم على استخدام نظام إدارة الورش.<br>
+                    مع أطيب التحيات،<br>
+                    فريق النظام
+                {% else %}
+                    Thank you for using Universal Workshop ERP.<br>
+                    Best regards,<br>
+                    System Team
+                {% endif %}
+            </p>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>
+                {% if language == 'ar' %}
+                    هذا بريد إلكتروني تلقائي، يرجى عدم الرد عليه مباشرة.
+                    <br>
+                    للمزيد من المعلومات، قم بزيارة 
+                    <a href="{{ company_website or '#' }}">موقعنا الإلكتروني</a>
+                {% else %}
+                    This is an automated email, please do not reply directly.
+                    <br>
+                    For more information, visit our 
+                    <a href="{{ company_website or '#' }}">website</a>
+                {% endif %}
+            </p>
+            
+            <p style="margin-top: 10px; color: #a0aec0; font-size: 11px;">
+                Universal Workshop ERP © {{ current_year }} | 
+                {% if language == 'ar' %}
+                    نظام إدارة الورش الشامل
+                {% else %}
+                    Comprehensive Workshop Management System
+                {% endif %}
+            </p>
+        </div>
+    </div>
+</body>
+</html> 

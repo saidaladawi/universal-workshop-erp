@@ -1,0 +1,254 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2024-01-15 10:30:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "basic_info_section",
+        "item_code",
+        "item_name",
+        "item_name_ar",
+        "column_break_4",
+        "service_estimate",
+        "customer",
+        "service_type",
+        "feedback_section",
+        "was_useful",
+        "feedback_reason",
+        "user_notes",
+        "column_break_9",
+        "confidence_score",
+        "suggestion_reason",
+        "availability_status",
+        "metadata_section",
+        "user",
+        "feedback_date",
+        "column_break_15",
+        "ip_address",
+        "user_agent",
+        "processing_info_section",
+        "is_processed",
+        "processed_date",
+        "column_break_20",
+        "ml_training_weight",
+        "feedback_score"
+    ],
+    "fields": [
+        {
+            "fieldname": "basic_info_section",
+            "fieldtype": "Section Break",
+            "label": "Basic Information"
+        },
+        {
+            "fieldname": "item_code",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Item Code",
+            "options": "Item",
+            "reqd": 1
+        },
+        {
+            "fetch_from": "item_code.item_name",
+            "fieldname": "item_name",
+            "fieldtype": "Data",
+            "label": "Item Name",
+            "read_only": 1
+        },
+        {
+            "fetch_from": "item_code.item_name_ar",
+            "fieldname": "item_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم الصنف",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_4",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "service_estimate",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Service Estimate",
+            "options": "Service Estimate",
+            "reqd": 1
+        },
+        {
+            "fetch_from": "service_estimate.customer",
+            "fieldname": "customer",
+            "fieldtype": "Link",
+            "label": "Customer",
+            "options": "Customer",
+            "read_only": 1
+        },
+        {
+            "fetch_from": "service_estimate.service_type",
+            "fieldname": "service_type",
+            "fieldtype": "Data",
+            "label": "Service Type",
+            "read_only": 1
+        },
+        {
+            "fieldname": "feedback_section",
+            "fieldtype": "Section Break",
+            "label": "Feedback Details"
+        },
+        {
+            "default": "1",
+            "fieldname": "was_useful",
+            "fieldtype": "Check",
+            "in_list_view": 1,
+            "label": "Was Useful"
+        },
+        {
+            "fieldname": "feedback_reason",
+            "fieldtype": "Select",
+            "label": "Feedback Reason",
+            "options": "\nRelevant to Service\nCorrect Vehicle Match\nIn Stock\nGood Price\nCustomer Preference\nNot Relevant\nWrong Vehicle\nOut of Stock\nToo Expensive\nPoor Quality\nOther"
+        },
+        {
+            "fieldname": "user_notes",
+            "fieldtype": "Text",
+            "label": "User Notes"
+        },
+        {
+            "fieldname": "column_break_9",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "confidence_score",
+            "fieldtype": "Float",
+            "label": "Original Confidence Score",
+            "precision": "3",
+            "read_only": 1
+        },
+        {
+            "fieldname": "suggestion_reason",
+            "fieldtype": "Data",
+            "label": "Suggestion Reason",
+            "read_only": 1
+        },
+        {
+            "fieldname": "availability_status",
+            "fieldtype": "Select",
+            "label": "Availability Status",
+            "options": "In Stock\nLow Stock\nOut of Stock",
+            "read_only": 1
+        },
+        {
+            "fieldname": "metadata_section",
+            "fieldtype": "Section Break",
+            "label": "Metadata"
+        },
+        {
+            "default": "user",
+            "fieldname": "user",
+            "fieldtype": "Link",
+            "label": "User",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "default": "now",
+            "fieldname": "feedback_date",
+            "fieldtype": "Datetime",
+            "in_list_view": 1,
+            "label": "Feedback Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_15",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "ip_address",
+            "fieldtype": "Data",
+            "label": "IP Address",
+            "read_only": 1
+        },
+        {
+            "fieldname": "user_agent",
+            "fieldtype": "Text",
+            "label": "User Agent",
+            "read_only": 1
+        },
+        {
+            "fieldname": "processing_info_section",
+            "fieldtype": "Section Break",
+            "label": "Processing Information"
+        },
+        {
+            "default": "0",
+            "fieldname": "is_processed",
+            "fieldtype": "Check",
+            "label": "Is Processed for ML Training"
+        },
+        {
+            "fieldname": "processed_date",
+            "fieldtype": "Datetime",
+            "label": "Processed Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_20",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "1.0",
+            "description": "Weight factor for ML training (1.0 = normal, 0.5 = low confidence, 2.0 = high confidence)",
+            "fieldname": "ml_training_weight",
+            "fieldtype": "Float",
+            "label": "ML Training Weight",
+            "precision": "2"
+        },
+        {
+            "description": "Calculated feedback score for ranking (-1 to +1)",
+            "fieldname": "feedback_score",
+            "fieldtype": "Float",
+            "label": "Feedback Score",
+            "precision": "3",
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2024-01-15 10:30:00.000000",
+    "modified_by": "Administrator",
+    "module": "Sales Service",
+    "name": "Parts Suggestion Feedback",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Service Advisor",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "read": 1,
+            "role": "Technician"
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1
+}

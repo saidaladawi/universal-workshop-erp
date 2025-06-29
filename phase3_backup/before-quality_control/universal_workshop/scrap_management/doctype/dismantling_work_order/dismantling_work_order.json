@@ -1,0 +1,631 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 1,
+    "allow_guest_to_view": 0,
+    "allow_import": 0,
+    "allow_rename": 0,
+    "autoname": "naming_series:",
+    "beta": 0,
+    "creation": "2024-01-15 10:00:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "document_type": "Document",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "basic_information_section",
+        "naming_series",
+        "work_order_name",
+        "work_order_name_ar",
+        "scrap_vehicle",
+        "dismantling_bom",
+        "column_break_1",
+        "work_order_date",
+        "planned_start_date",
+        "planned_completion_date",
+        "actual_start_date",
+        "actual_completion_date",
+        "status",
+        "priority",
+        "vehicle_details_section",
+        "vehicle_vin",
+        "vehicle_make",
+        "vehicle_model",
+        "vehicle_year",
+        "column_break_2",
+        "vehicle_condition",
+        "acquisition_cost",
+        "estimated_completion_hours",
+        "actual_completion_hours",
+        "team_assignment_section",
+        "assigned_technician",
+        "supervising_technician",
+        "team_members",
+        "column_break_3",
+        "workstation",
+        "shift",
+        "safety_briefing_completed",
+        "ppe_verification_completed",
+        "operations_tracking_section",
+        "dismantling_operations",
+        "parts_extraction_section",
+        "extracted_parts",
+        "financial_tracking_section",
+        "total_labor_cost",
+        "total_disposal_cost",
+        "total_storage_cost",
+        "total_operating_cost",
+        "column_break_4",
+        "total_parts_value",
+        "total_refurbishment_cost",
+        "estimated_revenue",
+        "estimated_profit",
+        "roi_percentage",
+        "compliance_section",
+        "environmental_compliance_check",
+        "hazmat_disposal_completed",
+        "regulatory_documentation",
+        "column_break_5",
+        "waste_disposal_reference",
+        "compliance_notes",
+        "compliance_notes_ar",
+        "progress_tracking_section",
+        "completion_percentage",
+        "operations_completed",
+        "operations_total",
+        "parts_extracted",
+        "parts_total",
+        "column_break_6",
+        "quality_checks_passed",
+        "safety_incidents",
+        "delays_encountered",
+        "notes_section",
+        "work_order_notes",
+        "work_order_notes_ar",
+        "internal_notes",
+        "completion_report",
+        "completion_report_ar",
+        "metadata_section",
+        "created_by",
+        "created_date",
+        "modified_by",
+        "modified_date",
+        "workflow_state"
+    ],
+    "fields": [
+        {
+            "fieldname": "basic_information_section",
+            "fieldtype": "Section Break",
+            "label": "Basic Information"
+        },
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "DWO-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "fieldname": "work_order_name",
+            "fieldtype": "Data",
+            "label": "Work Order Name",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "work_order_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم أمر العمل",
+            "translatable": 1
+        },
+        {
+            "fieldname": "scrap_vehicle",
+            "fieldtype": "Link",
+            "label": "Scrap Vehicle",
+            "options": "Scrap Vehicle",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "dismantling_bom",
+            "fieldtype": "Link",
+            "label": "Dismantling BOM",
+            "options": "Vehicle Dismantling BOM",
+            "description": "BOM template for dismantling operations"
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "work_order_date",
+            "fieldtype": "Date",
+            "label": "Work Order Date",
+            "default": "Today",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "planned_start_date",
+            "fieldtype": "Datetime",
+            "label": "Planned Start Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "planned_completion_date",
+            "fieldtype": "Datetime",
+            "label": "Planned Completion Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "actual_start_date",
+            "fieldtype": "Datetime",
+            "label": "Actual Start Date"
+        },
+        {
+            "fieldname": "actual_completion_date",
+            "fieldtype": "Datetime",
+            "label": "Actual Completion Date"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "\nDraft\nScheduled\nIn Progress\nOn Hold\nCompleted\nCancelled",
+            "default": "Draft",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "priority",
+            "fieldtype": "Select",
+            "label": "Priority",
+            "options": "\nLow\nMedium\nHigh\nUrgent",
+            "default": "Medium",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "vehicle_details_section",
+            "fieldtype": "Section Break",
+            "label": "Vehicle Details"
+        },
+        {
+            "fieldname": "vehicle_vin",
+            "fieldtype": "Data",
+            "label": "Vehicle VIN",
+            "description": "Vehicle Identification Number"
+        },
+        {
+            "fieldname": "vehicle_make",
+            "fieldtype": "Data",
+            "label": "Vehicle Make",
+            "reqd": 1
+        },
+        {
+            "fieldname": "vehicle_model",
+            "fieldtype": "Data",
+            "label": "Vehicle Model",
+            "reqd": 1
+        },
+        {
+            "fieldname": "vehicle_year",
+            "fieldtype": "Int",
+            "label": "Vehicle Year"
+        },
+        {
+            "fieldname": "column_break_2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "vehicle_condition",
+            "fieldtype": "Select",
+            "label": "Vehicle Condition",
+            "options": "\nA - Like New\nB - Excellent\nC - Good\nD - Fair\nE - Poor\nF - Scrap Only",
+            "default": "F - Scrap Only"
+        },
+        {
+            "fieldname": "acquisition_cost",
+            "fieldtype": "Currency",
+            "label": "Acquisition Cost (OMR)",
+            "precision": 3,
+            "default": 0
+        },
+        {
+            "fieldname": "estimated_completion_hours",
+            "fieldtype": "Float",
+            "label": "Estimated Completion Hours",
+            "precision": 1
+        },
+        {
+            "fieldname": "actual_completion_hours",
+            "fieldtype": "Float",
+            "label": "Actual Completion Hours",
+            "precision": 1
+        },
+        {
+            "fieldname": "team_assignment_section",
+            "fieldtype": "Section Break",
+            "label": "Team Assignment"
+        },
+        {
+            "fieldname": "assigned_technician",
+            "fieldtype": "Link",
+            "label": "Assigned Technician",
+            "options": "Employee",
+            "reqd": 1
+        },
+        {
+            "fieldname": "supervising_technician",
+            "fieldtype": "Link",
+            "label": "Supervising Technician",
+            "options": "Employee"
+        },
+        {
+            "fieldname": "team_members",
+            "fieldtype": "Table",
+            "label": "Team Members",
+            "options": "Dismantling Team Member"
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "workstation",
+            "fieldtype": "Link",
+            "label": "Workstation",
+            "options": "Workstation"
+        },
+        {
+            "fieldname": "shift",
+            "fieldtype": "Select",
+            "label": "Shift",
+            "options": "\nMorning\nAfternoon\nEvening\nNight"
+        },
+        {
+            "fieldname": "safety_briefing_completed",
+            "fieldtype": "Check",
+            "label": "Safety Briefing Completed"
+        },
+        {
+            "fieldname": "ppe_verification_completed",
+            "fieldtype": "Check",
+            "label": "PPE Verification Completed"
+        },
+        {
+            "fieldname": "operations_tracking_section",
+            "fieldtype": "Section Break",
+            "label": "Operations Tracking"
+        },
+        {
+            "fieldname": "dismantling_operations",
+            "fieldtype": "Table",
+            "label": "Dismantling Operations",
+            "options": "Dismantling Work Order Operation"
+        },
+        {
+            "fieldname": "parts_extraction_section",
+            "fieldtype": "Section Break",
+            "label": "Parts Extraction"
+        },
+        {
+            "fieldname": "extracted_parts",
+            "fieldtype": "Table",
+            "label": "Extracted Parts",
+            "options": "Dismantling Work Order Part"
+        },
+        {
+            "fieldname": "financial_tracking_section",
+            "fieldtype": "Section Break",
+            "label": "Financial Tracking"
+        },
+        {
+            "fieldname": "total_labor_cost",
+            "fieldtype": "Currency",
+            "label": "Total Labor Cost (OMR)",
+            "precision": 3,
+            "default": 0,
+            "read_only": 1
+        },
+        {
+            "fieldname": "total_disposal_cost",
+            "fieldtype": "Currency",
+            "label": "Total Disposal Cost (OMR)",
+            "precision": 3,
+            "default": 0,
+            "read_only": 1
+        },
+        {
+            "fieldname": "total_storage_cost",
+            "fieldtype": "Currency",
+            "label": "Total Storage Cost (OMR)",
+            "precision": 3,
+            "default": 0,
+            "read_only": 1
+        },
+        {
+            "fieldname": "total_operating_cost",
+            "fieldtype": "Currency",
+            "label": "Total Operating Cost (OMR)",
+            "precision": 3,
+            "default": 0,
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_4",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "total_parts_value",
+            "fieldtype": "Currency",
+            "label": "Total Parts Value (OMR)",
+            "precision": 3,
+            "default": 0,
+            "read_only": 1
+        },
+        {
+            "fieldname": "total_refurbishment_cost",
+            "fieldtype": "Currency",
+            "label": "Total Refurbishment Cost (OMR)",
+            "precision": 3,
+            "default": 0,
+            "read_only": 1
+        },
+        {
+            "fieldname": "estimated_revenue",
+            "fieldtype": "Currency",
+            "label": "Estimated Revenue (OMR)",
+            "precision": 3,
+            "default": 0,
+            "read_only": 1
+        },
+        {
+            "fieldname": "estimated_profit",
+            "fieldtype": "Currency",
+            "label": "Estimated Profit (OMR)",
+            "precision": 3,
+            "default": 0,
+            "read_only": 1
+        },
+        {
+            "fieldname": "roi_percentage",
+            "fieldtype": "Percent",
+            "label": "ROI Percentage",
+            "read_only": 1
+        },
+        {
+            "fieldname": "compliance_section",
+            "fieldtype": "Section Break",
+            "label": "Environmental Compliance"
+        },
+        {
+            "fieldname": "environmental_compliance_check",
+            "fieldtype": "Check",
+            "label": "Environmental Compliance Check Completed"
+        },
+        {
+            "fieldname": "hazmat_disposal_completed",
+            "fieldtype": "Check",
+            "label": "Hazmat Disposal Completed"
+        },
+        {
+            "fieldname": "regulatory_documentation",
+            "fieldtype": "Small Text",
+            "label": "Regulatory Documentation"
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "waste_disposal_reference",
+            "fieldtype": "Data",
+            "label": "Waste Disposal Reference"
+        },
+        {
+            "fieldname": "compliance_notes",
+            "fieldtype": "Small Text",
+            "label": "Compliance Notes"
+        },
+        {
+            "fieldname": "compliance_notes_ar",
+            "fieldtype": "Small Text",
+            "label": "ملاحظات الامتثال",
+            "translatable": 1
+        },
+        {
+            "fieldname": "progress_tracking_section",
+            "fieldtype": "Section Break",
+            "label": "Progress Tracking"
+        },
+        {
+            "fieldname": "completion_percentage",
+            "fieldtype": "Percent",
+            "label": "Completion Percentage",
+            "read_only": 1
+        },
+        {
+            "fieldname": "operations_completed",
+            "fieldtype": "Int",
+            "label": "Operations Completed",
+            "read_only": 1
+        },
+        {
+            "fieldname": "operations_total",
+            "fieldtype": "Int",
+            "label": "Total Operations",
+            "read_only": 1
+        },
+        {
+            "fieldname": "parts_extracted",
+            "fieldtype": "Int",
+            "label": "Parts Extracted",
+            "read_only": 1
+        },
+        {
+            "fieldname": "parts_total",
+            "fieldtype": "Int",
+            "label": "Total Parts",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_6",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "quality_checks_passed",
+            "fieldtype": "Int",
+            "label": "Quality Checks Passed",
+            "default": 0
+        },
+        {
+            "fieldname": "safety_incidents",
+            "fieldtype": "Int",
+            "label": "Safety Incidents",
+            "default": 0
+        },
+        {
+            "fieldname": "delays_encountered",
+            "fieldtype": "Int",
+            "label": "Delays Encountered",
+            "default": 0
+        },
+        {
+            "fieldname": "notes_section",
+            "fieldtype": "Section Break",
+            "label": "Notes and Reports"
+        },
+        {
+            "fieldname": "work_order_notes",
+            "fieldtype": "Text",
+            "label": "Work Order Notes"
+        },
+        {
+            "fieldname": "work_order_notes_ar",
+            "fieldtype": "Text",
+            "label": "ملاحظات أمر العمل",
+            "translatable": 1
+        },
+        {
+            "fieldname": "internal_notes",
+            "fieldtype": "Text",
+            "label": "Internal Notes"
+        },
+        {
+            "fieldname": "completion_report",
+            "fieldtype": "Text",
+            "label": "Completion Report"
+        },
+        {
+            "fieldname": "completion_report_ar",
+            "fieldtype": "Text",
+            "label": "تقرير الإنجاز",
+            "translatable": 1
+        },
+        {
+            "fieldname": "metadata_section",
+            "fieldtype": "Section Break",
+            "label": "Metadata",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "created_date",
+            "fieldtype": "Date",
+            "label": "Created Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "modified_by",
+            "fieldtype": "Link",
+            "label": "Modified By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "modified_date",
+            "fieldtype": "Date",
+            "label": "Modified Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "workflow_state",
+            "fieldtype": "Link",
+            "label": "Workflow State",
+            "options": "Workflow State",
+            "read_only": 1
+        }
+    ],
+    "icon": "fa fa-cogs",
+    "idx": 0,
+    "in_create": 0,
+    "is_submittable": 1,
+    "issingle": 0,
+    "istable": 0,
+    "max_attachments": 10,
+    "modified": "2024-01-15 10:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Scrap Management",
+    "name": "Dismantling Work Order",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Supervisor",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 0,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician",
+            "share": 0,
+            "submit": 0,
+            "write": 1
+        }
+    ],
+    "quick_entry": 0,
+    "read_only": 0,
+    "read_only_onload": 0,
+    "search_fields": "work_order_name,scrap_vehicle,vehicle_make,vehicle_model,status",
+    "show_name_in_global_search": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "work_order_name",
+    "track_changes": 1,
+    "track_seen": 0,
+    "track_views": 0
+}

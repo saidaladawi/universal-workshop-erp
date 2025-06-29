@@ -1,0 +1,832 @@
+{% extends "templates/web.html" %}
+
+{% block title %}{{ _("Migration Dashboard") }}{% endblock %}
+
+{% block head_include %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+<style>
+/* Base Layout */
+.migration-dashboard {
+    min-height: 100vh;
+    background: #f8f9fa;
+    padding: 20px;
+}
+
+/* Arabic RTL Support */
+.rtl-layout {
+    direction: rtl;
+    text-align: right;
+    font-family: 'Tahoma', 'Arial Unicode MS', sans-serif;
+}
+
+.rtl-layout .navbar-nav {
+    flex-direction: row-reverse;
+}
+
+.rtl-layout .dashboard-grid {
+    direction: rtl;
+}
+
+.rtl-layout .card-body {
+    text-align: right;
+}
+
+.rtl-layout .btn-group {
+    direction: ltr; /* Keep buttons left-to-right */
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.dashboard-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.dashboard-subtitle {
+    color: #7f8c8d;
+    margin-top: 5px;
+}
+
+/* Control Panel */
+.control-panel {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.dashboard-selector {
+    min-width: 200px;
+}
+
+/* Grid Layout */
+.dashboard-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
+.grid-cols-12 { grid-template-columns: repeat(12, 1fr); }
+
+/* KPI Cards */
+.kpi-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+    border-left: 4px solid #3498db;
+}
+
+.kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.kpi-card.success { border-left-color: #27ae60; }
+.kpi-card.warning { border-left-color: #f39c12; }
+.kpi-card.danger { border-left-color: #e74c3c; }
+.kpi-card.info { border-left-color: #3498db; }
+
+.kpi-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.kpi-value.success { color: #27ae60; }
+.kpi-value.warning { color: #f39c12; }
+.kpi-value.danger { color: #e74c3c; }
+.kpi-value.info { color: #3498db; }
+
+.kpi-title {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.kpi-trend {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    font-size: 0.85rem;
+}
+
+.trend-up { color: #27ae60; }
+.trend-down { color: #e74c3c; }
+
+/* Chart Containers */
+.chart-container {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    height: 400px;
+    position: relative;
+}
+
+.chart-container.small { height: 250px; }
+.chart-container.medium { height: 350px; }
+.chart-container.large { height: 500px; }
+.chart-container.extra-large { height: 600px; }
+
+.chart-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.chart-canvas {
+    width: 100% !important;
+    height: calc(100% - 50px) !important;
+}
+
+/* Loading States */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Status Indicators */
+.status-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.status-success { background-color: #27ae60; }
+.status-warning { background-color: #f39c12; }
+.status-danger { background-color: #e74c3c; }
+.status-info { background-color: #3498db; }
+
+/* Notifications */
+.notification-panel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 350px;
+    z-index: 1000;
+}
+
+.rtl-layout .notification-panel {
+    left: 20px;
+    right: auto;
+}
+
+.notification-item {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-left: 4px solid #3498db;
+    animation: slideIn 0.3s ease;
+}
+
+.notification-item.warning { border-left-color: #f39c12; }
+.notification-item.error { border-left-color: #e74c3c; }
+.notification-item.success { border-left-color: #27ae60; }
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(100%); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Error States */
+.error-container {
+    background: #ffeaea;
+    border: 1px solid #e74c3c;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    color: #c0392b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .migration-dashboard {
+        padding: 10px;
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .dashboard-title {
+        font-size: 1.5rem;
+    }
+    
+    .kpi-value {
+        font-size: 2rem;
+    }
+    
+    .chart-container {
+        height: 300px;
+    }
+    
+    .control-panel {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .notification-panel {
+        width: calc(100% - 20px);
+        left: 10px;
+        right: 10px;
+    }
+}
+
+/* Dark Theme Support */
+@media (prefers-color-scheme: dark) {
+    .migration-dashboard {
+        background: #1a1a1a;
+        color: white;
+    }
+    
+    .dashboard-header,
+    .control-panel,
+    .kpi-card,
+    .chart-container {
+        background: #2d2d2d;
+        color: white;
+    }
+    
+    .dashboard-title {
+        color: white;
+    }
+    
+    .kpi-title {
+        color: #bbb;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .control-panel,
+    .notification-panel {
+        display: none;
+    }
+    
+    .migration-dashboard {
+        background: white;
+        color: black;
+    }
+    
+    .kpi-card,
+    .chart-container {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="migration-dashboard {{ 'rtl-layout' if is_arabic else '' }}">
+    <!-- Dashboard Header -->
+    <div class="dashboard-header">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h1 class="dashboard-title">
+                    {{ _("Migration Progress Dashboard") }}
+                </h1>
+                <p class="dashboard-subtitle">
+                    {{ _("Real-time monitoring of data migration processes") }}
+                </p>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="status-indicator status-success" id="connection-status"></div>
+                <span class="small text-muted" id="last-update">{{ _("Loading...") }}</span>
+                <button class="btn btn-outline-primary btn-sm" id="refresh-btn">
+                    <i class="fas fa-sync-alt"></i> {{ _("Refresh") }}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Control Panel -->
+    <div class="control-panel">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+            <div class="d-flex align-items-center gap-3">
+                <label for="dashboard-select" class="form-label mb-0">{{ _("Dashboard") }}:</label>
+                <select class="form-select dashboard-selector" id="dashboard-select">
+                    {% for dashboard in dashboards %}
+                    <option value="{{ dashboard.name }}" 
+                            {{ 'selected' if dashboard.name == default_dashboard else '' }}>
+                        {{ dashboard.dashboard_name_ar if is_arabic and dashboard.dashboard_name_ar else dashboard.dashboard_name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="d-flex align-items-center gap-3">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="auto-refresh" checked>
+                    <label class="form-check-label" for="auto-refresh">
+                        {{ _("Auto Refresh") }}
+                    </label>
+                </div>
+                
+                <select class="form-select" id="refresh-interval" style="width: auto;">
+                    <option value="30">30s</option>
+                    <option value="60">1m</option>
+                    <option value="300">5m</option>
+                    <option value="600">10m</option>
+                </select>
+                
+                {% if has_system_manager %}
+                <button class="btn btn-outline-secondary btn-sm" id="configure-btn">
+                    <i class="fas fa-cog"></i> {{ _("Configure") }}
+                </button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Dashboard Content -->
+    <div id="dashboard-content">
+        <!-- Loading State -->
+        <div class="text-center py-5" id="initial-loading">
+            <div class="loading-spinner mx-auto mb-3"></div>
+            <p class="text-muted">{{ _("Loading dashboard data...") }}</p>
+        </div>
+    </div>
+
+    <!-- Error State -->
+    <div class="error-container d-none" id="error-container">
+        <i class="fas fa-exclamation-triangle fa-2x mb-3"></i>
+        <h5>{{ _("Dashboard Load Error") }}</h5>
+        <p id="error-message"></p>
+        <button class="btn btn-primary" onclick="loadDashboard()">
+            {{ _("Retry") }}
+        </button>
+    </div>
+
+    <!-- Notification Panel -->
+    <div class="notification-panel" id="notification-panel"></div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+// Global Dashboard State
+let currentDashboard = '{{ default_dashboard }}';
+let autoRefreshInterval = null;
+let dashboardData = null;
+let chartInstances = {};
+
+// Initialize Dashboard
+document.addEventListener('DOMContentLoaded', function() {
+    initializeDashboard();
+    setupEventListeners();
+    loadDashboard();
+});
+
+function initializeDashboard() {
+    console.log('Initializing Migration Dashboard');
+    
+    // Set initial refresh interval
+    const refreshSelect = document.getElementById('refresh-interval');
+    refreshSelect.value = '30';
+    
+    // Setup auto-refresh if enabled
+    if (document.getElementById('auto-refresh').checked) {
+        startAutoRefresh();
+    }
+}
+
+function setupEventListeners() {
+    // Dashboard selector
+    document.getElementById('dashboard-select').addEventListener('change', function(e) {
+        currentDashboard = e.target.value;
+        loadDashboard();
+    });
+    
+    // Auto-refresh toggle
+    document.getElementById('auto-refresh').addEventListener('change', function(e) {
+        if (e.target.checked) {
+            startAutoRefresh();
+        } else {
+            stopAutoRefresh();
+        }
+    });
+    
+    // Refresh interval change
+    document.getElementById('refresh-interval').addEventListener('change', function(e) {
+        if (document.getElementById('auto-refresh').checked) {
+            stopAutoRefresh();
+            startAutoRefresh();
+        }
+    });
+    
+    // Manual refresh button
+    document.getElementById('refresh-btn').addEventListener('click', function() {
+        loadDashboard(true);
+    });
+    
+    // Configure button (if available)
+    const configureBtn = document.getElementById('configure-btn');
+    if (configureBtn) {
+        configureBtn.addEventListener('click', function() {
+            window.open(`/app/migration-dashboard/${currentDashboard}`, '_blank');
+        });
+    }
+}
+
+function startAutoRefresh() {
+    stopAutoRefresh(); // Clear any existing interval
+    
+    const interval = parseInt(document.getElementById('refresh-interval').value) * 1000;
+    autoRefreshInterval = setInterval(() => {
+        loadDashboard();
+    }, interval);
+    
+    console.log(`Auto-refresh started with ${interval/1000}s interval`);
+}
+
+function stopAutoRefresh() {
+    if (autoRefreshInterval) {
+        clearInterval(autoRefreshInterval);
+        autoRefreshInterval = null;
+        console.log('Auto-refresh stopped');
+    }
+}
+
+function loadDashboard(forceRefresh = false) {
+    if (!currentDashboard) {
+        showError('No dashboard selected');
+        return;
+    }
+    
+    console.log(`Loading dashboard: ${currentDashboard}`);
+    
+    // Show loading state
+    updateConnectionStatus('loading');
+    
+    // API endpoint - use refresh endpoint if force refresh requested
+    const endpoint = forceRefresh ? 'refresh_dashboard_data' : 'get_dashboard_data';
+    
+    frappe.call({
+        method: `universal_workshop.analytics_reporting.doctype.migration_dashboard.migration_dashboard.${endpoint}`,
+        args: {
+            dashboard_name: currentDashboard
+        },
+        callback: function(response) {
+            if (response.message && !response.message.error) {
+                dashboardData = response.message;
+                renderDashboard(dashboardData);
+                updateConnectionStatus('connected');
+                updateLastUpdateTime();
+                hideError();
+                
+                // Handle notifications
+                if (dashboardData.notifications && dashboardData.notifications.length > 0) {
+                    showNotifications(dashboardData.notifications);
+                }
+            } else {
+                showError(response.message?.error || 'Unknown error occurred');
+                updateConnectionStatus('error');
+            }
+        },
+        error: function(error) {
+            console.error('Dashboard load error:', error);
+            showError('Failed to load dashboard data');
+            updateConnectionStatus('error');
+        }
+    });
+}
+
+function renderDashboard(data) {
+    console.log('Rendering dashboard with data:', data);
+    
+    const content = document.getElementById('dashboard-content');
+    const loading = document.getElementById('initial-loading');
+    
+    // Hide loading
+    loading.style.display = 'none';
+    
+    // Clear existing content
+    content.innerHTML = '';
+    
+    // Create dashboard grid
+    const grid = document.createElement('div');
+    grid.className = `dashboard-grid grid-cols-${data.meta.layout_columns}`;
+    
+    // Render KPI cards
+    if (data.kpis && data.kpis.length > 0) {
+        data.kpis.forEach(kpi => {
+            const kpiCard = createKPICard(kpi);
+            grid.appendChild(kpiCard);
+        });
+    }
+    
+    // Render charts
+    if (data.charts && data.charts.length > 0) {
+        data.charts.forEach(chart => {
+            const chartContainer = createChartContainer(chart);
+            grid.appendChild(chartContainer);
+        });
+    }
+    
+    // Add error analysis if available
+    if (data.errors && data.errors.summary) {
+        const errorAnalysis = createErrorAnalysisCard(data.errors);
+        grid.appendChild(errorAnalysis);
+    }
+    
+    // Add performance metrics if available
+    if (data.performance) {
+        const performanceCard = createPerformanceCard(data.performance);
+        grid.appendChild(performanceCard);
+    }
+    
+    content.appendChild(grid);
+    
+    // Initialize charts after DOM is ready
+    setTimeout(() => {
+        initializeCharts(data.charts);
+    }, 100);
+}
+
+function createKPICard(kpi) {
+    const card = document.createElement('div');
+    card.className = `kpi-card ${kpi.status || 'info'}`;
+    
+    const isArabic = {{ 'true' if is_arabic else 'false' }};
+    const kpiName = isArabic && kpi.name_ar ? kpi.name_ar : kpi.name;
+    
+    card.innerHTML = `
+        <div class="kpi-title">${kpiName}</div>
+        <div class="kpi-value ${kpi.status || 'info'}">${kpi.formatted_value}</div>
+        ${kpi.trend ? `
+            <div class="kpi-trend">
+                <i class="fas fa-arrow-${kpi.trend.direction === 'up' ? 'up trend-up' : 'down trend-down'}"></i>
+                <span>${kpi.trend.percentage_change}% (${kpi.trend.trend_period}h)</span>
+            </div>
+        ` : ''}
+    `;
+    
+    return card;
+}
+
+function createChartContainer(chart) {
+    const container = document.createElement('div');
+    container.className = `chart-container ${chart.size?.toLowerCase() || 'medium'}`;
+    
+    const isArabic = {{ 'true' if is_arabic else 'false' }};
+    const chartName = isArabic && chart.name_ar ? chart.name_ar : chart.name;
+    
+    const chartId = `chart-${Math.random().toString(36).substr(2, 9)}`;
+    
+    container.innerHTML = `
+        <div class="chart-title">${chartName}</div>
+        <canvas id="${chartId}" class="chart-canvas"></canvas>
+        <div class="loading-overlay d-none" id="loading-${chartId}">
+            <div class="loading-spinner"></div>
+        </div>
+    `;
+    
+    container.dataset.chartId = chartId;
+    container.dataset.chartData = JSON.stringify(chart);
+    
+    return container;
+}
+
+function createErrorAnalysisCard(errorData) {
+    const card = document.createElement('div');
+    card.className = 'kpi-card danger';
+    
+    const summary = errorData.summary;
+    const totalErrors = summary.total_errors || 0;
+    const criticalPercent = summary.critical_percentage || 0;
+    
+    card.innerHTML = `
+        <div class="kpi-title">{{ _("Error Analysis") }}</div>
+        <div class="kpi-value danger">${totalErrors}</div>
+        <div class="small text-muted">
+            <div>{{ _("Critical") }}: ${criticalPercent.toFixed(1)}%</div>
+            <div>{{ _("Categories") }}: ${summary.unique_categories || 0}</div>
+        </div>
+        ${errorData.recommendations ? `
+            <div class="mt-2">
+                <small class="text-warning">
+                    <i class="fas fa-lightbulb"></i> 
+                    ${errorData.recommendations.slice(0, 1).join('. ')}
+                </small>
+            </div>
+        ` : ''}
+    `;
+    
+    return card;
+}
+
+function createPerformanceCard(performanceData) {
+    const card = document.createElement('div');
+    card.className = 'kpi-card info';
+    
+    const avgThroughput = performanceData.avg_throughput || 0;
+    const avgDuration = performanceData.avg_duration || 0;
+    const avgMemory = performanceData.avg_memory_usage || 0;
+    
+    card.innerHTML = `
+        <div class="kpi-title">{{ _("Performance Metrics") }}</div>
+        <div class="kpi-value info">${avgThroughput.toFixed(1)}</div>
+        <div class="small text-muted">{{ _("Records/Second") }}</div>
+        <div class="mt-2 small">
+            <div>{{ _("Avg Duration") }}: ${(avgDuration/60).toFixed(1)}m</div>
+            <div>{{ _("Memory Usage") }}: ${avgMemory.toFixed(0)} MB</div>
+        </div>
+    `;
+    
+    return card;
+}
+
+function initializeCharts(charts) {
+    if (!charts || charts.length === 0) return;
+    
+    charts.forEach(chart => {
+        const containers = document.querySelectorAll(`[data-chart-data*="${chart.name}"]`);
+        
+        containers.forEach(container => {
+            const chartId = container.dataset.chartId;
+            const canvas = document.getElementById(chartId);
+            
+            if (canvas && chart.data) {
+                try {
+                    const ctx = canvas.getContext('2d');
+                    
+                    // Clear any existing chart
+                    if (chartInstances[chartId]) {
+                        chartInstances[chartId].destroy();
+                    }
+                    
+                    // Create new chart
+                    chartInstances[chartId] = new Chart(ctx, {
+                        type: chart.type.toLowerCase(),
+                        data: chart.data,
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    display: true,
+                                    position: 'bottom'
+                                }
+                            },
+                            scales: chart.config?.scales || {}
+                        }
+                    });
+                } catch (error) {
+                    console.error(`Failed to create chart ${chartId}:`, error);
+                    container.innerHTML = `
+                        <div class="error-container">
+                            <i class="fas fa-chart-bar fa-2x mb-2"></i>
+                            <div>{{ _("Chart Error") }}</div>
+                            <small>${error.message}</small>
+                        </div>
+                    `;
+                }
+            }
+        });
+    });
+}
+
+function updateConnectionStatus(status) {
+    const indicator = document.getElementById('connection-status');
+    
+    indicator.className = 'status-indicator';
+    
+    switch(status) {
+        case 'connected':
+            indicator.classList.add('status-success');
+            break;
+        case 'loading':
+            indicator.classList.add('status-info');
+            break;
+        case 'error':
+            indicator.classList.add('status-danger');
+            break;
+        default:
+            indicator.classList.add('status-warning');
+    }
+}
+
+function updateLastUpdateTime() {
+    const lastUpdate = document.getElementById('last-update');
+    lastUpdate.textContent = moment().format('{{ _("LT") }}');
+}
+
+function showError(message) {
+    const errorContainer = document.getElementById('error-container');
+    const errorMessage = document.getElementById('error-message');
+    const content = document.getElementById('dashboard-content');
+    const loading = document.getElementById('initial-loading');
+    
+    errorMessage.textContent = message;
+    errorContainer.classList.remove('d-none');
+    content.style.display = 'none';
+    loading.style.display = 'none';
+}
+
+function hideError() {
+    const errorContainer = document.getElementById('error-container');
+    const content = document.getElementById('dashboard-content');
+    
+    errorContainer.classList.add('d-none');
+    content.style.display = 'block';
+}
+
+function showNotifications(notifications) {
+    const panel = document.getElementById('notification-panel');
+    
+    notifications.forEach(notification => {
+        const item = document.createElement('div');
+        item.className = `notification-item ${notification.type}`;
+        
+        item.innerHTML = `
+            <div class="d-flex justify-content-between align-items-start">
+                <div>
+                    <h6 class="mb-1">${notification.title}</h6>
+                    <p class="mb-0 small">${notification.message}</p>
+                    <small class="text-muted">${moment(notification.timestamp).format('LT')}</small>
+                </div>
+                <button class="btn-close btn-sm" onclick="this.parentElement.parentElement.remove()"></button>
+            </div>
+        `;
+        
+        panel.appendChild(item);
+        
+        // Auto-remove after 10 seconds
+        setTimeout(() => {
+            if (item.parentElement) {
+                item.remove();
+            }
+        }, 10000);
+    });
+}
+
+// Cleanup on page unload
+window.addEventListener('beforeunload', function() {
+    stopAutoRefresh();
+    
+    // Destroy chart instances
+    Object.values(chartInstances).forEach(chart => {
+        if (chart && chart.destroy) {
+            chart.destroy();
+        }
+    });
+});
+</script>
+{% endblock %} 

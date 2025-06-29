@@ -1,0 +1,125 @@
+{
+    "actions": [],
+    "creation": "2024-06-23 08:00:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "item_code",
+        "item_name",
+        "item_name_ar",
+        "description",
+        "description_ar",
+        "column_break_5",
+        "qty",
+        "uom",
+        "rate",
+        "amount",
+        "section_break_10",
+        "technician",
+        "estimated_hours",
+        "hourly_rate"
+    ],
+    "fields": [
+        {
+            "fieldname": "item_code",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Item Code",
+            "options": "Item",
+            "reqd": 1
+        },
+        {
+            "fieldname": "item_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Item Name",
+            "read_only": 1
+        },
+        {
+            "fieldname": "item_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم الخدمة",
+            "read_only": 1
+        },
+        {
+            "fieldname": "description",
+            "fieldtype": "Text",
+            "label": "Description"
+        },
+        {
+            "fieldname": "description_ar",
+            "fieldtype": "Text",
+            "label": "الوصف"
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "1",
+            "fieldname": "qty",
+            "fieldtype": "Float",
+            "in_list_view": 1,
+            "label": "Quantity",
+            "precision": "2",
+            "reqd": 1
+        },
+        {
+            "fieldname": "uom",
+            "fieldtype": "Link",
+            "label": "UOM",
+            "options": "UOM"
+        },
+        {
+            "fieldname": "rate",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Rate",
+            "options": "OMR",
+            "reqd": 1
+        },
+        {
+            "fieldname": "amount",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Amount",
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_10",
+            "fieldtype": "Section Break",
+            "label": "Labor Details"
+        },
+        {
+            "fieldname": "technician",
+            "fieldtype": "Link",
+            "label": "Assigned Technician",
+            "options": "Technician"
+        },
+        {
+            "fieldname": "estimated_hours",
+            "fieldtype": "Float",
+            "label": "Estimated Hours",
+            "precision": "2"
+        },
+        {
+            "fieldname": "hourly_rate",
+            "fieldtype": "Currency",
+            "label": "Hourly Rate",
+            "options": "OMR"
+        }
+    ],
+    "istable": 1,
+    "modified": "2024-06-23 08:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Sales Service",
+    "name": "Service Estimate Item",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

@@ -1,0 +1,79 @@
+{
+    "actions": [],
+    "creation": "2024-06-18 20:06:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "event_type",
+        "event_description",
+        "severity",
+        "column_break_3",
+        "timestamp",
+        "workshop_id",
+        "ip_address"
+    ],
+    "fields": [
+        {
+            "fieldname": "event_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Event Type",
+            "options": "Security Alert\nSystem Warning\nAccess Granted\nAccess Denied\nToken Expired\nHardware Mismatch\nBinding Failed\nValidation Error",
+            "reqd": 1,
+            "width": "120"
+        },
+        {
+            "fieldname": "event_description",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Description",
+            "width": "250"
+        },
+        {
+            "fieldname": "severity",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Severity",
+            "options": "Low\nMedium\nHigh\nCritical",
+            "default": "Medium",
+            "width": "80"
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "timestamp",
+            "fieldtype": "Datetime",
+            "in_list_view": 1,
+            "label": "Timestamp",
+            "reqd": 1,
+            "width": "140"
+        },
+        {
+            "fieldname": "workshop_id",
+            "fieldtype": "Link",
+            "label": "Workshop",
+            "options": "Workshop Profile",
+            "width": "120"
+        },
+        {
+            "fieldname": "ip_address",
+            "fieldtype": "Data",
+            "label": "IP Address",
+            "width": "120"
+        }
+    ],
+    "istable": 1,
+    "modified": "2024-06-18 20:06:00.000000",
+    "modified_by": "Administrator",
+    "module": "License Management",
+    "name": "Dashboard Audit Event",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "timestamp",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 0
+}

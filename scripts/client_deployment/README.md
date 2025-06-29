@@ -1,179 +1,163 @@
-# سكريبتات تسليم العميل
-## Universal Workshop ERP - Client Deployment Scripts
+# Universal Workshop ERP - Client Deployment Scripts
 
-هذا المجلد يحتوي على جميع السكريبتات المطلوبة لتسليم نظام إدارة الورش الشامل للعملاء.
+This directory contains professional-grade scripts for managing Universal Workshop ERP licenses and client deployments.
 
----
+## 📁 Directory Structure
 
-## 📁 محتويات المجلد
-
-### السكريبتات الأساسية:
-
-**🚀 السكريپت الرئيسي الجديد:**
-0. **`deploy_client.sh`** - السكريپت الرئيسي الشامل (يجمع كل العمليات)
-   ```bash
-   ./deploy_client.sh [العملية] [المعاملات...]
-   ./deploy_client.sh help  # لعرض جميع العمليات المتاحة
-   ```
-
-1. **`create_client_site.sh`** - إنشاء موقع جديد للعميل
-   ```bash
-   ./create_client_site.sh "اسم العميل" "نطاق.local"
-   ```
-
-2. **`generate_license.sh`** - إنشاء رخصة للعميل
-   ```bash
-   ./generate_license.sh "اسم العميل" "معرف العميل" "نوع الرخصة"
-   ```
-
-3. **`system_check.sh`** - فحص شامل لحالة النظام
-   ```bash
-   ./system_check.sh [نطاق_الموقع]
-   ```
-
-4. **`setup_backup.sh`** - إعداد النسخ الاحتياطية التلقائية
-   ```bash
-   ./setup_backup.sh [نطاق_الموقع] [مسار_النسخ]
-   ```
-
-5. **`delivery_checklist.sh`** - قائمة فحص التسليم النهائي
-   ```bash
-   ./delivery_checklist.sh "اسم العميل" [نطاق_الموقع]
-   ```
-
-6. **`restore_backup.sh`** - استعادة النسخة الاحتياطية
-   ```bash
-   ./restore_backup.sh [نطاق_الموقع] [ملف_قاعدة_البيانات] [ملف_الأصول]
-   ```
-
-7. **`monitor_system.sh`** - مراقبة النظام المستمرة
-   ```bash
-   ./monitor_system.sh [نطاق_الموقع] [فترة_المراقبة_بالثواني]
-   ```
-
----
-
-## 🚀 سير العمل المُوصى به
-
-### 🎯 الطريقة الجديدة (باستخدام السكريپت الرئيسي):
-
-```bash
-# 1. إعداد عميل جديد كاملاً (الكل في واحد!)
-./deploy_client.sh new-client "ورشة الفارسي" "alfarsi.local" "professional"
-
-# 2. فحص التسليم النهائي
-./deploy_client.sh delivery-check "ورشة الفارسي" "alfarsi.local"
-
-# 3. بدء المراقبة
-./deploy_client.sh monitor alfarsi.local 30
+```
+client_deployment/
+├── generate_license_pro.sh    # Professional license generator
+├── client_manager.sh          # Interactive client management
+├── environment_check.sh       # Environment validation
+├── setup.sh                   # Installation script
+├── config.json                # Configuration file
+├── README.md                  # This file
+├── licenses/                  # Generated license files
+├── logs/                      # Operation logs
+├── backups/                   # Automatic backups
+├── client_data/               # Client database
+├── templates/                 # License templates
+└── reports/                   # Generated reports
 ```
 
-### 📋 الطريقة التقليدية (خطوة بخطوة):
+## 🚀 Quick Start
 
-#### 1. التحضير (في المكتب)
+1. **Install Dependencies:**
+   ```bash
+   ./setup.sh --install-deps
+   ```
+
+2. **Check Environment:**
+   ```bash
+   ./generate_license_pro.sh --check
+   ```
+
+3. **Interactive Client Management:**
+   ```bash
+   ./client_manager.sh
+   ```
+
+4. **Generate License (Command Line):**
+   ```bash
+   ./generate_license_pro.sh "Client Name" CLIENT-ID professional
+   ```
+
+## 📝 License Types
+
+| Type | Duration | Users | Features |
+|------|----------|-------|----------|
+| trial | 30 days | 5 | Basic testing |
+| basic | Permanent | 5 | Basic features |
+| professional | Permanent | 25 | Advanced features |
+| enterprise | Permanent | 100 | Full features |
+| unlimited | Permanent | 999 | All features + custom |
+
+## 🔧 Usage Examples
+
+### Command Line License Generation
 ```bash
-# فحص النظام
-./system_check.sh
+# Trial license for testing
+./generate_license_pro.sh "Test Workshop" TEST-001 trial
 
-# إنشاء موقع العميل
-./create_client_site.sh "ورشة الفارسي" "alfarsi.local"
+# Professional license
+./generate_license_pro.sh "Alfarsi Workshop" ALFARSI-001 professional
 
-# إنشاء الرخصة
-./generate_license.sh "ورشة الفارسي" "ALFARSI-001" "professional"
+# Enterprise license
+./generate_license_pro.sh "Gulf Auto Center" GULF-002 enterprise
+
+# Dry run (preview only)
+./generate_license_pro.sh "Preview Client" PREVIEW-001 basic --dry-run
 ```
 
-#### 2. التثبيت (عند العميل)
+### Interactive Management
 ```bash
-# فحص النظام مرة أخرى
-./system_check.sh alfarsi.local
+# Start interactive client manager
+./client_manager.sh
 
-# إعداد النسخ الاحتياطية
-./setup_backup.sh alfarsi.local
-
-# فحص التسليم النهائي
-./delivery_checklist.sh "ورشة الفارسي" alfarsi.local
+# Available options:
+# 1. Add new client
+# 2. Generate license for existing client
+# 3. List all clients
+# 4. Search clients
+# 5. Client management tools
 ```
 
-### 🎮 عمليات إضافية:
+### Validation and Maintenance
 ```bash
-# عرض جميع العمليات المتاحة
-./deploy_client.sh help
+# Validate existing license
+./generate_license_pro.sh --validate licenses/client_license.json
 
-# عرض المواقع المتاحة
-./deploy_client.sh list-sites
+# List all generated licenses
+./generate_license_pro.sh --list-licenses
 
-# عرض النسخ الاحتياطية
-./deploy_client.sh list-backups
+# Create backup
+./generate_license_pro.sh --backup
 
-# استعادة نسخة احتياطية
-./deploy_client.sh restore-backup alfarsi.local backup.sql.gz files.tar
+# Rollback to previous backup
+./generate_license_pro.sh --rollback
 ```
 
----
+## 🔐 Security Features
 
-## 📋 متطلبات النظام
+- **Cryptographic signatures** using SHA-256 and MD5
+- **Secure license keys** generated with OpenSSL
+- **Tamper detection** for license files
+- **Automatic backups** before modifications
+- **Client ID validation** and auto-generation
+- **Input sanitization** and validation
 
-### البرامج المطلوبة:
-- Ubuntu/Debian Linux
-- Python 3.8+
-- Node.js 18+
-- MariaDB 10.5+
-- Redis 6+
-- Git
+## 📊 Generated Files
 
-### الصلاحيات المطلوبة:
-- صلاحيات sudo لتثبيت الحزم
-- صلاحيات إنشاء مجلدات في /home
-- صلاحيات تعديل crontab
+For each client, the following files are generated:
 
----
+1. **`client_license.json`** - Main license file for system activation
+2. **`client_info.txt`** - Human-readable license information
+3. **`client_certificate.pdf`** - Official license certificate (if available)
 
-## 🔧 الاستكشاف وإصلاح الأخطاء
+## 🛠️ Maintenance
 
-### مشاكل شائعة وحلولها:
+### Logs
+- All operations are logged to `logs/license_generation.log`
+- Log levels: ERROR, WARNING, INFO, SUCCESS, DEBUG
 
-#### 1. خطأ "bench: command not found"
-```bash
-pip3 install frappe-bench
-export PATH=$PATH:~/.local/bin
-```
+### Backups
+- Automatic backups before overwriting licenses
+- Full backup archives in `backups/` directory
+- Configurable retention period (default: 30 days)
 
-#### 2. خطأ في الاتصال بـ MariaDB
-```bash
-sudo systemctl start mariadb
-sudo mysql_secure_installation
-```
+### Configuration
+- System settings in `config.json`
+- Customizable license types and features
+- Adjustable security and validation settings
 
-#### 3. خطأ في Redis
-```bash
-sudo systemctl start redis
-redis-cli ping
-```
+## 🔧 Troubleshooting
 
-#### 4. مشكلة في الصلاحيات
-```bash
-sudo chown -R $(whoami):$(whoami) ~/frappe-bench
-chmod -R 755 ~/frappe-bench
-```
+### Common Issues
 
----
+1. **Missing dependencies:**
+   ```bash
+   ./setup.sh --install-deps
+   ```
 
-## 📞 الدعم
+2. **Permission errors:**
+   ```bash
+   ./setup.sh --fix-permissions
+   ```
 
-للحصول على المساعدة:
-- 📧 البريد الإلكتروني: support@universal-workshop.om
-- 📱 الهاتف: +968 95351993
-- 🕐 ساعات العمل: الأحد - الخميس: 8:00 ص - 6:00 م
+3. **Environment check:**
+   ```bash
+   ./environment_check.sh
+   ```
 
----
+### Support
 
-## 📄 الوثائق ذات الصلة
+For technical support or questions:
+- Check logs in `logs/` directory
+- Run environment check
+- Validate existing licenses
+- Review configuration settings
 
-- [دليل المطور التفصيلي](../docs/ar/دليل_المطور_التفصيلي.md)
-- [دليل تشغيل النظام](../docs/ar/دليل_تشغيل_النظام.md)
-- [خطة تسليم العميل](../docs/ar/خطة_تسليم_العميل.md)
+## 📄 License
 
----
-
-*تم إعداد هذه السكريبتات في: ٢٢ يونيو ٢٠٢٥*  
-*إصدار النظام: v2.0*
+Universal Workshop ERP - Professional License Management
+Copyright (c) 2025 Said Al-Adawi

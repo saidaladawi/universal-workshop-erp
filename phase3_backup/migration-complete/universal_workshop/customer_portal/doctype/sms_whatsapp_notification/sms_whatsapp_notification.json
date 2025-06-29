@@ -1,0 +1,877 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:SMS-{YYYY}-{#####}",
+ "creation": "2024-06-24 09:17:00.123456",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_info_section",
+  "notification_id",
+  "notification_type",
+  "channel_type",
+  "priority_level",
+  "cb_basic1",
+  "notification_title",
+  "notification_title_ar",
+  "notification_description",
+  "notification_description_ar",
+  "recipient_section",
+  "recipient_type",
+  "customer",
+  "customer_name",
+  "customer_name_ar",
+  "cb_recipient1",
+  "phone_number",
+  "whatsapp_number",
+  "email_address",
+  "recipient_group",
+  "total_recipients",
+  "message_content_section",
+  "message_template",
+  "message_template_ar",
+  "message_body",
+  "message_body_ar",
+  "cb_message1",
+  "template_variables",
+  "personalization_data",
+  "media_attachment",
+  "message_size",
+  "character_count",
+  "scheduling_section",
+  "send_immediately",
+  "scheduled_datetime",
+  "timezone",
+  "delivery_window_start",
+  "delivery_window_end",
+  "cb_schedule1",
+  "recurring_notification",
+  "recurrence_pattern",
+  "max_attempts",
+  "retry_interval",
+  "expiry_datetime",
+  "twilio_config_section",
+  "twilio_account_sid",
+  "twilio_auth_token",
+  "twilio_phone_number",
+  "twilio_whatsapp_number",
+  "cb_twilio1",
+  "webhook_url",
+  "delivery_receipt_required",
+  "callback_events",
+  "service_provider",
+  "backup_provider",
+  "delivery_tracking_section",
+  "status",
+  "delivery_status",
+  "sent_datetime",
+  "delivered_datetime",
+  "cb_delivery1",
+  "read_datetime",
+  "response_datetime",
+  "error_message",
+  "delivery_attempts",
+  "twilio_message_sid",
+  "twilio_status",
+  "response_analytics_section",
+  "response_received",
+  "response_content",
+  "response_content_ar",
+  "sentiment_analysis",
+  "cb_response1",
+  "engagement_score",
+  "response_time_minutes",
+  "follow_up_required",
+  "follow_up_notes",
+  "follow_up_notes_ar",
+  "compliance_section",
+  "opt_in_consent",
+  "opt_in_date",
+  "opt_out_date",
+  "privacy_consent",
+  "cb_compliance1",
+  "gdpr_compliant",
+  "data_retention_days",
+  "consent_method",
+  "compliance_notes",
+  "compliance_notes_ar",
+  "integration_section",
+  "linked_document_type",
+  "linked_document_name",
+  "appointment_reference",
+  "service_order_reference",
+  "cb_integration1",
+  "invoice_reference",
+  "payment_reference",
+  "customer_feedback_reference",
+  "trigger_event",
+  "automation_rule",
+  "costs_analytics_section",
+  "estimated_cost",
+  "actual_cost",
+  "cost_per_message",
+  "total_cost",
+  "cb_costs1",
+  "billing_currency",
+  "cost_breakdown",
+  "roi_tracking",
+  "campaign_code",
+  "campaign_performance",
+  "metadata_section",
+  "created_by",
+  "created_date",
+  "modified_by",
+  "modified_date",
+  "cb_metadata1",
+  "ip_address",
+  "user_agent",
+  "device_info",
+  "location_data",
+  "processing_duration"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information | المعلومات الأساسية"
+  },
+  {
+   "fieldname": "notification_id",
+   "fieldtype": "Data",
+   "label": "Notification ID",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "notification_type",
+   "fieldtype": "Select",
+   "label": "Notification Type | نوع الإشعار",
+   "options": "Appointment Reminder\nService Update\nPayment Confirmation\nPayment Reminder\nFeedback Request\nPromotion\nEmergency Alert\nGeneral Information",
+   "reqd": 1
+  },
+  {
+   "fieldname": "channel_type",
+   "fieldtype": "Select",
+   "label": "Channel Type | نوع القناة",
+   "options": "SMS\nWhatsApp\nBoth\nEmail\nPush Notification",
+   "reqd": 1
+  },
+  {
+   "fieldname": "priority_level",
+   "fieldtype": "Select",
+   "label": "Priority Level | مستوى الأولوية",
+   "options": "Low\nMedium\nHigh\nUrgent\nCritical",
+   "default": "Medium"
+  },
+  {
+   "fieldname": "cb_basic1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "notification_title",
+   "fieldtype": "Data",
+   "label": "Notification Title (English)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "notification_title_ar",
+   "fieldtype": "Data",
+   "label": "عنوان الإشعار (Arabic)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "notification_description",
+   "fieldtype": "Text",
+   "label": "Description (English)"
+  },
+  {
+   "fieldname": "notification_description_ar",
+   "fieldtype": "Text",
+   "label": "الوصف (Arabic)"
+  },
+  {
+   "fieldname": "recipient_section",
+   "fieldtype": "Section Break",
+   "label": "Recipients | المستقبلون"
+  },
+  {
+   "fieldname": "recipient_type",
+   "fieldtype": "Select",
+   "label": "Recipient Type | نوع المستقبل",
+   "options": "Individual\nGroup\nAll Customers\nSegment",
+   "default": "Individual"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer | العميل",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name (English)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_name_ar",
+   "fieldtype": "Data",
+   "label": "اسم العميل (Arabic)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_recipient1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone Number (+968)",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "whatsapp_number",
+   "fieldtype": "Data",
+   "label": "WhatsApp Number (+968)",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "email_address",
+   "fieldtype": "Data",
+   "label": "Email Address",
+   "options": "Email"
+  },
+  {
+   "fieldname": "recipient_group",
+   "fieldtype": "Data",
+   "label": "Recipient Group | مجموعة المستقبلين"
+  },
+  {
+   "fieldname": "total_recipients",
+   "fieldtype": "Int",
+   "label": "Total Recipients | إجمالي المستقبلين",
+   "read_only": 1
+  },
+  {
+   "fieldname": "message_content_section",
+   "fieldtype": "Section Break",
+   "label": "Message Content | محتوى الرسالة"
+  },
+  {
+   "fieldname": "message_template",
+   "fieldtype": "Select",
+   "label": "Message Template (English)",
+   "options": "Appointment_Reminder\nService_Started\nService_Completed\nPayment_Received\nFeedback_Request\nCustom"
+  },
+  {
+   "fieldname": "message_template_ar",
+   "fieldtype": "Select",
+   "label": "قالب الرسالة (Arabic)",
+   "options": "تذكير_الموعد\nبدء_الخدمة\nإكمال_الخدمة\nاستلام_الدفع\nطلب_تقييم\nمخصص"
+  },
+  {
+   "fieldname": "message_body",
+   "fieldtype": "Text",
+   "label": "Message Body (English)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "message_body_ar",
+   "fieldtype": "Text",
+   "label": "نص الرسالة (Arabic)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb_message1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "template_variables",
+   "fieldtype": "JSON",
+   "label": "Template Variables | متغيرات القالب"
+  },
+  {
+   "fieldname": "personalization_data",
+   "fieldtype": "JSON",
+   "label": "Personalization Data | بيانات التخصيص"
+  },
+  {
+   "fieldname": "media_attachment",
+   "fieldtype": "Attach",
+   "label": "Media Attachment | المرفقات"
+  },
+  {
+   "fieldname": "message_size",
+   "fieldtype": "Data",
+   "label": "Message Size | حجم الرسالة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "character_count",
+   "fieldtype": "Int",
+   "label": "Character Count | عدد الأحرف",
+   "read_only": 1
+  },
+  {
+   "fieldname": "scheduling_section",
+   "fieldtype": "Section Break",
+   "label": "Scheduling | الجدولة"
+  },
+  {
+   "fieldname": "send_immediately",
+   "fieldtype": "Check",
+   "label": "Send Immediately | إرسال فوري",
+   "default": 1
+  },
+  {
+   "fieldname": "scheduled_datetime",
+   "fieldtype": "Datetime",
+   "label": "Scheduled Date/Time | الوقت المحدد"
+  },
+  {
+   "fieldname": "timezone",
+   "fieldtype": "Select",
+   "label": "Timezone | المنطقة الزمنية",
+   "options": "Asia/Muscat\nUTC\nAsia/Dubai\nAsia/Riyadh",
+   "default": "Asia/Muscat"
+  },
+  {
+   "fieldname": "delivery_window_start",
+   "fieldtype": "Time",
+   "label": "Delivery Window Start | بداية نافذة التسليم"
+  },
+  {
+   "fieldname": "delivery_window_end",
+   "fieldtype": "Time",
+   "label": "Delivery Window End | نهاية نافذة التسليم"
+  },
+  {
+   "fieldname": "cb_schedule1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "recurring_notification",
+   "fieldtype": "Check",
+   "label": "Recurring Notification | إشعار متكرر"
+  },
+  {
+   "fieldname": "recurrence_pattern",
+   "fieldtype": "Select",
+   "label": "Recurrence Pattern | نمط التكرار",
+   "options": "None\nDaily\nWeekly\nMonthly\nCustom"
+  },
+  {
+   "fieldname": "max_attempts",
+   "fieldtype": "Int",
+   "label": "Max Delivery Attempts | عدد محاولات التسليم",
+   "default": 3
+  },
+  {
+   "fieldname": "retry_interval",
+   "fieldtype": "Int",
+   "label": "Retry Interval (minutes) | فترة إعادة المحاولة",
+   "default": 30
+  },
+  {
+   "fieldname": "expiry_datetime",
+   "fieldtype": "Datetime",
+   "label": "Expiry Date/Time | تاريخ انتهاء الصلاحية"
+  },
+  {
+   "fieldname": "twilio_config_section",
+   "fieldtype": "Section Break",
+   "label": "Twilio Configuration | إعدادات Twilio"
+  },
+  {
+   "fieldname": "twilio_account_sid",
+   "fieldtype": "Data",
+   "label": "Twilio Account SID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "twilio_auth_token",
+   "fieldtype": "Password",
+   "label": "Twilio Auth Token"
+  },
+  {
+   "fieldname": "twilio_phone_number",
+   "fieldtype": "Data",
+   "label": "Twilio Phone Number"
+  },
+  {
+   "fieldname": "twilio_whatsapp_number",
+   "fieldtype": "Data",
+   "label": "Twilio WhatsApp Number"
+  },
+  {
+   "fieldname": "cb_twilio1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "webhook_url",
+   "fieldtype": "Data",
+   "label": "Webhook URL | رابط Webhook"
+  },
+  {
+   "fieldname": "delivery_receipt_required",
+   "fieldtype": "Check",
+   "label": "Delivery Receipt Required | مطلوب إيصال التسليم",
+   "default": 1
+  },
+  {
+   "fieldname": "callback_events",
+   "fieldtype": "Select",
+   "label": "Callback Events | أحداث الاستدعاء",
+   "options": "sent\ndelivered\nread\nfailed\nall",
+   "default": "all"
+  },
+  {
+   "fieldname": "service_provider",
+   "fieldtype": "Select",
+   "label": "Service Provider | مقدم الخدمة",
+   "options": "Twilio\nOmanTel\nOoredoo\nLocal Provider",
+   "default": "Twilio"
+  },
+  {
+   "fieldname": "backup_provider",
+   "fieldtype": "Select",
+   "label": "Backup Provider | مقدم الخدمة الاحتياطي",
+   "options": "Twilio\nOmanTel\nOoredoo\nLocal Provider"
+  },
+  {
+   "fieldname": "delivery_tracking_section",
+   "fieldtype": "Section Break",
+   "label": "Delivery Tracking | تتبع التسليم"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status | الحالة",
+   "options": "Draft\nScheduled\nSending\nSent\nDelivered\nRead\nFailed\nCancelled",
+   "default": "Draft"
+  },
+  {
+   "fieldname": "delivery_status",
+   "fieldtype": "Select",
+   "label": "Delivery Status | حالة التسليم",
+   "options": "Pending\nQueued\nSent\nDelivered\nUndelivered\nFailed\nRead",
+   "default": "Pending"
+  },
+  {
+   "fieldname": "sent_datetime",
+   "fieldtype": "Datetime",
+   "label": "Sent Date/Time | وقت الإرسال",
+   "read_only": 1
+  },
+  {
+   "fieldname": "delivered_datetime",
+   "fieldtype": "Datetime",
+   "label": "Delivered Date/Time | وقت التسليم",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_delivery1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "read_datetime",
+   "fieldtype": "Datetime",
+   "label": "Read Date/Time | وقت القراءة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "response_datetime",
+   "fieldtype": "Datetime",
+   "label": "Response Date/Time | وقت الرد",
+   "read_only": 1
+  },
+  {
+   "fieldname": "error_message",
+   "fieldtype": "Text",
+   "label": "Error Message | رسالة الخطأ",
+   "read_only": 1
+  },
+  {
+   "fieldname": "delivery_attempts",
+   "fieldtype": "Int",
+   "label": "Delivery Attempts | محاولات التسليم",
+   "default": 0,
+   "read_only": 1
+  },
+  {
+   "fieldname": "twilio_message_sid",
+   "fieldtype": "Data",
+   "label": "Twilio Message SID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "twilio_status",
+   "fieldtype": "Data",
+   "label": "Twilio Status | حالة Twilio",
+   "read_only": 1
+  },
+  {
+   "fieldname": "response_analytics_section",
+   "fieldtype": "Section Break",
+   "label": "Response Analytics | تحليل الاستجابة"
+  },
+  {
+   "fieldname": "response_received",
+   "fieldtype": "Check",
+   "label": "Response Received | تم استلام الرد"
+  },
+  {
+   "fieldname": "response_content",
+   "fieldtype": "Text",
+   "label": "Response Content (English)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "response_content_ar",
+   "fieldtype": "Text",
+   "label": "محتوى الرد (Arabic)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sentiment_analysis",
+   "fieldtype": "Select",
+   "label": "Sentiment Analysis | تحليل المشاعر",
+   "options": "Very Positive\nPositive\nNeutral\nNegative\nVery Negative",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_response1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "engagement_score",
+   "fieldtype": "Float",
+   "label": "Engagement Score (1-10) | نقاط التفاعل",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "response_time_minutes",
+   "fieldtype": "Int",
+   "label": "Response Time (minutes) | وقت الاستجابة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "follow_up_required",
+   "fieldtype": "Check",
+   "label": "Follow-up Required | مطلوب متابعة"
+  },
+  {
+   "fieldname": "follow_up_notes",
+   "fieldtype": "Text",
+   "label": "Follow-up Notes (English)"
+  },
+  {
+   "fieldname": "follow_up_notes_ar",
+   "fieldtype": "Text",
+   "label": "ملاحظات المتابعة (Arabic)"
+  },
+  {
+   "fieldname": "compliance_section",
+   "fieldtype": "Section Break",
+   "label": "Compliance & Privacy | الامتثال والخصوصية"
+  },
+  {
+   "fieldname": "opt_in_consent",
+   "fieldtype": "Check",
+   "label": "Opt-in Consent | موافقة الاشتراك",
+   "default": 0
+  },
+  {
+   "fieldname": "opt_in_date",
+   "fieldtype": "Date",
+   "label": "Opt-in Date | تاريخ الاشتراك"
+  },
+  {
+   "fieldname": "opt_out_date",
+   "fieldtype": "Date",
+   "label": "Opt-out Date | تاريخ إلغاء الاشتراك"
+  },
+  {
+   "fieldname": "privacy_consent",
+   "fieldtype": "Check",
+   "label": "Privacy Consent | موافقة الخصوصية",
+   "default": 0
+  },
+  {
+   "fieldname": "cb_compliance1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gdpr_compliant",
+   "fieldtype": "Check",
+   "label": "GDPR Compliant | متوافق مع GDPR",
+   "default": 1
+  },
+  {
+   "fieldname": "data_retention_days",
+   "fieldtype": "Int",
+   "label": "Data Retention (days) | مدة الاحتفاظ بالبيانات",
+   "default": 365
+  },
+  {
+   "fieldname": "consent_method",
+   "fieldtype": "Select",
+   "label": "Consent Method | طريقة الموافقة",
+   "options": "Website Form\nPhone Call\nSMS Reply\nWhatsApp Reply\nIn Person"
+  },
+  {
+   "fieldname": "compliance_notes",
+   "fieldtype": "Text",
+   "label": "Compliance Notes (English)"
+  },
+  {
+   "fieldname": "compliance_notes_ar",
+   "fieldtype": "Text",
+   "label": "ملاحظات الامتثال (Arabic)"
+  },
+  {
+   "fieldname": "integration_section",
+   "fieldtype": "Section Break",
+   "label": "Integration & References | التكامل والمراجع"
+  },
+  {
+   "fieldname": "linked_document_type",
+   "fieldtype": "Link",
+   "label": "Linked Document Type | نوع الوثيقة المرتبطة",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "linked_document_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Linked Document | الوثيقة المرتبطة",
+   "options": "linked_document_type"
+  },
+  {
+   "fieldname": "appointment_reference",
+   "fieldtype": "Link",
+   "label": "Appointment Reference | مرجع الموعد",
+   "options": "Workshop Appointment"
+  },
+  {
+   "fieldname": "service_order_reference",
+   "fieldtype": "Link",
+   "label": "Service Order Reference | مرجع طلب الخدمة",
+   "options": "Service History Tracker"
+  },
+  {
+   "fieldname": "cb_integration1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "invoice_reference",
+   "fieldtype": "Link",
+   "label": "Invoice Reference | مرجع الفاتورة",
+   "options": "Sales Invoice"
+  },
+  {
+   "fieldname": "payment_reference",
+   "fieldtype": "Link",
+   "label": "Payment Reference | مرجع الدفع",
+   "options": "Online Payment Gateway"
+  },
+  {
+   "fieldname": "customer_feedback_reference",
+   "fieldtype": "Link",
+   "label": "Customer Feedback Reference | مرجع تقييم العميل",
+   "options": "Customer Feedback"
+  },
+  {
+   "fieldname": "trigger_event",
+   "fieldtype": "Data",
+   "label": "Trigger Event | حدث الإطلاق"
+  },
+  {
+   "fieldname": "automation_rule",
+   "fieldtype": "Link",
+   "label": "Automation Rule | قاعدة التشغيل التلقائي",
+   "options": "Workflow"
+  },
+  {
+   "fieldname": "costs_analytics_section",
+   "fieldtype": "Section Break",
+   "label": "Costs & Analytics | التكاليف والتحليلات"
+  },
+  {
+   "fieldname": "estimated_cost",
+   "fieldtype": "Currency",
+   "label": "Estimated Cost (OMR) | التكلفة المقدرة"
+  },
+  {
+   "fieldname": "actual_cost",
+   "fieldtype": "Currency",
+   "label": "Actual Cost (OMR) | التكلفة الفعلية",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cost_per_message",
+   "fieldtype": "Currency",
+   "label": "Cost per Message | التكلفة لكل رسالة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Cost (OMR) | إجمالي التكلفة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_costs1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "billing_currency",
+   "fieldtype": "Select",
+   "label": "Billing Currency | عملة الفوترة",
+   "options": "OMR\nUSD\nEUR\nGBP",
+   "default": "OMR"
+  },
+  {
+   "fieldname": "cost_breakdown",
+   "fieldtype": "JSON",
+   "label": "Cost Breakdown | تفصيل التكلفة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "roi_tracking",
+   "fieldtype": "Float",
+   "label": "ROI Tracking (%) | تتبع العائد على الاستثمار",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "campaign_code",
+   "fieldtype": "Data",
+   "label": "Campaign Code | رمز الحملة"
+  },
+  {
+   "fieldname": "campaign_performance",
+   "fieldtype": "JSON",
+   "label": "Campaign Performance | أداء الحملة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Metadata | البيانات الوصفية"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By | أنشأ بواسطة",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_date",
+   "fieldtype": "Datetime",
+   "label": "Created Date | تاريخ الإنشاء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "modified_by",
+   "fieldtype": "Link",
+   "label": "Modified By | عدل بواسطة",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "modified_date",
+   "fieldtype": "Datetime",
+   "label": "Modified Date | تاريخ التعديل",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_metadata1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ip_address",
+   "fieldtype": "Data",
+   "label": "IP Address | عنوان IP",
+   "read_only": 1
+  },
+  {
+   "fieldname": "user_agent",
+   "fieldtype": "Text",
+   "label": "User Agent | وكيل المستخدم",
+   "read_only": 1
+  },
+  {
+   "fieldname": "device_info",
+   "fieldtype": "JSON",
+   "label": "Device Info | معلومات الجهاز",
+   "read_only": 1
+  },
+  {
+   "fieldname": "location_data",
+   "fieldtype": "JSON",
+   "label": "Location Data | بيانات الموقع",
+   "read_only": 1
+  },
+  {
+   "fieldname": "processing_duration",
+   "fieldtype": "Float",
+   "label": "Processing Duration (seconds) | مدة المعالجة",
+   "precision": 3,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-06-24 09:17:00.123456",
+ "modified_by": "Administrator",
+ "module": "Customer Portal",
+ "name": "SMS WhatsApp Notification",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Customer"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

@@ -1,0 +1,350 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:checkpoint_id",
+ "creation": "2025-06-19 14:40:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "checkpoint_info_section",
+  "checkpoint_id",
+  "checkpoint_name",
+  "checkpoint_name_ar",
+  "service_order",
+  "column_break_5",
+  "checkpoint_type",
+  "inspection_stage",
+  "is_mandatory",
+  "section_break_9",
+  "description",
+  "description_ar",
+  "requirements_section",
+  "inspection_requirements",
+  "column_break_14",
+  "approval_requirements",
+  "status_section",
+  "status",
+  "column_break_18",
+  "priority_level",
+  "assigned_section",
+  "assigned_technician",
+  "assigned_supervisor",
+  "column_break_22",
+  "assigned_date",
+  "due_date",
+  "completion_section",
+  "completed_by",
+  "completion_date",
+  "column_break_27",
+  "approval_by",
+  "approval_date",
+  "results_section",
+  "inspection_results",
+  "column_break_31",
+  "approval_notes",
+  "documentation_section",
+  "photos",
+  "column_break_34",
+  "supporting_documents",
+  "quality_metrics_section",
+  "quality_score",
+  "defects_found",
+  "column_break_38",
+  "rework_required",
+  "customer_impact"
+ ],
+ "fields": [
+  {
+   "fieldname": "checkpoint_info_section",
+   "fieldtype": "Section Break",
+   "label": "Checkpoint Information - معلومات نقطة التفتيش"
+  },
+  {
+   "fieldname": "checkpoint_id",
+   "fieldtype": "Data",
+   "label": "Checkpoint ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "checkpoint_name",
+   "fieldtype": "Data",
+   "label": "Checkpoint Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "checkpoint_name_ar",
+   "fieldtype": "Data",
+   "label": "اسم نقطة التفتيش",
+   "reqd": 1
+  },
+  {
+   "fieldname": "service_order",
+   "fieldtype": "Link",
+   "label": "Service Order",
+   "options": "Service Order",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "checkpoint_type",
+   "fieldtype": "Select",
+   "label": "Checkpoint Type",
+   "options": "Pre-Service\nIn-Progress\nPre-Delivery\nFinal Quality Check\nCustomer Handover",
+   "reqd": 1
+  },
+  {
+   "fieldname": "inspection_stage",
+   "fieldtype": "Select",
+   "label": "Inspection Stage",
+   "options": "Initial Assessment\nMid-Service Check\nQuality Control\nFinal Inspection\nCustomer Acceptance",
+   "reqd": 1
+  },
+  {
+   "fieldname": "is_mandatory",
+   "fieldtype": "Check",
+   "label": "Mandatory Checkpoint"
+  },
+  {
+   "fieldname": "section_break_9",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "description_ar",
+   "fieldtype": "Text Editor",
+   "label": "الوصف"
+  },
+  {
+   "fieldname": "requirements_section",
+   "fieldtype": "Section Break",
+   "label": "Requirements - المتطلبات"
+  },
+  {
+   "fieldname": "inspection_requirements",
+   "fieldtype": "Text Editor",
+   "label": "Inspection Requirements"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approval_requirements",
+   "fieldtype": "Text Editor",
+   "label": "Approval Requirements"
+  },
+  {
+   "fieldname": "status_section",
+   "fieldtype": "Section Break",
+   "label": "Status - الحالة"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending\nIn Progress\nCompleted\nApproved\nRejected\nSkipped",
+   "default": "Pending",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "priority_level",
+   "fieldtype": "Select",
+   "label": "Priority Level",
+   "options": "Low\nMedium\nHigh\nCritical",
+   "default": "Medium"
+  },
+  {
+   "fieldname": "assigned_section",
+   "fieldtype": "Section Break",
+   "label": "Assignment - التعيين"
+  },
+  {
+   "fieldname": "assigned_technician",
+   "fieldtype": "Link",
+   "label": "Assigned Technician",
+   "options": "Technician"
+  },
+  {
+   "fieldname": "assigned_supervisor",
+   "fieldtype": "Link",
+   "label": "Assigned Supervisor",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_22",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "assigned_date",
+   "fieldtype": "Datetime",
+   "label": "Assigned Date"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Datetime",
+   "label": "Due Date"
+  },
+  {
+   "fieldname": "completion_section",
+   "fieldtype": "Section Break",
+   "label": "Completion - الإكمال"
+  },
+  {
+   "fieldname": "completed_by",
+   "fieldtype": "Link",
+   "label": "Completed By",
+   "options": "User"
+  },
+  {
+   "fieldname": "completion_date",
+   "fieldtype": "Datetime",
+   "label": "Completion Date"
+  },
+  {
+   "fieldname": "column_break_27",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approval_by",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "User"
+  },
+  {
+   "fieldname": "approval_date",
+   "fieldtype": "Datetime",
+   "label": "Approval Date"
+  },
+  {
+   "fieldname": "results_section",
+   "fieldtype": "Section Break",
+   "label": "Results - النتائج"
+  },
+  {
+   "fieldname": "inspection_results",
+   "fieldtype": "Text Editor",
+   "label": "Inspection Results"
+  },
+  {
+   "fieldname": "column_break_31",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approval_notes",
+   "fieldtype": "Text Editor",
+   "label": "Approval Notes"
+  },
+  {
+   "fieldname": "documentation_section",
+   "fieldtype": "Section Break",
+   "label": "Documentation - التوثيق"
+  },
+  {
+   "fieldname": "photos",
+   "fieldtype": "Table",
+   "label": "Photos",
+   "options": "Quality Control Photo"
+  },
+  {
+   "fieldname": "column_break_34",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "supporting_documents",
+   "fieldtype": "Table",
+   "label": "Supporting Documents",
+   "options": "Quality Control Document"
+  },
+  {
+   "fieldname": "quality_metrics_section",
+   "fieldtype": "Section Break",
+   "label": "Quality Metrics - مقاييس الجودة"
+  },
+  {
+   "fieldname": "quality_score",
+   "fieldtype": "Percent",
+   "label": "Quality Score"
+  },
+  {
+   "fieldname": "defects_found",
+   "fieldtype": "Int",
+   "label": "Defects Found",
+   "default": "0"
+  },
+  {
+   "fieldname": "column_break_38",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rework_required",
+   "fieldtype": "Check",
+   "label": "Rework Required"
+  },
+  {
+   "fieldname": "customer_impact",
+   "fieldtype": "Select",
+   "label": "Customer Impact",
+   "options": "None\nLow\nMedium\nHigh\nCritical"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-19 14:40:00.000000",
+ "modified_by": "Administrator",
+ "module": "Workshop Management",
+ "name": "Quality Control Checkpoint",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Quality Control Inspector",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Technician",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "checkpoint_name",
+ "track_changes": 1
+} 

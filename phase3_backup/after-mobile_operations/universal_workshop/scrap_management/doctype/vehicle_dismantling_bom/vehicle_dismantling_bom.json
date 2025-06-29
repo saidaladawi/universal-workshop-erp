@@ -1,0 +1,369 @@
+{
+    "actions": [],
+    "allow_copy": 1,
+    "allow_events_in_timeline": 1,
+    "allow_guest_to_view": 0,
+    "allow_import": 1,
+    "allow_rename": 1,
+    "autoname": "field:bom_name",
+    "beta": 0,
+    "creation": "2024-01-15 10:00:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "document_type": "Document",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "basic_info_section",
+        "bom_name",
+        "vehicle_make",
+        "vehicle_model",
+        "vehicle_year_range",
+        "engine_type",
+        "transmission_type",
+        "column_break_basic",
+        "bom_status",
+        "is_active",
+        "is_default",
+        "estimated_dismantling_time",
+        "estimated_labor_cost",
+        "column_break_arabic",
+        "vehicle_make_ar",
+        "vehicle_model_ar",
+        "description_ar",
+        "dismantling_operations_section",
+        "dismantling_operations",
+        "extractable_parts_section",
+        "extractable_parts",
+        "totals_section",
+        "total_parts_count",
+        "total_estimated_value",
+        "total_extraction_time",
+        "column_break_totals",
+        "high_value_parts_count",
+        "scrap_percentage",
+        "estimated_profit_margin",
+        "hazmat_compliance_section",
+        "contains_hazmat",
+        "hazmat_removal_operations",
+        "environmental_notes",
+        "environmental_notes_ar",
+        "metadata_section",
+        "created_by",
+        "created_date",
+        "last_updated_by",
+        "last_updated_date",
+        "version_number"
+    ],
+    "fields": [
+        {
+            "fieldname": "basic_info_section",
+            "fieldtype": "Section Break",
+            "label": "Basic Information"
+        },
+        {
+            "fieldname": "bom_name",
+            "fieldtype": "Data",
+            "label": "BOM Name",
+            "reqd": 1,
+            "unique": 1,
+            "description": "Unique identifier for this dismantling BOM"
+        },
+        {
+            "fieldname": "vehicle_make",
+            "fieldtype": "Data",
+            "label": "Vehicle Make",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "vehicle_model",
+            "fieldtype": "Data",
+            "label": "Vehicle Model",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "vehicle_year_range",
+            "fieldtype": "Data",
+            "label": "Year Range",
+            "description": "e.g., 2015-2020",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "engine_type",
+            "fieldtype": "Select",
+            "label": "Engine Type",
+            "options": "\nPetrol\nDiesel\nHybrid\nElectric\nOther",
+            "in_standard_filter": 1
+        },
+        {
+            "fieldname": "transmission_type",
+            "fieldtype": "Select",
+            "label": "Transmission Type",
+            "options": "\nManual\nAutomatic\nCVT\nOther"
+        },
+        {
+            "fieldname": "column_break_basic",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "bom_status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "Draft\nActive\nInactive\nArchived",
+            "default": "Draft",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "is_active",
+            "fieldtype": "Check",
+            "label": "Is Active",
+            "default": 1
+        },
+        {
+            "fieldname": "is_default",
+            "fieldtype": "Check",
+            "label": "Is Default BOM",
+            "description": "Default BOM for this make/model combination"
+        },
+        {
+            "fieldname": "estimated_dismantling_time",
+            "fieldtype": "Float",
+            "label": "Estimated Dismantling Time (Hours)",
+            "precision": 2
+        },
+        {
+            "fieldname": "estimated_labor_cost",
+            "fieldtype": "Currency",
+            "label": "Estimated Labor Cost (OMR)",
+            "options": "OMR",
+            "precision": 3
+        },
+        {
+            "fieldname": "column_break_arabic",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "vehicle_make_ar",
+            "fieldtype": "Data",
+            "label": "صانع السيارة",
+            "translatable": 1
+        },
+        {
+            "fieldname": "vehicle_model_ar",
+            "fieldtype": "Data",
+            "label": "موديل السيارة",
+            "translatable": 1
+        },
+        {
+            "fieldname": "description_ar",
+            "fieldtype": "Small Text",
+            "label": "الوصف",
+            "translatable": 1
+        },
+        {
+            "fieldname": "dismantling_operations_section",
+            "fieldtype": "Section Break",
+            "label": "Dismantling Operations"
+        },
+        {
+            "fieldname": "dismantling_operations",
+            "fieldtype": "Table",
+            "label": "Operations",
+            "options": "Vehicle Dismantling Operation",
+            "description": "Step-by-step dismantling operations"
+        },
+        {
+            "fieldname": "extractable_parts_section",
+            "fieldtype": "Section Break",
+            "label": "Extractable Parts"
+        },
+        {
+            "fieldname": "extractable_parts",
+            "fieldtype": "Table",
+            "label": "Parts",
+            "options": "Vehicle Dismantling Part",
+            "description": "All parts that can be extracted from this vehicle"
+        },
+        {
+            "fieldname": "totals_section",
+            "fieldtype": "Section Break",
+            "label": "Summary & Totals"
+        },
+        {
+            "fieldname": "total_parts_count",
+            "fieldtype": "Int",
+            "label": "Total Parts Count",
+            "read_only": 1
+        },
+        {
+            "fieldname": "total_estimated_value",
+            "fieldtype": "Currency",
+            "label": "Total Estimated Value (OMR)",
+            "options": "OMR",
+            "precision": 3,
+            "read_only": 1
+        },
+        {
+            "fieldname": "total_extraction_time",
+            "fieldtype": "Float",
+            "label": "Total Extraction Time (Hours)",
+            "precision": 2,
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_totals",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "high_value_parts_count",
+            "fieldtype": "Int",
+            "label": "High Value Parts Count",
+            "description": "Parts valued over 50 OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "scrap_percentage",
+            "fieldtype": "Percent",
+            "label": "Expected Scrap Percentage",
+            "description": "Percentage of vehicle expected to be scrapped"
+        },
+        {
+            "fieldname": "estimated_profit_margin",
+            "fieldtype": "Percent",
+            "label": "Estimated Profit Margin",
+            "read_only": 1
+        },
+        {
+            "fieldname": "hazmat_compliance_section",
+            "fieldtype": "Section Break",
+            "label": "Environmental & Hazmat Compliance"
+        },
+        {
+            "fieldname": "contains_hazmat",
+            "fieldtype": "Check",
+            "label": "Contains Hazardous Materials"
+        },
+        {
+            "fieldname": "hazmat_removal_operations",
+            "fieldtype": "Table",
+            "label": "Hazmat Removal Operations",
+            "options": "Vehicle Hazmat Operation",
+            "depends_on": "contains_hazmat"
+        },
+        {
+            "fieldname": "environmental_notes",
+            "fieldtype": "Small Text",
+            "label": "Environmental Compliance Notes"
+        },
+        {
+            "fieldname": "environmental_notes_ar",
+            "fieldtype": "Small Text",
+            "label": "ملاحظات الامتثال البيئي",
+            "translatable": 1
+        },
+        {
+            "fieldname": "metadata_section",
+            "fieldtype": "Section Break",
+            "label": "Metadata",
+            "collapsible": 1,
+            "collapsible_depends_on": "eval:!doc.__islocal"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "created_date",
+            "fieldtype": "Datetime",
+            "label": "Created Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_updated_by",
+            "fieldtype": "Link",
+            "label": "Last Updated By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_updated_date",
+            "fieldtype": "Datetime",
+            "label": "Last Updated Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "version_number",
+            "fieldtype": "Float",
+            "label": "Version Number",
+            "default": 1.0,
+            "precision": 1,
+            "read_only": 1
+        }
+    ],
+    "icon": "fa fa-cogs",
+    "idx": 0,
+    "in_create": 0,
+    "is_submittable": 0,
+    "issingle": 0,
+    "istable": 0,
+    "max_attachments": 5,
+    "modified": "2024-01-15 10:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Scrap Management",
+    "name": "Vehicle Dismantling BOM",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Supervisor",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician",
+            "share": 1
+        }
+    ],
+    "quick_entry": 0,
+    "read_only": 0,
+    "read_only_onload": 0,
+    "search_fields": "vehicle_make,vehicle_model,vehicle_year_range,bom_status",
+    "show_name_in_global_search": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "bom_name",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

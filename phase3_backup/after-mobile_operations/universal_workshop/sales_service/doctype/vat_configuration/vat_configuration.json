@@ -1,0 +1,371 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "field:configuration_name",
+    "creation": "2024-01-15 10:30:00.000000",
+    "default_view": "List",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "configuration_section",
+        "configuration_name",
+        "configuration_name_ar",
+        "company",
+        "is_active",
+        "column_break_5",
+        "effective_from",
+        "effective_to",
+        "created_by",
+        "creation_date",
+        "vat_rates_section",
+        "standard_vat_rate",
+        "zero_rated_applicable",
+        "exempt_categories",
+        "column_break_11",
+        "registration_threshold_mandatory",
+        "registration_threshold_voluntary",
+        "filing_frequency",
+        "accounts_section",
+        "output_vat_account",
+        "input_vat_account",
+        "vat_payable_account",
+        "column_break_17",
+        "round_vat_to",
+        "vat_precision",
+        "currency",
+        "compliance_section",
+        "tax_authority",
+        "tax_authority_ar",
+        "e_invoice_required",
+        "column_break_23",
+        "qr_code_required",
+        "trn_validation_required",
+        "enable_reverse_charge",
+        "automation_section",
+        "auto_calculate_vat",
+        "auto_apply_tax_template",
+        "validate_vat_registration",
+        "column_break_29",
+        "enable_vat_reporting",
+        "notification_settings",
+        "audit_trail"
+    ],
+    "fields": [
+        {
+            "fieldname": "configuration_section",
+            "fieldtype": "Section Break",
+            "label": "VAT Configuration"
+        },
+        {
+            "fieldname": "configuration_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Configuration Name",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "configuration_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم التكوين",
+            "translatable": 1
+        },
+        {
+            "fieldname": "company",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Company",
+            "options": "Company",
+            "reqd": 1
+        },
+        {
+            "default": "1",
+            "fieldname": "is_active",
+            "fieldtype": "Check",
+            "in_list_view": 1,
+            "label": "Is Active"
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "effective_from",
+            "fieldtype": "Date",
+            "label": "Effective From",
+            "reqd": 1
+        },
+        {
+            "fieldname": "effective_to",
+            "fieldtype": "Date",
+            "label": "Effective To"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "creation_date",
+            "fieldtype": "Date",
+            "label": "Creation Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "vat_rates_section",
+            "fieldtype": "Section Break",
+            "label": "VAT Rates & Thresholds"
+        },
+        {
+            "default": "5.0",
+            "fieldname": "standard_vat_rate",
+            "fieldtype": "Float",
+            "label": "Standard VAT Rate (%)",
+            "precision": "2",
+            "reqd": 1
+        },
+        {
+            "default": "1",
+            "fieldname": "zero_rated_applicable",
+            "fieldtype": "Check",
+            "label": "Zero-Rated VAT Applicable"
+        },
+        {
+            "fieldname": "exempt_categories",
+            "fieldtype": "Small Text",
+            "label": "VAT Exempt Categories",
+            "description": "Comma-separated list of exempt item groups"
+        },
+        {
+            "fieldname": "column_break_11",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "38500",
+            "fieldname": "registration_threshold_mandatory",
+            "fieldtype": "Currency",
+            "label": "Mandatory Registration Threshold (OMR)",
+            "options": "currency",
+            "precision": "0"
+        },
+        {
+            "default": "19250",
+            "fieldname": "registration_threshold_voluntary",
+            "fieldtype": "Currency",
+            "label": "Voluntary Registration Threshold (OMR)",
+            "options": "currency",
+            "precision": "0"
+        },
+        {
+            "default": "Quarterly",
+            "fieldname": "filing_frequency",
+            "fieldtype": "Select",
+            "label": "VAT Filing Frequency",
+            "options": "Monthly\nQuarterly\nAnnually"
+        },
+        {
+            "fieldname": "accounts_section",
+            "fieldtype": "Section Break",
+            "label": "VAT Accounts Configuration"
+        },
+        {
+            "fieldname": "output_vat_account",
+            "fieldtype": "Link",
+            "label": "Output VAT Account",
+            "options": "Account",
+            "reqd": 1
+        },
+        {
+            "fieldname": "input_vat_account",
+            "fieldtype": "Link",
+            "label": "Input VAT Account",
+            "options": "Account",
+            "reqd": 1
+        },
+        {
+            "fieldname": "vat_payable_account",
+            "fieldtype": "Link",
+            "label": "VAT Payable Account",
+            "options": "Account",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_17",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "0.001",
+            "fieldname": "round_vat_to",
+            "fieldtype": "Float",
+            "label": "Round VAT To",
+            "precision": "3"
+        },
+        {
+            "default": "3",
+            "fieldname": "vat_precision",
+            "fieldtype": "Int",
+            "label": "VAT Amount Precision"
+        },
+        {
+            "default": "OMR",
+            "fieldname": "currency",
+            "fieldtype": "Link",
+            "label": "Currency",
+            "options": "Currency",
+            "reqd": 1
+        },
+        {
+            "fieldname": "compliance_section",
+            "fieldtype": "Section Break",
+            "label": "Compliance & Regulations"
+        },
+        {
+            "default": "Oman Tax Authority",
+            "fieldname": "tax_authority",
+            "fieldtype": "Data",
+            "label": "Tax Authority"
+        },
+        {
+            "default": "هيئة الضرائب العمانية",
+            "fieldname": "tax_authority_ar",
+            "fieldtype": "Data",
+            "label": "الهيئة الضريبية",
+            "translatable": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "e_invoice_required",
+            "fieldtype": "Check",
+            "label": "E-Invoice Required (2026)"
+        },
+        {
+            "fieldname": "column_break_23",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "1",
+            "fieldname": "qr_code_required",
+            "fieldtype": "Check",
+            "label": "QR Code Required"
+        },
+        {
+            "default": "1",
+            "fieldname": "trn_validation_required",
+            "fieldtype": "Check",
+            "label": "TRN Validation Required"
+        },
+        {
+            "default": "0",
+            "fieldname": "enable_reverse_charge",
+            "fieldtype": "Check",
+            "label": "Enable Reverse Charge Mechanism"
+        },
+        {
+            "fieldname": "automation_section",
+            "fieldtype": "Section Break",
+            "label": "Automation Settings"
+        },
+        {
+            "default": "1",
+            "fieldname": "auto_calculate_vat",
+            "fieldtype": "Check",
+            "label": "Auto Calculate VAT"
+        },
+        {
+            "default": "1",
+            "fieldname": "auto_apply_tax_template",
+            "fieldtype": "Check",
+            "label": "Auto Apply Tax Template"
+        },
+        {
+            "default": "1",
+            "fieldname": "validate_vat_registration",
+            "fieldtype": "Check",
+            "label": "Validate Customer VAT Registration"
+        },
+        {
+            "fieldname": "column_break_29",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "1",
+            "fieldname": "enable_vat_reporting",
+            "fieldtype": "Check",
+            "label": "Enable VAT Reporting"
+        },
+        {
+            "fieldname": "notification_settings",
+            "fieldtype": "Small Text",
+            "label": "Notification Settings",
+            "description": "JSON configuration for VAT-related notifications"
+        },
+        {
+            "default": "1",
+            "fieldname": "audit_trail",
+            "fieldtype": "Check",
+            "label": "Enable Audit Trail"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "istable": 0,
+    "links": [],
+    "modified": "2024-01-15 10:30:00.000000",
+    "modified_by": "Administrator",
+    "module": "Sales Service",
+    "name": "VAT Configuration",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician",
+            "share": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Accounts Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Accounts User"
+        }
+    ],
+    "quick_entry": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

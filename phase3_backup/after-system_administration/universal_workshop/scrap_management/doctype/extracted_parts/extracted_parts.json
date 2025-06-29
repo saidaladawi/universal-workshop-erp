@@ -1,0 +1,572 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 1,
+    "allow_guest_to_view": 0,
+    "allow_import": 1,
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "beta": 0,
+    "creation": "2025-06-20 19:27:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "document_type": "Document",
+    "engine": "InnoDB",
+    "field_order": [
+        "basic_details_section",
+        "naming_series",
+        "part_name",
+        "part_name_ar",
+        "column_break_bmhd",
+        "part_code",
+        "barcode",
+        "scrap_vehicle",
+        "source_section",
+        "disassembly_plan",
+        "disassembly_step",
+        "extracted_by",
+        "column_break_source",
+        "extraction_date",
+        "vehicle_vin",
+        "vehicle_make_model",
+        "grading_section",
+        "quality_grade",
+        "grade_description",
+        "grade_description_ar",
+        "column_break_grading",
+        "inspector",
+        "inspection_date",
+        "certification_status",
+        "pricing_section",
+        "base_price_new",
+        "suggested_price",
+        "final_price",
+        "column_break_pricing",
+        "currency",
+        "price_basis",
+        "market_factor",
+        "documentation_section",
+        "primary_photo",
+        "photos_tab",
+        "photo_gallery",
+        "condition_details_section",
+        "functional_status",
+        "physical_condition",
+        "defects_found",
+        "column_break_condition",
+        "repair_required",
+        "repair_notes",
+        "estimated_repair_cost",
+        "dimensions_weight_section",
+        "length_mm",
+        "width_mm",
+        "height_mm",
+        "column_break_dimensions",
+        "weight_kg",
+        "packaging_requirements",
+        "handling_instructions",
+        "inventory_section",
+        "warehouse",
+        "shelf_location",
+        "storage_date",
+        "column_break_inventory",
+        "availability_status",
+        "reserved_quantity",
+        "sold_quantity",
+        "sales_section",
+        "listed_on_channels",
+        "first_listing_date",
+        "last_price_update",
+        "column_break_sales",
+        "total_inquiries",
+        "total_views",
+        "sale_status",
+        "workflow_section",
+        "workflow_state",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "basic_details_section",
+            "fieldtype": "Section Break",
+            "label": "Basic Details"
+        },
+        {
+            "default": "EXT-PART-.YYYY.-.#####",
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Naming Series",
+            "options": "EXT-PART-.YYYY.-.#####\nPART-.YYYY.-.#####",
+            "reqd": 1
+        },
+        {
+            "description": "Part name in English",
+            "fieldname": "part_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Part Name",
+            "reqd": 1
+        },
+        {
+            "description": "اسم القطعة بالعربية",
+            "fieldname": "part_name_ar",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "اسم القطعة",
+            "reqd": 1,
+            "translatable": 1
+        },
+        {
+            "fieldname": "column_break_bmhd",
+            "fieldtype": "Column Break"
+        },
+        {
+            "description": "Unique part identification code",
+            "fieldname": "part_code",
+            "fieldtype": "Data",
+            "label": "Part Code",
+            "unique": 1
+        },
+        {
+            "description": "Barcode for inventory tracking",
+            "fieldname": "barcode",
+            "fieldtype": "Barcode",
+            "label": "Barcode",
+            "read_only": 1
+        },
+        {
+            "fieldname": "scrap_vehicle",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Source Scrap Vehicle",
+            "options": "Scrap Vehicle",
+            "reqd": 1
+        },
+        {
+            "fieldname": "source_section",
+            "fieldtype": "Section Break",
+            "label": "Source Information"
+        },
+        {
+            "fieldname": "disassembly_plan",
+            "fieldtype": "Link",
+            "label": "Disassembly Plan",
+            "options": "Disassembly Plan"
+        },
+        {
+            "fieldname": "disassembly_step",
+            "fieldtype": "Link",
+            "label": "Disassembly Step",
+            "options": "Disassembly Step"
+        },
+        {
+            "fieldname": "extracted_by",
+            "fieldtype": "Link",
+            "label": "Extracted By",
+            "options": "Employee"
+        },
+        {
+            "fieldname": "column_break_source",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "Today",
+            "fieldname": "extraction_date",
+            "fieldtype": "Date",
+            "label": "Extraction Date",
+            "reqd": 1
+        },
+        {
+            "fetch_from": "scrap_vehicle.vin_number",
+            "fieldname": "vehicle_vin",
+            "fieldtype": "Data",
+            "label": "Vehicle VIN",
+            "read_only": 1
+        },
+        {
+            "fetch_from": "scrap_vehicle.make_model",
+            "fieldname": "vehicle_make_model",
+            "fieldtype": "Data",
+            "label": "Vehicle Make/Model",
+            "read_only": 1
+        },
+        {
+            "fieldname": "grading_section",
+            "fieldtype": "Section Break",
+            "label": "Quality Grading"
+        },
+        {
+            "description": "Quality grade based on international standards",
+            "fieldname": "quality_grade",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Quality Grade",
+            "options": "Grade A - Excellent\nGrade B - Good\nGrade C - Average\nGrade D - Poor/Scrap",
+            "reqd": 1
+        },
+        {
+            "fieldname": "grade_description",
+            "fieldtype": "Small Text",
+            "label": "Grade Description"
+        },
+        {
+            "fieldname": "grade_description_ar",
+            "fieldtype": "Small Text",
+            "label": "وصف الدرجة",
+            "translatable": 1
+        },
+        {
+            "fieldname": "column_break_grading",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "inspector",
+            "fieldtype": "Link",
+            "label": "Quality Inspector",
+            "options": "Employee"
+        },
+        {
+            "fieldname": "inspection_date",
+            "fieldtype": "Datetime",
+            "label": "Inspection Date"
+        },
+        {
+            "default": "Pending Inspection",
+            "fieldname": "certification_status",
+            "fieldtype": "Select",
+            "label": "Certification Status",
+            "options": "Pending Inspection\nInspected\nCertified\nRejected",
+            "reqd": 1
+        },
+        {
+            "fieldname": "pricing_section",
+            "fieldtype": "Section Break",
+            "label": "Pricing Information"
+        },
+        {
+            "description": "Original new part price for reference",
+            "fieldname": "base_price_new",
+            "fieldtype": "Currency",
+            "label": "Base Price (New)",
+            "precision": "3"
+        },
+        {
+            "description": "System suggested price based on grade",
+            "fieldname": "suggested_price",
+            "fieldtype": "Currency",
+            "label": "Suggested Price",
+            "precision": "3",
+            "read_only": 1
+        },
+        {
+            "description": "Final selling price",
+            "fieldname": "final_price",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Final Price",
+            "precision": "3",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_pricing",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "OMR",
+            "fieldname": "currency",
+            "fieldtype": "Link",
+            "label": "Currency",
+            "options": "Currency"
+        },
+        {
+            "fieldname": "price_basis",
+            "fieldtype": "Select",
+            "label": "Price Basis",
+            "options": "Grade Based\nMarket Value\nManual Override\nCompetitor Based"
+        },
+        {
+            "description": "Market adjustment factor (0.8 = 20% below market)",
+            "fieldname": "market_factor",
+            "fieldtype": "Float",
+            "label": "Market Factor",
+            "precision": "2"
+        },
+        {
+            "fieldname": "documentation_section",
+            "fieldtype": "Section Break",
+            "label": "Photo Documentation"
+        },
+        {
+            "fieldname": "primary_photo",
+            "fieldtype": "Attach Image",
+            "label": "Primary Photo"
+        },
+        {
+            "fieldname": "photos_tab",
+            "fieldtype": "Tab Break",
+            "label": "Photo Gallery"
+        },
+        {
+            "fieldname": "photo_gallery",
+            "fieldtype": "Table",
+            "label": "Photo Gallery",
+            "options": "Part Photo"
+        },
+        {
+            "fieldname": "condition_details_section",
+            "fieldtype": "Section Break",
+            "label": "Condition Assessment"
+        },
+        {
+            "fieldname": "functional_status",
+            "fieldtype": "Select",
+            "label": "Functional Status",
+            "options": "Fully Functional\nPartially Functional\nNon-Functional\nUntested"
+        },
+        {
+            "fieldname": "physical_condition",
+            "fieldtype": "Select",
+            "label": "Physical Condition",
+            "options": "Excellent\nGood\nFair\nPoor\nDamaged"
+        },
+        {
+            "fieldname": "defects_found",
+            "fieldtype": "Small Text",
+            "label": "Defects Found"
+        },
+        {
+            "fieldname": "column_break_condition",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": 0,
+            "fieldname": "repair_required",
+            "fieldtype": "Check",
+            "label": "Repair Required"
+        },
+        {
+            "depends_on": "repair_required",
+            "fieldname": "repair_notes",
+            "fieldtype": "Small Text",
+            "label": "Repair Notes"
+        },
+        {
+            "depends_on": "repair_required",
+            "fieldname": "estimated_repair_cost",
+            "fieldtype": "Currency",
+            "label": "Estimated Repair Cost",
+            "precision": "3"
+        },
+        {
+            "fieldname": "dimensions_weight_section",
+            "fieldtype": "Section Break",
+            "label": "Dimensions & Weight"
+        },
+        {
+            "fieldname": "length_mm",
+            "fieldtype": "Int",
+            "label": "Length (mm)"
+        },
+        {
+            "fieldname": "width_mm",
+            "fieldtype": "Int",
+            "label": "Width (mm)"
+        },
+        {
+            "fieldname": "height_mm",
+            "fieldtype": "Int",
+            "label": "Height (mm)"
+        },
+        {
+            "fieldname": "column_break_dimensions",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "weight_kg",
+            "fieldtype": "Float",
+            "label": "Weight (kg)",
+            "precision": "2"
+        },
+        {
+            "fieldname": "packaging_requirements",
+            "fieldtype": "Small Text",
+            "label": "Packaging Requirements"
+        },
+        {
+            "fieldname": "handling_instructions",
+            "fieldtype": "Small Text",
+            "label": "Handling Instructions"
+        },
+        {
+            "fieldname": "inventory_section",
+            "fieldtype": "Section Break",
+            "label": "Inventory Management"
+        },
+        {
+            "fieldname": "warehouse",
+            "fieldtype": "Link",
+            "label": "Warehouse",
+            "options": "Warehouse"
+        },
+        {
+            "fieldname": "shelf_location",
+            "fieldtype": "Data",
+            "label": "Shelf Location"
+        },
+        {
+            "fieldname": "storage_date",
+            "fieldtype": "Date",
+            "label": "Storage Date"
+        },
+        {
+            "fieldname": "column_break_inventory",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "Available",
+            "fieldname": "availability_status",
+            "fieldtype": "Select",
+            "label": "Availability Status",
+            "options": "Available\nReserved\nSold\nDamaged\nLost"
+        },
+        {
+            "default": "0",
+            "fieldname": "reserved_quantity",
+            "fieldtype": "Int",
+            "label": "Reserved Quantity"
+        },
+        {
+            "default": "0",
+            "fieldname": "sold_quantity",
+            "fieldtype": "Int",
+            "label": "Sold Quantity"
+        },
+        {
+            "fieldname": "sales_section",
+            "fieldtype": "Section Break",
+            "label": "Sales Tracking"
+        },
+        {
+            "fieldname": "listed_on_channels",
+            "fieldtype": "Small Text",
+            "label": "Listed on Sales Channels"
+        },
+        {
+            "fieldname": "first_listing_date",
+            "fieldtype": "Date",
+            "label": "First Listing Date"
+        },
+        {
+            "fieldname": "last_price_update",
+            "fieldtype": "Date",
+            "label": "Last Price Update"
+        },
+        {
+            "fieldname": "column_break_sales",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "0",
+            "fieldname": "total_inquiries",
+            "fieldtype": "Int",
+            "label": "Total Inquiries"
+        },
+        {
+            "default": "0",
+            "fieldname": "total_views",
+            "fieldtype": "Int",
+            "label": "Total Views"
+        },
+        {
+            "default": "Not Listed",
+            "fieldname": "sale_status",
+            "fieldtype": "Select",
+            "label": "Sale Status",
+            "options": "Not Listed\nListed\nNegotiation\nSold\nCancelled"
+        },
+        {
+            "fieldname": "workflow_section",
+            "fieldtype": "Section Break",
+            "label": "Workflow"
+        },
+        {
+            "default": "Extracted",
+            "fieldname": "workflow_state",
+            "fieldtype": "Select",
+            "label": "Workflow State",
+            "options": "Extracted\nGraded\nPhotographed\nListed\nSold\nShipped"
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Extracted Parts",
+            "print_hide": 1,
+            "read_only": 1
+        }
+    ],
+    "has_web_view": 0,
+    "hide_toolbar": 0,
+    "icon": "fa fa-wrench",
+    "idx": 0,
+    "image_view": 1,
+    "in_create": 0,
+    "is_submittable": 0,
+    "issingle": 0,
+    "istable": 0,
+    "max_attachments": 20,
+    "modified": "2025-06-20 19:27:00.000000",
+    "modified_by": "Administrator",
+    "module": "Scrap Management",
+    "name": "Extracted Parts",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Inspector",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "quick_entry": 1,
+    "restrict_to_domain": "Manufacturing",
+    "search_fields": "part_name,part_name_ar,quality_grade,scrap_vehicle,barcode",
+    "show_name_in_global_search": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "part_name",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

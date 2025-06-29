@@ -1,0 +1,1 @@
+# Notification Template DocType

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parts Compatibility Matrix - Universal Workshop ERP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        .rtl {
+            direction: rtl;
+            text-align: right;
+        }
+
+        .compatibility-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .compatibility-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .fitment-score {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
+            font-size: 0.85em;
+        }
+
+        .fitment-perfect { background-color: #28a745; }
+        .fitment-good { background-color: #17a2b8; }
+        .fitment-possible { background-color: #ffc107; color: #000; }
+        .fitment-check { background-color: #fd7e14; }
+        .fitment-not-recommended { background-color: #dc3545; }
+
+        .vin-input {
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .vehicle-info-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+        }
+
+        .part-card {
+            border-left: 4px solid #007bff;
+            transition: all 0.3s ease;
+        }
+
+        .part-card:hover {
+            border-left-color: #28a745;
+            background-color: #f8f9fa;
+        }
+
+        .compatibility-matrix {
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .loading-spinner {
+            display: none;
+        }
+
+        .arabic-text {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .compatibility-card {
+                margin-bottom: 15px;
+            }
+
+            .btn-group-vertical .btn {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid py-4">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h1 class="h3 mb-1">
+                            <i class="bi bi-puzzle-fill text-primary"></i>
+                            Parts Compatibility Matrix
+                        </h1>
+                        <p class="text-muted mb-0">
+                            مصفوفة توافق قطع الغيار | Advanced Vehicle-Parts Fitment System
+                        </p>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-outline-primary" id="langToggle">
+                            <i class="bi bi-translate"></i> العربية / EN
+                        </button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#vinDecoderModal">
+                            <i class="bi bi-qr-code-scan"></i> VIN Decoder
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search and Filters -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">
+                            <i class="bi bi-search"></i>
+                            <span data-en="Search & Filter" data-ar="البحث والتصفية">Search & Filter</span>
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="compatibilitySearchForm">
+                            <div class="row">
+                                <!-- Vehicle Information -->
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">
+                                            <span data-en="Vehicle Make" data-ar="الصانع">Vehicle Make</span>
+                                        </label>
+                                        <select class="form-select" id="vehicleMake" name="vehicle_make">
+                                            <option value="">Select Make / اختر الصانع</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">
+                                            <span data-en="Vehicle Model" data-ar="النموذج">Vehicle Model</span>
+                                        </label>
+                                        <select class="form-select" id="vehicleModel" name="vehicle_model">
+                                            <option value="">Select Model / اختر النموذج</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">
+                                            <span data-en="Vehicle Year" data-ar="سنة الصنع">Vehicle Year</span>
+                                        </label>
+                                        <input type="number" class="form-control" id="vehicleYear" name="vehicle_year"
+                                               min="1980" max="2030" placeholder="2020">
+                                    </div>
+                                </div>
+
+                                <!-- Part Information -->
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">
+                                            <span data-en="Part Search" data-ar="البحث عن قطعة">Part Search</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="partSearch" name="search_query"
+                                               placeholder="Part name, code, or description">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">
+                                            <span data-en="Part Category" data-ar="فئة القطعة">Part Category</span>
+                                        </label>
+                                        <select class="form-select" id="partCategory" name="part_category">
+                                            <option value="">All Categories / جميع الفئات</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">
+                                            <span data-en="Service Type" data-ar="نوع الخدمة">Service Type</span>
+                                        </label>
+                                        <select class="form-select" id="serviceType" name="service_type">
+                                            <option value="">Any Service / أي خدمة</option>
+                                            <option value="oil_change">Oil Change / تغيير الزيت</option>
+                                            <option value="brake_service">Brake Service / خدمة الفرامل</option>
+                                            <option value="engine_repair">Engine Repair / إصلاح المحرك</option>
+                                            <option value="transmission_service">Transmission / ناقل الحركة</option>
+                                            <option value="tire_replacement">Tire Replacement / تغيير الإطارات</option>
+                                            <option value="battery_replacement">Battery / البطارية</option>
+                                            <option value="cooling_service">Cooling System / نظام التبريد</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Search Actions -->
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">
+                                            <span data-en="Compatibility Type" data-ar="نوع التوافق">Compatibility Type</span>
+                                        </label>
+                                        <select class="form-select" id="compatibilityType" name="compatibility_type">
+                                            <option value="all">All Compatibility / جميع أنواع التوافق</option>
+                                            <option value="vehicle">Vehicle Compatibility / توافق المركبة</option>
+                                            <option value="parts">Parts Compatibility / توافق القطع</option>
+                                            <option value="assembly">Assembly Compatibility / توافق التجميع</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">
+                                            <span data-en="Actions" data-ar="الإجراءات">Actions</span>
+                                        </label>
+                                        <div class="d-grid gap-2">
+                                            <button type="submit" class="btn btn-primary">
+                                                <i class="bi bi-search"></i>
+                                                <span data-en="Search Compatible Parts" data-ar="البحث عن القطع المتوافقة">Search Compatible Parts</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-secondary" id="resetFilters">
+                                                <i class="bi bi-arrow-clockwise"></i>
+                                                <span data-en="Reset Filters" data-ar="إعادة تعيين المرشحات">Reset Filters</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="row">
+            <!-- Vehicle Information Panel -->
+            <div class="col-md-4" id="vehicleInfoPanel" style="display: none;">
+                <div class="card vehicle-info-card mb-4">
+                    <div class="card-header border-0">
+                        <h5 class="card-title text-white mb-0">
+                            <i class="bi bi-car-front-fill"></i>
+                            <span data-en="Vehicle Information" data-ar="معلومات المركبة">Vehicle Information</span>
+                        </h5>
+                    </div>
+                    <div class="card-body" id="vehicleInfoContent">
+                        <!-- Vehicle details will be populated here -->
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h6 class="card-title mb-0">
+                            <i class="bi bi-graph-up"></i>
+                            <span data-en="Compatibility Stats" data-ar="إحصائيات التوافق">Compatibility Stats</span>
+                        </h6>
+                    </div>
+                    <div class="card-body" id="compatibilityStats">
+                        <!-- Stats will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compatibility Matrix -->
+            <div class="col-md-8" id="resultsColumn">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">
+                            <i class="bi bi-grid-3x3-gap-fill"></i>
+                            <span data-en="Compatibility Results" data-ar="نتائج التوافق">Compatibility Results</span>
+                        </h5>
+                        <div class="btn-group btn-group-sm" role="group">
+                            <button class="btn btn-outline-primary" id="viewGrid" title="Grid View">
+                                <i class="bi bi-grid"></i>
+                            </button>
+                            <button class="btn btn-outline-primary" id="viewList" title="List View">
+                                <i class="bi bi-list"></i>
+                            </button>
+                            <button class="btn btn-outline-primary" id="exportResults" title="Export Results">
+                                <i class="bi bi-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body compatibility-matrix">
+                        <div id="compatibilityResults">
+                            <div class="text-center py-5">
+                                <i class="bi bi-search text-muted" style="font-size: 3rem;"></i>
+                                <h5 class="text-muted mt-3">
+                                    <span data-en="Search for parts to see compatibility matrix"
+                                          data-ar="ابحث عن القطع لرؤية مصفوفة التوافق">
+                                        Search for parts to see compatibility matrix
+                                    </span>
+                                </h5>
+                                <p class="text-muted">
+                                    <span data-en="Use the filters above or decode a VIN to get started"
+                                          data-ar="استخدم المرشحات أعلاه أو فك تشفير VIN للبدء">
+                                        Use the filters above or decode a VIN to get started
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Loading Spinner -->
+                        <div class="text-center py-5 loading-spinner" id="loadingSpinner">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p class="mt-3 text-muted">
+                                <span data-en="Analyzing compatibility..." data-ar="تحليل التوافق...">Analyzing compatibility...</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIN Decoder Modal -->
+    <div class="modal fade" id="vinDecoderModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="bi bi-qr-code-scan"></i>
+                        <span data-en="VIN Decoder" data-ar="فك تشفير VIN">VIN Decoder</span>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <span data-en="Vehicle Identification Number (VIN)" data-ar="رقم تعريف المركبة">Vehicle Identification Number (VIN)</span>
+                        </label>
+                        <input type="text" class="form-control vin-input" id="vinInput"
+                               maxlength="17" placeholder="Enter 17-character VIN">
+                        <div class="form-text">
+                            <span data-en="Enter the 17-character VIN found on your vehicle"
+                                  data-ar="أدخل رقم VIN المكون من 17 حرفاً الموجود على مركبتك">
+                                Enter the 17-character VIN found on your vehicle
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="d-grid">
+                        <button class="btn btn-primary" id="decodeVinBtn">
+                            <i class="bi bi-cpu"></i>
+                            <span data-en="Decode VIN" data-ar="فك تشفير VIN">Decode VIN</span>
+                        </button>
+                    </div>
+
+                    <div id="vinResults" class="mt-4" style="display: none;">
+                        <!-- VIN decode results will be shown here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Part Detail Modal -->
+    <div class="modal fade" id="partDetailModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="bi bi-gear-fill"></i>
+                        <span data-en="Part Compatibility Details" data-ar="تفاصيل توافق القطعة">Part Compatibility Details</span>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="partDetailContent">
+                    <!-- Part details will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/universal_workshop/js/compatibility_matrix_ui.js"></script>
+    <script>
+        // Initialize the compatibility matrix UI
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof CompatibilityMatrixUI !== 'undefined') {
+                window.compatibilityMatrix = new CompatibilityMatrixUI();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "format:MDL-{model_name}-{####}",
+    "creation": "2025-06-19 16:20:00.000000",
+    "default_view": "List",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "vehicle_make",
+        "model_name",
+        "model_name_ar",
+        "column_break_4",
+        "model_year_start",
+        "model_year_end",
+        "is_active",
+        "section_break_8",
+        "body_type",
+        "fuel_type",
+        "transmission_type",
+        "column_break_12",
+        "engine_displacement",
+        "engine_cylinders",
+        "drive_type",
+        "section_break_16",
+        "description",
+        "model_image"
+    ],
+    "fields": [
+        {
+            "fieldname": "vehicle_make",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Vehicle Make",
+            "options": "Vehicle Make",
+            "reqd": 1
+        },
+        {
+            "fieldname": "model_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Model Name (English)",
+            "reqd": 1
+        },
+        {
+            "fieldname": "model_name_ar",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "اسم الموديل",
+            "translatable": 1
+        },
+        {
+            "fieldname": "column_break_4",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "model_year_start",
+            "fieldtype": "Int",
+            "label": "Model Year Start",
+            "description": "First year this model was produced"
+        },
+        {
+            "fieldname": "model_year_end",
+            "fieldtype": "Int",
+            "label": "Model Year End",
+            "description": "Last year this model was produced (leave empty if still in production)"
+        },
+        {
+            "fieldname": "is_active",
+            "default": 1,
+            "fieldtype": "Check",
+            "label": "Is Active"
+        },
+        {
+            "fieldname": "section_break_8",
+            "fieldtype": "Section Break",
+            "label": "Vehicle Specifications"
+        },
+        {
+            "fieldname": "body_type",
+            "fieldtype": "Select",
+            "label": "Body Type",
+            "options": "Sedan\nHatchback\nSUV\nCoupe\nConvertible\nWagon\nPickup\nVan\nTruck"
+        },
+        {
+            "fieldname": "fuel_type",
+            "fieldtype": "Select",
+            "label": "Fuel Type",
+            "options": "Gasoline\nDiesel\nHybrid\nElectric\nHydrogen\nCNG\nLPG"
+        },
+        {
+            "fieldname": "transmission_type",
+            "fieldtype": "Select",
+            "label": "Transmission Type",
+            "options": "Manual\nAutomatic\nCVT\nDual-Clutch"
+        },
+        {
+            "fieldname": "column_break_12",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "engine_displacement",
+            "fieldtype": "Float",
+            "label": "Engine Displacement (L)",
+            "precision": 1
+        },
+        {
+            "fieldname": "engine_cylinders",
+            "fieldtype": "Int",
+            "label": "Engine Cylinders"
+        },
+        {
+            "fieldname": "drive_type",
+            "fieldtype": "Select",
+            "label": "Drive Type",
+            "options": "FWD\nRWD\nAWD\n4WD"
+        },
+        {
+            "fieldname": "section_break_16",
+            "fieldtype": "Section Break",
+            "label": "Additional Information"
+        },
+        {
+            "fieldname": "description",
+            "fieldtype": "Text",
+            "label": "Description"
+        },
+        {
+            "fieldname": "model_image",
+            "fieldtype": "Attach Image",
+            "label": "Model Image"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2025-06-19 16:20:00.000000",
+    "modified_by": "Administrator",
+    "module": "Vehicle Management",
+    "name": "Vehicle Model",
+    "naming_rule": "Expression",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Technician",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Customer",
+            "share": 1
+        }
+    ],
+    "sort_field": "model_name",
+    "sort_order": "ASC",
+    "states": [],
+    "title_field": "model_name",
+    "track_changes": 1
+}

@@ -1,0 +1,864 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 0,
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "beta": 0,
+    "creation": "2025-06-24 07:25:30.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "document_type": "Document",
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "monitor_name",
+        "monitor_name_ar",
+        "monitor_type",
+        "monitoring_enabled",
+        "last_check_time",
+        "next_check_time",
+        "health_status",
+        "overall_score",
+        "check_interval_minutes",
+        "column_break_1",
+        "created_by_system",
+        "created_date",
+        "modified_by_system",
+        "modified_date",
+        "auto_restart_services",
+        "send_notifications",
+        "notification_recipients",
+        "section_break_hardware",
+        "hardware_monitoring_enabled",
+        "cpu_usage_percent",
+        "cpu_threshold_warning",
+        "cpu_threshold_critical",
+        "memory_usage_percent",
+        "memory_total_gb",
+        "memory_used_gb",
+        "memory_threshold_warning",
+        "memory_threshold_critical",
+        "column_break_hardware",
+        "disk_usage_percent",
+        "disk_total_gb",
+        "disk_used_gb",
+        "disk_threshold_warning",
+        "disk_threshold_critical",
+        "cpu_temperature",
+        "system_load_1min",
+        "system_load_5min",
+        "system_load_15min",
+        "section_break_software",
+        "software_monitoring_enabled",
+        "frappe_process_status",
+        "database_status",
+        "database_connection_count",
+        "database_slow_queries",
+        "background_jobs_running",
+        "background_jobs_pending",
+        "background_jobs_failed",
+        "column_break_software",
+        "redis_status",
+        "nginx_status",
+        "supervisor_status",
+        "python_version",
+        "frappe_version",
+        "erpnext_version",
+        "universal_workshop_version",
+        "last_backup_time",
+        "section_break_network",
+        "network_monitoring_enabled",
+        "internet_connectivity",
+        "dns_resolution_time",
+        "api_endpoints_status",
+        "external_services_status",
+        "network_latency_ms",
+        "packet_loss_percent",
+        "column_break_network",
+        "email_service_status",
+        "sms_service_status",
+        "cloud_storage_status",
+        "license_server_status",
+        "vin_decoder_status",
+        "payment_gateway_status",
+        "section_break_alerts",
+        "alerting_enabled",
+        "alert_level",
+        "alert_message",
+        "alert_message_ar",
+        "alert_count_today",
+        "last_alert_time",
+        "escalation_required",
+        "escalation_level",
+        "column_break_alerts",
+        "email_alerts",
+        "sms_alerts",
+        "slack_alerts",
+        "teams_alerts",
+        "webhook_url",
+        "alert_recipients",
+        "escalation_recipients",
+        "alert_frequency_limit",
+        "section_break_history",
+        "uptime_percentage_24h",
+        "uptime_percentage_7d",
+        "uptime_percentage_30d",
+        "average_response_time",
+        "peak_cpu_usage_24h",
+        "peak_memory_usage_24h",
+        "total_errors_24h",
+        "column_break_history",
+        "last_restart_time",
+        "restart_count_24h",
+        "maintenance_mode",
+        "scheduled_maintenance",
+        "maintenance_window_start",
+        "maintenance_window_end",
+        "health_check_log",
+        "detailed_metrics"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Naming Series",
+            "options": "SHM-{YYYY}-{#####}",
+            "reqd": 1
+        },
+        {
+            "fieldname": "monitor_name",
+            "fieldtype": "Data",
+            "label": "Monitor Name",
+            "reqd": 1,
+            "in_list_view": 1,
+            "description": "Descriptive name for this health monitor"
+        },
+        {
+            "fieldname": "monitor_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم المراقب",
+            "translatable": 1,
+            "description": "الاسم الوصفي لمراقب الحالة الصحية"
+        },
+        {
+            "fieldname": "monitor_type",
+            "fieldtype": "Select",
+            "label": "Monitor Type",
+            "options": "Full System / النظام الكامل\nHardware Only / الأجهزة فقط\nSoftware Only / البرمجيات فقط\nNetwork Only / الشبكة فقط\nCustom / مخصص",
+            "default": "Full System / النظام الكامل",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "monitoring_enabled",
+            "fieldtype": "Check",
+            "label": "Monitoring Enabled / المراقبة مفعلة",
+            "default": 1
+        },
+        {
+            "fieldname": "last_check_time",
+            "fieldtype": "Datetime",
+            "label": "Last Check Time / وقت آخر فحص",
+            "read_only": 1
+        },
+        {
+            "fieldname": "next_check_time",
+            "fieldtype": "Datetime",
+            "label": "Next Check Time / وقت الفحص القادم",
+            "read_only": 1
+        },
+        {
+            "fieldname": "health_status",
+            "fieldtype": "Select",
+            "label": "Health Status / حالة الصحة",
+            "options": "Healthy / سليم\nWarning / تحذير\nCritical / حرج\nDown / متوقف\nMaintenance / صيانة\nUnknown / غير معروف",
+            "default": "Unknown / غير معروف",
+            "in_list_view": 1,
+            "read_only": 1
+        },
+        {
+            "fieldname": "overall_score",
+            "fieldtype": "Percent",
+            "label": "Overall Health Score / النتيجة الإجمالية للصحة",
+            "read_only": 1,
+            "in_list_view": 1,
+            "description": "Overall system health percentage"
+        },
+        {
+            "fieldname": "check_interval_minutes",
+            "fieldtype": "Int",
+            "label": "Check Interval (Minutes) / فترة الفحص (دقائق)",
+            "default": 5,
+            "description": "How often to run health checks"
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "created_by_system",
+            "fieldtype": "Link",
+            "label": "Created By / أنشئ بواسطة",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "created_date",
+            "fieldtype": "Datetime",
+            "label": "Created Date / تاريخ الإنشاء",
+            "read_only": 1
+        },
+        {
+            "fieldname": "modified_by_system",
+            "fieldtype": "Link",
+            "label": "Modified By / عدل بواسطة",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "modified_date",
+            "fieldtype": "Datetime",
+            "label": "Modified Date / تاريخ التعديل",
+            "read_only": 1
+        },
+        {
+            "fieldname": "auto_restart_services",
+            "fieldtype": "Check",
+            "label": "Auto Restart Services / إعادة تشغيل الخدمات تلقائياً",
+            "description": "Automatically restart failed services"
+        },
+        {
+            "fieldname": "send_notifications",
+            "fieldtype": "Check",
+            "label": "Send Notifications / إرسال الإشعارات",
+            "default": 1
+        },
+        {
+            "fieldname": "notification_recipients",
+            "fieldtype": "Small Text",
+            "label": "Notification Recipients / مستقبلو الإشعارات",
+            "description": "Email addresses separated by commas"
+        },
+        {
+            "fieldname": "section_break_hardware",
+            "fieldtype": "Section Break",
+            "label": "Hardware Monitoring / مراقبة الأجهزة",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "hardware_monitoring_enabled",
+            "fieldtype": "Check",
+            "label": "Hardware Monitoring Enabled / مراقبة الأجهزة مفعلة",
+            "default": 1
+        },
+        {
+            "fieldname": "cpu_usage_percent",
+            "fieldtype": "Percent",
+            "label": "CPU Usage / استخدام المعالج",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "cpu_threshold_warning",
+            "fieldtype": "Percent",
+            "label": "CPU Warning Threshold / حد تحذير المعالج",
+            "default": 80,
+            "description": "CPU usage percentage that triggers warning"
+        },
+        {
+            "fieldname": "cpu_threshold_critical",
+            "fieldtype": "Percent",
+            "label": "CPU Critical Threshold / حد المعالج الحرج",
+            "default": 95,
+            "description": "CPU usage percentage that triggers critical alert"
+        },
+        {
+            "fieldname": "memory_usage_percent",
+            "fieldtype": "Percent",
+            "label": "Memory Usage / استخدام الذاكرة",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "memory_total_gb",
+            "fieldtype": "Float",
+            "label": "Total Memory (GB) / إجمالي الذاكرة (جيجابايت)",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "memory_used_gb",
+            "fieldtype": "Float",
+            "label": "Used Memory (GB) / الذاكرة المستخدمة (جيجابايت)",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "memory_threshold_warning",
+            "fieldtype": "Percent",
+            "label": "Memory Warning Threshold / حد تحذير الذاكرة",
+            "default": 80
+        },
+        {
+            "fieldname": "memory_threshold_critical",
+            "fieldtype": "Percent",
+            "label": "Memory Critical Threshold / حد الذاكرة الحرج",
+            "default": 95
+        },
+        {
+            "fieldname": "column_break_hardware",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "disk_usage_percent",
+            "fieldtype": "Percent",
+            "label": "Disk Usage / استخدام القرص",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "disk_total_gb",
+            "fieldtype": "Float",
+            "label": "Total Disk (GB) / إجمالي القرص (جيجابايت)",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "disk_used_gb",
+            "fieldtype": "Float",
+            "label": "Used Disk (GB) / القرص المستخدم (جيجابايت)",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "disk_threshold_warning",
+            "fieldtype": "Percent",
+            "label": "Disk Warning Threshold / حد تحذير القرص",
+            "default": 80
+        },
+        {
+            "fieldname": "disk_threshold_critical",
+            "fieldtype": "Percent",
+            "label": "Disk Critical Threshold / حد القرص الحرج",
+            "default": 95
+        },
+        {
+            "fieldname": "cpu_temperature",
+            "fieldtype": "Float",
+            "label": "CPU Temperature (°C) / درجة حرارة المعالج",
+            "read_only": 1,
+            "precision": 1
+        },
+        {
+            "fieldname": "system_load_1min",
+            "fieldtype": "Float",
+            "label": "System Load 1min / حمل النظام دقيقة واحدة",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "system_load_5min",
+            "fieldtype": "Float",
+            "label": "System Load 5min / حمل النظام 5 دقائق",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "system_load_15min",
+            "fieldtype": "Float",
+            "label": "System Load 15min / حمل النظام 15 دقيقة",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "section_break_software",
+            "fieldtype": "Section Break",
+            "label": "Software Monitoring / مراقبة البرمجيات",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "software_monitoring_enabled",
+            "fieldtype": "Check",
+            "label": "Software Monitoring Enabled / مراقبة البرمجيات مفعلة",
+            "default": 1
+        },
+        {
+            "fieldname": "frappe_process_status",
+            "fieldtype": "Select",
+            "label": "Frappe Process Status / حالة عملية Frappe",
+            "options": "Running / يعمل\nStopped / متوقف\nError / خطأ\nUnknown / غير معروف",
+            "read_only": 1
+        },
+        {
+            "fieldname": "database_status",
+            "fieldtype": "Select",
+            "label": "Database Status / حالة قاعدة البيانات",
+            "options": "Online / متصل\nOffline / غير متصل\nSlow / بطيء\nError / خطأ",
+            "read_only": 1
+        },
+        {
+            "fieldname": "database_connection_count",
+            "fieldtype": "Int",
+            "label": "Database Connections / اتصالات قاعدة البيانات",
+            "read_only": 1
+        },
+        {
+            "fieldname": "database_slow_queries",
+            "fieldtype": "Int",
+            "label": "Slow Queries / الاستعلامات البطيئة",
+            "read_only": 1
+        },
+        {
+            "fieldname": "background_jobs_running",
+            "fieldtype": "Int",
+            "label": "Background Jobs Running / المهام الخلفية قيد التشغيل",
+            "read_only": 1
+        },
+        {
+            "fieldname": "background_jobs_pending",
+            "fieldtype": "Int",
+            "label": "Background Jobs Pending / المهام الخلفية المعلقة",
+            "read_only": 1
+        },
+        {
+            "fieldname": "background_jobs_failed",
+            "fieldtype": "Int",
+            "label": "Background Jobs Failed / المهام الخلفية الفاشلة",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_software",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "redis_status",
+            "fieldtype": "Select",
+            "label": "Redis Status / حالة Redis",
+            "options": "Running / يعمل\nStopped / متوقف\nError / خطأ\nUnknown / غير معروف",
+            "read_only": 1
+        },
+        {
+            "fieldname": "nginx_status",
+            "fieldtype": "Select",
+            "label": "Nginx Status / حالة Nginx",
+            "options": "Running / يعمل\nStopped / متوقف\nError / خطأ\nUnknown / غير معروف",
+            "read_only": 1
+        },
+        {
+            "fieldname": "supervisor_status",
+            "fieldtype": "Select",
+            "label": "Supervisor Status / حالة Supervisor",
+            "options": "Running / يعمل\nStopped / متوقف\nError / خطأ\nUnknown / غير معروف",
+            "read_only": 1
+        },
+        {
+            "fieldname": "python_version",
+            "fieldtype": "Data",
+            "label": "Python Version / إصدار Python",
+            "read_only": 1
+        },
+        {
+            "fieldname": "frappe_version",
+            "fieldtype": "Data",
+            "label": "Frappe Version / إصدار Frappe",
+            "read_only": 1
+        },
+        {
+            "fieldname": "erpnext_version",
+            "fieldtype": "Data",
+            "label": "ERPNext Version / إصدار ERPNext",
+            "read_only": 1
+        },
+        {
+            "fieldname": "universal_workshop_version",
+            "fieldtype": "Data",
+            "label": "Universal Workshop Version / إصدار الورشة الشاملة",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_backup_time",
+            "fieldtype": "Datetime",
+            "label": "Last Backup Time / وقت آخر نسخة احتياطية",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_network",
+            "fieldtype": "Section Break",
+            "label": "Network Monitoring / مراقبة الشبكة",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "network_monitoring_enabled",
+            "fieldtype": "Check",
+            "label": "Network Monitoring Enabled / مراقبة الشبكة مفعلة",
+            "default": 1
+        },
+        {
+            "fieldname": "internet_connectivity",
+            "fieldtype": "Select",
+            "label": "Internet Connectivity / الاتصال بالإنترنت",
+            "options": "Connected / متصل\nDisconnected / منقطع\nSlow / بطيء\nUnknown / غير معروف",
+            "read_only": 1
+        },
+        {
+            "fieldname": "dns_resolution_time",
+            "fieldtype": "Float",
+            "label": "DNS Resolution Time (ms) / وقت حل DNS (ميلي ثانية)",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "api_endpoints_status",
+            "fieldtype": "Select",
+            "label": "API Endpoints Status / حالة نقاط API",
+            "options": "All Online / الكل متصل\nSome Offline / بعضها غير متصل\nAll Offline / الكل غير متصل\nUnknown / غير معروف",
+            "read_only": 1
+        },
+        {
+            "fieldname": "external_services_status",
+            "fieldtype": "Select",
+            "label": "External Services Status / حالة الخدمات الخارجية",
+            "options": "All Online / الكل متصل\nSome Offline / بعضها غير متصل\nAll Offline / الكل غير متصل\nUnknown / غير معروف",
+            "read_only": 1
+        },
+        {
+            "fieldname": "network_latency_ms",
+            "fieldtype": "Float",
+            "label": "Network Latency (ms) / زمن استجابة الشبكة",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "packet_loss_percent",
+            "fieldtype": "Percent",
+            "label": "Packet Loss / فقدان الحزم",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "column_break_network",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "email_service_status",
+            "fieldtype": "Select",
+            "label": "Email Service Status / حالة خدمة البريد الإلكتروني",
+            "options": "Online / متصل\nOffline / غير متصل\nError / خطأ\nUnknown / غير معروف",
+            "read_only": 1
+        },
+        {
+            "fieldname": "sms_service_status",
+            "fieldtype": "Select",
+            "label": "SMS Service Status / حالة خدمة الرسائل النصية",
+            "options": "Online / متصل\nOffline / غير متصل\nError / خطأ\nUnknown / غير معروف",
+            "read_only": 1
+        },
+        {
+            "fieldname": "cloud_storage_status",
+            "fieldtype": "Select",
+            "label": "Cloud Storage Status / حالة التخزين السحابي",
+            "options": "Online / متصل\nOffline / غير متصل\nError / خطأ\nUnknown / غير معروف",
+            "read_only": 1
+        },
+        {
+            "fieldname": "license_server_status",
+            "fieldtype": "Select",
+            "label": "License Server Status / حالة خادم الترخيص",
+            "options": "Online / متصل\nOffline / غير متصل\nError / خطأ\nUnknown / غير معروف",
+            "read_only": 1
+        },
+        {
+            "fieldname": "vin_decoder_status",
+            "fieldtype": "Select",
+            "label": "VIN Decoder Status / حالة مفكك رقم الهيكل",
+            "options": "Online / متصل\nOffline / غير متصل\nError / خطأ\nUnknown / غير معروف",
+            "read_only": 1
+        },
+        {
+            "fieldname": "payment_gateway_status",
+            "fieldtype": "Select",
+            "label": "Payment Gateway Status / حالة بوابة الدفع",
+            "options": "Online / متصل\nOffline / غير متصل\nError / خطأ\nUnknown / غير معروف",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_alerts",
+            "fieldtype": "Section Break",
+            "label": "Alerts & Notifications / التنبيهات والإشعارات",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "alerting_enabled",
+            "fieldtype": "Check",
+            "label": "Alerting Enabled / التنبيهات مفعلة",
+            "default": 1
+        },
+        {
+            "fieldname": "alert_level",
+            "fieldtype": "Select",
+            "label": "Alert Level / مستوى التنبيه",
+            "options": "None / لا شيء\nInfo / معلوماتي\nWarning / تحذير\nCritical / حرج\nEmergency / طوارئ",
+            "read_only": 1
+        },
+        {
+            "fieldname": "alert_message",
+            "fieldtype": "Small Text",
+            "label": "Alert Message / رسالة التنبيه",
+            "read_only": 1
+        },
+        {
+            "fieldname": "alert_message_ar",
+            "fieldtype": "Small Text",
+            "label": "رسالة التنبيه بالعربية",
+            "read_only": 1
+        },
+        {
+            "fieldname": "alert_count_today",
+            "fieldtype": "Int",
+            "label": "Alert Count Today / عدد التنبيهات اليوم",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_alert_time",
+            "fieldtype": "Datetime",
+            "label": "Last Alert Time / وقت آخر تنبيه",
+            "read_only": 1
+        },
+        {
+            "fieldname": "escalation_required",
+            "fieldtype": "Check",
+            "label": "Escalation Required / التصعيد مطلوب",
+            "read_only": 1
+        },
+        {
+            "fieldname": "escalation_level",
+            "fieldtype": "Int",
+            "label": "Escalation Level / مستوى التصعيد",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_alerts",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "email_alerts",
+            "fieldtype": "Check",
+            "label": "Email Alerts / تنبيهات البريد الإلكتروني",
+            "default": 1
+        },
+        {
+            "fieldname": "sms_alerts",
+            "fieldtype": "Check",
+            "label": "SMS Alerts / تنبيهات الرسائل النصية"
+        },
+        {
+            "fieldname": "slack_alerts",
+            "fieldtype": "Check",
+            "label": "Slack Alerts / تنبيهات سلاك"
+        },
+        {
+            "fieldname": "teams_alerts",
+            "fieldtype": "Check",
+            "label": "Teams Alerts / تنبيهات تيمز"
+        },
+        {
+            "fieldname": "webhook_url",
+            "fieldtype": "Data",
+            "label": "Webhook URL / رابط الويب هوك",
+            "description": "URL for custom webhook notifications"
+        },
+        {
+            "fieldname": "alert_recipients",
+            "fieldtype": "Small Text",
+            "label": "Alert Recipients / مستقبلو التنبيهات",
+            "description": "Email addresses separated by commas"
+        },
+        {
+            "fieldname": "escalation_recipients",
+            "fieldtype": "Small Text",
+            "label": "Escalation Recipients / مستقبلو التصعيد",
+            "description": "Email addresses for escalated alerts"
+        },
+        {
+            "fieldname": "alert_frequency_limit",
+            "fieldtype": "Int",
+            "label": "Alert Frequency Limit (minutes) / حد تكرار التنبيهات",
+            "default": 30,
+            "description": "Minimum time between similar alerts"
+        },
+        {
+            "fieldname": "section_break_history",
+            "fieldtype": "Section Break",
+            "label": "Historical Data & Trends / البيانات التاريخية والاتجاهات",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "uptime_percentage_24h",
+            "fieldtype": "Percent",
+            "label": "Uptime 24h / وقت التشغيل 24 ساعة",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "uptime_percentage_7d",
+            "fieldtype": "Percent",
+            "label": "Uptime 7d / وقت التشغيل 7 أيام",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "uptime_percentage_30d",
+            "fieldtype": "Percent",
+            "label": "Uptime 30d / وقت التشغيل 30 يوم",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "average_response_time",
+            "fieldtype": "Float",
+            "label": "Average Response Time (ms) / متوسط وقت الاستجابة",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "peak_cpu_usage_24h",
+            "fieldtype": "Percent",
+            "label": "Peak CPU Usage 24h / ذروة استخدام المعالج 24 ساعة",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "peak_memory_usage_24h",
+            "fieldtype": "Percent",
+            "label": "Peak Memory Usage 24h / ذروة استخدام الذاكرة 24 ساعة",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "total_errors_24h",
+            "fieldtype": "Int",
+            "label": "Total Errors 24h / إجمالي الأخطاء 24 ساعة",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_history",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "last_restart_time",
+            "fieldtype": "Datetime",
+            "label": "Last Restart Time / وقت آخر إعادة تشغيل",
+            "read_only": 1
+        },
+        {
+            "fieldname": "restart_count_24h",
+            "fieldtype": "Int",
+            "label": "Restart Count 24h / عدد إعادات التشغيل 24 ساعة",
+            "read_only": 1
+        },
+        {
+            "fieldname": "maintenance_mode",
+            "fieldtype": "Check",
+            "label": "Maintenance Mode / وضع الصيانة",
+            "description": "Put system in maintenance mode"
+        },
+        {
+            "fieldname": "scheduled_maintenance",
+            "fieldtype": "Check",
+            "label": "Scheduled Maintenance / صيانة مجدولة",
+            "description": "Scheduled maintenance is planned"
+        },
+        {
+            "fieldname": "maintenance_window_start",
+            "fieldtype": "Datetime",
+            "label": "Maintenance Window Start / بداية نافذة الصيانة",
+            "depends_on": "scheduled_maintenance"
+        },
+        {
+            "fieldname": "maintenance_window_end",
+            "fieldtype": "Datetime",
+            "label": "Maintenance Window End / نهاية نافذة الصيانة",
+            "depends_on": "scheduled_maintenance"
+        },
+        {
+            "fieldname": "health_check_log",
+            "fieldtype": "Long Text",
+            "label": "Health Check Log / سجل فحص الصحة",
+            "read_only": 1,
+            "description": "Detailed log of recent health checks"
+        },
+        {
+            "fieldname": "detailed_metrics",
+            "fieldtype": "JSON",
+            "label": "Detailed Metrics / المقاييس التفصيلية",
+            "read_only": 1,
+            "description": "Detailed system metrics in JSON format"
+        }
+    ],
+    "icon": "fa fa-heartbeat",
+    "idx": 0,
+    "in_create": 0,
+    "is_submittable": 0,
+    "issingle": 0,
+    "istable": 0,
+    "max_attachments": 0,
+    "modified": "2025-06-24 07:25:30.000000",
+    "modified_by": "Administrator",
+    "module": "Workshop Management",
+    "name": "System Health Monitor",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 0,
+            "delete": 0,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 0,
+            "write": 0
+        },
+        {
+            "create": 0,
+            "delete": 0,
+            "email": 0,
+            "export": 0,
+            "print": 0,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician",
+            "share": 0,
+            "write": 0
+        }
+    ],
+    "quick_entry": 0,
+    "read_only": 0,
+    "read_only_onload": 0,
+    "show_name_in_global_search": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "monitor_name",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+} 

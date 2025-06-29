@@ -1,0 +1,343 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "format:TM-{#####}",
+    "creation": "2025-06-20 20:30:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "basic_info_section",
+        "title",
+        "title_ar",
+        "module_code",
+        "column_break_4",
+        "category",
+        "difficulty_level",
+        "estimated_duration",
+        "content_section",
+        "content_type",
+        "h5p_content_id",
+        "video_url",
+        "column_break_10",
+        "description",
+        "description_ar",
+        "learning_objectives",
+        "learning_objectives_ar",
+        "content_files_section",
+        "content_file",
+        "thumbnail_image",
+        "column_break_16",
+        "is_published",
+        "requires_certification",
+        "prerequisite_modules",
+        "target_roles_section",
+        "target_roles",
+        "assessment_section",
+        "has_quiz",
+        "passing_score",
+        "max_attempts",
+        "column_break_24",
+        "quiz_questions",
+        "practical_exercises",
+        "metadata_section",
+        "created_by",
+        "created_date",
+        "column_break_28",
+        "last_modified_by",
+        "last_modified_date",
+        "version"
+    ],
+    "fields": [
+        {
+            "fieldname": "basic_info_section",
+            "fieldtype": "Section Break",
+            "label": "Basic Information"
+        },
+        {
+            "fieldname": "title",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Module Title (English)",
+            "reqd": 1
+        },
+        {
+            "fieldname": "title_ar",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "عنوان الوحدة",
+            "reqd": 1,
+            "translatable": 1
+        },
+        {
+            "fieldname": "module_code",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Module Code",
+            "unique": 1,
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_4",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "category",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Category",
+            "options": "Safety Training\nTechnical Skills\nCustomer Service\nEquipment Operation\nSoftware Training\nCompliance\nOrientation\nSpecialized Training",
+            "reqd": 1
+        },
+        {
+            "fieldname": "difficulty_level",
+            "fieldtype": "Select",
+            "label": "Difficulty Level",
+            "options": "Beginner\nIntermediate\nAdvanced\nExpert",
+            "reqd": 1
+        },
+        {
+            "fieldname": "estimated_duration",
+            "fieldtype": "Int",
+            "label": "Estimated Duration (Minutes)",
+            "reqd": 1
+        },
+        {
+            "fieldname": "content_section",
+            "fieldtype": "Section Break",
+            "label": "Content Configuration"
+        },
+        {
+            "fieldname": "content_type",
+            "fieldtype": "Select",
+            "label": "Content Type",
+            "options": "H5P Interactive\nVideo Tutorial\nDocument/PDF\nExternal Link\nHybrid (Multiple Types)",
+            "reqd": 1
+        },
+        {
+            "fieldname": "h5p_content_id",
+            "fieldtype": "Data",
+            "label": "H5P Content ID",
+            "description": "Unique identifier for H5P content"
+        },
+        {
+            "fieldname": "video_url",
+            "fieldtype": "Data",
+            "label": "Video URL",
+            "description": "YouTube, Vimeo, or local video file URL"
+        },
+        {
+            "fieldname": "column_break_10",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "description",
+            "fieldtype": "Text Editor",
+            "label": "Description (English)"
+        },
+        {
+            "fieldname": "description_ar",
+            "fieldtype": "Text Editor",
+            "label": "الوصف",
+            "translatable": 1
+        },
+        {
+            "fieldname": "learning_objectives",
+            "fieldtype": "Text",
+            "label": "Learning Objectives (English)"
+        },
+        {
+            "fieldname": "learning_objectives_ar",
+            "fieldtype": "Text",
+            "label": "أهداف التعلم",
+            "translatable": 1
+        },
+        {
+            "fieldname": "content_files_section",
+            "fieldtype": "Section Break",
+            "label": "Content Files & Publishing"
+        },
+        {
+            "fieldname": "content_file",
+            "fieldtype": "Attach",
+            "label": "Content File (.h5p, video, PDF)"
+        },
+        {
+            "fieldname": "thumbnail_image",
+            "fieldtype": "Attach Image",
+            "label": "Thumbnail Image"
+        },
+        {
+            "fieldname": "column_break_16",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "is_published",
+            "fieldtype": "Check",
+            "in_list_view": 1,
+            "label": "Published",
+            "default": 0
+        },
+        {
+            "fieldname": "requires_certification",
+            "fieldtype": "Check",
+            "label": "Requires Certification",
+            "default": 0
+        },
+        {
+            "fieldname": "prerequisite_modules",
+            "fieldtype": "Table MultiSelect",
+            "label": "Prerequisite Modules",
+            "options": "Training Module"
+        },
+        {
+            "fieldname": "target_roles_section",
+            "fieldtype": "Section Break",
+            "label": "Target Audience"
+        },
+        {
+            "fieldname": "target_roles",
+            "fieldtype": "Table MultiSelect",
+            "label": "Target Roles",
+            "options": "Role",
+            "description": "Which user roles should access this module"
+        },
+        {
+            "fieldname": "assessment_section",
+            "fieldtype": "Section Break",
+            "label": "Assessment Configuration"
+        },
+        {
+            "fieldname": "has_quiz",
+            "fieldtype": "Check",
+            "label": "Has Quiz/Assessment",
+            "default": 0
+        },
+        {
+            "fieldname": "passing_score",
+            "fieldtype": "Percent",
+            "label": "Passing Score (%)",
+            "default": 80,
+            "depends_on": "has_quiz"
+        },
+        {
+            "fieldname": "max_attempts",
+            "fieldtype": "Int",
+            "label": "Maximum Attempts",
+            "default": 3,
+            "depends_on": "has_quiz"
+        },
+        {
+            "fieldname": "column_break_24",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "quiz_questions",
+            "fieldtype": "Text",
+            "label": "Quiz Questions (JSON)",
+            "description": "JSON format for quiz configuration",
+            "depends_on": "has_quiz"
+        },
+        {
+            "fieldname": "practical_exercises",
+            "fieldtype": "Text",
+            "label": "Practical Exercises",
+            "description": "Instructions for hands-on practice"
+        },
+        {
+            "fieldname": "metadata_section",
+            "fieldtype": "Section Break",
+            "label": "Metadata"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "created_date",
+            "fieldtype": "Datetime",
+            "label": "Created Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_28",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "last_modified_by",
+            "fieldtype": "Link",
+            "label": "Last Modified By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_modified_date",
+            "fieldtype": "Datetime",
+            "label": "Last Modified Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "version",
+            "fieldtype": "Data",
+            "label": "Version",
+            "default": "1.0",
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 0,
+    "links": [],
+    "modified": "2025-06-20 20:30:00.000000",
+    "modified_by": "Administrator",
+    "module": "Training Management",
+    "name": "Training Module",
+    "naming_rule": "Expression",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician",
+            "share": 1,
+            "write": 0
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "title",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

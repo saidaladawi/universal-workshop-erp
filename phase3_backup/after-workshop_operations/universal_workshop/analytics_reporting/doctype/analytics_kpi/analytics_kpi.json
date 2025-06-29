@@ -1,0 +1,270 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "field:kpi_code",
+    "creation": "2024-06-20 13:45:00.000000",
+    "default_view": "List",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "kpi_details_section",
+        "kpi_code",
+        "kpi_name",
+        "kpi_name_ar",
+        "column_break_5",
+        "kpi_category",
+        "calculation_type",
+        "frequency",
+        "target_value",
+        "current_value_section",
+        "current_value",
+        "previous_value",
+        "column_break_11",
+        "percentage_change",
+        "trend_direction",
+        "status",
+        "data_source_section",
+        "source_doctype",
+        "source_field",
+        "column_break_16",
+        "aggregation_function",
+        "filters_json",
+        "calculation_script",
+        "metadata_section",
+        "last_calculated",
+        "calculation_frequency",
+        "column_break_21",
+        "created_by",
+        "last_updated_by",
+        "is_active"
+    ],
+    "fields": [
+        {
+            "fieldname": "kpi_details_section",
+            "fieldtype": "Section Break",
+            "label": "KPI Details"
+        },
+        {
+            "fieldname": "kpi_code",
+            "fieldtype": "Data",
+            "label": "KPI Code",
+            "reqd": 1,
+            "unique": 1,
+            "description": "Unique code for KPI (e.g., REVENUE_MONTHLY, CSAT_SCORE)"
+        },
+        {
+            "fieldname": "kpi_name",
+            "fieldtype": "Data",
+            "label": "KPI Name (English)",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "kpi_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم مؤشر الأداء",
+            "translatable": 1
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "kpi_category",
+            "fieldtype": "Select",
+            "label": "KPI Category",
+            "options": "Financial\nOperational\nCustomer\nTechnician\nInventory\nQuality",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "calculation_type",
+            "fieldtype": "Select",
+            "label": "Calculation Type",
+            "options": "Simple Aggregation\nCustom Formula\nExternal API\nManual Entry",
+            "default": "Simple Aggregation"
+        },
+        {
+            "fieldname": "frequency",
+            "fieldtype": "Select",
+            "label": "Update Frequency",
+            "options": "Real-time\nHourly\nDaily\nWeekly\nMonthly",
+            "default": "Daily"
+        },
+        {
+            "fieldname": "target_value",
+            "fieldtype": "Float",
+            "label": "Target Value",
+            "precision": 3
+        },
+        {
+            "fieldname": "current_value_section",
+            "fieldtype": "Section Break",
+            "label": "Current Values"
+        },
+        {
+            "fieldname": "current_value",
+            "fieldtype": "Float",
+            "label": "Current Value",
+            "precision": 3,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "previous_value",
+            "fieldtype": "Float",
+            "label": "Previous Value",
+            "precision": 3
+        },
+        {
+            "fieldname": "column_break_11",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "percentage_change",
+            "fieldtype": "Percent",
+            "label": "Percentage Change",
+            "read_only": 1
+        },
+        {
+            "fieldname": "trend_direction",
+            "fieldtype": "Select",
+            "label": "Trend Direction",
+            "options": "Up\nDown\nStable",
+            "read_only": 1
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "Above Target\nOn Target\nBelow Target\nNo Target",
+            "read_only": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "data_source_section",
+            "fieldtype": "Section Break",
+            "label": "Data Source Configuration"
+        },
+        {
+            "fieldname": "source_doctype",
+            "fieldtype": "Link",
+            "label": "Source DocType",
+            "options": "DocType"
+        },
+        {
+            "fieldname": "source_field",
+            "fieldtype": "Data",
+            "label": "Source Field"
+        },
+        {
+            "fieldname": "column_break_16",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "aggregation_function",
+            "fieldtype": "Select",
+            "label": "Aggregation Function",
+            "options": "SUM\nAVG\nCOUNT\nMAX\nMIN\nCUSTOM"
+        },
+        {
+            "fieldname": "filters_json",
+            "fieldtype": "Long Text",
+            "label": "Filters (JSON)",
+            "description": "JSON filters for data aggregation"
+        },
+        {
+            "fieldname": "calculation_script",
+            "fieldtype": "Code",
+            "label": "Custom Calculation Script",
+            "language": "python",
+            "description": "Python script for custom KPI calculations"
+        },
+        {
+            "fieldname": "metadata_section",
+            "fieldtype": "Section Break",
+            "label": "Metadata"
+        },
+        {
+            "fieldname": "last_calculated",
+            "fieldtype": "Datetime",
+            "label": "Last Calculated",
+            "read_only": 1
+        },
+        {
+            "fieldname": "calculation_frequency",
+            "fieldtype": "Data",
+            "label": "Calculation Frequency",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_21",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_updated_by",
+            "fieldtype": "Link",
+            "label": "Last Updated By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "is_active",
+            "fieldtype": "Check",
+            "label": "Is Active",
+            "default": 1
+        }
+    ],
+    "links": [],
+    "modified": "2024-06-20 13:45:00.000000",
+    "modified_by": "Administrator",
+    "module": "Analytics Reporting",
+    "name": "Analytics KPI",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop User",
+            "share": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

@@ -1,0 +1,840 @@
+{
+  "timestamp": "2025-06-29T16:36:43.272721",
+  "phase": "Phase 4: Old Asset Cleanup",
+  "status": "COMPLETED",
+  "files_removed": 81,
+  "directories_removed": 0,
+  "removed_files": [
+    {
+      "path": "public/js/customer_analytics_dashboard.js",
+      "name": "customer_analytics_dashboard.js",
+      "size": 16482
+    },
+    {
+      "path": "public/js/progress_tracking_dashboard.js",
+      "name": "progress_tracking_dashboard.js",
+      "size": 4384
+    },
+    {
+      "path": "public/js/session_management.js",
+      "name": "session_management.js",
+      "size": 7911
+    },
+    {
+      "path": "public/js/workshop_profile.js",
+      "name": "workshop_profile.js",
+      "size": 1581
+    },
+    {
+      "path": "public/js/mobile-receiving.js",
+      "name": "mobile-receiving.js",
+      "size": 37207
+    },
+    {
+      "path": "public/js/job-management.js",
+      "name": "job-management.js",
+      "size": 29076
+    },
+    {
+      "path": "public/js/technician-app.js",
+      "name": "technician-app.js",
+      "size": 107904
+    },
+    {
+      "path": "public/js/print_format_integration.js",
+      "name": "print_format_integration.js",
+      "size": 17961
+    },
+    {
+      "path": "public/js/theme_manager.js",
+      "name": "theme_manager.js",
+      "size": 19238
+    },
+    {
+      "path": "public/js/theme_selector.js",
+      "name": "theme_selector.js",
+      "size": 11164
+    },
+    {
+      "path": "public/js/arabic-utils.js",
+      "name": "arabic-utils.js",
+      "size": 14033
+    },
+    {
+      "path": "public/js/sales_invoice.js",
+      "name": "sales_invoice.js",
+      "size": 7811
+    },
+    {
+      "path": "public/js/compatibility_matrix_ui.js",
+      "name": "compatibility_matrix_ui.js",
+      "size": 23745
+    },
+    {
+      "path": "public/js/audit_frontend.js",
+      "name": "audit_frontend.js",
+      "size": 6619
+    },
+    {
+      "path": "public/js/barcode_scanner.js",
+      "name": "barcode_scanner.js",
+      "size": 24282
+    },
+    {
+      "path": "public/js/service-worker.js",
+      "name": "service-worker.js",
+      "size": 12742
+    },
+    {
+      "path": "public/js/workshop-offline.js",
+      "name": "workshop-offline.js",
+      "size": 18567
+    },
+    {
+      "path": "public/js/abc_analysis_ui.js",
+      "name": "abc_analysis_ui.js",
+      "size": 18320
+    },
+    {
+      "path": "public/js/rtl_branding_manager.js",
+      "name": "rtl_branding_manager.js",
+      "size": 19196
+    },
+    {
+      "path": "public/js/logo_upload_widget.js",
+      "name": "logo_upload_widget.js",
+      "size": 17797
+    },
+    {
+      "path": "public/js/labor_time_tracking.js",
+      "name": "labor_time_tracking.js",
+      "size": 15789
+    },
+    {
+      "path": "public/js/security_alerts_frontend.js",
+      "name": "security_alerts_frontend.js",
+      "size": 14216
+    },
+    {
+      "path": "public/js/demand_forecasting.js",
+      "name": "demand_forecasting.js",
+      "size": 20039
+    },
+    {
+      "path": "public/js/parts_suggestion.js",
+      "name": "parts_suggestion.js",
+      "size": 25634
+    },
+    {
+      "path": "public/js/mobile_warehouse.js",
+      "name": "mobile_warehouse.js",
+      "size": 26945
+    },
+    {
+      "path": "public/js/performance_visualizations.js",
+      "name": "performance_visualizations.js",
+      "size": 29867
+    },
+    {
+      "path": "public/js/quick_action_toolbar.js",
+      "name": "quick_action_toolbar.js",
+      "size": 30369
+    },
+    {
+      "path": "public/js/time-tracker.js",
+      "name": "time-tracker.js",
+      "size": 34057
+    },
+    {
+      "path": "public/js/branding_service.js",
+      "name": "branding_service.js",
+      "size": 22188
+    },
+    {
+      "path": "public/js/qr_code_invoice.js",
+      "name": "qr_code_invoice.js",
+      "size": 13017
+    },
+    {
+      "path": "public/js/quality_control.js",
+      "name": "quality_control.js",
+      "size": 28443
+    },
+    {
+      "path": "public/js/vat_automation.js",
+      "name": "vat_automation.js",
+      "size": 0
+    },
+    {
+      "path": "public/js/help_system_tests.js",
+      "name": "help_system_tests.js",
+      "size": 3419
+    },
+    {
+      "path": "public/js/inventory_alerts_dashboard.js",
+      "name": "inventory_alerts_dashboard.js",
+      "size": 20234
+    },
+    {
+      "path": "public/js/cycle_counting_ui.js",
+      "name": "cycle_counting_ui.js",
+      "size": 20195
+    },
+    {
+      "path": "public/js/stock_transfer_ui.js",
+      "name": "stock_transfer_ui.js",
+      "size": 40883
+    },
+    {
+      "path": "public/js/mobile_inventory.js",
+      "name": "mobile_inventory.js",
+      "size": 26264
+    },
+    {
+      "path": "public/js/mobile-inventory-scanner.js",
+      "name": "mobile-inventory-scanner.js",
+      "size": 29019
+    },
+    {
+      "path": "public/js/order_conversion_workflow.js",
+      "name": "order_conversion_workflow.js",
+      "size": 22085
+    },
+    {
+      "path": "public/js/session_frontend.js",
+      "name": "session_frontend.js",
+      "size": 18282
+    },
+    {
+      "path": "public/js/contextual_help.js",
+      "name": "contextual_help.js",
+      "size": 26793
+    },
+    {
+      "path": "public/js/setup_check.js",
+      "name": "setup_check.js",
+      "size": 4293
+    },
+    {
+      "path": "public/js/customer_notifications.js",
+      "name": "customer_notifications.js",
+      "size": 20928
+    },
+    {
+      "path": "public/js/service_worker.js",
+      "name": "service_worker.js",
+      "size": 10994
+    },
+    {
+      "path": "public/js/onboarding_wizard.js",
+      "name": "onboarding_wizard.js",
+      "size": 28113
+    },
+    {
+      "path": "public/js/technician-sw.js",
+      "name": "technician-sw.js",
+      "size": 15379
+    },
+    {
+      "path": "public/js/supplier_dashboard.js",
+      "name": "supplier_dashboard.js",
+      "size": 34
+    },
+    {
+      "path": "public/js/dark_mode_manager.js",
+      "name": "dark_mode_manager.js",
+      "size": 17930
+    },
+    {
+      "path": "public/js/storage_location.js",
+      "name": "storage_location.js",
+      "size": 24434
+    },
+    {
+      "path": "public/js/customer_search.js",
+      "name": "customer_search.js",
+      "size": 13600
+    },
+    {
+      "path": "public/js/offline_manager.js",
+      "name": "offline_manager.js",
+      "size": 11312
+    },
+    {
+      "path": "public/js/customer_portal.js",
+      "name": "customer_portal.js",
+      "size": 20480
+    },
+    {
+      "path": "public/js/branding_system.js",
+      "name": "branding_system.js",
+      "size": 12511
+    },
+    {
+      "path": "public/js/kanban/service_order_kanban.js",
+      "name": "service_order_kanban.js",
+      "size": 32353
+    },
+    {
+      "path": "public/css/labor_time_tracking.css",
+      "name": "labor_time_tracking.css",
+      "size": 7910
+    },
+    {
+      "path": "public/css/dashboard_layout.css",
+      "name": "dashboard_layout.css",
+      "size": 13922
+    },
+    {
+      "path": "public/css/performance_visualizations.css",
+      "name": "performance_visualizations.css",
+      "size": 17083
+    },
+    {
+      "path": "public/css/dynamic_branding.css",
+      "name": "dynamic_branding.css",
+      "size": 28194
+    },
+    {
+      "path": "public/css/mobile-workshop.css",
+      "name": "mobile-workshop.css",
+      "size": 11508
+    },
+    {
+      "path": "public/css/customer_search.css",
+      "name": "customer_search.css",
+      "size": 2439
+    },
+    {
+      "path": "public/css/supplier_dashboard.css",
+      "name": "supplier_dashboard.css",
+      "size": 8873
+    },
+    {
+      "path": "public/css/mobile-app.css",
+      "name": "mobile-app.css",
+      "size": 25350
+    },
+    {
+      "path": "public/css/onboarding_wizard.css",
+      "name": "onboarding_wizard.css",
+      "size": 7743
+    },
+    {
+      "path": "public/css/customer_notifications.css",
+      "name": "customer_notifications.css",
+      "size": 9938
+    },
+    {
+      "path": "public/css/vehicle_form.css",
+      "name": "vehicle_form.css",
+      "size": 2906
+    },
+    {
+      "path": "public/css/mobile_warehouse.css",
+      "name": "mobile_warehouse.css",
+      "size": 8396
+    },
+    {
+      "path": "public/css/progress_tracking.css",
+      "name": "progress_tracking.css",
+      "size": 1650
+    },
+    {
+      "path": "public/css/demand_forecasting.css",
+      "name": "demand_forecasting.css",
+      "size": 6322
+    },
+    {
+      "path": "public/css/technician-mobile.css",
+      "name": "technician-mobile.css",
+      "size": 2059
+    },
+    {
+      "path": "public/css/vat_automation.css",
+      "name": "vat_automation.css",
+      "size": 9584
+    },
+    {
+      "path": "public/css/theme_styles.css",
+      "name": "theme_styles.css",
+      "size": 9907
+    },
+    {
+      "path": "public/css/quality_control.css",
+      "name": "quality_control.css",
+      "size": 1
+    },
+    {
+      "path": "public/css/theme_selector.css",
+      "name": "theme_selector.css",
+      "size": 5804
+    },
+    {
+      "path": "public/css/quick_action_toolbar.css",
+      "name": "quick_action_toolbar.css",
+      "size": 9845
+    },
+    {
+      "path": "public/css/customer_portal.css",
+      "name": "customer_portal.css",
+      "size": 16614
+    },
+    {
+      "path": "public/css/customer_analytics_dashboard.css",
+      "name": "customer_analytics_dashboard.css",
+      "size": 6348
+    },
+    {
+      "path": "public/css/inventory_alerts_dashboard.css",
+      "name": "inventory_alerts_dashboard.css",
+      "size": 10925
+    },
+    {
+      "path": "public/css/dark_mode.css",
+      "name": "dark_mode.css",
+      "size": 15058
+    },
+    {
+      "path": "public/css/arabic-rtl.css",
+      "name": "arabic-rtl.css",
+      "size": 25443
+    },
+    {
+      "path": "public/css/modules/technician-core.css",
+      "name": "technician-core.css",
+      "size": 2059
+    },
+    {
+      "path": "public/css/kanban/service_order_kanban.css",
+      "name": "service_order_kanban.css",
+      "size": 16426
+    }
+  ],
+  "cleanup_analysis": {
+    "js_files": [
+      {
+        "path": "public/js/customer_analytics_dashboard.js",
+        "name": "customer_analytics_dashboard.js",
+        "size": 16482
+      },
+      {
+        "path": "public/js/progress_tracking_dashboard.js",
+        "name": "progress_tracking_dashboard.js",
+        "size": 4384
+      },
+      {
+        "path": "public/js/session_management.js",
+        "name": "session_management.js",
+        "size": 7911
+      },
+      {
+        "path": "public/js/workshop_profile.js",
+        "name": "workshop_profile.js",
+        "size": 1581
+      },
+      {
+        "path": "public/js/mobile-receiving.js",
+        "name": "mobile-receiving.js",
+        "size": 37207
+      },
+      {
+        "path": "public/js/job-management.js",
+        "name": "job-management.js",
+        "size": 29076
+      },
+      {
+        "path": "public/js/technician-app.js",
+        "name": "technician-app.js",
+        "size": 107904
+      },
+      {
+        "path": "public/js/print_format_integration.js",
+        "name": "print_format_integration.js",
+        "size": 17961
+      },
+      {
+        "path": "public/js/theme_manager.js",
+        "name": "theme_manager.js",
+        "size": 19238
+      },
+      {
+        "path": "public/js/theme_selector.js",
+        "name": "theme_selector.js",
+        "size": 11164
+      },
+      {
+        "path": "public/js/arabic-utils.js",
+        "name": "arabic-utils.js",
+        "size": 14033
+      },
+      {
+        "path": "public/js/sales_invoice.js",
+        "name": "sales_invoice.js",
+        "size": 7811
+      },
+      {
+        "path": "public/js/compatibility_matrix_ui.js",
+        "name": "compatibility_matrix_ui.js",
+        "size": 23745
+      },
+      {
+        "path": "public/js/audit_frontend.js",
+        "name": "audit_frontend.js",
+        "size": 6619
+      },
+      {
+        "path": "public/js/barcode_scanner.js",
+        "name": "barcode_scanner.js",
+        "size": 24282
+      },
+      {
+        "path": "public/js/service-worker.js",
+        "name": "service-worker.js",
+        "size": 12742
+      },
+      {
+        "path": "public/js/workshop-offline.js",
+        "name": "workshop-offline.js",
+        "size": 18567
+      },
+      {
+        "path": "public/js/abc_analysis_ui.js",
+        "name": "abc_analysis_ui.js",
+        "size": 18320
+      },
+      {
+        "path": "public/js/rtl_branding_manager.js",
+        "name": "rtl_branding_manager.js",
+        "size": 19196
+      },
+      {
+        "path": "public/js/logo_upload_widget.js",
+        "name": "logo_upload_widget.js",
+        "size": 17797
+      },
+      {
+        "path": "public/js/labor_time_tracking.js",
+        "name": "labor_time_tracking.js",
+        "size": 15789
+      },
+      {
+        "path": "public/js/security_alerts_frontend.js",
+        "name": "security_alerts_frontend.js",
+        "size": 14216
+      },
+      {
+        "path": "public/js/demand_forecasting.js",
+        "name": "demand_forecasting.js",
+        "size": 20039
+      },
+      {
+        "path": "public/js/parts_suggestion.js",
+        "name": "parts_suggestion.js",
+        "size": 25634
+      },
+      {
+        "path": "public/js/mobile_warehouse.js",
+        "name": "mobile_warehouse.js",
+        "size": 26945
+      },
+      {
+        "path": "public/js/performance_visualizations.js",
+        "name": "performance_visualizations.js",
+        "size": 29867
+      },
+      {
+        "path": "public/js/quick_action_toolbar.js",
+        "name": "quick_action_toolbar.js",
+        "size": 30369
+      },
+      {
+        "path": "public/js/time-tracker.js",
+        "name": "time-tracker.js",
+        "size": 34057
+      },
+      {
+        "path": "public/js/branding_service.js",
+        "name": "branding_service.js",
+        "size": 22188
+      },
+      {
+        "path": "public/js/qr_code_invoice.js",
+        "name": "qr_code_invoice.js",
+        "size": 13017
+      },
+      {
+        "path": "public/js/quality_control.js",
+        "name": "quality_control.js",
+        "size": 28443
+      },
+      {
+        "path": "public/js/vat_automation.js",
+        "name": "vat_automation.js",
+        "size": 0
+      },
+      {
+        "path": "public/js/help_system_tests.js",
+        "name": "help_system_tests.js",
+        "size": 3419
+      },
+      {
+        "path": "public/js/inventory_alerts_dashboard.js",
+        "name": "inventory_alerts_dashboard.js",
+        "size": 20234
+      },
+      {
+        "path": "public/js/cycle_counting_ui.js",
+        "name": "cycle_counting_ui.js",
+        "size": 20195
+      },
+      {
+        "path": "public/js/stock_transfer_ui.js",
+        "name": "stock_transfer_ui.js",
+        "size": 40883
+      },
+      {
+        "path": "public/js/mobile_inventory.js",
+        "name": "mobile_inventory.js",
+        "size": 26264
+      },
+      {
+        "path": "public/js/mobile-inventory-scanner.js",
+        "name": "mobile-inventory-scanner.js",
+        "size": 29019
+      },
+      {
+        "path": "public/js/order_conversion_workflow.js",
+        "name": "order_conversion_workflow.js",
+        "size": 22085
+      },
+      {
+        "path": "public/js/session_frontend.js",
+        "name": "session_frontend.js",
+        "size": 18282
+      },
+      {
+        "path": "public/js/contextual_help.js",
+        "name": "contextual_help.js",
+        "size": 26793
+      },
+      {
+        "path": "public/js/setup_check.js",
+        "name": "setup_check.js",
+        "size": 4293
+      },
+      {
+        "path": "public/js/customer_notifications.js",
+        "name": "customer_notifications.js",
+        "size": 20928
+      },
+      {
+        "path": "public/js/service_worker.js",
+        "name": "service_worker.js",
+        "size": 10994
+      },
+      {
+        "path": "public/js/onboarding_wizard.js",
+        "name": "onboarding_wizard.js",
+        "size": 28113
+      },
+      {
+        "path": "public/js/technician-sw.js",
+        "name": "technician-sw.js",
+        "size": 15379
+      },
+      {
+        "path": "public/js/supplier_dashboard.js",
+        "name": "supplier_dashboard.js",
+        "size": 34
+      },
+      {
+        "path": "public/js/dark_mode_manager.js",
+        "name": "dark_mode_manager.js",
+        "size": 17930
+      },
+      {
+        "path": "public/js/storage_location.js",
+        "name": "storage_location.js",
+        "size": 24434
+      },
+      {
+        "path": "public/js/customer_search.js",
+        "name": "customer_search.js",
+        "size": 13600
+      },
+      {
+        "path": "public/js/offline_manager.js",
+        "name": "offline_manager.js",
+        "size": 11312
+      },
+      {
+        "path": "public/js/customer_portal.js",
+        "name": "customer_portal.js",
+        "size": 20480
+      },
+      {
+        "path": "public/js/branding_system.js",
+        "name": "branding_system.js",
+        "size": 12511
+      },
+      {
+        "path": "public/js/kanban/service_order_kanban.js",
+        "name": "service_order_kanban.js",
+        "size": 32353
+      }
+    ],
+    "css_files": [
+      {
+        "path": "public/css/labor_time_tracking.css",
+        "name": "labor_time_tracking.css",
+        "size": 7910
+      },
+      {
+        "path": "public/css/dashboard_layout.css",
+        "name": "dashboard_layout.css",
+        "size": 13922
+      },
+      {
+        "path": "public/css/performance_visualizations.css",
+        "name": "performance_visualizations.css",
+        "size": 17083
+      },
+      {
+        "path": "public/css/dynamic_branding.css",
+        "name": "dynamic_branding.css",
+        "size": 28194
+      },
+      {
+        "path": "public/css/mobile-workshop.css",
+        "name": "mobile-workshop.css",
+        "size": 11508
+      },
+      {
+        "path": "public/css/customer_search.css",
+        "name": "customer_search.css",
+        "size": 2439
+      },
+      {
+        "path": "public/css/supplier_dashboard.css",
+        "name": "supplier_dashboard.css",
+        "size": 8873
+      },
+      {
+        "path": "public/css/mobile-app.css",
+        "name": "mobile-app.css",
+        "size": 25350
+      },
+      {
+        "path": "public/css/onboarding_wizard.css",
+        "name": "onboarding_wizard.css",
+        "size": 7743
+      },
+      {
+        "path": "public/css/customer_notifications.css",
+        "name": "customer_notifications.css",
+        "size": 9938
+      },
+      {
+        "path": "public/css/vehicle_form.css",
+        "name": "vehicle_form.css",
+        "size": 2906
+      },
+      {
+        "path": "public/css/mobile_warehouse.css",
+        "name": "mobile_warehouse.css",
+        "size": 8396
+      },
+      {
+        "path": "public/css/progress_tracking.css",
+        "name": "progress_tracking.css",
+        "size": 1650
+      },
+      {
+        "path": "public/css/demand_forecasting.css",
+        "name": "demand_forecasting.css",
+        "size": 6322
+      },
+      {
+        "path": "public/css/technician-mobile.css",
+        "name": "technician-mobile.css",
+        "size": 2059
+      },
+      {
+        "path": "public/css/vat_automation.css",
+        "name": "vat_automation.css",
+        "size": 9584
+      },
+      {
+        "path": "public/css/theme_styles.css",
+        "name": "theme_styles.css",
+        "size": 9907
+      },
+      {
+        "path": "public/css/quality_control.css",
+        "name": "quality_control.css",
+        "size": 1
+      },
+      {
+        "path": "public/css/theme_selector.css",
+        "name": "theme_selector.css",
+        "size": 5804
+      },
+      {
+        "path": "public/css/quick_action_toolbar.css",
+        "name": "quick_action_toolbar.css",
+        "size": 9845
+      },
+      {
+        "path": "public/css/customer_portal.css",
+        "name": "customer_portal.css",
+        "size": 16614
+      },
+      {
+        "path": "public/css/customer_analytics_dashboard.css",
+        "name": "customer_analytics_dashboard.css",
+        "size": 6348
+      },
+      {
+        "path": "public/css/inventory_alerts_dashboard.css",
+        "name": "inventory_alerts_dashboard.css",
+        "size": 10925
+      },
+      {
+        "path": "public/css/dark_mode.css",
+        "name": "dark_mode.css",
+        "size": 15058
+      },
+      {
+        "path": "public/css/arabic-rtl.css",
+        "name": "arabic-rtl.css",
+        "size": 25443
+      },
+      {
+        "path": "public/css/modules/technician-core.css",
+        "name": "technician-core.css",
+        "size": 2059
+      },
+      {
+        "path": "public/css/kanban/service_order_kanban.css",
+        "name": "service_order_kanban.css",
+        "size": 16426
+      }
+    ],
+    "preserve_files": [
+      {
+        "path": "public/manifest.json",
+        "name": "manifest.json",
+        "reason": "Matches preserve pattern: manifest.json"
+      },
+      {
+        "path": "public/.gitkeep",
+        "name": ".gitkeep",
+        "reason": "Matches preserve pattern: .gitkeep"
+      }
+    ],
+    "unknown_files": []
+  },
+  "errors": [],
+  "warnings": []
+}

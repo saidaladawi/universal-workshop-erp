@@ -1,0 +1,278 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "field:template_code",
+    "creation": "2025-06-20 20:55:00.000000",
+    "default_view": "List",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "basic_information_section",
+        "template_name_en",
+        "template_name_ar",
+        "template_code",
+        "template_type",
+        "column_break_5",
+        "status",
+        "is_default",
+        "category",
+        "target_audience",
+        "template_structure_section",
+        "sections",
+        "content_guidelines_section",
+        "content_guidelines_en",
+        "content_guidelines_ar",
+        "style_settings_section",
+        "css_classes",
+        "layout_options",
+        "column_break_15",
+        "metadata_fields",
+        "required_sections",
+        "meta_information_section",
+        "description_en",
+        "description_ar",
+        "tags",
+        "column_break_20",
+        "created_by",
+        "modified_by",
+        "creation_date"
+    ],
+    "fields": [
+        {
+            "fieldname": "basic_information_section",
+            "fieldtype": "Section Break",
+            "label": "Basic Information"
+        },
+        {
+            "fieldname": "template_name_en",
+            "fieldtype": "Data",
+            "label": "Template Name (English)",
+            "reqd": 1,
+            "in_list_view": 1,
+            "in_standard_filter": 1
+        },
+        {
+            "fieldname": "template_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم القالب (العربية)",
+            "translatable": 1,
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "template_code",
+            "fieldtype": "Data",
+            "label": "Template Code",
+            "unique": 1,
+            "read_only": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "template_type",
+            "fieldtype": "Select",
+            "label": "Template Type",
+            "options": "\nUser Guide\nTechnical Documentation\nTroubleshooting\nFAQ\nAPI Reference\nWorkflow Guide\nTraining Material\nSOP\nSafety Guidelines",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "Active\nInactive\nDraft",
+            "default": "Active",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "is_default",
+            "fieldtype": "Check",
+            "label": "Default Template",
+            "default": 0,
+            "description": "Use as default template for this type"
+        },
+        {
+            "fieldname": "category",
+            "fieldtype": "Link",
+            "label": "Category",
+            "options": "Knowledge Base Category",
+            "description": "Default category for articles using this template"
+        },
+        {
+            "fieldname": "target_audience",
+            "fieldtype": "Select",
+            "label": "Target Audience",
+            "options": "\nAll Users\nManagers\nTechnicians\nAdministrators\nCustomers",
+            "description": "Primary audience for this template"
+        },
+        {
+            "fieldname": "template_structure_section",
+            "fieldtype": "Section Break",
+            "label": "Template Structure"
+        },
+        {
+            "fieldname": "sections",
+            "fieldtype": "Table",
+            "label": "Template Sections",
+            "options": "Documentation Template Section",
+            "description": "Define the structure and sections for this template"
+        },
+        {
+            "fieldname": "content_guidelines_section",
+            "fieldtype": "Section Break",
+            "label": "Content Guidelines"
+        },
+        {
+            "fieldname": "content_guidelines_en",
+            "fieldtype": "Text Editor",
+            "label": "Content Guidelines (English)",
+            "description": "Instructions for content creators using this template"
+        },
+        {
+            "fieldname": "content_guidelines_ar",
+            "fieldtype": "Text Editor",
+            "label": "إرشادات المحتوى (العربية)",
+            "description": "تعليمات لمنشئي المحتوى باستخدام هذا القالب"
+        },
+        {
+            "fieldname": "style_settings_section",
+            "fieldtype": "Section Break",
+            "label": "Style Settings"
+        },
+        {
+            "fieldname": "css_classes",
+            "fieldtype": "Text",
+            "label": "CSS Classes",
+            "description": "Custom CSS classes to apply to articles using this template"
+        },
+        {
+            "fieldname": "layout_options",
+            "fieldtype": "Select",
+            "label": "Layout Options",
+            "options": "\nSingle Column\nTwo Column\nThree Column\nTabbed\nAccordion\nCard Layout",
+            "default": "Single Column"
+        },
+        {
+            "fieldname": "column_break_15",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "metadata_fields",
+            "fieldtype": "Table",
+            "label": "Required Metadata Fields",
+            "options": "Documentation Template Metadata",
+            "description": "Define additional metadata fields required for this template"
+        },
+        {
+            "fieldname": "required_sections",
+            "fieldtype": "Data",
+            "label": "Required Sections",
+            "description": "Comma-separated list of mandatory sections"
+        },
+        {
+            "fieldname": "meta_information_section",
+            "fieldtype": "Section Break",
+            "label": "Meta Information"
+        },
+        {
+            "fieldname": "description_en",
+            "fieldtype": "Text",
+            "label": "Description (English)",
+            "description": "Brief description of this template's purpose"
+        },
+        {
+            "fieldname": "description_ar",
+            "fieldtype": "Text",
+            "label": "الوصف (العربية)",
+            "description": "وصف موجز لغرض هذا القالب"
+        },
+        {
+            "fieldname": "tags",
+            "fieldtype": "Data",
+            "label": "Tags",
+            "description": "Comma-separated tags for categorization"
+        },
+        {
+            "fieldname": "column_break_20",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "modified_by",
+            "fieldtype": "Link",
+            "label": "Modified By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "creation_date",
+            "fieldtype": "Datetime",
+            "label": "Creation Date",
+            "read_only": 1
+        }
+    ],
+    "links": [
+        {
+            "link_doctype": "Knowledge Base Article",
+            "link_fieldname": "template"
+        }
+    ],
+    "modified": "2025-06-20 20:55:00.000000",
+    "modified_by": "Administrator",
+    "module": "Training Management",
+    "name": "Documentation Template",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "template_name_en",
+    "track_changes": 1
+}

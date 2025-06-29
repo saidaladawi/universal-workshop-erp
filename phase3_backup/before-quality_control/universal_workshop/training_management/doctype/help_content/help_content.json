@@ -1,0 +1,275 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "format:HELP-{####}",
+    "creation": "2024-12-19 21:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "basic_info_section",
+        "title",
+        "title_ar",
+        "content_key",
+        "help_type",
+        "priority",
+        "column_break_6",
+        "target_doctype",
+        "target_page",
+        "target_field",
+        "is_active",
+        "content_section",
+        "content",
+        "content_ar",
+        "tooltip_text",
+        "tooltip_text_ar",
+        "mapping_section",
+        "application_routes",
+        "trigger_conditions",
+        "user_roles",
+        "column_break_18",
+        "related_documentation",
+        "related_training_modules",
+        "related_video_tutorials",
+        "metadata_section",
+        "view_count",
+        "helpfulness_rating",
+        "last_updated_by",
+        "column_break_24",
+        "created_by",
+        "created_on",
+        "last_updated_on"
+    ],
+    "fields": [
+        {
+            "fieldname": "basic_info_section",
+            "fieldtype": "Section Break",
+            "label": "Basic Information"
+        },
+        {
+            "fieldname": "title",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Title",
+            "reqd": 1
+        },
+        {
+            "fieldname": "title_ar",
+            "fieldtype": "Data",
+            "label": "Title (Arabic)"
+        },
+        {
+            "fieldname": "content_key",
+            "fieldtype": "Data",
+            "label": "Content Key",
+            "unique": 1
+        },
+        {
+            "fieldname": "help_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Help Type",
+            "options": "Tooltip\nPopover\nGuided Tour\nModal\nInline Help\nContextual Banner",
+            "reqd": 1
+        },
+        {
+            "fieldname": "priority",
+            "fieldtype": "Select",
+            "label": "Priority",
+            "options": "Low\nMedium\nHigh\nCritical",
+            "default": "Medium"
+        },
+        {
+            "fieldname": "column_break_6",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "target_doctype",
+            "fieldtype": "Link",
+            "label": "Target DocType",
+            "options": "DocType"
+        },
+        {
+            "fieldname": "target_page",
+            "fieldtype": "Data",
+            "label": "Target Page/Route"
+        },
+        {
+            "fieldname": "target_field",
+            "fieldtype": "Data",
+            "label": "Target Field"
+        },
+        {
+            "fieldname": "is_active",
+            "fieldtype": "Check",
+            "label": "Is Active",
+            "default": 1
+        },
+        {
+            "fieldname": "content_section",
+            "fieldtype": "Section Break",
+            "label": "Content"
+        },
+        {
+            "fieldname": "content",
+            "fieldtype": "Text Editor",
+            "label": "Content"
+        },
+        {
+            "fieldname": "content_ar",
+            "fieldtype": "Text Editor",
+            "label": "Content (Arabic)"
+        },
+        {
+            "fieldname": "tooltip_text",
+            "fieldtype": "Small Text",
+            "label": "Tooltip Text"
+        },
+        {
+            "fieldname": "tooltip_text_ar",
+            "fieldtype": "Small Text",
+            "label": "Tooltip Text (Arabic)"
+        },
+        {
+            "fieldname": "mapping_section",
+            "fieldtype": "Section Break",
+            "label": "Mapping & Context"
+        },
+        {
+            "fieldname": "application_routes",
+            "fieldtype": "Table",
+            "label": "Application Routes",
+            "options": "Help Content Route"
+        },
+        {
+            "fieldname": "trigger_conditions",
+            "fieldtype": "Small Text",
+            "label": "Trigger Conditions (JSON)"
+        },
+        {
+            "fieldname": "user_roles",
+            "fieldtype": "Table",
+            "label": "User Roles",
+            "options": "Help Content Role"
+        },
+        {
+            "fieldname": "column_break_18",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "related_documentation",
+            "fieldtype": "Table",
+            "label": "Related Documentation",
+            "options": "Help Content Documentation"
+        },
+        {
+            "fieldname": "related_training_modules",
+            "fieldtype": "Table",
+            "label": "Related Training Modules",
+            "options": "Help Content Training"
+        },
+        {
+            "fieldname": "related_video_tutorials",
+            "fieldtype": "Table",
+            "label": "Related Video Tutorials",
+            "options": "Help Content Video"
+        },
+        {
+            "fieldname": "metadata_section",
+            "fieldtype": "Section Break",
+            "label": "Metadata"
+        },
+        {
+            "fieldname": "view_count",
+            "fieldtype": "Int",
+            "label": "View Count",
+            "read_only": 1,
+            "default": 0
+        },
+        {
+            "fieldname": "helpfulness_rating",
+            "fieldtype": "Float",
+            "label": "Helpfulness Rating",
+            "precision": "2",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_updated_by",
+            "fieldtype": "Link",
+            "label": "Last Updated By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_24",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "created_on",
+            "fieldtype": "Datetime",
+            "label": "Created On",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_updated_on",
+            "fieldtype": "Datetime",
+            "label": "Last Updated On",
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 0,
+    "links": [],
+    "modified": "2024-12-19 21:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Training Management",
+    "name": "Help Content",
+    "naming_rule": "Expression",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Training Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Employee",
+            "share": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "title",
+    "track_changes": 1
+}

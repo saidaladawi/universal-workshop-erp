@@ -1,0 +1,705 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "format:BENCH-{YYYY}-{#####}",
+    "creation": "2024-06-24 15:05:00.000000",
+    "default_view": "List",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "basic_info_section",
+        "benchmark_name",
+        "benchmark_name_ar",
+        "benchmark_type",
+        "analysis_period",
+        "column_break_5",
+        "business_area",
+        "benchmark_category",
+        "status",
+        "created_date",
+        "comparison_targets_section",
+        "internal_target",
+        "industry_standard",
+        "column_break_10",
+        "peer_average",
+        "historical_baseline",
+        "best_in_class",
+        "metrics_section",
+        "primary_kpi",
+        "current_value",
+        "target_value",
+        "variance",
+        "column_break_15",
+        "performance_score",
+        "ranking_position",
+        "improvement_potential",
+        "trend_analysis_section",
+        "period_comparison",
+        "trend_direction",
+        "volatility_index",
+        "column_break_20",
+        "seasonal_factor",
+        "growth_rate",
+        "stability_score",
+        "data_sources_section",
+        "primary_data_source",
+        "secondary_data_sources",
+        "external_benchmarks",
+        "column_break_25",
+        "data_quality_score",
+        "confidence_level",
+        "last_updated",
+        "analysis_configuration_section",
+        "comparison_method",
+        "calculation_formula",
+        "weights_json",
+        "column_break_30",
+        "normalization_method",
+        "outlier_handling",
+        "statistical_method",
+        "insights_section",
+        "performance_summary",
+        "gap_analysis",
+        "column_break_35",
+        "recommendations",
+        "action_items",
+        "priority_level",
+        "visualization_section",
+        "chart_type",
+        "visualization_config",
+        "export_formats",
+        "column_break_40",
+        "dashboard_display",
+        "mobile_view",
+        "sharing_permissions",
+        "automation_section",
+        "auto_update_frequency",
+        "alert_thresholds",
+        "notification_recipients",
+        "column_break_45",
+        "escalation_rules",
+        "reporting_schedule",
+        "integration_apis",
+        "arabic_localization_section",
+        "rtl_display",
+        "arabic_charts",
+        "column_break_50",
+        "bilingual_reports",
+        "arabic_fonts",
+        "regional_standards",
+        "metadata_section",
+        "created_by",
+        "modified_by",
+        "column_break_55",
+        "version_number",
+        "is_active",
+        "is_archived"
+    ],
+    "fields": [
+        {
+            "fieldname": "basic_info_section",
+            "fieldtype": "Section Break",
+            "label": "Basic Information"
+        },
+        {
+            "fieldname": "benchmark_name",
+            "fieldtype": "Data",
+            "label": "Benchmark Name",
+            "reqd": 1,
+            "in_list_view": 1,
+            "description": "Name of the benchmark analysis"
+        },
+        {
+            "fieldname": "benchmark_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم المقارنة المعيارية",
+            "translatable": 1,
+            "description": "Arabic name for benchmark analysis"
+        },
+        {
+            "fieldname": "benchmark_type",
+            "fieldtype": "Select",
+            "label": "Benchmark Type",
+            "options": "Industry Standard\nPeer Comparison\nHistorical Trend\nInternal Target\nBest Practice\nRegulatory Compliance",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "analysis_period",
+            "fieldtype": "Select",
+            "label": "Analysis Period",
+            "options": "Daily\nWeekly\nMonthly\nQuarterly\nAnnually\nCustom Range",
+            "default": "Monthly"
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "business_area",
+            "fieldtype": "Select",
+            "label": "Business Area",
+            "options": "Service Operations\nCustomer Management\nInventory Management\nFinancial Performance\nTechnician Productivity\nQuality Control\nMarketing & Sales",
+            "reqd": 1
+        },
+        {
+            "fieldname": "benchmark_category",
+            "fieldtype": "Select",
+            "label": "Category",
+            "options": "Operational Efficiency\nFinancial Performance\nCustomer Satisfaction\nEmployee Productivity\nQuality Metrics\nSafety Standards",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "Active\nInactive\nDraft\nArchived",
+            "default": "Active",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "created_date",
+            "fieldtype": "Date",
+            "label": "Created Date",
+            "default": "Today",
+            "reqd": 1
+        },
+        {
+            "fieldname": "comparison_targets_section",
+            "fieldtype": "Section Break",
+            "label": "Comparison Targets"
+        },
+        {
+            "fieldname": "internal_target",
+            "fieldtype": "Float",
+            "label": "Internal Target",
+            "precision": 3,
+            "description": "Internal workshop target value"
+        },
+        {
+            "fieldname": "industry_standard",
+            "fieldtype": "Float",
+            "label": "Industry Standard",
+            "precision": 3,
+            "description": "Automotive industry standard value"
+        },
+        {
+            "fieldname": "column_break_10",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "peer_average",
+            "fieldtype": "Float",
+            "label": "Peer Average",
+            "precision": 3,
+            "description": "Average performance of similar workshops"
+        },
+        {
+            "fieldname": "historical_baseline",
+            "fieldtype": "Float",
+            "label": "Historical Baseline",
+            "precision": 3,
+            "description": "Historical average performance"
+        },
+        {
+            "fieldname": "best_in_class",
+            "fieldtype": "Float",
+            "label": "Best in Class",
+            "precision": 3,
+            "description": "Best performance in industry"
+        },
+        {
+            "fieldname": "metrics_section",
+            "fieldtype": "Section Break",
+            "label": "Performance Metrics"
+        },
+        {
+            "fieldname": "primary_kpi",
+            "fieldtype": "Link",
+            "label": "Primary KPI",
+            "options": "Analytics KPI",
+            "reqd": 1,
+            "description": "Main KPI being benchmarked"
+        },
+        {
+            "fieldname": "current_value",
+            "fieldtype": "Float",
+            "label": "Current Value",
+            "precision": 3,
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "target_value",
+            "fieldtype": "Float",
+            "label": "Target Value",
+            "precision": 3,
+            "description": "Target value to achieve"
+        },
+        {
+            "fieldname": "variance",
+            "fieldtype": "Percent",
+            "label": "Variance",
+            "read_only": 1,
+            "description": "Variance from target (%)"
+        },
+        {
+            "fieldname": "column_break_15",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "performance_score",
+            "fieldtype": "Float",
+            "label": "Performance Score",
+            "precision": 2,
+            "read_only": 1,
+            "description": "Overall performance score (0-100)"
+        },
+        {
+            "fieldname": "ranking_position",
+            "fieldtype": "Int",
+            "label": "Ranking Position",
+            "description": "Position in industry ranking"
+        },
+        {
+            "fieldname": "improvement_potential",
+            "fieldtype": "Percent",
+            "label": "Improvement Potential",
+            "read_only": 1,
+            "description": "Potential for improvement (%)"
+        },
+        {
+            "fieldname": "trend_analysis_section",
+            "fieldtype": "Section Break",
+            "label": "Trend Analysis"
+        },
+        {
+            "fieldname": "period_comparison",
+            "fieldtype": "Select",
+            "label": "Period Comparison",
+            "options": "Month over Month\nQuarter over Quarter\nYear over Year\nCustom Period",
+            "default": "Month over Month"
+        },
+        {
+            "fieldname": "trend_direction",
+            "fieldtype": "Select",
+            "label": "Trend Direction",
+            "options": "Improving\nDeclining\nStable\nVolatile",
+            "read_only": 1
+        },
+        {
+            "fieldname": "volatility_index",
+            "fieldtype": "Float",
+            "label": "Volatility Index",
+            "precision": 2,
+            "read_only": 1,
+            "description": "Measure of performance volatility"
+        },
+        {
+            "fieldname": "column_break_20",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "seasonal_factor",
+            "fieldtype": "Float",
+            "label": "Seasonal Factor",
+            "precision": 2,
+            "description": "Seasonal adjustment factor"
+        },
+        {
+            "fieldname": "growth_rate",
+            "fieldtype": "Percent",
+            "label": "Growth Rate",
+            "read_only": 1,
+            "description": "Period over period growth rate"
+        },
+        {
+            "fieldname": "stability_score",
+            "fieldtype": "Float",
+            "label": "Stability Score",
+            "precision": 2,
+            "read_only": 1,
+            "description": "Performance stability score (0-100)"
+        },
+        {
+            "fieldname": "data_sources_section",
+            "fieldtype": "Section Break",
+            "label": "Data Sources"
+        },
+        {
+            "fieldname": "primary_data_source",
+            "fieldtype": "Link",
+            "label": "Primary Data Source",
+            "options": "DocType",
+            "description": "Main data source for analysis"
+        },
+        {
+            "fieldname": "secondary_data_sources",
+            "fieldtype": "Long Text",
+            "label": "Secondary Data Sources",
+            "description": "Additional data sources (comma separated)"
+        },
+        {
+            "fieldname": "external_benchmarks",
+            "fieldtype": "Long Text",
+            "label": "External Benchmarks",
+            "description": "External benchmark sources and references"
+        },
+        {
+            "fieldname": "column_break_25",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "data_quality_score",
+            "fieldtype": "Float",
+            "label": "Data Quality Score",
+            "precision": 2,
+            "read_only": 1,
+            "description": "Data quality assessment (0-100)"
+        },
+        {
+            "fieldname": "confidence_level",
+            "fieldtype": "Percent",
+            "label": "Confidence Level",
+            "description": "Statistical confidence level"
+        },
+        {
+            "fieldname": "last_updated",
+            "fieldtype": "Datetime",
+            "label": "Last Updated",
+            "read_only": 1
+        },
+        {
+            "fieldname": "analysis_configuration_section",
+            "fieldtype": "Section Break",
+            "label": "Analysis Configuration"
+        },
+        {
+            "fieldname": "comparison_method",
+            "fieldtype": "Select",
+            "label": "Comparison Method",
+            "options": "Absolute Difference\nPercentage Difference\nZ-Score\nPercentile Ranking\nStandard Deviation",
+            "default": "Percentage Difference"
+        },
+        {
+            "fieldname": "calculation_formula",
+            "fieldtype": "Code",
+            "label": "Calculation Formula",
+            "language": "python",
+            "description": "Custom calculation formula for benchmark analysis"
+        },
+        {
+            "fieldname": "weights_json",
+            "fieldtype": "JSON",
+            "label": "Weights Configuration",
+            "description": "JSON configuration for weighted analysis"
+        },
+        {
+            "fieldname": "column_break_30",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "normalization_method",
+            "fieldtype": "Select",
+            "label": "Normalization Method",
+            "options": "Min-Max\nZ-Score\nRobust Scaling\nNo Normalization",
+            "default": "No Normalization"
+        },
+        {
+            "fieldname": "outlier_handling",
+            "fieldtype": "Select",
+            "label": "Outlier Handling",
+            "options": "Include All\nRemove Outliers\nCap Outliers\nWinsorize",
+            "default": "Include All"
+        },
+        {
+            "fieldname": "statistical_method",
+            "fieldtype": "Select",
+            "label": "Statistical Method",
+            "options": "Descriptive\nT-Test\nANOVA\nRegression\nCorrelation",
+            "default": "Descriptive"
+        },
+        {
+            "fieldname": "insights_section",
+            "fieldtype": "Section Break",
+            "label": "Insights & Analysis"
+        },
+        {
+            "fieldname": "performance_summary",
+            "fieldtype": "Text Editor",
+            "label": "Performance Summary",
+            "description": "Summary of benchmark analysis results"
+        },
+        {
+            "fieldname": "gap_analysis",
+            "fieldtype": "Text Editor",
+            "label": "Gap Analysis",
+            "description": "Analysis of performance gaps"
+        },
+        {
+            "fieldname": "column_break_35",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "recommendations",
+            "fieldtype": "Text Editor",
+            "label": "Recommendations",
+            "description": "Improvement recommendations"
+        },
+        {
+            "fieldname": "action_items",
+            "fieldtype": "Text Editor",
+            "label": "Action Items",
+            "description": "Specific action items for improvement"
+        },
+        {
+            "fieldname": "priority_level",
+            "fieldtype": "Select",
+            "label": "Priority Level",
+            "options": "High\nMedium\nLow",
+            "default": "Medium"
+        },
+        {
+            "fieldname": "visualization_section",
+            "fieldtype": "Section Break",
+            "label": "Visualization & Reporting"
+        },
+        {
+            "fieldname": "chart_type",
+            "fieldtype": "Select",
+            "label": "Chart Type",
+            "options": "Bar Chart\nLine Chart\nRadar Chart\nGauge Chart\nHeatmap\nComparison Table",
+            "default": "Bar Chart"
+        },
+        {
+            "fieldname": "visualization_config",
+            "fieldtype": "JSON",
+            "label": "Visualization Config",
+            "description": "JSON configuration for charts and visualization"
+        },
+        {
+            "fieldname": "export_formats",
+            "fieldtype": "Select",
+            "label": "Export Formats",
+            "options": "PDF\nExcel\nCSV\nPowerPoint\nJSON",
+            "default": "PDF"
+        },
+        {
+            "fieldname": "column_break_40",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "dashboard_display",
+            "fieldtype": "Check",
+            "label": "Display on Dashboard",
+            "default": 1
+        },
+        {
+            "fieldname": "mobile_view",
+            "fieldtype": "Check",
+            "label": "Mobile View Enabled",
+            "default": 1
+        },
+        {
+            "fieldname": "sharing_permissions",
+            "fieldtype": "JSON",
+            "label": "Sharing Permissions",
+            "description": "User/role permissions for sharing analysis"
+        },
+        {
+            "fieldname": "automation_section",
+            "fieldtype": "Section Break",
+            "label": "Automation & Alerts"
+        },
+        {
+            "fieldname": "auto_update_frequency",
+            "fieldtype": "Select",
+            "label": "Auto Update Frequency",
+            "options": "Real-time\nHourly\nDaily\nWeekly\nMonthly\nManual",
+            "default": "Daily"
+        },
+        {
+            "fieldname": "alert_thresholds",
+            "fieldtype": "JSON",
+            "label": "Alert Thresholds",
+            "description": "Threshold values for automated alerts"
+        },
+        {
+            "fieldname": "notification_recipients",
+            "fieldtype": "Small Text",
+            "label": "Notification Recipients",
+            "description": "Email addresses for automated notifications"
+        },
+        {
+            "fieldname": "column_break_45",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "escalation_rules",
+            "fieldtype": "JSON",
+            "label": "Escalation Rules",
+            "description": "Rules for escalating performance issues"
+        },
+        {
+            "fieldname": "reporting_schedule",
+            "fieldtype": "JSON",
+            "label": "Reporting Schedule",
+            "description": "Automated reporting schedule configuration"
+        },
+        {
+            "fieldname": "integration_apis",
+            "fieldtype": "Small Text",
+            "label": "Integration APIs",
+            "description": "External API endpoints for data integration"
+        },
+        {
+            "fieldname": "arabic_localization_section",
+            "fieldtype": "Section Break",
+            "label": "Arabic Localization"
+        },
+        {
+            "fieldname": "rtl_display",
+            "fieldtype": "Check",
+            "label": "RTL Display",
+            "default": 1,
+            "description": "Enable right-to-left display for Arabic"
+        },
+        {
+            "fieldname": "arabic_charts",
+            "fieldtype": "Check",
+            "label": "Arabic Charts",
+            "default": 1,
+            "description": "Enable Arabic support in charts"
+        },
+        {
+            "fieldname": "column_break_50",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "bilingual_reports",
+            "fieldtype": "Check",
+            "label": "Bilingual Reports",
+            "default": 1,
+            "description": "Generate reports in both Arabic and English"
+        },
+        {
+            "fieldname": "arabic_fonts",
+            "fieldtype": "Data",
+            "label": "Arabic Fonts",
+            "default": "Noto Sans Arabic",
+            "description": "Font family for Arabic text rendering"
+        },
+        {
+            "fieldname": "regional_standards",
+            "fieldtype": "Select",
+            "label": "Regional Standards",
+            "options": "GCC Standards\nOman Standards\nSaudi Standards\nUAE Standards\nInternational Standards",
+            "default": "Oman Standards"
+        },
+        {
+            "fieldname": "metadata_section",
+            "fieldtype": "Section Break",
+            "label": "Metadata"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "modified_by",
+            "fieldtype": "Link",
+            "label": "Modified By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_55",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "version_number",
+            "fieldtype": "Float",
+            "label": "Version Number",
+            "precision": 1,
+            "default": 1.0,
+            "read_only": 1
+        },
+        {
+            "fieldname": "is_active",
+            "fieldtype": "Check",
+            "label": "Is Active",
+            "default": 1
+        },
+        {
+            "fieldname": "is_archived",
+            "fieldtype": "Check",
+            "label": "Is Archived",
+            "default": 0
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "istable": 0,
+    "links": [],
+    "modified": "2024-06-24 15:05:00.000000",
+    "modified_by": "Administrator",
+    "module": "Analytics Reporting",
+    "name": "Benchmark Analysis",
+    "naming_rule": "Expression",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Analyst",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Technician",
+            "share": 0
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "quick_entry": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

@@ -1,0 +1,150 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 0,
+    "allow_rename": 1,
+    "autoname": "hash",
+    "beta": 0,
+    "creation": "2024-06-24 16:00:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "assessment_category",
+        "item_name",
+        "item_name_ar",
+        "cb_assessment",
+        "condition_rating",
+        "damage_level",
+        "repair_needed",
+        "cb_details",
+        "description",
+        "notes",
+        "cb_photos",
+        "item_photo",
+        "estimated_value",
+        "cb_completion",
+        "assessed_by",
+        "assessment_date",
+        "is_complete"
+    ],
+    "fields": [
+        {
+            "fieldname": "assessment_category",
+            "fieldtype": "Select",
+            "label": "Category",
+            "options": "Body\nEngine\nElectrical\nInterior\nSafety\nFluids\nTires\nOther",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "item_name",
+            "fieldtype": "Data",
+            "label": "Item Name",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "item_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم العنصر",
+            "translatable": 1
+        },
+        {
+            "fieldname": "cb_assessment",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "condition_rating",
+            "fieldtype": "Select",
+            "label": "Condition",
+            "options": "A - Excellent\nB - Good\nC - Fair\nD - Poor\nF - Salvage Only",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "damage_level",
+            "fieldtype": "Select",
+            "label": "Damage Level",
+            "options": "None\nMinor\nModerate\nSevere\nTotal Loss"
+        },
+        {
+            "fieldname": "repair_needed",
+            "fieldtype": "Check",
+            "label": "Repair Needed"
+        },
+        {
+            "fieldname": "cb_details",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "description",
+            "fieldtype": "Text",
+            "label": "Description"
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Text",
+            "label": "Assessment Notes"
+        },
+        {
+            "fieldname": "cb_photos",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "item_photo",
+            "fieldtype": "Attach Image",
+            "label": "Photo"
+        },
+        {
+            "fieldname": "estimated_value",
+            "fieldtype": "Currency",
+            "label": "Estimated Value (OMR)",
+            "options": "Company:company:default_currency"
+        },
+        {
+            "fieldname": "cb_completion",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "assessed_by",
+            "fieldtype": "Link",
+            "label": "Assessed By",
+            "options": "Employee"
+        },
+        {
+            "fieldname": "assessment_date",
+            "fieldtype": "Date",
+            "label": "Assessment Date"
+        },
+        {
+            "fieldname": "is_complete",
+            "fieldtype": "Check",
+            "label": "Assessment Complete"
+        }
+    ],
+    "idx": 0,
+    "index_web_pages_for_search": 1,
+    "is_submittable": 0,
+    "istable": 1,
+    "links": [],
+    "modified": "2024-06-24 16:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Scrap Management",
+    "name": "Scrap Vehicle Assessment Item",
+    "naming_rule": "Random",
+    "owner": "Administrator",
+    "permissions": [],
+    "quick_entry": 0,
+    "restrict_to_domain": "Workshop",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1,
+    "track_seen": 0,
+    "track_views": 0
+}

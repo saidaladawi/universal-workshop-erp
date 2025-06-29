@@ -1,0 +1,118 @@
+{
+ "creation": "2024-06-24 18:30:00.000000",
+ "docstatus": 0,
+ "doctype": "Workflow",
+ "document_type": "Environmental Compliance Record",
+ "idx": 0,
+ "is_active": 1,
+ "modified": "2024-06-24 18:30:00.000000",
+ "modified_by": "Administrator",
+ "name": "Environmental Compliance Workflow",
+ "override_status": 1,
+ "owner": "Administrator",
+ "send_email_alert": 1,
+ "states": [
+  {
+   "allow_edit": "Environmental Officer",
+   "doc_status": "0",
+   "state": "Draft",
+   "style": "Primary"
+  },
+  {
+   "allow_edit": "Environmental Officer",
+   "doc_status": "0",
+   "state": "Under Review",
+   "style": "Warning"
+  },
+  {
+   "allow_edit": "Compliance Auditor",
+   "doc_status": "0",
+   "state": "Under Investigation",
+   "style": "Info"
+  },
+  {
+   "allow_edit": "Workshop Manager",
+   "doc_status": "1",
+   "state": "Compliant",
+   "style": "Success"
+  },
+  {
+   "allow_edit": "Environmental Officer",
+   "doc_status": "0",
+   "state": "Non-Compliant",
+   "style": "Danger"
+  },
+  {
+   "allow_edit": "Environmental Officer",
+   "doc_status": "0",
+   "state": "Overdue",
+   "style": "Danger"
+  },
+  {
+   "allow_edit": "Workshop Manager",
+   "doc_status": "2",
+   "state": "Closed",
+   "style": "Dark"
+  }
+ ],
+ "transitions": [
+  {
+   "action": "Submit for Review",
+   "allowed": "Environmental Officer",
+   "condition": "",
+   "next_state": "Under Review",
+   "state": "Draft"
+  },
+  {
+   "action": "Start Investigation",
+   "allowed": "Compliance Auditor",
+   "condition": "",
+   "next_state": "Under Investigation",
+   "state": "Under Review"
+  },
+  {
+   "action": "Mark Non-Compliant",
+   "allowed": "Compliance Auditor",
+   "condition": "",
+   "next_state": "Non-Compliant",
+   "state": "Under Investigation"
+  },
+  {
+   "action": "Approve Compliance",
+   "allowed": "Workshop Manager",
+   "condition": "doc.compliance_percentage >= 80",
+   "next_state": "Compliant",
+   "state": "Under Investigation"
+  },
+  {
+   "action": "Reopen for Review",
+   "allowed": "Environmental Officer",
+   "condition": "",
+   "next_state": "Under Review",
+   "state": "Non-Compliant"
+  },
+  {
+   "action": "Mark Overdue",
+   "allowed": "System Manager",
+   "condition": "doc.due_date < frappe.utils.today()",
+   "next_state": "Overdue",
+   "state": "Under Review"
+  },
+  {
+   "action": "Close Record",
+   "allowed": "Workshop Manager",
+   "condition": "",
+   "next_state": "Closed",
+   "state": "Compliant"
+  },
+  {
+   "action": "Reopen",
+   "allowed": "Workshop Manager",
+   "condition": "",
+   "next_state": "Under Review",
+   "state": "Closed"
+  }
+ ],
+ "workflow_name": "Environmental Compliance Workflow",
+ "workflow_state_field": "workflow_state"
+}

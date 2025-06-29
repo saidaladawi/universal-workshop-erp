@@ -1,0 +1,217 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "field:category_code",
+    "creation": "2025-06-20 20:50:00.000000",
+    "default_view": "List",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "basic_information_section",
+        "category_name_en",
+        "category_name_ar",
+        "category_code",
+        "parent_category",
+        "column_break_5",
+        "status",
+        "sort_order",
+        "is_public",
+        "icon_class",
+        "description_section",
+        "description_en",
+        "description_ar",
+        "meta_information_section",
+        "meta_keywords",
+        "target_audience",
+        "column_break_13",
+        "created_by",
+        "modified_by",
+        "creation_date"
+    ],
+    "fields": [
+        {
+            "fieldname": "basic_information_section",
+            "fieldtype": "Section Break",
+            "label": "Basic Information"
+        },
+        {
+            "fieldname": "category_name_en",
+            "fieldtype": "Data",
+            "label": "Category Name (English)",
+            "reqd": 1,
+            "in_list_view": 1,
+            "in_standard_filter": 1
+        },
+        {
+            "fieldname": "category_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم الفئة (العربية)",
+            "translatable": 1,
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "category_code",
+            "fieldtype": "Data",
+            "label": "Category Code",
+            "unique": 1,
+            "read_only": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "parent_category",
+            "fieldtype": "Link",
+            "label": "Parent Category",
+            "options": "Knowledge Base Category",
+            "description": "For hierarchical category structure"
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "Active\nInactive\nArchived",
+            "default": "Active",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "sort_order",
+            "fieldtype": "Int",
+            "label": "Sort Order",
+            "default": 0,
+            "description": "Order in which categories are displayed"
+        },
+        {
+            "fieldname": "is_public",
+            "fieldtype": "Check",
+            "label": "Public Access",
+            "default": 1,
+            "description": "Allow access without login"
+        },
+        {
+            "fieldname": "icon_class",
+            "fieldtype": "Data",
+            "label": "Icon Class",
+            "description": "CSS class for category icon (e.g., fa fa-book)"
+        },
+        {
+            "fieldname": "description_section",
+            "fieldtype": "Section Break",
+            "label": "Description"
+        },
+        {
+            "fieldname": "description_en",
+            "fieldtype": "Text",
+            "label": "Description (English)",
+            "description": "Brief description of what this category covers"
+        },
+        {
+            "fieldname": "description_ar",
+            "fieldtype": "Text",
+            "label": "الوصف (العربية)",
+            "description": "وصف موجز لما تغطيه هذه الفئة"
+        },
+        {
+            "fieldname": "meta_information_section",
+            "fieldtype": "Section Break",
+            "label": "Meta Information"
+        },
+        {
+            "fieldname": "meta_keywords",
+            "fieldtype": "Text",
+            "label": "Keywords",
+            "description": "Keywords for search optimization (comma-separated)"
+        },
+        {
+            "fieldname": "target_audience",
+            "fieldtype": "Select",
+            "label": "Target Audience",
+            "options": "\nAll Users\nManagers\nTechnicians\nAdministrators\nCustomers",
+            "description": "Primary audience for this category"
+        },
+        {
+            "fieldname": "column_break_13",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "modified_by",
+            "fieldtype": "Link",
+            "label": "Modified By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "creation_date",
+            "fieldtype": "Datetime",
+            "label": "Creation Date",
+            "read_only": 1
+        }
+    ],
+    "links": [
+        {
+            "link_doctype": "Knowledge Base Article",
+            "link_fieldname": "category"
+        }
+    ],
+    "modified": "2025-06-20 20:50:00.000000",
+    "modified_by": "Administrator",
+    "module": "Training Management",
+    "name": "Knowledge Base Category",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician",
+            "share": 1
+        },
+        {
+            "read": 1,
+            "role": "Workshop Customer"
+        }
+    ],
+    "sort_field": "sort_order",
+    "sort_order": "ASC",
+    "states": [],
+    "title_field": "category_name_en",
+    "track_changes": 1
+}

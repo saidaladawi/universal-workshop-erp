@@ -1,0 +1,43 @@
+{
+    "actions": [],
+    "creation": "2024-12-19 21:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "route",
+        "route_pattern",
+        "is_regex"
+    ],
+    "fields": [
+        {
+            "fieldname": "route",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Route/URL Pattern",
+            "reqd": 1
+        },
+        {
+            "fieldname": "route_pattern",
+            "fieldtype": "Data",
+            "label": "Route Pattern (RegEx)"
+        },
+        {
+            "fieldname": "is_regex",
+            "fieldtype": "Check",
+            "label": "Is Regular Expression"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "istable": 1,
+    "links": [],
+    "modified": "2024-12-19 21:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Training Management",
+    "name": "Help Content Route",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

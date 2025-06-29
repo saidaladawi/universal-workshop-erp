@@ -1,0 +1,292 @@
+{
+  "timestamp": "2025-06-29T16:10:00",
+  "phase": "Phase 3: Workshop Management Reorganization",
+  "structure_analysis": {
+    "existing_doctypes": [
+      "workshop_theme",
+      "skill",
+      "quality_control_checkpoint",
+      "service_order_parts",
+      "backup_manager",
+      "mobile_device_management",
+      "technician",
+      "service_estimate_parts",
+      "system_health_monitor",
+      "technician_skills",
+      "onboarding_progress",
+      "quality_control_photo",
+      "service_order_status_history",
+      "workshop_profile",
+      "license_manager",
+      "service_bay",
+      "onboarding_performance_log",
+      "error_logger",
+      "service_order_labor",
+      "service_order",
+      "quality_control_document",
+      "workshop_settings",
+      "integration_manager",
+      "performance_monitor"
+    ],
+    "total_count": 24,
+    "classification": {
+      "WORKSHOP_OPERATIONS": [
+        "workshop_profile",
+        "workshop_settings",
+        "workshop_theme",
+        "service_order",
+        "service_bay",
+        "service_order_labor",
+        "service_order_parts",
+        "service_order_status_history",
+        "technician",
+        "technician_skills",
+        "skill",
+        "service_estimate_parts"
+      ],
+      "QUALITY_CONTROL": [
+        "quality_control_checkpoint",
+        "quality_control_document",
+        "quality_control_photo"
+      ],
+      "SYSTEM_ADMINISTRATION": [
+        "backup_manager",
+        "performance_monitor",
+        "system_health_monitor",
+        "error_logger",
+        "integration_manager",
+        "license_manager"
+      ],
+      "MOBILE_OPERATIONS": [
+        "mobile_device_management"
+      ],
+      "ONBOARDING_SYSTEM": [
+        "onboarding_progress",
+        "onboarding_performance_log"
+      ]
+    },
+    "target_mapping": {
+      "WORKSHOP_OPERATIONS": "workshop_operations",
+      "QUALITY_CONTROL": "workshop_operations/quality_control",
+      "SYSTEM_ADMINISTRATION": "system_administration",
+      "MOBILE_OPERATIONS": "mobile_operations",
+      "ONBOARDING_SYSTEM": "setup/onboarding"
+    },
+    "missing_from_classification": [],
+    "missing_from_filesystem": [],
+    "classification_complete": true,
+    "all_doctypes_exist": true
+  },
+  "migration_plan": {
+    "total_doctypes": 24,
+    "high_risk_count": 3,
+    "medium_risk_count": 21,
+    "steps": [
+      {
+        "doctype": "workshop_profile",
+        "category": "WORKSHOP_OPERATIONS",
+        "source": "workshop_management/doctype/workshop_profile",
+        "target": "workshop_operations/workshop_profile",
+        "target_dir": "workshop_operations",
+        "risk_level": "HIGH"
+      },
+      {
+        "doctype": "workshop_settings",
+        "category": "WORKSHOP_OPERATIONS",
+        "source": "workshop_management/doctype/workshop_settings",
+        "target": "workshop_operations/workshop_settings",
+        "target_dir": "workshop_operations",
+        "risk_level": "MEDIUM"
+      },
+      {
+        "doctype": "workshop_theme",
+        "category": "WORKSHOP_OPERATIONS",
+        "source": "workshop_management/doctype/workshop_theme",
+        "target": "workshop_operations/workshop_theme",
+        "target_dir": "workshop_operations",
+        "risk_level": "MEDIUM"
+      },
+      {
+        "doctype": "service_order",
+        "category": "WORKSHOP_OPERATIONS",
+        "source": "workshop_management/doctype/service_order",
+        "target": "workshop_operations/service_order",
+        "target_dir": "workshop_operations",
+        "risk_level": "HIGH"
+      },
+      {
+        "doctype": "service_bay",
+        "category": "WORKSHOP_OPERATIONS",
+        "source": "workshop_management/doctype/service_bay",
+        "target": "workshop_operations/service_bay",
+        "target_dir": "workshop_operations",
+        "risk_level": "MEDIUM"
+      },
+      {
+        "doctype": "service_order_labor",
+        "category": "WORKSHOP_OPERATIONS",
+        "source": "workshop_management/doctype/service_order_labor",
+        "target": "workshop_operations/service_order_labor",
+        "target_dir": "workshop_operations",
+        "risk_level": "MEDIUM"
+      },
+      {
+        "doctype": "service_order_parts",
+        "category": "WORKSHOP_OPERATIONS",
+        "source": "workshop_management/doctype/service_order_parts",
+        "target": "workshop_operations/service_order_parts",
+        "target_dir": "workshop_operations",
+        "risk_level": "MEDIUM"
+      },
+      {
+        "doctype": "service_order_status_history",
+        "category": "WORKSHOP_OPERATIONS",
+        "source": "workshop_management/doctype/service_order_status_history",
+        "target": "workshop_operations/service_order_status_history",
+        "target_dir": "workshop_operations",
+        "risk_level": "MEDIUM"
+      },
+      {
+        "doctype": "technician",
+        "category": "WORKSHOP_OPERATIONS",
+        "source": "workshop_management/doctype/technician",
+        "target": "workshop_operations/technician",
+        "target_dir": "workshop_operations",
+        "risk_level": "HIGH"
+      },
+      {
+        "doctype": "technician_skills",
+        "category": "WORKSHOP_OPERATIONS",
+        "source": "workshop_management/doctype/technician_skills",
+        "target": "workshop_operations/technician_skills",
+        "target_dir": "workshop_operations",
+        "risk_level": "MEDIUM"
+      },
+      {
+        "doctype": "skill",
+        "category": "WORKSHOP_OPERATIONS",
+        "source": "workshop_management/doctype/skill",
+        "target": "workshop_operations/skill",
+        "target_dir": "workshop_operations",
+        "risk_level": "MEDIUM"
+      },
+      {
+        "doctype": "service_estimate_parts",
+        "category": "WORKSHOP_OPERATIONS",
+        "source": "workshop_management/doctype/service_estimate_parts",
+        "target": "workshop_operations/service_estimate_parts",
+        "target_dir": "workshop_operations",
+        "risk_level": "MEDIUM"
+      },
+      {
+        "doctype": "quality_control_checkpoint",
+        "category": "QUALITY_CONTROL",
+        "source": "workshop_management/doctype/quality_control_checkpoint",
+        "target": "workshop_operations/quality_control/quality_control_checkpoint",
+        "target_dir": "workshop_operations/quality_control",
+        "risk_level": "MEDIUM"
+      },
+      {
+        "doctype": "quality_control_document",
+        "category": "QUALITY_CONTROL",
+        "source": "workshop_management/doctype/quality_control_document",
+        "target": "workshop_operations/quality_control/quality_control_document",
+        "target_dir": "workshop_operations/quality_control",
+        "risk_level": "MEDIUM"
+      },
+      {
+        "doctype": "quality_control_photo",
+        "category": "QUALITY_CONTROL",
+        "source": "workshop_management/doctype/quality_control_photo",
+        "target": "workshop_operations/quality_control/quality_control_photo",
+        "target_dir": "workshop_operations/quality_control",
+        "risk_level": "MEDIUM"
+      },
+      {
+        "doctype": "backup_manager",
+        "category": "SYSTEM_ADMINISTRATION",
+        "source": "workshop_management/doctype/backup_manager",
+        "target": "system_administration/backup_manager",
+        "target_dir": "system_administration",
+        "risk_level": "MEDIUM"
+      },
+      {
+        "doctype": "performance_monitor",
+        "category": "SYSTEM_ADMINISTRATION",
+        "source": "workshop_management/doctype/performance_monitor",
+        "target": "system_administration/performance_monitor",
+        "target_dir": "system_administration",
+        "risk_level": "MEDIUM"
+      },
+      {
+        "doctype": "system_health_monitor",
+        "category": "SYSTEM_ADMINISTRATION",
+        "source": "workshop_management/doctype/system_health_monitor",
+        "target": "system_administration/system_health_monitor",
+        "target_dir": "system_administration",
+        "risk_level": "MEDIUM"
+      },
+      {
+        "doctype": "error_logger",
+        "category": "SYSTEM_ADMINISTRATION",
+        "source": "workshop_management/doctype/error_logger",
+        "target": "system_administration/error_logger",
+        "target_dir": "system_administration",
+        "risk_level": "MEDIUM"
+      },
+      {
+        "doctype": "integration_manager",
+        "category": "SYSTEM_ADMINISTRATION",
+        "source": "workshop_management/doctype/integration_manager",
+        "target": "system_administration/integration_manager",
+        "target_dir": "system_administration",
+        "risk_level": "MEDIUM"
+      },
+      {
+        "doctype": "license_manager",
+        "category": "SYSTEM_ADMINISTRATION",
+        "source": "workshop_management/doctype/license_manager",
+        "target": "system_administration/license_manager",
+        "target_dir": "system_administration",
+        "risk_level": "MEDIUM"
+      },
+      {
+        "doctype": "mobile_device_management",
+        "category": "MOBILE_OPERATIONS",
+        "source": "workshop_management/doctype/mobile_device_management",
+        "target": "mobile_operations/mobile_device_management",
+        "target_dir": "mobile_operations",
+        "risk_level": "MEDIUM"
+      },
+      {
+        "doctype": "onboarding_progress",
+        "category": "ONBOARDING_SYSTEM",
+        "source": "workshop_management/doctype/onboarding_progress",
+        "target": "setup/onboarding/onboarding_progress",
+        "target_dir": "setup/onboarding",
+        "risk_level": "MEDIUM"
+      },
+      {
+        "doctype": "onboarding_performance_log",
+        "category": "ONBOARDING_SYSTEM",
+        "source": "workshop_management/doctype/onboarding_performance_log",
+        "target": "setup/onboarding/onboarding_performance_log",
+        "target_dir": "setup/onboarding",
+        "risk_level": "MEDIUM"
+      }
+    ],
+    "execution_order": [
+      "ONBOARDING_SYSTEM",
+      "MOBILE_OPERATIONS",
+      "QUALITY_CONTROL",
+      "SYSTEM_ADMINISTRATION",
+      "WORKSHOP_OPERATIONS"
+    ]
+  },
+  "import_dependencies": [
+    "apps/universal_workshop/test_logo_injection.py:        from universal_workshop.workshop_management.doctype.workshop_profile.workshop_profile import (",
+    "apps/universal_workshop/test_branding.py:        from universal_workshop.workshop_management.doctype.workshop_profile.workshop_profile import (",
+    "apps/universal_workshop/quick_test.py:    from universal_workshop.workshop_management.doctype.workshop_profile.workshop_profile import get_workshop_branding",
+    "apps/universal_workshop/simple_test.py:    from universal_workshop.workshop_management.doctype.workshop_profile.workshop_profile import ("
+  ]
+}

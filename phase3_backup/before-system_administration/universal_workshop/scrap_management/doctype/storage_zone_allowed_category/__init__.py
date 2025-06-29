@@ -1,0 +1,1 @@
+# storage_zone_allowed_category DocType

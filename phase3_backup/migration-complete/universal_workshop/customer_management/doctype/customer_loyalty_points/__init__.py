@@ -1,0 +1,1 @@
+# Customer Loyalty Points DocType

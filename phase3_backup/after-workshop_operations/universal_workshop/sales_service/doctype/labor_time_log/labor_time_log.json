@@ -1,0 +1,287 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 1,
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "beta": 0,
+    "creation": "2024-06-23 11:10:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "document_type": "Document",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "technician",
+        "technician_name",
+        "technician_name_ar",
+        "column_break_4",
+        "service_order",
+        "activity_type",
+        "status",
+        "section_break_8",
+        "start_time",
+        "end_time",
+        "column_break_11",
+        "pause_time",
+        "resume_time",
+        "total_hours",
+        "section_break_15",
+        "hourly_rate",
+        "total_cost",
+        "column_break_18",
+        "billable",
+        "billing_rate",
+        "billing_amount",
+        "timesheet_section",
+        "timesheet",
+        "timesheet_detail",
+        "notes_section",
+        "notes",
+        "pause_reason",
+        "completion_notes",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "LTL-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "fieldname": "technician",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Technician",
+            "options": "Technician",
+            "reqd": 1
+        },
+        {
+            "fieldname": "technician_name",
+            "fieldtype": "Data",
+            "label": "Technician Name",
+            "read_only": 1
+        },
+        {
+            "fieldname": "technician_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم الفني",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_4",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "service_order",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Service Order",
+            "options": "Service Order",
+            "reqd": 1
+        },
+        {
+            "fieldname": "activity_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Activity Type",
+            "options": "Service Work\nDiagnostics\nRepair\nMaintenance\nInspection\nTesting\nInstallation\nParts Replacement\nCustomization\nWarranty Work",
+            "reqd": 1
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Status",
+            "options": "Active\nPaused\nCompleted\nCancelled",
+            "reqd": 1,
+            "default": "Active"
+        },
+        {
+            "fieldname": "section_break_8",
+            "fieldtype": "Section Break",
+            "label": "Time Tracking"
+        },
+        {
+            "fieldname": "start_time",
+            "fieldtype": "Datetime",
+            "in_list_view": 1,
+            "label": "Start Time",
+            "reqd": 1
+        },
+        {
+            "fieldname": "end_time",
+            "fieldtype": "Datetime",
+            "label": "End Time"
+        },
+        {
+            "fieldname": "column_break_11",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "pause_time",
+            "fieldtype": "Datetime",
+            "label": "Pause Time"
+        },
+        {
+            "fieldname": "resume_time",
+            "fieldtype": "Datetime",
+            "label": "Resume Time"
+        },
+        {
+            "fieldname": "total_hours",
+            "fieldtype": "Float",
+            "in_list_view": 1,
+            "label": "Total Hours",
+            "precision": "2",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_15",
+            "fieldtype": "Section Break",
+            "label": "Costing"
+        },
+        {
+            "fieldname": "hourly_rate",
+            "fieldtype": "Currency",
+            "label": "Hourly Rate (OMR)",
+            "options": "OMR",
+            "reqd": 1
+        },
+        {
+            "fieldname": "total_cost",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Total Cost (OMR)",
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_18",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "billable",
+            "fieldtype": "Check",
+            "label": "Billable",
+            "default": 1
+        },
+        {
+            "fieldname": "billing_rate",
+            "fieldtype": "Currency",
+            "label": "Billing Rate (OMR)",
+            "options": "OMR"
+        },
+        {
+            "fieldname": "billing_amount",
+            "fieldtype": "Currency",
+            "label": "Billing Amount (OMR)",
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "timesheet_section",
+            "fieldtype": "Section Break",
+            "label": "Timesheet Integration"
+        },
+        {
+            "fieldname": "timesheet",
+            "fieldtype": "Link",
+            "label": "Timesheet",
+            "options": "Timesheet",
+            "read_only": 1
+        },
+        {
+            "fieldname": "timesheet_detail",
+            "fieldtype": "Data",
+            "label": "Timesheet Detail",
+            "read_only": 1
+        },
+        {
+            "fieldname": "notes_section",
+            "fieldtype": "Section Break",
+            "label": "Notes"
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Text",
+            "label": "Work Notes"
+        },
+        {
+            "fieldname": "pause_reason",
+            "fieldtype": "Data",
+            "label": "Pause Reason"
+        },
+        {
+            "fieldname": "completion_notes",
+            "fieldtype": "Text",
+            "label": "Completion Notes"
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Labor Time Log",
+            "print_hide": 1,
+            "read_only": 1
+        }
+    ],
+    "icon": "fa fa-clock-o",
+    "is_submittable": 0,
+    "issingle": 0,
+    "istable": 0,
+    "max_attachments": 5,
+    "modified": "2024-06-23 11:10:00.000000",
+    "modified_by": "Administrator",
+    "module": "Sales Service",
+    "name": "Labor Time Log",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "read": 1,
+            "role": "Workshop Customer"
+        }
+    ],
+    "quick_entry": 1,
+    "restrict_to_domain": "Manufacturing",
+    "search_fields": "technician,service_order,activity_type,status",
+    "show_name_in_global_search": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "technician",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+} 

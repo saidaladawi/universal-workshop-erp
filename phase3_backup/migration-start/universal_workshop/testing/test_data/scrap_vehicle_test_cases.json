@@ -1,0 +1,454 @@
+{
+    "test_cases": [
+        {
+            "test_case_title": "Scrap Vehicle Registration and Assessment",
+            "test_case_title_ar": "تسجيل وتقييم المركبة المعطلة",
+            "test_module": "Scrap Vehicle Processing",
+            "test_category": "Functional Testing",
+            "test_priority": "Critical",
+            "test_type": "Manual",
+            "test_description": "Comprehensive testing of scrap vehicle registration process including VIN validation, condition assessment, and documentation capture",
+            "test_objective": "Validate complete scrap vehicle registration workflow with Arabic localization and Oman compliance",
+            "test_steps": [
+                {
+                    "step_number": 1,
+                    "step_title": "Access Scrap Vehicle Registration Form",
+                    "step_description": "Navigate to Scrap Vehicle Processing module and open new registration form",
+                    "expected_result": "Form loads with all required fields in Arabic/English",
+                    "is_critical": true,
+                    "estimated_time": 30
+                },
+                {
+                    "step_number": 2,
+                    "step_title": "Enter Vehicle Identification Details",
+                    "step_description": "Enter VIN, license plate, make, model, year with Arabic vehicle owner details",
+                    "expected_result": "VIN decoder automatically populates vehicle details, Arabic text displays correctly",
+                    "is_critical": true,
+                    "estimated_time": 120
+                },
+                {
+                    "step_number": 3,
+                    "step_title": "Complete Condition Assessment",
+                    "step_description": "Fill out comprehensive condition assessment form with damage details and photos",
+                    "expected_result": "Assessment form captures all required data with image uploads",
+                    "is_critical": true,
+                    "estimated_time": 300
+                },
+                {
+                    "step_number": 4,
+                    "step_title": "Validate Oman Compliance Requirements",
+                    "step_description": "Verify business license validation and environmental compliance checks",
+                    "expected_result": "System validates 7-digit business license and environmental requirements",
+                    "is_critical": true,
+                    "estimated_time": 60
+                },
+                {
+                    "step_number": 5,
+                    "step_title": "Generate Vehicle Assessment Report",
+                    "step_description": "Generate and review comprehensive assessment report in Arabic/English",
+                    "expected_result": "Report generated with accurate data, proper Arabic formatting, and compliance stamps",
+                    "is_critical": false,
+                    "estimated_time": 90
+                }
+            ],
+            "arabic_localization_checks": "RTL display validation, Arabic character input testing, bilingual report generation",
+            "oman_vat_compliance": true,
+            "environmental_compliance": true,
+            "performance_benchmarks": "VIN decode < 5 seconds, Form submission < 3 seconds, Report generation < 10 seconds"
+        },
+        {
+            "test_case_title": "Vehicle Dismantling Workflow and BOM Management",
+            "test_case_title_ar": "سير عمل تفكيك المركبة وإدارة قائمة المواد",
+            "test_module": "Vehicle Dismantling",
+            "test_category": "Integration Testing",
+            "test_priority": "High",
+            "test_type": "Manual",
+            "test_description": "Test complete dismantling workflow including BOM creation, work order generation, and parts extraction tracking",
+            "test_objective": "Validate seamless integration between dismantling workflow and ERPNext manufacturing module",
+            "test_steps": [
+                {
+                    "step_number": 1,
+                    "step_title": "Create Vehicle Dismantling BOM",
+                    "step_description": "Generate BOM for registered scrap vehicle with extractable parts list",
+                    "expected_result": "BOM created with accurate parts list, Arabic descriptions, and extraction priorities",
+                    "is_critical": true,
+                    "estimated_time": 180
+                },
+                {
+                    "step_number": 2,
+                    "step_title": "Generate Dismantling Work Order",
+                    "step_description": "Create work order from BOM with technician assignment and timeline",
+                    "expected_result": "Work order generated with proper scheduling and resource allocation",
+                    "is_critical": true,
+                    "estimated_time": 120
+                },
+                {
+                    "step_number": 3,
+                    "step_title": "Execute Dismantling Operations",
+                    "step_description": "Process dismantling steps with real-time progress tracking and part extraction logging",
+                    "expected_result": "Operations completed with accurate time tracking and part condition assessment",
+                    "is_critical": true,
+                    "estimated_time": 600
+                },
+                {
+                    "step_number": 4,
+                    "step_title": "Update Parts Inventory",
+                    "step_description": "Automatically update parts inventory with extracted components and their conditions",
+                    "expected_result": "Inventory updated with accurate part conditions, locations, and market values",
+                    "is_critical": true,
+                    "estimated_time": 90
+                }
+            ],
+            "api_integrations": true,
+            "performance_benchmarks": "BOM generation < 5 seconds, Work order creation < 3 seconds, Inventory update < 2 seconds"
+        },
+        {
+            "test_case_title": "Parts Grading and Quality Assessment",
+            "test_case_title_ar": "تصنيف الأجزاء وتقييم الجودة",
+            "test_module": "Parts Grading",
+            "test_category": "Functional Testing",
+            "test_priority": "High",
+            "test_type": "Manual",
+            "test_description": "Comprehensive testing of parts grading system with A-F condition codes and quality control workflows",
+            "test_objective": "Validate accurate parts grading with consistent quality assessment and market value calculation",
+            "test_steps": [
+                {
+                    "step_number": 1,
+                    "step_title": "Access Parts Grading Interface",
+                    "step_description": "Navigate to extracted parts and initiate grading process",
+                    "expected_result": "Grading interface loads with part details and assessment criteria",
+                    "is_critical": true,
+                    "estimated_time": 30
+                },
+                {
+                    "step_number": 2,
+                    "step_title": "Conduct Visual Inspection",
+                    "step_description": "Perform detailed visual inspection with photo documentation",
+                    "expected_result": "Inspection form captures all visual defects with photographic evidence",
+                    "is_critical": true,
+                    "estimated_time": 240
+                },
+                {
+                    "step_number": 3,
+                    "step_title": "Assign Condition Grade",
+                    "step_description": "Assign A-F grade based on assessment criteria with justification",
+                    "expected_result": "Grade assigned with detailed justification and automatic market value calculation",
+                    "is_critical": true,
+                    "estimated_time": 120
+                },
+                {
+                    "step_number": 4,
+                    "step_title": "Quality Control Review",
+                    "step_description": "Submit for quality control review and approval workflow",
+                    "expected_result": "QC workflow triggered with proper approval routing and notifications",
+                    "is_critical": false,
+                    "estimated_time": 60
+                }
+            ],
+            "quality_control_validation": true,
+            "performance_benchmarks": "Grading process < 5 minutes per part, QC approval < 24 hours"
+        },
+        {
+            "test_case_title": "Storage Location Management and Barcode System",
+            "test_case_title_ar": "إدارة مواقع التخزين ونظام الباركود",
+            "test_module": "Storage Management",
+            "test_category": "Functional Testing",
+            "test_priority": "Medium",
+            "test_type": "Manual",
+            "test_description": "Test storage location hierarchy, barcode generation, and capacity management features",
+            "test_objective": "Validate efficient storage management with automated barcode tracking and capacity optimization",
+            "test_steps": [
+                {
+                    "step_number": 1,
+                    "step_title": "Create Storage Location Hierarchy",
+                    "step_description": "Set up multi-level storage structure (Zone > Aisle > Shelf > Bin)",
+                    "expected_result": "Hierarchical structure created with proper parent-child relationships",
+                    "is_critical": true,
+                    "estimated_time": 180
+                },
+                {
+                    "step_number": 2,
+                    "step_title": "Generate Part Barcodes",
+                    "step_description": "Generate unique barcodes for graded parts with location assignment",
+                    "expected_result": "Barcodes generated with proper encoding and location mapping",
+                    "is_critical": true,
+                    "estimated_time": 90
+                },
+                {
+                    "step_number": 3,
+                    "step_title": "Test Barcode Scanning",
+                    "step_description": "Scan barcodes to retrieve part information and location details",
+                    "expected_result": "Scanning returns accurate part data with current location and status",
+                    "is_critical": true,
+                    "estimated_time": 120
+                },
+                {
+                    "step_number": 4,
+                    "step_title": "Monitor Storage Capacity",
+                    "step_description": "Check capacity utilization and overflow alerts",
+                    "expected_result": "System tracks capacity accurately and triggers alerts at 80% utilization",
+                    "is_critical": false,
+                    "estimated_time": 60
+                }
+            ],
+            "barcode_validation": true,
+            "capacity_management": true
+        },
+        {
+            "test_case_title": "Marketplace Integration and Online Parts Listing",
+            "test_case_title_ar": "تكامل السوق وإدراج الأجزاء عبر الإنترنت",
+            "test_module": "Marketplace Integration",
+            "test_category": "API Testing",
+            "test_priority": "High",
+            "test_type": "Automated",
+            "test_description": "Test multi-platform marketplace integration with automated listing and inventory synchronization",
+            "test_objective": "Validate seamless marketplace integration with real-time inventory sync and Arabic product descriptions",
+            "test_steps": [
+                {
+                    "step_number": 1,
+                    "step_title": "Configure Marketplace APIs",
+                    "step_description": "Set up API connections for multiple marketplace platforms",
+                    "expected_result": "API connections established with proper authentication and error handling",
+                    "is_critical": true,
+                    "estimated_time": 300
+                },
+                {
+                    "step_number": 2,
+                    "step_title": "Create Product Listings",
+                    "step_description": "Generate product listings with Arabic/English descriptions and images",
+                    "expected_result": "Listings created with proper formatting, images, and bilingual descriptions",
+                    "is_critical": true,
+                    "estimated_time": 180
+                },
+                {
+                    "step_number": 3,
+                    "step_title": "Test Inventory Synchronization",
+                    "step_description": "Verify real-time inventory updates across all platforms",
+                    "expected_result": "Inventory changes reflect across all platforms within 5 minutes",
+                    "is_critical": true,
+                    "estimated_time": 240
+                },
+                {
+                    "step_number": 4,
+                    "step_title": "Process Order Integration",
+                    "step_description": "Test order receipt and fulfillment workflow integration",
+                    "expected_result": "Orders processed automatically with proper inventory deduction and notifications",
+                    "is_critical": true,
+                    "estimated_time": 300
+                }
+            ],
+            "api_integrations": true,
+            "automated_test_available": true,
+            "performance_benchmarks": "API response < 2 seconds, Inventory sync < 5 minutes, Order processing < 1 minute"
+        },
+        {
+            "test_case_title": "Profit Analysis and ROI Reporting",
+            "test_case_title_ar": "تحليل الربح وتقارير العائد على الاستثمار",
+            "test_module": "Profit Analysis",
+            "test_category": "Reporting",
+            "test_priority": "Medium",
+            "test_type": "Manual",
+            "test_description": "Test comprehensive profit analysis with ROI calculations and financial reporting features",
+            "test_objective": "Validate accurate profit calculations with detailed cost breakdown and performance analytics",
+            "test_steps": [
+                {
+                    "step_number": 1,
+                    "step_title": "Generate Vehicle ROI Analysis",
+                    "step_description": "Create ROI analysis for completed scrap vehicle processing",
+                    "expected_result": "ROI report shows accurate cost breakdown and profit margins",
+                    "is_critical": true,
+                    "estimated_time": 120
+                },
+                {
+                    "step_number": 2,
+                    "step_title": "Test Financial Dashboard",
+                    "step_description": "Access profit analysis dashboard with real-time metrics",
+                    "expected_result": "Dashboard displays current financial performance with interactive charts",
+                    "is_critical": true,
+                    "estimated_time": 90
+                },
+                {
+                    "step_number": 3,
+                    "step_title": "Export Financial Reports",
+                    "step_description": "Export detailed financial reports in multiple formats",
+                    "expected_result": "Reports exported successfully with accurate data and Arabic formatting",
+                    "is_critical": false,
+                    "estimated_time": 60
+                }
+            ],
+            "financial_reporting": true,
+            "oman_vat_compliance": true
+        },
+        {
+            "test_case_title": "Environmental Compliance Documentation",
+            "test_case_title_ar": "توثيق الامتثال البيئي",
+            "test_module": "Environmental Compliance",
+            "test_category": "Compliance Testing",
+            "test_priority": "Critical",
+            "test_type": "Manual",
+            "test_description": "Test environmental compliance tracking with Oman regulatory requirements and documentation management",
+            "test_objective": "Validate complete environmental compliance workflow with automated tracking and regulatory reporting",
+            "test_steps": [
+                {
+                    "step_number": 1,
+                    "step_title": "Create Compliance Record",
+                    "step_description": "Generate environmental compliance record for scrap vehicle processing",
+                    "expected_result": "Compliance record created with all required Oman regulatory fields",
+                    "is_critical": true,
+                    "estimated_time": 180
+                },
+                {
+                    "step_number": 2,
+                    "step_title": "Upload Required Documentation",
+                    "step_description": "Upload waste manifests, permits, and regulatory certificates",
+                    "expected_result": "Documents uploaded with proper categorization and expiry tracking",
+                    "is_critical": true,
+                    "estimated_time": 120
+                },
+                {
+                    "step_number": 3,
+                    "step_title": "Complete Compliance Checklist",
+                    "step_description": "Fill out 8-point compliance checklist with validation",
+                    "expected_result": "Checklist completed with automatic compliance percentage calculation",
+                    "is_critical": true,
+                    "estimated_time": 240
+                },
+                {
+                    "step_number": 4,
+                    "step_title": "Generate Regulatory Report",
+                    "step_description": "Generate compliance report for regulatory submission",
+                    "expected_result": "Report generated in required format with digital signatures and GPS coordinates",
+                    "is_critical": true,
+                    "estimated_time": 150
+                }
+            ],
+            "environmental_compliance": true,
+            "regulatory_documentation": true,
+            "audit_trail_validation": true
+        },
+        {
+            "test_case_title": "System Integration and Data Flow Testing",
+            "test_case_title_ar": "اختبار تكامل النظام وتدفق البيانات",
+            "test_module": "System Integration",
+            "test_category": "Integration Testing",
+            "test_priority": "Critical",
+            "test_type": "Manual",
+            "test_description": "End-to-end testing of complete scrap vehicle processing workflow with all module integrations",
+            "test_objective": "Validate seamless data flow between all modules with proper error handling and rollback mechanisms",
+            "test_steps": [
+                {
+                    "step_number": 1,
+                    "step_title": "Complete End-to-End Workflow",
+                    "step_description": "Process a scrap vehicle from registration through final sale",
+                    "expected_result": "Complete workflow executes without errors with proper data propagation",
+                    "is_critical": true,
+                    "estimated_time": 1800
+                },
+                {
+                    "step_number": 2,
+                    "step_title": "Test Error Handling",
+                    "step_description": "Introduce errors at various stages and validate recovery mechanisms",
+                    "expected_result": "System handles errors gracefully with proper rollback and user notifications",
+                    "is_critical": true,
+                    "estimated_time": 600
+                },
+                {
+                    "step_number": 3,
+                    "step_title": "Validate Data Consistency",
+                    "step_description": "Verify data consistency across all modules and reports",
+                    "expected_result": "Data remains consistent across all modules with no discrepancies",
+                    "is_critical": true,
+                    "estimated_time": 300
+                }
+            ],
+            "integration_testing": true,
+            "data_consistency_validation": true,
+            "error_handling_validation": true
+        },
+        {
+            "test_case_title": "Arabic Localization and RTL Interface Testing",
+            "test_case_title_ar": "اختبار التعريب وواجهة الكتابة من اليمين لليسار",
+            "test_module": "Arabic Localization",
+            "test_category": "Arabic Localization Testing",
+            "test_priority": "High",
+            "test_type": "Manual",
+            "test_description": "Comprehensive testing of Arabic language support, RTL layout, and cultural localization features",
+            "test_objective": "Validate complete Arabic localization with proper RTL display and cultural compliance",
+            "test_steps": [
+                {
+                    "step_number": 1,
+                    "step_title": "Test Arabic Text Input",
+                    "step_description": "Input Arabic text in all form fields and validate proper display",
+                    "expected_result": "Arabic text displays correctly with proper RTL alignment",
+                    "is_critical": true,
+                    "estimated_time": 240
+                },
+                {
+                    "step_number": 2,
+                    "step_title": "Validate Arabic Reports",
+                    "step_description": "Generate all reports in Arabic language with proper formatting",
+                    "expected_result": "Reports display correctly in Arabic with proper text direction and formatting",
+                    "is_critical": true,
+                    "estimated_time": 180
+                },
+                {
+                    "step_number": 3,
+                    "step_title": "Test Mixed Language Content",
+                    "step_description": "Test forms and reports with mixed Arabic/English content",
+                    "expected_result": "Mixed content displays correctly with appropriate text direction for each segment",
+                    "is_critical": true,
+                    "estimated_time": 150
+                },
+                {
+                    "step_number": 4,
+                    "step_title": "Validate Arabic Number Formatting",
+                    "step_description": "Test currency, dates, and numeric displays in Arabic format",
+                    "expected_result": "Numbers display in Arabic-Indic numerals with proper OMR currency formatting",
+                    "is_critical": false,
+                    "estimated_time": 90
+                }
+            ],
+            "arabic_localization_checks": "Complete RTL validation, Arabic character encoding, bilingual interface testing, cultural compliance verification",
+            "arabic_report_validation": true
+        },
+        {
+            "test_case_title": "Performance and Load Testing",
+            "test_case_title_ar": "اختبار الأداء والحمولة",
+            "test_module": "Performance Testing",
+            "test_category": "Performance Testing",
+            "test_priority": "Medium",
+            "test_type": "Automated",
+            "test_description": "Performance testing with concurrent users and large data volumes to validate system scalability",
+            "test_objective": "Validate system performance under load with response time benchmarks and resource utilization monitoring",
+            "test_steps": [
+                {
+                    "step_number": 1,
+                    "step_title": "Baseline Performance Test",
+                    "step_description": "Establish baseline performance metrics with single user",
+                    "expected_result": "All operations complete within defined performance benchmarks",
+                    "is_critical": true,
+                    "estimated_time": 300
+                },
+                {
+                    "step_number": 2,
+                    "step_title": "Concurrent User Testing",
+                    "step_description": "Test with 10-50 concurrent users performing various operations",
+                    "expected_result": "System maintains performance with acceptable response times under load",
+                    "is_critical": true,
+                    "estimated_time": 600
+                },
+                {
+                    "step_number": 3,
+                    "step_title": "Large Data Volume Testing",
+                    "step_description": "Test with large datasets (1000+ vehicles, 10000+ parts)",
+                    "expected_result": "System handles large data volumes without performance degradation",
+                    "is_critical": true,
+                    "estimated_time": 900
+                }
+            ],
+            "performance_benchmarks": "Page load < 3 seconds, API response < 2 seconds, Report generation < 30 seconds, Search < 1 second",
+            "automated_test_available": true,
+            "load_testing": true
+        }
+    ]
+}

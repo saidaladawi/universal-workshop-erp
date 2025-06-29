@@ -1,0 +1,106 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2025-01-21 10:00:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "workshop_profile",
+        "completed_on",
+        "completed_by",
+        "setup_data",
+        "admin_user_created",
+        "license_validated"
+    ],
+    "fields": [
+        {
+            "fieldname": "workshop_profile",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Workshop Profile",
+            "options": "Workshop Profile",
+            "reqd": 1
+        },
+        {
+            "fieldname": "completed_on",
+            "fieldtype": "Datetime",
+            "in_list_view": 1,
+            "label": "Completed On",
+            "reqd": 1
+        },
+        {
+            "fieldname": "completed_by",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Completed By",
+            "options": "User",
+            "reqd": 1
+        },
+        {
+            "fieldname": "setup_data",
+            "fieldtype": "Long Text",
+            "label": "Setup Data"
+        },
+        {
+            "default": "0",
+            "fieldname": "admin_user_created",
+            "fieldtype": "Check",
+            "label": "Admin User Created"
+        },
+        {
+            "default": "0",
+            "fieldname": "license_validated",
+            "fieldtype": "Check",
+            "label": "License Validated"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2025-01-21 12:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Universal Workshop",
+    "name": "Onboarding Progress",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Owner",
+            "share": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1
+}

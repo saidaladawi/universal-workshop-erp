@@ -1,0 +1,41 @@
+{
+  "test_timestamp": "2025-06-25T18:33:21.418289",
+  "total_tests": 3,
+  "passed_tests": 0,
+  "failed_tests": 3,
+  "browsers": {
+    "chrome": {
+      "browser": "chrome",
+      "overall_success": false,
+      "test_scenarios": {},
+      "session_management": {},
+      "responsive_design": {},
+      "performance": {},
+      "total_issues": 0,
+      "error": "Failed to setup chrome driver"
+    },
+    "firefox": {
+      "browser": "firefox",
+      "overall_success": false,
+      "test_scenarios": {},
+      "session_management": {},
+      "responsive_design": {},
+      "performance": {},
+      "total_issues": 0,
+      "error": "Failed to setup firefox driver"
+    },
+    "edge": {
+      "browser": "edge",
+      "overall_success": false,
+      "test_scenarios": {},
+      "session_management": {},
+      "responsive_design": {},
+      "performance": {},
+      "total_issues": 0,
+      "error": "Failed to setup edge driver"
+    }
+  },
+  "rtl_issues": [],
+  "performance_metrics": {},
+  "recommendations": []
+}

@@ -1,0 +1,324 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 0,
+    "allow_rename": 0,
+    "beta": 0,
+    "creation": "2025-06-24 08:30:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "service_type",
+        "service_name",
+        "service_name_ar",
+        "service_description",
+        "service_description_ar",
+        "column_break_5",
+        "quantity",
+        "unit_rate",
+        "amount",
+        "currency",
+        "service_details_section",
+        "estimated_duration",
+        "complexity_level",
+        "technician_required",
+        "equipment_needed",
+        "parts_required",
+        "column_break_12",
+        "service_status",
+        "start_time",
+        "end_time",
+        "actual_duration",
+        "completion_percentage",
+        "pricing_section",
+        "base_rate",
+        "labor_cost",
+        "parts_cost",
+        "additional_charges",
+        "discount_amount",
+        "column_break_20",
+        "tax_rate",
+        "tax_amount",
+        "total_amount",
+        "payment_status",
+        "notes_section",
+        "service_notes",
+        "service_notes_ar",
+        "technician_comments",
+        "customer_feedback"
+    ],
+    "fields": [
+        {
+            "fieldname": "service_type",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Service Type | نوع الخدمة",
+            "options": "Service Type",
+            "reqd": 1
+        },
+        {
+            "fieldname": "service_name",
+            "fieldtype": "Data",
+            "fetch_from": "service_type.service_name",
+            "in_list_view": 1,
+            "label": "Service Name | اسم الخدمة",
+            "read_only": 1
+        },
+        {
+            "fieldname": "service_name_ar",
+            "fieldtype": "Data",
+            "fetch_from": "service_type.service_name_ar",
+            "label": "Service Name (Arabic) | اسم الخدمة (عربي)",
+            "read_only": 1,
+            "translatable": 1
+        },
+        {
+            "fieldname": "service_description",
+            "fieldtype": "Small Text",
+            "label": "Service Description | وصف الخدمة"
+        },
+        {
+            "fieldname": "service_description_ar",
+            "fieldtype": "Small Text",
+            "label": "Service Description (Arabic) | وصف الخدمة (عربي)",
+            "translatable": 1
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "quantity",
+            "fieldtype": "Float",
+            "default": 1,
+            "in_list_view": 1,
+            "label": "Quantity | الكمية",
+            "precision": 2,
+            "reqd": 1
+        },
+        {
+            "fieldname": "unit_rate",
+            "fieldtype": "Currency",
+            "fetch_from": "service_type.standard_rate",
+            "in_list_view": 1,
+            "label": "Unit Rate | السعر للوحدة",
+            "options": "currency",
+            "precision": 3
+        },
+        {
+            "fieldname": "amount",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Amount | المبلغ",
+            "options": "currency",
+            "precision": 3,
+            "read_only": 1
+        },
+        {
+            "fieldname": "currency",
+            "fieldtype": "Link",
+            "default": "OMR",
+            "label": "Currency | العملة",
+            "options": "Currency"
+        },
+        {
+            "fieldname": "service_details_section",
+            "fieldtype": "Section Break",
+            "label": "Service Details | تفاصيل الخدمة"
+        },
+        {
+            "fieldname": "estimated_duration",
+            "fieldtype": "Float",
+            "fetch_from": "service_type.estimated_duration",
+            "label": "Estimated Duration (hours) | المدة المقدرة (ساعات)",
+            "precision": 2
+        },
+        {
+            "fieldname": "complexity_level",
+            "fieldtype": "Select",
+            "fetch_from": "service_type.complexity_level",
+            "label": "Complexity Level | مستوى التعقيد",
+            "options": "Simple\nModerate\nComplex\nAdvanced"
+        },
+        {
+            "fieldname": "technician_required",
+            "fieldtype": "Link",
+            "label": "Technician Required | الفني المطلوب",
+            "options": "Technician"
+        },
+        {
+            "fieldname": "equipment_needed",
+            "fieldtype": "Small Text",
+            "label": "Equipment Needed | المعدات المطلوبة"
+        },
+        {
+            "fieldname": "parts_required",
+            "fieldtype": "Small Text",
+            "label": "Parts Required | القطع المطلوبة"
+        },
+        {
+            "fieldname": "column_break_12",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "service_status",
+            "fieldtype": "Select",
+            "default": "Pending",
+            "label": "Service Status | حالة الخدمة",
+            "options": "Pending\nIn Progress\nCompleted\nCancelled\nOn Hold"
+        },
+        {
+            "fieldname": "start_time",
+            "fieldtype": "Datetime",
+            "label": "Start Time | وقت البداية"
+        },
+        {
+            "fieldname": "end_time",
+            "fieldtype": "Datetime",
+            "label": "End Time | وقت الانتهاء"
+        },
+        {
+            "fieldname": "actual_duration",
+            "fieldtype": "Float",
+            "label": "Actual Duration (hours) | المدة الفعلية (ساعات)",
+            "precision": 2,
+            "read_only": 1
+        },
+        {
+            "fieldname": "completion_percentage",
+            "fieldtype": "Percent",
+            "default": 0,
+            "label": "Completion % | نسبة الإنجاز"
+        },
+        {
+            "fieldname": "pricing_section",
+            "fieldtype": "Section Break",
+            "label": "Pricing Breakdown | تفصيل الأسعار"
+        },
+        {
+            "fieldname": "base_rate",
+            "fieldtype": "Currency",
+            "label": "Base Rate | السعر الأساسي",
+            "options": "currency",
+            "precision": 3
+        },
+        {
+            "fieldname": "labor_cost",
+            "fieldtype": "Currency",
+            "label": "Labor Cost | تكلفة العمالة",
+            "options": "currency",
+            "precision": 3
+        },
+        {
+            "fieldname": "parts_cost",
+            "fieldtype": "Currency",
+            "label": "Parts Cost | تكلفة القطع",
+            "options": "currency",
+            "precision": 3
+        },
+        {
+            "fieldname": "additional_charges",
+            "fieldtype": "Currency",
+            "label": "Additional Charges | رسوم إضافية",
+            "options": "currency",
+            "precision": 3
+        },
+        {
+            "fieldname": "discount_amount",
+            "fieldtype": "Currency",
+            "label": "Discount Amount | مبلغ الخصم",
+            "options": "currency",
+            "precision": 3
+        },
+        {
+            "fieldname": "column_break_20",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "tax_rate",
+            "fieldtype": "Percent",
+            "default": 5,
+            "label": "Tax Rate (%) | معدل الضريبة (%)"
+        },
+        {
+            "fieldname": "tax_amount",
+            "fieldtype": "Currency",
+            "label": "Tax Amount | مبلغ الضريبة",
+            "options": "currency",
+            "precision": 3,
+            "read_only": 1
+        },
+        {
+            "fieldname": "total_amount",
+            "fieldtype": "Currency",
+            "label": "Total Amount | المبلغ الإجمالي",
+            "options": "currency",
+            "precision": 3,
+            "read_only": 1
+        },
+        {
+            "fieldname": "payment_status",
+            "fieldtype": "Select",
+            "default": "Pending",
+            "label": "Payment Status | حالة الدفع",
+            "options": "Pending\nPartial\nPaid\nRefunded"
+        },
+        {
+            "fieldname": "notes_section",
+            "fieldtype": "Section Break",
+            "label": "Notes & Comments | الملاحظات والتعليقات"
+        },
+        {
+            "fieldname": "service_notes",
+            "fieldtype": "Small Text",
+            "label": "Service Notes | ملاحظات الخدمة"
+        },
+        {
+            "fieldname": "service_notes_ar",
+            "fieldtype": "Small Text",
+            "label": "Service Notes (Arabic) | ملاحظات الخدمة (عربي)",
+            "translatable": 1
+        },
+        {
+            "fieldname": "technician_comments",
+            "fieldtype": "Small Text",
+            "label": "Technician Comments | تعليقات الفني"
+        },
+        {
+            "fieldname": "customer_feedback",
+            "fieldtype": "Small Text",
+            "label": "Customer Feedback | تقييم العميل"
+        }
+    ],
+    "has_web_view": 0,
+    "hide_heading": 0,
+    "hide_toolbar": 0,
+    "idx": 0,
+    "image_view": 0,
+    "in_create": 0,
+    "is_submittable": 0,
+    "issingle": 0,
+    "istable": 1,
+    "max_attachments": 0,
+    "modified": "2025-06-24 08:30:00.000000",
+    "modified_by": "Administrator",
+    "module": "Customer Portal",
+    "name": "Workshop Appointment Service",
+    "naming_rule": "",
+    "owner": "Administrator",
+    "permissions": [],
+    "quick_entry": 0,
+    "read_only": 0,
+    "read_only_onload": 0,
+    "show_name_in_global_search": 0,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1,
+    "track_seen": 0,
+    "track_views": 0
+}

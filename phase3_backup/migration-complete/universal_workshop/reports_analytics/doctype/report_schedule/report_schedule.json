@@ -1,0 +1,502 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 0,
+    "allow_rename": 1,
+    "autoname": "format:SCH-{YYYY}-{#####}",
+    "beta": 0,
+    "creation": "2025-06-24 10:36:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "document_type": "Document",
+    "engine": "InnoDB",
+    "field_order": [
+        "basic_info_section",
+        "schedule_name",
+        "schedule_name_ar",
+        "report",
+        "status",
+        "enabled",
+        "column_break_basic",
+        "user",
+        "created_by",
+        "created_date",
+        "last_run",
+        "next_run",
+        "schedule_config_section",
+        "frequency",
+        "day_of_week",
+        "day_of_month",
+        "time_of_day",
+        "timezone",
+        "column_break_schedule",
+        "start_date",
+        "end_date",
+        "repeat_count",
+        "max_runs",
+        "current_runs",
+        "report_config_section",
+        "report_filters",
+        "report_format",
+        "include_raw_data",
+        "max_rows",
+        "column_break_report",
+        "custom_filename",
+        "pdf_orientation",
+        "excel_sheet_name",
+        "include_charts",
+        "delivery_section",
+        "delivery_method",
+        "email_recipients",
+        "email_subject",
+        "email_body",
+        "column_break_delivery",
+        "sender_email",
+        "attach_report",
+        "compress_attachments",
+        "notification_on_success",
+        "notification_on_failure",
+        "advanced_section",
+        "conditions",
+        "pre_execution_script",
+        "post_execution_script",
+        "error_handling",
+        "column_break_advanced",
+        "retry_on_failure",
+        "max_retries",
+        "retry_interval",
+        "execution_timeout",
+        "execution_logs_section",
+        "execution_history",
+        "last_execution_log",
+        "error_count",
+        "success_rate"
+    ],
+    "fields": [
+        {
+            "fieldname": "basic_info_section",
+            "fieldtype": "Section Break",
+            "label": "Basic Information"
+        },
+        {
+            "fieldname": "schedule_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Schedule Name",
+            "reqd": 1
+        },
+        {
+            "fieldname": "schedule_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم الجدولة",
+            "translatable": 1
+        },
+        {
+            "fieldname": "report",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Report",
+            "options": "Custom Report Builder",
+            "reqd": 1
+        },
+        {
+            "default": "Active",
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Status",
+            "options": "Active\nInactive\nPaused\nCompleted\nError",
+            "reqd": 1
+        },
+        {
+            "default": "1",
+            "fieldname": "enabled",
+            "fieldtype": "Check",
+            "label": "Enabled"
+        },
+        {
+            "fieldname": "column_break_basic",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "__user",
+            "fieldname": "user",
+            "fieldtype": "Link",
+            "label": "Run As User",
+            "options": "User",
+            "reqd": 1
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "created_date",
+            "fieldtype": "Datetime",
+            "label": "Created Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_run",
+            "fieldtype": "Datetime",
+            "label": "Last Run",
+            "read_only": 1
+        },
+        {
+            "fieldname": "next_run",
+            "fieldtype": "Datetime",
+            "label": "Next Run",
+            "read_only": 1
+        },
+        {
+            "fieldname": "schedule_config_section",
+            "fieldtype": "Section Break",
+            "label": "Schedule Configuration"
+        },
+        {
+            "fieldname": "frequency",
+            "fieldtype": "Select",
+            "label": "Frequency",
+            "options": "Once\nDaily\nWeekly\nMonthly\nQuarterly\nYearly\nCustom",
+            "reqd": 1
+        },
+        {
+            "depends_on": "eval:doc.frequency=='Weekly'",
+            "fieldname": "day_of_week",
+            "fieldtype": "Select",
+            "label": "Day of Week",
+            "options": "Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday"
+        },
+        {
+            "depends_on": "eval:doc.frequency=='Monthly'",
+            "fieldname": "day_of_month",
+            "fieldtype": "Int",
+            "label": "Day of Month"
+        },
+        {
+            "fieldname": "time_of_day",
+            "fieldtype": "Time",
+            "label": "Time of Day"
+        },
+        {
+            "default": "Asia/Muscat",
+            "fieldname": "timezone",
+            "fieldtype": "Select",
+            "label": "Timezone",
+            "options": "Asia/Muscat\nUTC\nAsia/Dubai\nAsia/Riyadh"
+        },
+        {
+            "fieldname": "column_break_schedule",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "start_date",
+            "fieldtype": "Date",
+            "label": "Start Date"
+        },
+        {
+            "fieldname": "end_date",
+            "fieldtype": "Date",
+            "label": "End Date"
+        },
+        {
+            "fieldname": "repeat_count",
+            "fieldtype": "Int",
+            "label": "Repeat Count"
+        },
+        {
+            "fieldname": "max_runs",
+            "fieldtype": "Int",
+            "label": "Maximum Runs"
+        },
+        {
+            "default": "0",
+            "fieldname": "current_runs",
+            "fieldtype": "Int",
+            "label": "Current Runs",
+            "read_only": 1
+        },
+        {
+            "fieldname": "report_config_section",
+            "fieldtype": "Section Break",
+            "label": "Report Configuration"
+        },
+        {
+            "fieldname": "report_filters",
+            "fieldtype": "Code",
+            "label": "Report Filters (JSON)"
+        },
+        {
+            "default": "PDF",
+            "fieldname": "report_format",
+            "fieldtype": "Select",
+            "label": "Report Format",
+            "options": "PDF\nExcel\nCSV\nHTML\nJSON"
+        },
+        {
+            "default": "0",
+            "fieldname": "include_raw_data",
+            "fieldtype": "Check",
+            "label": "Include Raw Data"
+        },
+        {
+            "default": "1000",
+            "fieldname": "max_rows",
+            "fieldtype": "Int",
+            "label": "Maximum Rows"
+        },
+        {
+            "fieldname": "column_break_report",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "custom_filename",
+            "fieldtype": "Data",
+            "label": "Custom Filename"
+        },
+        {
+            "default": "Portrait",
+            "depends_on": "eval:doc.report_format=='PDF'",
+            "fieldname": "pdf_orientation",
+            "fieldtype": "Select",
+            "label": "PDF Orientation",
+            "options": "Portrait\nLandscape"
+        },
+        {
+            "depends_on": "eval:doc.report_format=='Excel'",
+            "fieldname": "excel_sheet_name",
+            "fieldtype": "Data",
+            "label": "Excel Sheet Name"
+        },
+        {
+            "default": "1",
+            "fieldname": "include_charts",
+            "fieldtype": "Check",
+            "label": "Include Charts"
+        },
+        {
+            "fieldname": "delivery_section",
+            "fieldtype": "Section Break",
+            "label": "Delivery Configuration"
+        },
+        {
+            "default": "Email",
+            "fieldname": "delivery_method",
+            "fieldtype": "Select",
+            "label": "Delivery Method",
+            "options": "Email\nFile Storage\nFTP\nCloud Storage"
+        },
+        {
+            "depends_on": "eval:doc.delivery_method=='Email'",
+            "fieldname": "email_recipients",
+            "fieldtype": "Small Text",
+            "label": "Email Recipients"
+        },
+        {
+            "depends_on": "eval:doc.delivery_method=='Email'",
+            "fieldname": "email_subject",
+            "fieldtype": "Data",
+            "label": "Email Subject"
+        },
+        {
+            "depends_on": "eval:doc.delivery_method=='Email'",
+            "fieldname": "email_body",
+            "fieldtype": "Text Editor",
+            "label": "Email Body"
+        },
+        {
+            "fieldname": "column_break_delivery",
+            "fieldtype": "Column Break"
+        },
+        {
+            "depends_on": "eval:doc.delivery_method=='Email'",
+            "fieldname": "sender_email",
+            "fieldtype": "Link",
+            "label": "Sender Email Account",
+            "options": "Email Account"
+        },
+        {
+            "default": "1",
+            "depends_on": "eval:doc.delivery_method=='Email'",
+            "fieldname": "attach_report",
+            "fieldtype": "Check",
+            "label": "Attach Report"
+        },
+        {
+            "default": "0",
+            "fieldname": "compress_attachments",
+            "fieldtype": "Check",
+            "label": "Compress Attachments"
+        },
+        {
+            "default": "1",
+            "fieldname": "notification_on_success",
+            "fieldtype": "Check",
+            "label": "Notify on Success"
+        },
+        {
+            "default": "1",
+            "fieldname": "notification_on_failure",
+            "fieldtype": "Check",
+            "label": "Notify on Failure"
+        },
+        {
+            "collapsible": 1,
+            "fieldname": "advanced_section",
+            "fieldtype": "Section Break",
+            "label": "Advanced Settings"
+        },
+        {
+            "fieldname": "conditions",
+            "fieldtype": "Code",
+            "label": "Execution Conditions (Python)"
+        },
+        {
+            "fieldname": "pre_execution_script",
+            "fieldtype": "Code",
+            "label": "Pre-execution Script"
+        },
+        {
+            "fieldname": "post_execution_script",
+            "fieldtype": "Code",
+            "label": "Post-execution Script"
+        },
+        {
+            "default": "Log and Continue",
+            "fieldname": "error_handling",
+            "fieldtype": "Select",
+            "label": "Error Handling",
+            "options": "Log and Continue\nLog and Stop\nIgnore Errors"
+        },
+        {
+            "fieldname": "column_break_advanced",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "1",
+            "fieldname": "retry_on_failure",
+            "fieldtype": "Check",
+            "label": "Retry on Failure"
+        },
+        {
+            "default": "3",
+            "depends_on": "retry_on_failure",
+            "fieldname": "max_retries",
+            "fieldtype": "Int",
+            "label": "Max Retries"
+        },
+        {
+            "default": "300",
+            "depends_on": "retry_on_failure",
+            "fieldname": "retry_interval",
+            "fieldtype": "Int",
+            "label": "Retry Interval (seconds)"
+        },
+        {
+            "default": "1800",
+            "fieldname": "execution_timeout",
+            "fieldtype": "Int",
+            "label": "Execution Timeout (seconds)"
+        },
+        {
+            "collapsible": 1,
+            "fieldname": "execution_logs_section",
+            "fieldtype": "Section Break",
+            "label": "Execution Logs"
+        },
+        {
+            "fieldname": "execution_history",
+            "fieldtype": "Table",
+            "label": "Execution History",
+            "options": "Report Schedule Execution",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_execution_log",
+            "fieldtype": "Text",
+            "label": "Last Execution Log",
+            "read_only": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "error_count",
+            "fieldtype": "Int",
+            "label": "Error Count",
+            "read_only": 1
+        },
+        {
+            "fieldname": "success_rate",
+            "fieldtype": "Percent",
+            "label": "Success Rate",
+            "read_only": 1
+        }
+    ],
+    "icon": "fa fa-clock-o",
+    "index_web_pages_for_search": 1,
+    "is_submittable": 0,
+    "links": [],
+    "modified": "2025-06-24 10:36:00.000000",
+    "modified_by": "Administrator",
+    "module": "Reports Analytics",
+    "name": "Report Schedule",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Report Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop User"
+        }
+    ],
+    "search_fields": "schedule_name,report,status",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "schedule_name",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

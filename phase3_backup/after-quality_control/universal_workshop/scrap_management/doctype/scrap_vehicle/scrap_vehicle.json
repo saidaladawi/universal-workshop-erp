@@ -1,0 +1,841 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 1,
+    "allow_rename": 0,
+    "autoname": "format:SV-{YY}-{####}",
+    "beta": 0,
+    "creation": "2024-06-24 16:00:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "basic_information_tab",
+        "vehicle_info_section",
+        "scrap_vehicle_id",
+        "vin_number",
+        "vehicle_link",
+        "cb_vehicle_basic",
+        "make",
+        "model",
+        "year",
+        "cb_vehicle_details",
+        "engine_number",
+        "chassis_number",
+        "license_plate",
+        "cb_vehicle_specs",
+        "color",
+        "fuel_type",
+        "transmission_type",
+        "mileage",
+        "cb_owner",
+        "owner_link",
+        "owner_name",
+        "owner_name_ar",
+        "cb_owner_contact",
+        "owner_phone",
+        "owner_email",
+        "section_break_assessment",
+        "assessment_date",
+        "assessor",
+        "assessment_location",
+        "cb_assessment_basic",
+        "overall_condition",
+        "damage_severity",
+        "estimated_scrap_value",
+        "cb_assessment_status",
+        "status",
+        "assessment_completed",
+        "approved_for_scrapping",
+        "section_break_documentation",
+        "damage_description",
+        "assessment_notes",
+        "cb_photos",
+        "vehicle_photos",
+        "damage_photos",
+        "engine_photos",
+        "interior_photos",
+        "section_break_assessment_checklist",
+        "assessment_checklist",
+        "parts_assessment_tab",
+        "exterior_assessment_section",
+        "exterior_checklist",
+        "engine_assessment_section",
+        "engine_checklist",
+        "interior_assessment_section",
+        "interior_checklist",
+        "electrical_assessment_section",
+        "electrical_checklist",
+        "wheels_tires_section",
+        "wheels_tires_checklist",
+        "processing_tab",
+        "dismantling_section",
+        "dismantling_status",
+        "dismantling_start_date",
+        "dismantling_end_date",
+        "cb_dismantling",
+        "assigned_technician",
+        "dismantling_location",
+        "parts_extracted_count",
+        "cb_dismantling_notes",
+        "dismantling_notes",
+        "storage_section",
+        "storage_location",
+        "storage_bin",
+        "storage_notes",
+        "cb_storage_barcode",
+        "storage_barcode",
+        "parts_tracking_section",
+        "extracted_parts",
+        "financial_tab",
+        "cost_section",
+        "acquisition_cost",
+        "assessment_cost",
+        "dismantling_cost",
+        "storage_cost",
+        "total_cost",
+        "revenue_section",
+        "parts_sales_revenue",
+        "scrap_metal_revenue",
+        "other_revenue",
+        "total_revenue",
+        "profit_section",
+        "gross_profit",
+        "profit_margin",
+        "roi_percentage",
+        "compliance_tab",
+        "environmental_section",
+        "hazmat_removal_required",
+        "hazmat_removal_date",
+        "hazmat_disposal_certificate",
+        "cb_environmental",
+        "fluids_drained",
+        "battery_removed",
+        "airbags_deactivated",
+        "regulatory_section",
+        "registration_cancelled",
+        "registration_cancel_date",
+        "authority_notification_sent",
+        "cb_regulatory",
+        "disposal_certificate_number",
+        "environmental_compliance_notes",
+        "audit_tab",
+        "creation_info_section",
+        "created_by",
+        "created_date",
+        "cb_modification",
+        "modified_by",
+        "last_modified",
+        "workflow_section",
+        "workflow_state",
+        "next_action_required",
+        "priority_level"
+    ],
+    "fields": [
+        {
+            "fieldname": "basic_information_tab",
+            "fieldtype": "Tab Break",
+            "label": "Basic Information"
+        },
+        {
+            "fieldname": "vehicle_info_section",
+            "fieldtype": "Section Break",
+            "label": "Vehicle Information"
+        },
+        {
+            "fieldname": "scrap_vehicle_id",
+            "fieldtype": "Data",
+            "label": "Scrap Vehicle ID",
+            "read_only": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "vin_number",
+            "fieldtype": "Data",
+            "label": "VIN Number",
+            "length": 17,
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "vehicle_link",
+            "fieldtype": "Link",
+            "label": "Linked Vehicle",
+            "options": "Vehicle"
+        },
+        {
+            "fieldname": "cb_vehicle_basic",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "make",
+            "fieldtype": "Data",
+            "label": "Make",
+            "reqd": 1
+        },
+        {
+            "fieldname": "model",
+            "fieldtype": "Data",
+            "label": "Model",
+            "reqd": 1
+        },
+        {
+            "fieldname": "year",
+            "fieldtype": "Int",
+            "label": "Year",
+            "reqd": 1
+        },
+        {
+            "fieldname": "cb_vehicle_details",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "engine_number",
+            "fieldtype": "Data",
+            "label": "Engine Number"
+        },
+        {
+            "fieldname": "chassis_number",
+            "fieldtype": "Data",
+            "label": "Chassis Number"
+        },
+        {
+            "fieldname": "license_plate",
+            "fieldtype": "Data",
+            "label": "License Plate"
+        },
+        {
+            "fieldname": "cb_vehicle_specs",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "color",
+            "fieldtype": "Data",
+            "label": "Color"
+        },
+        {
+            "fieldname": "fuel_type",
+            "fieldtype": "Select",
+            "label": "Fuel Type",
+            "options": "Gasoline\nDiesel\nHybrid\nElectric\nOther"
+        },
+        {
+            "fieldname": "transmission_type",
+            "fieldtype": "Select",
+            "label": "Transmission Type",
+            "options": "Manual\nAutomatic\nCVT\nOther"
+        },
+        {
+            "fieldname": "mileage",
+            "fieldtype": "Int",
+            "label": "Mileage (KM)"
+        },
+        {
+            "fieldname": "cb_owner",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "owner_link",
+            "fieldtype": "Link",
+            "label": "Owner",
+            "options": "Customer"
+        },
+        {
+            "fieldname": "owner_name",
+            "fieldtype": "Data",
+            "label": "Owner Name (English)"
+        },
+        {
+            "fieldname": "owner_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم المالك"
+        },
+        {
+            "fieldname": "cb_owner_contact",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "owner_phone",
+            "fieldtype": "Data",
+            "label": "Owner Phone",
+            "options": "Phone"
+        },
+        {
+            "fieldname": "owner_email",
+            "fieldtype": "Data",
+            "label": "Owner Email",
+            "options": "Email"
+        },
+        {
+            "fieldname": "section_break_assessment",
+            "fieldtype": "Section Break",
+            "label": "Assessment Information"
+        },
+        {
+            "fieldname": "assessment_date",
+            "fieldtype": "Date",
+            "label": "Assessment Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "assessor",
+            "fieldtype": "Link",
+            "label": "Assessor",
+            "options": "Employee"
+        },
+        {
+            "fieldname": "assessment_location",
+            "fieldtype": "Link",
+            "label": "Assessment Location",
+            "options": "Workshop Profile"
+        },
+        {
+            "fieldname": "cb_assessment_basic",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "overall_condition",
+            "fieldtype": "Select",
+            "label": "Overall Condition",
+            "options": "Excellent\nGood\nFair\nPoor\nTotal Loss",
+            "reqd": 1
+        },
+        {
+            "fieldname": "damage_severity",
+            "fieldtype": "Select",
+            "label": "Damage Severity",
+            "options": "Minor\nModerate\nSevere\nTotal Loss"
+        },
+        {
+            "fieldname": "estimated_scrap_value",
+            "fieldtype": "Currency",
+            "label": "Estimated Scrap Value (OMR)",
+            "options": "Company:company:default_currency"
+        },
+        {
+            "fieldname": "cb_assessment_status",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "Draft\nPending Assessment\nAssessed\nApproved for Scrapping\nIn Dismantling\nDismantled\nParts Stored\nCompleted\nCancelled",
+            "default": "Draft",
+            "reqd": 1
+        },
+        {
+            "fieldname": "assessment_completed",
+            "fieldtype": "Check",
+            "label": "Assessment Completed"
+        },
+        {
+            "fieldname": "approved_for_scrapping",
+            "fieldtype": "Check",
+            "label": "Approved for Scrapping"
+        },
+        {
+            "fieldname": "section_break_documentation",
+            "fieldtype": "Section Break",
+            "label": "Documentation"
+        },
+        {
+            "fieldname": "damage_description",
+            "fieldtype": "Text Editor",
+            "label": "Damage Description"
+        },
+        {
+            "fieldname": "assessment_notes",
+            "fieldtype": "Text Editor",
+            "label": "Assessment Notes"
+        },
+        {
+            "fieldname": "cb_photos",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "vehicle_photos",
+            "fieldtype": "Attach Image",
+            "label": "Vehicle Photos (General)"
+        },
+        {
+            "fieldname": "damage_photos",
+            "fieldtype": "Attach Image",
+            "label": "Damage Photos"
+        },
+        {
+            "fieldname": "engine_photos",
+            "fieldtype": "Attach Image",
+            "label": "Engine Photos"
+        },
+        {
+            "fieldname": "interior_photos",
+            "fieldtype": "Attach Image",
+            "label": "Interior Photos"
+        },
+        {
+            "fieldname": "section_break_assessment_checklist",
+            "fieldtype": "Section Break",
+            "label": "Assessment Checklist"
+        },
+        {
+            "fieldname": "assessment_checklist",
+            "fieldtype": "Table",
+            "label": "Assessment Items",
+            "options": "Scrap Vehicle Assessment Item"
+        },
+        {
+            "fieldname": "parts_assessment_tab",
+            "fieldtype": "Tab Break",
+            "label": "Parts Assessment"
+        },
+        {
+            "fieldname": "exterior_assessment_section",
+            "fieldtype": "Section Break",
+            "label": "Exterior Assessment"
+        },
+        {
+            "fieldname": "exterior_checklist",
+            "fieldtype": "Table",
+            "label": "Exterior Parts",
+            "options": "Scrap Vehicle Part Assessment"
+        },
+        {
+            "fieldname": "engine_assessment_section",
+            "fieldtype": "Section Break",
+            "label": "Engine Assessment"
+        },
+        {
+            "fieldname": "engine_checklist",
+            "fieldtype": "Table",
+            "label": "Engine Parts",
+            "options": "Scrap Vehicle Part Assessment"
+        },
+        {
+            "fieldname": "interior_assessment_section",
+            "fieldtype": "Section Break",
+            "label": "Interior Assessment"
+        },
+        {
+            "fieldname": "interior_checklist",
+            "fieldtype": "Table",
+            "label": "Interior Parts",
+            "options": "Scrap Vehicle Part Assessment"
+        },
+        {
+            "fieldname": "electrical_assessment_section",
+            "fieldtype": "Section Break",
+            "label": "Electrical Assessment"
+        },
+        {
+            "fieldname": "electrical_checklist",
+            "fieldtype": "Table",
+            "label": "Electrical Parts",
+            "options": "Scrap Vehicle Part Assessment"
+        },
+        {
+            "fieldname": "wheels_tires_section",
+            "fieldtype": "Section Break",
+            "label": "Wheels & Tires Assessment"
+        },
+        {
+            "fieldname": "wheels_tires_checklist",
+            "fieldtype": "Table",
+            "label": "Wheels & Tires",
+            "options": "Scrap Vehicle Part Assessment"
+        },
+        {
+            "fieldname": "processing_tab",
+            "fieldtype": "Tab Break",
+            "label": "Processing"
+        },
+        {
+            "fieldname": "dismantling_section",
+            "fieldtype": "Section Break",
+            "label": "Dismantling Information"
+        },
+        {
+            "fieldname": "dismantling_status",
+            "fieldtype": "Select",
+            "label": "Dismantling Status",
+            "options": "Not Started\nIn Progress\nCompleted\nOn Hold"
+        },
+        {
+            "fieldname": "dismantling_start_date",
+            "fieldtype": "Date",
+            "label": "Dismantling Start Date"
+        },
+        {
+            "fieldname": "dismantling_end_date",
+            "fieldtype": "Date",
+            "label": "Dismantling End Date"
+        },
+        {
+            "fieldname": "cb_dismantling",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "assigned_technician",
+            "fieldtype": "Link",
+            "label": "Assigned Technician",
+            "options": "Employee"
+        },
+        {
+            "fieldname": "dismantling_location",
+            "fieldtype": "Link",
+            "label": "Dismantling Location",
+            "options": "Workshop Profile"
+        },
+        {
+            "fieldname": "parts_extracted_count",
+            "fieldtype": "Int",
+            "label": "Parts Extracted Count",
+            "read_only": 1
+        },
+        {
+            "fieldname": "cb_dismantling_notes",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "dismantling_notes",
+            "fieldtype": "Text Editor",
+            "label": "Dismantling Notes"
+        },
+        {
+            "fieldname": "storage_section",
+            "fieldtype": "Section Break",
+            "label": "Storage Information"
+        },
+        {
+            "fieldname": "storage_location",
+            "fieldtype": "Link",
+            "label": "Storage Warehouse",
+            "options": "Warehouse"
+        },
+        {
+            "fieldname": "storage_bin",
+            "fieldtype": "Data",
+            "label": "Storage Bin/Location"
+        },
+        {
+            "fieldname": "storage_notes",
+            "fieldtype": "Text",
+            "label": "Storage Notes"
+        },
+        {
+            "fieldname": "cb_storage_barcode",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "storage_barcode",
+            "fieldtype": "Data",
+            "label": "Storage Barcode",
+            "read_only": 1
+        },
+        {
+            "fieldname": "parts_tracking_section",
+            "fieldtype": "Section Break",
+            "label": "Extracted Parts Tracking"
+        },
+        {
+            "fieldname": "extracted_parts",
+            "fieldtype": "Table",
+            "label": "Extracted Parts",
+            "options": "Scrap Vehicle Extracted Part"
+        },
+        {
+            "fieldname": "financial_tab",
+            "fieldtype": "Tab Break",
+            "label": "Financial"
+        },
+        {
+            "fieldname": "cost_section",
+            "fieldtype": "Section Break",
+            "label": "Cost Analysis"
+        },
+        {
+            "fieldname": "acquisition_cost",
+            "fieldtype": "Currency",
+            "label": "Acquisition Cost (OMR)",
+            "options": "Company:company:default_currency"
+        },
+        {
+            "fieldname": "assessment_cost",
+            "fieldtype": "Currency",
+            "label": "Assessment Cost (OMR)",
+            "options": "Company:company:default_currency"
+        },
+        {
+            "fieldname": "dismantling_cost",
+            "fieldtype": "Currency",
+            "label": "Dismantling Cost (OMR)",
+            "options": "Company:company:default_currency"
+        },
+        {
+            "fieldname": "storage_cost",
+            "fieldtype": "Currency",
+            "label": "Storage Cost (OMR)",
+            "options": "Company:company:default_currency"
+        },
+        {
+            "fieldname": "total_cost",
+            "fieldtype": "Currency",
+            "label": "Total Cost (OMR)",
+            "options": "Company:company:default_currency",
+            "read_only": 1
+        },
+        {
+            "fieldname": "revenue_section",
+            "fieldtype": "Section Break",
+            "label": "Revenue Analysis"
+        },
+        {
+            "fieldname": "parts_sales_revenue",
+            "fieldtype": "Currency",
+            "label": "Parts Sales Revenue (OMR)",
+            "options": "Company:company:default_currency",
+            "read_only": 1
+        },
+        {
+            "fieldname": "scrap_metal_revenue",
+            "fieldtype": "Currency",
+            "label": "Scrap Metal Revenue (OMR)",
+            "options": "Company:company:default_currency"
+        },
+        {
+            "fieldname": "other_revenue",
+            "fieldtype": "Currency",
+            "label": "Other Revenue (OMR)",
+            "options": "Company:company:default_currency"
+        },
+        {
+            "fieldname": "total_revenue",
+            "fieldtype": "Currency",
+            "label": "Total Revenue (OMR)",
+            "options": "Company:company:default_currency",
+            "read_only": 1
+        },
+        {
+            "fieldname": "profit_section",
+            "fieldtype": "Section Break",
+            "label": "Profit Analysis"
+        },
+        {
+            "fieldname": "gross_profit",
+            "fieldtype": "Currency",
+            "label": "Gross Profit (OMR)",
+            "options": "Company:company:default_currency",
+            "read_only": 1
+        },
+        {
+            "fieldname": "profit_margin",
+            "fieldtype": "Percent",
+            "label": "Profit Margin (%)",
+            "read_only": 1
+        },
+        {
+            "fieldname": "roi_percentage",
+            "fieldtype": "Percent",
+            "label": "ROI (%)",
+            "read_only": 1
+        },
+        {
+            "fieldname": "compliance_tab",
+            "fieldtype": "Tab Break",
+            "label": "Compliance"
+        },
+        {
+            "fieldname": "environmental_section",
+            "fieldtype": "Section Break",
+            "label": "Environmental Compliance"
+        },
+        {
+            "fieldname": "hazmat_removal_required",
+            "fieldtype": "Check",
+            "label": "Hazmat Removal Required"
+        },
+        {
+            "fieldname": "hazmat_removal_date",
+            "fieldtype": "Date",
+            "label": "Hazmat Removal Date"
+        },
+        {
+            "fieldname": "hazmat_disposal_certificate",
+            "fieldtype": "Attach",
+            "label": "Hazmat Disposal Certificate"
+        },
+        {
+            "fieldname": "cb_environmental",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "fluids_drained",
+            "fieldtype": "Check",
+            "label": "Fluids Drained"
+        },
+        {
+            "fieldname": "battery_removed",
+            "fieldtype": "Check",
+            "label": "Battery Removed"
+        },
+        {
+            "fieldname": "airbags_deactivated",
+            "fieldtype": "Check",
+            "label": "Airbags Deactivated"
+        },
+        {
+            "fieldname": "regulatory_section",
+            "fieldtype": "Section Break",
+            "label": "Regulatory Compliance"
+        },
+        {
+            "fieldname": "registration_cancelled",
+            "fieldtype": "Check",
+            "label": "Registration Cancelled"
+        },
+        {
+            "fieldname": "registration_cancel_date",
+            "fieldtype": "Date",
+            "label": "Registration Cancel Date"
+        },
+        {
+            "fieldname": "authority_notification_sent",
+            "fieldtype": "Check",
+            "label": "Authority Notification Sent"
+        },
+        {
+            "fieldname": "cb_regulatory",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "disposal_certificate_number",
+            "fieldtype": "Data",
+            "label": "Disposal Certificate Number"
+        },
+        {
+            "fieldname": "environmental_compliance_notes",
+            "fieldtype": "Text Editor",
+            "label": "Environmental Compliance Notes"
+        },
+        {
+            "fieldname": "audit_tab",
+            "fieldtype": "Tab Break",
+            "label": "Audit Trail"
+        },
+        {
+            "fieldname": "creation_info_section",
+            "fieldtype": "Section Break",
+            "label": "Creation Information"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "created_date",
+            "fieldtype": "Datetime",
+            "label": "Created Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "cb_modification",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "modified_by",
+            "fieldtype": "Link",
+            "label": "Modified By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_modified",
+            "fieldtype": "Datetime",
+            "label": "Last Modified",
+            "read_only": 1
+        },
+        {
+            "fieldname": "workflow_section",
+            "fieldtype": "Section Break",
+            "label": "Workflow"
+        },
+        {
+            "fieldname": "workflow_state",
+            "fieldtype": "Link",
+            "label": "Workflow State",
+            "options": "Workflow State",
+            "read_only": 1
+        },
+        {
+            "fieldname": "next_action_required",
+            "fieldtype": "Data",
+            "label": "Next Action Required",
+            "read_only": 1
+        },
+        {
+            "fieldname": "priority_level",
+            "fieldtype": "Select",
+            "label": "Priority Level",
+            "options": "Low\nMedium\nHigh\nUrgent",
+            "default": "Medium"
+        }
+    ],
+    "idx": 0,
+    "index_web_pages_for_search": 1,
+    "is_submittable": 0,
+    "links": [],
+    "modified": "2024-06-24 16:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Scrap Management",
+    "name": "Scrap Vehicle",
+    "naming_rule": "Expression",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician",
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Supervisor"
+        }
+    ],
+    "quick_entry": 1,
+    "restrict_to_domain": "Workshop",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "vin_number",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

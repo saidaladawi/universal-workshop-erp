@@ -1,0 +1,140 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2024-12-30 15:55:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "chart_name",
+        "chart_name_ar",
+        "column_break_3",
+        "chart_type",
+        "data_source",
+        "section_break_6",
+        "x_axis_field",
+        "y_axis_field",
+        "column_break_9",
+        "grouping_field",
+        "time_range",
+        "section_break_12",
+        "chart_size",
+        "position_x",
+        "column_break_15",
+        "position_y",
+        "auto_refresh",
+        "refresh_interval"
+    ],
+    "fields": [
+        {
+            "fieldname": "chart_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Chart Name",
+            "reqd": 1
+        },
+        {
+            "fieldname": "chart_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم الرسم البياني",
+            "translatable": 1
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "chart_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Chart Type",
+            "options": "Line\nBar\nPie\nArea\nProgress Bar\nGauge\nHeatmap",
+            "reqd": 1
+        },
+        {
+            "fieldname": "data_source",
+            "fieldtype": "Select",
+            "label": "Data Source",
+            "options": "Migration Job Status\nProcessing Timeline\nError Breakdown\nPerformance Metrics\nCompletion Rate"
+        },
+        {
+            "fieldname": "section_break_6",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "x_axis_field",
+            "fieldtype": "Data",
+            "label": "X-Axis Field"
+        },
+        {
+            "fieldname": "y_axis_field",
+            "fieldtype": "Data",
+            "label": "Y-Axis Field"
+        },
+        {
+            "fieldname": "column_break_9",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "grouping_field",
+            "fieldtype": "Data",
+            "label": "Grouping Field"
+        },
+        {
+            "default": "24",
+            "fieldname": "time_range",
+            "fieldtype": "Int",
+            "label": "Time Range (hours)"
+        },
+        {
+            "fieldname": "section_break_12",
+            "fieldtype": "Section Break"
+        },
+        {
+            "default": "Medium",
+            "fieldname": "chart_size",
+            "fieldtype": "Select",
+            "label": "Chart Size",
+            "options": "Small\nMedium\nLarge\nExtra Large"
+        },
+        {
+            "fieldname": "position_x",
+            "fieldtype": "Int",
+            "label": "Position X"
+        },
+        {
+            "fieldname": "column_break_15",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "position_y",
+            "fieldtype": "Int",
+            "label": "Position Y"
+        },
+        {
+            "default": "1",
+            "fieldname": "auto_refresh",
+            "fieldtype": "Check",
+            "label": "Auto Refresh"
+        },
+        {
+            "default": "60",
+            "depends_on": "auto_refresh",
+            "fieldname": "refresh_interval",
+            "fieldtype": "Int",
+            "label": "Refresh Interval (seconds)"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "istable": 1,
+    "modified": "2024-12-30 15:55:00.000000",
+    "modified_by": "Administrator",
+    "module": "Analytics Reporting",
+    "name": "Migration Dashboard Chart",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "position_x",
+    "sort_order": "ASC",
+    "states": [],
+    "track_changes": 1
+}

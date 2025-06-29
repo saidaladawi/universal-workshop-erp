@@ -1,0 +1,214 @@
+{
+ "actions": [],
+ "allow_copy": 0,
+ "allow_events_in_timeline": 0,
+ "allow_guest_to_view": 0,
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "FPD-.YYYY.-.#####",
+ "beta": 0,
+ "creation": "2025-06-24 18:10:00.000000",
+ "custom": 0,
+ "docstatus": 0,
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "dashboard_name",
+  "dashboard_name_ar",
+  "period_type",
+  "from_date",
+  "to_date",
+  "column_break_1",
+  "status",
+  "auto_refresh",
+  "currency",
+  "created_by",
+  "section_break_2",
+  "total_revenue",
+  "total_costs",
+  "gross_profit",
+  "gross_profit_margin",
+  "column_break_3",
+  "net_profit",
+  "net_profit_margin",
+  "roi_percentage",
+  "ebitda"
+ ],
+ "fields": [
+  {
+   "fieldname": "dashboard_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Dashboard Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "dashboard_name_ar",
+   "fieldtype": "Data",
+   "label": "اسم لوحة المعلومات",
+   "translatable": 1
+  },
+  {
+   "fieldname": "period_type",
+   "fieldtype": "Select",
+   "label": "Period Type",
+   "options": "Monthly\nQuarterly\nYearly\nCustom",
+   "default": "Monthly"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nGenerated\nApproved",
+   "default": "Draft"
+  },
+  {
+   "fieldname": "auto_refresh",
+   "fieldtype": "Check",
+   "label": "Auto Refresh",
+   "default": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "default": "OMR"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "Financial Metrics"
+  },
+  {
+   "fieldname": "total_revenue",
+   "fieldtype": "Currency",
+   "label": "Total Revenue",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_costs",
+   "fieldtype": "Currency",
+   "label": "Total Costs",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "gross_profit",
+   "fieldtype": "Currency",
+   "label": "Gross Profit",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "gross_profit_margin",
+   "fieldtype": "Percent",
+   "label": "Gross Profit Margin",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "net_profit",
+   "fieldtype": "Currency",
+   "label": "Net Profit",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "net_profit_margin",
+   "fieldtype": "Percent",
+   "label": "Net Profit Margin",
+   "read_only": 1
+  },
+  {
+   "fieldname": "roi_percentage",
+   "fieldtype": "Percent",
+   "label": "ROI Percentage",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ebitda",
+   "fieldtype": "Currency",
+   "label": "EBITDA",
+   "options": "currency",
+   "read_only": 1
+  }
+ ],
+ "icon": "fa fa-chart-bar",
+ "idx": 0,
+ "in_create": 0,
+ "is_submittable": 0,
+ "issingle": 0,
+ "istable": 0,
+ "max_attachments": 5,
+ "modified": "2025-06-24 18:10:00.000000",
+ "modified_by": "Administrator",
+ "module": "Reports Analytics",
+ "name": "Financial Performance Dashboard",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 0,
+ "restrict_to_domain": "Manufacturing",
+ "search_fields": "dashboard_name,period_type,status",
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "dashboard_name",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

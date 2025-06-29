@@ -1,0 +1,1 @@
+# License Activity Log DocType 

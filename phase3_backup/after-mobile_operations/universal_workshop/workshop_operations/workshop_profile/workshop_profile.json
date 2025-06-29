@@ -1,0 +1,521 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "",
+    "creation": "2025-01-26 10:30:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "basic_information",
+        "workshop_code",
+        "workshop_name",
+        "workshop_name_ar",
+        "workshop_type",
+        "status",
+        "column_break_1",
+        "establishment_date",
+        "total_staff",
+        "owner_name",
+        "owner_name_ar",
+        "section_break_2",
+        "business_information",
+        "business_license",
+        "license_expiry_date",
+        "vat_number",
+        "commercial_registration",
+        "column_break_2",
+        "ministry_approval",
+        "insurance_certificate",
+        "municipality_license",
+        "section_break_3",
+        "contact_information",
+        "phone_number",
+        "mobile_number",
+        "email",
+        "website",
+        "column_break_3",
+        "address",
+        "address_ar",
+        "city",
+        "governorate",
+        "postal_code",
+        "section_break_4",
+        "operational_details",
+        "working_hours_start",
+        "working_hours_end",
+        "weekend_days",
+        "service_capacity_daily",
+        "column_break_4",
+        "specialization",
+        "equipment_list",
+        "certification_level",
+        "section_break_5",
+        "financial_information",
+        "bank_name",
+        "bank_account",
+        "iban",
+        "currency",
+        "section_break_6",
+        "branding_information",
+        "workshop_logo",
+        "logo_preview",
+        "primary_color",
+        "secondary_color",
+        "column_break_5",
+        "dark_mode_enabled",
+        "theme_preference",
+        "brand_description",
+        "brand_description_ar"
+    ],
+    "fields": [
+        {
+            "fieldname": "basic_information",
+            "fieldtype": "Section Break",
+            "label": "Basic Information / المعلومات الأساسية"
+        },
+        {
+            "fieldname": "workshop_code",
+            "fieldtype": "Data",
+            "label": "Workshop Code / رمز الورشة",
+            "read_only": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "workshop_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Workshop Name (English)",
+            "reqd": 1
+        },
+        {
+            "fieldname": "workshop_name_ar",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "اسم الورشة",
+            "reqd": 1,
+            "translatable": 1
+        },
+        {
+            "fieldname": "workshop_type",
+            "fieldtype": "Select",
+            "label": "Workshop Type / نوع الورشة",
+            "options": "General Repair\nBody Work\nElectrical\nEngine Specialist\nTire Services\nPainting\nAir Conditioning",
+            "reqd": 1
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "Status / الحالة",
+            "options": "Active\nInactive\nSuspended\nUnder Review",
+            "default": "Active"
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "establishment_date",
+            "fieldtype": "Date",
+            "label": "Establishment Date / تاريخ التأسيس"
+        },
+        {
+            "fieldname": "total_staff",
+            "fieldtype": "Int",
+            "label": "Total Staff / إجمالي الموظفين"
+        },
+        {
+            "fieldname": "owner_name",
+            "fieldtype": "Data",
+            "label": "Owner Name (English)",
+            "reqd": 1
+        },
+        {
+            "fieldname": "owner_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم المالك",
+            "reqd": 1,
+            "translatable": 1
+        },
+        {
+            "fieldname": "section_break_2",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "business_information",
+            "fieldtype": "Section Break",
+            "label": "Business Information / المعلومات التجارية"
+        },
+        {
+            "fieldname": "business_license",
+            "fieldtype": "Data",
+            "label": "Business License (Oman) / الرخصة التجارية",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "license_expiry_date",
+            "fieldtype": "Date",
+            "label": "License Expiry Date / تاريخ انتهاء الرخصة"
+        },
+        {
+            "fieldname": "vat_number",
+            "fieldtype": "Data",
+            "label": "VAT Registration Number / رقم التسجيل الضريبي"
+        },
+        {
+            "fieldname": "commercial_registration",
+            "fieldtype": "Data",
+            "label": "Commercial Registration / السجل التجاري"
+        },
+        {
+            "fieldname": "column_break_2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "ministry_approval",
+            "fieldtype": "Data",
+            "label": "Ministry Approval Number / رقم موافقة الوزارة"
+        },
+        {
+            "fieldname": "insurance_certificate",
+            "fieldtype": "Data",
+            "label": "Insurance Certificate / شهادة التأمين"
+        },
+        {
+            "fieldname": "municipality_license",
+            "fieldtype": "Data",
+            "label": "Municipality License / رخصة البلدية"
+        },
+        {
+            "fieldname": "section_break_3",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "contact_information",
+            "fieldtype": "Section Break",
+            "label": "Contact Information / معلومات الاتصال"
+        },
+        {
+            "fieldname": "phone_number",
+            "fieldtype": "Data",
+            "label": "Phone Number (+968) / رقم الهاتف",
+            "options": "Phone"
+        },
+        {
+            "fieldname": "mobile_number",
+            "fieldtype": "Data",
+            "label": "Mobile Number (+968) / رقم الجوال",
+            "options": "Phone"
+        },
+        {
+            "fieldname": "email",
+            "fieldtype": "Data",
+            "label": "Email / البريد الإلكتروني",
+            "options": "Email"
+        },
+        {
+            "fieldname": "website",
+            "fieldtype": "Data",
+            "label": "Website / الموقع الإلكتروني",
+            "options": "URL"
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "address",
+            "fieldtype": "Text",
+            "label": "Address (English)"
+        },
+        {
+            "fieldname": "address_ar",
+            "fieldtype": "Text",
+            "label": "العنوان",
+            "translatable": 1
+        },
+        {
+            "fieldname": "city",
+            "fieldtype": "Data",
+            "label": "City / المدينة"
+        },
+        {
+            "fieldname": "governorate",
+            "fieldtype": "Select",
+            "label": "Governorate / المحافظة",
+            "options": "Muscat\nDhofar\nAl Batinah North\nAl Batinah South\nAl Buraimi\nAl Dakhiliyah\nAl Dhahirah\nAl Sharqiyah North\nAl Sharqiyah South\nAl Wusta\nMusandam"
+        },
+        {
+            "fieldname": "postal_code",
+            "fieldtype": "Data",
+            "label": "Postal Code / الرمز البريدي"
+        },
+        {
+            "fieldname": "section_break_4",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "operational_details",
+            "fieldtype": "Section Break",
+            "label": "Operational Details / التفاصيل التشغيلية"
+        },
+        {
+            "fieldname": "working_hours_start",
+            "fieldtype": "Time",
+            "label": "Working Hours Start / بداية ساعات العمل"
+        },
+        {
+            "fieldname": "working_hours_end",
+            "fieldtype": "Time",
+            "label": "Working Hours End / نهاية ساعات العمل"
+        },
+        {
+            "fieldname": "weekend_days",
+            "fieldtype": "Select",
+            "label": "Weekend Days / أيام الإجازة",
+            "options": "Friday-Saturday\nFriday Only\nSaturday-Sunday",
+            "default": "Friday-Saturday"
+        },
+        {
+            "fieldname": "service_capacity_daily",
+            "fieldtype": "Int",
+            "label": "Daily Service Capacity / الطاقة الاستيعابية اليومية"
+        },
+        {
+            "fieldname": "column_break_4",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "specialization",
+            "fieldtype": "Text",
+            "label": "Specialization / التخصص"
+        },
+        {
+            "fieldname": "equipment_list",
+            "fieldtype": "Text",
+            "label": "Equipment List / قائمة المعدات"
+        },
+        {
+            "fieldname": "certification_level",
+            "fieldtype": "Select",
+            "label": "Certification Level / مستوى الشهادة",
+            "options": "Basic\nStandard\nAdvanced\nPremium"
+        },
+        {
+            "fieldname": "section_break_5",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "financial_information",
+            "fieldtype": "Section Break",
+            "label": "Financial Information / المعلومات المالية"
+        },
+        {
+            "fieldname": "bank_name",
+            "fieldtype": "Data",
+            "label": "Bank Name / اسم البنك"
+        },
+        {
+            "fieldname": "bank_account",
+            "fieldtype": "Data",
+            "label": "Bank Account / رقم الحساب"
+        },
+        {
+            "fieldname": "iban",
+            "fieldtype": "Data",
+            "label": "IBAN / رقم الآيبان"
+        },
+        {
+            "fieldname": "currency",
+            "fieldtype": "Link",
+            "label": "Currency / العملة",
+            "options": "Currency",
+            "default": "OMR"
+        },
+        {
+            "fieldname": "section_break_6",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "branding_information",
+            "fieldtype": "Section Break",
+            "label": "Branding & Visual Identity / الهوية البصرية والعلامة التجارية"
+        },
+        {
+            "fieldname": "workshop_logo",
+            "fieldtype": "Attach Image",
+            "label": "Workshop Logo / شعار الورشة",
+            "description": "Upload workshop logo (PNG, JPG, SVG - Max 2MB)"
+        },
+        {
+            "fieldname": "logo_preview",
+            "fieldtype": "HTML",
+            "label": "Logo Preview / معاينة الشعار",
+            "read_only": 1
+        },
+        {
+            "fieldname": "primary_color",
+            "fieldtype": "Color",
+            "label": "Primary Brand Color / اللون الأساسي للعلامة التجارية",
+            "default": "#1f4e79"
+        },
+        {
+            "fieldname": "secondary_color",
+            "fieldtype": "Color",
+            "label": "Secondary Brand Color / اللون الثانوي للعلامة التجارية",
+            "default": "#e8f4fd"
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "dark_mode_enabled",
+            "fieldtype": "Check",
+            "label": "Enable Dark Mode / تفعيل الوضع المظلم",
+            "default": 0
+        },
+        {
+            "fieldname": "theme_preference",
+            "fieldtype": "Select",
+            "label": "Theme Preference / تفضيل الثيم",
+            "options": "Light\nDark\nAuto",
+            "default": "Light"
+        },
+        {
+            "fieldname": "brand_description",
+            "fieldtype": "Text",
+            "label": "Brand Description (English)"
+        },
+        {
+            "fieldname": "brand_description_ar",
+            "fieldtype": "Text",
+            "label": "وصف العلامة التجارية",
+            "translatable": 1
+        },
+        {
+            "fieldname": "logo_optimization_section",
+            "fieldtype": "Section Break",
+            "label": "Logo Optimization / تحسين الشعار",
+            "collapsible": 1,
+            "depends_on": "workshop_logo"
+        },
+        {
+            "fieldname": "logo_optimization_data",
+            "fieldtype": "JSON",
+            "label": "Logo Optimization Data",
+            "hidden": 1,
+            "read_only": 1
+        },
+        {
+            "fieldname": "logo_thumbnail",
+            "fieldtype": "Data",
+            "label": "Logo Thumbnail (64x64)",
+            "hidden": 1,
+            "read_only": 1
+        },
+        {
+            "fieldname": "logo_small",
+            "fieldtype": "Data",
+            "label": "Logo Small (128x128)",
+            "hidden": 1,
+            "read_only": 1
+        },
+        {
+            "fieldname": "logo_medium",
+            "fieldtype": "Data",
+            "label": "Logo Medium (256x256)",
+            "hidden": 1,
+            "read_only": 1
+        },
+        {
+            "fieldname": "logo_large",
+            "fieldtype": "Data",
+            "label": "Logo Large (512x512)",
+            "hidden": 1,
+            "read_only": 1
+        },
+        {
+            "fieldname": "logo_print",
+            "fieldtype": "Data",
+            "label": "Logo Print (1024x1024)",
+            "hidden": 1,
+            "read_only": 1
+        },
+        {
+            "fieldname": "logo_favicon",
+            "fieldtype": "Data",
+            "label": "Logo Favicon (32x32)",
+            "hidden": 1,
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_logo_optimization",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "logo_optimization_status",
+            "fieldtype": "HTML",
+            "label": "Optimization Status / حالة التحسين",
+            "read_only": 1
+        },
+        {
+            "fieldname": "optimize_logo_button",
+            "fieldtype": "Button",
+            "label": "Optimize Logo / تحسين الشعار",
+            "depends_on": "workshop_logo"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 0,
+    "links": [],
+    "modified": "2025-01-26 10:30:00.000000",
+    "modified_by": "Administrator",
+    "module": "Workshop Management",
+    "name": "Workshop Profile",
+    "naming_rule": "",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "quick_entry": 1,
+    "show_name_in_global_search": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1,
+    "translated_doctype": 1
+}

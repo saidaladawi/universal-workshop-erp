@@ -1,0 +1,299 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2024-12-28 00:00:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "job_title",
+        "job_title_ar",
+        "migration_type",
+        "source_type",
+        "column_break_1",
+        "status",
+        "priority",
+        "created_by",
+        "created_date",
+        "section_break_2",
+        "source_file",
+        "target_doctype",
+        "total_records",
+        "processed_records",
+        "column_break_3",
+        "successful_records",
+        "failed_records",
+        "progress_percentage",
+        "estimated_completion",
+        "section_break_4",
+        "field_mapping",
+        "validation_rules",
+        "transformation_settings",
+        "section_break_5",
+        "error_log",
+        "transaction_log",
+        "rollback_data",
+        "section_break_6",
+        "started_at",
+        "completed_at",
+        "duration_minutes",
+        "column_break_4",
+        "memory_usage_mb",
+        "cpu_usage_percent",
+        "batch_size"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Series",
+            "options": "MIG-JOB-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "fieldname": "job_title",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Migration Job Title",
+            "reqd": 1
+        },
+        {
+            "fieldname": "job_title_ar",
+            "fieldtype": "Data",
+            "label": "عنوان مهمة الترحيل",
+            "translatable": 1
+        },
+        {
+            "fieldname": "migration_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Migration Type",
+            "options": "Import\nExport\nSync\nTransform",
+            "reqd": 1
+        },
+        {
+            "fieldname": "source_type",
+            "fieldtype": "Select",
+            "label": "Source Type",
+            "options": "CSV\nExcel\nDatabase\nJSON\nXML\nAPI",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Status",
+            "options": "Draft\nQueued\nRunning\nCompleted\nFailed\nCancelled\nRolled Back",
+            "reqd": 1
+        },
+        {
+            "fieldname": "priority",
+            "fieldtype": "Select",
+            "label": "Priority",
+            "options": "Low\nMedium\nHigh\nCritical"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "created_date",
+            "fieldtype": "Datetime",
+            "label": "Created Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_2",
+            "fieldtype": "Section Break",
+            "label": "Source and Target Configuration"
+        },
+        {
+            "fieldname": "source_file",
+            "fieldtype": "Attach",
+            "label": "Source File"
+        },
+        {
+            "fieldname": "target_doctype",
+            "fieldtype": "Link",
+            "label": "Target DocType",
+            "options": "DocType"
+        },
+        {
+            "fieldname": "total_records",
+            "fieldtype": "Int",
+            "label": "Total Records",
+            "read_only": 1
+        },
+        {
+            "fieldname": "processed_records",
+            "fieldtype": "Int",
+            "label": "Processed Records",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "successful_records",
+            "fieldtype": "Int",
+            "label": "Successful Records",
+            "read_only": 1
+        },
+        {
+            "fieldname": "failed_records",
+            "fieldtype": "Int",
+            "label": "Failed Records",
+            "read_only": 1
+        },
+        {
+            "fieldname": "progress_percentage",
+            "fieldtype": "Percent",
+            "label": "Progress %",
+            "read_only": 1
+        },
+        {
+            "fieldname": "estimated_completion",
+            "fieldtype": "Datetime",
+            "label": "Estimated Completion",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_4",
+            "fieldtype": "Section Break",
+            "label": "Configuration Settings"
+        },
+        {
+            "fieldname": "field_mapping",
+            "fieldtype": "JSON",
+            "label": "Field Mapping Configuration"
+        },
+        {
+            "fieldname": "validation_rules",
+            "fieldtype": "JSON",
+            "label": "Validation Rules"
+        },
+        {
+            "fieldname": "transformation_settings",
+            "fieldtype": "JSON",
+            "label": "Data Transformation Settings"
+        },
+        {
+            "fieldname": "section_break_5",
+            "fieldtype": "Section Break",
+            "label": "Logs and Recovery"
+        },
+        {
+            "fieldname": "error_log",
+            "fieldtype": "JSON",
+            "label": "Error Log"
+        },
+        {
+            "fieldname": "transaction_log",
+            "fieldtype": "JSON",
+            "label": "Transaction Log"
+        },
+        {
+            "fieldname": "rollback_data",
+            "fieldtype": "JSON",
+            "label": "Rollback Data"
+        },
+        {
+            "fieldname": "section_break_6",
+            "fieldtype": "Section Break",
+            "label": "Performance Metrics"
+        },
+        {
+            "fieldname": "started_at",
+            "fieldtype": "Datetime",
+            "label": "Started At",
+            "read_only": 1
+        },
+        {
+            "fieldname": "completed_at",
+            "fieldtype": "Datetime",
+            "label": "Completed At",
+            "read_only": 1
+        },
+        {
+            "fieldname": "duration_minutes",
+            "fieldtype": "Int",
+            "label": "Duration (Minutes)",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_4",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "memory_usage_mb",
+            "fieldtype": "Float",
+            "label": "Memory Usage (MB)",
+            "read_only": 1
+        },
+        {
+            "fieldname": "cpu_usage_percent",
+            "fieldtype": "Float",
+            "label": "CPU Usage %",
+            "read_only": 1
+        },
+        {
+            "fieldname": "batch_size",
+            "fieldtype": "Int",
+            "label": "Batch Size",
+            "default": "1000"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2024-12-28 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Data Migration",
+    "name": "Migration Job",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "read": 1,
+            "role": "Workshop User"
+        }
+    ],
+    "quick_entry": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

@@ -1,0 +1,850 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:license_code",
+ "creation": "2025-01-25 10:45:00.000000",
+ "default_view": "List",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "license_info_section",
+  "license_code",
+  "license_type",
+  "license_status",
+  "license_owner",
+  "business_name",
+  "business_name_ar",
+  "column_break_6",
+  "issue_date",
+  "expiry_date",
+  "last_validation",
+  "next_validation",
+  "validation_interval",
+  "auto_renewal",
+  "license_details_section",
+  "product_name",
+  "product_version",
+  "edition",
+  "max_users",
+  "current_users",
+  "max_devices",
+  "column_break_18",
+  "max_workshops",
+  "max_vehicles",
+  "max_customers",
+  "max_transactions",
+  "storage_limit_gb",
+  "api_rate_limit",
+  "hardware_section",
+  "hardware_fingerprint",
+  "server_hostname",
+  "ip_address",
+  "mac_address",
+  "column_break_27",
+  "os_platform",
+  "cpu_info",
+  "total_memory_gb",
+  "registration_date",
+  "last_sync",
+  "compliance_section",
+  "compliance_mode",
+  "strict_validation",
+  "offline_grace_period",
+  "violation_count",
+  "column_break_35",
+  "enforcement_level",
+  "grace_period_used",
+  "compliance_notes",
+  "last_violation_date",
+  "violation_details",
+  "security_section",
+  "encryption_key",
+  "signature_hash",
+  "certificate_serial",
+  "certificate_authority",
+  "column_break_43",
+  "security_level",
+  "tamper_detection",
+  "secure_activation",
+  "certificate_valid",
+  "certificate_expiry",
+  "activation_section",
+  "activation_code",
+  "activation_status",
+  "activation_date",
+  "activated_by",
+  "column_break_51",
+  "activation_method",
+  "activation_attempts",
+  "max_activation_attempts",
+  "activation_locked",
+  "deactivation_date",
+  "features_section",
+  "arabic_language_support",
+  "multi_workshop_support",
+  "inventory_management",
+  "crm_integration",
+  "column_break_59",
+  "accounting_integration",
+  "mobile_app_access",
+  "api_access",
+  "custom_reports",
+  "data_export",
+  "monitoring_section",
+  "health_status",
+  "performance_score",
+  "uptime_percentage",
+  "last_health_check",
+  "column_break_67",
+  "error_count_24h",
+  "warning_count_24h",
+  "performance_issues",
+  "resource_usage",
+  "system_alerts",
+  "notifications_section",
+  "email_notifications",
+  "sms_notifications",
+  "admin_email",
+  "alert_recipients",
+  "column_break_75",
+  "notification_frequency",
+  "last_notification",
+  "notification_log",
+  "escalation_enabled",
+  "escalation_contacts",
+  "logs_section",
+  "license_log",
+  "error_log",
+  "activity_log",
+  "column_break_83",
+  "compliance_log",
+  "security_log",
+  "admin_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "license_info_section",
+   "fieldtype": "Section Break",
+   "label": "License Information / معلومات الترخيص"
+  },
+  {
+   "fieldname": "license_code",
+   "fieldtype": "Data",
+   "label": "License Code / رمز الترخيص",
+   "reqd": 1,
+   "unique": 1,
+   "description": "Unique license code in format UW-XXXX-XXXX-XXXX-XXXX"
+  },
+  {
+   "fieldname": "license_type",
+   "fieldtype": "Select",
+   "label": "License Type / نوع الترخيص",
+   "options": "Trial / تجريبي\nStandard / عادي\nProfessional / احترافي\nEnterprise / مؤسسي\nCustom / مخصص",
+   "reqd": 1
+  },
+  {
+   "fieldname": "license_status",
+   "fieldtype": "Select",
+   "label": "Status / الحالة",
+   "options": "Active / نشط\nExpired / منتهي الصلاحية\nSuspended / معلق\nRevoked / ملغي\nPending / في الانتظار",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "license_owner",
+   "fieldtype": "Data",
+   "label": "License Owner / مالك الترخيص",
+   "reqd": 1
+  },
+  {
+   "fieldname": "business_name",
+   "fieldtype": "Data",
+   "label": "Business Name / اسم الشركة",
+   "reqd": 1
+  },
+  {
+   "fieldname": "business_name_ar",
+   "fieldtype": "Data",
+   "label": "Business Name (Arabic) / اسم الشركة بالعربية",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "issue_date",
+   "fieldtype": "Date",
+   "label": "Issue Date / تاريخ الإصدار",
+   "reqd": 1
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "label": "Expiry Date / تاريخ الانتهاء",
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_validation",
+   "fieldtype": "Datetime",
+   "label": "Last Validation / آخر تحقق",
+   "read_only": 1
+  },
+  {
+   "fieldname": "next_validation",
+   "fieldtype": "Datetime",
+   "label": "Next Validation / التحقق التالي",
+   "read_only": 1
+  },
+  {
+   "fieldname": "validation_interval",
+   "fieldtype": "Select",
+   "label": "Validation Interval / فترة التحقق",
+   "options": "1 Hour / ساعة واحدة\n6 Hours / 6 ساعات\n12 Hours / 12 ساعة\n24 Hours / 24 ساعة\n48 Hours / 48 ساعة\nWeekly / أسبوعياً",
+   "default": "24 Hours / 24 ساعة"
+  },
+  {
+   "fieldname": "auto_renewal",
+   "fieldtype": "Check",
+   "label": "Auto Renewal / التجديد التلقائي",
+   "default": 0
+  },
+  {
+   "fieldname": "license_details_section",
+   "fieldtype": "Section Break",
+   "label": "License Details / تفاصيل الترخيص"
+  },
+  {
+   "fieldname": "product_name",
+   "fieldtype": "Data",
+   "label": "Product Name / اسم المنتج",
+   "default": "Universal Workshop ERP",
+   "read_only": 1
+  },
+  {
+   "fieldname": "product_version",
+   "fieldtype": "Data",
+   "label": "Product Version / إصدار المنتج",
+   "default": "2.0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "edition",
+   "fieldtype": "Select",
+   "label": "Edition / الإصدار",
+   "options": "Community / مجتمعي\nStandard / عادي\nProfessional / احترافي\nEnterprise / مؤسسي"
+  },
+  {
+   "fieldname": "max_users",
+   "fieldtype": "Int",
+   "label": "Max Users / الحد الأقصى للمستخدمين",
+   "default": 1
+  },
+  {
+   "fieldname": "current_users",
+   "fieldtype": "Int",
+   "label": "Current Users / المستخدمون الحاليون",
+   "read_only": 1,
+   "default": 0
+  },
+  {
+   "fieldname": "max_devices",
+   "fieldtype": "Int",
+   "label": "Max Devices / الحد الأقصى للأجهزة",
+   "default": 1
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "max_workshops",
+   "fieldtype": "Int",
+   "label": "Max Workshops / الحد الأقصى للورش",
+   "default": 1
+  },
+  {
+   "fieldname": "max_vehicles",
+   "fieldtype": "Int",
+   "label": "Max Vehicles / الحد الأقصى للمركبات",
+   "default": 100
+  },
+  {
+   "fieldname": "max_customers",
+   "fieldtype": "Int",
+   "label": "Max Customers / الحد الأقصى للعملاء",
+   "default": 500
+  },
+  {
+   "fieldname": "max_transactions",
+   "fieldtype": "Int",
+   "label": "Max Transactions/Month / الحد الأقصى للمعاملات شهرياً",
+   "default": 1000
+  },
+  {
+   "fieldname": "storage_limit_gb",
+   "fieldtype": "Float",
+   "label": "Storage Limit (GB) / حد التخزين (جيجابايت)",
+   "default": 5.0,
+   "precision": 2
+  },
+  {
+   "fieldname": "api_rate_limit",
+   "fieldtype": "Int",
+   "label": "API Rate Limit/Hour / حد API في الساعة",
+   "default": 1000
+  },
+  {
+   "fieldname": "hardware_section",
+   "fieldtype": "Section Break",
+   "label": "Hardware Information / معلومات الجهاز"
+  },
+  {
+   "fieldname": "hardware_fingerprint",
+   "fieldtype": "Data",
+   "label": "Hardware Fingerprint / بصمة الجهاز",
+   "read_only": 1
+  },
+  {
+   "fieldname": "server_hostname",
+   "fieldtype": "Data",
+   "label": "Server Hostname / اسم الخادم",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ip_address",
+   "fieldtype": "Data",
+   "label": "IP Address / عنوان IP",
+   "read_only": 1
+  },
+  {
+   "fieldname": "mac_address",
+   "fieldtype": "Data",
+   "label": "MAC Address / عنوان MAC",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_27",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "os_platform",
+   "fieldtype": "Data",
+   "label": "OS Platform / نظام التشغيل",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cpu_info",
+   "fieldtype": "Data",
+   "label": "CPU Information / معلومات المعالج",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_memory_gb",
+   "fieldtype": "Float",
+   "label": "Total Memory (GB) / إجمالي الذاكرة (جيجابايت)",
+   "read_only": 1,
+   "precision": 2
+  },
+  {
+   "fieldname": "registration_date",
+   "fieldtype": "Datetime",
+   "label": "Registration Date / تاريخ التسجيل",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_sync",
+   "fieldtype": "Datetime",
+   "label": "Last Sync / آخر مزامنة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "compliance_section",
+   "fieldtype": "Section Break",
+   "label": "Compliance Settings / إعدادات الامتثال"
+  },
+  {
+   "fieldname": "compliance_mode",
+   "fieldtype": "Check",
+   "label": "Compliance Mode / وضع الامتثال",
+   "default": 1
+  },
+  {
+   "fieldname": "strict_validation",
+   "fieldtype": "Check",
+   "label": "Strict Validation / التحقق الصارم",
+   "default": 0
+  },
+  {
+   "fieldname": "offline_grace_period",
+   "fieldtype": "Int",
+   "label": "Offline Grace Period (Hours) / فترة السماح دون اتصال (ساعات)",
+   "default": 72
+  },
+  {
+   "fieldname": "violation_count",
+   "fieldtype": "Int",
+   "label": "Violation Count / عدد المخالفات",
+   "read_only": 1,
+   "default": 0
+  },
+  {
+   "fieldname": "column_break_35",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "enforcement_level",
+   "fieldtype": "Select",
+   "label": "Enforcement Level / مستوى الإنفاذ",
+   "options": "Warning / تحذير\nRestricted / مقيد\nBlocked / محظور",
+   "default": "Warning / تحذير"
+  },
+  {
+   "fieldname": "grace_period_used",
+   "fieldtype": "Int",
+   "label": "Grace Period Used (Hours) / فترة السماح المستخدمة (ساعات)",
+   "read_only": 1,
+   "default": 0
+  },
+  {
+   "fieldname": "compliance_notes",
+   "fieldtype": "Small Text",
+   "label": "Compliance Notes / ملاحظات الامتثال"
+  },
+  {
+   "fieldname": "last_violation_date",
+   "fieldtype": "Datetime",
+   "label": "Last Violation Date / تاريخ آخر مخالفة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "violation_details",
+   "fieldtype": "Small Text",
+   "label": "Violation Details / تفاصيل المخالفة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "security_section",
+   "fieldtype": "Section Break",
+   "label": "Security & Encryption / الأمان والتشفير"
+  },
+  {
+   "fieldname": "encryption_key",
+   "fieldtype": "Password",
+   "label": "Encryption Key / مفتاح التشفير"
+  },
+  {
+   "fieldname": "signature_hash",
+   "fieldtype": "Data",
+   "label": "Signature Hash / رمز التوقيع",
+   "read_only": 1
+  },
+  {
+   "fieldname": "certificate_serial",
+   "fieldtype": "Data",
+   "label": "Certificate Serial / رقم الشهادة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "certificate_authority",
+   "fieldtype": "Data",
+   "label": "Certificate Authority / مرجع الشهادة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_43",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "security_level",
+   "fieldtype": "Select",
+   "label": "Security Level / مستوى الأمان",
+   "options": "Basic / أساسي\nStandard / عادي\nHigh / عالي\nMaximum / أقصى",
+   "default": "Standard / عادي"
+  },
+  {
+   "fieldname": "tamper_detection",
+   "fieldtype": "Check",
+   "label": "Tamper Detection / اكتشاف التلاعب",
+   "default": 1
+  },
+  {
+   "fieldname": "secure_activation",
+   "fieldtype": "Check",
+   "label": "Secure Activation / التفعيل الآمن",
+   "default": 1
+  },
+  {
+   "fieldname": "certificate_valid",
+   "fieldtype": "Check",
+   "label": "Certificate Valid / الشهادة صالحة",
+   "read_only": 1,
+   "default": 0
+  },
+  {
+   "fieldname": "certificate_expiry",
+   "fieldtype": "Date",
+   "label": "Certificate Expiry / انتهاء الشهادة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "activation_section",
+   "fieldtype": "Section Break",
+   "label": "Activation Management / إدارة التفعيل"
+  },
+  {
+   "fieldname": "activation_code",
+   "fieldtype": "Data",
+   "label": "Activation Code / رمز التفعيل"
+  },
+  {
+   "fieldname": "activation_status",
+   "fieldtype": "Select",
+   "label": "Activation Status / حالة التفعيل",
+   "options": "Not Activated / غير مفعل\nActivated / مفعل\nPending / في الانتظار\nFailed / فشل\nLocked / مقفل",
+   "default": "Not Activated / غير مفعل",
+   "read_only": 1
+  },
+  {
+   "fieldname": "activation_date",
+   "fieldtype": "Datetime",
+   "label": "Activation Date / تاريخ التفعيل",
+   "read_only": 1
+  },
+  {
+   "fieldname": "activated_by",
+   "fieldtype": "Link",
+   "label": "Activated By / مفعل بواسطة",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_51",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "activation_method",
+   "fieldtype": "Select",
+   "label": "Activation Method / طريقة التفعيل",
+   "options": "Online / عبر الإنترنت\nOffline / دون اتصال\nManual / يدوي\nAutomatic / تلقائي",
+   "read_only": 1
+  },
+  {
+   "fieldname": "activation_attempts",
+   "fieldtype": "Int",
+   "label": "Activation Attempts / محاولات التفعيل",
+   "read_only": 1,
+   "default": 0
+  },
+  {
+   "fieldname": "max_activation_attempts",
+   "fieldtype": "Int",
+   "label": "Max Activation Attempts / الحد الأقصى لمحاولات التفعيل",
+   "default": 5
+  },
+  {
+   "fieldname": "activation_locked",
+   "fieldtype": "Check",
+   "label": "Activation Locked / التفعيل مقفل",
+   "read_only": 1,
+   "default": 0
+  },
+  {
+   "fieldname": "deactivation_date",
+   "fieldtype": "Datetime",
+   "label": "Deactivation Date / تاريخ إلغاء التفعيل",
+   "read_only": 1
+  },
+  {
+   "fieldname": "features_section",
+   "fieldtype": "Section Break",
+   "label": "Feature Access / الوصول للميزات"
+  },
+  {
+   "fieldname": "arabic_language_support",
+   "fieldtype": "Check",
+   "label": "Arabic Language Support / دعم اللغة العربية",
+   "default": 1
+  },
+  {
+   "fieldname": "multi_workshop_support",
+   "fieldtype": "Check",
+   "label": "Multi-Workshop Support / دعم متعدد الورش",
+   "default": 0
+  },
+  {
+   "fieldname": "inventory_management",
+   "fieldtype": "Check",
+   "label": "Inventory Management / إدارة المخزون",
+   "default": 1
+  },
+  {
+   "fieldname": "crm_integration",
+   "fieldtype": "Check",
+   "label": "CRM Integration / تكامل إدارة العملاء",
+   "default": 0
+  },
+  {
+   "fieldname": "column_break_59",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "accounting_integration",
+   "fieldtype": "Check",
+   "label": "Accounting Integration / التكامل المحاسبي",
+   "default": 0
+  },
+  {
+   "fieldname": "mobile_app_access",
+   "fieldtype": "Check",
+   "label": "Mobile App Access / الوصول للتطبيق المحمول",
+   "default": 0
+  },
+  {
+   "fieldname": "api_access",
+   "fieldtype": "Check",
+   "label": "API Access / وصول API",
+   "default": 0
+  },
+  {
+   "fieldname": "custom_reports",
+   "fieldtype": "Check",
+   "label": "Custom Reports / التقارير المخصصة",
+   "default": 0
+  },
+  {
+   "fieldname": "data_export",
+   "fieldtype": "Check",
+   "label": "Data Export / تصدير البيانات",
+   "default": 1
+  },
+  {
+   "fieldname": "monitoring_section",
+   "fieldtype": "Section Break",
+   "label": "System Monitoring / مراقبة النظام"
+  },
+  {
+   "fieldname": "health_status",
+   "fieldtype": "Select",
+   "label": "Health Status / حالة النظام",
+   "options": "Excellent / ممتاز\nGood / جيد\nWarning / تحذير\nCritical / حرج\nUnknown / غير معروف",
+   "read_only": 1,
+   "default": "Unknown / غير معروف"
+  },
+  {
+   "fieldname": "performance_score",
+   "fieldtype": "Percent",
+   "label": "Performance Score / نقاط الأداء",
+   "read_only": 1,
+   "precision": 1
+  },
+  {
+   "fieldname": "uptime_percentage",
+   "fieldtype": "Percent",
+   "label": "Uptime Percentage / نسبة وقت التشغيل",
+   "read_only": 1,
+   "precision": 2
+  },
+  {
+   "fieldname": "last_health_check",
+   "fieldtype": "Datetime",
+   "label": "Last Health Check / آخر فحص للنظام",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_67",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "error_count_24h",
+   "fieldtype": "Int",
+   "label": "Errors (24h) / الأخطاء (24 ساعة)",
+   "read_only": 1,
+   "default": 0
+  },
+  {
+   "fieldname": "warning_count_24h",
+   "fieldtype": "Int",
+   "label": "Warnings (24h) / التحذيرات (24 ساعة)",
+   "read_only": 1,
+   "default": 0
+  },
+  {
+   "fieldname": "performance_issues",
+   "fieldtype": "Small Text",
+   "label": "Performance Issues / مشاكل الأداء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "resource_usage",
+   "fieldtype": "Small Text",
+   "label": "Resource Usage / استخدام الموارد",
+   "read_only": 1
+  },
+  {
+   "fieldname": "system_alerts",
+   "fieldtype": "Small Text",
+   "label": "System Alerts / تنبيهات النظام",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notifications_section",
+   "fieldtype": "Section Break",
+   "label": "Notifications / الإشعارات"
+  },
+  {
+   "fieldname": "email_notifications",
+   "fieldtype": "Check",
+   "label": "Email Notifications / إشعارات البريد الإلكتروني",
+   "default": 1
+  },
+  {
+   "fieldname": "sms_notifications",
+   "fieldtype": "Check",
+   "label": "SMS Notifications / إشعارات الرسائل النصية",
+   "default": 0
+  },
+  {
+   "fieldname": "admin_email",
+   "fieldtype": "Data",
+   "label": "Admin Email / بريد المدير الإلكتروني",
+   "options": "Email"
+  },
+  {
+   "fieldname": "alert_recipients",
+   "fieldtype": "Small Text",
+   "label": "Alert Recipients / مستقبلو التنبيهات"
+  },
+  {
+   "fieldname": "column_break_75",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "notification_frequency",
+   "fieldtype": "Select",
+   "label": "Notification Frequency / تكرار الإشعارات",
+   "options": "Immediate / فوري\nHourly / كل ساعة\nDaily / يومي\nWeekly / أسبوعي",
+   "default": "Daily / يومي"
+  },
+  {
+   "fieldname": "last_notification",
+   "fieldtype": "Datetime",
+   "label": "Last Notification / آخر إشعار",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notification_log",
+   "fieldtype": "Small Text",
+   "label": "Notification Log / سجل الإشعارات",
+   "read_only": 1
+  },
+  {
+   "fieldname": "escalation_enabled",
+   "fieldtype": "Check",
+   "label": "Escalation Enabled / التصعيد مفعل",
+   "default": 0
+  },
+  {
+   "fieldname": "escalation_contacts",
+   "fieldtype": "Small Text",
+   "label": "Escalation Contacts / جهات التصعيد"
+  },
+  {
+   "fieldname": "logs_section",
+   "fieldtype": "Section Break",
+   "label": "Logs & Notes / السجلات والملاحظات"
+  },
+  {
+   "fieldname": "license_log",
+   "fieldtype": "Long Text",
+   "label": "License Log / سجل الترخيص",
+   "read_only": 1
+  },
+  {
+   "fieldname": "error_log",
+   "fieldtype": "Long Text",
+   "label": "Error Log / سجل الأخطاء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "activity_log",
+   "fieldtype": "Long Text",
+   "label": "Activity Log / سجل النشاط",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_83",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "compliance_log",
+   "fieldtype": "Long Text",
+   "label": "Compliance Log / سجل الامتثال",
+   "read_only": 1
+  },
+  {
+   "fieldname": "security_log",
+   "fieldtype": "Long Text",
+   "label": "Security Log / سجل الأمان",
+   "read_only": 1
+  },
+  {
+   "fieldname": "admin_notes",
+   "fieldtype": "Long Text",
+   "label": "Admin Notes / ملاحظات المدير"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 0,
+ "links": [],
+ "modified": "2025-01-25 10:45:00.000000",
+ "modified_by": "Administrator",
+ "module": "Workshop Management",
+ "name": "License Manager",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop User",
+   "share": 1
+  }
+ ],
+ "quick_entry": 0,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "license_code",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

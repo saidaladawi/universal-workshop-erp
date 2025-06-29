@@ -1,0 +1,563 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "format:EXP-{YYYY}-{#####}",
+    "creation": "2024-06-24 15:40:00.000000",
+    "default_view": "List",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "basic_info_section",
+        "export_name",
+        "export_name_ar",
+        "export_type",
+        "source_report",
+        "column_break_5",
+        "output_format",
+        "file_size",
+        "status",
+        "export_date",
+        "export_configuration_section",
+        "include_filters",
+        "include_charts",
+        "include_summary",
+        "column_break_10",
+        "page_orientation",
+        "paper_size",
+        "margin_settings",
+        "mobile_optimization_section",
+        "mobile_friendly",
+        "responsive_layout",
+        "touch_optimized",
+        "column_break_15",
+        "compress_images",
+        "optimize_fonts",
+        "reduce_file_size",
+        "arabic_localization_section",
+        "rtl_layout",
+        "arabic_fonts",
+        "bilingual_export",
+        "column_break_20",
+        "arabic_numbers",
+        "date_format_arabic",
+        "currency_format_arabic",
+        "delivery_section",
+        "auto_download",
+        "email_delivery",
+        "email_recipients",
+        "column_break_25",
+        "cloud_storage",
+        "storage_path",
+        "retention_days",
+        "advanced_settings_section",
+        "custom_template",
+        "watermark_image",
+        "security_level",
+        "column_break_30",
+        "password_protect",
+        "digital_signature",
+        "access_permissions",
+        "file_management_section",
+        "generated_file_path",
+        "download_url",
+        "download_count",
+        "column_break_35",
+        "file_checksum",
+        "expiry_date",
+        "is_expired",
+        "metadata_section",
+        "export_duration",
+        "export_size_mb",
+        "export_rows",
+        "column_break_40",
+        "created_by",
+        "error_log",
+        "success_message"
+    ],
+    "fields": [
+        {
+            "fieldname": "basic_info_section",
+            "fieldtype": "Section Break",
+            "label": "Basic Information"
+        },
+        {
+            "fieldname": "export_name",
+            "fieldtype": "Data",
+            "label": "Export Name",
+            "reqd": 1,
+            "in_list_view": 1,
+            "description": "Name for this export configuration"
+        },
+        {
+            "fieldname": "export_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم التصدير",
+            "translatable": 1,
+            "description": "Arabic name for export configuration"
+        },
+        {
+            "fieldname": "export_type",
+            "fieldtype": "Select",
+            "label": "Export Type",
+            "options": "One-time Export\nScheduled Export\nBatch Export\nReal-time Export",
+            "default": "One-time Export",
+            "reqd": 1
+        },
+        {
+            "fieldname": "source_report",
+            "fieldtype": "Link",
+            "label": "Source Report",
+            "options": "Custom Report Builder",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "output_format",
+            "fieldtype": "Select",
+            "label": "Output Format",
+            "options": "PDF\nExcel (XLSX)\nCSV\nHTML\nJSON\nXML\nPowerPoint",
+            "default": "PDF",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "file_size",
+            "fieldtype": "Data",
+            "label": "File Size",
+            "read_only": 1,
+            "description": "Size of generated file"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "Draft\nGenerating\nCompleted\nFailed\nExpired",
+            "default": "Draft",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "export_date",
+            "fieldtype": "Datetime",
+            "label": "Export Date",
+            "default": "Now",
+            "reqd": 1
+        },
+        {
+            "fieldname": "export_configuration_section",
+            "fieldtype": "Section Break",
+            "label": "Export Configuration"
+        },
+        {
+            "fieldname": "include_filters",
+            "fieldtype": "Check",
+            "label": "Include Filters",
+            "default": 1,
+            "description": "Include applied filters in export"
+        },
+        {
+            "fieldname": "include_charts",
+            "fieldtype": "Check",
+            "label": "Include Charts",
+            "default": 1,
+            "description": "Include visualizations in export"
+        },
+        {
+            "fieldname": "include_summary",
+            "fieldtype": "Check",
+            "label": "Include Summary",
+            "default": 1,
+            "description": "Include summary statistics"
+        },
+        {
+            "fieldname": "column_break_10",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "page_orientation",
+            "fieldtype": "Select",
+            "label": "Page Orientation",
+            "options": "Portrait\nLandscape\nAuto",
+            "default": "Portrait",
+            "depends_on": "eval:doc.output_format=='PDF'"
+        },
+        {
+            "fieldname": "paper_size",
+            "fieldtype": "Select",
+            "label": "Paper Size",
+            "options": "A4\nA3\nLetter\nLegal\nA5",
+            "default": "A4",
+            "depends_on": "eval:doc.output_format=='PDF'"
+        },
+        {
+            "fieldname": "margin_settings",
+            "fieldtype": "Small Text",
+            "label": "Margin Settings",
+            "description": "CSS margin values for PDF (e.g., 10mm 15mm)",
+            "depends_on": "eval:doc.output_format=='PDF'"
+        },
+        {
+            "fieldname": "mobile_optimization_section",
+            "fieldtype": "Section Break",
+            "label": "Mobile Optimization"
+        },
+        {
+            "fieldname": "mobile_friendly",
+            "fieldtype": "Check",
+            "label": "Mobile Friendly",
+            "default": 1,
+            "description": "Optimize for mobile viewing"
+        },
+        {
+            "fieldname": "responsive_layout",
+            "fieldtype": "Check",
+            "label": "Responsive Layout",
+            "default": 1,
+            "description": "Use responsive design elements"
+        },
+        {
+            "fieldname": "touch_optimized",
+            "fieldtype": "Check",
+            "label": "Touch Optimized",
+            "default": 1,
+            "description": "Optimize for touch interfaces"
+        },
+        {
+            "fieldname": "column_break_15",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "compress_images",
+            "fieldtype": "Check",
+            "label": "Compress Images",
+            "default": 1,
+            "description": "Compress images for smaller file size"
+        },
+        {
+            "fieldname": "optimize_fonts",
+            "fieldtype": "Check",
+            "label": "Optimize Fonts",
+            "default": 1,
+            "description": "Use web-safe fonts for mobile"
+        },
+        {
+            "fieldname": "reduce_file_size",
+            "fieldtype": "Check",
+            "label": "Reduce File Size",
+            "default": 1,
+            "description": "Apply compression for mobile download"
+        },
+        {
+            "fieldname": "arabic_localization_section",
+            "fieldtype": "Section Break",
+            "label": "Arabic Localization"
+        },
+        {
+            "fieldname": "rtl_layout",
+            "fieldtype": "Check",
+            "label": "RTL Layout",
+            "default": 0,
+            "description": "Use right-to-left layout for Arabic"
+        },
+        {
+            "fieldname": "arabic_fonts",
+            "fieldtype": "Select",
+            "label": "Arabic Font Family",
+            "options": "Noto Sans Arabic\nTahoma\nArial Unicode MS\nAmiri\nScheherazade\nKufi",
+            "default": "Noto Sans Arabic",
+            "depends_on": "rtl_layout"
+        },
+        {
+            "fieldname": "bilingual_export",
+            "fieldtype": "Check",
+            "label": "Bilingual Export",
+            "default": 0,
+            "description": "Include both Arabic and English"
+        },
+        {
+            "fieldname": "column_break_20",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "arabic_numbers",
+            "fieldtype": "Check",
+            "label": "Arabic-Indic Numerals",
+            "default": 0,
+            "description": "Use Arabic numerals (٠١٢٣٤٥٦٧٨٩)",
+            "depends_on": "rtl_layout"
+        },
+        {
+            "fieldname": "date_format_arabic",
+            "fieldtype": "Select",
+            "label": "Arabic Date Format",
+            "options": "DD/MM/YYYY\nYYYY/MM/DD\nHijri Calendar\nMixed Format",
+            "default": "DD/MM/YYYY",
+            "depends_on": "rtl_layout"
+        },
+        {
+            "fieldname": "currency_format_arabic",
+            "fieldtype": "Select",
+            "label": "Currency Format",
+            "options": "OMR 123.456\nر.ع. ١٢٣.٤٥٦\n123.456 OMR\n١٢٣.٤٥٦ ر.ع.",
+            "default": "OMR 123.456",
+            "depends_on": "rtl_layout"
+        },
+        {
+            "fieldname": "delivery_section",
+            "fieldtype": "Section Break",
+            "label": "Delivery Options"
+        },
+        {
+            "fieldname": "auto_download",
+            "fieldtype": "Check",
+            "label": "Auto Download",
+            "default": 1,
+            "description": "Automatically start download when ready"
+        },
+        {
+            "fieldname": "email_delivery",
+            "fieldtype": "Check",
+            "label": "Email Delivery",
+            "default": 0,
+            "description": "Send export via email"
+        },
+        {
+            "fieldname": "email_recipients",
+            "fieldtype": "Small Text",
+            "label": "Email Recipients",
+            "description": "Comma-separated email addresses",
+            "depends_on": "email_delivery"
+        },
+        {
+            "fieldname": "column_break_25",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "cloud_storage",
+            "fieldtype": "Check",
+            "label": "Cloud Storage",
+            "default": 0,
+            "description": "Save to cloud storage"
+        },
+        {
+            "fieldname": "storage_path",
+            "fieldtype": "Data",
+            "label": "Storage Path",
+            "description": "Cloud storage path",
+            "depends_on": "cloud_storage"
+        },
+        {
+            "fieldname": "retention_days",
+            "fieldtype": "Int",
+            "label": "Retention Days",
+            "default": 30,
+            "description": "Days to keep the exported file"
+        },
+        {
+            "fieldname": "advanced_settings_section",
+            "fieldtype": "Section Break",
+            "label": "Advanced Settings"
+        },
+        {
+            "fieldname": "custom_template",
+            "fieldtype": "Link",
+            "label": "Custom Template",
+            "options": "Print Format",
+            "description": "Custom print template for export"
+        },
+        {
+            "fieldname": "watermark_image",
+            "fieldtype": "Attach Image",
+            "label": "Watermark Image",
+            "description": "Add watermark to exported files"
+        },
+        {
+            "fieldname": "security_level",
+            "fieldtype": "Select",
+            "label": "Security Level",
+            "options": "Public\nInternal\nConfidential\nRestricted",
+            "default": "Internal"
+        },
+        {
+            "fieldname": "column_break_30",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "password_protect",
+            "fieldtype": "Check",
+            "label": "Password Protect",
+            "default": 0,
+            "description": "Add password protection to file"
+        },
+        {
+            "fieldname": "digital_signature",
+            "fieldtype": "Check",
+            "label": "Digital Signature",
+            "default": 0,
+            "description": "Add digital signature to PDF"
+        },
+        {
+            "fieldname": "access_permissions",
+            "fieldtype": "Small Text",
+            "label": "Access Permissions",
+            "description": "Comma-separated roles with access"
+        },
+        {
+            "fieldname": "file_management_section",
+            "fieldtype": "Section Break",
+            "label": "File Management"
+        },
+        {
+            "fieldname": "generated_file_path",
+            "fieldtype": "Data",
+            "label": "Generated File Path",
+            "read_only": 1,
+            "description": "Path to generated export file"
+        },
+        {
+            "fieldname": "download_url",
+            "fieldtype": "Data",
+            "label": "Download URL",
+            "read_only": 1,
+            "description": "Direct download link"
+        },
+        {
+            "fieldname": "download_count",
+            "fieldtype": "Int",
+            "label": "Download Count",
+            "default": 0,
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_35",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "file_checksum",
+            "fieldtype": "Data",
+            "label": "File Checksum",
+            "read_only": 1,
+            "description": "MD5 checksum for file integrity"
+        },
+        {
+            "fieldname": "expiry_date",
+            "fieldtype": "Datetime",
+            "label": "Expiry Date",
+            "description": "When the export file expires"
+        },
+        {
+            "fieldname": "is_expired",
+            "fieldtype": "Check",
+            "label": "Is Expired",
+            "default": 0,
+            "read_only": 1
+        },
+        {
+            "fieldname": "metadata_section",
+            "fieldtype": "Section Break",
+            "label": "Export Metadata"
+        },
+        {
+            "fieldname": "export_duration",
+            "fieldtype": "Data",
+            "label": "Export Duration",
+            "read_only": 1,
+            "description": "Time taken to generate export"
+        },
+        {
+            "fieldname": "export_size_mb",
+            "fieldtype": "Float",
+            "label": "Export Size (MB)",
+            "read_only": 1,
+            "precision": 3
+        },
+        {
+            "fieldname": "export_rows",
+            "fieldtype": "Int",
+            "label": "Exported Rows",
+            "read_only": 1,
+            "description": "Number of data rows exported"
+        },
+        {
+            "fieldname": "column_break_40",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "default": "user",
+            "read_only": 1
+        },
+        {
+            "fieldname": "error_log",
+            "fieldtype": "Long Text",
+            "label": "Error Log",
+            "read_only": 1,
+            "description": "Error messages if export failed"
+        },
+        {
+            "fieldname": "success_message",
+            "fieldtype": "Small Text",
+            "label": "Success Message",
+            "read_only": 1,
+            "description": "Success confirmation message"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 0,
+    "links": [],
+    "modified": "2024-06-24 15:40:00.000000",
+    "modified_by": "Administrator",
+    "module": "Analytics Reporting",
+    "name": "Report Export Utility",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 0,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop User",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 0,
+            "delete": 0,
+            "email": 0,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Customer",
+            "share": 0,
+            "write": 0
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

@@ -1,0 +1,1 @@
+"""Analytics KPI DocType Module"""

@@ -1,0 +1,240 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 0,
+    "allow_rename": 0,
+    "beta": 0,
+    "creation": "2025-06-24 18:39:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "defect_title",
+        "defect_severity",
+        "defect_priority",
+        "defect_type",
+        "column_break_4",
+        "affected_module",
+        "affected_component",
+        "defect_status",
+        "reproducible",
+        "section_break_9",
+        "defect_description",
+        "steps_to_reproduce",
+        "expected_behavior",
+        "actual_behavior",
+        "column_break_13",
+        "environment_details",
+        "browser_details",
+        "screenshot",
+        "error_logs",
+        "section_break_17",
+        "workaround",
+        "assigned_to",
+        "estimated_fix_time",
+        "column_break_20",
+        "root_cause",
+        "fix_description",
+        "regression_risk"
+    ],
+    "fields": [
+        {
+            "fieldname": "defect_title",
+            "fieldtype": "Data",
+            "label": "Defect Title",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "defect_severity",
+            "fieldtype": "Select",
+            "label": "Severity",
+            "options": "\nCritical\nHigh\nMedium\nLow\nCosmetic",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "defect_priority",
+            "fieldtype": "Select",
+            "label": "Priority",
+            "options": "\nP1 - Critical\nP2 - High\nP3 - Medium\nP4 - Low\nP5 - Enhancement",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "defect_type",
+            "fieldtype": "Select",
+            "label": "Defect Type",
+            "options": "\nFunctional\nUI/UX\nPerformance\nSecurity\nCompatibility\nLocalization\nIntegration\nData",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_4",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "affected_module",
+            "fieldtype": "Select",
+            "label": "Affected Module",
+            "options": "\nScrap Vehicle Processing\nVehicle Dismantling\nParts Grading\nStorage Management\nMarketplace Integration\nProfit Analysis\nEnvironmental Compliance\nReporting & Analytics\nWorkflow Management\nUser Management",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "affected_component",
+            "fieldtype": "Data",
+            "label": "Affected Component",
+            "description": "Specific component or feature affected"
+        },
+        {
+            "fieldname": "defect_status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "\nNew\nOpen\nIn Progress\nFixed\nRetest\nClosed\nRejected\nDeferred",
+            "default": "New",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "reproducible",
+            "fieldtype": "Select",
+            "label": "Reproducible",
+            "options": "\nYes\nNo\nSometimes\nNot Tested",
+            "default": "Not Tested"
+        },
+        {
+            "fieldname": "section_break_9",
+            "fieldtype": "Section Break",
+            "label": "Defect Details"
+        },
+        {
+            "fieldname": "defect_description",
+            "fieldtype": "Text Editor",
+            "label": "Defect Description",
+            "reqd": 1
+        },
+        {
+            "fieldname": "steps_to_reproduce",
+            "fieldtype": "Text Editor",
+            "label": "Steps to Reproduce",
+            "reqd": 1
+        },
+        {
+            "fieldname": "expected_behavior",
+            "fieldtype": "Text Editor",
+            "label": "Expected Behavior",
+            "reqd": 1
+        },
+        {
+            "fieldname": "actual_behavior",
+            "fieldtype": "Text Editor",
+            "label": "Actual Behavior",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_13",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "environment_details",
+            "fieldtype": "Text",
+            "label": "Environment Details",
+            "description": "Test environment where defect was found"
+        },
+        {
+            "fieldname": "browser_details",
+            "fieldtype": "Text",
+            "label": "Browser/Device Details",
+            "description": "Browser or device information"
+        },
+        {
+            "fieldname": "screenshot",
+            "fieldtype": "Attach Image",
+            "label": "Screenshot",
+            "description": "Screenshot showing the defect"
+        },
+        {
+            "fieldname": "error_logs",
+            "fieldtype": "Code",
+            "label": "Error Logs",
+            "options": "Text",
+            "description": "Relevant error logs"
+        },
+        {
+            "fieldname": "section_break_17",
+            "fieldtype": "Section Break",
+            "label": "Resolution Details"
+        },
+        {
+            "fieldname": "workaround",
+            "fieldtype": "Text Editor",
+            "label": "Workaround",
+            "description": "Temporary workaround if available"
+        },
+        {
+            "fieldname": "assigned_to",
+            "fieldtype": "Link",
+            "label": "Assigned To",
+            "options": "User",
+            "description": "Developer assigned to fix this defect"
+        },
+        {
+            "fieldname": "estimated_fix_time",
+            "fieldtype": "Int",
+            "label": "Estimated Fix Time (hours)",
+            "description": "Estimated time to fix this defect"
+        },
+        {
+            "fieldname": "column_break_20",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "root_cause",
+            "fieldtype": "Text Editor",
+            "label": "Root Cause",
+            "description": "Root cause analysis of the defect"
+        },
+        {
+            "fieldname": "fix_description",
+            "fieldtype": "Text Editor",
+            "label": "Fix Description",
+            "description": "Description of the fix implemented"
+        },
+        {
+            "fieldname": "regression_risk",
+            "fieldtype": "Select",
+            "label": "Regression Risk",
+            "options": "\nHigh\nMedium\nLow\nNone",
+            "description": "Risk of introducing regressions with the fix"
+        }
+    ],
+    "has_web_view": 0,
+    "hide_heading": 0,
+    "hide_toolbar": 0,
+    "idx": 0,
+    "image_view": 0,
+    "in_create": 0,
+    "is_submittable": 0,
+    "issingle": 0,
+    "istable": 1,
+    "max_attachments": 0,
+    "modified": "2025-06-24 18:39:00.000000",
+    "modified_by": "Administrator",
+    "module": "Testing",
+    "name": "Test Defect",
+    "owner": "Administrator",
+    "permissions": [],
+    "quick_entry": 0,
+    "read_only": 0,
+    "read_only_onload": 0,
+    "show_name_in_global_search": 0,
+    "sort_field": "defect_severity",
+    "sort_order": "ASC",
+    "states": [],
+    "track_changes": 0,
+    "track_seen": 0,
+    "track_views": 0
+}

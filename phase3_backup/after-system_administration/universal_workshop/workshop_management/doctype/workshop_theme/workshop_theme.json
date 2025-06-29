@@ -1,0 +1,158 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "field:theme_name",
+    "creation": "2024-01-15 10:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "theme_name",
+        "theme_name_ar",
+        "description",
+        "description_ar",
+        "column_break_5",
+        "is_active",
+        "is_default",
+        "theme_data_section",
+        "theme_data",
+        "preview_image",
+        "metadata_section",
+        "created_by",
+        "created_date",
+        "column_break_12",
+        "modified_by",
+        "modified_date"
+    ],
+    "fields": [
+        {
+            "fieldname": "theme_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Theme Name",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "theme_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم المظهر",
+            "translatable": 1
+        },
+        {
+            "fieldname": "description",
+            "fieldtype": "Small Text",
+            "label": "Description"
+        },
+        {
+            "fieldname": "description_ar",
+            "fieldtype": "Small Text",
+            "label": "الوصف",
+            "translatable": 1
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "is_active",
+            "fieldtype": "Check",
+            "default": 1,
+            "label": "Is Active"
+        },
+        {
+            "fieldname": "is_default",
+            "fieldtype": "Check",
+            "default": 0,
+            "label": "Is Default Theme"
+        },
+        {
+            "fieldname": "theme_data_section",
+            "fieldtype": "Section Break",
+            "label": "Theme Configuration"
+        },
+        {
+            "fieldname": "theme_data",
+            "fieldtype": "JSON",
+            "label": "Theme Data"
+        },
+        {
+            "fieldname": "preview_image",
+            "fieldtype": "Attach Image",
+            "label": "Preview Image"
+        },
+        {
+            "fieldname": "metadata_section",
+            "fieldtype": "Section Break",
+            "label": "Metadata"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "created_date",
+            "fieldtype": "Datetime",
+            "label": "Created Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_12",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "modified_by",
+            "fieldtype": "Link",
+            "label": "Modified By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "modified_date",
+            "fieldtype": "Datetime",
+            "label": "Modified Date",
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 0,
+    "links": [],
+    "modified": "2024-01-15 10:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Workshop Management",
+    "name": "Workshop Theme",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

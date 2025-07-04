@@ -131,3 +131,7 @@ config/nginx*.conf
 license_keys/
 hardware_fingerprints/
 auth_tokens/
+
+# Ignore backup folders
+apps/universal_workshop.backup.*
+apps/universal_workshop.emergency.*

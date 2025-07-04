@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Workshop - Modern Onboarding Wizard Demo</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/universal_workshop/favicon.svg">
+    <meta name="theme-color" content="#667eea">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            min-height: 100vh;
+        }
+        
+        .demo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .demo-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .demo-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin: 0 0 1rem 0;
+        }
+        
+        .demo-subtitle {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin: 0 0 2rem 0;
+            max-width: 600px;
+        }
+        
+        .demo-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+            max-width: 800px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            color: #374151;
+            margin: 0 0 0.5rem 0;
+        }
+        
+        .feature-description {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin: 0;
+        }
+        
+        .demo-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .demo-btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .demo-btn.primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+        }
+        
+        .demo-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(102, 126, 234, 0.6);
+        }
+        
+        .demo-btn.secondary {
+            background: white;
+            color: #374151;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .demo-btn.secondary:hover {
+            border-color: #d1d5db;
+            transform: translateY(-2px);
+        }
+        
+        .demo-status {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #f0f9ff;
+            border: 2px solid #bae6fd;
+            border-radius: 12px;
+            text-align: center;
+            color: #0369a1;
+            max-width: 600px;
+        }
+        
+        .rtl-demo {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        .rtl-toggle {
+            background: #f59e0b;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .rtl-toggle:hover {
+            background: #d97706;
+        }
+        
+        /* RTL Support */
+        [dir="rtl"] {
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        [dir="rtl"] .demo-features {
+            direction: rtl;
+        }
+        
+        @media (max-width: 640px) {
+            .demo-title {
+                font-size: 2rem;
+            }
+            
+            .demo-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .demo-btn {
+                text-align: center;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1 class="demo-title">Universal Workshop Frontend V2</h1>
+            <p class="demo-subtitle">
+                Experience the modern, creative onboarding wizard with enhanced Arabic/RTL support, 
+                beautiful animations, and intuitive user interface design.
+            </p>
+        </div>
+        
+        <div class="demo-features">
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3 class="feature-title">Modern Design</h3>
+                <p class="feature-description">Beautiful, glass-morphism UI with smooth animations and transitions</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3 class="feature-title">Arabic/RTL Support</h3>
+                <p class="feature-description">Full Arabic language support with right-to-left layouts</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3 class="feature-title">Mobile First</h3>
+                <p class="feature-description">Responsive design optimized for mobile and tablet devices</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">Fast & Reactive</h3>
+                <p class="feature-description">Vue.js 3 with TypeScript for optimal performance</p>
+            </div>
+        </div>
+        
+        <div class="demo-actions">
+            <button id="startWizard" class="demo-btn primary">
+                🚀 Launch Onboarding Wizard
+            </button>
+            <button id="startLogin" class="demo-btn primary">
+                🔐 Launch Modern Login
+            </button>
+            <button id="loadComponents" class="demo-btn secondary">
+                📦 Load V2 Components
+            </button>
+        </div>
+        
+        <div class="rtl-demo">
+            <button id="toggleRTL" class="rtl-toggle">
+                🔄 Toggle Arabic/RTL Mode
+            </button>
+        </div>
+        
+        <div id="demoStatus" class="demo-status" style="display: none;">
+            <strong>Status:</strong> <span id="statusText">Ready</span>
+        </div>
+    </div>
+
+    <script>
+        // Demo functionality
+        const statusEl = document.getElementById('demoStatus');
+        const statusText = document.getElementById('statusText');
+        
+        function showStatus(message, type = 'info') {
+            statusText.textContent = message;
+            statusEl.style.display = 'block';
+            
+            if (type === 'error') {
+                statusEl.style.background = '#fef2f2';
+                statusEl.style.borderColor = '#fecaca';
+                statusEl.style.color = '#dc2626';
+            } else if (type === 'success') {
+                statusEl.style.background = '#f0fdf4';
+                statusEl.style.borderColor = '#bbf7d0';
+                statusEl.style.color = '#059669';
+            } else {
+                statusEl.style.background = '#f0f9ff';
+                statusEl.style.borderColor = '#bae6fd';
+                statusEl.style.color = '#0369a1';
+            }
+            
+            setTimeout(() => {
+                statusEl.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Start Modern Login
+        document.getElementById('startLogin').addEventListener('click', () => {
+            showStatus('Starting modern login page...', 'info');
+            
+            // Check if V2 system is available
+            if (typeof window.WorkshopV2 !== 'undefined' && window.WorkshopV2.login) {
+                try {
+                    window.WorkshopV2.login.start(true, {
+                        name: 'Universal Workshop Demo',
+                        code: 'UW-DEMO-001',
+                        adminUsername: 'admin'
+                    });
+                    showStatus('V2 Modern Login launched successfully!', 'success');
+                } catch (error) {
+                    showStatus('Failed to launch V2 login: ' + error.message, 'error');
+                }
+            } else {
+                // Fallback: simulate login page
+                showStatus('V2 system not available. Simulating login page...', 'info');
+                
+                // Create a simple modal to demonstrate the concept
+                const modal = document.createElement('div');
+                modal.innerHTML = `
+                    <div style="
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: rgba(0, 0, 0, 0.8);
+                        backdrop-filter: blur(8px);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 1000;
+                    ">
+                        <div style="
+                            background: white;
+                            border-radius: 20px;
+                            padding: 3rem;
+                            max-width: 500px;
+                            margin: 2rem;
+                            text-align: center;
+                            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+                        ">
+                            <div style="
+                                width: 80px;
+                                height: 80px;
+                                border-radius: 50%;
+                                background: linear-gradient(135deg, #667eea, #764ba2);
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin: 0 auto 2rem;
+                                color: white;
+                                font-size: 2rem;
+                            ">🔐</div>
+                            <h3 style="margin: 0 0 1rem; color: #1a202c;">Modern Login Page</h3>
+                            <p style="margin: 0 0 2rem; color: #64748b;">
+                                This is a preview of the modern login interface. 
+                                The actual implementation includes:
+                            </p>
+                            <ul style="text-align: left; color: #64748b; margin: 0 0 2rem;">
+                                <li>🎨 Split-screen design with branding</li>
+                                <li>🔒 Secure authentication with Frappe</li>
+                                <li>✨ Animated backgrounds and effects</li>
+                                <li>🌐 Arabic/RTL language support</li>
+                                <li>📱 Mobile-responsive design</li>
+                                <li>🚀 Dashboard redirect after login</li>
+                            </ul>
+                            <button onclick="this.closest('div').parentNode.remove()" style="
+                                background: linear-gradient(135deg, #667eea, #764ba2);
+                                color: white;
+                                border: none;
+                                padding: 1rem 2rem;
+                                border-radius: 50px;
+                                cursor: pointer;
+                                font-weight: 600;
+                            ">Close Preview</button>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+            }
+        });
+        
+        // Start Onboarding Wizard
+        document.getElementById('startWizard').addEventListener('click', () => {
+            showStatus('Starting modern onboarding wizard...', 'info');
+            
+            // Check if V2 system is available
+            if (typeof window.WorkshopV2 !== 'undefined' && window.WorkshopV2.onboarding) {
+                try {
+                    window.WorkshopV2.onboarding.start();
+                    showStatus('V2 Onboarding Wizard launched successfully!', 'success');
+                } catch (error) {
+                    showStatus('Failed to launch V2 wizard: ' + error.message, 'error');
+                }
+            } else {
+                // Fallback: simulate wizard launch
+                showStatus('V2 system not available. Simulating wizard launch...', 'info');
+                
+                // Create a simple modal to demonstrate the concept
+                const modal = document.createElement('div');
+                modal.innerHTML = `
+                    <div style="
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: rgba(0, 0, 0, 0.8);
+                        backdrop-filter: blur(8px);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 1000;
+                    ">
+                        <div style="
+                            background: white;
+                            border-radius: 20px;
+                            padding: 3rem;
+                            max-width: 500px;
+                            margin: 2rem;
+                            text-align: center;
+                            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+                        ">
+                            <div style="
+                                width: 80px;
+                                height: 80px;
+                                border-radius: 50%;
+                                background: linear-gradient(135deg, #667eea, #764ba2);
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin: 0 auto 2rem;
+                                color: white;
+                                font-size: 2rem;
+                            ">🚀</div>
+                            <h3 style="margin: 0 0 1rem; color: #1a202c;">Modern Onboarding Wizard</h3>
+                            <p style="margin: 0 0 2rem; color: #64748b;">
+                                This is a preview of the modern onboarding wizard interface. 
+                                The actual implementation includes:
+                            </p>
+                            <ul style="text-align: left; color: #64748b; margin: 0 0 2rem;">
+                                <li>✨ Beautiful animations and transitions</li>
+                                <li>🌐 Full Arabic/RTL support</li>
+                                <li>📱 Mobile-optimized design</li>
+                                <li>🔧 Real-time form validation</li>
+                                <li>💾 Auto-save progress</li>
+                                <li>🎯 Step-by-step guidance</li>
+                            </ul>
+                            <button onclick="this.closest('div').parentNode.remove()" style="
+                                background: linear-gradient(135deg, #667eea, #764ba2);
+                                color: white;
+                                border: none;
+                                padding: 1rem 2rem;
+                                border-radius: 50px;
+                                cursor: pointer;
+                                font-weight: 600;
+                            ">Close Preview</button>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+            }
+        });
+        
+        // Load Components
+        document.getElementById('loadComponents').addEventListener('click', () => {
+            showStatus('Loading V2 components and systems...', 'info');
+            
+            setTimeout(() => {
+                showStatus('V2 components loaded! Check browser console for details.', 'success');
+                console.log('🎯 Universal Workshop Frontend V2 Components:');
+                console.log('📦 Available components:', [
+                    'OnboardingWizard.vue',
+                    'AdminAccountStep.vue', 
+                    'BasicInfoStep.vue',
+                    'BusinessInfoStep.vue',
+                    'ContactInfoStep.vue',
+                    'OperationalDetailsStep.vue',
+                    'FinancialInfoStep.vue'
+                ]);
+                console.log('🔧 API Integration:', 'OnboardingAPI.ts');
+                console.log('🌐 Arabic Utils:', 'useArabicUtils.ts');
+                console.log('🔗 Compatibility Bridge:', 'bridge.ts');
+            }, 1500);
+        });
+        
+        // Toggle RTL
+        document.getElementById('toggleRTL').addEventListener('click', () => {
+            const isRTL = document.documentElement.dir === 'rtl';
+            const newDir = isRTL ? 'ltr' : 'rtl';
+            const newLang = isRTL ? 'en' : 'ar';
+            
+            document.documentElement.dir = newDir;
+            document.documentElement.lang = newLang;
+            
+            // Update content for demo
+            const title = document.querySelector('.demo-title');
+            const subtitle = document.querySelector('.demo-subtitle');
+            const button = document.getElementById('toggleRTL');
+            
+            if (newDir === 'rtl') {
+                title.textContent = 'نظام إدارة الورش الشامل - الواجهة الثانية';
+                subtitle.textContent = 'اختبر معالج الإعداد الحديث مع دعم شامل للغة العربية والتصميم من اليمين إلى اليسار مع رسوم متحركة جميلة وواجهة مستخدم بديهية.';
+                button.textContent = '🔄 التبديل إلى الإنجليزية';
+                showStatus('تم التبديل إلى العربية/RTL بنجاح!', 'success');
+            } else {
+                title.textContent = 'Universal Workshop Frontend V2';
+                subtitle.textContent = 'Experience the modern, creative onboarding wizard with enhanced Arabic/RTL support, beautiful animations, and intuitive user interface design.';
+                button.textContent = '🔄 Toggle Arabic/RTL Mode';
+                showStatus('Switched to English/LTR successfully!', 'success');
+            }
+        });
+        
+        // Check for test data from profile setup
+        const testData = localStorage.getItem('workshop_test_data');
+        if (testData) {
+            try {
+                const workshopData = JSON.parse(testData);
+                console.log('📋 Test data loaded:', workshopData);
+                showStatus(`Test profile loaded: ${workshopData.workshopName} (${workshopData.workshopNameEn})`, 'success');
+                
+                // Store for V2 system to use
+                window.workshopTestData = workshopData;
+            } catch (error) {
+                console.warn('Failed to parse test data:', error);
+            }
+        } else {
+            showStatus('Demo ready! Click buttons above to explore V2 features.', 'info');
+        }
+        
+        // Log component information
+        console.log('🎯 Universal Workshop Frontend V2 Demo');
+        console.log('📍 Location: /apps/universal_workshop/frontend_v2/');
+        console.log('🚀 Components created:');
+        console.log('  - OnboardingWizard.vue (Main wizard component)');
+        console.log('  - AdminAccountStep.vue (Admin setup step)');
+        console.log('  - BasicInfoStep.vue (Workshop info step)');
+        console.log('  - API integration with existing backend');
+        console.log('  - Arabic/RTL support composables');
+        console.log('  - Compatibility bridge updates');
+        console.log('🎨 Features: Modern UI, animations, mobile-first, Arabic support');
+    </script>
+</body>
+</html>

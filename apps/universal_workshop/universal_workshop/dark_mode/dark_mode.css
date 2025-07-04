@@ -1,0 +1,307 @@
+/* 
+Universal Workshop ERP - Dark Mode Styles
+Complete dark theme implementation with Arabic RTL support
+*/
+
+:root {
+  /* Dark Mode Color Variables */
+  --dark-bg-primary: #1a1a1a;
+  --dark-bg-secondary: #2d2d2d;
+  --dark-bg-tertiary: #3a3a3a;
+  --dark-text-primary: #ffffff;
+  --dark-text-secondary: #cccccc;
+  --dark-text-muted: #999999;
+  --dark-border: #404040;
+  --dark-accent: #4CAF50;
+  --dark-accent-hover: #45a049;
+  --dark-error: #f44336;
+  --dark-warning: #ff9800;
+  --dark-info: #2196F3;
+  --dark-success: #4CAF50;
+}
+
+/* Dark Mode Base Styles */
+body[data-theme="dark"] {
+  background-color: var(--dark-bg-primary);
+  color: var(--dark-text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Layout Containers */
+body[data-theme="dark"] .layout-main,
+body[data-theme="dark"] .desk,
+body[data-theme="dark"] .container {
+  background-color: var(--dark-bg-primary);
+  color: var(--dark-text-primary);
+}
+
+/* Navigation */
+body[data-theme="dark"] .navbar,
+body[data-theme="dark"] .navbar-nav {
+  background-color: var(--dark-bg-secondary);
+  border-bottom: 1px solid var(--dark-border);
+}
+
+body[data-theme="dark"] .navbar-brand,
+body[data-theme="dark"] .nav-link {
+  color: var(--dark-text-primary) !important;
+}
+
+body[data-theme="dark"] .nav-link:hover {
+  color: var(--dark-accent) !important;
+  background-color: var(--dark-bg-tertiary);
+}
+
+/* Sidebar */
+body[data-theme="dark"] .sidebar,
+body[data-theme="dark"] .desk-sidebar {
+  background-color: var(--dark-bg-secondary);
+  border-right: 1px solid var(--dark-border);
+}
+
+body[data-theme="dark"] .sidebar-item,
+body[data-theme="dark"] .sidebar-link {
+  color: var(--dark-text-secondary);
+}
+
+body[data-theme="dark"] .sidebar-item:hover,
+body[data-theme="dark"] .sidebar-link:hover {
+  background-color: var(--dark-bg-tertiary);
+  color: var(--dark-text-primary);
+}
+
+/* Forms and Inputs */
+body[data-theme="dark"] .form-control,
+body[data-theme="dark"] .form-select,
+body[data-theme="dark"] input,
+body[data-theme="dark"] textarea,
+body[data-theme="dark"] select {
+  background-color: var(--dark-bg-secondary);
+  border: 1px solid var(--dark-border);
+  color: var(--dark-text-primary);
+}
+
+body[data-theme="dark"] .form-control:focus,
+body[data-theme="dark"] input:focus,
+body[data-theme="dark"] textarea:focus {
+  background-color: var(--dark-bg-tertiary);
+  border-color: var(--dark-accent);
+  box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25);
+}
+
+/* Buttons */
+body[data-theme="dark"] .btn {
+  border: 1px solid var(--dark-border);
+}
+
+body[data-theme="dark"] .btn-primary {
+  background-color: var(--dark-accent);
+  border-color: var(--dark-accent);
+  color: var(--dark-text-primary);
+}
+
+body[data-theme="dark"] .btn-primary:hover {
+  background-color: var(--dark-accent-hover);
+  border-color: var(--dark-accent-hover);
+}
+
+body[data-theme="dark"] .btn-secondary {
+  background-color: var(--dark-bg-secondary);
+  border-color: var(--dark-border);
+  color: var(--dark-text-secondary);
+}
+
+body[data-theme="dark"] .btn-secondary:hover {
+  background-color: var(--dark-bg-tertiary);
+  color: var(--dark-text-primary);
+}
+
+/* Cards and Panels */
+body[data-theme="dark"] .card,
+body[data-theme="dark"] .panel,
+body[data-theme="dark"] .widget {
+  background-color: var(--dark-bg-secondary);
+  border: 1px solid var(--dark-border);
+  color: var(--dark-text-primary);
+}
+
+body[data-theme="dark"] .card-header,
+body[data-theme="dark"] .panel-header {
+  background-color: var(--dark-bg-tertiary);
+  border-bottom: 1px solid var(--dark-border);
+  color: var(--dark-text-primary);
+}
+
+/* Tables */
+body[data-theme="dark"] .table,
+body[data-theme="dark"] .datatable {
+  background-color: var(--dark-bg-secondary);
+  color: var(--dark-text-primary);
+}
+
+body[data-theme="dark"] .table th,
+body[data-theme="dark"] .table td {
+  border-color: var(--dark-border);
+  color: var(--dark-text-primary);
+}
+
+body[data-theme="dark"] .table-striped tbody tr:nth-of-type(odd) {
+  background-color: var(--dark-bg-tertiary);
+}
+
+body[data-theme="dark"] .table-hover tbody tr:hover {
+  background-color: var(--dark-bg-tertiary);
+}
+
+/* Modal */
+body[data-theme="dark"] .modal-content {
+  background-color: var(--dark-bg-secondary);
+  border: 1px solid var(--dark-border);
+  color: var(--dark-text-primary);
+}
+
+body[data-theme="dark"] .modal-header {
+  border-bottom: 1px solid var(--dark-border);
+}
+
+body[data-theme="dark"] .modal-footer {
+  border-top: 1px solid var(--dark-border);
+}
+
+/* Dropdown */
+body[data-theme="dark"] .dropdown-menu {
+  background-color: var(--dark-bg-secondary);
+  border: 1px solid var(--dark-border);
+}
+
+body[data-theme="dark"] .dropdown-item {
+  color: var(--dark-text-secondary);
+}
+
+body[data-theme="dark"] .dropdown-item:hover {
+  background-color: var(--dark-bg-tertiary);
+  color: var(--dark-text-primary);
+}
+
+/* Alerts */
+body[data-theme="dark"] .alert {
+  border: 1px solid var(--dark-border);
+}
+
+body[data-theme="dark"] .alert-success {
+  background-color: rgba(76, 175, 80, 0.1);
+  border-color: var(--dark-success);
+  color: var(--dark-success);
+}
+
+body[data-theme="dark"] .alert-danger {
+  background-color: rgba(244, 67, 54, 0.1);
+  border-color: var(--dark-error);
+  color: var(--dark-error);
+}
+
+body[data-theme="dark"] .alert-warning {
+  background-color: rgba(255, 152, 0, 0.1);
+  border-color: var(--dark-warning);
+  color: var(--dark-warning);
+}
+
+body[data-theme="dark"] .alert-info {
+  background-color: rgba(33, 150, 243, 0.1);
+  border-color: var(--dark-info);
+  color: var(--dark-info);
+}
+
+/* Arabic RTL Support */
+body[data-theme="dark"][dir="rtl"] {
+  text-align: right;
+}
+
+body[data-theme="dark"][dir="rtl"] .sidebar {
+  border-left: 1px solid var(--dark-border);
+  border-right: none;
+}
+
+body[data-theme="dark"][dir="rtl"] .navbar-nav {
+  flex-direction: row-reverse;
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1050;
+  background-color: var(--dark-bg-secondary);
+  border: 1px solid var(--dark-border);
+  border-radius: 50px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--dark-text-primary);
+}
+
+.dark-mode-toggle:hover {
+  background-color: var(--dark-bg-tertiary);
+  transform: scale(1.05);
+}
+
+.dark-mode-toggle i {
+  font-size: 18px;
+}
+
+/* Animation for theme transition */
+.theme-transition {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Code blocks and syntax highlighting */
+body[data-theme="dark"] pre,
+body[data-theme="dark"] code {
+  background-color: var(--dark-bg-tertiary);
+  border: 1px solid var(--dark-border);
+  color: var(--dark-text-primary);
+}
+
+/* Frappe-specific dark mode adjustments */
+body[data-theme="dark"] .frappe-control,
+body[data-theme="dark"] .control-input,
+body[data-theme="dark"] .form-column {
+  background-color: var(--dark-bg-primary);
+  color: var(--dark-text-primary);
+}
+
+body[data-theme="dark"] .section-body,
+body[data-theme="dark"] .form-section {
+  background-color: var(--dark-bg-secondary);
+  border: 1px solid var(--dark-border);
+}
+
+/* List view dark mode */
+body[data-theme="dark"] .list-row {
+  border-bottom: 1px solid var(--dark-border);
+  background-color: var(--dark-bg-secondary);
+}
+
+body[data-theme="dark"] .list-row:hover {
+  background-color: var(--dark-bg-tertiary);
+}
+
+/* Calendar dark mode */
+body[data-theme="dark"] .calendar {
+  background-color: var(--dark-bg-secondary);
+  border: 1px solid var(--dark-border);
+}
+
+body[data-theme="dark"] .calendar-day {
+  border: 1px solid var(--dark-border);
+  color: var(--dark-text-primary);
+}
+
+/* Dashboard widgets dark mode */
+body[data-theme="dark"] .widget-body,
+body[data-theme="dark"] .dashboard-graph {
+  background-color: var(--dark-bg-secondary);
+  border: 1px solid var(--dark-border);
+  color: var(--dark-text-primary);
+}

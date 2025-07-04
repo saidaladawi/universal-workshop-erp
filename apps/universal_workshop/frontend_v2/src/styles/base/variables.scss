@@ -1,0 +1,173 @@
+/**
+ * SCSS Variables - Universal Workshop Frontend V2
+ * 
+ * Core design tokens and variables for consistent styling
+ * across the application. These will be overridden by dynamic
+ * branding system at runtime.
+ */
+
+// Color System
+:root {
+  // Primary Colors
+  --color-primary: #1976d2;
+  --color-primary-light: #42a5f5;
+  --color-primary-dark: #1565c0;
+  
+  // Secondary Colors
+  --color-secondary: #dc004e;
+  --color-secondary-light: #ff5983;
+  --color-secondary-dark: #9a0036;
+  
+  // Accent Colors
+  --color-accent: #9c27b0;
+  --color-accent-light: #ba68c8;
+  --color-accent-dark: #7b1fa2;
+  
+  // Semantic Colors
+  --color-success: #4caf50;
+  --color-warning: #ff9800;
+  --color-error: #f44336;
+  --color-info: #2196f3;
+  
+  // Surface Colors
+  --color-background: #fafafa;
+  --color-surface: #ffffff;
+  --color-surface-variant: #f5f5f5;
+  
+  // Text Colors
+  --color-on-primary: #ffffff;
+  --color-on-secondary: #ffffff;
+  --color-on-background: #212121;
+  --color-on-surface: #212121;
+  --color-text-primary: #212121;
+  --color-text-secondary: #757575;
+  --color-text-disabled: #bdbdbd;
+  
+  // Border & Divider Colors
+  --color-border: #e0e0e0;
+  --color-divider: #bdbdbd;
+  --color-shadow: rgba(0, 0, 0, 0.12);
+  
+  // Arabic-specific Colors
+  --color-arabic-text: #2c3e50;
+  --color-arabic-accent: #e67e22;
+}
+
+// Typography Scale
+:root {
+  // Font Families
+  --font-family-arabic: 'Cairo', 'Amiri', sans-serif;
+  --font-family-latin: 'Inter', 'Roboto', sans-serif;
+  --font-family-primary: var(--font-family-latin);
+  
+  // Font Sizes
+  --font-size-xs: 0.75rem;    // 12px
+  --font-size-sm: 0.875rem;   // 14px
+  --font-size-base: 1rem;     // 16px
+  --font-size-lg: 1.125rem;   // 18px
+  --font-size-xl: 1.25rem;    // 20px
+  --font-size-2xl: 1.5rem;    // 24px
+  --font-size-3xl: 1.875rem;  // 30px
+  --font-size-4xl: 2.25rem;   // 36px
+  
+  // Font Weights
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  // Line Heights
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+}
+
+// Spacing Scale
+:root {
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;  // 4px
+  --spacing-2: 0.5rem;   // 8px
+  --spacing-3: 0.75rem;  // 12px
+  --spacing-4: 1rem;     // 16px
+  --spacing-5: 1.25rem;  // 20px
+  --spacing-6: 1.5rem;   // 24px
+  --spacing-8: 2rem;     // 32px
+  --spacing-10: 2.5rem;  // 40px
+  --spacing-12: 3rem;    // 48px
+  --spacing-16: 4rem;    // 64px
+  --spacing-20: 5rem;    // 80px
+  --spacing-24: 6rem;    // 96px
+}
+
+// Layout Variables
+:root {
+  // Sidebar
+  --sidebar-width: 280px;
+  --sidebar-width-collapsed: 64px;
+  --sidebar-background: var(--color-surface);
+  --sidebar-border: var(--color-border);
+  
+  // Header
+  --header-height: 64px;
+  --header-background: var(--color-surface);
+  --header-border: var(--color-border);
+  --header-shadow: 0 2px 4px var(--color-shadow);
+  
+  // Content
+  --content-max-width: 1200px;
+  --content-padding: var(--spacing-6);
+  --content-background: var(--color-background);
+  
+  // Mobile breakpoints
+  --breakpoint-mobile: 320px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+  --breakpoint-wide: 1440px;
+}
+
+// Border Radius
+:root {
+  --radius-none: 0;
+  --radius-sm: 0.125rem;   // 2px
+  --radius-base: 0.25rem;  // 4px
+  --radius-md: 0.375rem;   // 6px
+  --radius-lg: 0.5rem;     // 8px
+  --radius-xl: 0.75rem;    // 12px
+  --radius-2xl: 1rem;      // 16px
+  --radius-full: 9999px;
+}
+
+// Shadows
+:root {
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-base: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+// Transitions
+:root {
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+  
+  --transition-colors: color var(--transition-base), background-color var(--transition-base), border-color var(--transition-base);
+  --transition-opacity: opacity var(--transition-base);
+  --transition-transform: transform var(--transition-base);
+  --transition-all: all var(--transition-base);
+}
+
+// Z-Index Scale
+:root {
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal-backdrop: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+  --z-index-toast: 1080;
+}

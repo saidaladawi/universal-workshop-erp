@@ -1,0 +1,122 @@
+{
+    "actions": [],
+    "creation": "2025-01-15 15:00:00.000000",
+    "doctype": "Report",
+    "engine": "Query Report",
+    "field_order": [
+        "filters_section",
+        "from_date",
+        "to_date",
+        "column_break_1",
+        "customer_group",
+        "loyalty_tier",
+        "min_visits",
+        "results_section",
+        "columns",
+        "data"
+    ],
+    "fields": [
+        {
+            "fieldname": "filters_section",
+            "fieldtype": "Section Break",
+            "label": "Filters"
+        },
+        {
+            "fieldname": "from_date",
+            "fieldtype": "Date",
+            "label": "From Date",
+            "default": "Today"
+        },
+        {
+            "fieldname": "to_date",
+            "fieldtype": "Date",
+            "label": "To Date",
+            "default": "Today"
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "customer_group",
+            "fieldtype": "Link",
+            "label": "Customer Group",
+            "options": "Customer Group"
+        },
+        {
+            "fieldname": "loyalty_tier",
+            "fieldtype": "Select",
+            "label": "Loyalty Tier",
+            "options": "All\nBronze\nSilver\nGold\nPlatinum",
+            "default": "All"
+        },
+        {
+            "fieldname": "min_visits",
+            "fieldtype": "Int",
+            "label": "Minimum Visits",
+            "default": 1
+        },
+        {
+            "fieldname": "results_section",
+            "fieldtype": "Section Break",
+            "label": "Report Results"
+        },
+        {
+            "fieldname": "columns",
+            "fieldtype": "Table",
+            "label": "Columns",
+            "options": "Report Column"
+        },
+        {
+            "fieldname": "data",
+            "fieldtype": "Table",
+            "label": "Data",
+            "options": "Report Data"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "istable": 0,
+    "links": [],
+    "modified": "2025-01-15 15:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Customer Management",
+    "name": "Customer Loyalty Report",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 0,
+            "delete": 0,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 0,
+            "write": 0
+        }
+    ],
+    "ref_doctype": "Customer",
+    "report_name": "Customer Loyalty Report",
+    "report_type": "Query Report",
+    "roles": [
+        {
+            "role": "System Manager"
+        },
+        {
+            "role": "Workshop Manager"
+        }
+    ]
+} 

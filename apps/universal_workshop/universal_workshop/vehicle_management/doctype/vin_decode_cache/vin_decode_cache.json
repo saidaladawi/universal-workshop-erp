@@ -1,0 +1,120 @@
+{
+    "actions": [],
+    "autoname": "field:vin",
+    "creation": "2025-07-02 10:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "vin",
+        "decoded_data",
+        "decode_source",
+        "confidence_level",
+        "column_break_5",
+        "creation_date",
+        "last_accessed",
+        "access_count"
+    ],
+    "fields": [
+        {
+            "fieldname": "vin",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "VIN",
+            "reqd": 1,
+            "unique": 1,
+            "length": 17,
+            "description": "17-character Vehicle Identification Number"
+        },
+        {
+            "fieldname": "decoded_data",
+            "fieldtype": "Long Text",
+            "label": "Decoded Data",
+            "reqd": 1,
+            "description": "JSON data containing decoded vehicle information"
+        },
+        {
+            "fieldname": "decode_source",
+            "fieldtype": "Select",
+            "label": "Decode Source",
+            "options": "NHTSA\nVinDecoder.eu\nBasic VIN Decode\nManual Entry",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "confidence_level",
+            "fieldtype": "Select",
+            "label": "Confidence Level",
+            "options": "High\nMedium\nLow",
+            "in_list_view": 1,
+            "default": "Medium"
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "creation_date",
+            "fieldtype": "Datetime",
+            "label": "Creation Date",
+            "default": "Now",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_accessed",
+            "fieldtype": "Datetime",
+            "label": "Last Accessed",
+            "read_only": 1
+        },
+        {
+            "fieldname": "access_count",
+            "fieldtype": "Int",
+            "label": "Access Count",
+            "default": "0",
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2025-07-02 10:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Vehicle Management",
+    "name": "VIN Decode Cache",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician"
+        }
+    ],
+    "quick_entry": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "vin",
+    "track_changes": 1
+}

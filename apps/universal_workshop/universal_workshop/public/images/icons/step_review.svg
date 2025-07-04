@@ -1,0 +1,37 @@
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="reviewStepGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="successGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#43a047;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2e7d32;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="24" cy="24" r="22" fill="url(#reviewStepGradient)" opacity="0.1"/>
+  
+  <!-- Clipboard -->
+  <rect x="14" y="8" width="20" height="32" fill="white" rx="2"/>
+  <rect x="16" y="10" width="16" height="28" fill="url(#reviewStepGradient)" opacity="0.1"/>
+  
+  <!-- Clipboard Clip -->
+  <rect x="20" y="6" width="8" height="4" fill="url(#reviewStepGradient)" rx="1"/>
+  <rect x="21" y="7" width="6" height="2" fill="white" rx="1"/>
+  
+  <!-- Checkmarks -->
+  <path d="M18,16 L20,18 L24,14" stroke="url(#successGradient)" stroke-width="2" fill="none"/>
+  <path d="M18,22 L20,24 L24,20" stroke="url(#successGradient)" stroke-width="2" fill="none"/>
+  <path d="M18,28 L20,30 L24,26" stroke="url(#successGradient)" stroke-width="2" fill="none"/>
+  
+  <!-- Text Lines -->
+  <rect x="26" y="15" width="4" height="1" fill="url(#reviewStepGradient)" opacity="0.5"/>
+  <rect x="26" y="21" width="4" height="1" fill="url(#reviewStepGradient)" opacity="0.5"/>
+  <rect x="26" y="27" width="4" height="1" fill="url(#reviewStepGradient)" opacity="0.5"/>
+  
+  <!-- Success Badge -->
+  <circle cx="36" cy="12" r="6" fill="url(#successGradient)"/>
+  <path d="M32,12 L34,14 L40,8" stroke="white" stroke-width="2" fill="none"/>
+</svg>

@@ -176,3 +176,12 @@ sites/*/access.log
 .env.workshop
 config/*.conf
 private_files/
+
+# EXCEPTIONS FOR UNIVERSAL_WORKSHOP - Allow these files to be tracked
+!apps/universal_workshop/
+!apps/universal_workshop/**/*
+!apps/universal_workshop/**/__pycache__/
+!apps/universal_workshop/**/*.pyc
+!apps/universal_workshop/**/public/
+!apps/universal_workshop/**/*.log
+!apps/universal_workshop/**/*.cache

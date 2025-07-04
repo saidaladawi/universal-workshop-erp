@@ -1,0 +1,519 @@
+/**
+ * VAT Automation CSS Styles for Universal Workshop ERP
+ * Supports Arabic RTL layout and OMR currency formatting
+ */
+
+/* Base VAT Automation Styles */
+.vat-automation-container {
+    margin: 15px 0;
+    padding: 15px;
+    border: 1px solid #d1ecf1;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+.vat-calculation-section {
+    background: #fff;
+    border: 1px solid #e3e6f0;
+    border-radius: 6px;
+    padding: 20px;
+    margin: 15px 0;
+}
+
+.vat-summary-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 15px 0;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.vat-summary-card h4 {
+    margin: 0 0 15px 0;
+    font-weight: 600;
+}
+
+.vat-breakdown-table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+}
+
+.vat-breakdown-table th,
+.vat-breakdown-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.vat-breakdown-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #495057;
+}
+
+.vat-amount-display {
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    color: #28a745;
+}
+
+/* Arabic RTL Layout Support */
+.rtl-layout .vat-automation-container,
+[dir="rtl"] .vat-automation-container {
+    direction: rtl;
+    text-align: right;
+}
+
+.rtl-layout .vat-breakdown-table,
+[dir="rtl"] .vat-breakdown-table {
+    direction: rtl;
+}
+
+.rtl-layout .vat-breakdown-table th,
+.rtl-layout .vat-breakdown-table td,
+[dir="rtl"] .vat-breakdown-table th,
+[dir="rtl"] .vat-breakdown-table td {
+    text-align: right;
+}
+
+.vat-breakdown-arabic {
+    font-family: 'Noto Sans Arabic', 'Tahoma', 'Arial Unicode MS', sans-serif;
+    direction: rtl;
+    text-align: right;
+}
+
+.vat-breakdown-arabic .vat-amount-display {
+    direction: ltr; /* Keep currency amounts LTR */
+    text-align: left;
+    display: inline-block;
+}
+
+/* Arabic numerals styling */
+.arabic-numerals {
+    font-feature-settings: "lnum" 0;
+    font-variant-numeric: tabular-nums;
+    font-family: 'Noto Sans Arabic', sans-serif;
+}
+
+/* VAT Status Indicators */
+.vat-status-indicator {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.vat-status-standard {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.vat-status-exempt {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.vat-status-zero {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+/* VAT Calculation Buttons */
+.vat-calculate-btn {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.vat-calculate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
+
+.vat-calculate-btn:active {
+    transform: translateY(0);
+}
+
+.vat-recalculate-btn {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* VAT Form Fields */
+.vat-field-group {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+    align-items: center;
+}
+
+.vat-field-group.rtl {
+    direction: rtl;
+    justify-content: flex-end;
+}
+
+.vat-rate-input {
+    width: 80px;
+    text-align: center;
+    border: 2px solid #ced4da;
+    border-radius: 4px;
+    padding: 8px;
+    font-weight: 600;
+}
+
+.vat-rate-input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.vat-amount-input {
+    width: 120px;
+    text-align: right;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 8px;
+    font-weight: 600;
+    color: #495057;
+    cursor: not-allowed;
+}
+
+/* VAT Grid Styling */
+.vat-grid-row {
+    border-left: 4px solid #28a745;
+    background-color: #f8f9fa;
+}
+
+.vat-grid-row.vat-exempt {
+    border-left-color: #dc3545;
+}
+
+.vat-grid-row.vat-zero {
+    border-left-color: #ffc107;
+}
+
+.vat-grid-cell {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.vat-grid-amount {
+    font-weight: 600;
+    color: #28a745;
+    text-align: right;
+}
+
+/* VAT Modal Dialog Styling */
+.vat-modal .modal-content {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.vat-modal .modal-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 15px 15px 0 0;
+    border-bottom: none;
+}
+
+.vat-modal .modal-title {
+    font-weight: 600;
+}
+
+.vat-modal .btn-close {
+    filter: invert(1);
+}
+
+.vat-modal .modal-body {
+    padding: 30px;
+}
+
+/* VAT Dashboard Widgets */
+.vat-dashboard-widget {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #007bff;
+}
+
+.vat-widget-title {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.vat-widget-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.vat-widget-change {
+    font-size: 12px;
+    color: #28a745;
+}
+
+.vat-widget-change.negative {
+    color: #dc3545;
+}
+
+/* VAT Report Styling */
+.vat-report-container {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 20px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.vat-report-header {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.vat-report-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.vat-report-period {
+    color: #6c757d;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.vat-report-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.vat-report-table th {
+    background: #f8f9fa;
+    padding: 15px;
+    font-weight: 600;
+    color: #495057;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.vat-report-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.vat-report-total-row {
+    background: #e3f2fd;
+    font-weight: 600;
+}
+
+.vat-report-total-row td {
+    border-top: 2px solid #007bff;
+    color: #1976d2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .vat-automation-container {
+        margin: 10px 0;
+        padding: 10px;
+    }
+    
+    .vat-calculation-section {
+        padding: 15px;
+    }
+    
+    .vat-field-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .vat-breakdown-table {
+        font-size: 14px;
+    }
+    
+    .vat-breakdown-table th,
+    .vat-breakdown-table td {
+        padding: 8px;
+    }
+    
+    .vat-dashboard-widget {
+        margin: 10px 0;
+        padding: 15px;
+    }
+    
+    .vat-widget-value {
+        font-size: 20px;
+    }
+    
+    .vat-report-container {
+        padding: 20px;
+        margin: 10px 0;
+    }
+    
+    .vat-report-title {
+        font-size: 24px;
+    }
+    
+    .vat-calculate-btn {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+/* Print Styles for VAT Reports */
+@media print {
+    .vat-automation-container {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+    
+    .vat-calculate-btn,
+    .vat-recalculate-btn {
+        display: none;
+    }
+    
+    .vat-report-container {
+        box-shadow: none;
+    }
+    
+    .vat-breakdown-table {
+        border: 1px solid #000;
+    }
+    
+    .vat-breakdown-table th,
+    .vat-breakdown-table td {
+        border: 1px solid #000;
+    }
+}
+
+/* Animation for VAT Calculations */
+.vat-calculating {
+    position: relative;
+    opacity: 0.7;
+}
+
+.vat-calculating::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vat-calculating::before {
+    content: 'Calculating VAT...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* VAT Error States */
+.vat-error {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.vat-warning {
+    background-color: #fff3cd;
+    border: 1px solid #ffeaa7;
+    color: #856404;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.vat-success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+/* RTL specific adjustments */
+.rtl-layout .vat-field-group {
+    direction: rtl;
+}
+
+.rtl-layout .vat-amount-input,
+.rtl-layout .vat-rate-input {
+    text-align: left;
+}
+
+.rtl-layout .vat-grid-amount {
+    text-align: left;
+}
+
+.rtl-layout .vat-report-table {
+    direction: rtl;
+}
+
+.rtl-layout .vat-dashboard-widget {
+    text-align: right;
+}
+
+/* Focus and accessibility */
+.vat-calculate-btn:focus,
+.vat-recalculate-btn:focus,
+.vat-rate-input:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .vat-automation-container {
+        border: 2px solid #000;
+    }
+    
+    .vat-breakdown-table th {
+        background-color: #000;
+        color: #fff;
+    }
+    
+    .vat-calculate-btn {
+        background: #000;
+        border: 2px solid #fff;
+    }
+} 

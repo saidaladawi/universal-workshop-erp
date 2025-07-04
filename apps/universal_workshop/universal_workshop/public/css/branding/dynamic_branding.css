@@ -1,0 +1,1096 @@
+/**
+ * Universal Workshop Dynamic Branding CSS
+ * Supports dynamic logo injection and theming
+ */
+
+/* CSS Custom Properties for Dynamic Theming */
+:root {
+    --workshop-primary-color: #1f4e79;
+    --workshop-secondary-color: #e8f4fd;
+    --workshop-primary-rgb: 31, 78, 121;
+    --workshop-secondary-rgb: 232, 244, 253;
+    --workshop-primary-light: #4a7ba7;
+    --workshop-primary-dark: #1a3d5f;
+    --workshop-secondary-light: #f0f8ff;
+    --workshop-secondary-dark: #d1e7f0;
+    --workshop-logo-url: none;
+    /* Extended Color Palette */
+    --workshop-accent-color: #ff6b35;
+    --workshop-success-color: #27ae60;
+    --workshop-warning-color: #f39c12;
+    --workshop-danger-color: #e74c3c;
+    --workshop-info-color: #3498db;
+
+    /* RTL-Aware Spacing */
+    --workshop-spacing-xs: 0.25rem;
+    --workshop-spacing-sm: 0.5rem;
+    --workshop-spacing-md: 1rem;
+    --workshop-spacing-lg: 1.5rem;
+    --workshop-spacing-xl: 3rem;
+
+    /* Dynamic Branding Variables */
+    --workshop-primary: var(--workshop-primary-color);
+    --workshop-secondary: var(--workshop-secondary-color);
+    --workshop-brand-font: 'Inter', 'Noto Sans Arabic', sans-serif;
+}
+
+/* Workshop Brand Identity Classes */
+.workshop-brand {
+    color: var(--workshop-primary);
+    font-family: var(--workshop-brand-font);
+}
+
+.workshop-brand-primary {
+    background-color: var(--workshop-primary);
+    color: white;
+}
+
+.workshop-brand-secondary {
+    background-color: var(--workshop-secondary);
+    color: var(--workshop-primary);
+}
+
+.workshop-brand-accent {
+    background-color: var(--workshop-accent-color);
+    color: white;
+}
+
+/* Header Branding */
+.navbar-brand .workshop-navbar-logo,
+.navbar .workshop-navbar-logo {
+    height: 30px;
+    margin-right: 10px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand:hover .workshop-navbar-logo {
+    transform: scale(1.05);
+}
+
+/* Sidebar Branding */
+.workshop-sidebar-logo {
+    text-align: center;
+    padding: 15px 10px;
+    border-bottom: 1px solid var(--workshop-secondary-color);
+    background: linear-gradient(135deg, var(--workshop-secondary-color), rgba(var(--workshop-secondary-rgb), 0.3));
+    transition: background 0.3s ease;
+}
+
+.workshop-sidebar-logo img {
+    max-width: 120px;
+    max-height: 60px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    transition: transform 0.3s ease;
+}
+
+.workshop-sidebar-logo:hover img {
+    transform: scale(1.02);
+}
+
+/* Login Page Branding */
+.workshop-login-logo {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.workshop-login-logo img {
+    max-width: 200px;
+    max-height: 100px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+}
+
+/* Print Format Branding */
+@media print {
+    .workshop-print-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid var(--workshop-primary-color);
+    }
+
+    .workshop-print-logo {
+        height: 60px;
+        max-width: 200px;
+        object-fit: contain;
+    }
+
+    .workshop-print-info {
+        text-align: right;
+        color: var(--workshop-primary-color);
+    }
+}
+
+/* Dynamic Theme Classes */
+.workshop-light-theme {
+    --workshop-bg: #ffffff;
+    --workshop-text: #2c3e50;
+    --workshop-border: #dee2e6;
+    --workshop-card-bg: #ffffff;
+    --workshop-input-bg: #ffffff;
+}
+
+.workshop-dark-theme {
+    --workshop-bg: #2c3e50;
+    --workshop-text: #ecf0f1;
+    --workshop-border: #34495e;
+    --workshop-card-bg: #34495e;
+    --workshop-input-bg: #34495e;
+}
+
+/* Enhanced Button Styling */
+.btn-primary {
+    background: linear-gradient(135deg, var(--workshop-primary-color), var(--workshop-primary-dark));
+    border-color: var(--workshop-primary-color);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--workshop-primary-dark), var(--workshop-primary-color));
+    border-color: var(--workshop-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(var(--workshop-primary-rgb), 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Enhanced Form Controls */
+.form-control:focus {
+    border-color: var(--workshop-primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(var(--workshop-primary-rgb), 0.25);
+}
+
+.input-group-text {
+    background-color: var(--workshop-secondary-color);
+    border-color: var(--workshop-primary-color);
+    color: var(--workshop-primary-color);
+}
+
+/* Section Headers */
+.section-head,
+.form-section .section-head {
+    background: linear-gradient(135deg, var(--workshop-primary-color), var(--workshop-primary-dark)) !important;
+    color: white !important;
+    border-radius: 4px 4px 0 0;
+    padding: 10px 15px;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Enhanced Links */
+a {
+    color: var(--workshop-primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--workshop-primary-dark);
+    text-decoration: none;
+}
+
+/* Sidebar Enhancements */
+.desk-sidebar .sidebar-item.selected,
+.sidebar .sidebar-item.active {
+    background: linear-gradient(90deg, var(--workshop-secondary-color), transparent) !important;
+    border-left: 3px solid var(--workshop-primary-color);
+    color: var(--workshop-primary-color);
+}
+
+.desk-sidebar .sidebar-item:hover,
+.sidebar .sidebar-item:hover {
+    background: rgba(var(--workshop-secondary-rgb), 0.5);
+    color: var(--workshop-primary-dark);
+}
+
+/* Card Enhancements */
+.card,
+.frappe-card {
+    border: 1px solid var(--workshop-border);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover,
+.frappe-card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Table Enhancements */
+.table th {
+    background-color: var(--workshop-secondary-color);
+    color: var(--workshop-primary-color);
+    border-color: var(--workshop-primary-color);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(var(--workshop-secondary-rgb), 0.3);
+}
+
+/* Modal Enhancements */
+.modal-header {
+    background: linear-gradient(135deg, var(--workshop-primary-color), var(--workshop-primary-dark));
+    color: white;
+    border-radius: 4px 4px 0 0;
+}
+
+.modal-header .close {
+    color: white;
+    opacity: 0.8;
+}
+
+.modal-header .close:hover {
+    opacity: 1;
+}
+
+/* Alert Enhancements */
+.alert-primary {
+    background-color: rgba(var(--workshop-primary-rgb), 0.1);
+    border-color: var(--workshop-primary-color);
+    color: var(--workshop-primary-dark);
+}
+
+.alert-secondary {
+    background-color: var(--workshop-secondary-color);
+    border-color: var(--workshop-secondary-dark);
+    color: var(--workshop-primary-color);
+}
+
+/* Badge Enhancements */
+.badge-primary {
+    background-color: var(--workshop-primary-color);
+}
+
+.badge-secondary {
+    background-color: var(--workshop-secondary-dark);
+    color: var(--workshop-primary-color);
+}
+
+/* Progress Bar Enhancements */
+.progress-bar {
+    background: linear-gradient(90deg, var(--workshop-primary-color), var(--workshop-primary-light));
+}
+
+/* Dark Theme Specific Styles */
+.workshop-dark-theme {
+    background-color: var(--workshop-bg);
+    color: var(--workshop-text);
+}
+
+.workshop-dark-theme .desk,
+.workshop-dark-theme .layout-main {
+    background-color: var(--workshop-bg);
+}
+
+.workshop-dark-theme .form-control,
+.workshop-dark-theme .input-group-text {
+    background-color: var(--workshop-input-bg);
+    border-color: var(--workshop-border);
+    color: var(--workshop-text);
+}
+
+.workshop-dark-theme .card,
+.workshop-dark-theme .frappe-card {
+    background-color: var(--workshop-card-bg);
+    border-color: var(--workshop-border);
+    color: var(--workshop-text);
+}
+
+.workshop-dark-theme .table {
+    color: var(--workshop-text);
+}
+
+.workshop-dark-theme .table th {
+    background-color: var(--workshop-primary-color);
+    color: white;
+}
+
+/* Enhanced Dynamic Logo System */
+.workshop-dynamic-logo {
+    width: var(--workshop-logo-width);
+    height: var(--workshop-logo-height);
+    max-width: var(--workshop-logo-max-width);
+    object-fit: contain;
+    filter: var(--workshop-logo-filter);
+    transform: var(--workshop-logo-transform);
+    transition: all var(--workshop-transition-base) var(--workshop-ease-in-out);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: optimizeQuality;
+}
+
+.workshop-dynamic-logo:hover {
+    transform: scale(1.05) var(--workshop-logo-transform);
+    filter: brightness(1.1) var(--workshop-logo-filter);
+}
+
+/* Logo Variants for Different Contexts */
+.workshop-logo-navbar {
+    --workshop-logo-height: 32px;
+    --workshop-logo-max-width: 150px;
+    margin-inline-end: var(--workshop-spacing-sm);
+}
+
+.workshop-logo-sidebar {
+    --workshop-logo-height: 48px;
+    --workshop-logo-max-width: 180px;
+    margin-block-end: var(--workshop-spacing-md);
+}
+
+.workshop-logo-login {
+    --workshop-logo-height: 80px;
+    --workshop-logo-max-width: 250px;
+    --workshop-logo-filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+    margin-block-end: var(--workshop-spacing-lg);
+}
+
+.workshop-logo-print {
+    --workshop-logo-height: 60px;
+    --workshop-logo-max-width: 200px;
+    --workshop-logo-filter: contrast(1.2);
+}
+
+.workshop-logo-mobile {
+    --workshop-logo-height: 28px;
+    --workshop-logo-max-width: 120px;
+}
+
+/* Adaptive Logo System for Different Themes */
+.workshop-theme-light .workshop-dynamic-logo {
+    --workshop-logo-filter: none;
+}
+
+.workshop-theme-dark .workshop-dynamic-logo {
+    --workshop-logo-filter: brightness(1.2) contrast(0.9);
+}
+
+.workshop-theme-high-contrast .workshop-dynamic-logo {
+    --workshop-logo-filter: contrast(2) brightness(1.5);
+}
+
+/* Enhanced Color System with Dynamic Variants */
+.workshop-color-primary {
+    color: var(--workshop-primary-color);
+    transition: color var(--workshop-transition-fast) var(--workshop-ease-out);
+}
+
+.workshop-bg-primary {
+    background-color: var(--workshop-primary-color);
+    transition: background-color var(--workshop-transition-fast) var(--workshop-ease-out);
+}
+
+.workshop-border-primary {
+    border-color: var(--workshop-primary-color);
+    transition: border-color var(--workshop-transition-fast) var(--workshop-ease-out);
+}
+
+/* Gradient System */
+.workshop-gradient-primary {
+    background: linear-gradient(135deg, var(--workshop-primary-color), var(--workshop-primary-dark));
+}
+
+.workshop-gradient-secondary {
+    background: linear-gradient(135deg, var(--workshop-secondary-color), var(--workshop-secondary-dark));
+}
+
+.workshop-gradient-accent {
+    background: linear-gradient(135deg, var(--workshop-accent-color), var(--workshop-primary-color));
+}
+
+/* RTL-Compatible Gradient System */
+[dir="rtl"] .workshop-gradient-primary,
+[dir="rtl"] .workshop-gradient-secondary,
+[dir="rtl"] .workshop-gradient-accent {
+    background: linear-gradient(225deg, var(--workshop-primary-color), var(--workshop-primary-dark));
+}
+
+/* Enhanced Button System */
+.btn-workshop-primary {
+    background: var(--workshop-gradient-primary);
+    border: 1px solid var(--workshop-primary-color);
+    color: white;
+    font-weight: 500;
+    padding: var(--workshop-spacing-sm) var(--workshop-spacing-md);
+    border-radius: var(--workshop-radius-base);
+    transition: all var(--workshop-transition-base) var(--workshop-ease-in-out);
+    box-shadow: var(--workshop-shadow-sm);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--workshop-spacing-xs);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-workshop-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform var(--workshop-transition-base) var(--workshop-ease-in-out);
+}
+
+.btn-workshop-primary:hover::before {
+    transform: translateX(0);
+}
+
+.btn-workshop-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--workshop-shadow-lg);
+    background: var(--workshop-gradient-accent);
+}
+
+.btn-workshop-primary:active {
+    transform: translateY(0);
+    box-shadow: var(--workshop-shadow-sm);
+}
+
+/* Secondary Button Variant */
+.btn-workshop-secondary {
+    background: transparent;
+    border: 2px solid var(--workshop-primary-color);
+    color: var(--workshop-primary-color);
+    font-weight: 500;
+    padding: calc(var(--workshop-spacing-sm) - 1px) calc(var(--workshop-spacing-md) - 1px);
+    border-radius: var(--workshop-radius-base);
+    transition: all var(--workshop-transition-base) var(--workshop-ease-in-out);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--workshop-spacing-xs);
+}
+
+.btn-workshop-secondary:hover {
+    background: var(--workshop-primary-color);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: var(--workshop-shadow-lg);
+}
+
+/* Enhanced Form Controls */
+.form-control-workshop {
+    border: 2px solid var(--workshop-border);
+    border-radius: var(--workshop-radius-base);
+    padding: var(--workshop-spacing-sm) var(--workshop-spacing-md);
+    font-size: var(--workshop-font-scale-base);
+    transition: all var(--workshop-transition-fast) var(--workshop-ease-out);
+    background-color: var(--workshop-input-bg);
+    color: var(--workshop-text);
+}
+
+[dir="rtl"] .form-control-workshop {
+    text-align: right;
+    direction: rtl;
+}
+
+.form-control-workshop:focus {
+    border-color: var(--workshop-primary-color);
+    box-shadow: 0 0 0 3px rgba(var(--workshop-primary-rgb), 0.1);
+    outline: none;
+    background-color: white;
+}
+
+.form-control-workshop:focus-within {
+    border-color: var(--workshop-primary-color);
+    box-shadow: 0 0 0 3px rgba(var(--workshop-primary-rgb), 0.1);
+}
+
+/* Enhanced Input Groups with RTL Support */
+.input-group-workshop {
+    display: flex;
+    width: 100%;
+    border-radius: var(--workshop-radius-base);
+    overflow: hidden;
+    box-shadow: var(--workshop-shadow-sm);
+}
+
+[dir="rtl"] .input-group-workshop {
+    flex-direction: row-reverse;
+}
+
+.input-group-workshop .form-control {
+    border-radius: 0;
+    border-right: none;
+    margin: 0;
+}
+
+[dir="rtl"] .input-group-workshop .form-control {
+    border-right: 2px solid var(--workshop-border);
+    border-left: none;
+}
+
+.input-group-workshop .input-group-text {
+    background: var(--workshop-gradient-secondary);
+    border: 2px solid var(--workshop-primary-color);
+    border-left: none;
+    color: var(--workshop-primary-color);
+    font-weight: 500;
+    padding: var(--workshop-spacing-sm) var(--workshop-spacing-md);
+}
+
+[dir="rtl"] .input-group-workshop .input-group-text {
+    border-left: 2px solid var(--workshop-primary-color);
+    border-right: none;
+}
+
+/* Enhanced Card System */
+.card-workshop {
+    background: var(--workshop-card-bg);
+    border: 1px solid var(--workshop-border);
+    border-radius: var(--workshop-radius-lg);
+    box-shadow: var(--workshop-shadow-base);
+    transition: all var(--workshop-transition-base) var(--workshop-ease-in-out);
+    overflow: hidden;
+    position: relative;
+}
+
+.card-workshop::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--workshop-gradient-primary);
+    transform: scaleX(0);
+    transition: transform var(--workshop-transition-base) var(--workshop-ease-in-out);
+}
+
+.card-workshop:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--workshop-shadow-xl);
+}
+
+.card-workshop:hover::before {
+    transform: scaleX(1);
+}
+
+.card-workshop .card-header {
+    background: var(--workshop-gradient-secondary);
+    border-bottom: 1px solid var(--workshop-border);
+    padding: var(--workshop-spacing-md) var(--workshop-spacing-lg);
+    font-weight: 600;
+    color: var(--workshop-primary-color);
+}
+
+[dir="rtl"] .card-workshop .card-header {
+    text-align: right;
+}
+
+.card-workshop .card-body {
+    padding: var(--workshop-spacing-lg);
+}
+
+[dir="rtl"] .card-workshop .card-body {
+    text-align: right;
+}
+
+/* Enhanced Navigation System */
+.navbar-workshop {
+    background: var(--workshop-gradient-primary);
+    box-shadow: var(--workshop-shadow-lg);
+    border: none;
+    padding: var(--workshop-spacing-sm) 0;
+}
+
+.navbar-workshop .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--workshop-spacing-sm);
+    color: white;
+    font-weight: 700;
+    font-size: var(--workshop-font-scale-lg);
+    text-decoration: none;
+    transition: all var(--workshop-transition-fast) var(--workshop-ease-out);
+}
+
+[dir="rtl"] .navbar-workshop .navbar-brand {
+    flex-direction: row-reverse;
+}
+
+.navbar-workshop .navbar-brand:hover {
+    color: var(--workshop-secondary-light);
+    transform: scale(1.02);
+}
+
+.navbar-workshop .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    padding: var(--workshop-spacing-xs) var(--workshop-spacing-md);
+    border-radius: var(--workshop-radius-base);
+    transition: all var(--workshop-transition-fast) var(--workshop-ease-out);
+    text-decoration: none;
+    position: relative;
+}
+
+.navbar-workshop .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--workshop-accent-color);
+    transition: all var(--workshop-transition-fast) var(--workshop-ease-out);
+    transform: translateX(-50%);
+}
+
+.navbar-workshop .nav-link:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-workshop .nav-link:hover::before {
+    width: 80%;
+}
+
+.navbar-workshop .nav-link.active {
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.navbar-workshop .nav-link.active::before {
+    width: 100%;
+}
+
+/* Enhanced Sidebar System */
+.sidebar-workshop {
+    background: var(--workshop-card-bg);
+    border-right: 1px solid var(--workshop-border);
+    box-shadow: var(--workshop-shadow-lg);
+    height: 100vh;
+    overflow-y: auto;
+    padding: var(--workshop-spacing-lg) 0;
+    position: sticky;
+    top: 0;
+}
+
+[dir="rtl"] .sidebar-workshop {
+    border-right: none;
+    border-left: 1px solid var(--workshop-border);
+}
+
+.sidebar-workshop .sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: var(--workshop-spacing-sm);
+    padding: var(--workshop-spacing-sm) var(--workshop-spacing-lg);
+    color: var(--workshop-text);
+    text-decoration: none;
+    transition: all var(--workshop-transition-fast) var(--workshop-ease-out);
+    border-left: 3px solid transparent;
+    position: relative;
+}
+
+[dir="rtl"] .sidebar-workshop .sidebar-item {
+    border-left: none;
+    border-right: 3px solid transparent;
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+.sidebar-workshop .sidebar-item:hover {
+    background: var(--workshop-secondary-color);
+    color: var(--workshop-primary-color);
+    border-left-color: var(--workshop-primary-color);
+}
+
+[dir="rtl"] .sidebar-workshop .sidebar-item:hover {
+    border-left-color: transparent;
+    border-right-color: var(--workshop-primary-color);
+}
+
+.sidebar-workshop .sidebar-item.active {
+    background: var(--workshop-gradient-secondary);
+    color: var(--workshop-primary-color);
+    border-left-color: var(--workshop-accent-color);
+    font-weight: 600;
+}
+
+[dir="rtl"] .sidebar-workshop .sidebar-item.active {
+    border-left-color: transparent;
+    border-right-color: var(--workshop-accent-color);
+}
+
+.sidebar-workshop .sidebar-item .icon {
+    font-size: var(--workshop-font-scale-lg);
+    width: 24px;
+    text-align: center;
+}
+
+/* Enhanced Table System */
+.table-workshop {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--workshop-card-bg);
+    border-radius: var(--workshop-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--workshop-shadow-base);
+}
+
+.table-workshop th {
+    background: var(--workshop-gradient-primary);
+    color: white;
+    font-weight: 600;
+    padding: var(--workshop-spacing-md) var(--workshop-spacing-lg);
+    text-align: var(--direction-start);
+    border: none;
+}
+
+[dir="rtl"] .table-workshop th {
+    text-align: right;
+}
+
+.table-workshop td {
+    padding: var(--workshop-spacing-md) var(--workshop-spacing-lg);
+    border-bottom: 1px solid var(--workshop-border);
+    text-align: var(--direction-start);
+    transition: background-color var(--workshop-transition-fast) var(--workshop-ease-out);
+}
+
+[dir="rtl"] .table-workshop td {
+    text-align: right;
+}
+
+.table-workshop tbody tr:hover {
+    background-color: var(--workshop-secondary-color);
+}
+
+.table-workshop tbody tr:nth-child(even) {
+    background-color: rgba(var(--workshop-secondary-rgb), 0.3);
+}
+
+/* Enhanced Modal System */
+.modal-workshop .modal-dialog {
+    border-radius: var(--workshop-radius-xl);
+    box-shadow: var(--workshop-shadow-2xl);
+    border: none;
+    overflow: hidden;
+    animation: modalSlideIn var(--workshop-transition-slow) var(--workshop-ease-out);
+}
+
+.modal-workshop .modal-header {
+    background: var(--workshop-gradient-primary);
+    color: white;
+    border: none;
+    padding: var(--workshop-spacing-lg);
+}
+
+[dir="rtl"] .modal-workshop .modal-header {
+    text-align: right;
+}
+
+.modal-workshop .modal-title {
+    font-weight: 700;
+    margin: 0;
+}
+
+.modal-workshop .modal-body {
+    padding: var(--workshop-spacing-xl);
+    background: var(--workshop-card-bg);
+}
+
+[dir="rtl"] .modal-workshop .modal-body {
+    text-align: right;
+}
+
+.modal-workshop .modal-footer {
+    background: var(--workshop-secondary-color);
+    border: none;
+    padding: var(--workshop-spacing-lg);
+    display: flex;
+    gap: var(--workshop-spacing-sm);
+    justify-content: flex-end;
+}
+
+[dir="rtl"] .modal-workshop .modal-footer {
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+}
+
+/* Alert System */
+.alert-workshop {
+    border: none;
+    border-radius: var(--workshop-radius-lg);
+    padding: var(--workshop-spacing-md) var(--workshop-spacing-lg);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: var(--workshop-spacing-md);
+}
+
+[dir="rtl"] .alert-workshop {
+    text-align: right;
+}
+
+.alert-workshop::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: currentColor;
+}
+
+[dir="rtl"] .alert-workshop::before {
+    left: auto;
+    right: 0;
+}
+
+.alert-workshop-success {
+    background: rgba(39, 174, 96, 0.1);
+    color: var(--workshop-success-color);
+    border: 1px solid rgba(39, 174, 96, 0.2);
+}
+
+.alert-workshop-warning {
+    background: rgba(243, 156, 18, 0.1);
+    color: var(--workshop-warning-color);
+    border: 1px solid rgba(243, 156, 18, 0.2);
+}
+
+.alert-workshop-danger {
+    background: rgba(231, 76, 60, 0.1);
+    color: var(--workshop-danger-color);
+    border: 1px solid rgba(231, 76, 60, 0.2);
+}
+
+.alert-workshop-info {
+    background: rgba(52, 152, 219, 0.1);
+    color: var(--workshop-info-color);
+    border: 1px solid rgba(52, 152, 219, 0.2);
+}
+
+/* Enhanced Badge System */
+.badge-workshop {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--workshop-spacing-xs);
+    padding: var(--workshop-spacing-xs) var(--workshop-spacing-sm);
+    font-size: var(--workshop-font-scale-sm);
+    font-weight: 600;
+    border-radius: var(--workshop-radius-full);
+    text-decoration: none;
+    transition: all var(--workshop-transition-fast) var(--workshop-ease-out);
+}
+
+.badge-workshop-primary {
+    background: var(--workshop-gradient-primary);
+    color: white;
+}
+
+.badge-workshop-secondary {
+    background: var(--workshop-secondary-color);
+    color: var(--workshop-primary-color);
+}
+
+.badge-workshop-success {
+    background: var(--workshop-success-color);
+    color: white;
+}
+
+.badge-workshop-warning {
+    background: var(--workshop-warning-color);
+    color: white;
+}
+
+.badge-workshop-danger {
+    background: var(--workshop-danger-color);
+    color: white;
+}
+
+/* Progress Bar System */
+.progress-workshop {
+    background: var(--workshop-secondary-color);
+    border-radius: var(--workshop-radius-full);
+    height: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-workshop .progress-bar {
+    background: var(--workshop-gradient-primary);
+    height: 100%;
+    border-radius: var(--workshop-radius-full);
+    transition: width var(--workshop-transition-slow) var(--workshop-ease-out);
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-workshop .progress-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: progressShimmer 2s infinite;
+}
+
+/* Loading Spinner System */
+.spinner-workshop {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--workshop-secondary-color);
+    border-top-color: var(--workshop-primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Animations */
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes progressShimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design Enhancements */
+@media (max-width: 768px) {
+    .workshop-logo-mobile {
+        --workshop-logo-height: 24px;
+        --workshop-logo-max-width: 100px;
+    }
+
+    .btn-workshop-primary,
+    .btn-workshop-secondary {
+        padding: var(--workshop-spacing-sm);
+        font-size: var(--workshop-font-scale-sm);
+    }
+
+    .card-workshop .card-body {
+        padding: var(--workshop-spacing-md);
+    }
+
+    .table-workshop th,
+    .table-workshop td {
+        padding: var(--workshop-spacing-sm);
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    :root {
+        --workshop-primary-color: #000000;
+        --workshop-secondary-color: #ffffff;
+        --workshop-border: #000000;
+        --workshop-text: #000000;
+        --workshop-bg: #ffffff;
+    }
+
+    .workshop-dynamic-logo {
+        --workshop-logo-filter: contrast(2) brightness(0.8);
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .workshop-dynamic-logo {
+        transition: none;
+    }
+
+    .btn-workshop-primary,
+    .btn-workshop-secondary,
+    .card-workshop {
+        transition: none;
+        transform: none;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --workshop-bg: #1a202c;
+        --workshop-text: #e2e8f0;
+        --workshop-card-bg: #2d3748;
+        --workshop-border: #4a5568;
+        --workshop-input-bg: #2d3748;
+        --workshop-secondary-color: #2d3748;
+        --workshop-secondary-light: #4a5568;
+    }
+
+    .workshop-dynamic-logo {
+        --workshop-logo-filter: brightness(1.2) contrast(0.9);
+    }
+}
+
+/* Print Optimizations */
+@media print {
+    .workshop-dynamic-logo {
+        --workshop-logo-filter: contrast(1.5) brightness(0.9);
+        max-height: 60px;
+    }
+
+    .btn-workshop-primary,
+    .btn-workshop-secondary {
+        background: transparent !important;
+        color: black !important;
+        border: 1px solid black !important;
+        box-shadow: none !important;
+    }
+
+    .card-workshop {
+        border: 1px solid black;
+        box-shadow: none;
+        break-inside: avoid;
+    }
+
+    .table-workshop {
+        box-shadow: none;
+    }
+
+    .table-workshop th {
+        background: transparent !important;
+        color: black !important;
+        border: 1px solid black !important;
+    }
+}
+
+/* =================================================================
+   END OF ENHANCED DYNAMIC VISUAL IDENTITY SYSTEM
+   ================================================================= */

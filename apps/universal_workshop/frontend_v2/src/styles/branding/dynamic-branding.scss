@@ -1,0 +1,62 @@
+/**
+ * Dynamic Branding Styles - Universal Workshop Frontend V2
+ * 
+ * Styles for dynamic branding system and workshop customization
+ */
+
+@import '../design-system/tokens.scss';
+
+.branding-system {
+  // Dynamic CSS custom properties for branding
+  --brand-primary: var(--color-primary-500);
+  --brand-secondary: var(--color-secondary-500);
+  --brand-accent: var(--color-accent-500);
+  
+  // Logo containers
+  .brand-logo {
+    &__primary {
+      max-height: 60px;
+      width: auto;
+    }
+    
+    &__secondary {
+      max-height: 40px;
+      width: auto;
+    }
+    
+    &__favicon {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  
+  // Branded elements
+  .branded-header {
+    background: var(--brand-primary);
+    color: white;
+  }
+  
+  .branded-button {
+    background: var(--brand-primary);
+    border-color: var(--brand-primary);
+    
+    &:hover {
+      background: var(--brand-secondary);
+      border-color: var(--brand-secondary);
+    }
+  }
+  
+  .branded-accent {
+    color: var(--brand-accent);
+  }
+}
+
+// Arabic branding support
+.branding-system[dir="rtl"] {
+  .brand-logo {
+    &__primary {
+      margin-right: var(--spacing-md);
+      margin-left: 0;
+    }
+  }
+}

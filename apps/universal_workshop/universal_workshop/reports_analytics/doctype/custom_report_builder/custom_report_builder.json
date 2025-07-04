@@ -1,0 +1,613 @@
+{
+ "actions": [],
+ "allow_copy": 0,
+ "allow_events_in_timeline": 0,
+ "allow_guest_to_view": 0,
+ "allow_import": 0,
+ "allow_rename": 1,
+ "autoname": "format:RPT-{YYYY}-{#####}",
+ "beta": 0,
+ "creation": "2024-06-24 10:11:30.000000",
+ "custom": 0,
+ "docstatus": 0,
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_info_section",
+  "report_name",
+  "report_name_ar",
+  "report_code",
+  "report_category",
+  "business_area",
+  "target_audience",
+  "description",
+  "description_ar",
+  "column_break_basic",
+  "status",
+  "priority",
+  "is_public",
+  "is_favorite",
+  "owner_user",
+  "created_date",
+  "last_modified",
+  "version_number",
+  "data_sources_section",
+  "primary_data_source",
+  "data_refresh_frequency",
+  "data_filter_json",
+  "join_conditions",
+  "column_break_data",
+  "sql_query",
+  "query_parameters",
+  "data_validation_rules",
+  "estimated_rows",
+  "last_data_refresh",
+  "canvas_configuration_section",
+  "canvas_layout",
+  "canvas_width",
+  "canvas_height",
+  "grid_size",
+  "snap_to_grid",
+  "background_color",
+  "column_break_canvas",
+  "rtl_mode",
+  "language_direction",
+  "arabic_font_family",
+  "font_size",
+  "text_alignment",
+  "fields_and_filters_section",
+  "field_configuration",
+  "filter_configuration",
+  "sort_configuration",
+  "group_by_fields",
+  "column_break_fields",
+  "conditional_formatting",
+  "field_visibility_rules",
+  "field_permissions",
+  "visualization_section",
+  "chart_type",
+  "chart_library",
+  "chart_configuration",
+  "chart_colors",
+  "chart_dimensions",
+  "legend_position",
+  "column_break_viz",
+  "axis_configuration",
+  "tooltip_configuration",
+  "animation_settings",
+  "rtl_chart_adjustments",
+  "export_and_sharing_section",
+  "export_formats",
+  "auto_refresh_interval",
+  "column_break_export",
+  "print_format",
+  "pdf_settings",
+  "excel_settings",
+  "mobile_optimization",
+  "performance_section",
+  "query_timeout",
+  "cache_duration",
+  "max_records",
+  "optimization_hints",
+  "column_break_perf",
+  "execution_stats",
+  "performance_metrics",
+  "error_logs",
+  "usage_analytics"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "report_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Report Name (English)",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "report_name_ar",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "اسم التقرير",
+   "reqd": 1,
+   "translatable": 1
+  },
+  {
+   "fieldname": "report_code",
+   "fieldtype": "Data",
+   "label": "Report Code",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "report_category",
+   "fieldtype": "Select",
+   "label": "Report Category",
+   "options": "Financial\\nOperational\\nCustomer\\nInventory\\nWorkshop\\nCompliance\\nAnalytics\\nKPI Dashboard",
+   "reqd": 1
+  },
+  {
+   "fieldname": "business_area",
+   "fieldtype": "Select",
+   "label": "Business Area",
+   "options": "Service Management\\nParts Inventory\\nCustomer Relations\\nFinancial Management\\nWorkshop Operations\\nCompliance Reporting\\nExecutive Dashboard"
+  },
+  {
+   "fieldname": "target_audience",
+   "fieldtype": "Select",
+   "label": "Target Audience",
+   "options": "Workshop Owner\\nService Manager\\nTechnician\\nParts Manager\\nFinancial Controller\\nCustomer Service\\nExecutive"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description (English)"
+  },
+  {
+   "fieldname": "description_ar",
+   "fieldtype": "Text",
+   "label": "الوصف",
+   "translatable": 1
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\\nActive\\nInactive\\nArchived\\nError",
+   "reqd": 1
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "Low\\nMedium\\nHigh\\nCritical"
+  },
+  {
+   "fieldname": "is_public",
+   "fieldtype": "Check",
+   "label": "Public Report"
+  },
+  {
+   "fieldname": "is_favorite",
+   "fieldtype": "Check",
+   "label": "Favorite"
+  },
+  {
+   "fieldname": "owner_user",
+   "fieldtype": "Link",
+   "label": "Owner",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "created_date",
+   "fieldtype": "Datetime",
+   "label": "Created Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_modified",
+   "fieldtype": "Datetime",
+   "label": "Last Modified",
+   "read_only": 1
+  },
+  {
+   "fieldname": "version_number",
+   "fieldtype": "Data",
+   "label": "Version",
+   "read_only": 1
+  },
+  {
+   "fieldname": "data_sources_section",
+   "fieldtype": "Section Break",
+   "label": "Data Sources Configuration"
+  },
+  {
+   "fieldname": "primary_data_source",
+   "fieldtype": "Link",
+   "label": "Primary Data Source",
+   "options": "Data Source Mapping",
+   "reqd": 1
+  },
+  {
+   "fieldname": "data_refresh_frequency",
+   "fieldtype": "Select",
+   "label": "Data Refresh Frequency",
+   "options": "Real-time\\nEvery 5 minutes\\nEvery 15 minutes\\nHourly\\nDaily\\nWeekly\\nManual"
+  },
+  {
+   "fieldname": "data_filter_json",
+   "fieldtype": "Long Text",
+   "label": "Data Filters (JSON)"
+  },
+  {
+   "fieldname": "join_conditions",
+   "fieldtype": "Text",
+   "label": "Join Conditions"
+  },
+  {
+   "fieldname": "column_break_data",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sql_query",
+   "fieldtype": "Code",
+   "label": "Generated SQL Query",
+   "options": "SQL",
+   "read_only": 1
+  },
+  {
+   "fieldname": "query_parameters",
+   "fieldtype": "Long Text",
+   "label": "Query Parameters (JSON)"
+  },
+  {
+   "fieldname": "data_validation_rules",
+   "fieldtype": "Text",
+   "label": "Data Validation Rules"
+  },
+  {
+   "fieldname": "estimated_rows",
+   "fieldtype": "Int",
+   "label": "Estimated Row Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_data_refresh",
+   "fieldtype": "Datetime",
+   "label": "Last Data Refresh",
+   "read_only": 1
+  },
+  {
+   "fieldname": "canvas_configuration_section",
+   "fieldtype": "Section Break",
+   "label": "Canvas & Layout Configuration"
+  },
+  {
+   "fieldname": "canvas_layout",
+   "fieldtype": "Select",
+   "label": "Canvas Layout",
+   "options": "Grid\\nFree-form\\nTemplate-based\\nResponsive"
+  },
+  {
+   "fieldname": "canvas_width",
+   "fieldtype": "Int",
+   "label": "Canvas Width (px)",
+   "default": "1200"
+  },
+  {
+   "fieldname": "canvas_height",
+   "fieldtype": "Int",
+   "label": "Canvas Height (px)",
+   "default": "800"
+  },
+  {
+   "fieldname": "grid_size",
+   "fieldtype": "Int",
+   "label": "Grid Size (px)",
+   "default": "20"
+  },
+  {
+   "fieldname": "snap_to_grid",
+   "fieldtype": "Check",
+   "label": "Snap to Grid"
+  },
+  {
+   "fieldname": "background_color",
+   "fieldtype": "Color",
+   "label": "Background Color",
+   "default": "#ffffff"
+  },
+  {
+   "fieldname": "column_break_canvas",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rtl_mode",
+   "fieldtype": "Check",
+   "label": "RTL Mode (Arabic)"
+  },
+  {
+   "fieldname": "language_direction",
+   "fieldtype": "Select",
+   "label": "Language Direction",
+   "options": "LTR\\nRTL\\nAuto"
+  },
+  {
+   "fieldname": "arabic_font_family",
+   "fieldtype": "Select",
+   "label": "Arabic Font Family",
+   "options": "Noto Sans Arabic\\nTahoma\\nArial Unicode MS\\nAmiri\\nCairo"
+  },
+  {
+   "fieldname": "font_size",
+   "fieldtype": "Int",
+   "label": "Font Size (px)",
+   "default": "14"
+  },
+  {
+   "fieldname": "text_alignment",
+   "fieldtype": "Select",
+   "label": "Text Alignment",
+   "options": "Left\\nCenter\\nRight\\nJustify\\nAuto"
+  },
+  {
+   "fieldname": "fields_and_filters_section",
+   "fieldtype": "Section Break",
+   "label": "Fields & Filters Configuration"
+  },
+  {
+   "fieldname": "field_configuration",
+   "fieldtype": "Long Text",
+   "label": "Field Configuration (JSON)"
+  },
+  {
+   "fieldname": "filter_configuration",
+   "fieldtype": "Long Text",
+   "label": "Filter Configuration (JSON)"
+  },
+  {
+   "fieldname": "sort_configuration",
+   "fieldtype": "Long Text",
+   "label": "Sort Configuration (JSON)"
+  },
+  {
+   "fieldname": "group_by_fields",
+   "fieldtype": "Small Text",
+   "label": "Group By Fields"
+  },
+  {
+   "fieldname": "column_break_fields",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "conditional_formatting",
+   "fieldtype": "Long Text",
+   "label": "Conditional Formatting (JSON)"
+  },
+  {
+   "fieldname": "field_visibility_rules",
+   "fieldtype": "Text",
+   "label": "Field Visibility Rules"
+  },
+  {
+   "fieldname": "field_permissions",
+   "fieldtype": "Text",
+   "label": "Field Permissions"
+  },
+  {
+   "fieldname": "visualization_section",
+   "fieldtype": "Section Break",
+   "label": "Visualization Configuration"
+  },
+  {
+   "fieldname": "chart_type",
+   "fieldtype": "Select",
+   "label": "Chart Type",
+   "options": "Table\\nBar Chart\\nLine Chart\\nPie Chart\\nDonut Chart\\nArea Chart\\nScatter Plot\\nHeatmap\\nGauge\\nKPI Card\\nMixed Chart"
+  },
+  {
+   "fieldname": "chart_library",
+   "fieldtype": "Select",
+   "label": "Chart Library",
+   "options": "Chart.js\\nD3.js\\nFrappe Charts\\nCanvasJS"
+  },
+  {
+   "fieldname": "chart_configuration",
+   "fieldtype": "Long Text",
+   "label": "Chart Configuration (JSON)"
+  },
+  {
+   "fieldname": "chart_colors",
+   "fieldtype": "Small Text",
+   "label": "Chart Color Palette"
+  },
+  {
+   "fieldname": "chart_dimensions",
+   "fieldtype": "Data",
+   "label": "Chart Dimensions (WxH)"
+  },
+  {
+   "fieldname": "legend_position",
+   "fieldtype": "Select",
+   "label": "Legend Position",
+   "options": "Top\\nBottom\\nLeft\\nRight\\nNone"
+  },
+  {
+   "fieldname": "column_break_viz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "axis_configuration",
+   "fieldtype": "Long Text",
+   "label": "Axis Configuration (JSON)"
+  },
+  {
+   "fieldname": "tooltip_configuration",
+   "fieldtype": "Text",
+   "label": "Tooltip Configuration"
+  },
+  {
+   "fieldname": "animation_settings",
+   "fieldtype": "Text",
+   "label": "Animation Settings"
+  },
+  {
+   "fieldname": "rtl_chart_adjustments",
+   "fieldtype": "Long Text",
+   "label": "RTL Chart Adjustments (JSON)"
+  },
+  {
+   "fieldname": "export_and_sharing_section",
+   "fieldtype": "Section Break",
+   "label": "Export & Sharing Configuration"
+  },
+  {
+   "fieldname": "export_formats",
+   "fieldtype": "Select",
+   "label": "Available Export Formats",
+   "options": "PDF\\nExcel\\nCSV\\nJSON\\nPNG\\nSVG\\nHTML"
+  },
+  {
+   "fieldname": "auto_refresh_interval",
+   "fieldtype": "Select",
+   "label": "Auto Refresh Interval",
+   "options": "None\\n30 seconds\\n1 minute\\n5 minutes\\n15 minutes\\n30 minutes\\n1 hour"
+  },
+  {
+   "fieldname": "column_break_export",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "print_format",
+   "fieldtype": "Link",
+   "label": "Print Format",
+   "options": "Print Format"
+  },
+  {
+   "fieldname": "pdf_settings",
+   "fieldtype": "Text",
+   "label": "PDF Export Settings"
+  },
+  {
+   "fieldname": "excel_settings",
+   "fieldtype": "Text",
+   "label": "Excel Export Settings"
+  },
+  {
+   "fieldname": "mobile_optimization",
+   "fieldtype": "Check",
+   "label": "Mobile Optimized"
+  },
+  {
+   "fieldname": "performance_section",
+   "fieldtype": "Section Break",
+   "label": "Performance & Analytics"
+  },
+  {
+   "fieldname": "query_timeout",
+   "fieldtype": "Int",
+   "label": "Query Timeout (seconds)",
+   "default": "30"
+  },
+  {
+   "fieldname": "cache_duration",
+   "fieldtype": "Select",
+   "label": "Cache Duration",
+   "options": "No Cache\\n5 minutes\\n15 minutes\\n1 hour\\n6 hours\\n24 hours"
+  },
+  {
+   "fieldname": "max_records",
+   "fieldtype": "Int",
+   "label": "Max Records",
+   "default": "10000"
+  },
+  {
+   "fieldname": "optimization_hints",
+   "fieldtype": "Text",
+   "label": "Query Optimization Hints"
+  },
+  {
+   "fieldname": "column_break_perf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "execution_stats",
+   "fieldtype": "Long Text",
+   "label": "Execution Statistics (JSON)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "performance_metrics",
+   "fieldtype": "Long Text",
+   "label": "Performance Metrics (JSON)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "error_logs",
+   "fieldtype": "Long Text",
+   "label": "Error Logs",
+   "read_only": 1
+  },
+  {
+   "fieldname": "usage_analytics",
+   "fieldtype": "Long Text",
+   "label": "Usage Analytics (JSON)",
+   "read_only": 1
+  }
+ ],
+ "has_web_view": 0,
+ "hide_heading": 0,
+ "hide_toolbar": 0,
+ "idx": 0,
+ "image_view": 0,
+ "in_create": 0,
+ "is_submittable": 0,
+ "issingle": 0,
+ "istable": 0,
+ "max_attachments": 0,
+ "modified": "2024-06-24 10:11:30.000000",
+ "modified_by": "Administrator",
+ "module": "Reports Analytics",
+ "name": "Custom Report Builder",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Service Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 0,
+ "read_only": 0,
+ "read_only_onload": 0,
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "report_name",
+ "track_changes": 1,
+ "track_seen": 0,
+ "track_views": 0
+}

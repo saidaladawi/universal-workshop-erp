@@ -1,0 +1,187 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 0,
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "beta": 0,
+    "creation": "2024-12-30 10:00:00.000000",
+    "default_view": "List",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "model_type",
+        "model_version",
+        "prediction_time",
+        "accuracy",
+        "user",
+        "session_id",
+        "timestamp",
+        "column_break_8",
+        "performance_section",
+        "response_time_ms",
+        "memory_usage_mb",
+        "cpu_usage_percent",
+        "error_message",
+        "tracking_section",
+        "ip_address",
+        "user_agent",
+        "request_id"
+    ],
+    "fields": [
+        {
+            "fieldname": "model_type",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Model Type",
+            "reqd": 1
+        },
+        {
+            "fieldname": "model_version",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Model Version",
+            "reqd": 1
+        },
+        {
+            "fieldname": "prediction_time",
+            "fieldtype": "Float",
+            "in_list_view": 1,
+            "label": "Prediction Time (seconds)",
+            "precision": "4"
+        },
+        {
+            "fieldname": "accuracy",
+            "fieldtype": "Float",
+            "label": "Accuracy",
+            "precision": "4"
+        },
+        {
+            "fieldname": "user",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "User",
+            "options": "User"
+        },
+        {
+            "fieldname": "session_id",
+            "fieldtype": "Data",
+            "label": "Session ID"
+        },
+        {
+            "fieldname": "timestamp",
+            "fieldtype": "Datetime",
+            "in_list_view": 1,
+            "label": "Timestamp",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_8",
+            "fieldtype": "Column Break"
+        },
+        {
+            "collapsible": 1,
+            "fieldname": "performance_section",
+            "fieldtype": "Section Break",
+            "label": "Performance Metrics"
+        },
+        {
+            "fieldname": "response_time_ms",
+            "fieldtype": "Int",
+            "label": "Response Time (ms)"
+        },
+        {
+            "fieldname": "memory_usage_mb",
+            "fieldtype": "Float",
+            "label": "Memory Usage (MB)",
+            "precision": "2"
+        },
+        {
+            "fieldname": "cpu_usage_percent",
+            "fieldtype": "Float",
+            "label": "CPU Usage (%)",
+            "precision": "2"
+        },
+        {
+            "fieldname": "error_message",
+            "fieldtype": "Text",
+            "label": "Error Message"
+        },
+        {
+            "collapsible": 1,
+            "fieldname": "tracking_section",
+            "fieldtype": "Section Break",
+            "label": "Request Tracking"
+        },
+        {
+            "fieldname": "ip_address",
+            "fieldtype": "Data",
+            "label": "IP Address"
+        },
+        {
+            "fieldname": "user_agent",
+            "fieldtype": "Data",
+            "label": "User Agent"
+        },
+        {
+            "fieldname": "request_id",
+            "fieldtype": "Data",
+            "label": "Request ID"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 0,
+    "istable": 0,
+    "max_attachments": 0,
+    "modified": "2024-12-30 10:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Analytics Reporting",
+    "name": "ML Model Usage Log",
+    "naming_rule": "By fieldname",
+    "naming_series_fieldname": "name",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "read": 1,
+            "report": 1,
+            "role": "Analytics Viewer"
+        }
+    ],
+    "quick_entry": 0,
+    "read_only": 0,
+    "read_only_onload": 0,
+    "show_name_in_global_search": 0,
+    "sort_field": "timestamp",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "model_type",
+    "track_changes": 0,
+    "track_seen": 0,
+    "track_views": 0
+}

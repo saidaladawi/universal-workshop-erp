@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Administrator Setup - إعداد المدير</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/universal_workshop/favicon.svg">
+    <meta name="theme-color" content="#667eea">
+    
+    <link type="text/css" rel="stylesheet" href="/assets/frappe/dist/css/website.bundle.6HX7BUF7.css">
+</head>
+<body>
+<div class="admin-setup-container">
+    <div class="setup-wrapper">
+        <!-- Header Section -->
+        <div class="setup-header">
+            <div class="logo-container">
+                <h1>Administrator Setup</h1>
+                <h2>إعداد المدير</h2>
+                <p class="subtitle">Create your administrator account to complete the setup</p>
+                <p class="subtitle-ar">أنشئ حساب المدير لإكمال الإعداد</p>
+            </div>
+            
+            <!-- License Information Display -->
+            <div class="license-info">
+                <h3>Workshop Data from License / بيانات الورشة من الترخيص</h3>
+                <div class="license-details" id="license-details">
+                    <!-- License data will be loaded by JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Admin Form Section -->
+        <div class="admin-form-section">
+            <form id="admin-setup-form" class="admin-form">
+                <h3 class="form-title">Create Administrator Account / إنشاء حساب المدير</h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="admin_username">Username / اسم المستخدم <span class="required">*</span></label>
+                        <input type="text" id="admin_username" name="admin_username" required 
+                               placeholder="Enter username" class="form-control">
+                        <small class="help-text">Must be at least 3 characters, letters, numbers and underscores only</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="admin_email">Email Address / البريد الإلكتروني <span class="required">*</span></label>
+                        <input type="email" id="admin_email" name="admin_email" required 
+                               placeholder="Enter email address" class="form-control">
+                        <small class="help-text">Valid email address required for system access</small>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="admin_full_name">Full Name / الاسم الكامل <span class="required">*</span></label>
+                    <input type="text" id="admin_full_name" name="admin_full_name" required 
+                           placeholder="Enter your full name" class="form-control">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="admin_password">Password / كلمة المرور <span class="required">*</span></label>
+                        <input type="password" id="admin_password" name="admin_password" required 
+                               placeholder="Enter secure password" class="form-control">
+                        <small class="help-text">Minimum 8 characters, include uppercase, lowercase and numbers</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="admin_password_confirm">Confirm Password / تأكيد كلمة المرور <span class="required">*</span></label>
+                        <input type="password" id="admin_password_confirm" name="admin_password_confirm" required 
+                               placeholder="Confirm password" class="form-control">
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        Complete Setup / إكمال الإعداد
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div id="success-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Setup Complete! / تم الإعداد بنجاح!</h2>
+        </div>
+        <div class="modal-body">
+            <div class="success-icon">✓</div>
+            <p>Administrator account created successfully. Redirecting to login...</p>
+            <p>تم إنشاء حساب المدير بنجاح. جاري التوجيه لصفحة تسجيل الدخول...</p>
+        </div>
+    </div>
+</div>
+
+<style>
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-setup-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.setup-wrapper {
+    max-width: 800px;
+    width: 100%;
+}
+
+.setup-header {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.logo-container h1 {
+    color: #333;
+    margin: 0 0 5px 0;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.logo-container h2 {
+    color: #666;
+    margin: 0 0 15px 0;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.subtitle {
+    color: #777;
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.license-info {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 2px solid #e9ecef;
+}
+
+.license-info h3 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.license-details {
+    text-align: left;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+.detail-row {
+    display: flex;
+    margin-bottom: 8px;
+    padding: 4px 0;
+}
+
+.detail-row .label {
+    font-weight: 600;
+    color: #495057;
+    min-width: 120px;
+    margin-right: 10px;
+}
+
+.detail-row .value {
+    color: #333;
+    flex: 1;
+}
+
+.admin-form-section {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
+}
+
+.required {
+    color: #dc3545;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.help-text {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #6c757d;
+}
+
+.form-actions {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn {
+    padding: 15px 40px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.btn:hover {
+    background: #5a6fd8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.success-icon {
+    font-size: 60px;
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+/* RTL Support */
+[dir="rtl"] .detail-row {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .detail-row .label {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+[dir="rtl"] .license-details {
+    border-left: none;
+    border-right: 4px solid #667eea;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .admin-setup-container {
+        padding: 10px;
+    }
+    
+    .setup-header, .admin-form-section {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .logo-container h1 {
+        font-size: 24px;
+    }
+    
+    .logo-container h2 {
+        font-size: 20px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('admin-setup-form');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = {
+            admin_username: document.getElementById('admin_username').value,
+            admin_email: document.getElementById('admin_email').value,
+            admin_full_name: document.getElementById('admin_full_name').value,
+            admin_password: document.getElementById('admin_password').value,
+            admin_password_confirm: document.getElementById('admin_password_confirm').value
+        };
+        
+        // Validate passwords match
+        if (formData.admin_password !== formData.admin_password_confirm) {
+            alert('Passwords do not match');
+            return;
+        }
+        
+        // Show loading state
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Creating Administrator...';
+        
+        // Submit to backend
+        fetch('/api/method/universal_workshop.www.admin-setup.create_admin_and_complete_setup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Frappe-CSRF-Token': frappe.csrf_token
+            },
+            body: JSON.stringify({
+                admin_data: formData
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message && data.message.success) {
+                // Show success modal
+                document.getElementById('success-modal').style.display = 'flex';
+                
+                // Redirect after delay
+                setTimeout(() => {
+                    window.location.href = data.message.redirect_url || '/login';
+                }, 3000);
+            } else {
+                const errors = data.message?.errors || ['Setup failed'];
+                alert('Setup Error:\n' + errors.join('\n'));
+                
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred during setup');
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+        });
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+/**
+ * Analytics Charts Styles - Universal Workshop Frontend V2
+ * 
+ * Styles for chart components and data visualizations
+ */
+
+@import '../design-system/tokens.scss';
+
+.chart-container {
+  background: var(--color-surface-primary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  
+  &__header {
+    margin-bottom: var(--spacing-md);
+    
+    h3 {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-text-primary);
+      margin: 0;
+    }
+  }
+  
+  &__chart {
+    height: 300px;
+    width: 100%;
+  }
+  
+  &__legend {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+  }
+  
+  &__legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    
+    &::before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--color-primary-500);
+    }
+  }
+}

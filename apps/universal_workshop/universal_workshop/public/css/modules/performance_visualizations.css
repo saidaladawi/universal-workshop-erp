@@ -1,0 +1,752 @@
+/**
+ * Universal Workshop ERP - Performance Visualizations Styles
+ * Chart.js integration with Arabic RTL support and responsive design
+ */
+
+/* =============================================================================
+   Base Performance Visualization Styles
+   ============================================================================= */
+
+/* Arabic language specific styles */
+.arabic {
+    font-family: 'Noto Sans Arabic', 'Tahoma', 'Arial Unicode MS', sans-serif;
+    direction: rtl;
+    text-align: right;
+}
+
+.arabic .chart-container {
+    direction: rtl;
+}
+
+.arabic .charts-title,
+.arabic .chart-card .card-title {
+    font-family: 'Noto Sans Arabic', 'Tahoma', 'Arial Unicode MS', sans-serif;
+}
+
+.arabic .chart-info {
+    text-align: right;
+    direction: rtl;
+}
+
+.performance-visualizations-wrapper {
+    padding: 1rem;
+    background-color: var(--bg-color, #f8f9fa);
+    min-height: 100vh;
+}
+
+.performance-visualizations-wrapper[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+/* =============================================================================
+   Header Styles
+   ============================================================================= */
+
+.charts-header {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
+}
+
+.charts-title {
+    color: #2c3e50;
+    font-weight: 700;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.charts-controls .btn-group {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.charts-controls .btn {
+    border: 1px solid #dee2e6;
+    transition: all 0.3s ease;
+}
+
+.charts-controls .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Time Range Selector */
+.time-range-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.time-range-selector .btn-group {
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.time-range-selector .btn {
+    border-radius: 0;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.time-range-selector .btn-check:checked + .btn {
+    background-color: #4e73df;
+    color: white;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* =============================================================================
+   Charts Grid Layout
+   ============================================================================= */
+
+.charts-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.charts-grid .row {
+    margin: 0;
+    display: contents;
+}
+
+.charts-grid .col-12,
+.charts-grid .col-lg-4,
+.charts-grid .col-lg-6,
+.charts-grid .col-lg-8 {
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+/* =============================================================================
+   Chart Cards
+   ============================================================================= */
+
+.chart-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    background: white;
+    overflow: hidden;
+    position: relative;
+}
+
+.chart-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.chart-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4e73df, #1cc88a, #36b9cc);
+}
+
+.chart-card .card-header {
+    background: white;
+    border-bottom: 1px solid #f1f3f6;
+    padding: 1rem 1.25rem;
+    border-radius: 12px 12px 0 0;
+}
+
+.chart-card .card-title {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.chart-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.chart-actions .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.chart-actions .btn:hover {
+    transform: scale(1.05);
+}
+
+.chart-card .card-body {
+    padding: 1.25rem;
+    position: relative;
+}
+
+/* =============================================================================
+   Chart Container Styles
+   ============================================================================= */
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chart-container canvas {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 8px;
+}
+
+/* Chart Loading State */
+.chart-container.loading {
+    background: linear-gradient(45deg, #f8f9fa, #e9ecef, #f8f9fa);
+    background-size: 200% 200%;
+    animation: loading-shimmer 2s ease-in-out infinite;
+}
+
+@keyframes loading-shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Chart Info */
+.chart-info {
+    padding-top: 0.75rem;
+    border-top: 1px solid #f1f3f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chart-timestamp {
+    font-weight: 500;
+    color: #6c757d;
+}
+
+/* =============================================================================
+   RTL Layout Adjustments
+   ============================================================================= */
+
+[dir="rtl"] .charts-controls {
+    text-align: left;
+}
+
+[dir="rtl"] .chart-actions {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .chart-info {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .d-flex.justify-content-between {
+    flex-direction: row-reverse;
+}
+
+/* =============================================================================
+   Specific Chart Type Styles
+   ============================================================================= */
+
+/* Revenue Trend Chart */
+.chart-card[data-chart-id="revenue_trend"] {
+    background: linear-gradient(135deg, rgba(78, 115, 223, 0.02), rgba(78, 115, 223, 0.08));
+}
+
+.chart-card[data-chart-id="revenue_trend"]::before {
+    background: linear-gradient(90deg, #4e73df, #5a67d8);
+}
+
+/* Service Completion Chart */
+.chart-card[data-chart-id="service_completion"] {
+    background: linear-gradient(135deg, rgba(28, 200, 138, 0.02), rgba(28, 200, 138, 0.08));
+}
+
+.chart-card[data-chart-id="service_completion"]::before {
+    background: linear-gradient(90deg, #1cc88a, #38d9a9);
+}
+
+/* Technician Performance Chart */
+.chart-card[data-chart-id="technician_performance"] {
+    background: linear-gradient(135deg, rgba(54, 185, 204, 0.02), rgba(54, 185, 204, 0.08));
+}
+
+.chart-card[data-chart-id="technician_performance"]::before {
+    background: linear-gradient(90deg, #36b9cc, #4fd1c7);
+}
+
+/* Customer Satisfaction Gauge */
+.chart-card[data-chart-id="customer_satisfaction"] {
+    background: linear-gradient(135deg, rgba(246, 194, 62, 0.02), rgba(246, 194, 62, 0.08));
+}
+
+.chart-card[data-chart-id="customer_satisfaction"]::before {
+    background: linear-gradient(90deg, #f6c23e, #ffd93d);
+}
+
+/* Inventory Turnover Chart */
+.chart-card[data-chart-id="inventory_turnover"] {
+    background: linear-gradient(135deg, rgba(231, 74, 59, 0.02), rgba(231, 74, 59, 0.08));
+}
+
+.chart-card[data-chart-id="inventory_turnover"]::before {
+    background: linear-gradient(90deg, #e74a3b, #fc7f78);
+}
+
+/* Service Type Distribution */
+.chart-card[data-chart-id="service_type_distribution"] {
+    background: linear-gradient(135deg, rgba(90, 92, 105, 0.02), rgba(90, 92, 105, 0.08));
+}
+
+.chart-card[data-chart-id="service_type_distribution"]::before {
+    background: linear-gradient(90deg, #5a5c69, #858796);
+}
+
+/* Monthly Targets Chart */
+.chart-card[data-chart-id="monthly_targets"] {
+    background: linear-gradient(135deg, rgba(133, 135, 150, 0.02), rgba(133, 135, 150, 0.08));
+}
+
+.chart-card[data-chart-id="monthly_targets"]::before {
+    background: linear-gradient(90deg, #858796, #9ca0b0);
+}
+
+/* =============================================================================
+   Footer Styles
+   ============================================================================= */
+
+.charts-footer {
+    padding: 1rem 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
+}
+
+.auto-refresh-status .badge {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* =============================================================================
+   Responsive Design
+   ============================================================================= */
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+    .performance-visualizations-wrapper {
+        padding: 1.5rem;
+    }
+    
+    .charts-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+    }
+    
+    .chart-card .card-body {
+        padding: 1.5rem;
+    }
+    
+    .chart-container {
+        min-height: 300px;
+    }
+}
+
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+    .performance-visualizations-wrapper {
+        padding: 2rem;
+    }
+    
+    .charts-grid {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2.5rem;
+    }
+    
+    .chart-container {
+        min-height: 350px;
+    }
+    
+    .charts-title {
+        font-size: 1.75rem;
+    }
+}
+
+/* Large Desktop (1440px and up) */
+@media (min-width: 1440px) {
+    .performance-visualizations-wrapper {
+        padding: 2.5rem;
+    }
+    
+    .charts-grid {
+        gap: 3rem;
+    }
+}
+
+/* Mobile (below 768px) */
+@media (max-width: 767px) {
+    .performance-visualizations-wrapper {
+        padding: 0.75rem;
+    }
+    
+    .charts-header {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .charts-title {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+    
+    .d-flex.justify-content-between {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .charts-controls {
+        justify-content: center;
+    }
+    
+    .charts-controls .btn-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .charts-controls .btn {
+        border-radius: 6px !important;
+        margin-bottom: 0.25rem;
+    }
+    
+    .time-range-selector {
+        justify-content: stretch;
+    }
+    
+    .time-range-selector .btn-group {
+        width: 100%;
+        border-radius: 6px;
+    }
+    
+    .charts-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .chart-card .card-body {
+        padding: 1rem;
+    }
+    
+    .chart-container {
+        min-height: 250px;
+    }
+    
+    .chart-actions {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .chart-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .charts-footer {
+        padding: 0.75rem 1rem;
+    }
+    
+    .charts-footer .d-flex {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+    }
+}
+
+/* =============================================================================
+   Dark Mode Support
+   ============================================================================= */
+
+@media (prefers-color-scheme: dark) {
+    .performance-visualizations-wrapper {
+        background-color: #1a1d29;
+        color: #e4e6ea;
+    }
+    
+    .charts-header,
+    .chart-card,
+    .charts-footer {
+        background: #242a3d;
+        border-color: #3a4553;
+        color: #e4e6ea;
+    }
+    
+    .charts-title,
+    .chart-card .card-title {
+        color: #e4e6ea;
+    }
+    
+    .chart-card .card-header {
+        background: #242a3d;
+        border-bottom-color: #3a4553;
+    }
+    
+    .chart-info {
+        border-top-color: #3a4553;
+    }
+    
+    .chart-timestamp {
+        color: #b4b7c1;
+    }
+    
+    .charts-controls .btn,
+    .time-range-selector .btn {
+        background: #3a4553;
+        border-color: #4a5568;
+        color: #e4e6ea;
+    }
+    
+    .charts-controls .btn:hover,
+    .time-range-selector .btn:hover {
+        background: #4a5568;
+        border-color: #5a6578;
+    }
+    
+    .time-range-selector .btn-check:checked + .btn {
+        background-color: #5a67d8;
+        border-color: #5a67d8;
+    }
+}
+
+/* =============================================================================
+   Print Styles
+   ============================================================================= */
+
+@media print {
+    .performance-visualizations-wrapper {
+        background: white !important;
+        padding: 0;
+    }
+    
+    .charts-header,
+    .charts-footer {
+        display: none;
+    }
+    
+    .charts-grid {
+        display: block;
+        columns: 2;
+        column-gap: 2rem;
+    }
+    
+    .chart-card {
+        break-inside: avoid;
+        margin-bottom: 1rem;
+        box-shadow: none;
+        border: 1px solid #dee2e6;
+    }
+    
+    .chart-actions {
+        display: none;
+    }
+    
+    .chart-container {
+        min-height: 200px;
+    }
+}
+
+/* =============================================================================
+   Accessibility Improvements
+   ============================================================================= */
+
+/* Focus Styles */
+.charts-controls .btn:focus,
+.time-range-selector .btn:focus,
+.chart-actions .btn:focus {
+    outline: 2px solid #4e73df;
+    outline-offset: 2px;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .chart-card {
+        border: 2px solid #000;
+    }
+    
+    .charts-title,
+    .chart-card .card-title {
+        color: #000;
+        font-weight: bold;
+    }
+    
+    .charts-controls .btn,
+    .time-range-selector .btn {
+        border: 2px solid #000;
+        background: #fff;
+        color: #000;
+    }
+    
+    .time-range-selector .btn-check:checked + .btn {
+        background: #000;
+        color: #fff;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .pulse {
+        animation: none;
+    }
+    
+    .chart-card:hover {
+        transform: none;
+    }
+    
+    .charts-controls .btn:hover {
+        transform: none;
+    }
+}
+
+/* =============================================================================
+   Arabic Font Optimization
+   ============================================================================= */
+
+[dir="rtl"] {
+    font-family: 'Cairo', 'Tahoma', 'Arial Unicode MS', sans-serif;
+}
+
+[dir="rtl"] .charts-title {
+    font-family: 'Cairo', 'Tahoma', sans-serif;
+    font-weight: 700;
+}
+
+[dir="rtl"] .chart-card .card-title {
+    font-family: 'Cairo', 'Tahoma', sans-serif;
+    font-weight: 600;
+}
+
+[dir="rtl"] .btn {
+    font-family: 'Cairo', 'Tahoma', sans-serif;
+}
+
+/* Arabic numerals in charts will be handled by JavaScript */
+[dir="rtl"] .chart-timestamp,
+[dir="rtl"] .chart-info {
+    font-feature-settings: "lnum" 0;
+    font-variant-numeric: tabular-nums;
+}
+
+/* =============================================================================
+   Performance Optimizations
+   ============================================================================= */
+
+/* GPU Acceleration for animations */
+.chart-card,
+.charts-controls .btn,
+.time-range-selector .btn {
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Optimize for large datasets */
+.chart-container canvas {
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+}
+
+/* =============================================================================
+   Loading States
+   ============================================================================= */
+
+.charts-grid.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.chart-card.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.chart-card.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    animation: loading-sweep 1.5s infinite;
+}
+
+@keyframes loading-sweep {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* =============================================================================
+   Error States
+   ============================================================================= */
+
+.chart-card.error {
+    border-color: #dc3545;
+    background: rgba(220, 53, 69, 0.05);
+}
+
+.chart-card.error .card-header {
+    background: rgba(220, 53, 69, 0.1);
+    border-bottom-color: #dc3545;
+}
+
+.chart-container.error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #dc3545;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.chart-container.error::before {
+    content: '⚠️ ';
+    margin-right: 0.5rem;
+}
+
+[dir="rtl"] .chart-container.error::before {
+    margin-right: 0;
+    margin-left: 0.5rem;
+} 

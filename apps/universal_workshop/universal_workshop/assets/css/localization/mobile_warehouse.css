@@ -1,0 +1,499 @@
+/* universal_workshop/public/css/mobile_warehouse.css */
+/* Mobile Warehouse Management Interface Styles */
+
+.mobile-warehouse-interface {
+    font-size: 16px; /* Prevent zoom on iOS */
+}
+
+.mobile-warehouse-dashboard {
+    padding: 15px;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Header Section */
+.warehouse-header {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.warehouse-selector-container {
+    margin-bottom: 15px;
+}
+
+.warehouse-selector-container select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.warehouse-stats {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #6c757d;
+    text-transform: uppercase;
+}
+
+/* Quick Actions Grid */
+.quick-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.warehouse-quick-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 15px;
+    text-align: center;
+    border-radius: 8px;
+    min-height: 80px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.warehouse-quick-action i {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.warehouse-quick-action:hover,
+.warehouse-quick-action:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Stock Items Section */
+.stock-items-section h4 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.stock-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stock-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    min-height: 70px;
+}
+
+.stock-item:hover {
+    background: #f8f9fa;
+    border-color: #007bff;
+}
+
+.stock-item.selected {
+    background: #e3f2fd;
+    border-color: #007bff;
+    box-shadow: 0 2px 8px rgba(0,123,255,0.25);
+}
+
+.stock-item.touch-active {
+    background: #f0f0f0;
+    transform: scale(0.98);
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-name {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.item-code {
+    font-size: 12px;
+    color: #6c757d;
+}
+
+.stock-info {
+    text-align: right;
+    margin-right: 15px;
+}
+
+.stock-qty {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.qty-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #28a745;
+}
+
+.qty-uom {
+    font-size: 12px;
+    color: #6c757d;
+}
+
+.reserved-qty {
+    font-size: 11px;
+    color: #ffc107;
+    margin-top: 2px;
+}
+
+.item-actions button {
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+/* Modal Styles */
+.mobile-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.mobile-modal .modal-content {
+    background: #fff;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.mobile-modal .modal-header {
+    padding: 20px 20px 10px;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mobile-modal .modal-header h4 {
+    margin: 0;
+    color: #333;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #aaa;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+.mobile-modal .modal-body {
+    padding: 20px;
+}
+
+.mobile-modal .modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #e9ecef;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+/* Selected Items List */
+.selected-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.item-details {
+    flex: 1;
+}
+
+.qty-input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.qty-field {
+    width: 80px;
+    padding: 6px;
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+/* Scanner Interface */
+.scanner-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.scanner-viewport {
+    width: 100%;
+    height: 250px;
+    background: #000;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.scanner-controls {
+    margin-bottom: 20px;
+}
+
+.scanner-controls button {
+    margin: 0 10px;
+}
+
+.manual-entry-section {
+    border-top: 1px solid #e9ecef;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.manual-entry-section h5 {
+    margin-bottom: 15px;
+}
+
+.manual-entry-section .form-group {
+    display: flex;
+    gap: 10px;
+}
+
+.manual-entry-section input {
+    flex: 1;
+}
+
+/* Scan Result */
+.scan-result-item {
+    background: #e8f5e8;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+.scan-result-item h5 {
+    color: #155724;
+    margin-bottom: 10px;
+}
+
+.scan-result-item p {
+    margin-bottom: 8px;
+    color: #155724;
+}
+
+/* Pending Transfers */
+.pending-transfers-section {
+    margin-top: 25px;
+}
+
+.pending-transfers-section h4 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.transfers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.transfer-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 6px;
+}
+
+.transfer-info {
+    flex: 1;
+}
+
+.transfer-info strong {
+    display: block;
+    color: #856404;
+}
+
+.transfer-date {
+    font-size: 12px;
+    color: #856404;
+    opacity: 0.8;
+}
+
+.transfer-value {
+    font-weight: bold;
+    color: #856404;
+}
+
+/* Pull to Refresh */
+.pull-to-refresh {
+    transform: translateY(10px);
+    transition: transform 0.3s ease;
+}
+
+.pull-to-refresh::before {
+    content: "↓ Pull to refresh";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: #007bff;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .mobile-warehouse-dashboard {
+        padding: 10px;
+    }
+    
+    .warehouse-header {
+        padding: 12px;
+    }
+    
+    .quick-actions-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .warehouse-quick-action {
+        padding: 15px 10px;
+        min-height: 70px;
+    }
+    
+    .warehouse-quick-action i {
+        font-size: 20px;
+    }
+    
+    .stock-item {
+        padding: 12px;
+        min-height: 60px;
+    }
+    
+    .mobile-modal {
+        padding: 10px;
+    }
+    
+    .mobile-modal .modal-content {
+        max-height: 95vh;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+    .mobile-modal .modal-content {
+        max-height: 80vh;
+    }
+    
+    .scanner-viewport {
+        height: 150px;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .mobile-warehouse-dashboard {
+        background: #1a1a1a;
+        color: #fff;
+    }
+    
+    .warehouse-header {
+        background: #2d2d2d;
+        color: #fff;
+    }
+    
+    .stock-item {
+        background: #2d2d2d;
+        border-color: #444;
+        color: #fff;
+    }
+    
+    .mobile-modal .modal-content {
+        background: #2d2d2d;
+        color: #fff;
+    }
+} 

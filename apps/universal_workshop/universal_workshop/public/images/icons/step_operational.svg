@@ -1,0 +1,39 @@
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="operationalStepGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="toolStepGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="24" cy="24" r="22" fill="url(#operationalStepGradient)" opacity="0.1"/>
+  
+  <!-- Main Gear -->
+  <circle cx="24" cy="24" r="10" fill="url(#operationalStepGradient)"/>
+  <circle cx="24" cy="24" r="6" fill="white" opacity="0.3"/>
+  <circle cx="24" cy="24" r="3" fill="url(#operationalStepGradient)"/>
+  
+  <!-- Gear Teeth -->
+  <rect x="22" y="8" width="4" height="4" fill="url(#operationalStepGradient)"/>
+  <rect x="22" y="36" width="4" height="4" fill="url(#operationalStepGradient)"/>
+  <rect x="8" y="22" width="4" height="4" fill="url(#operationalStepGradient)"/>
+  <rect x="36" y="22" width="4" height="4" fill="url(#operationalStepGradient)"/>
+  
+  <!-- Diagonal Teeth -->
+  <rect x="32" y="10" width="4" height="4" fill="url(#operationalStepGradient)" transform="rotate(45 34 12)"/>
+  <rect x="12" y="10" width="4" height="4" fill="url(#operationalStepGradient)" transform="rotate(-45 14 12)"/>
+  <rect x="32" y="34" width="4" height="4" fill="url(#operationalStepGradient)" transform="rotate(-45 34 36)"/>
+  <rect x="12" y="34" width="4" height="4" fill="url(#operationalStepGradient)" transform="rotate(45 14 36)"/>
+  
+  <!-- Wrench -->
+  <path d="M38,8 L42,4 L43,5 L40,8 L42,10 L43,9 L45,11 L44,12 L42,10 L40,12 L38,10 Z" fill="url(#toolStepGradient)"/>
+  
+  <!-- Screwdriver -->
+  <rect x="4" y="38" width="2" height="8" fill="url(#toolStepGradient)" rx="1"/>
+  <circle cx="5" cy="36" r="1.5" fill="url(#toolStepGradient)"/>
+</svg>

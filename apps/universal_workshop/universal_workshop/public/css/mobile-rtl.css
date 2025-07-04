@@ -1,0 +1,296 @@
+/* Mobile-First RTL CSS for Universal Workshop ERP */
+
+/* Base mobile RTL setup */
+@media (max-width: 767px) {
+    .rtl-layout,
+    [dir="rtl"] {
+        direction: rtl;
+        text-align: right;
+    }
+    
+    /* Mobile form controls */
+    .rtl-layout .form-control,
+    .rtl-layout .input-with-feedback,
+    [dir="rtl"] .form-control {
+        text-align: right;
+        direction: rtl;
+        font-size: 16px; /* Prevent zoom on iOS */
+        -webkit-text-size-adjust: 100%;
+        min-height: 44px; /* Touch-friendly */
+        padding: 12px;
+    }
+    
+    /* Mobile table adjustments */
+    .rtl-layout .list-row-container {
+        direction: rtl;
+        overflow-x: auto;
+    }
+    
+    .rtl-layout .list-row {
+        padding-right: 15px;
+        padding-left: 15px;
+        min-height: 60px;
+    }
+    
+    .rtl-layout .list-row .list-subject {
+        text-align: right;
+        font-size: 14px;
+    }
+    
+    /* Mobile navigation */
+    .rtl-layout .navbar-nav {
+        direction: rtl;
+    }
+    
+    .rtl-layout .dropdown-menu {
+        direction: rtl;
+        text-align: right;
+    }
+    
+    /* Mobile buttons */
+    .rtl-layout .btn,
+    [dir="rtl"] .btn {
+        min-height: 44px;
+        padding: 12px 20px;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+    
+    .rtl-layout .btn-group {
+        direction: ltr; /* Keep button icons left-to-right */
+    }
+    
+    /* Mobile modals */
+    .rtl-layout .modal-header,
+    .rtl-layout .modal-body,
+    .rtl-layout .modal-footer {
+        text-align: right;
+        direction: rtl;
+    }
+    
+    .rtl-layout .modal-title {
+        text-align: right;
+    }
+    
+    /* Mobile sidebar */
+    .rtl-layout .desk-sidebar {
+        right: 0;
+        left: auto;
+        width: 280px;
+    }
+    
+    /* Mobile dashboard cards */
+    .rtl-layout .dashboard-card {
+        margin-bottom: 20px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .rtl-layout .dashboard-card .card-title {
+        text-align: right;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    
+    /* Mobile Arabic text optimization */
+    .arabic-text {
+        font-family: 'Noto Sans Arabic', 'Tahoma', 'Arial Unicode MS', sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Mobile Arabic numbers */
+    .arabic-numerals {
+        font-feature-settings: "lnum" 0;
+        font-variant-numeric: tabular-nums;
+    }
+    
+    /* Mobile form layout */
+    .rtl-layout .control-label {
+        text-align: right;
+        padding-right: 0;
+        padding-left: 15px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    
+    .rtl-layout .form-column {
+        padding-right: 0;
+        padding-left: 15px;
+        margin-bottom: 20px;
+    }
+    
+    /* Mobile search */
+    .rtl-layout .search-input {
+        text-align: right;
+        direction: rtl;
+        padding-right: 40px;
+        padding-left: 12px;
+    }
+    
+    .rtl-layout .search-icon {
+        right: 12px;
+        left: auto;
+    }
+    
+    /* Mobile notifications */
+    .rtl-layout .alert {
+        text-align: right;
+        direction: rtl;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+    
+    /* Mobile tabs */
+    .rtl-layout .nav-tabs {
+        direction: rtl;
+    }
+    
+    .rtl-layout .nav-tabs > li {
+        float: right;
+    }
+    
+    /* Mobile tooltips */
+    .rtl-layout .tooltip {
+        direction: rtl;
+        text-align: right;
+    }
+    
+    /* Mobile date picker */
+    .rtl-layout .datepicker {
+        direction: rtl;
+    }
+    
+    .rtl-layout .datepicker table {
+        direction: rtl;
+    }
+    
+    /* Mobile select dropdowns */
+    .rtl-layout .select2-container {
+        direction: rtl;
+    }
+    
+    .rtl-layout .select2-selection {
+        text-align: right;
+    }
+    
+    /* Mobile file upload */
+    .rtl-layout .file-upload {
+        direction: rtl;
+        text-align: right;
+    }
+    
+    /* Mobile progress bars */
+    .rtl-layout .progress {
+        direction: rtl;
+    }
+    
+    /* Mobile breadcrumbs */
+    .rtl-layout .breadcrumb {
+        direction: rtl;
+        text-align: right;
+    }
+    
+    .rtl-layout .breadcrumb > li {
+        float: right;
+    }
+    
+    /* Mobile pagination */
+    .rtl-layout .pagination {
+        direction: rtl;
+        text-align: center;
+    }
+    
+    .rtl-layout .pagination > li {
+        float: right;
+    }
+    
+    /* Mobile loading spinner */
+    .rtl-layout .loading-spinner {
+        direction: rtl;
+    }
+    
+    /* Mobile error messages */
+    .rtl-layout .error-message {
+        text-align: right;
+        direction: rtl;
+        color: #dc3545;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+    
+    /* Mobile success messages */
+    .rtl-layout .success-message {
+        text-align: right;
+        direction: rtl;
+        color: #28a745;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+    
+    /* Mobile warning messages */
+    .rtl-layout .warning-message {
+        text-align: right;
+        direction: rtl;
+        color: #ffc107;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+}
+
+/* Tablet optimizations */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .rtl-layout .form-control {
+        font-size: 15px;
+        min-height: 40px;
+    }
+    
+    .rtl-layout .btn {
+        min-height: 40px;
+        padding: 10px 16px;
+    }
+    
+    .rtl-layout .list-row {
+        min-height: 50px;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .arabic-text {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Landscape orientation */
+@media (max-width: 767px) and (orientation: landscape) {
+    .rtl-layout .modal-dialog {
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    
+    .rtl-layout .desk-sidebar {
+        width: 250px;
+    }
+}
+
+/* Print styles for Arabic */
+@media print {
+    .rtl-layout {
+        direction: rtl;
+        text-align: right;
+    }
+    
+    .rtl-layout .form-control {
+        text-align: right;
+        direction: rtl;
+    }
+    
+    .rtl-layout .table th,
+    .rtl-layout .table td {
+        text-align: right;
+    }
+} 

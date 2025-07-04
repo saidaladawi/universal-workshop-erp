@@ -1,0 +1,41 @@
+{
+    "name": "VAT Settings",
+    "doctype": "DocType",
+    "module": "Billing Management",
+    "is_single": 1,
+    "custom": 0,
+    "fields": [
+        {
+            "fieldname": "vat_account",
+            "fieldtype": "Link",
+            "label": "حساب الضريبة (VAT Account)",
+            "options": "Account",
+            "reqd": 1,
+            "description": "الحساب المستخدم لمعاملات ضريبة القيمة المضافة."
+        },
+        {
+            "fieldname": "vat_rate",
+            "fieldtype": "Percent",
+            "label": "نسبة الضريبة (VAT Rate)",
+            "reqd": 1,
+            "default": "5",
+            "description": "النسبة الافتراضية لضريبة القيمة المضافة في عمان."
+        },
+        {
+            "fieldname": "vat_number",
+            "fieldtype": "Data",
+            "label": "رقم التسجيل الضريبي (VAT Number)",
+            "reqd": 1,
+            "description": "رقم ضريبة القيمة المضافة للمنشأة."
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        }
+    ]
+} 

@@ -1,0 +1,418 @@
+{
+    "actions": [],
+    "allow_rename": 0,
+    "autoname": "format:COMM-{YYYY}-{#####}",
+    "creation": "2025-01-01 12:00:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 0,
+    "engine": "InnoDB",
+    "field_order": [
+        "communication_details_section",
+        "customer",
+        "customer_name",
+        "phone_number",
+        "email",
+        "column_break_1",
+        "communication_type",
+        "communication_channel",
+        "message_direction",
+        "communication_status",
+        "message_section",
+        "message_content",
+        "message_content_ar",
+        "column_break_2",
+        "template_used",
+        "template_variables",
+        "message_type",
+        "delivery_section",
+        "sent_datetime",
+        "delivered_datetime",
+        "read_datetime",
+        "column_break_3",
+        "delivery_status",
+        "delivery_attempts",
+        "error_message",
+        "external_section",
+        "external_message_id",
+        "external_provider",
+        "external_cost",
+        "column_break_4",
+        "queue_id",
+        "queue_priority",
+        "processed_by_worker",
+        "consent_section",
+        "consent_given",
+        "consent_record",
+        "opt_out_requested",
+        "column_break_5",
+        "gdpr_compliant",
+        "data_retention_date",
+        "metadata_section",
+        "source_document",
+        "source_document_type",
+        "triggered_by_user",
+        "column_break_6",
+        "user_agent",
+        "ip_address",
+        "campaign_id",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "communication_details_section",
+            "fieldtype": "Section Break",
+            "label": "Communication Details"
+        },
+        {
+            "fieldname": "customer",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Customer",
+            "options": "Customer",
+            "reqd": 1
+        },
+        {
+            "fieldname": "customer_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Customer Name",
+            "read_only": 1
+        },
+        {
+            "fieldname": "phone_number",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Phone Number",
+            "options": "Phone",
+            "reqd": 1
+        },
+        {
+            "fieldname": "email",
+            "fieldtype": "Data",
+            "label": "Email Address",
+            "options": "Email"
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "communication_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Communication Type",
+            "options": "Transactional\nMarketing\nAppointment Reminder\nService Update\nPayment Reminder\nPromotion\nSupport\nEmergency",
+            "reqd": 1
+        },
+        {
+            "fieldname": "communication_channel",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Channel",
+            "options": "SMS\nWhatsApp\nEmail\nPhone Call\nIn-Person",
+            "reqd": 1
+        },
+        {
+            "fieldname": "message_direction",
+            "fieldtype": "Select",
+            "label": "Direction",
+            "options": "Outbound\nInbound\nSystem Generated",
+            "default": "Outbound",
+            "reqd": 1
+        },
+        {
+            "fieldname": "communication_status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Status",
+            "options": "Draft\nQueued\nSent\nDelivered\nRead\nFailed\nBounced\nReplied",
+            "default": "Draft",
+            "reqd": 1
+        },
+        {
+            "fieldname": "message_section",
+            "fieldtype": "Section Break",
+            "label": "Message Content"
+        },
+        {
+            "fieldname": "message_content",
+            "fieldtype": "Text Editor",
+            "label": "Message Content (English)",
+            "reqd": 1
+        },
+        {
+            "fieldname": "message_content_ar",
+            "fieldtype": "Text Editor",
+            "label": "Message Content (Arabic)"
+        },
+        {
+            "fieldname": "column_break_2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "template_used",
+            "fieldtype": "Link",
+            "label": "Template Used",
+            "options": "Notification Template"
+        },
+        {
+            "fieldname": "template_variables",
+            "fieldtype": "Code",
+            "label": "Template Variables",
+            "options": "JSON",
+            "description": "JSON object containing template variables used"
+        },
+        {
+            "fieldname": "message_type",
+            "fieldtype": "Select",
+            "label": "Message Type",
+            "options": "Text\nTemplate\nMedia\nDocument\nLocation\nContact",
+            "default": "Text"
+        },
+        {
+            "fieldname": "delivery_section",
+            "fieldtype": "Section Break",
+            "label": "Delivery Information"
+        },
+        {
+            "fieldname": "sent_datetime",
+            "fieldtype": "Datetime",
+            "in_list_view": 1,
+            "label": "Sent Date/Time"
+        },
+        {
+            "fieldname": "delivered_datetime",
+            "fieldtype": "Datetime",
+            "label": "Delivered Date/Time"
+        },
+        {
+            "fieldname": "read_datetime",
+            "fieldtype": "Datetime",
+            "label": "Read Date/Time"
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "delivery_status",
+            "fieldtype": "Select",
+            "label": "Delivery Status",
+            "options": "Pending\nSent\nDelivered\nFailed\nUndelivered\nAccepted\nReceived\nRead",
+            "default": "Pending"
+        },
+        {
+            "fieldname": "delivery_attempts",
+            "fieldtype": "Int",
+            "label": "Delivery Attempts",
+            "default": 0
+        },
+        {
+            "fieldname": "error_message",
+            "fieldtype": "Text",
+            "label": "Error Message",
+            "description": "Error details if delivery failed"
+        },
+        {
+            "fieldname": "external_section",
+            "fieldtype": "Section Break",
+            "label": "External Provider Information"
+        },
+        {
+            "fieldname": "external_message_id",
+            "fieldtype": "Data",
+            "label": "External Message ID",
+            "description": "Message ID from Twilio or other provider"
+        },
+        {
+            "fieldname": "external_provider",
+            "fieldtype": "Select",
+            "label": "External Provider",
+            "options": "Twilio\nWhatsApp Business API\nSendGrid\nMailgun\nSMS Gateway\nOther"
+        },
+        {
+            "fieldname": "external_cost",
+            "fieldtype": "Currency",
+            "label": "Cost (OMR)",
+            "precision": 3,
+            "description": "Cost charged by external provider"
+        },
+        {
+            "fieldname": "column_break_4",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "queue_id",
+            "fieldtype": "Data",
+            "label": "Queue ID",
+            "read_only": 1,
+            "description": "Redis queue job ID"
+        },
+        {
+            "fieldname": "queue_priority",
+            "fieldtype": "Select",
+            "label": "Queue Priority",
+            "options": "High\nMedium\nLow",
+            "default": "Medium"
+        },
+        {
+            "fieldname": "processed_by_worker",
+            "fieldtype": "Data",
+            "label": "Processed By Worker",
+            "read_only": 1,
+            "description": "Worker process that handled this message"
+        },
+        {
+            "fieldname": "consent_section",
+            "fieldtype": "Section Break",
+            "label": "Consent & Compliance"
+        },
+        {
+            "fieldname": "consent_given",
+            "fieldtype": "Check",
+            "label": "Consent Given",
+            "default": 0,
+            "description": "Customer consent verified before sending"
+        },
+        {
+            "fieldname": "consent_record",
+            "fieldtype": "Link",
+            "label": "Consent Record",
+            "options": "Communication Consent",
+            "description": "Related consent record"
+        },
+        {
+            "fieldname": "opt_out_requested",
+            "fieldtype": "Check",
+            "label": "Opt-out Requested",
+            "default": 0,
+            "description": "Customer requested to opt-out via this message"
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "gdpr_compliant",
+            "fieldtype": "Check",
+            "label": "GDPR/PDPL Compliant",
+            "default": 1,
+            "read_only": 1
+        },
+        {
+            "fieldname": "data_retention_date",
+            "fieldtype": "Date",
+            "label": "Data Retention Until",
+            "description": "Date when this record should be deleted for compliance"
+        },
+        {
+            "fieldname": "metadata_section",
+            "fieldtype": "Section Break",
+            "label": "Metadata"
+        },
+        {
+            "fieldname": "source_document",
+            "fieldtype": "Dynamic Link",
+            "label": "Source Document",
+            "options": "source_document_type",
+            "description": "Document that triggered this communication"
+        },
+        {
+            "fieldname": "source_document_type",
+            "fieldtype": "Link",
+            "label": "Source Document Type",
+            "options": "DocType"
+        },
+        {
+            "fieldname": "triggered_by_user",
+            "fieldtype": "Link",
+            "label": "Triggered By",
+            "options": "User"
+        },
+        {
+            "fieldname": "column_break_6",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "user_agent",
+            "fieldtype": "Text",
+            "label": "User Agent",
+            "description": "Browser/device information if applicable"
+        },
+        {
+            "fieldname": "ip_address",
+            "fieldtype": "Data",
+            "label": "IP Address",
+            "description": "IP address when communication was initiated"
+        },
+        {
+            "fieldname": "campaign_id",
+            "fieldtype": "Data",
+            "label": "Campaign ID",
+            "description": "Marketing campaign identifier"
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Text",
+            "label": "Notes",
+            "description": "Additional notes about this communication"
+        }
+    ],
+    "istable": 0,
+    "links": [
+        {
+            "link_doctype": "Communication Consent",
+            "link_fieldname": "customer"
+        }
+    ],
+    "modified": "2025-01-01 12:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Communication Management",
+    "name": "Communication History",
+    "naming_rule": "Expression",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 0,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 0,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "read": 1,
+            "role": "Workshop Staff",
+            "write": 0
+        },
+        {
+            "read": 1,
+            "role": "Customer",
+            "write": 0,
+            "if_owner": 1
+        }
+    ],
+    "quick_entry": 0,
+    "sort_field": "creation",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+} 

@@ -1,0 +1,364 @@
+{
+    "actions": [],
+    "creation": "2025-01-15 14:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "section_break_1",
+        "analysis_name",
+        "analysis_name_ar",
+        "column_break_2",
+        "analysis_date",
+        "created_by",
+        "analysis_configuration_section",
+        "analysis_period",
+        "category_a_percentage",
+        "column_break_3",
+        "category_b_percentage", 
+        "category_c_percentage",
+        "calculation_method",
+        "results_section",
+        "total_items_analyzed",
+        "total_value_analyzed",
+        "column_break_4",
+        "category_a_items",
+        "category_a_value",
+        "category_a_percentage_actual",
+        "column_break_5",
+        "category_b_items",
+        "category_b_value", 
+        "category_b_percentage_actual",
+        "column_break_6",
+        "category_c_items",
+        "category_c_value",
+        "category_c_percentage_actual",
+        "recommendations_section",
+        "category_a_recommendation",
+        "category_a_recommendation_ar",
+        "category_b_recommendation",
+        "category_b_recommendation_ar", 
+        "category_c_recommendation",
+        "category_c_recommendation_ar",
+        "status_section",
+        "analysis_status",
+        "approved_by",
+        "column_break_7",
+        "approval_date",
+        "implementation_date"
+    ],
+    "fields": [
+        {
+            "fieldname": "section_break_1",
+            "fieldtype": "Section Break",
+            "label": "Analysis Information"
+        },
+        {
+            "fieldname": "analysis_name",
+            "fieldtype": "Data",
+            "label": "Analysis Name",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "analysis_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم التحليل",
+            "translatable": 1
+        },
+        {
+            "fieldname": "column_break_2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "analysis_date",
+            "fieldtype": "Date",
+            "label": "Analysis Date",
+            "default": "Today",
+            "reqd": 1
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "default": "__user",
+            "read_only": 1
+        },
+        {
+            "fieldname": "analysis_configuration_section",
+            "fieldtype": "Section Break",
+            "label": "Analysis Configuration"
+        },
+        {
+            "fieldname": "analysis_period",
+            "fieldtype": "Select",
+            "label": "Analysis Period",
+            "options": "Last 3 Months\nLast 6 Months\nLast 12 Months\nCustom Period",
+            "default": "Last 12 Months",
+            "reqd": 1
+        },
+        {
+            "fieldname": "category_a_percentage",
+            "fieldtype": "Float",
+            "label": "Category A Percentage (%)",
+            "default": "80.0",
+            "precision": 2,
+            "reqd": 1,
+            "description": "Percentage of total value for Category A items"
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "category_b_percentage",
+            "fieldtype": "Float", 
+            "label": "Category B Percentage (%)",
+            "default": "15.0",
+            "precision": 2,
+            "reqd": 1,
+            "description": "Percentage of total value for Category B items"
+        },
+        {
+            "fieldname": "category_c_percentage",
+            "fieldtype": "Float",
+            "label": "Category C Percentage (%)",
+            "default": "5.0", 
+            "precision": 2,
+            "reqd": 1,
+            "description": "Percentage of total value for Category C items"
+        },
+        {
+            "fieldname": "calculation_method",
+            "fieldtype": "Select",
+            "label": "Calculation Method",
+            "options": "Value Based\nUsage Based\nCombined Value+Usage",
+            "default": "Value Based",
+            "reqd": 1
+        },
+        {
+            "fieldname": "results_section",
+            "fieldtype": "Section Break",
+            "label": "Analysis Results"
+        },
+        {
+            "fieldname": "total_items_analyzed",
+            "fieldtype": "Int",
+            "label": "Total Items Analyzed",
+            "read_only": 1
+        },
+        {
+            "fieldname": "total_value_analyzed",
+            "fieldtype": "Currency",
+            "label": "Total Value Analyzed (OMR)",
+            "options": "Company:company:default_currency",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_4",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "category_a_items",
+            "fieldtype": "Int",
+            "label": "Category A Items",
+            "read_only": 1
+        },
+        {
+            "fieldname": "category_a_value",
+            "fieldtype": "Currency",
+            "label": "Category A Value (OMR)",
+            "options": "Company:company:default_currency",
+            "read_only": 1
+        },
+        {
+            "fieldname": "category_a_percentage_actual",
+            "fieldtype": "Percent",
+            "label": "Category A % (Actual)",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "category_b_items",
+            "fieldtype": "Int",
+            "label": "Category B Items",
+            "read_only": 1
+        },
+        {
+            "fieldname": "category_b_value",
+            "fieldtype": "Currency",
+            "label": "Category B Value (OMR)",
+            "options": "Company:company:default_currency",
+            "read_only": 1
+        },
+        {
+            "fieldname": "category_b_percentage_actual",
+            "fieldtype": "Percent",
+            "label": "Category B % (Actual)",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "column_break_6",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "category_c_items",
+            "fieldtype": "Int",
+            "label": "Category C Items", 
+            "read_only": 1
+        },
+        {
+            "fieldname": "category_c_value",
+            "fieldtype": "Currency",
+            "label": "Category C Value (OMR)",
+            "options": "Company:company:default_currency",
+            "read_only": 1
+        },
+        {
+            "fieldname": "category_c_percentage_actual",
+            "fieldtype": "Percent",
+            "label": "Category C % (Actual)",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "recommendations_section",
+            "fieldtype": "Section Break",
+            "label": "Recommendations"
+        },
+        {
+            "fieldname": "category_a_recommendation",
+            "fieldtype": "Small Text",
+            "label": "Category A Recommendation",
+            "description": "Management strategy for high-value items"
+        },
+        {
+            "fieldname": "category_a_recommendation_ar",
+            "fieldtype": "Small Text",
+            "label": "توصيات الفئة أ",
+            "translatable": 1
+        },
+        {
+            "fieldname": "category_b_recommendation",
+            "fieldtype": "Small Text",
+            "label": "Category B Recommendation",
+            "description": "Management strategy for medium-value items"
+        },
+        {
+            "fieldname": "category_b_recommendation_ar",
+            "fieldtype": "Small Text",
+            "label": "توصيات الفئة ب",
+            "translatable": 1
+        },
+        {
+            "fieldname": "category_c_recommendation",
+            "fieldtype": "Small Text", 
+            "label": "Category C Recommendation",
+            "description": "Management strategy for low-value items"
+        },
+        {
+            "fieldname": "category_c_recommendation_ar",
+            "fieldtype": "Small Text",
+            "label": "توصيات الفئة ج",
+            "translatable": 1
+        },
+        {
+            "fieldname": "status_section",
+            "fieldtype": "Section Break",
+            "label": "Approval & Status"
+        },
+        {
+            "fieldname": "analysis_status",
+            "fieldtype": "Select",
+            "label": "Analysis Status",
+            "options": "Draft\nPending Approval\nApproved\nImplemented\nArchived",
+            "default": "Draft",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "approved_by",
+            "fieldtype": "Link",
+            "label": "Approved By",
+            "options": "User"
+        },
+        {
+            "fieldname": "column_break_7",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "approval_date",
+            "fieldtype": "Date",
+            "label": "Approval Date"
+        },
+        {
+            "fieldname": "implementation_date",
+            "fieldtype": "Date",
+            "label": "Implementation Date"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2025-01-15 14:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Parts Inventory",
+    "name": "ABC Analysis",
+    "naming_rule": "Expression",
+    "autoname": "format:ABC-{analysis_date}-{###}",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Parts Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 0,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 0,
+            "delete": 0,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Inventory User",
+            "share": 0,
+            "submit": 0,
+            "write": 0
+        }
+    ],
+    "search_fields": "analysis_name,analysis_date,analysis_status",
+    "sort_field": "analysis_date",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "analysis_name",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+} 

@@ -1,0 +1,446 @@
+/**
+ * Universal Workshop Theme System Styles
+ * Provides theme-aware styling for all workshop components
+ */
+
+/* Theme Variables Base */
+:root {
+    /* Default theme colors (Classic Blue) */
+    --theme-primary: #1f4e79;
+    --theme-secondary: #e8f4fd;
+    --theme-accent: #2490ef;
+    --theme-success: #28a745;
+    --theme-warning: #ffc107;
+    --theme-danger: #dc3545;
+    --theme-info: #17a2b8;
+    --theme-light: #f8f9fa;
+    --theme-dark: #343a40;
+    
+    /* Theme properties */
+    --theme-borderRadius: 4px;
+    --theme-shadowLevel: medium;
+    --theme-spacing: 1rem;
+    --theme-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    
+    /* Theme fonts */
+    --theme-font-primary: "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+    --theme-font-arabic: "Noto Sans Arabic", "Tahoma", "Arial Unicode MS", sans-serif;
+    --theme-font-monospace: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+/* Theme-aware component styles */
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--theme-primary) !important;
+    border-color: var(--theme-primary) !important;
+    border-radius: var(--theme-borderRadius);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--theme-primary-dark) !important;
+    border-color: var(--theme-primary-dark) !important;
+}
+
+.btn-secondary {
+    background-color: var(--theme-secondary) !important;
+    border-color: var(--theme-secondary) !important;
+    color: var(--theme-primary) !important;
+    border-radius: var(--theme-borderRadius);
+}
+
+/* Cards and Panels */
+.card,
+.panel,
+.frappe-card {
+    border-radius: var(--theme-borderRadius);
+    box-shadow: var(--theme-shadow);
+    border: 1px solid rgba(var(--theme-primary-rgb), 0.1);
+}
+
+.card-header,
+.panel-heading {
+    background-color: var(--theme-secondary) !important;
+    border-bottom: 1px solid rgba(var(--theme-primary-rgb), 0.2);
+    color: var(--theme-primary);
+}
+
+/* Navigation */
+.navbar-default {
+    background-color: var(--theme-primary) !important;
+    border-color: var(--theme-primary-dark);
+}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav > li > a {
+    color: var(--theme-light) !important;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: var(--theme-secondary) !important;
+    background-color: rgba(var(--theme-light-rgb), 0.1);
+}
+
+/* Sidebar */
+.desk-sidebar {
+    background-color: var(--theme-secondary);
+    border-right: 1px solid rgba(var(--theme-primary-rgb), 0.1);
+}
+
+.sidebar-item.selected,
+.sidebar-item:hover {
+    background-color: rgba(var(--theme-primary-rgb), 0.1);
+    color: var(--theme-primary);
+}
+
+/* Forms */
+.form-control {
+    border-radius: var(--theme-borderRadius);
+    border: 1px solid rgba(var(--theme-primary-rgb), 0.2);
+    font-family: var(--theme-font-primary);
+}
+
+.form-control:focus {
+    border-color: var(--theme-primary);
+    box-shadow: 0 0 0 0.2rem rgba(var(--theme-primary-rgb), 0.25);
+}
+
+/* Arabic form controls */
+.form-control[dir="rtl"],
+.arabic-input {
+    font-family: var(--theme-font-arabic) !important;
+    text-align: right;
+    direction: rtl;
+}
+
+/* Tables */
+.table {
+    font-family: var(--theme-font-primary);
+}
+
+.table thead th {
+    background-color: var(--theme-secondary);
+    color: var(--theme-primary);
+    border-bottom: 2px solid var(--theme-primary);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(var(--theme-secondary-rgb), 0.5);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(var(--theme-primary-rgb), 0.05);
+}
+
+/* Alerts */
+.alert-success {
+    background-color: rgba(var(--theme-success-rgb), 0.1);
+    border-color: var(--theme-success);
+    color: var(--theme-success-dark);
+}
+
+.alert-warning {
+    background-color: rgba(var(--theme-warning-rgb), 0.1);
+    border-color: var(--theme-warning);
+    color: var(--theme-warning-dark);
+}
+
+.alert-danger {
+    background-color: rgba(var(--theme-danger-rgb), 0.1);
+    border-color: var(--theme-danger);
+    color: var(--theme-danger-dark);
+}
+
+.alert-info {
+    background-color: rgba(var(--theme-info-rgb), 0.1);
+    border-color: var(--theme-info);
+    color: var(--theme-info-dark);
+}
+
+/* Links */
+a {
+    color: var(--theme-primary);
+}
+
+a:hover,
+a:focus {
+    color: var(--theme-primary-dark);
+}
+
+/* Badges and Labels */
+.badge-primary,
+.label-primary {
+    background-color: var(--theme-primary) !important;
+}
+
+.badge-secondary,
+.label-secondary {
+    background-color: var(--theme-secondary) !important;
+    color: var(--theme-primary) !important;
+}
+
+/* Progress bars */
+.progress-bar {
+    background-color: var(--theme-primary);
+}
+
+/* Dropdowns */
+.dropdown-menu {
+    border-radius: var(--theme-borderRadius);
+    box-shadow: var(--theme-shadow);
+    border: 1px solid rgba(var(--theme-primary-rgb), 0.1);
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: var(--theme-secondary);
+    color: var(--theme-primary);
+}
+
+/* Modals */
+.modal-content {
+    border-radius: var(--theme-borderRadius);
+    box-shadow: var(--theme-shadow);
+}
+
+.modal-header {
+    background-color: var(--theme-secondary);
+    border-bottom: 1px solid rgba(var(--theme-primary-rgb), 0.2);
+}
+
+.modal-title {
+    color: var(--theme-primary);
+    font-family: var(--theme-font-primary);
+}
+
+/* Pagination */
+.page-link {
+    color: var(--theme-primary);
+    border: 1px solid rgba(var(--theme-primary-rgb), 0.2);
+}
+
+.page-link:hover {
+    color: var(--theme-primary-dark);
+    background-color: var(--theme-secondary);
+    border-color: var(--theme-primary);
+}
+
+.page-item.active .page-link {
+    background-color: var(--theme-primary);
+    border-color: var(--theme-primary);
+}
+
+/* Theme Preview Styles */
+.theme-preview-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.theme-preview-card {
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-preview-card:hover {
+    border-color: var(--theme-primary);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.theme-preview-card.active {
+    border-color: var(--theme-primary);
+    background-color: rgba(var(--theme-primary-rgb), 0.05);
+}
+
+.theme-colors {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.color-swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.theme-info h5 {
+    margin: 0 0 0.5rem 0;
+    color: var(--theme-primary);
+    font-family: var(--theme-font-primary);
+}
+
+.theme-info p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #6c757d;
+    font-family: var(--theme-font-primary);
+}
+
+/* Specific Theme Styles */
+
+/* Classic Theme */
+.theme-classic {
+    --theme-primary: #1f4e79;
+    --theme-secondary: #e8f4fd;
+    --theme-accent: #2490ef;
+}
+
+.theme-classic .navbar-default {
+    background: linear-gradient(135deg, #1f4e79 0%, #2490ef 100%);
+}
+
+/* Automotive Theme */
+.theme-automotive {
+    --theme-primary: #2c5f41;
+    --theme-secondary: #e8f5e8;
+    --theme-accent: #4caf50;
+    --theme-borderRadius: 6px;
+    --theme-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.theme-automotive .navbar-default {
+    background: linear-gradient(135deg, #2c5f41 0%, #4caf50 100%);
+}
+
+.theme-automotive .btn-primary {
+    background: linear-gradient(135deg, #2c5f41 0%, #388e3c 100%);
+    border: none;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Luxury Theme */
+.theme-luxury {
+    --theme-primary: #b8860b;
+    --theme-secondary: #fffef7;
+    --theme-accent: #ffd700;
+    --theme-borderRadius: 8px;
+    --theme-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.theme-luxury .navbar-default {
+    background: linear-gradient(135deg, #b8860b 0%, #ffd700 100%);
+}
+
+.theme-luxury .btn-primary {
+    background: linear-gradient(135deg, #b8860b 0%, #daa520 100%);
+    border: none;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.theme-luxury .card,
+.theme-luxury .panel {
+    border: 1px solid #daa520;
+    background: linear-gradient(to bottom, #fffef7 0%, #fefcf3 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .theme-preview-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .color-swatch {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .navbar-default .navbar-brand {
+        font-size: 1.1rem;
+    }
+}
+
+/* RTL Support for Arabic */
+[dir="rtl"] .theme-preview-container {
+    direction: rtl;
+}
+
+[dir="rtl"] .theme-colors {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .theme-info {
+    text-align: right;
+}
+
+/* Dark mode support (when implemented) */
+@media (prefers-color-scheme: dark) {
+    .theme-preview-card {
+        background-color: #2d3748;
+        border-color: #4a5568;
+        color: #e2e8f0;
+    }
+    
+    .theme-info p {
+        color: #a0aec0;
+    }
+}
+
+/* Print styles */
+@media print {
+    .navbar-default,
+    .desk-sidebar,
+    .theme-preview-container {
+        display: none !important;
+    }
+    
+    .card,
+    .panel {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+}
+
+/* Animation classes for theme transitions */
+.theme-transition {
+    transition: all 0.3s ease-in-out;
+}
+
+.theme-fade-in {
+    animation: themeSlideIn 0.5s ease-out;
+}
+
+@keyframes themeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .btn-primary {
+        border: 2px solid currentColor;
+    }
+    
+    .form-control:focus {
+        outline: 3px solid var(--theme-primary);
+        outline-offset: 2px;
+    }
+    
+    .theme-preview-card {
+        border-width: 3px;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .theme-transition,
+    .theme-fade-in,
+    .theme-preview-card {
+        transition: none;
+        animation: none;
+    }
+} 

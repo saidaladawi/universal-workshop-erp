@@ -1,0 +1,140 @@
+/* Customer Search Interface Styles */
+.customer-search-container {
+    margin: 20px 0;
+}
+
+.search-input-group {
+    position: relative;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.customer-search-input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.search-suggestion {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.search-suggestion:hover {
+    background-color: #f8f9fa;
+}
+
+.search-suggestion:last-child {
+    border-bottom: none;
+}
+
+.customer-results-list {
+    margin-top: 20px;
+}
+
+.customer-result-card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: white;
+    transition: box-shadow 0.2s;
+}
+
+.customer-result-card:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.customer-name {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.customer-details {
+    margin-bottom: 10px;
+}
+
+.customer-details .badge {
+    margin-right: 5px;
+}
+
+.search-pagination-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.customer-search-icon {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    height: calc(100% - 4px);
+    z-index: 3;
+}
+
+/* RTL Support */
+[dir="rtl"] .customer-search-input {
+    text-align: right;
+    direction: rtl;
+}
+
+[dir="rtl"] .search-suggestions {
+    text-align: right;
+    direction: rtl;
+}
+
+[dir="rtl"] .customer-result-card {
+    text-align: right;
+    direction: rtl;
+}
+
+[dir="rtl"] .customer-details .badge {
+    margin-left: 5px;
+    margin-right: 0;
+}
+
+[dir="rtl"] .customer-search-icon {
+    left: 2px;
+    right: auto;
+}
+
+/* Arabic text styling */
+.arabic-text {
+    font-family: 'Tahoma', 'Arial Unicode MS', sans-serif;
+    line-height: 1.6;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .customer-result-card .col-md-4 {
+        text-align: left !important;
+        margin-top: 10px;
+    }
+    
+    [dir="rtl"] .customer-result-card .col-md-4 {
+        text-align: right !important;
+    }
+    
+    .search-filters .row {
+        margin: 0;
+    }
+    
+    .search-filters .col-md-3 {
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+} 

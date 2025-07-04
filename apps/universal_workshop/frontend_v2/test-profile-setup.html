@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جوال الخليج - إعداد الورشة | Jawal Al Khaleej Workshop Setup</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/universal_workshop/favicon.svg">
+    <meta name="theme-color" content="#667eea">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            direction: rtl;
+        }
+        
+        .setup-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .setup-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .workshop-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+        
+        .workshop-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin: 0 0 0.5rem 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .workshop-subtitle {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin: 0 0 2rem 0;
+        }
+        
+        .profile-details {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: right;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: #374151;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .detail-value {
+            color: #1a202c;
+            font-weight: 500;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-direction: column;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-family: 'Tajawal', 'Inter', sans-serif;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(102, 126, 234, 0.6);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #374151;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .btn-secondary:hover {
+            border-color: #d1d5db;
+            transform: translateY(-2px);
+        }
+        
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #dcfce7;
+            color: #166534;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .instructions {
+            background: #fef3c7;
+            border: 2px solid #fbbf24;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: right;
+        }
+        
+        .instructions h4 {
+            color: #92400e;
+            margin: 0 0 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .instructions ol {
+            color: #92400e;
+            margin: 0;
+            padding-right: 1.5rem;
+        }
+        
+        .instructions li {
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 640px) {
+            .setup-card {
+                padding: 2rem;
+                margin: 1rem;
+            }
+            
+            .workshop-name {
+                font-size: 2rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="setup-container">
+        <div class="setup-card">
+            <div class="workshop-logo">📱</div>
+            
+            <h1 class="workshop-name">جوال الخليج</h1>
+            <p class="workshop-subtitle">Jawal Al Khaleej Mobile Workshop</p>
+            
+            <div class="status-indicator">
+                <span>✓</span>
+                جاهز للإعداد | Ready for Setup
+            </div>
+            
+            <div class="profile-details">
+                <div class="detail-row">
+                    <div class="detail-label">
+                        <span>🏢</span>
+                        اسم الورشة | Workshop Name:
+                    </div>
+                    <div class="detail-value">جوال الخليج</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">
+                        <span>👤</span>
+                        المالك | Owner:
+                    </div>
+                    <div class="detail-value">Aladawi</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">
+                        <span>📞</span>
+                        رقم الهاتف | Phone:
+                    </div>
+                    <div class="detail-value">95351993</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">
+                        <span>🇴🇲</span>
+                        الدولة | Country:
+                    </div>
+                    <div class="detail-value">عُمان | Oman</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">
+                        <span>📱</span>
+                        نوع الورشة | Workshop Type:
+                    </div>
+                    <div class="detail-value">ورشة موبايل | Mobile Workshop</div>
+                </div>
+            </div>
+            
+            <div class="instructions">
+                <h4>📋 تعليمات الاختبار | Testing Instructions</h4>
+                <ol>
+                    <li>انقر على "بدء معالج الإعداد" أدناه</li>
+                    <li>استخدم البيانات المعروضة أعلاه</li>
+                    <li>أنشئ حساب مدير جديد</li>
+                    <li>أكمل جميع الخطوات</li>
+                    <li>اختبر عملية تسجيل الدخول</li>
+                </ol>
+            </div>
+            
+            <div class="action-buttons">
+                <button id="startOnboarding" class="btn btn-primary">
+                    🚀 بدء معالج الإعداد | Start Onboarding Wizard
+                </button>
+                <button id="openDemo" class="btn btn-secondary">
+                    📋 فتح صفحة العرض التوضيحي | Open Demo Page
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Pre-fill data for testing
+        const workshopData = {
+            workshopName: 'جوال الخليج',
+            workshopNameEn: 'Jawal Al Khaleej',
+            ownerName: 'Aladawi',
+            phone: '95351993',
+            country: 'OM',
+            workshopType: 'mobile_workshop',
+            city: 'Muscat',
+            email: 'aladawi@jawalalkhaleej.om'
+        };
+        
+        // Start Onboarding with pre-filled data
+        document.getElementById('startOnboarding').addEventListener('click', () => {
+            // Try to access V2 system if available
+            if (typeof window.WorkshopV2 !== 'undefined' && window.WorkshopV2.onboarding) {
+                try {
+                    // Pre-fill data in the system if possible
+                    if (window.WorkshopV2.onboarding.prefillData) {
+                        window.WorkshopV2.onboarding.prefillData(workshopData);
+                    }
+                    
+                    window.WorkshopV2.onboarding.start();
+                    console.log('🚀 Started V2 Onboarding with pre-filled data:', workshopData);
+                } catch (error) {
+                    console.error('Failed to start V2 onboarding:', error);
+                    openDemoPage();
+                }
+            } else {
+                // Fallback to demo page
+                openDemoPage();
+            }
+        });
+        
+        // Open demo page
+        document.getElementById('openDemo').addEventListener('click', openDemoPage);
+        
+        function openDemoPage() {
+            // Store the workshop data for the demo page to access
+            localStorage.setItem('workshop_test_data', JSON.stringify(workshopData));
+            
+            // Open the demo page
+            window.open('./demo-onboarding.html', '_blank');
+        }
+        
+        // Display current time for testing
+        function updateTime() {
+            const now = new Date();
+            const timeStr = now.toLocaleString('ar-OM', {
+                timeZone: 'Asia/Muscat',
+                hour12: false
+            });
+            console.log('Current Oman time:', timeStr);
+        }
+        
+        updateTime();
+        setInterval(updateTime, 60000); // Update every minute
+        
+        console.log('🏪 Jawal Al Khaleej Workshop Profile Ready');
+        console.log('📋 Test Data:', workshopData);
+        console.log('🔧 Click "Start Onboarding Wizard" to begin testing');
+    </script>
+</body>
+</html>

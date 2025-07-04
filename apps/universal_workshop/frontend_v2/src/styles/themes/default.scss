@@ -1,0 +1,57 @@
+/**
+ * Default Theme - Universal Workshop Frontend V2
+ * 
+ * Base theme styles that can be overridden by branding system
+ */
+
+// Import base styles
+@import '../base/variables';
+@import '../base/mixins';
+
+// Component base styles
+.btn-workshop {
+  @include button-base;
+  @include button-size(md);
+  @include button-variant(primary);
+  
+  &-sm { @include button-size(sm); }
+  &-lg { @include button-size(lg); }
+  
+  &-primary { @include button-variant(primary); }
+  &-secondary { @include button-variant(secondary); }
+  &-outline { @include button-variant(outline); }
+}
+
+.card-workshop {
+  @include card-base;
+  @include card-padding(md);
+}
+
+.form-field {
+  @include form-field-base;
+  
+  &.error {
+    @include form-field-error;
+  }
+}
+
+// Layout components
+.workshop-container {
+  @include container;
+}
+
+.flex-center {
+  @include flex-center;
+}
+
+// RTL specific styles
+.rtl-element {
+  @include rtl-support {
+    text-align: right;
+    direction: rtl;
+  }
+}
+
+.bilingual-text {
+  @include arabic-typography;
+}

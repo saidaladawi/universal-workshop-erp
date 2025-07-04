@@ -1,0 +1,154 @@
+{
+    "doctype": "Workflow",
+    "name": "Return Request Workflow",
+    "workflow_name": "Return Request Workflow",
+    "document_type": "Return Request",
+    "is_active": 1,
+    "send_email_alert": 1,
+    "workflow_state_field": "workflow_state",
+    "states": [
+        {
+            "state": "Draft",
+            "doc_status": "0",
+            "allow_edit": "Customer Service Representative,Service Advisor,Workshop Manager,Customer",
+            "is_optional_state": 0,
+            "next_action_email_template": "Return Request Created",
+            "message": "تم إنشاء طلب الاسترداد / Return request has been created"
+        },
+        {
+            "state": "Pending Review",
+            "doc_status": "1",
+            "allow_edit": "Customer Service Representative,Service Advisor,Workshop Manager",
+            "is_optional_state": 0,
+            "next_action_email_template": "Return Request Pending Review",
+            "message": "طلب الاسترداد في انتظار المراجعة / Return request is pending review"
+        },
+        {
+            "state": "Under Investigation",
+            "doc_status": "1",
+            "allow_edit": "Service Advisor,Workshop Manager,Quality Inspector",
+            "is_optional_state": 1,
+            "next_action_email_template": "Return Request Under Investigation",
+            "message": "طلب الاسترداد قيد التحقيق / Return request is under investigation"
+        },
+        {
+            "state": "Approved",
+            "doc_status": "1",
+            "allow_edit": "Workshop Manager,Inventory Manager",
+            "is_optional_state": 0,
+            "next_action_email_template": "Return Request Approved",
+            "message": "تم الموافقة على طلب الاسترداد / Return request has been approved"
+        },
+        {
+            "state": "Rejected",
+            "doc_status": "1",
+            "allow_edit": "Workshop Manager",
+            "is_optional_state": 0,
+            "next_action_email_template": "Return Request Rejected",
+            "message": "تم رفض طلب الاسترداد / Return request has been rejected"
+        },
+        {
+            "state": "Processing",
+            "doc_status": "1",
+            "allow_edit": "Inventory Manager,Accounts Manager",
+            "is_optional_state": 0,
+            "next_action_email_template": "Return Request Processing",
+            "message": "جاري معالجة طلب الاسترداد / Return request is being processed"
+        },
+        {
+            "state": "Completed",
+            "doc_status": "1",
+            "allow_edit": "",
+            "is_optional_state": 0,
+            "next_action_email_template": "Return Request Completed",
+            "message": "تم الانتهاء من طلب الاسترداد / Return request has been completed"
+        },
+        {
+            "state": "Cancelled",
+            "doc_status": "2",
+            "allow_edit": "Workshop Manager",
+            "is_optional_state": 0,
+            "next_action_email_template": "Return Request Cancelled",
+            "message": "تم إلغاء طلب الاسترداد / Return request has been cancelled"
+        }
+    ],
+    "transitions": [
+        {
+            "state": "Draft",
+            "action": "Submit for Review",
+            "next_state": "Pending Review",
+            "allowed": "Customer Service Representative,Service Advisor,Workshop Manager,Customer",
+            "condition": "doc.eligible_for_return == 1"
+        },
+        {
+            "state": "Pending Review",
+            "action": "Investigate",
+            "next_state": "Under Investigation",
+            "allowed": "Service Advisor,Workshop Manager",
+            "condition": "doc.fraud_risk_level in ['Medium', 'High'] or doc.return_value > 100"
+        },
+        {
+            "state": "Pending Review",
+            "action": "Approve",
+            "next_state": "Approved",
+            "allowed": "Service Advisor,Workshop Manager",
+            "condition": "doc.fraud_risk_level == 'Low' and doc.auto_approved == 1"
+        },
+        {
+            "state": "Pending Review",
+            "action": "Reject",
+            "next_state": "Rejected",
+            "allowed": "Service Advisor,Workshop Manager",
+            "condition": ""
+        },
+        {
+            "state": "Under Investigation",
+            "action": "Approve After Investigation",
+            "next_state": "Approved",
+            "allowed": "Workshop Manager,Quality Inspector",
+            "condition": ""
+        },
+        {
+            "state": "Under Investigation",
+            "action": "Reject After Investigation",
+            "next_state": "Rejected",
+            "allowed": "Workshop Manager,Quality Inspector",
+            "condition": ""
+        },
+        {
+            "state": "Approved",
+            "action": "Start Processing",
+            "next_state": "Processing",
+            "allowed": "Inventory Manager,Accounts Manager",
+            "condition": ""
+        },
+        {
+            "state": "Processing",
+            "action": "Complete Processing",
+            "next_state": "Completed",
+            "allowed": "Inventory Manager,Accounts Manager",
+            "condition": "doc.stock_entry and doc.credit_note"
+        },
+        {
+            "state": "Draft",
+            "action": "Cancel",
+            "next_state": "Cancelled",
+            "allowed": "Workshop Manager,Customer",
+            "condition": ""
+        },
+        {
+            "state": "Pending Review",
+            "action": "Cancel",
+            "next_state": "Cancelled",
+            "allowed": "Workshop Manager,Customer",
+            "condition": ""
+        },
+        {
+            "state": "Under Investigation",
+            "action": "Cancel",
+            "next_state": "Cancelled",
+            "allowed": "Workshop Manager",
+            "condition": ""
+        }
+    ]
+}

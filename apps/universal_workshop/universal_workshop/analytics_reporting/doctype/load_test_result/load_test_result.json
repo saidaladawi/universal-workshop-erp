@@ -1,0 +1,240 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2025-06-29 16:30:00.000000",
+    "default_view": "List",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "scenario_name",
+        "test_timestamp",
+        "test_details_section",
+        "duration_seconds",
+        "total_requests",
+        "successful_requests",
+        "failed_requests",
+        "column_break_9",
+        "avg_response_time",
+        "max_response_time",
+        "min_response_time",
+        "throughput",
+        "error_rate",
+        "performance_section",
+        "overall_grade",
+        "pass_percentage",
+        "column_break_17",
+        "concurrent_users",
+        "arabic_requests_percentage",
+        "system_health_score",
+        "test_data_section",
+        "test_report_json",
+        "recommendations",
+        "errors_summary",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Test ID",
+            "options": "LT-YYYY-MM-DD-.####",
+            "reqd": 1
+        },
+        {
+            "fieldname": "scenario_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Scenario Name",
+            "reqd": 1
+        },
+        {
+            "fieldname": "test_timestamp",
+            "fieldtype": "Datetime",
+            "in_list_view": 1,
+            "label": "Test Timestamp",
+            "reqd": 1
+        },
+        {
+            "fieldname": "test_details_section",
+            "fieldtype": "Section Break",
+            "label": "Test Details"
+        },
+        {
+            "fieldname": "duration_seconds",
+            "fieldtype": "Float",
+            "label": "Duration (Seconds)",
+            "precision": "2"
+        },
+        {
+            "fieldname": "total_requests",
+            "fieldtype": "Int",
+            "label": "Total Requests"
+        },
+        {
+            "fieldname": "successful_requests",
+            "fieldtype": "Int",
+            "label": "Successful Requests"
+        },
+        {
+            "fieldname": "failed_requests",
+            "fieldtype": "Int",
+            "label": "Failed Requests"
+        },
+        {
+            "fieldname": "column_break_9",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "avg_response_time",
+            "fieldtype": "Float",
+            "label": "Avg Response Time (ms)",
+            "precision": "2"
+        },
+        {
+            "fieldname": "max_response_time",
+            "fieldtype": "Float",
+            "label": "Max Response Time (ms)",
+            "precision": "2"
+        },
+        {
+            "fieldname": "min_response_time",
+            "fieldtype": "Float",
+            "label": "Min Response Time (ms)",
+            "precision": "2"
+        },
+        {
+            "fieldname": "throughput",
+            "fieldtype": "Float",
+            "label": "Throughput (req/sec)",
+            "precision": "2"
+        },
+        {
+            "fieldname": "error_rate",
+            "fieldtype": "Percent",
+            "label": "Error Rate (%)"
+        },
+        {
+            "fieldname": "performance_section",
+            "fieldtype": "Section Break",
+            "label": "Performance Results"
+        },
+        {
+            "fieldname": "overall_grade",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Overall Grade",
+            "options": "A\nB\nC\nD\nF"
+        },
+        {
+            "fieldname": "pass_percentage",
+            "fieldtype": "Percent",
+            "in_list_view": 1,
+            "label": "Pass Percentage"
+        },
+        {
+            "fieldname": "column_break_17",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "concurrent_users",
+            "fieldtype": "Int",
+            "label": "Concurrent Users"
+        },
+        {
+            "fieldname": "arabic_requests_percentage",
+            "fieldtype": "Percent",
+            "label": "Arabic Requests (%)"
+        },
+        {
+            "fieldname": "system_health_score",
+            "fieldtype": "Float",
+            "label": "System Health Score",
+            "precision": "1"
+        },
+        {
+            "fieldname": "test_data_section",
+            "fieldtype": "Section Break",
+            "label": "Detailed Results"
+        },
+        {
+            "fieldname": "test_report_json",
+            "fieldtype": "JSON",
+            "label": "Complete Test Report"
+        },
+        {
+            "fieldname": "recommendations",
+            "fieldtype": "Text",
+            "label": "Recommendations"
+        },
+        {
+            "fieldname": "errors_summary",
+            "fieldtype": "Text",
+            "label": "Errors Summary"
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Load Test Result",
+            "print_hide": 1,
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2025-06-29 16:30:00.000000",
+    "modified_by": "Administrator",
+    "module": "Analytics Reporting",
+    "name": "Load Test Result",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Technician",
+            "share": 1
+        }
+    ],
+    "search_fields": "scenario_name,overall_grade",
+    "sort_field": "test_timestamp",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "scenario_name",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

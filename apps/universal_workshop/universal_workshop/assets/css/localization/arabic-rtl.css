@@ -1,0 +1,1113 @@
+/* Universal Workshop ERP - Arabic RTL Stylesheet */
+/* Copyright (c) 2025, Said Al-Adowi and contributors */
+/* For license information, please see license.txt */
+
+/* =================================================================
+   UNIVERSAL WORKSHOP ARABIC RTL STYLES
+   ================================================================= */
+
+/* Base RTL Direction */
+[dir="rtl"], .rtl {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] body, .rtl body {
+    direction: rtl;
+    text-align: right;
+    font-family: 'Tajawal', 'Amiri', 'Arial', 'Helvetica', sans-serif;
+}
+
+/* =================================================================
+   AUTHENTICATION & LOGIN STYLES
+   ================================================================= */
+
+/* Login Page RTL */
+[dir="rtl"] .login-container,
+.rtl .login-container {
+    direction: rtl;
+}
+
+[dir="rtl"] .login-form,
+.rtl .login-form {
+    text-align: right;
+}
+
+[dir="rtl"] .login-form .form-control,
+.rtl .login-form .form-control {
+    text-align: right;
+    padding-right: 12px;
+    padding-left: 40px;
+}
+
+[dir="rtl"] .login-form .input-group-text,
+.rtl .login-form .input-group-text {
+    order: 2;
+}
+
+[dir="rtl"] .login-form .form-control,
+.rtl .login-form .form-control {
+    order: 1;
+}
+
+/* Arabic Login Labels */
+[dir="rtl"] .login-form label,
+.rtl .login-form label {
+    text-align: right;
+    font-weight: 600;
+}
+
+/* Login Button RTL */
+[dir="rtl"] .btn-login,
+.rtl .btn-login {
+    font-family: 'Tajawal', sans-serif;
+}
+
+/* =================================================================
+   NAVIGATION & MENU STYLES
+   ================================================================= */
+
+/* Navbar RTL */
+[dir="rtl"] .navbar,
+.rtl .navbar {
+    direction: rtl;
+}
+
+[dir="rtl"] .navbar-nav,
+.rtl .navbar-nav {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .navbar-brand,
+.rtl .navbar-brand {
+    margin-right: 0;
+    margin-left: 1rem;
+}
+
+[dir="rtl"] .dropdown-menu,
+.rtl .dropdown-menu {
+    right: 0;
+    left: auto;
+    text-align: right;
+}
+
+/* Sidebar RTL */
+[dir="rtl"] .sidebar,
+.rtl .sidebar {
+    right: 0;
+    left: auto;
+    border-right: none;
+    border-left: 1px solid #e3e6f0;
+}
+
+[dir="rtl"] .sidebar .nav-item,
+.rtl .sidebar .nav-item {
+    text-align: right;
+}
+
+[dir="rtl"] .sidebar .nav-link,
+.rtl .sidebar .nav-link {
+    padding-right: 1rem;
+    padding-left: 2rem;
+}
+
+[dir="rtl"] .sidebar .nav-link i,
+.rtl .sidebar .nav-link i {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
+/* =================================================================
+   FORM STYLES
+   ================================================================= */
+
+/* Form Controls RTL */
+[dir="rtl"] .form-control,
+.rtl .form-control {
+    text-align: right;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+}
+
+[dir="rtl"] .form-label,
+.rtl .form-label {
+    text-align: right;
+    margin-bottom: 0.5rem;
+}
+
+/* Input Groups RTL */
+[dir="rtl"] .input-group > .form-control,
+.rtl .input-group > .form-control {
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+[dir="rtl"] .input-group-text,
+.rtl .input-group-text {
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Select RTL */
+[dir="rtl"] select.form-control,
+.rtl select.form-control {
+    background-position: left 0.75rem center;
+    padding-left: 2.25rem;
+    padding-right: 0.75rem;
+}
+
+/* Checkbox and Radio RTL */
+[dir="rtl"] .form-check,
+.rtl .form-check {
+    text-align: right;
+    padding-right: 1.25em;
+    padding-left: 0;
+}
+
+[dir="rtl"] .form-check-input,
+.rtl .form-check-input {
+    margin-right: -1.25em;
+    margin-left: 0;
+}
+
+[dir="rtl"] .form-check-label,
+.rtl .form-check-label {
+    padding-right: 0.25rem;
+    padding-left: 0;
+}
+
+/* =================================================================
+   TABLE STYLES
+   ================================================================= */
+
+/* Table RTL */
+[dir="rtl"] .table,
+.rtl .table {
+    text-align: right;
+}
+
+[dir="rtl"] .table th,
+.rtl .table th {
+    text-align: right;
+    border-right: 1px solid #dee2e6;
+    border-left: none;
+}
+
+[dir="rtl"] .table td,
+.rtl .table td {
+    text-align: right;
+    border-right: 1px solid #dee2e6;
+    border-left: none;
+}
+
+[dir="rtl"] .table thead th,
+.rtl .table thead th {
+    border-bottom: 2px solid #dee2e6;
+}
+
+/* =================================================================
+   CARD STYLES
+   ================================================================= */
+
+/* Card RTL */
+[dir="rtl"] .card-header,
+.rtl .card-header {
+    text-align: right;
+}
+
+[dir="rtl"] .card-title,
+.rtl .card-title {
+    text-align: right;
+}
+
+[dir="rtl"] .card-body,
+.rtl .card-body {
+    text-align: right;
+}
+
+/* =================================================================
+   BUTTON STYLES
+   ================================================================= */
+
+/* Button Groups RTL */
+[dir="rtl"] .btn-group,
+.rtl .btn-group {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .btn-group > .btn:first-child,
+.rtl .btn-group > .btn:first-child {
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+[dir="rtl"] .btn-group > .btn:last-child,
+.rtl .btn-group > .btn:last-child {
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Icon Buttons RTL */
+[dir="rtl"] .btn i,
+.rtl .btn i {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
+/* =================================================================
+   MODAL STYLES
+   ================================================================= */
+
+/* Modal RTL */
+[dir="rtl"] .modal-header,
+.rtl .modal-header {
+    text-align: right;
+}
+
+[dir="rtl"] .modal-title,
+.rtl .modal-title {
+    text-align: right;
+}
+
+[dir="rtl"] .modal-body,
+.rtl .modal-body {
+    text-align: right;
+}
+
+[dir="rtl"] .modal-footer,
+.rtl .modal-footer {
+    justify-content: flex-start;
+}
+
+[dir="rtl"] .modal-footer .btn,
+.rtl .modal-footer .btn {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+/* Close Button RTL */
+[dir="rtl"] .btn-close,
+.rtl .btn-close {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+/* =================================================================
+   ALERT STYLES
+   ================================================================= */
+
+/* Alert RTL */
+[dir="rtl"] .alert,
+.rtl .alert {
+    text-align: right;
+}
+
+[dir="rtl"] .alert-dismissible .btn-close,
+.rtl .alert-dismissible .btn-close {
+    left: 0;
+    right: auto;
+    padding-left: 0.75rem;
+    padding-right: 1.25rem;
+}
+
+/* =================================================================
+   WORKSHOP SPECIFIC STYLES
+   ================================================================= */
+
+/* Workshop Dashboard RTL */
+[dir="rtl"] .workshop-dashboard,
+.rtl .workshop-dashboard {
+    direction: rtl;
+}
+
+[dir="rtl"] .workshop-card,
+.rtl .workshop-card {
+    text-align: right;
+}
+
+[dir="rtl"] .workshop-stats,
+.rtl .workshop-stats {
+    text-align: right;
+}
+
+/* Service Order RTL */
+[dir="rtl"] .service-order-form,
+.rtl .service-order-form {
+    direction: rtl;
+}
+
+[dir="rtl"] .service-status,
+.rtl .service-status {
+    text-align: right;
+}
+
+/* Vehicle Information RTL */
+[dir="rtl"] .vehicle-info,
+.rtl .vehicle-info {
+    text-align: right;
+}
+
+[dir="rtl"] .vehicle-details,
+.rtl .vehicle-details {
+    direction: rtl;
+}
+
+/* Customer Portal RTL */
+[dir="rtl"] .customer-portal,
+.rtl .customer-portal {
+    direction: rtl;
+}
+
+[dir="rtl"] .appointment-form,
+.rtl .appointment-form {
+    text-align: right;
+}
+
+/* =================================================================
+   TECHNICIAN MOBILE STYLES
+   ================================================================= */
+
+/* Mobile Interface RTL */
+[dir="rtl"] .mobile-interface,
+.rtl .mobile-interface {
+    direction: rtl;
+}
+
+[dir="rtl"] .mobile-nav,
+.rtl .mobile-nav {
+    direction: rtl;
+}
+
+[dir="rtl"] .mobile-card,
+.rtl .mobile-card {
+    text-align: right;
+}
+
+/* =================================================================
+   PRINT STYLES
+   ================================================================= */
+
+/* Print Format RTL */
+@media print {
+    [dir="rtl"] body,
+    .rtl body {
+        direction: rtl;
+        text-align: right;
+    }
+
+    [dir="rtl"] .print-format,
+    .rtl .print-format {
+        direction: rtl;
+        text-align: right;
+    }
+
+    [dir="rtl"] .print-header,
+    .rtl .print-header {
+        text-align: right;
+    }
+
+    [dir="rtl"] .print-footer,
+    .rtl .print-footer {
+        text-align: right;
+    }
+}
+
+/* =================================================================
+   RESPONSIVE RTL STYLES
+   ================================================================= */
+
+/* Mobile RTL */
+@media (max-width: 768px) {
+    [dir="rtl"] .container,
+    .rtl .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    [dir="rtl"] .sidebar,
+    .rtl .sidebar {
+        right: -100%;
+        left: auto;
+    }
+
+    [dir="rtl"] .sidebar.show,
+    .rtl .sidebar.show {
+        right: 0;
+    }
+}
+
+/* Tablet RTL */
+@media (min-width: 769px) and (max-width: 1024px) {
+    [dir="rtl"] .sidebar,
+    .rtl .sidebar {
+        width: 200px;
+    }
+}
+
+/* =================================================================
+   UTILITY CLASSES
+   ================================================================= */
+
+/* Text Alignment RTL */
+.text-right-rtl {
+    text-align: right !important;
+}
+
+.text-left-rtl {
+    text-align: left !important;
+}
+
+/* Margin RTL */
+.mr-rtl-0 { margin-right: 0 !important; }
+.mr-rtl-1 { margin-right: 0.25rem !important; }
+.mr-rtl-2 { margin-right: 0.5rem !important; }
+.mr-rtl-3 { margin-right: 1rem !important; }
+.mr-rtl-4 { margin-right: 1.5rem !important; }
+.mr-rtl-5 { margin-right: 3rem !important; }
+
+.ml-rtl-0 { margin-left: 0 !important; }
+.ml-rtl-1 { margin-left: 0.25rem !important; }
+.ml-rtl-2 { margin-left: 0.5rem !important; }
+.ml-rtl-3 { margin-left: 1rem !important; }
+.ml-rtl-4 { margin-left: 1.5rem !important; }
+.ml-rtl-5 { margin-left: 3rem !important; }
+
+/* Padding RTL */
+.pr-rtl-0 { padding-right: 0 !important; }
+.pr-rtl-1 { padding-right: 0.25rem !important; }
+.pr-rtl-2 { padding-right: 0.5rem !important; }
+.pr-rtl-3 { padding-right: 1rem !important; }
+.pr-rtl-4 { padding-right: 1.5rem !important; }
+.pr-rtl-5 { padding-right: 3rem !important; }
+
+.pl-rtl-0 { padding-left: 0 !important; }
+.pl-rtl-1 { padding-left: 0.25rem !important; }
+.pl-rtl-2 { padding-left: 0.5rem !important; }
+.pl-rtl-3 { padding-left: 1rem !important; }
+.pl-rtl-4 { padding-left: 1.5rem !important; }
+.pl-rtl-5 { padding-left: 3rem !important; }
+
+/* Float RTL */
+.float-right-rtl {
+    float: right !important;
+}
+
+.float-left-rtl {
+    float: left !important;
+}
+
+/* =================================================================
+   ARABIC FONT OPTIMIZATION
+   ================================================================= */
+
+/* Arabic Font Stack */
+.arabic-text {
+    font-family: 'Tajawal', 'Amiri', 'Noto Sans Arabic', 'Arial Unicode MS', sans-serif;
+    font-feature-settings: "liga" 1, "kern" 1;
+    text-rendering: optimizeLegibility;
+}
+
+/* Arabic Numbers */
+.arabic-numbers {
+    font-variant-numeric: normal;
+    direction: ltr;
+    unicode-bidi: embed;
+}
+
+/* Arabic Date */
+.arabic-date {
+    font-family: 'Tajawal', sans-serif;
+    direction: rtl;
+    text-align: right;
+}
+
+/* =================================================================
+   WORKSHOP THEME INTEGRATION
+   ================================================================= */
+
+/* Theme Colors RTL Support */
+[dir="rtl"] .theme-primary,
+.rtl .theme-primary {
+    text-align: right;
+}
+
+[dir="rtl"] .theme-secondary,
+.rtl .theme-secondary {
+    text-align: right;
+}
+
+/* Workshop Branding RTL */
+[dir="rtl"] .workshop-logo,
+.rtl .workshop-logo {
+    margin-right: 0;
+    margin-left: 1rem;
+}
+
+[dir="rtl"] .workshop-title,
+.rtl .workshop-title {
+    text-align: right;
+    font-family: 'Tajawal', sans-serif;
+}
+
+/* =================================================================
+   ACCESSIBILITY RTL
+   ================================================================= */
+
+/* Screen Reader RTL */
+[dir="rtl"] .sr-only,
+.rtl .sr-only {
+    direction: rtl;
+}
+
+/* Focus RTL */
+[dir="rtl"] *:focus,
+.rtl *:focus {
+    outline-offset: -2px;
+}
+
+/* =================================================================
+   ANIMATION RTL SUPPORT
+   ================================================================= */
+
+/* Slide Animations RTL */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+[dir="rtl"] .slide-in,
+.rtl .slide-in {
+    animation: slideInRight 0.3s ease-in-out;
+}
+
+/* =================================================================
+   CROSS-BROWSER RTL COMPATIBILITY ENHANCEMENTS (2025)
+   ================================================================= */
+
+/* CSS Logical Properties for Better RTL Support */
+[dir="rtl"] .logical-margins,
+.rtl .logical-margins {
+    margin-inline-start: 1rem;
+    margin-inline-end: 0.5rem;
+    margin-block-start: 0.5rem;
+    margin-block-end: 0.5rem;
+}
+
+[dir="rtl"] .logical-padding,
+.rtl .logical-padding {
+    padding-inline-start: 1rem;
+    padding-inline-end: 0.5rem;
+    padding-block-start: 0.5rem;
+    padding-block-end: 0.5rem;
+}
+
+[dir="rtl"] .logical-border,
+.rtl .logical-border {
+    border-inline-start: 1px solid #dee2e6;
+    border-inline-end: none;
+}
+
+/* Modern Flexbox RTL Support */
+[dir="rtl"] .flex-rtl,
+.rtl .flex-rtl {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+[dir="rtl"] .flex-rtl-reverse,
+.rtl .flex-rtl-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+
+[dir="rtl"] .flex-rtl-column,
+.rtl .flex-rtl-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* CSS Grid RTL Support */
+[dir="rtl"] .grid-rtl,
+.rtl .grid-rtl {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    direction: rtl;
+}
+
+[dir="rtl"] .grid-rtl-auto,
+.rtl .grid-rtl-auto {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap: 1rem;
+    direction: rtl;
+}
+
+/* Enhanced Form Controls for All Browsers */
+[dir="rtl"] .form-control-enhanced,
+.rtl .form-control-enhanced {
+    text-align: right;
+    direction: rtl;
+    unicode-bidi: plaintext;
+    padding-inline-start: 0.75rem;
+    padding-inline-end: 0.75rem;
+}
+
+[dir="rtl"] .form-select-enhanced,
+.rtl .form-select-enhanced {
+    background-position: left 0.75rem center;
+    padding-inline-start: 2.25rem;
+    padding-inline-end: 0.75rem;
+    direction: rtl;
+}
+
+/* Input Group Enhancements */
+[dir="rtl"] .input-group-enhanced,
+.rtl .input-group-enhanced {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+}
+
+[dir="rtl"] .input-group-enhanced .form-control,
+.rtl .input-group-enhanced .form-control {
+    border-start-start-radius: 0.375rem;
+    border-end-start-radius: 0.375rem;
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
+}
+
+[dir="rtl"] .input-group-enhanced .input-group-text,
+.rtl .input-group-enhanced .input-group-text {
+    border-start-end-radius: 0.375rem;
+    border-end-end-radius: 0.375rem;
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+}
+
+/* Enhanced Navigation for Cross-Browser */
+[dir="rtl"] .navbar-enhanced,
+.rtl .navbar-enhanced {
+    direction: rtl;
+}
+
+[dir="rtl"] .navbar-nav-enhanced,
+.rtl .navbar-nav-enhanced {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-inline-start: auto;
+}
+
+[dir="rtl"] .navbar-brand-enhanced,
+.rtl .navbar-brand-enhanced {
+    margin-inline-end: 0;
+    margin-inline-start: 1rem;
+}
+
+/* Enhanced Dropdown Menus */
+[dir="rtl"] .dropdown-menu-enhanced,
+.rtl .dropdown-menu-enhanced {
+    inset-inline-end: 0;
+    inset-inline-start: auto;
+    text-align: end;
+    direction: rtl;
+}
+
+[dir="rtl"] .dropdown-item-enhanced,
+.rtl .dropdown-item-enhanced {
+    text-align: end;
+    padding-inline-start: 1rem;
+    padding-inline-end: 1.5rem;
+}
+
+/* Enhanced Modal Dialogs */
+[dir="rtl"] .modal-header-enhanced,
+.rtl .modal-header-enhanced {
+    text-align: end;
+    direction: rtl;
+}
+
+[dir="rtl"] .modal-title-enhanced,
+.rtl .modal-title-enhanced {
+    text-align: end;
+    margin-inline-end: auto;
+}
+
+[dir="rtl"] .modal-footer-enhanced,
+.rtl .modal-footer-enhanced {
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .modal-footer-enhanced .btn,
+.rtl .modal-footer-enhanced .btn {
+    margin-inline-start: 0.5rem;
+    margin-inline-end: 0;
+}
+
+/* Close Button Enhancement */
+[dir="rtl"] .btn-close-enhanced,
+.rtl .btn-close-enhanced {
+    margin-inline-start: auto;
+    margin-inline-end: 0;
+    inset-inline-start: 0;
+    inset-inline-end: auto;
+}
+
+/* Enhanced Table Layouts */
+[dir="rtl"] .table-enhanced,
+.rtl .table-enhanced {
+    text-align: end;
+    direction: rtl;
+}
+
+[dir="rtl"] .table-enhanced th,
+.rtl .table-enhanced th {
+    text-align: end;
+    border-inline-end: 1px solid #dee2e6;
+    border-inline-start: none;
+}
+
+[dir="rtl"] .table-enhanced td,
+.rtl .table-enhanced td {
+    text-align: end;
+    border-inline-end: 1px solid #dee2e6;
+    border-inline-start: none;
+}
+
+/* Enhanced Card Layouts */
+[dir="rtl"] .card-enhanced,
+.rtl .card-enhanced {
+    direction: rtl;
+}
+
+[dir="rtl"] .card-header-enhanced,
+.rtl .card-header-enhanced {
+    text-align: end;
+    padding-inline-start: 1.25rem;
+    padding-inline-end: 1.25rem;
+}
+
+[dir="rtl"] .card-body-enhanced,
+.rtl .card-body-enhanced {
+    text-align: end;
+    padding-inline-start: 1.25rem;
+    padding-inline-end: 1.25rem;
+}
+
+/* Enhanced Button Groups */
+[dir="rtl"] .btn-group-enhanced,
+.rtl .btn-group-enhanced {
+    display: inline-flex;
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .btn-group-enhanced > .btn:first-child,
+.rtl .btn-group-enhanced > .btn:first-child {
+    border-start-end-radius: 0.375rem;
+    border-end-end-radius: 0.375rem;
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+}
+
+[dir="rtl"] .btn-group-enhanced > .btn:last-child,
+.rtl .btn-group-enhanced > .btn:last-child {
+    border-start-start-radius: 0.375rem;
+    border-end-start-radius: 0.375rem;
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
+}
+
+/* Enhanced Alerts */
+[dir="rtl"] .alert-enhanced,
+.rtl .alert-enhanced {
+    text-align: end;
+    direction: rtl;
+}
+
+[dir="rtl"] .alert-dismissible-enhanced .btn-close,
+.rtl .alert-dismissible-enhanced .btn-close {
+    inset-inline-start: 0;
+    inset-inline-end: auto;
+    padding-inline-start: 0.75rem;
+    padding-inline-end: 1.25rem;
+}
+
+/* Browser-Specific Fixes */
+
+/* Firefox-specific RTL fixes */
+@-moz-document url-prefix() {
+    [dir="rtl"] .firefox-rtl-fix,
+    .rtl .firefox-rtl-fix {
+        text-align: -moz-right;
+    }
+
+    [dir="rtl"] .form-control,
+    .rtl .form-control {
+        -moz-appearance: none;
+        appearance: none;
+        background-position: left 0.75rem center;
+    }
+}
+
+/* Edge/IE-specific RTL fixes */
+@supports (-ms-ime-align: auto) {
+    [dir="rtl"] .edge-rtl-fix,
+    .rtl .edge-rtl-fix {
+        -ms-writing-mode: lr-tb;
+        writing-mode: horizontal-tb;
+        direction: rtl;
+        text-align: right;
+    }
+}
+
+/* Safari-specific RTL fixes */
+@supports (-webkit-marquee-repetition: infinite) {
+    [dir="rtl"] .safari-rtl-fix,
+    .rtl .safari-rtl-fix {
+        -webkit-writing-mode: horizontal-tb;
+        writing-mode: horizontal-tb;
+        direction: rtl;
+        text-align: right;
+    }
+
+    [dir="rtl"] .form-control,
+    .rtl .form-control {
+        -webkit-appearance: none;
+        appearance: none;
+        background-position: left 0.75rem center;
+    }
+}
+
+/* Chrome-specific RTL optimizations */
+@supports (-webkit-appearance: none) {
+    [dir="rtl"] .chrome-rtl-optimization,
+    .rtl .chrome-rtl-optimization {
+        -webkit-font-feature-settings: "liga" 1, "kern" 1;
+        font-feature-settings: "liga" 1, "kern" 1;
+        text-rendering: optimizeLegibility;
+    }
+}
+
+/* Enhanced Responsive Design for RTL */
+@media (max-width: 575.98px) {
+    [dir="rtl"] .responsive-rtl-xs,
+    .rtl .responsive-rtl-xs {
+        padding-inline-start: 0.5rem;
+        padding-inline-end: 0.5rem;
+        text-align: end;
+    }
+
+    [dir="rtl"] .sidebar-mobile-rtl,
+    .rtl .sidebar-mobile-rtl {
+        inset-inline-end: -100%;
+        inset-inline-start: auto;
+        transform: translateX(100%);
+    }
+
+    [dir="rtl"] .sidebar-mobile-rtl.show,
+    .rtl .sidebar-mobile-rtl.show {
+        inset-inline-end: 0;
+        transform: translateX(0);
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    [dir="rtl"] .responsive-rtl-sm,
+    .rtl .responsive-rtl-sm {
+        padding-inline-start: 0.75rem;
+        padding-inline-end: 0.75rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    [dir="rtl"] .responsive-rtl-md,
+    .rtl .responsive-rtl-md {
+        padding-inline-start: 1rem;
+        padding-inline-end: 1rem;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    [dir="rtl"] .responsive-rtl-lg,
+    .rtl .responsive-rtl-lg {
+        padding-inline-start: 1.25rem;
+        padding-inline-end: 1.25rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    [dir="rtl"] .responsive-rtl-xl,
+    .rtl .responsive-rtl-xl {
+        padding-inline-start: 1.5rem;
+        padding-inline-end: 1.5rem;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    [dir="rtl"] .high-contrast-rtl,
+    .rtl .high-contrast-rtl {
+        border: 2px solid;
+        background: transparent;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    [dir="rtl"] .motion-reduced-rtl,
+    .rtl .motion-reduced-rtl {
+        animation: none;
+        transition: none;
+    }
+}
+
+/* Print Styles Enhancement */
+@media print {
+    [dir="rtl"] .print-rtl,
+    .rtl .print-rtl {
+        direction: rtl;
+        text-align: right;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    [dir="rtl"] .print-rtl .sidebar,
+    .rtl .print-rtl .sidebar {
+        display: none;
+    }
+
+    [dir="rtl"] .print-rtl .main-content,
+    .rtl .print-rtl .main-content {
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+    }
+}
+
+/* Arabic Typography Enhancements */
+.arabic-typography-enhanced {
+    font-family: 'Noto Sans Arabic', 'Tajawal', 'Amiri', 'Arial Unicode MS', sans-serif;
+    font-feature-settings: "liga" 1, "kern" 1, "mark" 1, "mkmk" 1;
+    font-variant-ligatures: common-ligatures contextual;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    hyphens: auto;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Arabic Number and Date Formatting */
+.arabic-numbers-enhanced {
+    font-variant-numeric: lining-nums proportional-nums;
+    font-feature-settings: "lnum" 1, "pnum" 1;
+    direction: ltr;
+    unicode-bidi: embed;
+}
+
+.arabic-currency-enhanced {
+    font-variant-numeric: lining-nums tabular-nums;
+    font-feature-settings: "lnum" 1, "tnum" 1;
+    direction: ltr;
+    unicode-bidi: embed;
+}
+
+/* Workshop-Specific RTL Enhancements */
+[dir="rtl"] .workshop-dashboard-enhanced,
+.rtl .workshop-dashboard-enhanced {
+    direction: rtl;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+[dir="rtl"] .service-order-enhanced,
+.rtl .service-order-enhanced {
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+[dir="rtl"] .vehicle-info-enhanced,
+.rtl .vehicle-info-enhanced {
+    direction: rtl;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    text-align: end;
+}
+
+[dir="rtl"] .technician-mobile-enhanced,
+.rtl .technician-mobile-enhanced {
+    direction: rtl;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Performance Optimizations for RTL */
+.rtl-performance-optimized {
+    contain: layout style paint;
+    content-visibility: auto;
+    contain-intrinsic-size: 0 200px;
+}
+
+/* CSS Custom Properties for Dynamic RTL */
+:root {
+    --rtl-start: left;
+    --rtl-end: right;
+    --rtl-border-start: border-left;
+    --rtl-border-end: border-right;
+    --rtl-margin-start: margin-left;
+    --rtl-margin-end: margin-right;
+    --rtl-padding-start: padding-left;
+    --rtl-padding-end: padding-right;
+}
+
+[dir="rtl"] {
+    --rtl-start: right;
+    --rtl-end: left;
+    --rtl-border-start: border-right;
+    --rtl-border-end: border-left;
+    --rtl-margin-start: margin-right;
+    --rtl-margin-end: margin-left;
+    --rtl-padding-start: padding-right;
+    --rtl-padding-end: padding-left;
+}
+
+.dynamic-rtl {
+    border: 1px solid transparent;
+    border-inline-start-color: #dee2e6;
+    margin-inline-start: 1rem;
+    padding-inline-start: 1rem;
+}
+
+/* =================================================================
+   END OF CROSS-BROWSER RTL COMPATIBILITY ENHANCEMENTS
+   ================================================================= */

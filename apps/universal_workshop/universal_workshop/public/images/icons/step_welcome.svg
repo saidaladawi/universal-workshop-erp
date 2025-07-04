@@ -1,0 +1,33 @@
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="welcomeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="24" cy="24" r="22" fill="url(#welcomeGradient)" opacity="0.1"/>
+  
+  <!-- Checkered Flag -->
+  <rect x="12" y="8" width="24" height="16" fill="#333" rx="2"/>
+  <rect x="14" y="10" width="4" height="3" fill="white"/>
+  <rect x="22" y="10" width="4" height="3" fill="white"/>
+  <rect x="30" y="10" width="4" height="3" fill="white"/>
+  <rect x="18" y="13" width="4" height="3" fill="white"/>
+  <rect x="26" y="13" width="4" height="3" fill="white"/>
+  <rect x="14" y="16" width="4" height="3" fill="white"/>
+  <rect x="22" y="16" width="4" height="3" fill="white"/>
+  <rect x="30" y="16" width="4" height="3" fill="white"/>
+  <rect x="18" y="19" width="4" height="3" fill="white"/>
+  <rect x="26" y="19" width="4" height="3" fill="white"/>
+  
+  <!-- Flag Pole -->
+  <rect x="10" y="8" width="3" height="32" fill="url(#welcomeGradient)"/>
+  <circle cx="11.5" cy="40" r="2" fill="url(#welcomeGradient)"/>
+  
+  <!-- Welcome Text -->
+  <text x="24" y="35" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="url(#welcomeGradient)" text-anchor="middle">
+    START
+  </text>
+</svg>

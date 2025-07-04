@@ -1,0 +1,87 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-06-19 10:20:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_category",
+  "inspection_item",
+  "inspection_item_ar",
+  "column_break_hjks",
+  "result",
+  "notes",
+  "column_break_klmn",
+  "priority",
+  "requires_action"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": "Engine\nTransmission\nBrakes\nSuspension\nElectrical\nBody\nInterior\nTires\nLights\nFluids\nSafety\nEmission\nGeneral",
+   "in_list_view": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "inspection_item",
+   "fieldtype": "Data",
+   "label": "Inspection Item",
+   "in_list_view": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "inspection_item_ar",
+   "fieldtype": "Data",
+   "label": "بند الفحص",
+   "translatable": 1
+  },
+  {
+   "fieldname": "column_break_hjks",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "result",
+   "fieldtype": "Select",
+   "label": "Result",
+   "options": "Pass\nFail\nNeeds Attention\nNot Applicable",
+   "in_list_view": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "column_break_klmn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "Low\nMedium\nHigh\nCritical",
+   "default": "Low"
+  },
+  {
+   "fieldname": "requires_action",
+   "fieldtype": "Check",
+   "label": "Requires Action"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "modified": "2025-06-19 10:20:00.000000",
+ "modified_by": "Administrator",
+ "module": "Vehicle Management",
+ "name": "Vehicle Inspection Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+} 

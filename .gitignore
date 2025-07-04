@@ -135,3 +135,44 @@ auth_tokens/
 # Ignore backup folders
 apps/universal_workshop.backup.*
 apps/universal_workshop.emergency.*
+
+# Additional Cache and Development files
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+*.cache/
+
+# Cursor IDE specific
+.cursor/mcp.json.backup-*
+.cursor/*.backup
+.cursor/*.backup.*
+
+# Additional backup patterns
+phase*_backup/
+*_backup/
+*.emergency.*
+*.backup.*
+
+# Additional temp/log files  
+serve.log
+bench.log
+*.pid
+*.swp
+*.swo
+
+# Additional IDE/Editor patterns
+.vscode/
+.idea/
+*.sublime-*
+*~
+
+# Additional Frappe/ERPNext patterns
+sites/*/private/backups/
+sites/*/private/files/
+sites/*/error.log
+sites/*/access.log
+
+# Never commit these sensitive files
+.env.workshop
+config/*.conf
+private_files/

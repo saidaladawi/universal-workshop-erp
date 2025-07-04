@@ -1,0 +1,43 @@
+<svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="workshopGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="toolGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Workshop Building -->
+  <rect x="10" y="35" width="40" height="25" fill="url(#workshopGradient)" rx="2"/>
+  <polygon points="8,35 30,20 52,35" fill="url(#workshopGradient)"/>
+  <rect x="18" y="45" width="6" height="10" fill="#fff" opacity="0.3"/>
+  <rect x="28" y="45" width="6" height="10" fill="#fff" opacity="0.3"/>
+  <rect x="38" y="40" width="8" height="15" fill="#fff" opacity="0.2"/>
+  
+  <!-- Car Silhouette -->
+  <ellipse cx="85" cy="55" rx="20" ry="6" fill="url(#workshopGradient)"/>
+  <path d="M70,55 Q70,45 75,45 L95,45 Q100,45 100,55 Q100,60 95,60 L75,60 Q70,60 70,55" fill="url(#workshopGradient)"/>
+  <circle cx="78" cy="58" r="3" fill="#fff" opacity="0.4"/>
+  <circle cx="92" cy="58" r="3" fill="#fff" opacity="0.4"/>
+  <rect x="73" y="48" width="4" height="3" fill="#fff" opacity="0.3"/>
+  <rect x="83" y="48" width="8" height="3" fill="#fff" opacity="0.3"/>
+  <rect x="93" y="48" width="4" height="3" fill="#fff" opacity="0.3"/>
+  
+  <!-- Wrench/Tools -->
+  <path d="M115,35 L125,25 L127,27 L120,34 L125,39 L127,37 L135,45 L133,47 L125,39 L120,44 L115,39 Z" fill="url(#toolGradient)"/>
+  <circle cx="130" cy="30" r="3" fill="url(#toolGradient)" opacity="0.7"/>
+  <path d="M140,45 L145,40 L147,42 L145,44 L150,49 L148,51 L143,46 L141,48 L140,45 Z" fill="url(#toolGradient)"/>
+  
+  <!-- Text -->
+  <text x="10" y="75" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="url(#workshopGradient)">
+    UNIVERSAL WORKSHOP
+  </text>
+  
+  <!-- Decorative Elements -->
+  <circle cx="165" cy="25" r="2" fill="url(#workshopGradient)" opacity="0.3"/>
+  <circle cx="175" cy="35" r="1.5" fill="url(#toolGradient)" opacity="0.4"/>
+  <circle cx="185" cy="45" r="1" fill="url(#workshopGradient)" opacity="0.5"/>
+</svg>

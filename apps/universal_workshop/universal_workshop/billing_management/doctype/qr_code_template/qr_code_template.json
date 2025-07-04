@@ -1,0 +1,46 @@
+{
+    "name": "QR Code Template",
+    "doctype": "DocType",
+    "module": "Billing Management",
+    "custom": 0,
+    "fields": [
+        {
+            "fieldname": "template_name",
+            "fieldtype": "Data",
+            "label": "اسم القالب (Template Name)",
+            "reqd": 1,
+            "unique": 1,
+            "translatable": 1
+        },
+        {
+            "fieldname": "template_language",
+            "fieldtype": "Select",
+            "label": "لغة القالب (Template Language)",
+            "options": "Arabic\nEnglish",
+            "reqd": 1
+        },
+        {
+            "fieldname": "template_content",
+            "fieldtype": "Code",
+            "label": "محتوى القالب (Template Content)",
+            "options": "HTML",
+            "reqd": 1,
+            "description": "يجب أن يحتوي على المتغيرات: {invoice_number}, {vat_number}, {amount}, {date}"
+        },
+        {
+            "fieldname": "is_active",
+            "fieldtype": "Check",
+            "label": "نشط؟ (Active)",
+            "default": 1
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        }
+    ]
+} 

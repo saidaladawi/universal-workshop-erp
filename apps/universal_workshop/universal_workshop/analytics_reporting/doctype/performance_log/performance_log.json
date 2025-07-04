@@ -1,0 +1,175 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 0,
+    "allow_rename": 0,
+    "autoname": "naming_series:",
+    "beta": 0,
+    "creation": "2024-12-30 12:00:00.000000",
+    "default_view": "List",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "function_name",
+        "execution_time",
+        "success",
+        "error",
+        "column_break_5",
+        "timestamp",
+        "user",
+        "session_id",
+        "request_id",
+        "performance_section",
+        "memory_used_mb",
+        "cpu_used_percent",
+        "system_memory_percent",
+        "system_cpu_percent",
+        "naming_series"
+    ],
+    "fields": [
+        {
+            "fieldname": "function_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Function Name",
+            "reqd": 1
+        },
+        {
+            "fieldname": "execution_time",
+            "fieldtype": "Float",
+            "in_list_view": 1,
+            "label": "Execution Time (seconds)",
+            "precision": "4"
+        },
+        {
+            "default": "1",
+            "fieldname": "success",
+            "fieldtype": "Check",
+            "in_list_view": 1,
+            "label": "Success"
+        },
+        {
+            "fieldname": "error",
+            "fieldtype": "Text",
+            "label": "Error Message"
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "timestamp",
+            "fieldtype": "Datetime",
+            "in_list_view": 1,
+            "label": "Timestamp",
+            "reqd": 1
+        },
+        {
+            "fieldname": "user",
+            "fieldtype": "Link",
+            "label": "User",
+            "options": "User"
+        },
+        {
+            "fieldname": "session_id",
+            "fieldtype": "Data",
+            "label": "Session ID"
+        },
+        {
+            "fieldname": "request_id",
+            "fieldtype": "Data",
+            "label": "Request ID"
+        },
+        {
+            "collapsible": 1,
+            "fieldname": "performance_section",
+            "fieldtype": "Section Break",
+            "label": "Performance Metrics"
+        },
+        {
+            "fieldname": "memory_used_mb",
+            "fieldtype": "Float",
+            "label": "Memory Used (MB)",
+            "precision": "2"
+        },
+        {
+            "fieldname": "cpu_used_percent",
+            "fieldtype": "Float",
+            "label": "CPU Used (%)",
+            "precision": "2"
+        },
+        {
+            "fieldname": "system_memory_percent",
+            "fieldtype": "Float",
+            "label": "System Memory (%)",
+            "precision": "2"
+        },
+        {
+            "fieldname": "system_cpu_percent",
+            "fieldtype": "Float",
+            "label": "System CPU (%)",
+            "precision": "2"
+        },
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "hidden": 1,
+            "label": "Series",
+            "options": "PERF-LOG-.YYYY.-"
+        }
+    ],
+    "index_web_pages_for_search": 0,
+    "is_submittable": 0,
+    "istable": 0,
+    "max_attachments": 0,
+    "modified": "2024-12-30 12:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Analytics Reporting",
+    "name": "Performance Log",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "read": 1,
+            "report": 1,
+            "role": "Analytics Viewer"
+        }
+    ],
+    "quick_entry": 0,
+    "read_only": 0,
+    "read_only_onload": 0,
+    "show_name_in_global_search": 0,
+    "sort_field": "timestamp",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "function_name",
+    "track_changes": 0,
+    "track_seen": 0,
+    "track_views": 0
+} 

@@ -1,0 +1,22 @@
+elasticsearch>=8.0.0,<9.0.0
+# Arabic text processing support
+python-arabic-reshaper>=2.1.0
+bidi.algorithm>=0.3.0
+# HTTP requests for VIN decoder API
+requests>=2.25.0
+# QR code generation for e-invoice compliance
+qrcode[pil]>=7.3.0
+# Barcode generation for storage and inventory tracking
+python-barcode[images]>=0.15.0
+# Communication management - Twilio SDK for SMS/WhatsApp
+twilio>=8.0.0
+# Timezone support for Oman business hours
+pytz>=2023.3
+# Redis client for message queuing
+redis>=5.0.0
+# WebSocket support for real-time communication
+python-socketio>=5.9.0
+# Async I/O support for WebSocket and real-time features
+asyncio>=3.4.3
+# Enhanced threading support for concurrent operations
+threading2>=0.1.2 

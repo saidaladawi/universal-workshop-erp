@@ -1,0 +1,379 @@
+{
+  "actions": [],
+  "creation": "2025-01-15 19:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "section_break_1",
+    "cycle_count_name",
+    "cycle_count_name_ar",
+    "column_break_2",
+    "cycle_count_date",
+    "assigned_to",
+    "count_settings_section",
+    "count_type",
+    "count_method",
+    "column_break_3",
+    "tolerance_percentage",
+    "auto_adjust_stock",
+    "location_settings_section",
+    "warehouse",
+    "item_group",
+    "column_break_4",
+    "item_category",
+    "specific_items",
+    "count_progress_section",
+    "total_items",
+    "counted_items",
+    "column_break_5",
+    "pending_items",
+    "completion_percentage",
+    "count_results_section",
+    "items_with_variance",
+    "total_variance_value",
+    "column_break_6",
+    "variance_percentage",
+    "status_section",
+    "cycle_count_status",
+    "start_time",
+    "column_break_7",
+    "end_time",
+    "duration",
+    "approval_section",
+    "requires_approval",
+    "approved_by",
+    "column_break_8",
+    "approval_date",
+    "notes_section",
+    "count_notes",
+    "count_notes_ar",
+    "column_break_9",
+    "created_by",
+    "creation_date"
+  ],
+  "fields": [
+    {
+      "fieldname": "section_break_1",
+      "fieldtype": "Section Break",
+      "label": "Cycle Count Information"
+    },
+    {
+      "fieldname": "cycle_count_name",
+      "fieldtype": "Data",
+      "label": "Cycle Count Name",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "cycle_count_name_ar",
+      "fieldtype": "Data",
+      "label": "اسم الجرد الدوري",
+      "translatable": 1
+    },
+    {
+      "fieldname": "column_break_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "cycle_count_date",
+      "fieldtype": "Date",
+      "label": "Cycle Count Date",
+      "default": "Today",
+      "reqd": 1
+    },
+    {
+      "fieldname": "assigned_to",
+      "fieldtype": "Link",
+      "label": "Assigned To",
+      "options": "User",
+      "reqd": 1
+    },
+    {
+      "fieldname": "count_settings_section",
+      "fieldtype": "Section Break",
+      "label": "Count Settings"
+    },
+    {
+      "fieldname": "count_type",
+      "fieldtype": "Select",
+      "label": "Count Type",
+      "options": "Full Count\nPartial Count\nABC Count\nRandom Count",
+      "default": "Full Count",
+      "reqd": 1
+    },
+    {
+      "fieldname": "count_method",
+      "fieldtype": "Select",
+      "label": "Count Method",
+      "options": "Manual Count\nBarcode Scanner\nMobile App\nRFID Scanner",
+      "default": "Manual Count"
+    },
+    {
+      "fieldname": "column_break_3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "tolerance_percentage",
+      "fieldtype": "Float",
+      "label": "Tolerance Percentage (%)",
+      "default": "5.0",
+      "precision": 2,
+      "description": "Acceptable variance percentage"
+    },
+    {
+      "default": "1",
+      "fieldname": "auto_adjust_stock",
+      "fieldtype": "Check",
+      "label": "Auto Adjust Stock"
+    },
+    {
+      "fieldname": "location_settings_section",
+      "fieldtype": "Section Break",
+      "label": "Location Settings"
+    },
+    {
+      "fieldname": "warehouse",
+      "fieldtype": "Link",
+      "label": "Warehouse",
+      "options": "Warehouse",
+      "reqd": 1
+    },
+    {
+      "fieldname": "item_group",
+      "fieldtype": "Link",
+      "label": "Item Group",
+      "options": "Item Group"
+    },
+    {
+      "fieldname": "column_break_4",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "item_category",
+      "fieldtype": "Link",
+      "label": "Item Category",
+      "options": "Item Category"
+    },
+    {
+      "fieldname": "specific_items",
+      "fieldtype": "Table",
+      "label": "Specific Items",
+      "options": "Cycle Count Item"
+    },
+    {
+      "fieldname": "count_progress_section",
+      "fieldtype": "Section Break",
+      "label": "Count Progress"
+    },
+    {
+      "fieldname": "total_items",
+      "fieldtype": "Int",
+      "label": "Total Items",
+      "read_only": 1
+    },
+    {
+      "fieldname": "counted_items",
+      "fieldtype": "Int",
+      "label": "Counted Items",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_5",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "pending_items",
+      "fieldtype": "Int",
+      "label": "Pending Items",
+      "read_only": 1
+    },
+    {
+      "fieldname": "completion_percentage",
+      "fieldtype": "Percent",
+      "label": "Completion Percentage",
+      "read_only": 1,
+      "precision": 2
+    },
+    {
+      "fieldname": "count_results_section",
+      "fieldtype": "Section Break",
+      "label": "Count Results"
+    },
+    {
+      "fieldname": "items_with_variance",
+      "fieldtype": "Int",
+      "label": "Items with Variance",
+      "read_only": 1
+    },
+    {
+      "fieldname": "total_variance_value",
+      "fieldtype": "Currency",
+      "label": "Total Variance Value (OMR)",
+      "options": "Company:company:default_currency",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_6",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "variance_percentage",
+      "fieldtype": "Percent",
+      "label": "Variance Percentage",
+      "read_only": 1,
+      "precision": 2
+    },
+    {
+      "fieldname": "status_section",
+      "fieldtype": "Section Break",
+      "label": "Status Information"
+    },
+    {
+      "fieldname": "cycle_count_status",
+      "fieldtype": "Select",
+      "label": "Cycle Count Status",
+      "options": "Draft\nIn Progress\nCompleted\nCancelled\nApproved",
+      "default": "Draft",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "start_time",
+      "fieldtype": "Datetime",
+      "label": "Start Time"
+    },
+    {
+      "fieldname": "column_break_7",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "end_time",
+      "fieldtype": "Datetime",
+      "label": "End Time"
+    },
+    {
+      "fieldname": "duration",
+      "fieldtype": "Duration",
+      "label": "Duration",
+      "read_only": 1
+    },
+    {
+      "fieldname": "approval_section",
+      "fieldtype": "Section Break",
+      "label": "Approval Information"
+    },
+    {
+      "default": "1",
+      "fieldname": "requires_approval",
+      "fieldtype": "Check",
+      "label": "Requires Approval"
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Link",
+      "label": "Approved By",
+      "options": "User"
+    },
+    {
+      "fieldname": "column_break_8",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "approval_date",
+      "fieldtype": "Datetime",
+      "label": "Approval Date"
+    },
+    {
+      "fieldname": "notes_section",
+      "fieldtype": "Section Break",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "count_notes",
+      "fieldtype": "Small Text",
+      "label": "Count Notes"
+    },
+    {
+      "fieldname": "count_notes_ar",
+      "fieldtype": "Small Text",
+      "label": "ملاحظات الجرد",
+      "translatable": 1
+    },
+    {
+      "fieldname": "column_break_9",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "created_by",
+      "fieldtype": "Link",
+      "label": "Created By",
+      "options": "User",
+      "read_only": 1
+    },
+    {
+      "fieldname": "creation_date",
+      "fieldtype": "Datetime",
+      "label": "Creation Date",
+      "read_only": 1
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "is_submittable": 1,
+  "links": [],
+  "modified": "2025-01-15 19:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Parts Inventory",
+  "name": "Cycle Count",
+  "naming_rule": "Expression",
+  "autoname": "format:CC-{cycle_count_date}-{###}",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Parts Manager",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "delete": 0,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Inventory User",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    },
+    {
+      "create": 0,
+      "delete": 0,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Technician",
+      "share": 0,
+      "submit": 0,
+      "write": 0
+    }
+  ],
+  "search_fields": "cycle_count_name,cycle_count_date,cycle_count_status,assigned_to",
+  "sort_field": "cycle_count_date",
+  "sort_order": "DESC",
+  "states": [],
+  "title_field": "cycle_count_name",
+  "track_changes": 1,
+  "track_seen": 1,
+  "track_views": 1
+} 

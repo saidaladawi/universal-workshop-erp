@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>غير متصل - Universal Workshop</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/universal_workshop/favicon.svg">
+    <meta name="theme-color" content="#667eea">
+    <style>
+        :root {
+            --color-primary: #2563eb;
+            --color-primary-50: #eff6ff;
+            --color-gray-50: #f9fafb;
+            --color-gray-100: #f3f4f6;
+            --color-gray-500: #6b7280;
+            --color-gray-700: #374151;
+            --color-gray-900: #111827;
+            --spacing-4: 1rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-12: 3rem;
+            --radius-lg: 0.5rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--color-primary-50) 0%, var(--color-gray-50) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-4);
+            direction: rtl;
+        }
+
+        .offline-container {
+            max-width: 500px;
+            width: 100%;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+        }
+
+        .offline-header {
+            background: var(--color-primary);
+            color: white;
+            padding: var(--spacing-8) var(--spacing-6);
+            text-align: center;
+        }
+
+        .offline-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-4);
+            font-size: 2rem;
+        }
+
+        .offline-title {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .offline-subtitle {
+            font-size: var(--font-size-base);
+            opacity: 0.9;
+        }
+
+        .offline-content {
+            padding: var(--spacing-8) var(--spacing-6);
+            text-align: center;
+        }
+
+        .offline-message {
+            font-size: var(--font-size-lg);
+            color: var(--color-gray-700);
+            margin-bottom: var(--spacing-6);
+            line-height: 1.6;
+        }
+
+        .offline-features {
+            text-align: right;
+            margin-bottom: var(--spacing-8);
+        }
+
+        .offline-features h3 {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-gray-900);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .feature-list {
+            list-style: none;
+            space-y: var(--spacing-2);
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            padding: var(--spacing-2) 0;
+            color: var(--color-gray-700);
+        }
+
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--color-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .retry-section {
+            border-top: 1px solid var(--color-gray-100);
+            padding: var(--spacing-6);
+            background: var(--color-gray-50);
+        }
+
+        .retry-button {
+            width: 100%;
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            padding: var(--spacing-4) var(--spacing-6);
+            border-radius: var(--radius-lg);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-bottom: var(--spacing-4);
+        }
+
+        .retry-button:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        .retry-button:active {
+            transform: translateY(0);
+        }
+
+        .connection-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-2);
+            font-size: var(--font-size-sm);
+            color: var(--color-gray-500);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ef4444;
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.online {
+            background: #10b981;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .queue-info {
+            margin-top: var(--spacing-4);
+            padding: var(--spacing-3);
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            font-size: var(--font-size-sm);
+            color: #92400e;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Animation for loading states */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .loading .retry-button {
+            background: var(--color-gray-500);
+        }
+
+        /* Responsive design */
+        @media (max-width: 640px) {
+            .offline-header, .offline-content, .retry-section {
+                padding-left: var(--spacing-4);
+                padding-right: var(--spacing-4);
+            }
+            
+            .offline-title {
+                font-size: var(--font-size-xl);
+            }
+            
+            .offline-message {
+                font-size: var(--font-size-base);
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            .offline-container {
+                background: #1f2937;
+                color: #f9fafb;
+            }
+            
+            .offline-content {
+                color: #e5e7eb;
+            }
+            
+            .offline-message {
+                color: #d1d5db;
+            }
+            
+            .feature-item {
+                color: #d1d5db;
+            }
+            
+            .retry-section {
+                background: #111827;
+                border-color: #374151;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <!-- Header -->
+        <div class="offline-header">
+            <div class="offline-icon">
+                📶
+            </div>
+            <h1 class="offline-title">غير متصل بالإنترنت</h1>
+            <p class="offline-subtitle">You're currently offline</p>
+        </div>
+
+        <!-- Content -->
+        <div class="offline-content">
+            <p class="offline-message">
+                لا يمكن الاتصال بالخادم حاليًا. يمكنك الاستمرار في استخدام الميزات المتاحة دون اتصال.
+            </p>
+            <p class="offline-message" style="font-size: 0.9rem; margin-top: 1rem;">
+                Can't connect to the server right now. You can continue using available offline features.
+            </p>
+
+            <!-- Available offline features -->
+            <div class="offline-features">
+                <h3>الميزات المتاحة دون اتصال:</h3>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <span>عرض بيانات الخدمات المحفوظة</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <span>تحديث حالة المهام</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <span>إضافة ملاحظات وصور</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <span>مسح الباركود</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <span>مراجعة تاريخ الخدمات</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Retry section -->
+        <div class="retry-section">
+            <button class="retry-button" onclick="retryConnection()">
+                محاولة الاتصال مرة أخرى
+            </button>
+            
+            <div class="connection-status">
+                <span class="status-dot" id="statusDot"></span>
+                <span id="statusText">فحص الاتصال...</span>
+            </div>
+
+            <div class="queue-info hidden" id="queueInfo">
+                <strong>معلق للمزامنة:</strong>
+                <span id="queueCount">0</span> عملية في انتظار اعادة الاتصال
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isRetrying = false;
+        let offlineQueue = [];
+
+        // Check connection status
+        function checkConnectionStatus() {
+            const statusDot = document.getElementById('statusDot');
+            const statusText = document.getElementById('statusText');
+            
+            if (navigator.onLine) {
+                statusDot.classList.add('online');
+                statusText.textContent = 'متصل - Connected';
+                
+                // Try to reach the server
+                fetch('/api/ping', { cache: 'no-cache' })
+                    .then(response => {
+                        if (response.ok) {
+                            // Connection restored, redirect to main app
+                            window.location.href = '/';
+                        } else {
+                            throw new Error('Server not responding');
+                        }
+                    })
+                    .catch(() => {
+                        statusText.textContent = 'الخادم غير متاح - Server unavailable';
+                        statusDot.classList.remove('online');
+                    });
+            } else {
+                statusDot.classList.remove('online');
+                statusText.textContent = 'غير متصل - Offline';
+            }
+        }
+
+        // Retry connection
+        function retryConnection() {
+            if (isRetrying) return;
+            
+            isRetrying = true;
+            const button = document.querySelector('.retry-button');
+            const container = document.querySelector('.offline-container');
+            
+            button.textContent = 'جاري المحاولة...';
+            container.classList.add('loading');
+            
+            // Check connection after a brief delay
+            setTimeout(() => {
+                checkConnectionStatus();
+                
+                setTimeout(() => {
+                    isRetrying = false;
+                    button.textContent = 'محاولة الاتصال مرة أخرى';
+                    container.classList.remove('loading');
+                }, 2000);
+            }, 1000);
+        }
+
+        // Load queue information from localStorage
+        function loadQueueInfo() {
+            try {
+                const queueData = localStorage.getItem('workshop_offline_queue');
+                if (queueData) {
+                    offlineQueue = JSON.parse(queueData);
+                    updateQueueDisplay();
+                }
+            } catch (error) {
+                console.error('Error loading queue info:', error);
+            }
+        }
+
+        // Update queue display
+        function updateQueueDisplay() {
+            const queueInfo = document.getElementById('queueInfo');
+            const queueCount = document.getElementById('queueCount');
+            
+            if (offlineQueue.length > 0) {
+                queueCount.textContent = offlineQueue.length;
+                queueInfo.classList.remove('hidden');
+            } else {
+                queueInfo.classList.add('hidden');
+            }
+        }
+
+        // Listen for online/offline events
+        window.addEventListener('online', () => {
+            console.log('Network connection restored');
+            checkConnectionStatus();
+        });
+
+        window.addEventListener('offline', () => {
+            console.log('Network connection lost');
+            checkConnectionStatus();
+        });
+
+        // Listen for service worker messages
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.addEventListener('message', (event) => {
+                const { type, data } = event.data;
+                
+                if (type === 'ONLINE') {
+                    checkConnectionStatus();
+                } else if (type === 'QUEUE_UPDATE') {
+                    offlineQueue = data.queue;
+                    updateQueueDisplay();
+                }
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            checkConnectionStatus();
+            loadQueueInfo();
+            
+            // Check connection status every 30 seconds
+            setInterval(checkConnectionStatus, 30000);
+        });
+
+        // Back button functionality
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                window.history.back();
+            }
+        });
+
+        // Gesture support for mobile
+        let touchStartX = 0;
+        let touchStartY = 0;
+
+        document.addEventListener('touchstart', (event) => {
+            touchStartX = event.changedTouches[0].screenX;
+            touchStartY = event.changedTouches[0].screenY;
+        });
+
+        document.addEventListener('touchend', (event) => {
+            const touchEndX = event.changedTouches[0].screenX;
+            const touchEndY = event.changedTouches[0].screenY;
+            
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+            
+            // Swipe right to retry (RTL interface)
+            if (Math.abs(deltaX) > Math.abs(deltaY) && deltaX > 50) {
+                retryConnection();
+            }
+            
+            // Swipe down to refresh
+            if (Math.abs(deltaY) > Math.abs(deltaX) && deltaY > 50) {
+                retryConnection();
+            }
+        });
+    </script>
+</body>
+</html>

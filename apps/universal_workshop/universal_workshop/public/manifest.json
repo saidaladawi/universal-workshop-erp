@@ -1,0 +1,130 @@
+{
+  "name": "Universal Workshop ERP - ورشة شاملة",
+  "short_name": "ورشة",
+  "description": "Arabic-first ERP for Omani automotive workshops",
+  "start_url": "/desk",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#667eea",
+  "background_color": "#ffffff",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "/assets/universal_workshop/images/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/universal_workshop/images/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/universal_workshop/images/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/universal_workshop/images/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/universal_workshop/images/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/universal_workshop/images/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/universal_workshop/images/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/universal_workshop/images/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "New Service Order - أمر خدمة جديد",
+      "short_name": "أمر جديد",
+      "description": "Create a new service order",
+      "url": "/desk#Form/Service Order/New Service Order 1",
+      "icons": [
+        {
+          "src": "/assets/universal_workshop/images/icons/shortcut-new-order.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Customer Portal - بوابة العملاء",
+      "short_name": "العملاء",
+      "description": "Access customer portal",
+      "url": "/portal",
+      "icons": [
+        {
+          "src": "/assets/universal_workshop/images/icons/shortcut-customers.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Technician Schedule - جدول الفنيين",
+      "short_name": "الجدول",
+      "description": "View technician assignments",
+      "url": "/desk#query-report/Technician Workload Report",
+      "icons": [
+        {
+          "src": "/assets/universal_workshop/images/icons/shortcut-schedule.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "categories": ["business", "productivity", "automotive"],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "screenshots": [
+    {
+      "src": "/assets/universal_workshop/images/screenshots/desktop-1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Workshop Dashboard - Arabic RTL layout"
+    },
+    {
+      "src": "/assets/universal_workshop/images/screenshots/mobile-1.png",
+      "sizes": "375x812",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Mobile Service Orders - واجهة أوامر الخدمة"
+    }
+  ],
+  "capture_links": "existing-client-navigate",
+  "edge_side_panel": {
+    "preferred_width": 480
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "web+workshop",
+      "url": "/desk#Form/Service Order/%s"
+    }
+  ]
+} 

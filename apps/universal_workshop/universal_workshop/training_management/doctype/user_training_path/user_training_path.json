@@ -1,0 +1,292 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "format:UTP-{user}-{training_path}-{#####}",
+    "creation": "2025-06-21 22:00:00.000000",
+    "doctype": "DocType",
+    "name": "User Training Path",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "user_info_section",
+        "user",
+        "full_name",
+        "role",
+        "column_break_4",
+        "department",
+        "training_path",
+        "path_name",
+        "progress_section",
+        "status",
+        "progress_percentage",
+        "current_module",
+        "column_break_10",
+        "enrolled_on",
+        "started_on",
+        "completed_on",
+        "completion_details_section",
+        "modules_completed",
+        "modules_remaining",
+        "total_modules",
+        "column_break_16",
+        "overall_competency_level",
+        "average_score",
+        "total_time_spent_hours",
+        "adaptive_learning_section",
+        "adaptive_adjustments_made",
+        "remedial_actions_taken",
+        "column_break_22",
+        "performance_notes",
+        "supervisor_feedback",
+        "metadata_section",
+        "last_activity_date",
+        "next_review_date",
+        "column_break_26",
+        "created_by",
+        "created_date"
+    ],
+    "fields": [
+        {
+            "fieldname": "user_info_section",
+            "fieldtype": "Section Break",
+            "label": "User Information"
+        },
+        {
+            "fieldname": "user",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "User",
+            "options": "User",
+            "reqd": 1
+        },
+        {
+            "fieldname": "full_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Full Name",
+            "read_only": 1
+        },
+        {
+            "fieldname": "role",
+            "fieldtype": "Link",
+            "label": "Role",
+            "options": "Role",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_4",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "department",
+            "fieldtype": "Link",
+            "label": "Department",
+            "options": "Department",
+            "read_only": 1
+        },
+        {
+            "fieldname": "training_path",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Training Path",
+            "options": "Training Path",
+            "reqd": 1
+        },
+        {
+            "fieldname": "path_name",
+            "fieldtype": "Data",
+            "label": "Path Name",
+            "read_only": 1
+        },
+        {
+            "fieldname": "progress_section",
+            "fieldtype": "Section Break",
+            "label": "Progress Information"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Status",
+            "options": "Not Started\nIn Progress\nCompleted\nPaused\nDropped",
+            "default": "Not Started"
+        },
+        {
+            "fieldname": "progress_percentage",
+            "fieldtype": "Percent",
+            "in_list_view": 1,
+            "label": "Progress Percentage"
+        },
+        {
+            "fieldname": "current_module",
+            "fieldtype": "Link",
+            "label": "Current Module",
+            "options": "Training Module"
+        },
+        {
+            "fieldname": "column_break_10",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "enrolled_on",
+            "fieldtype": "Datetime",
+            "label": "Enrolled On"
+        },
+        {
+            "fieldname": "started_on",
+            "fieldtype": "Datetime",
+            "label": "Started On"
+        },
+        {
+            "fieldname": "completed_on",
+            "fieldtype": "Datetime",
+            "label": "Completed On"
+        },
+        {
+            "fieldname": "completion_details_section",
+            "fieldtype": "Section Break",
+            "label": "Completion Details"
+        },
+        {
+            "fieldname": "modules_completed",
+            "fieldtype": "Int",
+            "label": "Modules Completed"
+        },
+        {
+            "fieldname": "modules_remaining",
+            "fieldtype": "Int",
+            "label": "Modules Remaining"
+        },
+        {
+            "fieldname": "total_modules",
+            "fieldtype": "Int",
+            "label": "Total Modules"
+        },
+        {
+            "fieldname": "column_break_16",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "overall_competency_level",
+            "fieldtype": "Select",
+            "label": "Overall Competency Level",
+            "options": "Not Assessed\nBeginner\nIntermediate\nAdvanced\nExpert"
+        },
+        {
+            "fieldname": "average_score",
+            "fieldtype": "Float",
+            "label": "Average Score (%)"
+        },
+        {
+            "fieldname": "total_time_spent_hours",
+            "fieldtype": "Float",
+            "label": "Total Time Spent (Hours)"
+        },
+        {
+            "fieldname": "adaptive_learning_section",
+            "fieldtype": "Section Break",
+            "label": "Adaptive Learning"
+        },
+        {
+            "fieldname": "adaptive_adjustments_made",
+            "fieldtype": "Small Text",
+            "label": "Adaptive Adjustments Made"
+        },
+        {
+            "fieldname": "remedial_actions_taken",
+            "fieldtype": "Small Text",
+            "label": "Remedial Actions Taken"
+        },
+        {
+            "fieldname": "column_break_22",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "performance_notes",
+            "fieldtype": "Text",
+            "label": "Performance Notes"
+        },
+        {
+            "fieldname": "supervisor_feedback",
+            "fieldtype": "Text",
+            "label": "Supervisor Feedback"
+        },
+        {
+            "fieldname": "metadata_section",
+            "fieldtype": "Section Break",
+            "label": "Metadata"
+        },
+        {
+            "fieldname": "last_activity_date",
+            "fieldtype": "Datetime",
+            "label": "Last Activity Date"
+        },
+        {
+            "fieldname": "next_review_date",
+            "fieldtype": "Date",
+            "label": "Next Review Date"
+        },
+        {
+            "fieldname": "column_break_26",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "created_date",
+            "fieldtype": "Datetime",
+            "label": "Created Date",
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2025-06-21 22:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Training Management",
+    "naming_rule": "Expression",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Training Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Employee",
+            "share": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

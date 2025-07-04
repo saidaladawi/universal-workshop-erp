@@ -1,0 +1,164 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 0,
+    "allow_rename": 0,
+    "autoname": "naming_series:",
+    "beta": 0,
+    "creation": "2024-12-30 12:00:00.000000",
+    "default_view": "List",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "alert_type",
+        "metric_name",
+        "metric_value",
+        "threshold_value",
+        "severity",
+        "column_break_6",
+        "function_name",
+        "resolved",
+        "resolved_by",
+        "resolved_at",
+        "section_break_11",
+        "alert_data",
+        "naming_series"
+    ],
+    "fields": [
+        {
+            "fieldname": "alert_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Alert Type",
+            "options": "slow_function\nhigh_memory_usage\nhigh_cpu_usage\nfunction_error\nhigh_disk_usage\ndb_connection_slow\nqueue_overload",
+            "reqd": 1
+        },
+        {
+            "fieldname": "metric_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Metric Name",
+            "reqd": 1
+        },
+        {
+            "fieldname": "metric_value",
+            "fieldtype": "Float",
+            "in_list_view": 1,
+            "label": "Metric Value",
+            "precision": "4"
+        },
+        {
+            "fieldname": "threshold_value",
+            "fieldtype": "Float",
+            "label": "Threshold Value",
+            "precision": "4"
+        },
+        {
+            "fieldname": "severity",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Severity",
+            "options": "Low\nMedium\nHigh\nCritical",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_6",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "function_name",
+            "fieldtype": "Data",
+            "label": "Function Name"
+        },
+        {
+            "default": "0",
+            "fieldname": "resolved",
+            "fieldtype": "Check",
+            "in_list_view": 1,
+            "label": "Resolved"
+        },
+        {
+            "fieldname": "resolved_by",
+            "fieldtype": "Link",
+            "label": "Resolved By",
+            "options": "User"
+        },
+        {
+            "fieldname": "resolved_at",
+            "fieldtype": "Datetime",
+            "label": "Resolved At"
+        },
+        {
+            "collapsible": 1,
+            "fieldname": "section_break_11",
+            "fieldtype": "Section Break",
+            "label": "Alert Details"
+        },
+        {
+            "fieldname": "alert_data",
+            "fieldtype": "JSON",
+            "label": "Alert Data"
+        },
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "hidden": 1,
+            "label": "Series",
+            "options": "PERF-ALERT-.YYYY.-"
+        }
+    ],
+    "index_web_pages_for_search": 0,
+    "is_submittable": 0,
+    "istable": 0,
+    "max_attachments": 0,
+    "modified": "2024-12-30 12:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Analytics Reporting",
+    "name": "Performance Alert",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "read": 1,
+            "report": 1,
+            "role": "Analytics Viewer"
+        }
+    ],
+    "quick_entry": 0,
+    "read_only": 0,
+    "read_only_onload": 0,
+    "show_name_in_global_search": 0,
+    "sort_field": "creation",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "alert_type",
+    "track_changes": 1,
+    "track_seen": 0,
+    "track_views": 0
+} 

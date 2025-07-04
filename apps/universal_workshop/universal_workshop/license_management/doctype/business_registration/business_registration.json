@@ -1,0 +1,438 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2024-06-18 19:30:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "business_section",
+        "business_name_en",
+        "business_name_ar",
+        "business_license_number",
+        "registration_date",
+        "column_break_5",
+        "business_type",
+        "industry_sector",
+        "business_status",
+        "verification_status",
+        "contact_section",
+        "primary_contact_name",
+        "primary_contact_name_ar",
+        "email",
+        "phone_number",
+        "column_break_12",
+        "address",
+        "address_ar",
+        "city",
+        "governorate",
+        "owner_section",
+        "owner_name_en",
+        "owner_name_ar",
+        "owner_civil_id",
+        "owner_nationality",
+        "column_break_19",
+        "owner_phone",
+        "owner_email",
+        "alternate_contact",
+        "ownership_percentage",
+        "government_verification_section",
+        "mci_registration_number",
+        "tax_registration_number",
+        "chamber_membership_number",
+        "column_break_26",
+        "government_verification_status",
+        "last_verification_date",
+        "verification_expiry_date",
+        "verification_attempts",
+        "documents_section",
+        "business_license_attachment",
+        "owner_id_attachment",
+        "tax_certificate_attachment",
+        "column_break_32",
+        "chamber_certificate_attachment",
+        "additional_documents",
+        "verification_notes",
+        "system_section",
+        "workshop_codes",
+        "binding_status",
+        "binding_date",
+        "column_break_37",
+        "license_key_hash",
+        "hardware_fingerprint_hash",
+        "verification_hash",
+        "last_validation_date"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "BR-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "fieldname": "business_section",
+            "fieldtype": "Section Break",
+            "label": "Business Information"
+        },
+        {
+            "fieldname": "business_name_en",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Business Name (English)",
+            "reqd": 1
+        },
+        {
+            "fieldname": "business_name_ar",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "اسم النشاط التجاري",
+            "translatable": 1,
+            "reqd": 1
+        },
+        {
+            "fieldname": "business_license_number",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Business License Number (Optional)",
+            "unique": 1
+        },
+        {
+            "fieldname": "registration_date",
+            "fieldtype": "Date",
+            "label": "Registration Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "business_type",
+            "fieldtype": "Select",
+            "label": "Business Type",
+            "options": "Individual Establishment\nLimited Liability Company\nJoint Stock Company\nPartnership\nBranch Office\nOther",
+            "reqd": 1
+        },
+        {
+            "fieldname": "industry_sector",
+            "fieldtype": "Select",
+            "label": "Industry Sector",
+            "options": "Automotive Services\nRetail Trade\nManufacturing\nConstruction\nServices\nTechnology\nHealthcare\nEducation\nOther"
+        },
+        {
+            "fieldname": "business_status",
+            "fieldtype": "Select",
+            "label": "Business Status",
+            "options": "Active\nSuspended\nCancelled\nExpired",
+            "default": "Active"
+        },
+        {
+            "fieldname": "verification_status",
+            "fieldtype": "Select",
+            "label": "Verification Status",
+            "options": "Pending\nIn Progress\nVerified\nRejected\nExpired",
+            "default": "Pending",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "contact_section",
+            "fieldtype": "Section Break",
+            "label": "Contact Information"
+        },
+        {
+            "fieldname": "primary_contact_name",
+            "fieldtype": "Data",
+            "label": "Primary Contact Name",
+            "reqd": 1
+        },
+        {
+            "fieldname": "primary_contact_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم جهة الاتصال الرئيسية",
+            "translatable": 1
+        },
+        {
+            "fieldname": "email",
+            "fieldtype": "Data",
+            "label": "Email (Optional)",
+            "options": "Email"
+        },
+        {
+            "fieldname": "phone_number",
+            "fieldtype": "Data",
+            "label": "Phone Number (+968)",
+            "options": "Phone"
+        },
+        {
+            "fieldname": "column_break_12",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "address",
+            "fieldtype": "Small Text",
+            "label": "Address (English)"
+        },
+        {
+            "fieldname": "address_ar",
+            "fieldtype": "Small Text",
+            "label": "العنوان",
+            "translatable": 1
+        },
+        {
+            "fieldname": "city",
+            "fieldtype": "Data",
+            "label": "City"
+        },
+        {
+            "fieldname": "governorate",
+            "fieldtype": "Select",
+            "label": "Governorate",
+            "options": "Muscat\nDhofar\nSharqiyah North\nSharqiyah South\nDakhiliyah\nBatinah North\nBatinah South\nDhahirah\nBuraimi\nMusandam\nWusta"
+        },
+        {
+            "fieldname": "owner_section",
+            "fieldtype": "Section Break",
+            "label": "Business Owner Information"
+        },
+        {
+            "fieldname": "owner_name_en",
+            "fieldtype": "Data",
+            "label": "Owner Name (English)",
+            "reqd": 1
+        },
+        {
+            "fieldname": "owner_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم صاحب النشاط",
+            "translatable": 1,
+            "reqd": 1
+        },
+        {
+            "fieldname": "owner_civil_id",
+            "fieldtype": "Data",
+            "label": "Owner Civil ID",
+            "unique": 1,
+            "reqd": 1
+        },
+        {
+            "fieldname": "owner_nationality",
+            "fieldtype": "Data",
+            "label": "Owner Nationality",
+            "default": "Omani"
+        },
+        {
+            "fieldname": "column_break_19",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "owner_phone",
+            "fieldtype": "Data",
+            "label": "Owner Phone",
+            "options": "Phone"
+        },
+        {
+            "fieldname": "owner_email",
+            "fieldtype": "Data",
+            "label": "Owner Email",
+            "options": "Email"
+        },
+        {
+            "fieldname": "alternate_contact",
+            "fieldtype": "Data",
+            "label": "Alternate Contact"
+        },
+        {
+            "fieldname": "ownership_percentage",
+            "fieldtype": "Float",
+            "label": "Ownership Percentage",
+            "default": "100.0",
+            "precision": "2"
+        },
+        {
+            "fieldname": "government_verification_section",
+            "fieldtype": "Section Break",
+            "label": "Government Verification"
+        },
+        {
+            "fieldname": "mci_registration_number",
+            "fieldtype": "Data",
+            "label": "MCI Registration Number"
+        },
+        {
+            "fieldname": "tax_registration_number",
+            "fieldtype": "Data",
+            "label": "Tax Registration Number"
+        },
+        {
+            "fieldname": "chamber_membership_number",
+            "fieldtype": "Data",
+            "label": "Chamber Membership Number"
+        },
+        {
+            "fieldname": "column_break_26",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "government_verification_status",
+            "fieldtype": "Select",
+            "label": "Government Verification",
+            "options": "Not Started\nIn Progress\nVerified\nFailed\nExpired",
+            "default": "Not Started"
+        },
+        {
+            "fieldname": "last_verification_date",
+            "fieldtype": "Datetime",
+            "label": "Last Verification Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "verification_expiry_date",
+            "fieldtype": "Date",
+            "label": "Verification Expiry Date"
+        },
+        {
+            "fieldname": "verification_attempts",
+            "fieldtype": "Int",
+            "label": "Verification Attempts",
+            "default": "0",
+            "read_only": 1
+        },
+        {
+            "fieldname": "documents_section",
+            "fieldtype": "Section Break",
+            "label": "Documents"
+        },
+        {
+            "fieldname": "business_license_attachment",
+            "fieldtype": "Attach",
+            "label": "Business License"
+        },
+        {
+            "fieldname": "owner_id_attachment",
+            "fieldtype": "Attach",
+            "label": "Owner ID Copy"
+        },
+        {
+            "fieldname": "tax_certificate_attachment",
+            "fieldtype": "Attach",
+            "label": "Tax Certificate"
+        },
+        {
+            "fieldname": "column_break_32",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "chamber_certificate_attachment",
+            "fieldtype": "Attach",
+            "label": "Chamber Certificate"
+        },
+        {
+            "fieldname": "additional_documents",
+            "fieldtype": "Table",
+            "label": "Additional Documents",
+            "options": "Business Registration Document"
+        },
+        {
+            "fieldname": "verification_notes",
+            "fieldtype": "Long Text",
+            "label": "Verification Notes"
+        },
+        {
+            "fieldname": "system_section",
+            "fieldtype": "Section Break",
+            "label": "System Integration"
+        },
+        {
+            "fieldname": "workshop_codes",
+            "fieldtype": "Table",
+            "label": "Bound Workshop Codes",
+            "options": "Business Workshop Binding"
+        },
+        {
+            "fieldname": "binding_status",
+            "fieldtype": "Select",
+            "label": "Binding Status",
+            "options": "Unbound\nBound\nSuspended",
+            "default": "Unbound"
+        },
+        {
+            "fieldname": "binding_date",
+            "fieldtype": "Datetime",
+            "label": "Binding Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_37",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "license_key_hash",
+            "fieldtype": "Data",
+            "label": "License Key Hash",
+            "read_only": 1
+        },
+        {
+            "fieldname": "hardware_fingerprint_hash",
+            "fieldtype": "Data",
+            "label": "Hardware Fingerprint Hash",
+            "read_only": 1
+        },
+        {
+            "fieldname": "verification_hash",
+            "fieldtype": "Data",
+            "label": "Verification Hash",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_validation_date",
+            "fieldtype": "Datetime",
+            "label": "Last Validation Date",
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2024-06-18 19:30:00.000000",
+    "modified_by": "Administrator",
+    "module": "License Management",
+    "name": "Business Registration",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "read": 1,
+            "role": "Workshop User"
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}

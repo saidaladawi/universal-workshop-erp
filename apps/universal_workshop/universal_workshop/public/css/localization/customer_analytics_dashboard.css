@@ -1,0 +1,357 @@
+/* Universal Workshop - Customer Analytics Dashboard CSS */
+/* Arabic RTL and Modern Design Support */
+
+.customer-analytics-dashboard {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+/* RTL Layout Support */
+.customer-analytics-dashboard[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+.customer-analytics-dashboard[dir="rtl"] .text-end {
+    text-align: left !important;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Arabic Font Support */
+.customer-analytics-dashboard[data-language="ar"] {
+    font-family: 'Noto Sans Arabic', 'Tahoma', 'Arial Unicode MS', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Stats Cards */
+.stats-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.stats-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.stats-content {
+    flex: 1;
+}
+
+.stats-number {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: #2c3e50;
+}
+
+.stats-label {
+    font-size: 0.9rem;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+/* Chart Cards */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid #e9ecef;
+    border-radius: 12px 12px 0 0 !important;
+    padding: 1.25rem;
+}
+
+.card-title {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1.1rem;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Chart Containers */
+.chart-container {
+    position: relative;
+    height: 350px;
+    width: 100%;
+}
+
+#clv-trends-chart,
+#segments-distribution-chart,
+#retention-cohort-chart,
+#service-patterns-chart {
+    height: 300px;
+    width: 100%;
+}
+
+/* Table Styling */
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    border-top: none;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.table tbody td {
+    vertical-align: middle;
+    padding: 0.75rem;
+}
+
+/* RTL Table Support */
+.customer-analytics-dashboard[dir="rtl"] .table th,
+.customer-analytics-dashboard[dir="rtl"] .table td {
+    text-align: right;
+}
+
+.customer-analytics-dashboard[dir="rtl"] .table th:first-child,
+.customer-analytics-dashboard[dir="rtl"] .table td:first-child {
+    text-align: right;
+}
+
+/* Loading States */
+#loading-state {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* Error States */
+#error-state {
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styling */
+.btn {
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Dropdown Menu RTL */
+.customer-analytics-dashboard[dir="rtl"] .dropdown-menu {
+    left: auto;
+    right: 0;
+}
+
+/* Badge Styling */
+.badge {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: 6px;
+}
+
+.badge-vip {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.badge-high-value {
+    background-color: #f39c12;
+    color: white;
+}
+
+.badge-regular {
+    background-color: #3498db;
+    color: white;
+}
+
+.badge-new {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.badge-at-risk {
+    background-color: #e67e22;
+    color: white;
+}
+
+.badge-lost {
+    background-color: #95a5a6;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .customer-analytics-dashboard {
+        padding: 10px;
+    }
+    
+    .dashboard-header {
+        padding: 1.5rem;
+        text-align: center;
+    }
+    
+    .dashboard-header h1 {
+        font-size: 2rem;
+    }
+    
+    .stats-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+    
+    .stats-number {
+        font-size: 1.5rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    #clv-trends-chart,
+    #segments-distribution-chart,
+    #retention-cohort-chart,
+    #service-patterns-chart {
+        height: 250px;
+    }
+}
+
+/* Mobile RTL Adjustments */
+@media (max-width: 768px) {
+    .customer-analytics-dashboard[dir="rtl"] .btn-group {
+        direction: ltr;
+    }
+    
+    .customer-analytics-dashboard[dir="rtl"] .dropdown-menu {
+        left: 0;
+        right: auto;
+    }
+}
+
+/* Arabic Numerals Support */
+.arabic-numerals {
+    font-feature-settings: "lnum" 0;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in-right {
+    animation: slideInRight 0.5s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+    .customer-analytics-dashboard {
+        background-color: #1a202c;
+        color: #e2e8f0;
+    }
+    
+    .card {
+        background-color: #2d3748;
+        color: #e2e8f0;
+    }
+    
+    .card-header {
+        background-color: #2d3748 !important;
+        border-bottom-color: #4a5568;
+    }
+    
+    .stats-number {
+        color: #e2e8f0;
+    }
+    
+    .table {
+        color: #e2e8f0;
+    }
+    
+    .table thead th {
+        border-bottom-color: #4a5568;
+    }
+    
+    .table tbody tr:hover {
+        background-color: #374151;
+    }
+} 

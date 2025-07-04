@@ -1,0 +1,360 @@
+/* Universal Workshop - Automotive Theme Enhancement */
+
+/* Color Palette - Professional Automotive Workshop Colors */
+:root {
+  /* Primary Workshop Colors */
+  --workshop-primary: #667eea;
+  --workshop-primary-dark: #5a6fd8;
+  --workshop-secondary: #764ba2;
+  --workshop-secondary-dark: #6a4190;
+  
+  /* Automotive Accent Colors */
+  --automotive-orange: #ff6b35;
+  --automotive-red: #f5576c;
+  --automotive-blue: #4facfe;
+  --automotive-green: #43a047;
+  --automotive-yellow: #ffeb3b;
+  
+  /* Tool Colors */
+  --tool-gradient-start: #f093fb;
+  --tool-gradient-end: #f5576c;
+  
+  /* Background Patterns */
+  --workshop-bg-pattern: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23667eea' fill-opacity='0.03'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E");
+  
+  /* Workshop Typography */
+  --workshop-font-family: 'Roboto', 'Arial', sans-serif;
+  --workshop-font-bold: 700;
+  --workshop-font-medium: 500;
+  --workshop-font-regular: 400;
+  
+  /* Gradients */
+  --workshop-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --tool-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --automotive-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  
+  /* Shadows */
+  --workshop-shadow: 0 4px 20px rgba(102, 126, 234, 0.15);
+  --tool-shadow: 0 4px 20px rgba(240, 147, 251, 0.15);
+  --automotive-shadow: 0 8px 32px rgba(102, 126, 234, 0.2);
+}
+
+/* Workshop Logo Integration */
+.navbar-brand img,
+.sidebar-brand img {
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover img,
+.sidebar-brand:hover img {
+  transform: scale(1.05);
+}
+
+/* Automotive-themed Icons for Steps */
+.onboarding-step-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--workshop-gradient);
+  color: white;
+  font-size: 24px;
+  box-shadow: var(--workshop-shadow);
+  transition: all 0.3s ease;
+}
+
+.onboarding-step-icon:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--automotive-shadow);
+}
+
+/* Step Icons */
+.step-welcome::before { content: "🏁"; }
+.step-workshop::before { content: "🏢"; }
+.step-admin::before { content: "👤"; }
+.step-operational::before { content: "⚙️"; }
+.step-financial::before { content: "💰"; }
+.step-review::before { content: "✅"; }
+
+/* Background Patterns */
+.workshop-bg-pattern {
+  background-image: var(--workshop-bg-pattern);
+  background-size: 40px 40px;
+  background-repeat: repeat;
+}
+
+/* Automotive Progress Bar */
+.automotive-progress {
+  height: 8px;
+  background: linear-gradient(90deg, #e0e7ff 0%, #c7d2fe 100%);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.automotive-progress::before {
+  content: "🚗";
+  position: absolute;
+  top: -8px;
+  left: calc(var(--progress, 0%) - 12px);
+  font-size: 20px;
+  transition: left 0.5s ease;
+  z-index: 2;
+}
+
+.automotive-progress-bar {
+  height: 100%;
+  background: var(--workshop-gradient);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+  position: relative;
+}
+
+/* Glass-morphism Cards */
+.workshop-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--workshop-shadow);
+  transition: all 0.3s ease;
+}
+
+.workshop-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--automotive-shadow);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Modern Gradient Buttons */
+.btn-workshop-primary {
+  background: var(--workshop-gradient);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: var(--workshop-font-medium);
+  transition: all 0.3s ease;
+  box-shadow: var(--workshop-shadow);
+}
+
+.btn-workshop-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--automotive-shadow);
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+
+.btn-workshop-secondary {
+  background: var(--tool-gradient);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: var(--workshop-font-medium);
+  transition: all 0.3s ease;
+  box-shadow: var(--tool-shadow);
+}
+
+.btn-workshop-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(240, 147, 251, 0.3);
+}
+
+/* Floating Label Inputs */
+.workshop-input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.workshop-input {
+  width: 100%;
+  padding: 16px 12px 8px;
+  border: 2px solid rgba(102, 126, 234, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.workshop-input:focus {
+  outline: none;
+  border-color: var(--workshop-primary);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.workshop-label {
+  position: absolute;
+  top: 16px;
+  left: 12px;
+  font-size: 16px;
+  color: #666;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  background: white;
+  padding: 0 4px;
+}
+
+.workshop-input:focus + .workshop-label,
+.workshop-input:not(:placeholder-shown) + .workshop-label {
+  top: -8px;
+  left: 8px;
+  font-size: 12px;
+  color: var(--workshop-primary);
+  font-weight: var(--workshop-font-medium);
+}
+
+/* Arabic RTL Support */
+[dir="rtl"] .workshop-input {
+  text-align: right;
+  padding: 16px 12px 8px;
+}
+
+[dir="rtl"] .workshop-label {
+  right: 12px;
+  left: auto;
+}
+
+[dir="rtl"] .workshop-input:focus + .workshop-label,
+[dir="rtl"] .workshop-input:not(:placeholder-shown) + .workshop-label {
+  right: 8px;
+  left: auto;
+}
+
+/* Automotive Scene Animation */
+@keyframes car-drive {
+  0% { transform: translateX(-100px); }
+  100% { transform: translateX(100px); }
+}
+
+.automotive-scene {
+  position: relative;
+  height: 200px;
+  background: linear-gradient(180deg, #87ceeb 0%, #98fb98 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.automotive-scene::before {
+  content: "🚗";
+  position: absolute;
+  bottom: 20px;
+  font-size: 32px;
+  animation: car-drive 3s linear infinite;
+}
+
+.automotive-scene::after {
+  content: "🏢";
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-size: 40px;
+}
+
+/* Success Animations */
+@keyframes celebration {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.celebration-effect {
+  animation: celebration 0.6s ease-in-out;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .workshop-card {
+    padding: 16px;
+    margin: 10px;
+  }
+  
+  .onboarding-step-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  .automotive-scene {
+    height: 150px;
+  }
+  
+  .automotive-scene::before {
+    font-size: 24px;
+  }
+  
+  .automotive-scene::after {
+    font-size: 30px;
+  }
+}
+
+/* Touch-friendly Controls */
+@media (hover: none) and (pointer: coarse) {
+  .btn-workshop-primary,
+  .btn-workshop-secondary {
+    padding: 16px 24px;
+    font-size: 16px;
+  }
+  
+  .workshop-input {
+    padding: 20px 16px 12px;
+    font-size: 18px;
+  }
+  
+  .onboarding-step-icon {
+    width: 56px;
+    height: 56px;
+    font-size: 28px;
+  }
+}
+
+/* High Performance Animations */
+.workshop-smooth-transition {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Loading States */
+.workshop-loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.workshop-loading::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: loading-shimmer 1.5s infinite;
+}
+
+@keyframes loading-shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Accessibility Improvements */
+.workshop-focus-visible:focus-visible {
+  outline: 2px solid var(--workshop-primary);
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .workshop-card {
+    background: white;
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  .automotive-scene {
+    display: none;
+  }
+}

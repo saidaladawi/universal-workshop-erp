@@ -1,0 +1,42 @@
+
+> universal-workshop-frontend-v2@2.0.0 dev
+> vite
+
+
+  VITE v5.4.19  ready in 1179 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://10.255.255.254:5173/
+  ➜  Network: http://172.18.189.77:5173/
+9:37:15 AM [vite] vite.config.ts changed, restarting server...
+▲ [WARNING] Duplicate key "define" in object literal [duplicate-object-key]
+
+    vite.config.ts:114:2:
+      114 │   define: {
+          ╵   ~~~~~~
+
+  The original key "define" is here:
+
+    vite.config.ts:9:2:
+      9 │   define: {
+        ╵   ~~~~~~
+
+9:37:16 AM [vite] server restarted.
+9:37:43 AM [vite] vite.config.ts changed, restarting server...
+9:37:43 AM [vite] server restarted.
+9:38:05 AM [vite] vite.config.ts changed, restarting server...
+Re-optimizing dependencies because vite config has changed
+9:38:05 AM [vite] server restarted.
+9:38:27 AM [vite] page reload index.html
+9:38:41 AM [vite] page reload index.html
+9:39:12 AM [vite] vite.config.ts changed, restarting server...
+9:39:12 AM [vite] server restarted.
+9:39:37 AM [vite] page reload index.html
+9:43:11 AM [vite] page reload src/main.ts
+6:51:46 PM [vite] page reload index.html
+6:54:51 PM [vite] page reload public/offline.html
+6:55:12 PM [vite] page reload quick-access.html
+6:55:28 PM [vite] page reload demo-onboarding.html
+6:55:42 PM [vite] page reload test-profile-setup.html
+7:19:20 PM [vite] page reload src/components/setup/phase2_demo.html
+7:30:46 PM [vite] page reload src/components/setup/phase2_demo.html

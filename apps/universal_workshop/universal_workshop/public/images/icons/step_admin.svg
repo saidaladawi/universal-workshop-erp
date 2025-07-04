@@ -1,0 +1,27 @@
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="adminStepGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="24" cy="24" r="22" fill="url(#adminStepGradient)" opacity="0.1"/>
+  
+  <!-- Person Head -->
+  <circle cx="24" cy="18" r="8" fill="url(#adminStepGradient)"/>
+  
+  <!-- Person Body -->
+  <path d="M12,42 Q12,32 18,32 L30,32 Q36,32 36,42 L36,44 L12,44 Z" fill="url(#adminStepGradient)"/>
+  
+  <!-- Admin Badge -->
+  <rect x="30" y="12" width="12" height="8" fill="white" rx="2"/>
+  <rect x="31" y="13" width="10" height="6" fill="url(#adminStepGradient)" rx="1"/>
+  <text x="36" y="17" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="white" text-anchor="middle">
+    ADMIN
+  </text>
+  
+  <!-- Tie -->
+  <path d="M24,26 L22,30 L24,38 L26,30 Z" fill="white" opacity="0.3"/>
+</svg>

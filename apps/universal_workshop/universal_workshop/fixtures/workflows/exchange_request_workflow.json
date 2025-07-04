@@ -1,0 +1,262 @@
+{
+    "doctype": "Workflow",
+    "name": "Exchange Request Workflow",
+    "workflow_name": "Exchange Request Workflow",
+    "document_type": "Exchange Request",
+    "is_active": 1,
+    "send_email_alert": 1,
+    "workflow_state_field": "workflow_state",
+    "states": [
+        {
+            "state": "Draft",
+            "doc_status": "0",
+            "allow_edit": "Customer Service Representative,Service Advisor,Workshop Manager,Customer",
+            "is_optional_state": 0,
+            "next_action_email_template": "Exchange Request Created",
+            "message": "تم إنشاء طلب التبديل / Exchange request has been created"
+        },
+        {
+            "state": "Pending Approval",
+            "doc_status": "1",
+            "allow_edit": "Customer Service Representative,Service Advisor,Workshop Manager",
+            "is_optional_state": 0,
+            "next_action_email_template": "Exchange Request Pending Approval",
+            "message": "طلب التبديل في انتظار الموافقة / Exchange request is pending approval"
+        },
+        {
+            "state": "Compatibility Review",
+            "doc_status": "1",
+            "allow_edit": "Technical Specialist,Service Advisor,Workshop Manager",
+            "is_optional_state": 1,
+            "next_action_email_template": "Exchange Request Compatibility Review",
+            "message": "طلب التبديل قيد مراجعة التوافق / Exchange request is under compatibility review"
+        },
+        {
+            "state": "Manager Approval",
+            "doc_status": "1",
+            "allow_edit": "Workshop Manager,General Manager",
+            "is_optional_state": 1,
+            "next_action_email_template": "Exchange Request Manager Approval",
+            "message": "طلب التبديل في انتظار موافقة المدير / Exchange request awaiting manager approval"
+        },
+        {
+            "state": "Inventory Check",
+            "doc_status": "1",
+            "allow_edit": "Inventory Manager,Warehouse Keeper",
+            "is_optional_state": 1,
+            "next_action_email_template": "Exchange Request Inventory Check",
+            "message": "جاري فحص توفر المخزون / Checking inventory availability"
+        },
+        {
+            "state": "Approved",
+            "doc_status": "1",
+            "allow_edit": "Workshop Manager,Inventory Manager",
+            "is_optional_state": 0,
+            "next_action_email_template": "Exchange Request Approved",
+            "message": "تم الموافقة على طلب التبديل / Exchange request has been approved"
+        },
+        {
+            "state": "Rejected",
+            "doc_status": "1",
+            "allow_edit": "Workshop Manager",
+            "is_optional_state": 0,
+            "next_action_email_template": "Exchange Request Rejected",
+            "message": "تم رفض طلب التبديل / Exchange request has been rejected"
+        },
+        {
+            "state": "Processing",
+            "doc_status": "1",
+            "allow_edit": "Inventory Manager,Accounts Manager,Customer Service Representative",
+            "is_optional_state": 0,
+            "next_action_email_template": "Exchange Request Processing",
+            "message": "جاري معالجة طلب التبديل / Exchange request is being processed"
+        },
+        {
+            "state": "Awaiting Payment",
+            "doc_status": "1",
+            "allow_edit": "Accounts Manager,Customer Service Representative",
+            "is_optional_state": 1,
+            "next_action_email_template": "Exchange Request Awaiting Payment",
+            "message": "في انتظار دفع فرق السعر / Awaiting payment of price difference"
+        },
+        {
+            "state": "Completed",
+            "doc_status": "1",
+            "allow_edit": "",
+            "is_optional_state": 0,
+            "next_action_email_template": "Exchange Request Completed",
+            "message": "تم الانتهاء من طلب التبديل / Exchange request has been completed"
+        },
+        {
+            "state": "Cancelled",
+            "doc_status": "2",
+            "allow_edit": "Workshop Manager",
+            "is_optional_state": 0,
+            "next_action_email_template": "Exchange Request Cancelled",
+            "message": "تم إلغاء طلب التبديل / Exchange request has been cancelled"
+        }
+    ],
+    "transitions": [
+        {
+            "state": "Draft",
+            "action": "Submit for Approval",
+            "next_state": "Pending Approval",
+            "allowed": "Customer Service Representative,Service Advisor,Workshop Manager,Customer",
+            "condition": "doc.eligible_for_exchange == 1"
+        },
+        {
+            "state": "Pending Approval",
+            "action": "Review Compatibility",
+            "next_state": "Compatibility Review",
+            "allowed": "Service Advisor,Workshop Manager",
+            "condition": "doc.compatibility_score < 70 or doc.exchange_complexity in ['Complex', 'Critical']"
+        },
+        {
+            "state": "Pending Approval",
+            "action": "Manager Review",
+            "next_state": "Manager Approval",
+            "allowed": "Service Advisor,Workshop Manager",
+            "condition": "doc.requires_manager_approval == 1 or doc.price_difference > 100"
+        },
+        {
+            "state": "Pending Approval",
+            "action": "Check Inventory",
+            "next_state": "Inventory Check",
+            "allowed": "Service Advisor,Workshop Manager,Inventory Manager",
+            "condition": "doc.availability_status != 'Available'"
+        },
+        {
+            "state": "Pending Approval",
+            "action": "Auto Approve",
+            "next_state": "Approved",
+            "allowed": "Service Advisor,Workshop Manager",
+            "condition": "doc.auto_approved == 1 and doc.risk_level == 'Low' and doc.availability_status == 'Available'"
+        },
+        {
+            "state": "Pending Approval",
+            "action": "Reject",
+            "next_state": "Rejected",
+            "allowed": "Service Advisor,Workshop Manager",
+            "condition": ""
+        },
+        {
+            "state": "Compatibility Review",
+            "action": "Approve Compatible",
+            "next_state": "Approved",
+            "allowed": "Technical Specialist,Workshop Manager",
+            "condition": "doc.compatibility_score >= 70"
+        },
+        {
+            "state": "Compatibility Review",
+            "action": "Reject Incompatible",
+            "next_state": "Rejected",
+            "allowed": "Technical Specialist,Workshop Manager",
+            "condition": ""
+        },
+        {
+            "state": "Compatibility Review",
+            "action": "Escalate to Manager",
+            "next_state": "Manager Approval",
+            "allowed": "Technical Specialist,Service Advisor",
+            "condition": "doc.compatibility_score < 50 or doc.risk_level == 'Critical'"
+        },
+        {
+            "state": "Manager Approval",
+            "action": "Manager Approve",
+            "next_state": "Approved",
+            "allowed": "Workshop Manager,General Manager",
+            "condition": ""
+        },
+        {
+            "state": "Manager Approval",
+            "action": "Manager Reject",
+            "next_state": "Rejected",
+            "allowed": "Workshop Manager,General Manager",
+            "condition": ""
+        },
+        {
+            "state": "Inventory Check",
+            "action": "Confirm Available",
+            "next_state": "Approved",
+            "allowed": "Inventory Manager,Warehouse Keeper",
+            "condition": "doc.availability_status == 'Available'"
+        },
+        {
+            "state": "Inventory Check",
+            "action": "Out of Stock",
+            "next_state": "Rejected",
+            "allowed": "Inventory Manager,Warehouse Keeper",
+            "condition": "doc.availability_status == 'Out of Stock'"
+        },
+        {
+            "state": "Approved",
+            "action": "Start Processing",
+            "next_state": "Processing",
+            "allowed": "Inventory Manager,Customer Service Representative",
+            "condition": ""
+        },
+        {
+            "state": "Processing",
+            "action": "Request Payment",
+            "next_state": "Awaiting Payment",
+            "allowed": "Accounts Manager,Customer Service Representative",
+            "condition": "doc.additional_payment > 0"
+        },
+        {
+            "state": "Processing",
+            "action": "Complete No Payment",
+            "next_state": "Completed",
+            "allowed": "Inventory Manager,Accounts Manager",
+            "condition": "doc.additional_payment <= 0 and doc.stock_entry and doc.new_sales_invoice"
+        },
+        {
+            "state": "Awaiting Payment",
+            "action": "Payment Received",
+            "next_state": "Completed",
+            "allowed": "Accounts Manager,Customer Service Representative",
+            "condition": "doc.stock_entry and doc.new_sales_invoice"
+        },
+        {
+            "state": "Awaiting Payment",
+            "action": "Payment Failed",
+            "next_state": "Cancelled",
+            "allowed": "Accounts Manager,Customer Service Representative",
+            "condition": ""
+        },
+        {
+            "state": "Draft",
+            "action": "Cancel",
+            "next_state": "Cancelled",
+            "allowed": "Workshop Manager,Customer",
+            "condition": ""
+        },
+        {
+            "state": "Pending Approval",
+            "action": "Cancel",
+            "next_state": "Cancelled",
+            "allowed": "Workshop Manager,Customer",
+            "condition": ""
+        },
+        {
+            "state": "Compatibility Review",
+            "action": "Cancel",
+            "next_state": "Cancelled",
+            "allowed": "Workshop Manager",
+            "condition": ""
+        },
+        {
+            "state": "Manager Approval",
+            "action": "Cancel",
+            "next_state": "Cancelled",
+            "allowed": "Workshop Manager",
+            "condition": ""
+        },
+        {
+            "state": "Inventory Check",
+            "action": "Cancel",
+            "next_state": "Cancelled",
+            "allowed": "Workshop Manager",
+            "condition": ""
+        }
+    ]
+}

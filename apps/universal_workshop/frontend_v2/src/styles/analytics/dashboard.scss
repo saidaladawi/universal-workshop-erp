@@ -1,0 +1,40 @@
+/**
+ * Analytics Dashboard Styles - Universal Workshop Frontend V2
+ * 
+ * Styles for analytics dashboard components
+ */
+
+@import '../design-system/tokens.scss';
+
+.analytics-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  &__title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+  }
+  
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+  }
+  
+  &__widget {
+    background: var(--color-surface-primary);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+  }
+}

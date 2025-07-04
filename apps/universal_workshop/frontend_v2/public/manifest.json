@@ -1,0 +1,210 @@
+{
+  "name": "Universal Workshop - الورشة الشاملة",
+  "short_name": "Workshop - الورشة",
+  "description": "Comprehensive automotive workshop management system for Arabic markets",
+  "description_ar": "نظام إدارة شامل لورش السيارات في الأسواق العربية",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "categories": ["business", "productivity", "automotive"],
+  "scope": "/",
+  
+  "icons": [
+    {
+      "src": "/assets/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/icon-96x96.png", 
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/icon-128x128.png",
+      "sizes": "128x128", 
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+
+  "screenshots": [
+    {
+      "src": "/assets/screenshots/desktop-dashboard.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Workshop Dashboard",
+      "label_ar": "لوحة تحكم الورشة"
+    },
+    {
+      "src": "/assets/screenshots/mobile-technician.png", 
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Technician Mobile Interface",
+      "label_ar": "واجهة الفني المحمولة"
+    },
+    {
+      "src": "/assets/screenshots/arabic-interface.png",
+      "sizes": "390x844", 
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Arabic RTL Interface",
+      "label_ar": "الواجهة العربية"
+    }
+  ],
+
+  "shortcuts": [
+    {
+      "name": "New Service Order",
+      "name_ar": "أمر خدمة جديد",
+      "short_name": "New Order",
+      "short_name_ar": "أمر جديد",
+      "description": "Create a new service order",
+      "description_ar": "إنشاء أمر خدمة جديد",
+      "url": "/service-orders/new",
+      "icons": [
+        {
+          "src": "/assets/icons/shortcut-new-order.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Technician Dashboard",
+      "name_ar": "لوحة الفني",
+      "short_name": "Technician",
+      "short_name_ar": "الفني",
+      "description": "Access technician mobile interface",
+      "description_ar": "الوصول لواجهة الفني المحمولة",
+      "url": "/technician",
+      "icons": [
+        {
+          "src": "/assets/icons/shortcut-technician.png",
+          "sizes": "96x96", 
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Inventory Scanner",
+      "name_ar": "ماسح المخزون",
+      "short_name": "Scanner",
+      "short_name_ar": "الماسح",
+      "description": "Scan parts and inventory",
+      "description_ar": "مسح القطع والمخزون",
+      "url": "/inventory/scan",
+      "icons": [
+        {
+          "src": "/assets/icons/shortcut-scanner.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Customer Portal",
+      "name_ar": "بوابة العميل", 
+      "short_name": "Customer",
+      "short_name_ar": "العميل",
+      "description": "Customer service tracking",
+      "description_ar": "تتبع خدمات العميل",
+      "url": "/customer-portal",
+      "icons": [
+        {
+          "src": "/assets/icons/shortcut-customer.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  
+  "protocol_handlers": [
+    {
+      "protocol": "web+workshop",
+      "url": "/handle-protocol?url=%s"
+    }
+  ],
+
+  "file_handlers": [
+    {
+      "action": "/import",
+      "accept": {
+        "text/csv": [".csv"],
+        "application/vnd.ms-excel": [".xls", ".xlsx"],
+        "application/pdf": [".pdf"]
+      }
+    }
+  ],
+
+  "share_target": {
+    "action": "/share-handler",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "files",
+          "accept": ["image/*", "application/pdf", "text/csv"]
+        }
+      ]
+    }
+  },
+
+  "display_override": ["window-controls-overlay", "minimal-ui", "standalone"],
+  
+  "handle_links": "preferred",
+  
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+
+  "iarc_rating_id": "e58c174a-81d2-5c3c-32cc-34b8de4a52e9"
+}

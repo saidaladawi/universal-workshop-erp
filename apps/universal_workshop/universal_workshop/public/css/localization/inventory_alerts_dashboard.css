@@ -1,0 +1,588 @@
+/* Inventory Alerts Dashboard Styles for Universal Workshop ERP */
+/* Arabic RTL support and responsive design */
+
+.inventory-alerts-container {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.inventory-alerts-widget {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid #e8e9ea;
+}
+
+/* Header Styles */
+.alerts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-bottom: 1px solid #e8e9ea;
+}
+
+.alerts-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.alerts-title i {
+    color: #ffd700;
+    font-size: 18px;
+}
+
+.alerts-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.alerts-controls .btn {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.alerts-controls .btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Content Area */
+.alerts-content {
+    min-height: 200px;
+    position: relative;
+}
+
+.alerts-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    color: #6c757d;
+}
+
+.loading-spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 12px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.alerts-list {
+    padding: 16px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.alerts-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.empty-state {
+    text-align: center;
+    color: #6c757d;
+}
+
+.empty-state i {
+    font-size: 48px;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.empty-state p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Alert Card Styles */
+.alert-card {
+    background: #ffffff;
+    border: 1px solid #e8e9ea;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-left: 4px solid #6c757d;
+    position: relative;
+}
+
+.alert-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+.alert-card:last-child {
+    margin-bottom: 0;
+}
+
+/* Severity-based styling */
+.alert-card.critical {
+    border-left-color: #dc3545 !important;
+    background: linear-gradient(90deg, rgba(220, 53, 69, 0.05) 0%, transparent 100%);
+}
+
+.alert-card.high {
+    border-left-color: #fd7e14 !important;
+    background: linear-gradient(90deg, rgba(253, 126, 20, 0.05) 0%, transparent 100%);
+}
+
+.alert-card.medium {
+    border-left-color: #ffc107 !important;
+    background: linear-gradient(90deg, rgba(255, 193, 7, 0.05) 0%, transparent 100%);
+}
+
+.alert-card.low {
+    border-left-color: #17a2b8 !important;
+    background: linear-gradient(90deg, rgba(23, 162, 184, 0.05) 0%, transparent 100%);
+}
+
+/* Alert Card Header */
+.alert-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.alert-severity-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.alert-type {
+    font-size: 13px;
+    color: #495057;
+    font-weight: 500;
+    flex: 1;
+    text-align: center;
+}
+
+.alert-time {
+    font-size: 12px;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Alert Card Body */
+.alert-card-body {
+    margin-bottom: 16px;
+}
+
+.alert-item-info {
+    margin-bottom: 8px;
+}
+
+.item-code {
+    font-size: 14px;
+    color: #495057;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.item-name {
+    font-size: 13px;
+    color: #6c757d;
+    line-height: 1.4;
+}
+
+.alert-message {
+    font-size: 14px;
+    color: #495057;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.stock-info {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.stock-level,
+.reorder-level {
+    color: #495057;
+}
+
+.stock-level strong,
+.reorder-level strong {
+    color: #212529;
+    margin-left: 4px;
+}
+
+/* Alert Card Actions */
+.alert-card-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.alert-card-actions .btn {
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.quick-reorder-btn {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+}
+
+.quick-reorder-btn:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.dismiss-alert-btn {
+    color: #6c757d;
+    border-color: #dee2e6;
+}
+
+.dismiss-alert-btn:hover {
+    color: #495057;
+    border-color: #adb5bd;
+    background-color: #f8f9fa;
+}
+
+/* Footer Styles */
+.alerts-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background: #f8f9fa;
+    border-top: 1px solid #e8e9ea;
+}
+
+.alerts-summary {
+    font-size: 14px;
+    color: #495057;
+}
+
+.total-alerts {
+    font-weight: 600;
+    color: #212529;
+    margin-right: 4px;
+}
+
+.view-all-alerts {
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+/* Arabic RTL Support */
+.rtl-layout {
+    direction: rtl;
+    text-align: right;
+}
+
+.rtl-layout .alerts-header {
+    flex-direction: row-reverse;
+}
+
+.rtl-layout .alerts-controls {
+    flex-direction: row-reverse;
+}
+
+.rtl-layout .alert-card {
+    border-left: none;
+    border-right: 4px solid #6c757d;
+}
+
+.rtl-layout .alert-card.critical {
+    border-right-color: #dc3545 !important;
+    background: linear-gradient(270deg, rgba(220, 53, 69, 0.05) 0%, transparent 100%);
+}
+
+.rtl-layout .alert-card.high {
+    border-right-color: #fd7e14 !important;
+    background: linear-gradient(270deg, rgba(253, 126, 20, 0.05) 0%, transparent 100%);
+}
+
+.rtl-layout .alert-card.medium {
+    border-right-color: #ffc107 !important;
+    background: linear-gradient(270deg, rgba(255, 193, 7, 0.05) 0%, transparent 100%);
+}
+
+.rtl-layout .alert-card.low {
+    border-right-color: #17a2b8 !important;
+    background: linear-gradient(270deg, rgba(23, 162, 184, 0.05) 0%, transparent 100%);
+}
+
+.rtl-layout .alert-card-header {
+    flex-direction: row-reverse;
+}
+
+.rtl-layout .alert-type {
+    text-align: center;
+}
+
+.rtl-layout .alert-card-actions {
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+}
+
+.rtl-layout .alerts-footer {
+    flex-direction: row-reverse;
+}
+
+.rtl-layout .total-alerts {
+    margin-right: 0;
+    margin-left: 4px;
+}
+
+.rtl-layout .stock-level strong,
+.rtl-layout .reorder-level strong {
+    margin-left: 0;
+    margin-right: 4px;
+}
+
+/* Arabic Typography */
+.rtl-layout {
+    font-family: 'Noto Sans Arabic', 'Tahoma', 'Arial Unicode MS', sans-serif;
+}
+
+.rtl-layout .alerts-title,
+.rtl-layout .alert-type,
+.rtl-layout .alert-message,
+.rtl-layout .item-name {
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .alerts-header {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+    
+    .alerts-controls {
+        justify-content: center;
+    }
+    
+    .alert-card {
+        padding: 12px;
+    }
+    
+    .alert-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+    
+    .alert-type {
+        text-align: left;
+    }
+    
+    .stock-info {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .alert-card-actions {
+        justify-content: center;
+        margin-top: 8px;
+    }
+    
+    /* RTL Mobile adjustments */
+    .rtl-layout .alert-card-header {
+        align-items: flex-end;
+    }
+    
+    .rtl-layout .alert-type {
+        text-align: right;
+    }
+    
+    .rtl-layout .alert-card-actions {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .inventory-alerts-widget {
+        border-radius: 0;
+        box-shadow: none;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .alerts-header {
+        padding: 12px 16px;
+    }
+    
+    .alerts-list {
+        padding: 12px;
+    }
+    
+    .alert-card {
+        padding: 12px;
+        margin-bottom: 8px;
+    }
+    
+    .alerts-controls .btn {
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .inventory-alerts-widget {
+        background: #2d3748;
+        border-color: #4a5568;
+    }
+    
+    .alerts-header {
+        background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+    }
+    
+    .alert-card {
+        background: #2d3748;
+        border-color: #4a5568;
+        color: #e2e8f0;
+    }
+    
+    .alert-card:hover {
+        background: #374151;
+    }
+    
+    .alert-type,
+    .item-code,
+    .alert-message {
+        color: #e2e8f0;
+    }
+    
+    .alert-time,
+    .item-name {
+        color: #a0aec0;
+    }
+    
+    .stock-info {
+        background: #374151;
+        color: #e2e8f0;
+    }
+    
+    .alerts-footer {
+        background: #374151;
+        border-color: #4a5568;
+        color: #e2e8f0;
+    }
+    
+    .dismiss-alert-btn {
+        color: #a0aec0;
+        border-color: #4a5568;
+    }
+    
+    .dismiss-alert-btn:hover {
+        background: #4a5568;
+        color: #e2e8f0;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .alert-card,
+    .alerts-controls .btn,
+    .alert-card-actions .btn {
+        transition: none;
+    }
+    
+    .loading-spinner {
+        animation: none;
+    }
+    
+    .alert-card:hover {
+        transform: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .alert-card {
+        border: 2px solid #000000;
+    }
+    
+    .alert-severity-badge {
+        border: 1px solid #000000;
+    }
+    
+    .alerts-controls .btn,
+    .alert-card-actions .btn {
+        border: 2px solid #000000;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .inventory-alerts-widget {
+        box-shadow: none;
+        border: 1px solid #000000;
+    }
+    
+    .alerts-header {
+        background: transparent !important;
+        color: #000000 !important;
+        border-bottom: 1px solid #000000;
+    }
+    
+    .alerts-controls {
+        display: none;
+    }
+    
+    .alert-card {
+        break-inside: avoid;
+        margin-bottom: 8px;
+        border: 1px solid #000000;
+    }
+    
+    .alert-card-actions {
+        display: none;
+    }
+    
+    .alerts-footer {
+        background: transparent;
+        border-top: 1px solid #000000;
+    }
+} 

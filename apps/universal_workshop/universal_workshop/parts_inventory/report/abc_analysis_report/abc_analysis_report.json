@@ -1,0 +1,208 @@
+{
+    "creation": "2025-01-15 20:00:00.000000",
+    "doctype": "Report",
+    "engine": "InnoDB",
+    "field_order": [
+        "report_name",
+        "ref_doctype",
+        "report_type",
+        "module",
+        "is_standard",
+        "letter_head",
+        "add_total_row",
+        "disabled",
+        "prepared_report",
+        "query",
+        "report_script",
+        "javascript",
+        "json",
+        "columns",
+        "filters",
+        "sort_by",
+        "sort_order",
+        "description",
+        "modified",
+        "modified_by",
+        "owner"
+    ],
+    "fields": [
+        {
+            "fieldname": "report_name",
+            "fieldtype": "Data",
+            "label": "Report Name",
+            "reqd": 1
+        },
+        {
+            "fieldname": "ref_doctype",
+            "fieldtype": "Link",
+            "label": "Reference DocType",
+            "options": "DocType"
+        },
+        {
+            "fieldname": "report_type",
+            "fieldtype": "Select",
+            "label": "Report Type",
+            "options": "Script Report\nQuery Report\nCustom Report"
+        },
+        {
+            "fieldname": "module",
+            "fieldtype": "Link",
+            "label": "Module",
+            "options": "Module Def"
+        },
+        {
+            "fieldname": "is_standard",
+            "fieldtype": "Check",
+            "label": "Is Standard"
+        },
+        {
+            "fieldname": "letter_head",
+            "fieldtype": "Link",
+            "label": "Letter Head",
+            "options": "Letter Head"
+        },
+        {
+            "fieldname": "add_total_row",
+            "fieldtype": "Check",
+            "label": "Add Total Row"
+        },
+        {
+            "fieldname": "disabled",
+            "fieldtype": "Check",
+            "label": "Disabled"
+        },
+        {
+            "fieldname": "prepared_report",
+            "fieldtype": "Check",
+            "label": "Prepared Report"
+        },
+        {
+            "fieldname": "query",
+            "fieldtype": "Code",
+            "label": "Query",
+            "options": "SQL"
+        },
+        {
+            "fieldname": "report_script",
+            "fieldtype": "Code",
+            "label": "Report Script",
+            "options": "Python"
+        },
+        {
+            "fieldname": "javascript",
+            "fieldtype": "Code",
+            "label": "JavaScript",
+            "options": "JavaScript"
+        },
+        {
+            "fieldname": "json",
+            "fieldtype": "Code",
+            "label": "JSON",
+            "options": "JSON"
+        },
+        {
+            "fieldname": "columns",
+            "fieldtype": "Table",
+            "label": "Columns",
+            "options": "Report Column"
+        },
+        {
+            "fieldname": "filters",
+            "fieldtype": "Table",
+            "label": "Filters",
+            "options": "Report Filter"
+        },
+        {
+            "fieldname": "sort_by",
+            "fieldtype": "Data",
+            "label": "Sort By"
+        },
+        {
+            "fieldname": "sort_order",
+            "fieldtype": "Select",
+            "label": "Sort Order",
+            "options": "ASC\nDESC"
+        },
+        {
+            "fieldname": "description",
+            "fieldtype": "Small Text",
+            "label": "Description"
+        },
+        {
+            "fieldname": "modified",
+            "fieldtype": "Datetime",
+            "label": "Modified",
+            "read_only": 1
+        },
+        {
+            "fieldname": "modified_by",
+            "fieldtype": "Link",
+            "label": "Modified By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "owner",
+            "fieldtype": "Link",
+            "label": "Owner",
+            "options": "User",
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "istable": 0,
+    "links": [],
+    "modified": "2025-01-15 20:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Parts Inventory",
+    "name": "ABC Analysis Report",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 0,
+            "delete": 0,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Parts Manager",
+            "share": 0,
+            "write": 0
+        },
+        {
+            "create": 0,
+            "delete": 0,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Inventory User",
+            "share": 0,
+            "write": 0
+        }
+    ],
+    "report_name": "ABC Analysis Report",
+    "report_type": "Script Report",
+    "ref_doctype": "Item",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "report_name",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

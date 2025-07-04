@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Workshop V2 - Quick Access</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/universal_workshop/favicon.svg">
+    <meta name="theme-color" content="#667eea">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #1a202c;
+            margin-bottom: 2rem;
+        }
+        .access-links {
+            display: grid;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .link-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: #1a202c;
+            transition: all 0.3s ease;
+            display: block;
+        }
+        .link-card:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
+        }
+        .link-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #667eea;
+        }
+        .link-desc {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        .status {
+            background: #dcfce7;
+            color: #166534;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Universal Workshop V2</h1>
+        <div class="status">✅ Server Running on Port 8000</div>
+        
+        <div class="access-links">
+            <a href="/files/apps/universal_workshop/frontend_v2/test-profile-setup.html" class="link-card">
+                <div class="link-title">📱 جوال الخليج - Test Profile</div>
+                <div class="link-desc">Pre-configured for Jawal Al Khaleej workshop testing (Arabic/RTL)</div>
+            </a>
+            
+            <a href="/files/apps/universal_workshop/frontend_v2/demo-onboarding.html" class="link-card">
+                <div class="link-title">🎯 Demo Onboarding Wizard</div>
+                <div class="link-desc">Interactive demo with modern UI components</div>
+            </a>
+            
+            <a href="/app" class="link-card">
+                <div class="link-title">🏠 Main Frappe System</div>
+                <div class="link-desc">Access the full Universal Workshop ERP system</div>
+            </a>
+            
+            <a href="/app/universal-workshop" class="link-card">
+                <div class="link-title">🔧 Workshop Management</div>
+                <div class="link-desc">Direct access to workshop management module</div>
+            </a>
+        </div>
+        
+        <div style="margin-top: 2rem; color: #64748b; font-size: 0.875rem;">
+            <p>💡 <strong>For Testing:</strong> Start with the "جوال الخليج - Test Profile" link above</p>
+            <p>🌐 Server: <code>http://localhost:8000</code></p>
+        </div>
+    </div>
+    
+    <script>
+        // Auto-redirect to test profile after 3 seconds if user doesn't click
+        setTimeout(() => {
+            console.log('🔄 Auto-redirecting to test profile...');
+            // Uncomment the line below if you want auto-redirect
+            // window.location.href = '/files/apps/universal_workshop/frontend_v2/test-profile-setup.html';
+        }, 10000);
+        
+        console.log('🚀 Universal Workshop V2 Quick Access Ready');
+        console.log('📍 Current location:', window.location.href);
+    </script>
+</body>
+</html>

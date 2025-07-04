@@ -1,0 +1,92 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-06-18 19:45:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "indicator_type",
+  "indicator_value",
+  "risk_weight",
+  "column_break_3",
+  "severity",
+  "confidence_level",
+  "detected_at",
+  "description",
+  "source"
+ ],
+ "fields": [
+  {
+   "fieldname": "indicator_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Indicator Type",
+   "options": "Suspicious IP\nUnusual Login Time\nMultiple Failed Attempts\nLocation Anomaly\nHardware Change\nBehavioral Anomaly\nConcurrent Sessions\nVPN Usage\nGeographic Velocity\nSystem Tampering\nLicense Violation\nManual Flag",
+   "reqd": 1
+  },
+  {
+   "fieldname": "indicator_value",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Indicator Value",
+   "reqd": 1
+  },
+  {
+   "fieldname": "risk_weight",
+   "fieldtype": "Int",
+   "label": "Risk Weight (1-10)",
+   "default": "5"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Severity",
+   "options": "Low\nMedium\nHigh\nCritical",
+   "default": "Medium"
+  },
+  {
+   "fieldname": "confidence_level",
+   "fieldtype": "Select",
+   "label": "Confidence Level",
+   "options": "Low\nMedium\nHigh\nCertain",
+   "default": "Medium"
+  },
+  {
+   "fieldname": "detected_at",
+   "fieldtype": "Datetime",
+   "label": "Detected At",
+   "default": "Now"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "label": "Detection Source",
+   "options": "Automated System\nManual Investigation\nExternal Alert\nBehavioral Analysis\nGeographic Analysis\nHardware Monitor",
+   "default": "Automated System"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-06-18 19:45:00.000000",
+ "modified_by": "Administrator",
+ "module": "License Management",
+ "name": "Security Threat Indicator",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+} 

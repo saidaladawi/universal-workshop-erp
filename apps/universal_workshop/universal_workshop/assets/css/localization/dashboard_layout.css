@@ -1,0 +1,653 @@
+/**
+ * Universal Workshop ERP - Dashboard Layout System
+ * Responsive CSS Grid with Arabic RTL support and modular architecture
+ */
+
+/* ==========================================================================
+   Dashboard Grid System
+   ========================================================================== */
+
+.workshop-dashboard {
+    direction: ltr;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Segoe UI', 'Tahoma', 'Arial Unicode MS', sans-serif;
+}
+
+.workshop-dashboard[dir="rtl"] {
+    direction: rtl;
+    font-family: 'Noto Sans Arabic', 'Tahoma', 'Arial Unicode MS', sans-serif;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #e9ecef;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.dashboard-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.dashboard-controls {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.workshop-dashboard[dir="rtl"] .dashboard-controls {
+    flex-direction: row-reverse;
+}
+
+/* Main Content Area */
+.dashboard-content {
+    padding: 2rem 0;
+    flex: 1;
+}
+
+/* Responsive Grid System */
+.dashboard-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(12, 1fr);
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* KPI Cards Row */
+.kpi-cards-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Widget Grid Areas */
+.widgets-row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.secondary-widgets-row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 1.5rem;
+}
+
+/* Grid Sizing Classes */
+.grid-full { grid-column: span 12; }
+.grid-half { grid-column: span 6; }
+.grid-third { grid-column: span 4; }
+.grid-quarter { grid-column: span 3; }
+.grid-two-thirds { grid-column: span 8; }
+.grid-three-quarters { grid-column: span 9; }
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+    .grid-quarter { grid-column: span 6; }
+    .grid-third { grid-column: span 6; }
+}
+
+@media (max-width: 768px) {
+    .dashboard-grid { grid-template-columns: 1fr; }
+    .kpi-cards-row { grid-template-columns: 1fr; }
+    .widgets-row { grid-template-columns: 1fr; }
+    .secondary-widgets-row { grid-template-columns: 1fr; }
+    
+    .grid-full,
+    .grid-half,
+    .grid-third,
+    .grid-quarter,
+    .grid-two-thirds,
+    .grid-three-quarters {
+        grid-column: span 1;
+    }
+}
+
+/* ==========================================================================
+   KPI Cards Component
+   ========================================================================== */
+
+.kpi-card {
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1976d2, #42a5f5);
+}
+
+.kpi-card.border-success::before { background: linear-gradient(90deg, #4caf50, #81c784); }
+.kpi-card.border-warning::before { background: linear-gradient(90deg, #ff9800, #ffb74d); }
+.kpi-card.border-danger::before { background: linear-gradient(90deg, #f44336, #ef5350); }
+.kpi-card.border-info::before { background: linear-gradient(90deg, #2196f3, #64b5f6); }
+.kpi-card.border-purple::before { background: linear-gradient(90deg, #9c27b0, #ba68c8); }
+
+.kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.kpi-card .card-body {
+    padding: 1.5rem;
+}
+
+.kpi-icon {
+    font-size: 2.5rem;
+    opacity: 0.9;
+}
+
+.kpi-content {
+    text-align: left;
+}
+
+.workshop-dashboard[dir="rtl"] .kpi-content {
+    text-align: right;
+}
+
+.kpi-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.kpi-value {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #2c3e50;
+}
+
+/* Arabic Number Styling */
+.workshop-dashboard[dir="rtl"] .kpi-value {
+    font-feature-settings: "lnum" 0;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   Widget Components
+   ========================================================================== */
+
+.dashboard-widget {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e9ecef;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-widget:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.widget-header {
+    background: #f8f9fa;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.widget-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.widget-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.widget-content {
+    padding: 1.5rem;
+    flex: 1;
+    overflow: auto;
+}
+
+.widget-footer {
+    padding: 0.75rem 1.5rem;
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+/* ==========================================================================
+   Kanban Board Widget
+   ========================================================================== */
+
+.kanban-widget {
+    height: 500px;
+}
+
+.kanban-board {
+    display: flex;
+    gap: 1rem;
+    height: 100%;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+}
+
+.kanban-column {
+    min-width: 280px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+}
+
+.kanban-column-header {
+    padding: 1rem;
+    background: #e9ecef;
+    border-radius: 8px 8px 0 0;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.kanban-column-body {
+    padding: 1rem;
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.kanban-card {
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 1rem;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.kanban-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.kanban-card-title {
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.kanban-card-meta {
+    font-size: 0.75rem;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ==========================================================================
+   Action Grid Widget
+   ========================================================================== */
+
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.action-card {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.action-card:hover {
+    background: #ffffff;
+    border-color: #1976d2;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(25, 118, 210, 0.15);
+    color: inherit;
+    text-decoration: none;
+}
+
+.action-card-icon {
+    font-size: 2rem;
+    color: #1976d2;
+    margin-bottom: 0.75rem;
+}
+
+.action-card-title {
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin: 0;
+    color: #2c3e50;
+}
+
+.action-card-description {
+    font-size: 0.75rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+}
+
+/* ==========================================================================
+   Chart Widget
+   ========================================================================== */
+
+.chart-widget {
+    min-height: 350px;
+}
+
+.chart-container {
+    height: 300px;
+    position: relative;
+}
+
+.chart-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #6c757d;
+}
+
+.chart-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #dc3545;
+    text-align: center;
+}
+
+/* ==========================================================================
+   Timeline Widget
+   ========================================================================== */
+
+.timeline-widget {
+    max-height: 400px;
+}
+
+.timeline-container {
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.timeline-item {
+    display: flex;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e9ecef;
+    position: relative;
+}
+
+.timeline-item:last-child {
+    border-bottom: none;
+}
+
+.timeline-marker {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #1976d2;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+    margin-right: 1rem;
+}
+
+.workshop-dashboard[dir="rtl"] .timeline-marker {
+    margin-right: 0;
+    margin-left: 1rem;
+}
+
+.timeline-content {
+    flex: 1;
+}
+
+.timeline-title {
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+    color: #2c3e50;
+}
+
+.timeline-description {
+    font-size: 0.75rem;
+    color: #6c757d;
+    margin-bottom: 0.25rem;
+}
+
+.timeline-time {
+    font-size: 0.75rem;
+    color: #adb5bd;
+}
+
+/* ==========================================================================
+   Dashboard Footer
+   ========================================================================== */
+
+.dashboard-footer {
+    background: #ffffff;
+    border-top: 1px solid #e9ecef;
+    padding: 1rem 0;
+    margin-top: auto;
+}
+
+.last-update {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+.system-status {
+    font-size: 0.875rem;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ==========================================================================
+   Loading States
+   ========================================================================== */
+
+.dashboard-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    color: #6c757d;
+}
+
+.widget-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: #6c757d;
+}
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #e9ecef;
+    border-top: 2px solid #1976d2;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 0.5rem;
+}
+
+.workshop-dashboard[dir="rtl"] .spinner {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   Dark Mode Support
+   ========================================================================== */
+
+.workshop-dashboard.dark-mode {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+    color: #ffffff;
+}
+
+.workshop-dashboard.dark-mode .dashboard-header,
+.workshop-dashboard.dark-mode .kpi-card,
+.workshop-dashboard.dark-mode .dashboard-widget {
+    background: #2c2c2c;
+    border-color: #404040;
+    color: #ffffff;
+}
+
+.workshop-dashboard.dark-mode .widget-header,
+.workshop-dashboard.dark-mode .widget-footer {
+    background: #404040;
+    border-color: #555555;
+}
+
+.workshop-dashboard.dark-mode .kanban-column {
+    background: #404040;
+}
+
+.workshop-dashboard.dark-mode .kanban-column-header {
+    background: #555555;
+}
+
+.workshop-dashboard.dark-mode .kanban-card {
+    background: #2c2c2c;
+    border-color: #555555;
+}
+
+.workshop-dashboard.dark-mode .action-card {
+    background: #404040;
+    border-color: #555555;
+    color: #ffffff;
+}
+
+.workshop-dashboard.dark-mode .action-card:hover {
+    background: #2c2c2c;
+    border-color: #64b5f6;
+}
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
+
+.dashboard-widget:focus,
+.kpi-card:focus,
+.action-card:focus {
+    outline: 2px solid #1976d2;
+    outline-offset: 2px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+    .dashboard-controls,
+    .widget-actions,
+    .dashboard-footer {
+        display: none;
+    }
+    
+    .dashboard-widget,
+    .kpi-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+    
+    .workshop-dashboard {
+        background: none;
+    }
+}
+
+/* ==========================================================================
+   High Contrast Mode
+   ========================================================================== */
+
+@media (prefers-contrast: high) {
+    .kpi-card,
+    .dashboard-widget {
+        border-width: 2px;
+        border-color: #000000;
+    }
+    
+    .kpi-card::before {
+        height: 6px;
+    }
+    
+    .action-card:hover {
+        border-width: 3px;
+    }
+}
+
+/* ==========================================================================
+   Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .kpi-card,
+    .dashboard-widget,
+    .action-card,
+    .kanban-card {
+        transition: none;
+    }
+    
+    .spinner {
+        animation: none;
+    }
+} 

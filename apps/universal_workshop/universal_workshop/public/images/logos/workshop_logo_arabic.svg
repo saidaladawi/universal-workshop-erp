@@ -1,0 +1,43 @@
+<svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="workshopGradientAr" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="toolGradientAr" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Workshop Building (mirrored for RTL) -->
+  <rect x="150" y="35" width="40" height="25" fill="url(#workshopGradientAr)" rx="2"/>
+  <polygon points="192,35 170,20 148,35" fill="url(#workshopGradientAr)"/>
+  <rect x="176" y="45" width="6" height="10" fill="#fff" opacity="0.3"/>
+  <rect x="166" y="45" width="6" height="10" fill="#fff" opacity="0.3"/>
+  <rect x="154" y="40" width="8" height="15" fill="#fff" opacity="0.2"/>
+  
+  <!-- Car Silhouette (mirrored for RTL) -->
+  <ellipse cx="115" cy="55" rx="20" ry="6" fill="url(#workshopGradientAr)"/>
+  <path d="M130,55 Q130,45 125,45 L105,45 Q100,45 100,55 Q100,60 105,60 L125,60 Q130,60 130,55" fill="url(#workshopGradientAr)"/>
+  <circle cx="122" cy="58" r="3" fill="#fff" opacity="0.4"/>
+  <circle cx="108" cy="58" r="3" fill="#fff" opacity="0.4"/>
+  <rect x="123" y="48" width="4" height="3" fill="#fff" opacity="0.3"/>
+  <rect x="109" y="48" width="8" height="3" fill="#fff" opacity="0.3"/>
+  <rect x="103" y="48" width="4" height="3" fill="#fff" opacity="0.3"/>
+  
+  <!-- Wrench/Tools (mirrored for RTL) -->
+  <path d="M85,35 L75,25 L73,27 L80,34 L75,39 L73,37 L65,45 L67,47 L75,39 L80,44 L85,39 Z" fill="url(#toolGradientAr)"/>
+  <circle cx="70" cy="30" r="3" fill="url(#toolGradientAr)" opacity="0.7"/>
+  <path d="M60,45 L55,40 L53,42 L55,44 L50,49 L52,51 L57,46 L59,48 L60,45 Z" fill="url(#toolGradientAr)"/>
+  
+  <!-- Arabic Text -->
+  <text x="190" y="75" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="url(#workshopGradientAr)" text-anchor="end" direction="rtl">
+    ورشة عالمية
+  </text>
+  
+  <!-- Decorative Elements (mirrored for RTL) -->
+  <circle cx="35" cy="25" r="2" fill="url(#workshopGradientAr)" opacity="0.3"/>
+  <circle cx="25" cy="35" r="1.5" fill="url(#toolGradientAr)" opacity="0.4"/>
+  <circle cx="15" cy="45" r="1" fill="url(#workshopGradientAr)" opacity="0.5"/>
+</svg>

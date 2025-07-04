@@ -1,0 +1,224 @@
+{
+  "actions": [],
+  "creation": "2025-01-15 12:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "section_break_1",
+    "scan_mode",
+    "scanner_type",
+    "column_break_2",
+    "auto_fetch_details",
+    "enable_sound",
+    "section_break_barcode",
+    "barcode_data",
+    "barcode_type",
+    "column_break_3", 
+    "item_code",
+    "item_name",
+    "section_break_item_details",
+    "part_number",
+    "manufacturer",
+    "column_break_4",
+    "current_stock",
+    "location",
+    "section_break_actions",
+    "quantity_to_add",
+    "column_break_5",
+    "destination_location",
+    "scan_timestamp",
+    "scanned_by"
+  ],
+  "fields": [
+    {
+      "fieldname": "section_break_1",
+      "fieldtype": "Section Break",
+      "label": "Scanner Configuration"
+    },
+    {
+      "default": "Manual",
+      "fieldname": "scan_mode",
+      "fieldtype": "Select",
+      "label": "Scan Mode",
+      "options": "Manual\nAuto-Scan\nBatch Scan",
+      "reqd": 1
+    },
+    {
+      "default": "Handheld",
+      "fieldname": "scanner_type",
+      "fieldtype": "Select",
+      "label": "Scanner Type",
+      "options": "Handheld\nFixed Mount\nMobile Camera\nWebcam"
+    },
+    {
+      "fieldname": "column_break_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": 1,
+      "fieldname": "auto_fetch_details",
+      "fieldtype": "Check",
+      "label": "Auto Fetch Item Details"
+    },
+    {
+      "default": 1,
+      "fieldname": "enable_sound",
+      "fieldtype": "Check",
+      "label": "Enable Sound on Scan"
+    },
+    {
+      "fieldname": "section_break_barcode",
+      "fieldtype": "Section Break",
+      "label": "Barcode Information"
+    },
+    {
+      "fieldname": "barcode_data",
+      "fieldtype": "Data",
+      "label": "Barcode Data",
+      "length": 200,
+      "reqd": 1
+    },
+    {
+      "fieldname": "barcode_type",
+      "fieldtype": "Select",
+      "label": "Barcode Type",
+      "options": "Code 128\nCode 39\nEAN-13\nEAN-8\nQR Code\nDataMatrix\nPDF417"
+    },
+    {
+      "fieldname": "column_break_3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "item_code",
+      "fieldtype": "Link",
+      "label": "Item Code",
+      "options": "Item"
+    },
+    {
+      "fieldname": "item_name",
+      "fieldtype": "Data",
+      "label": "Item Name",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_item_details",
+      "fieldtype": "Section Break",
+      "label": "Item Details"
+    },
+    {
+      "fieldname": "part_number",
+      "fieldtype": "Data",
+      "label": "Part Number",
+      "read_only": 1
+    },
+    {
+      "fieldname": "manufacturer",
+      "fieldtype": "Data",
+      "label": "Manufacturer",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_4",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "current_stock",
+      "fieldtype": "Float",
+      "label": "Current Stock",
+      "precision": 2,
+      "read_only": 1
+    },
+    {
+      "fieldname": "location",
+      "fieldtype": "Link",
+      "label": "Current Location",
+      "options": "Warehouse",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_break_actions",
+      "fieldtype": "Section Break",
+      "label": "Stock Actions"
+    },
+    {
+      "default": "1",
+      "fieldname": "quantity_to_add",
+      "fieldtype": "Float",
+      "label": "Quantity to Add/Remove",
+      "precision": 2
+    },
+    {
+      "fieldname": "column_break_5",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "destination_location",
+      "fieldtype": "Link",
+      "label": "Destination Location",
+      "options": "Warehouse"
+    },
+    {
+      "fieldname": "scan_timestamp",
+      "fieldtype": "Datetime",
+      "label": "Scan Timestamp",
+      "read_only": 1
+    },
+    {
+      "fieldname": "scanned_by",
+      "fieldtype": "Link",
+      "label": "Scanned By",
+      "options": "User",
+      "read_only": 1
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "istable": 0,
+  "links": [],
+  "modified": "2025-01-15 12:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Parts Inventory",
+  "name": "Barcode Scanner",
+  "naming_rule": "Expression",
+  "autoname": "format:BC-{scan_timestamp}",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Parts Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Technician",
+      "write": 1
+    }
+  ],
+  "sort_field": "scan_timestamp",
+  "sort_order": "DESC",
+  "states": [],
+  "title_field": "barcode_data",
+  "track_changes": 1,
+  "track_seen": 1,
+  "track_views": 1
+} 

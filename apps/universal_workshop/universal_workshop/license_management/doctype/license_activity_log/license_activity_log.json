@@ -1,0 +1,81 @@
+{
+    "actions": [],
+    "creation": "2024-06-18 20:05:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "license_id",
+        "activity_type",
+        "activity_description",
+        "column_break_3",
+        "timestamp",
+        "status",
+        "user_involved"
+    ],
+    "fields": [
+        {
+            "fieldname": "license_id",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "License ID",
+            "reqd": 1,
+            "width": "120"
+        },
+        {
+            "fieldname": "activity_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Activity Type",
+            "options": "Issued\nRenewed\nRevoked\nExpired\nSuspended\nReactivated\nValidated\nWarning Sent",
+            "reqd": 1,
+            "width": "100"
+        },
+        {
+            "fieldname": "activity_description",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Description",
+            "width": "200"
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "timestamp",
+            "fieldtype": "Datetime",
+            "in_list_view": 1,
+            "label": "Timestamp",
+            "reqd": 1,
+            "width": "140"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Status",
+            "options": "Success\nFailed\nPending\nWarning",
+            "default": "Success",
+            "width": "80"
+        },
+        {
+            "fieldname": "user_involved",
+            "fieldtype": "Link",
+            "label": "User",
+            "options": "User",
+            "width": "120"
+        }
+    ],
+    "istable": 1,
+    "modified": "2024-06-18 20:05:00.000000",
+    "modified_by": "Administrator",
+    "module": "License Management",
+    "name": "License Activity Log",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "timestamp",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 0
+}

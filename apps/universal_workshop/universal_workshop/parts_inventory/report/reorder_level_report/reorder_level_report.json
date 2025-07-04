@@ -1,0 +1,115 @@
+{
+    "actions": [],
+    "creation": "2025-01-15 15:00:00.000000",
+    "doctype": "Report",
+    "engine": "Query Report",
+    "field_order": [
+        "filters_section",
+        "warehouse",
+        "column_break_1",
+        "item_group",
+        "supplier",
+        "status_filter",
+        "results_section",
+        "columns",
+        "data"
+    ],
+    "fields": [
+        {
+            "fieldname": "filters_section",
+            "fieldtype": "Section Break",
+            "label": "Filters"
+        },
+        {
+            "fieldname": "warehouse",
+            "fieldtype": "Link",
+            "label": "Warehouse",
+            "options": "Warehouse"
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "item_group",
+            "fieldtype": "Link",
+            "label": "Item Group",
+            "options": "Item Group"
+        },
+        {
+            "fieldname": "supplier",
+            "fieldtype": "Link",
+            "label": "Supplier",
+            "options": "Supplier"
+        },
+        {
+            "fieldname": "status_filter",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "All\nBelow Reorder Level\nAt Reorder Level\nAbove Reorder Level",
+            "default": "All"
+        },
+        {
+            "fieldname": "results_section",
+            "fieldtype": "Section Break",
+            "label": "Report Results"
+        },
+        {
+            "fieldname": "columns",
+            "fieldtype": "Table",
+            "label": "Columns",
+            "options": "Report Column"
+        },
+        {
+            "fieldname": "data",
+            "fieldtype": "Table",
+            "label": "Data",
+            "options": "Report Data"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "istable": 0,
+    "links": [],
+    "modified": "2025-01-15 15:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Parts Inventory",
+    "name": "Reorder Level Report",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 0,
+            "delete": 0,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 0,
+            "write": 0
+        }
+    ],
+    "ref_doctype": "Item",
+    "report_name": "Reorder Level Report",
+    "report_type": "Query Report",
+    "roles": [
+        {
+            "role": "System Manager"
+        },
+        {
+            "role": "Workshop Manager"
+        }
+    ]
+} 

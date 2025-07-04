@@ -1,0 +1,160 @@
+[project]
+name = "universal_workshop"
+authors = [
+    { name = "Said Al-Adowi", email = "al.a.dawi@hotmail.com"}
+]
+description = "automotive workshop management"
+requires-python = ">=3.10"
+readme = "README.md"
+dynamic = ["version"]
+dependencies = [
+    # "frappe~=15.0.0" # Installed and managed by bench.
+]
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+# These dependencies are only installed when developer mode is enabled
+[tool.bench.dev-dependencies]
+# package_name = "~=1.1.0"
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+exclude = [
+    "__pycache__",
+    ".git",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    "migrations",
+    "patches",
+    "node_modules",
+]
+
+[tool.ruff.lint]
+select = [
+    "F",     # Pyflakes
+    "E",     # pycodestyle errors
+    "W",     # pycodestyle warnings
+    "I",     # isort
+    "UP",    # pyupgrade
+    "B",     # flake8-bugbear
+    "RUF",   # Ruff-specific rules
+    "C4",    # flake8-comprehensions
+    "PIE",   # flake8-pie
+    "SIM",   # flake8-simplify
+    "TCH",   # flake8-type-checking
+]
+ignore = [
+    "B017", # assertRaises(Exception) - should be more specific
+    "B018", # useless expression, not assigned to anything
+    "B023", # function doesn't bind loop variable - will have last iteration's value
+    "B904", # raise inside except without from
+    "E101", # indentation contains mixed spaces and tabs
+    "E402", # module level import not at top of file
+    "E501", # line too long
+    "E741", # ambiguous variable name
+    "F401", # "unused" imports
+    "F403", # can't detect undefined names from * import
+    "F405", # can't detect undefined names from * import
+    "F722", # syntax error in forward type annotation
+    "W191", # indentation contains tabs
+    "UP030", # Use implicit references for positional format fields (translations)
+    "UP031", # Use format specifiers instead of percent format
+    "UP032", # Use f-string instead of `format` call (translations)
+    "RUF001", # String contains ambiguous Unicode character (for Arabic text)
+    "RUF002", # Docstring contains ambiguous Unicode character (for Arabic text)
+    "RUF003", # Comment contains ambiguous Unicode character (for Arabic text)
+]
+typing-modules = ["frappe.types.DF"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "tab"
+docstring-code-format = true
+line-ending = "lf"
+
+[tool.ruff.lint.isort]
+known-first-party = ["frappe", "erpnext", "universal_workshop"]
+combine-as-imports = true
+split-on-trailing-comma = true
+
+[tool.ruff.lint.pyupgrade]
+keep-runtime-typing = true
+
+# MyPy Configuration
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = false
+warn_unused_configs = true
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+check_untyped_defs = true
+disallow_untyped_decorators = false
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+ignore_missing_imports = true
+implicit_reexport = true
+show_error_codes = true
+
+# Frappe-specific settings
+[[tool.mypy.overrides]]
+module = "frappe.*"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "erpnext.*"
+ignore_missing_imports = true
+
+# Coverage Configuration
+[tool.coverage.run]
+source = ["universal_workshop"]
+omit = [
+    "*/migrations/*",
+    "*/patches/*",
+    "*/tests/*",
+    "*/__pycache__/*",
+    "*/node_modules/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
+
+# Pytest Configuration
+[tool.pytest.ini_options]
+testpaths = ["universal_workshop/tests", "tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "--verbose --tb=short --strict-markers"
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+]
+
+# Black Configuration (fallback)
+[tool.black]
+line-length = 110
+target-version = ["py310"]
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  migrations
+  | patches
+  | node_modules
+)/
+'''

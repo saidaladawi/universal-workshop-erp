@@ -1,0 +1,334 @@
+{
+  "actions": [],
+  "creation": "2025-01-15 17:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "section_break_1",
+    "gateway_name",
+    "gateway_name_ar",
+    "column_break_2",
+    "is_active",
+    "gateway_type",
+    "connection_settings_section",
+    "api_key",
+    "secret_key",
+    "column_break_3",
+    "merchant_id",
+    "environment",
+    "webhook_settings_section",
+    "webhook_url",
+    "webhook_secret",
+    "column_break_4",
+    "enable_webhooks",
+    "webhook_events",
+    "payment_methods_section",
+    "supported_currencies",
+    "supported_payment_methods",
+    "column_break_5",
+    "transaction_fees",
+    "settlement_period",
+    "security_settings_section",
+    "encryption_enabled",
+    "ssl_required",
+    "column_break_6",
+    "fraud_detection",
+    "test_mode",
+    "integration_settings_section",
+    "auto_capture",
+    "partial_refund_support",
+    "column_break_7",
+    "recurring_payments",
+    "status_section",
+    "gateway_status",
+    "last_test_date",
+    "column_break_8",
+    "created_by",
+    "creation_date"
+  ],
+  "fields": [
+    {
+      "fieldname": "section_break_1",
+      "fieldtype": "Section Break",
+      "label": "Gateway Information"
+    },
+    {
+      "fieldname": "gateway_name",
+      "fieldtype": "Data",
+      "label": "Gateway Name",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "gateway_name_ar",
+      "fieldtype": "Data",
+      "label": "اسم البوابة",
+      "translatable": 1
+    },
+    {
+      "fieldname": "column_break_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "1",
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "label": "Is Active",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "gateway_type",
+      "fieldtype": "Select",
+      "label": "Gateway Type",
+      "options": "Credit Card\nBank Transfer\nDigital Wallet\nCryptocurrency\nLocal Payment",
+      "reqd": 1
+    },
+    {
+      "fieldname": "connection_settings_section",
+      "fieldtype": "Section Break",
+      "label": "Connection Settings"
+    },
+    {
+      "fieldname": "api_key",
+      "fieldtype": "Password",
+      "label": "API Key",
+      "reqd": 1
+    },
+    {
+      "fieldname": "secret_key",
+      "fieldtype": "Password",
+      "label": "Secret Key",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "merchant_id",
+      "fieldtype": "Data",
+      "label": "Merchant ID"
+    },
+    {
+      "fieldname": "environment",
+      "fieldtype": "Select",
+      "label": "Environment",
+      "options": "Sandbox\nProduction",
+      "default": "Sandbox",
+      "reqd": 1
+    },
+    {
+      "fieldname": "webhook_settings_section",
+      "fieldtype": "Section Break",
+      "label": "Webhook Settings"
+    },
+    {
+      "fieldname": "webhook_url",
+      "fieldtype": "Data",
+      "label": "Webhook URL"
+    },
+    {
+      "fieldname": "webhook_secret",
+      "fieldtype": "Password",
+      "label": "Webhook Secret"
+    },
+    {
+      "fieldname": "column_break_4",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "1",
+      "fieldname": "enable_webhooks",
+      "fieldtype": "Check",
+      "label": "Enable Webhooks"
+    },
+    {
+      "fieldname": "webhook_events",
+      "fieldtype": "MultiSelect",
+      "label": "Webhook Events",
+      "options": "payment.success\npayment.failed\npayment.refunded\npayment.cancelled"
+    },
+    {
+      "fieldname": "payment_methods_section",
+      "fieldtype": "Section Break",
+      "label": "Payment Methods"
+    },
+    {
+      "fieldname": "supported_currencies",
+      "fieldtype": "MultiSelect",
+      "label": "Supported Currencies",
+      "options": "OMR\nUSD\nEUR\nGBP\nAED\nSAR"
+    },
+    {
+      "fieldname": "supported_payment_methods",
+      "fieldtype": "MultiSelect",
+      "label": "Supported Payment Methods",
+      "options": "Visa\nMastercard\nAmerican Express\nDiscover\nPayPal\nApple Pay\nGoogle Pay"
+    },
+    {
+      "fieldname": "column_break_5",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "transaction_fees",
+      "fieldtype": "Float",
+      "label": "Transaction Fees (%)",
+      "precision": 2
+    },
+    {
+      "fieldname": "settlement_period",
+      "fieldtype": "Select",
+      "label": "Settlement Period",
+      "options": "Same Day\nNext Day\n2-3 Business Days\nWeekly\nMonthly"
+    },
+    {
+      "fieldname": "security_settings_section",
+      "fieldtype": "Section Break",
+      "label": "Security Settings"
+    },
+    {
+      "default": "1",
+      "fieldname": "encryption_enabled",
+      "fieldtype": "Check",
+      "label": "Encryption Enabled"
+    },
+    {
+      "default": "1",
+      "fieldname": "ssl_required",
+      "fieldtype": "Check",
+      "label": "SSL Required"
+    },
+    {
+      "fieldname": "column_break_6",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "1",
+      "fieldname": "fraud_detection",
+      "fieldtype": "Check",
+      "label": "Fraud Detection"
+    },
+    {
+      "default": "1",
+      "fieldname": "test_mode",
+      "fieldtype": "Check",
+      "label": "Test Mode"
+    },
+    {
+      "fieldname": "integration_settings_section",
+      "fieldtype": "Section Break",
+      "label": "Integration Settings"
+    },
+    {
+      "default": "1",
+      "fieldname": "auto_capture",
+      "fieldtype": "Check",
+      "label": "Auto Capture"
+    },
+    {
+      "default": "1",
+      "fieldname": "partial_refund_support",
+      "fieldtype": "Check",
+      "label": "Partial Refund Support"
+    },
+    {
+      "fieldname": "column_break_7",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "recurring_payments",
+      "fieldtype": "Check",
+      "label": "Recurring Payments Support"
+    },
+    {
+      "fieldname": "status_section",
+      "fieldtype": "Section Break",
+      "label": "Status Information"
+    },
+    {
+      "fieldname": "gateway_status",
+      "fieldtype": "Select",
+      "label": "Gateway Status",
+      "options": "Connected\nDisconnected\nError\nMaintenance",
+      "default": "Disconnected"
+    },
+    {
+      "fieldname": "last_test_date",
+      "fieldtype": "Datetime",
+      "label": "Last Test Date"
+    },
+    {
+      "fieldname": "column_break_8",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "created_by",
+      "fieldtype": "Link",
+      "label": "Created By",
+      "options": "User",
+      "read_only": 1
+    },
+    {
+      "fieldname": "creation_date",
+      "fieldtype": "Datetime",
+      "label": "Creation Date",
+      "read_only": 1
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "istable": 0,
+  "links": [],
+  "modified": "2025-01-15 17:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Billing Management",
+  "name": "Payment Gateway Config",
+  "naming_rule": "Expression",
+  "autoname": "format:PG-{gateway_name}",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "delete": 0,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Workshop Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 0,
+      "delete": 0,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Accounts User",
+      "share": 0,
+      "write": 0
+    }
+  ],
+  "search_fields": "gateway_name,gateway_type,gateway_status",
+  "sort_field": "creation_date",
+  "sort_order": "DESC",
+  "states": [],
+  "title_field": "gateway_name",
+  "track_changes": 1,
+  "track_seen": 1,
+  "track_views": 1
+} 

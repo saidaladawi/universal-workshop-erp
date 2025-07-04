@@ -1,0 +1,41 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="iconGradient128" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="toolIconGradient128" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="64" cy="64" r="60" fill="url(#iconGradient128)" opacity="0.1"/>
+  
+  <!-- Workshop Building -->
+  <rect x="18" y="68" width="40" height="28" fill="url(#iconGradient128)" rx="2"/>
+  <polygon points="14,68 38,42 62,68" fill="url(#iconGradient128)"/>
+  <rect x="26" y="78" width="6" height="14" fill="#fff" opacity="0.3"/>
+  <rect x="36" y="78" width="6" height="14" fill="#fff" opacity="0.3"/>
+  <rect x="46" y="72" width="8" height="20" fill="#fff" opacity="0.2"/>
+  
+  <!-- Car Silhouette -->
+  <ellipse cx="64" cy="86" rx="24" ry="7" fill="url(#iconGradient128)"/>
+  <path d="M42,86 Q42,72 48,72 L80,72 Q86,72 86,86 Q86,92 80,92 L48,92 Q42,92 42,86" fill="url(#iconGradient128)"/>
+  <circle cx="52" cy="89" r="4" fill="#fff" opacity="0.4"/>
+  <circle cx="76" cy="89" r="4" fill="#fff" opacity="0.4"/>
+  <rect x="48" y="76" width="4" height="4" fill="#fff" opacity="0.3"/>
+  <rect x="58" y="76" width="8" height="4" fill="#fff" opacity="0.3"/>
+  <rect x="72" y="76" width="4" height="4" fill="#fff" opacity="0.3"/>
+  
+  <!-- Wrench/Tools -->
+  <path d="M90,40 L104,26 L106,28 L96,38 L102,44 L104,42 L114,52 L112,54 L102,44 L96,50 L90,44 Z" fill="url(#toolIconGradient128)"/>
+  <circle cx="108" cy="30" r="4" fill="url(#toolIconGradient128)" opacity="0.7"/>
+  <path d="M100,60 L106,54 L108,56 L104,60 L110,66 L108,68 L102,62 L100,64 L100,60 Z" fill="url(#toolIconGradient128)"/>
+  
+  <!-- Decorative Elements -->
+  <circle cx="24" cy="28" r="2" fill="url(#iconGradient128)" opacity="0.3"/>
+  <circle cx="104" cy="100" r="2" fill="url(#toolIconGradient128)" opacity="0.4"/>
+  <circle cx="20" cy="100" r="1" fill="url(#iconGradient128)" opacity="0.5"/>
+</svg>

@@ -1,0 +1,452 @@
+/* Labor Time Tracking Styles for Universal Workshop ERP */
+/* Copyright (c) 2024, Eng. Saeed Al-Adawi and contributors */
+
+/* Main Container */
+.labor-tracking-container {
+    margin: 20px 0;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Section */
+.labor-tracking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e1e8ed;
+    border-radius: 8px 8px 0 0;
+}
+
+.labor-tracking-header h4 {
+    margin: 0;
+    color: #333;
+    font-weight: 600;
+}
+
+.start-session-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Active Sessions List */
+.active-sessions-list {
+    padding: 15px 20px;
+    min-height: 100px;
+}
+
+/* Time Session Cards */
+.time-session-card {
+    background-color: #fff;
+    border: 1px solid #e1e8ed;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    padding: 15px;
+    transition: box-shadow 0.2s ease;
+}
+
+.time-session-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.time-session-card:last-child {
+    margin-bottom: 0;
+}
+
+/* Session Header */
+.session-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.technician-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.technician-info strong {
+    color: #333;
+    font-size: 14px;
+}
+
+.activity-type {
+    color: #666;
+    font-size: 12px;
+    font-style: italic;
+}
+
+/* Session Status */
+.session-status {
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-active {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.status-paused {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+.status-completed {
+    background-color: #cce5ff;
+    color: #004085;
+    border: 1px solid #b3d9ff;
+}
+
+/* Session Details */
+.session-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.time-info {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.time-info span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #666;
+    font-size: 13px;
+}
+
+.start-time i,
+.elapsed-time i {
+    color: #007bff;
+}
+
+/* Session Controls */
+.session-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.session-controls .btn {
+    padding: 4px 8px;
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+/* Tracking Summary */
+.tracking-summary {
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #e1e8ed;
+    border-radius: 0 0 8px 8px;
+}
+
+.tracking-summary-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.summary-item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.summary-label {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.summary-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+/* Dashboard Styles */
+.labor-dashboard {
+    padding: 20px;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e1e8ed;
+}
+
+.dashboard-header h3 {
+    margin: 0;
+    color: #333;
+}
+
+.dashboard-filters {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dashboard-content {
+    min-height: 400px;
+}
+
+.dashboard-widget {
+    background-color: #fff;
+    border: 1px solid #e1e8ed;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.dashboard-widget h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+    border-bottom: 1px solid #e1e8ed;
+    padding-bottom: 10px;
+}
+
+.time-logs-table {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.log-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 15px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    align-items: center;
+}
+
+.log-row:last-child {
+    border-bottom: none;
+}
+
+/* Arabic RTL Support */
+.labor-tracking-rtl .labor-tracking-header,
+.labor-tracking-rtl .session-header,
+.labor-tracking-rtl .session-details {
+    direction: rtl;
+    text-align: right;
+}
+
+.labor-tracking-rtl .time-info {
+    flex-direction: row-reverse;
+}
+
+.labor-tracking-rtl .session-controls {
+    flex-direction: row-reverse;
+}
+
+.labor-tracking-rtl .dashboard-header {
+    direction: rtl;
+    text-align: right;
+}
+
+.labor-tracking-rtl .dashboard-filters {
+    flex-direction: row-reverse;
+}
+
+.labor-tracking-rtl .log-row {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .labor-tracking-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .session-details {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .time-info {
+        justify-content: space-between;
+    }
+
+    .session-controls {
+        justify-content: center;
+    }
+
+    .tracking-summary-content {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .dashboard-filters {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .log-row {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .labor-tracking-container {
+        margin: 10px 0;
+        border-radius: 4px;
+    }
+
+    .labor-tracking-header,
+    .active-sessions-list,
+    .tracking-summary {
+        padding: 10px 15px;
+    }
+
+    .time-session-card {
+        padding: 10px;
+    }
+
+    .session-controls .btn {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    .dashboard-widget {
+        padding: 15px;
+    }
+}
+
+/* Animation Effects */
+.time-session-card {
+    animation: fadeInUp 0.3s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Status Indicators with Pulse Animation */
+.status-active {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+    }
+}
+
+/* Loading State */
+.loading-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    color: #666;
+}
+
+.loading-state::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid #e1e8ed;
+    border-top: 2px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Success/Error States */
+.alert-success {
+    border-color: #d4edda;
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-error {
+    border-color: #f5c6cb;
+    background-color: #f5c6cb;
+    color: #721c24;
+}
+
+/* Custom Button Styles */
+.btn-labor-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+.btn-labor-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-labor-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+}
+
+.btn-labor-success:hover {
+    background-color: #1e7e34;
+    border-color: #1e7e34;
+}
+
+.btn-labor-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #212529;
+}
+
+.btn-labor-warning:hover {
+    background-color: #e0a800;
+    border-color: #e0a800;
+} 

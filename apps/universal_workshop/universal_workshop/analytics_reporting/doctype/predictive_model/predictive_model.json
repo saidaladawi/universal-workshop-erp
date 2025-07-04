@@ -1,0 +1,464 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "field:model_code",
+    "creation": "2024-06-24 11:30:00.000000",
+    "default_view": "List",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "model_details_section",
+        "model_code",
+        "model_name",
+        "model_name_ar",
+        "column_break_4",
+        "model_category",
+        "business_area",
+        "prediction_type",
+        "target_metric",
+        "algorithm_configuration_section",
+        "algorithm_type",
+        "library_used",
+        "column_break_9",
+        "model_parameters",
+        "feature_engineering",
+        "data_source_section",
+        "primary_kpi",
+        "data_source_doctype",
+        "column_break_13",
+        "historical_period_days",
+        "minimum_data_points",
+        "feature_columns",
+        "training_configuration_section",
+        "training_frequency",
+        "auto_retrain",
+        "column_break_18",
+        "train_test_split_ratio",
+        "validation_method",
+        "performance_threshold",
+        "model_performance_section",
+        "model_accuracy",
+        "mean_absolute_error",
+        "column_break_23",
+        "r_squared_score",
+        "last_training_date",
+        "model_status",
+        "prediction_settings_section",
+        "prediction_horizon_days",
+        "confidence_interval",
+        "column_break_28",
+        "update_frequency",
+        "seasonality_adjustment",
+        "trend_smoothing",
+        "output_configuration_section",
+        "output_format",
+        "visualization_type",
+        "column_break_33",
+        "alert_threshold",
+        "notification_users",
+        "model_metadata_section",
+        "model_file_path",
+        "training_log",
+        "column_break_37",
+        "created_by",
+        "last_updated_by",
+        "is_active"
+    ],
+    "fields": [
+        {
+            "fieldname": "model_details_section",
+            "fieldtype": "Section Break",
+            "label": "Model Details"
+        },
+        {
+            "fieldname": "model_code",
+            "fieldtype": "Data",
+            "label": "Model Code",
+            "reqd": 1,
+            "unique": 1,
+            "description": "Unique identifier for the model (e.g., REVENUE_FORECAST, DEMAND_PREDICT)"
+        },
+        {
+            "fieldname": "model_name",
+            "fieldtype": "Data",
+            "label": "Model Name (English)",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "model_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم النموذج",
+            "translatable": 1
+        },
+        {
+            "fieldname": "column_break_4",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "model_category",
+            "fieldtype": "Select",
+            "label": "Model Category",
+            "options": "Revenue Forecasting\nDemand Prediction\nCustomer Behavior\nInventory Optimization\nOperational Efficiency\nMaintenance Prediction\nResource Planning",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "business_area",
+            "fieldtype": "Select",
+            "label": "Business Area",
+            "options": "Workshop Operations\nCustomer Management\nInventory Control\nFinancial Planning\nTechnician Management\nEquipment Maintenance",
+            "reqd": 1
+        },
+        {
+            "fieldname": "prediction_type",
+            "fieldtype": "Select",
+            "label": "Prediction Type",
+            "options": "Time Series Forecast\nClassification\nRegression\nAnomaly Detection\nTrend Analysis",
+            "reqd": 1
+        },
+        {
+            "fieldname": "target_metric",
+            "fieldtype": "Data",
+            "label": "Target Metric",
+            "description": "The metric being predicted (e.g., monthly_revenue, parts_demand)"
+        },
+        {
+            "fieldname": "algorithm_configuration_section",
+            "fieldtype": "Section Break",
+            "label": "Algorithm Configuration"
+        },
+        {
+            "fieldname": "algorithm_type",
+            "fieldtype": "Select",
+            "label": "Algorithm Type",
+            "options": "Linear Regression\nRandom Forest\nGradient Boosting\nARIMA\nSeasonal ARIMA\nProphet\nNeural Network\nSVM\nDecision Tree",
+            "default": "Random Forest",
+            "reqd": 1
+        },
+        {
+            "fieldname": "library_used",
+            "fieldtype": "Select",
+            "label": "ML Library",
+            "options": "scikit-learn\nStatsmodels\nProphet\nTensorFlow\nPyTorch",
+            "default": "scikit-learn"
+        },
+        {
+            "fieldname": "column_break_9",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "model_parameters",
+            "fieldtype": "Long Text",
+            "label": "Model Parameters (JSON)",
+            "description": "JSON configuration for algorithm-specific parameters"
+        },
+        {
+            "fieldname": "feature_engineering",
+            "fieldtype": "Text",
+            "label": "Feature Engineering Rules",
+            "description": "Rules for creating features from raw data"
+        },
+        {
+            "fieldname": "data_source_section",
+            "fieldtype": "Section Break",
+            "label": "Data Source Configuration"
+        },
+        {
+            "fieldname": "primary_kpi",
+            "fieldtype": "Link",
+            "label": "Primary KPI",
+            "options": "Analytics KPI",
+            "description": "Primary KPI this model is predicting"
+        },
+        {
+            "fieldname": "data_source_doctype",
+            "fieldtype": "Link",
+            "label": "Data Source DocType",
+            "options": "DocType"
+        },
+        {
+            "fieldname": "column_break_13",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "historical_period_days",
+            "fieldtype": "Int",
+            "label": "Historical Period (Days)",
+            "default": 365,
+            "description": "Number of days of historical data to use for training"
+        },
+        {
+            "fieldname": "minimum_data_points",
+            "fieldtype": "Int",
+            "label": "Minimum Data Points",
+            "default": 30,
+            "description": "Minimum number of data points required for training"
+        },
+        {
+            "fieldname": "feature_columns",
+            "fieldtype": "Long Text",
+            "label": "Feature Columns (JSON)",
+            "description": "JSON list of columns to use as features"
+        },
+        {
+            "fieldname": "training_configuration_section",
+            "fieldtype": "Section Break",
+            "label": "Training Configuration"
+        },
+        {
+            "fieldname": "training_frequency",
+            "fieldtype": "Select",
+            "label": "Training Frequency",
+            "options": "Manual\nDaily\nWeekly\nMonthly\nQuarterly",
+            "default": "Weekly"
+        },
+        {
+            "fieldname": "auto_retrain",
+            "fieldtype": "Check",
+            "label": "Auto Retrain",
+            "default": 1,
+            "description": "Automatically retrain model based on frequency"
+        },
+        {
+            "fieldname": "column_break_18",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "train_test_split_ratio",
+            "fieldtype": "Percent",
+            "label": "Train/Test Split Ratio",
+            "default": 80,
+            "description": "Percentage of data used for training (rest for testing)"
+        },
+        {
+            "fieldname": "validation_method",
+            "fieldtype": "Select",
+            "label": "Validation Method",
+            "options": "Hold-out\nK-Fold Cross Validation\nTime Series Split",
+            "default": "Time Series Split"
+        },
+        {
+            "fieldname": "performance_threshold",
+            "fieldtype": "Percent",
+            "label": "Performance Threshold",
+            "default": 70,
+            "description": "Minimum accuracy threshold to deploy model"
+        },
+        {
+            "fieldname": "model_performance_section",
+            "fieldtype": "Section Break",
+            "label": "Model Performance Metrics"
+        },
+        {
+            "fieldname": "model_accuracy",
+            "fieldtype": "Percent",
+            "label": "Model Accuracy",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "mean_absolute_error",
+            "fieldtype": "Float",
+            "label": "Mean Absolute Error",
+            "read_only": 1,
+            "precision": 4
+        },
+        {
+            "fieldname": "column_break_23",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "r_squared_score",
+            "fieldtype": "Float",
+            "label": "R-Squared Score",
+            "read_only": 1,
+            "precision": 4
+        },
+        {
+            "fieldname": "last_training_date",
+            "fieldtype": "Datetime",
+            "label": "Last Training Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "model_status",
+            "fieldtype": "Select",
+            "label": "Model Status",
+            "options": "Draft\nTraining\nTrained\nDeployed\nRetiring\nInactive",
+            "default": "Draft",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "prediction_settings_section",
+            "fieldtype": "Section Break",
+            "label": "Prediction Settings"
+        },
+        {
+            "fieldname": "prediction_horizon_days",
+            "fieldtype": "Int",
+            "label": "Prediction Horizon (Days)",
+            "default": 30,
+            "description": "How many days into the future to predict"
+        },
+        {
+            "fieldname": "confidence_interval",
+            "fieldtype": "Percent",
+            "label": "Confidence Interval",
+            "default": 95,
+            "description": "Confidence interval for predictions"
+        },
+        {
+            "fieldname": "column_break_28",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "update_frequency",
+            "fieldtype": "Select",
+            "label": "Prediction Update Frequency",
+            "options": "Real-time\nHourly\nDaily\nWeekly",
+            "default": "Daily"
+        },
+        {
+            "fieldname": "seasonality_adjustment",
+            "fieldtype": "Check",
+            "label": "Apply Seasonality Adjustment",
+            "default": 1
+        },
+        {
+            "fieldname": "trend_smoothing",
+            "fieldtype": "Check",
+            "label": "Apply Trend Smoothing",
+            "default": 1
+        },
+        {
+            "fieldname": "output_configuration_section",
+            "fieldtype": "Section Break",
+            "label": "Output Configuration"
+        },
+        {
+            "fieldname": "output_format",
+            "fieldtype": "Select",
+            "label": "Output Format",
+            "options": "Single Value\nTime Series\nDistribution\nConfidence Bands",
+            "default": "Time Series"
+        },
+        {
+            "fieldname": "visualization_type",
+            "fieldtype": "Select",
+            "label": "Visualization Type",
+            "options": "Line Chart\nBar Chart\nArea Chart\nForecast Plot\nTrend Analysis",
+            "default": "Forecast Plot"
+        },
+        {
+            "fieldname": "column_break_33",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "alert_threshold",
+            "fieldtype": "Float",
+            "label": "Alert Threshold",
+            "description": "Threshold for generating alerts on predictions"
+        },
+        {
+            "fieldname": "notification_users",
+            "fieldtype": "Long Text",
+            "label": "Notification Users",
+            "description": "Comma-separated list of users to notify on alerts"
+        },
+        {
+            "fieldname": "model_metadata_section",
+            "fieldtype": "Section Break",
+            "label": "Model Metadata"
+        },
+        {
+            "fieldname": "model_file_path",
+            "fieldtype": "Data",
+            "label": "Model File Path",
+            "read_only": 1,
+            "description": "Path to saved model file"
+        },
+        {
+            "fieldname": "training_log",
+            "fieldtype": "Long Text",
+            "label": "Training Log",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_37",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_updated_by",
+            "fieldtype": "Link",
+            "label": "Last Updated By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "is_active",
+            "fieldtype": "Check",
+            "label": "Is Active",
+            "default": 1
+        }
+    ],
+    "icon": "fa fa-crystal-ball",
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2024-06-24 11:30:00.000000",
+    "modified_by": "Administrator",
+    "module": "Analytics Reporting",
+    "name": "Predictive Model",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Analytics User",
+            "share": 1
+        }
+    ],
+    "quick_entry": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "model_name",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

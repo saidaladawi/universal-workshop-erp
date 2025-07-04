@@ -1,0 +1,27 @@
+{
+ "creation": "2025-01-03 08:00:00.000000",
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2025-01-03 08:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Sales Service",
+ "name": "workflow_test",
+ "owner": "Administrator",
+ "page_name": "Workflow Test",
+ "roles": [
+  {
+   "role": "Workshop Manager"
+  },
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Service Advisor"
+  }
+ ],
+ "script": "",
+ "standard": "Yes",
+ "style": "",
+ "system_page": 0,
+ "title": "تجربة سير العمل / Workflow Test"
+} 

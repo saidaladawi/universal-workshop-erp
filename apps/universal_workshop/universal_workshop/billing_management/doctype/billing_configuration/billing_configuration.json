@@ -1,0 +1,376 @@
+{
+  "actions": [],
+  "creation": "2025-01-15 16:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "section_break_1",
+    "configuration_name",
+    "configuration_name_ar",
+    "column_break_2",
+    "is_active",
+    "company",
+    "invoice_settings_section",
+    "default_invoice_template",
+    "auto_numbering",
+    "column_break_3",
+    "invoice_prefix",
+    "next_invoice_number",
+    "vat_settings_section",
+    "enable_vat",
+    "vat_rate",
+    "column_break_4",
+    "vat_account",
+    "vat_registration_number",
+    "payment_settings_section",
+    "default_payment_terms",
+    "late_payment_penalty",
+    "column_break_5",
+    "payment_methods",
+    "currency_settings",
+    "qr_code_settings_section",
+    "enable_qr_codes",
+    "qr_code_template",
+    "column_break_6",
+    "qr_code_position",
+    "qr_code_size",
+    "notification_settings_section",
+    "send_invoice_notifications",
+    "notification_template",
+    "column_break_7",
+    "auto_reminder_days",
+    "approval_workflow_section",
+    "require_approval",
+    "approval_threshold",
+    "column_break_8",
+    "approver_role",
+    "status_section",
+    "configuration_status",
+    "created_by",
+    "column_break_9",
+    "creation_date",
+    "modified_by",
+    "modified_date"
+  ],
+  "fields": [
+    {
+      "fieldname": "section_break_1",
+      "fieldtype": "Section Break",
+      "label": "Configuration Information"
+    },
+    {
+      "fieldname": "configuration_name",
+      "fieldtype": "Data",
+      "label": "Configuration Name",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "configuration_name_ar",
+      "fieldtype": "Data",
+      "label": "اسم التكوين",
+      "translatable": 1
+    },
+    {
+      "fieldname": "column_break_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "1",
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "label": "Is Active",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "Company",
+      "options": "Company",
+      "reqd": 1
+    },
+    {
+      "fieldname": "invoice_settings_section",
+      "fieldtype": "Section Break",
+      "label": "Invoice Settings"
+    },
+    {
+      "fieldname": "default_invoice_template",
+      "fieldtype": "Select",
+      "label": "Default Invoice Template",
+      "options": "Standard Invoice\nBilingual Invoice\nDetailed Invoice\nSimple Invoice"
+    },
+    {
+      "default": "1",
+      "fieldname": "auto_numbering",
+      "fieldtype": "Check",
+      "label": "Auto Numbering"
+    },
+    {
+      "fieldname": "column_break_3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "invoice_prefix",
+      "fieldtype": "Data",
+      "label": "Invoice Prefix",
+      "default": "INV-"
+    },
+    {
+      "fieldname": "next_invoice_number",
+      "fieldtype": "Int",
+      "label": "Next Invoice Number",
+      "default": "1"
+    },
+    {
+      "fieldname": "vat_settings_section",
+      "fieldtype": "Section Break",
+      "label": "VAT Settings"
+    },
+    {
+      "default": "1",
+      "fieldname": "enable_vat",
+      "fieldtype": "Check",
+      "label": "Enable VAT"
+    },
+    {
+      "default": "5.0",
+      "fieldname": "vat_rate",
+      "fieldtype": "Float",
+      "label": "VAT Rate (%)",
+      "precision": 2
+    },
+    {
+      "fieldname": "column_break_4",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "vat_account",
+      "fieldtype": "Link",
+      "label": "VAT Account",
+      "options": "Account"
+    },
+    {
+      "fieldname": "vat_registration_number",
+      "fieldtype": "Data",
+      "label": "VAT Registration Number"
+    },
+    {
+      "fieldname": "payment_settings_section",
+      "fieldtype": "Section Break",
+      "label": "Payment Settings"
+    },
+    {
+      "fieldname": "default_payment_terms",
+      "fieldtype": "Select",
+      "label": "Default Payment Terms",
+      "options": "Immediate\nNet 15\nNet 30\nNet 45\nNet 60"
+    },
+    {
+      "fieldname": "late_payment_penalty",
+      "fieldtype": "Float",
+      "label": "Late Payment Penalty (%)",
+      "precision": 2
+    },
+    {
+      "fieldname": "column_break_5",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "payment_methods",
+      "fieldtype": "MultiSelect",
+      "label": "Payment Methods",
+      "options": "Cash\nBank Transfer\nCredit Card\nCheque\nMobile Payment"
+    },
+    {
+      "fieldname": "currency_settings",
+      "fieldtype": "Link",
+      "label": "Default Currency",
+      "options": "Currency",
+      "default": "OMR"
+    },
+    {
+      "fieldname": "qr_code_settings_section",
+      "fieldtype": "Section Break",
+      "label": "QR Code Settings"
+    },
+    {
+      "default": "1",
+      "fieldname": "enable_qr_codes",
+      "fieldtype": "Check",
+      "label": "Enable QR Codes"
+    },
+    {
+      "fieldname": "qr_code_template",
+      "fieldtype": "Link",
+      "label": "QR Code Template",
+      "options": "QR Code Template"
+    },
+    {
+      "fieldname": "column_break_6",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "qr_code_position",
+      "fieldtype": "Select",
+      "label": "QR Code Position",
+      "options": "Top Right\nBottom Right\nCenter\nCustom"
+    },
+    {
+      "fieldname": "qr_code_size",
+      "fieldtype": "Select",
+      "label": "QR Code Size",
+      "options": "Small\nMedium\nLarge"
+    },
+    {
+      "fieldname": "notification_settings_section",
+      "fieldtype": "Section Break",
+      "label": "Notification Settings"
+    },
+    {
+      "default": "1",
+      "fieldname": "send_invoice_notifications",
+      "fieldtype": "Check",
+      "label": "Send Invoice Notifications"
+    },
+    {
+      "fieldname": "notification_template",
+      "fieldtype": "Link",
+      "label": "Notification Template",
+      "options": "Notification Template"
+    },
+    {
+      "fieldname": "column_break_7",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "auto_reminder_days",
+      "fieldtype": "Int",
+      "label": "Auto Reminder Days",
+      "default": "7"
+    },
+    {
+      "fieldname": "approval_workflow_section",
+      "fieldtype": "Section Break",
+      "label": "Approval Workflow"
+    },
+    {
+      "fieldname": "require_approval",
+      "fieldtype": "Check",
+      "label": "Require Approval"
+    },
+    {
+      "fieldname": "approval_threshold",
+      "fieldtype": "Currency",
+      "label": "Approval Threshold (OMR)"
+    },
+    {
+      "fieldname": "column_break_8",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "approver_role",
+      "fieldtype": "Link",
+      "label": "Approver Role",
+      "options": "Role"
+    },
+    {
+      "fieldname": "status_section",
+      "fieldtype": "Section Break",
+      "label": "Status Information"
+    },
+    {
+      "fieldname": "configuration_status",
+      "fieldtype": "Select",
+      "label": "Configuration Status",
+      "options": "Draft\nActive\nInactive\nArchived",
+      "default": "Draft"
+    },
+    {
+      "fieldname": "created_by",
+      "fieldtype": "Link",
+      "label": "Created By",
+      "options": "User",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_9",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "creation_date",
+      "fieldtype": "Datetime",
+      "label": "Creation Date",
+      "read_only": 1
+    },
+    {
+      "fieldname": "modified_by",
+      "fieldtype": "Link",
+      "label": "Modified By",
+      "options": "User",
+      "read_only": 1
+    },
+    {
+      "fieldname": "modified_date",
+      "fieldtype": "Datetime",
+      "label": "Modified Date",
+      "read_only": 1
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "istable": 0,
+  "links": [],
+  "modified": "2025-01-15 16:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Billing Management",
+  "name": "Billing Configuration",
+  "naming_rule": "Expression",
+  "autoname": "format:BC-{configuration_name}",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "delete": 0,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Workshop Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 0,
+      "delete": 0,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Accounts User",
+      "share": 0,
+      "write": 0
+    }
+  ],
+  "search_fields": "configuration_name,company,configuration_status",
+  "sort_field": "creation_date",
+  "sort_order": "DESC",
+  "states": [],
+  "title_field": "configuration_name",
+  "track_changes": 1,
+  "track_seen": 1,
+  "track_views": 1
+} 

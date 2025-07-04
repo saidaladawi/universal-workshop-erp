@@ -1,0 +1,35 @@
+/**
+ * Touch-Optimized Styles - Universal Workshop Frontend V2
+ * 
+ * Touch-friendly interface optimizations
+ */
+
+// Touch-friendly button sizes
+.btn-touch {
+  min-height: 44px;
+  min-width: 44px;
+  padding: var(--spacing-3) var(--spacing-4);
+  
+  @media (max-width: 768px) {
+    min-height: 48px;
+    min-width: 48px;
+    padding: var(--spacing-4) var(--spacing-5);
+  }
+}
+
+// Swipe gestures
+.swipeable {
+  touch-action: pan-x;
+  user-select: none;
+}
+
+// Mobile scrolling
+.mobile-scroll {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+// Tap highlight removal
+.no-tap-highlight {
+  -webkit-tap-highlight-color: transparent;
+}

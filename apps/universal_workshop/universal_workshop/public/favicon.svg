@@ -1,0 +1,40 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="faviconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="faviconToolGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="32" height="32" rx="4" fill="url(#faviconGradient)" opacity="0.1"/>
+  
+  <!-- Workshop Building -->
+  <rect x="4" y="18" width="10" height="8" fill="url(#faviconGradient)" rx="1"/>
+  <polygon points="3,18 9,11 15,18" fill="url(#faviconGradient)"/>
+  <rect x="6" y="21" width="1.5" height="4" fill="#fff" opacity="0.3"/>
+  <rect x="9" y="21" width="1.5" height="4" fill="#fff" opacity="0.3"/>
+  <rect x="11.5" y="19" width="2" height="6" fill="#fff" opacity="0.2"/>
+  
+  <!-- Car Silhouette -->
+  <ellipse cx="16" cy="23" rx="6" ry="2" fill="url(#faviconGradient)"/>
+  <path d="M11,23 Q11,19 13,19 L19,19 Q21,19 21,23 Q21,24 19,24 L13,24 Q11,24 11,23" fill="url(#faviconGradient)"/>
+  <circle cx="13.5" cy="24" r="1" fill="#fff" opacity="0.4"/>
+  <circle cx="18.5" cy="24" r="1" fill="#fff" opacity="0.4"/>
+  <rect x="12.5" y="20" width="1" height="1" fill="#fff" opacity="0.3"/>
+  <rect x="15" y="20" width="2" height="1" fill="#fff" opacity="0.3"/>
+  <rect x="18.5" y="20" width="1" height="1" fill="#fff" opacity="0.3"/>
+  
+  <!-- Wrench/Tools -->
+  <path d="M22,10 L26,6 L26.5,6.5 L24,9 L25.5,10.5 L26,10 L28.5,12.5 L28,13 L25.5,10.5 L24,12 L22,10 Z" fill="url(#faviconToolGradient)"/>
+  <circle cx="27" cy="7" r="1" fill="url(#faviconToolGradient)" opacity="0.7"/>
+  <path d="M25,15 L26.5,13.5 L27,14 L26,15 L27.5,16.5 L27,17 L25.5,15.5 L25,16 L25,15 Z" fill="url(#faviconToolGradient)"/>
+  
+  <!-- Decorative Elements -->
+  <circle cx="6" cy="7" r="0.5" fill="url(#faviconGradient)" opacity="0.3"/>
+  <circle cx="26" cy="25" r="0.5" fill="url(#faviconToolGradient)" opacity="0.4"/>
+</svg>

@@ -1,0 +1,474 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "field:zone_code",
+    "creation": "2024-01-20 10:00:00.000000",
+    "default_view": "List",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "zone_code",
+        "zone_name",
+        "zone_name_ar",
+        "zone_type",
+        "column_break_basic",
+        "warehouse_link",
+        "parent_zone", 
+        "is_active",
+        "capacity_status",
+        "section_break_physical",
+        "physical_location",
+        "physical_description",
+        "physical_description_ar",
+        "floor_level",
+        "column_break_physical",
+        "length_meters",
+        "width_meters",
+        "height_meters",
+        "total_capacity_m3",
+        "section_break_barcode",
+        "zone_barcode",
+        "qr_code",
+        "print_barcode_label",
+        "column_break_barcode",
+        "barcode_format",
+        "label_size",
+        "last_label_printed",
+        "section_break_specifications",
+        "temperature_controlled",
+        "humidity_controlled",
+        "security_level",
+        "access_restriction",
+        "column_break_specifications",
+        "max_weight_kg",
+        "vehicle_access",
+        "crane_access",
+        "forklift_access",
+        "section_break_parts",
+        "allowed_part_categories",
+        "restricted_part_types",
+        "hazmat_approved",
+        "column_break_parts",
+        "current_utilization_percent",
+        "parts_count",
+        "last_inventory_check",
+        "section_break_management",
+        "zone_manager",
+        "backup_manager",
+        "operating_hours",
+        "column_break_management",
+        "created_by",
+        "created_date",
+        "modified_by",
+        "modified_date",
+        "section_break_notes",
+        "management_notes",
+        "management_notes_ar",
+        "safety_notes",
+        "safety_notes_ar"
+    ],
+    "fields": [
+        {
+            "fieldname": "zone_code",
+            "fieldtype": "Data",
+            "label": "Zone Code",
+            "reqd": 1,
+            "unique": 1,
+            "in_list_view": 1,
+            "description": "Unique identifier for storage zone (e.g., A1, B2, YARD-01)"
+        },
+        {
+            "fieldname": "zone_name",
+            "fieldtype": "Data",
+            "label": "Zone Name",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "zone_name_ar",
+            "fieldtype": "Data",
+            "label": "اسم المنطقة",
+            "translatable": 1
+        },
+        {
+            "fieldname": "zone_type",
+            "fieldtype": "Select",
+            "label": "Zone Type",
+            "options": "\nIndoor Storage\nOutdoor Yard\nCovered Storage\nClimate Controlled\nHazmat Storage\nQuarantine Zone\nProcessing Area\nShipping/Receiving\nTemporary Holding",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "column_break_basic",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "warehouse_link",
+            "fieldtype": "Link",
+            "label": "ERPNext Warehouse",
+            "options": "Warehouse",
+            "description": "Link to ERPNext warehouse for inventory integration"
+        },
+        {
+            "fieldname": "parent_zone",
+            "fieldtype": "Link",
+            "label": "Parent Zone",
+            "options": "Storage Zone",
+            "description": "Parent zone for hierarchical organization"
+        },
+        {
+            "fieldname": "is_active",
+            "fieldtype": "Check",
+            "label": "Is Active",
+            "default": 1
+        },
+        {
+            "fieldname": "capacity_status",
+            "fieldtype": "Select",
+            "label": "Capacity Status",
+            "options": "\nAvailable\nNearly Full\nFull\nOvercapacity\nMaintenance\nClosed",
+            "default": "Available"
+        },
+        {
+            "fieldname": "section_break_physical",
+            "fieldtype": "Section Break",
+            "label": "Physical Details"
+        },
+        {
+            "fieldname": "physical_location",
+            "fieldtype": "Data",
+            "label": "Physical Location",
+            "description": "Physical address or location description"
+        },
+        {
+            "fieldname": "physical_description",
+            "fieldtype": "Text",
+            "label": "Physical Description"
+        },
+        {
+            "fieldname": "physical_description_ar",
+            "fieldtype": "Text",
+            "label": "الوصف الفيزيائي",
+            "translatable": 1
+        },
+        {
+            "fieldname": "floor_level",
+            "fieldtype": "Int",
+            "label": "Floor Level",
+            "description": "Floor level (0=ground, 1=first floor, -1=basement)"
+        },
+        {
+            "fieldname": "column_break_physical",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "length_meters",
+            "fieldtype": "Float",
+            "label": "Length (m)",
+            "precision": 2
+        },
+        {
+            "fieldname": "width_meters",
+            "fieldtype": "Float",
+            "label": "Width (m)",
+            "precision": 2
+        },
+        {
+            "fieldname": "height_meters",
+            "fieldtype": "Float",
+            "label": "Height (m)",
+            "precision": 2
+        },
+        {
+            "fieldname": "total_capacity_m3",
+            "fieldtype": "Float",
+            "label": "Total Capacity (m³)",
+            "precision": 2,
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_barcode",
+            "fieldtype": "Section Break",
+            "label": "Barcode & Labeling"
+        },
+        {
+            "fieldname": "zone_barcode",
+            "fieldtype": "Data",
+            "label": "Zone Barcode",
+            "unique": 1,
+            "read_only": 1
+        },
+        {
+            "fieldname": "qr_code",
+            "fieldtype": "Data",
+            "label": "QR Code",
+            "read_only": 1
+        },
+        {
+            "fieldname": "print_barcode_label",
+            "fieldtype": "Check",
+            "label": "Print Barcode Label",
+            "default": 0
+        },
+        {
+            "fieldname": "column_break_barcode",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "barcode_format",
+            "fieldtype": "Select",
+            "label": "Barcode Format",
+            "options": "Code128\nCode39\nEAN13\nQR Code\nDataMatrix",
+            "default": "Code128"
+        },
+        {
+            "fieldname": "label_size",
+            "fieldtype": "Select",
+            "label": "Label Size",
+            "options": "Small (25x15mm)\nMedium (50x30mm)\nLarge (100x60mm)\nCustom",
+            "default": "Medium (50x30mm)"
+        },
+        {
+            "fieldname": "last_label_printed",
+            "fieldtype": "Datetime",
+            "label": "Last Label Printed",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_specifications",
+            "fieldtype": "Section Break",
+            "label": "Storage Specifications"
+        },
+        {
+            "fieldname": "temperature_controlled",
+            "fieldtype": "Check",
+            "label": "Temperature Controlled",
+            "default": 0
+        },
+        {
+            "fieldname": "humidity_controlled",
+            "fieldtype": "Check",
+            "label": "Humidity Controlled",
+            "default": 0
+        },
+        {
+            "fieldname": "security_level",
+            "fieldtype": "Select",
+            "label": "Security Level",
+            "options": "\nOpen Access\nRestricted\nHigh Security\nMaximum Security",
+            "default": "Open Access"
+        },
+        {
+            "fieldname": "access_restriction",
+            "fieldtype": "Text",
+            "label": "Access Restrictions"
+        },
+        {
+            "fieldname": "column_break_specifications",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "max_weight_kg",
+            "fieldtype": "Float",
+            "label": "Max Weight (kg)",
+            "precision": 2
+        },
+        {
+            "fieldname": "vehicle_access",
+            "fieldtype": "Check",
+            "label": "Vehicle Access",
+            "default": 0
+        },
+        {
+            "fieldname": "crane_access",
+            "fieldtype": "Check",
+            "label": "Crane Access",
+            "default": 0
+        },
+        {
+            "fieldname": "forklift_access",
+            "fieldtype": "Check",
+            "label": "Forklift Access",
+            "default": 0
+        },
+        {
+            "fieldname": "section_break_parts",
+            "fieldtype": "Section Break",
+            "label": "Parts Management"
+        },
+        {
+            "fieldname": "allowed_part_categories",
+            "fieldtype": "Table MultiSelect",
+            "label": "Allowed Part Categories",
+            "options": "Storage Zone Allowed Category"
+        },
+        {
+            "fieldname": "restricted_part_types",
+            "fieldtype": "Text",
+            "label": "Restricted Part Types"
+        },
+        {
+            "fieldname": "hazmat_approved",
+            "fieldtype": "Check",
+            "label": "Hazmat Approved",
+            "default": 0
+        },
+        {
+            "fieldname": "column_break_parts",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "current_utilization_percent",
+            "fieldtype": "Percent",
+            "label": "Current Utilization (%)",
+            "read_only": 1,
+            "precision": 1
+        },
+        {
+            "fieldname": "parts_count",
+            "fieldtype": "Int",
+            "label": "Parts Count",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_inventory_check",
+            "fieldtype": "Datetime",
+            "label": "Last Inventory Check",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_management",
+            "fieldtype": "Section Break",
+            "label": "Management"
+        },
+        {
+            "fieldname": "zone_manager",
+            "fieldtype": "Link",
+            "label": "Zone Manager",
+            "options": "User"
+        },
+        {
+            "fieldname": "backup_manager",
+            "fieldtype": "Link",
+            "label": "Backup Manager",
+            "options": "User"
+        },
+        {
+            "fieldname": "operating_hours",
+            "fieldtype": "Data",
+            "label": "Operating Hours",
+            "description": "e.g., 24/7, 8AM-6PM, Sunday-Thursday"
+        },
+        {
+            "fieldname": "column_break_management",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Link",
+            "label": "Created By",
+            "options": "User",
+            "read_only": 1,
+            "default": "__user"
+        },
+        {
+            "fieldname": "created_date",
+            "fieldtype": "Datetime",
+            "label": "Created Date",
+            "read_only": 1,
+            "default": "now"
+        },
+        {
+            "fieldname": "modified_by",
+            "fieldtype": "Link",
+            "label": "Modified By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "modified_date",
+            "fieldtype": "Datetime",
+            "label": "Modified Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_notes",
+            "fieldtype": "Section Break",
+            "label": "Notes"
+        },
+        {
+            "fieldname": "management_notes",
+            "fieldtype": "Text",
+            "label": "Management Notes"
+        },
+        {
+            "fieldname": "management_notes_ar",
+            "fieldtype": "Text",
+            "label": "ملاحظات الإدارة",
+            "translatable": 1
+        },
+        {
+            "fieldname": "safety_notes",
+            "fieldtype": "Text",
+            "label": "Safety Notes"
+        },
+        {
+            "fieldname": "safety_notes_ar",
+            "fieldtype": "Text",
+            "label": "ملاحظات السلامة",
+            "translatable": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2024-01-20 10:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Scrap Management",
+    "name": "Storage Zone",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Supervisor",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "print": 1,
+            "read": 1,
+            "role": "Technician",
+            "write": 1
+        },
+        {
+            "read": 1,
+            "role": "Workshop Customer"
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "zone_name",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
+}

@@ -1,0 +1,64 @@
+/**
+ * Theme System Styles - Universal Workshop Frontend V2
+ * 
+ * Dynamic theming and color scheme management
+ */
+
+@import '../design-system/tokens.scss';
+
+.theme-system {
+  // Theme transitions
+  transition: background-color 0.3s ease, color 0.3s ease;
+  
+  // Light theme (default)
+  &.theme-light {
+    --theme-bg-primary: #{var(--color-white)};
+    --theme-bg-secondary: #{var(--color-gray-50)};
+    --theme-text-primary: #{var(--color-gray-900)};
+    --theme-text-secondary: #{var(--color-gray-600)};
+    --theme-border: #{var(--color-gray-200)};
+  }
+  
+  // Dark theme
+  &.theme-dark {
+    --theme-bg-primary: #{var(--color-gray-900)};
+    --theme-bg-secondary: #{var(--color-gray-800)};
+    --theme-text-primary: #{var(--color-white)};
+    --theme-text-secondary: #{var(--color-gray-300)};
+    --theme-border: #{var(--color-gray-700)};
+  }
+  
+  // Auto theme (follows system preference)
+  &.theme-auto {
+    @media (prefers-color-scheme: light) {
+      --theme-bg-primary: #{var(--color-white)};
+      --theme-bg-secondary: #{var(--color-gray-50)};
+      --theme-text-primary: #{var(--color-gray-900)};
+      --theme-text-secondary: #{var(--color-gray-600)};
+      --theme-border: #{var(--color-gray-200)};
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      --theme-bg-primary: #{var(--color-gray-900)};
+      --theme-bg-secondary: #{var(--color-gray-800)};
+      --theme-text-primary: #{var(--color-white)};
+      --theme-text-secondary: #{var(--color-gray-300)};
+      --theme-border: #{var(--color-gray-700)};
+    }
+  }
+}
+
+// Theme toggle button
+.theme-toggle {
+  background: var(--theme-bg-secondary);
+  border: 1px solid var(--theme-border);
+  color: var(--theme-text-primary);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: var(--theme-border);
+  }
+}

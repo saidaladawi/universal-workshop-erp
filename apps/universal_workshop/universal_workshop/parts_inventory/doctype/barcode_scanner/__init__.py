@@ -1,0 +1,1 @@
+# DocType: barcode_scanner

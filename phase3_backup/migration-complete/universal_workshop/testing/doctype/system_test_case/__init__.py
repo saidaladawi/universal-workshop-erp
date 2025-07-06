@@ -1,1 +1,0 @@
-# System Test Case DocType

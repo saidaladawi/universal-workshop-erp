@@ -1,0 +1,220 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-06-15 10:30:00.123456",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "marketplace",
+  "sync_date",
+  "sync_type",
+  "section_break_1",
+  "item_code",
+  "item_name",
+  "marketplace_sku",
+  "section_break_2",
+  "current_stock",
+  "marketplace_stock",
+  "sync_quantity",
+  "section_break_3",
+  "current_price",
+  "marketplace_price",
+  "sync_price",
+  "section_break_4",
+  "sync_status",
+  "error_message",
+  "retry_count",
+  "section_break_5",
+  "last_sync_date",
+  "next_sync_date",
+  "auto_sync_enabled"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "MKT-INV-SYNC-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "marketplace",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Marketplace",
+   "options": "Amazon\neBay\nNoon\nSouq\nLocal Marketplace",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sync_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Sync Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sync_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Sync Type",
+   "options": "Stock Only\nPrice Only\nStock and Price\nFull Sync",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Item Details"
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "label": "Item Code",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "label": "Item Name",
+   "fetch_from": "item_code.item_name"
+  },
+  {
+   "fieldname": "marketplace_sku",
+   "fieldtype": "Data",
+   "label": "Marketplace SKU",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "Stock Information"
+  },
+  {
+   "fieldname": "current_stock",
+   "fieldtype": "Float",
+   "label": "Current Stock",
+   "precision": 2
+  },
+  {
+   "fieldname": "marketplace_stock",
+   "fieldtype": "Float",
+   "label": "Marketplace Stock",
+   "precision": 2
+  },
+  {
+   "fieldname": "sync_quantity",
+   "fieldtype": "Float",
+   "label": "Sync Quantity",
+   "precision": 2
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break",
+   "label": "Price Information"
+  },
+  {
+   "fieldname": "current_price",
+   "fieldtype": "Currency",
+   "label": "Current Price"
+  },
+  {
+   "fieldname": "marketplace_price",
+   "fieldtype": "Currency",
+   "label": "Marketplace Price"
+  },
+  {
+   "fieldname": "sync_price",
+   "fieldtype": "Currency",
+   "label": "Sync Price"
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break",
+   "label": "Sync Status"
+  },
+  {
+   "fieldname": "sync_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Sync Status",
+   "options": "Pending\nIn Progress\nCompleted\nFailed\nRetrying",
+   "reqd": 1
+  },
+  {
+   "fieldname": "error_message",
+   "fieldtype": "Text",
+   "label": "Error Message"
+  },
+  {
+   "fieldname": "retry_count",
+   "fieldtype": "Int",
+   "label": "Retry Count",
+   "default": 0
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break",
+   "label": "Sync Schedule"
+  },
+  {
+   "fieldname": "last_sync_date",
+   "fieldtype": "Datetime",
+   "label": "Last Sync Date"
+  },
+  {
+   "fieldname": "next_sync_date",
+   "fieldtype": "Datetime",
+   "label": "Next Sync Date"
+  },
+  {
+   "fieldname": "auto_sync_enabled",
+   "fieldtype": "Check",
+   "label": "Auto Sync Enabled",
+   "default": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 0,
+ "links": [],
+ "modified": "2024-06-15 10:30:00.123456",
+ "modified_by": "Administrator",
+ "module": "Marketplace Integration",
+ "name": "Marketplace Inventory Sync",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Inventory Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

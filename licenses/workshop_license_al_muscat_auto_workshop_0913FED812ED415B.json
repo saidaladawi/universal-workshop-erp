@@ -1,0 +1,24 @@
+{
+  "license_id": "0913FED812ED415B",
+  "license_type": "premium",
+  "issue_date": "2025-07-06T18:08:27.860343",
+  "expiry_date": "2026-07-01T18:08:27.860343",
+  "status": "active",
+  "hardware_fingerprint": "8e49ea31f41df6b2",
+  "workshop_name_en": "Al Muscat Auto Workshop",
+  "workshop_name_ar": "ورشة مسقط للسيارات",
+  "business_license": "1234567",
+  "owner_name": "Ahmed Al-Rashid",
+  "contact_email": "ahmed@muscat-workshop.om",
+  "max_users": 15,
+  "enabled_modules": [
+    "workshop_core",
+    "customer_management",
+    "financial_operations",
+    "inventory_management"
+  ],
+  "deployment_date": null,
+  "site_url": null,
+  "license_signature": "6914183caaf2e32dd1f2302ea09d8fc047fa30337414708d7f2d2be838a07e0c",
+  "encryption_key": "a8c76d1e07f84a4fc4377aae109c12b0"
+}

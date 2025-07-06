@@ -115,9 +115,10 @@
               v-model="formData[currentStep.id]"
               :validation-errors="validationErrors"
               :is-loading="isLoading"
-              @validate="validateCurrentStep"
+              @validate="updateStepData"
               @next="nextStep"
               @previous="previousStep"
+              @complete="completeOnboarding"
             />
           </Transition>
         </div>
@@ -170,6 +171,16 @@
         <p class="loading-text">{{ loadingText }}</p>
       </div>
     </div>
+
+    <!-- Mobile Enhancements -->
+    <MobileEnhancements
+      :current-step="currentStepIndex"
+      :total-steps="steps.length"
+      :is-loading="isLoading"
+      :loading-message="loadingText"
+      :show-hints="!isLoading && !showSuccessModal"
+      @navigate="navigateToStep"
+    />
 
     <!-- Automotive Success Modal -->
     <Teleport to="body">
@@ -236,13 +247,11 @@ import { ref, computed, onMounted, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
-// Step Components (will be created separately)
-import BasicInfoStep from './steps/BasicInfoStep.vue'
+// Essential Step Components
+import LicenseVerificationStep from './steps/LicenseVerificationStep.vue'
 import AdminAccountStep from './steps/AdminAccountStep.vue'
-import BusinessInfoStep from './steps/BusinessInfoStep.vue'
-import ContactInfoStep from './steps/ContactInfoStep.vue'
-import OperationalDetailsStep from './steps/OperationalDetailsStep.vue'
-import FinancialInfoStep from './steps/FinancialInfoStep.vue'
+import WorkshopConfigStep from './steps/WorkshopConfigStep.vue'
+import MobileEnhancements from './MobileEnhancements.vue'
 
 // API Integration
 import { OnboardingAPI } from '@/api/onboarding'
@@ -265,49 +274,28 @@ const workshopData = ref(null)
 const progressId = ref(null)
 const isLicenseMode = ref(false)
 
-// Steps Configuration with Automotive Theme
-const allSteps = [
+// Simplified 3-Step Configuration
+const essentialSteps = [
   {
-    id: 'basic_info',
-    title: t('Workshop Info'),
-    component: BasicInfoStep,
-    icon: '🏢',
-    iconSvg: 'step_workshop.svg'
+    id: 'license_verification',
+    title: t('License Verification'),
+    component: LicenseVerificationStep,
+    icon: '🏪',
+    iconSvg: 'step_license.svg'
   },
   {
     id: 'admin_account',
-    title: t('Administrator'),
+    title: t('Administrator Account'),
     component: AdminAccountStep,
     icon: '👤',
     iconSvg: 'step_admin.svg'
   },
   {
-    id: 'business_info',
-    title: t('Business Details'),
-    component: BusinessInfoStep,
-    icon: '📋',
-    iconSvg: 'step_welcome.svg'
-  },
-  {
-    id: 'contact_info',
-    title: t('Contact Info'),
-    component: ContactInfoStep,
-    icon: '📞',
-    iconSvg: 'step_operational.svg'
-  },
-  {
-    id: 'operational_details',
-    title: t('Operations'),
-    component: OperationalDetailsStep,
+    id: 'workshop_config',
+    title: t('Workshop Configuration'),
+    component: WorkshopConfigStep,
     icon: '⚙️',
-    iconSvg: 'step_operational.svg'
-  },
-  {
-    id: 'financial_info',
-    title: t('Financial & VAT'),
-    component: FinancialInfoStep,
-    icon: '💰',
-    iconSvg: 'step_financial.svg'
+    iconSvg: 'step_config.svg'
   }
 ]
 
@@ -322,7 +310,7 @@ const licenseSteps = [
 ]
 
 // Computed
-const steps = computed(() => isLicenseMode.value ? licenseSteps : allSteps)
+const steps = computed(() => isLicenseMode.value ? licenseSteps : essentialSteps)
 const currentStep = computed(() => steps.value[currentStepIndex.value])
 const currentStepComponent = computed(() => currentStep.value?.component)
 const isLastStep = computed(() => currentStepIndex.value === steps.value.length - 1)
@@ -338,12 +326,9 @@ const isCurrentStepValid = computed(() => {
 
 // Component Registration
 const componentMap = {
-  BasicInfoStep,
+  LicenseVerificationStep,
   AdminAccountStep,
-  BusinessInfoStep,
-  ContactInfoStep,
-  OperationalDetailsStep,
-  FinancialInfoStep
+  WorkshopConfigStep
 }
 
 // Methods
@@ -389,6 +374,13 @@ const startNewWizard = async () => {
     formData.value = {}
   } else {
     throw new Error(result.message)
+  }
+}
+
+const updateStepData = (data: any) => {
+  const stepId = currentStep.value?.id
+  if (stepId) {
+    formData.value[stepId] = data
   }
 }
 
@@ -719,7 +711,12 @@ watch(currentStepIndex, () => {
   padding: 2rem;
   
   @media (max-width: 768px) {
-    padding: 1rem;
+    padding: 1rem 0.5rem;
+    max-width: 100%;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.5rem;
   }
 }
 
@@ -727,17 +724,37 @@ watch(currentStepIndex, () => {
   text-align: center;
   margin-bottom: 3rem;
   
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+  }
+  
   .brand-section {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
     margin-bottom: 2rem;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
   }
   
   .brand-icon {
     width: 100px;
     height: 100px;
+    
+    @media (max-width: 768px) {
+      width: 80px;
+      height: 80px;
+    }
+    
+    @media (max-width: 480px) {
+      width: 60px;
+      height: 60px;
+    }
     
     .workshop-logo {
       width: 100%;
@@ -750,8 +767,16 @@ watch(currentStepIndex, () => {
   .brand-text {
     text-align: left;
     
+    @media (max-width: 768px) {
+      text-align: center;
+    }
+    
     .rtl & {
       text-align: right;
+      
+      @media (max-width: 768px) {
+        text-align: center;
+      }
     }
   }
   
@@ -761,12 +786,30 @@ watch(currentStepIndex, () => {
     font-weight: 700;
     margin: 0;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    
+    @media (max-width: 768px) {
+      font-size: 1.75rem;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 1.5rem;
+    }
   }
   
   .brand-subtitle {
     color: rgba(255, 255, 255, 0.8);
     margin: 0 0 0.75rem 0;
     font-size: 1rem;
+    
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
+      margin: 0 0 0.5rem 0;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 0.8rem;
+      display: none; // Hide on very small screens
+    }
   }
   
   .version-badge {
@@ -800,6 +843,10 @@ watch(currentStepIndex, () => {
     @media (max-width: 768px) {
       font-size: 2rem;
     }
+    
+    @media (max-width: 480px) {
+      font-size: 1.75rem;
+    }
   }
   
   .wizard-description {
@@ -809,6 +856,15 @@ watch(currentStepIndex, () => {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    
+    @media (max-width: 768px) {
+      font-size: 1rem;
+      max-width: 90%;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
+    }
   }
 }
 
@@ -825,6 +881,16 @@ watch(currentStepIndex, () => {
   margin-bottom: 3rem;
   overflow: hidden;
   border: 3px solid rgba(255, 255, 255, 0.3);
+  
+  @media (max-width: 768px) {
+    height: 50px;
+    margin-bottom: 2rem;
+  }
+  
+  @media (max-width: 480px) {
+    height: 40px;
+    margin-bottom: 1.5rem;
+  }
 }
 
 .road-line {
@@ -859,6 +925,14 @@ watch(currentStepIndex, () => {
   z-index: 3;
   transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+  
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 }
 
 .checkpoint {
@@ -882,8 +956,12 @@ watch(currentStepIndex, () => {
   align-items: center;
   
   @media (max-width: 768px) {
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 0.75rem;
   }
 }
 
@@ -896,6 +974,20 @@ watch(currentStepIndex, () => {
   transition: all 0.3s ease;
   padding: 1rem;
   border-radius: 12px;
+  
+  @media (max-width: 768px) {
+    flex-direction: row;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    max-width: 300px;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.5rem 0.75rem;
+    max-width: 250px;
+  }
   
   &:hover {
     background: rgba(255, 255, 255, 0.1);
@@ -959,12 +1051,34 @@ watch(currentStepIndex, () => {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   margin-bottom: 0.75rem;
   
+  @media (max-width: 768px) {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+  
+  @media (max-width: 480px) {
+    width: 40px;
+    height: 40px;
+  }
+  
   .step-icon-img {
     width: 32px;
     height: 32px;
     object-fit: contain;
     transition: all 0.3s ease;
     filter: brightness(0) invert(1);
+    
+    @media (max-width: 768px) {
+      width: 28px;
+      height: 28px;
+    }
+    
+    @media (max-width: 480px) {
+      width: 24px;
+      height: 24px;
+    }
   }
   
   .step-number {
@@ -983,6 +1097,20 @@ watch(currentStepIndex, () => {
     background: white;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
+    
+    @media (max-width: 768px) {
+      width: 20px;
+      height: 20px;
+      font-size: 0.7rem;
+      bottom: -6px;
+      right: -6px;
+    }
+    
+    @media (max-width: 480px) {
+      width: 18px;
+      height: 18px;
+      font-size: 0.65rem;
+    }
   }
 }
 
@@ -992,6 +1120,11 @@ watch(currentStepIndex, () => {
   font-weight: 500;
   text-align: center;
   opacity: 0.9;
+  
+  @media (max-width: 768px) {
+    text-align: left;
+    flex: 1;
+  }
   
   @media (max-width: 480px) {
     font-size: 0.7rem;
@@ -1018,6 +1151,18 @@ watch(currentStepIndex, () => {
   max-width: 600px;
   overflow: hidden;
   min-height: 400px;
+  
+  @media (max-width: 768px) {
+    border-radius: 12px;
+    margin: 0 0.5rem;
+    min-height: 350px;
+  }
+  
+  @media (max-width: 480px) {
+    border-radius: 8px;
+    margin: 0 0.25rem;
+    min-height: 300px;
+  }
 }
 
 .wizard-footer {
@@ -1028,10 +1173,24 @@ watch(currentStepIndex, () => {
   display: flex;
   align-items: center;
   gap: 1rem;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 0.75rem;
+  }
 }
 
 .footer-spacer {
   flex: 1;
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .btn {
@@ -1048,6 +1207,19 @@ watch(currentStepIndex, () => {
   text-decoration: none;
   position: relative;
   overflow: hidden;
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+    padding: 1rem 2rem;
+  }
+  
+  @media (max-width: 480px) {
+    max-width: 250px;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
+  }
   
   &:disabled {
     opacity: 0.6;
@@ -1106,6 +1278,145 @@ watch(currentStepIndex, () => {
 @keyframes shimmer {
   0% { left: -100%; }
   100% { left: 100%; }
+}
+
+// Mobile-specific optimizations
+@media (max-width: 768px) {
+  // Improve touch targets
+  .step-indicator {
+    min-height: 44px; // iOS recommended touch target
+    padding: 0.75rem;
+  }
+  
+  .btn {
+    min-height: 44px;
+    touch-action: manipulation; // Disable double-tap zoom
+  }
+  
+  .form-control {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+  
+  .checkbox-custom,
+  .module-checkbox {
+    min-width: 32px;
+    min-height: 32px;
+  }
+  
+  // Prevent zoom on inputs
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  select,
+  textarea {
+    font-size: 16px !important; // Prevents zoom on iOS
+  }
+  
+  // Improve scrolling performance
+  .wizard-container {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .content-container {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  // Add safe area padding for devices with notches
+  .wizard-header {
+    padding-top: env(safe-area-inset-top, 0);
+  }
+  
+  .wizard-footer {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+}
+
+@media (max-width: 480px) {
+  // Extra small screens optimizations
+  .floating-cars,
+  .floating-tools,
+  .workshop-elements {
+    display: none; // Hide background animations on very small screens
+  }
+  
+  .wizard-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .progress-section {
+    margin-bottom: 1.5rem;
+  }
+  
+  .automotive-progress {
+    margin-bottom: 1rem;
+  }
+}
+
+// High DPI displays
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .workshop-logo,
+  .step-icon-img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+// Landscape orientation on mobile
+@media (max-width: 768px) and (orientation: landscape) {
+  .wizard-header {
+    margin-bottom: 1rem;
+  }
+  
+  .brand-section {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  .brand-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .wizard-title {
+    font-size: 1.5rem;
+  }
+  
+  .wizard-description {
+    font-size: 0.9rem;
+  }
+  
+  .progress-section {
+    margin-bottom: 1.5rem;
+  }
+  
+  .automotive-progress {
+    height: 40px;
+  }
+}
+
+// Dark mode support for mobile
+@media (prefers-color-scheme: dark) and (max-width: 768px) {
+  .content-container {
+    background: #1f2937;
+    color: white;
+  }
+  
+  .form-control {
+    background: #374151;
+    border-color: #4b5563;
+    color: white;
+    
+    &::placeholder {
+      color: #9ca3af;
+    }
+  }
+  
+  .mobile-progress-simple {
+    background: rgba(31, 41, 55, 0.95);
+    color: white;
+  }
 }
 
 .loading-overlay {

@@ -1,0 +1,910 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-01-04 02:15:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "report_basic_info_section",
+  "naming_series",
+  "report_id",
+  "report_name",
+  "report_name_ar",
+  "column_break_4",
+  "report_type",
+  "category",
+  "status",
+  "is_active",
+  "report_builder_section",
+  "visual_builder_enabled",
+  "canvas_layout",
+  "report_elements",
+  "column_break_11",
+  "drag_drop_enabled",
+  "rtl_support",
+  "arabic_layout_mode",
+  "data_configuration_section",
+  "primary_data_source",
+  "data_filters",
+  "join_configurations",
+  "column_break_17",
+  "grouping_fields",
+  "sorting_configuration",
+  "calculation_fields",
+  "formatting_presentation_section",
+  "report_template",
+  "header_configuration",
+  "footer_configuration",
+  "column_break_23",
+  "page_layout",
+  "font_settings",
+  "color_theme",
+  "chart_visualization_section",
+  "chart_enabled",
+  "chart_configurations",
+  "chart_library",
+  "column_break_29",
+  "chart_types",
+  "chart_data_mapping",
+  "visualization_settings",
+  "export_delivery_section",
+  "export_formats",
+  "delivery_methods",
+  "email_configuration",
+  "column_break_35",
+  "ftp_configuration",
+  "api_delivery_settings",
+  "portal_publishing",
+  "scheduling_automation_section",
+  "schedule_enabled",
+  "schedule_frequency",
+  "schedule_time",
+  "column_break_41",
+  "schedule_recipients",
+  "automation_triggers",
+  "execution_history",
+  "performance_optimization_section",
+  "caching_enabled",
+  "cache_duration",
+  "query_optimization",
+  "column_break_47",
+  "parallel_processing",
+  "memory_optimization",
+  "execution_timeout",
+  "security_permissions_section",
+  "access_control",
+  "user_permissions",
+  "role_based_access",
+  "column_break_53",
+  "data_masking",
+  "encryption_settings",
+  "audit_logging",
+  "arabic_reporting_excellence_section",
+  "arabic_report_terminology",
+  "traditional_report_formats",
+  "cultural_report_patterns",
+  "column_break_59",
+  "omani_business_formats",
+  "arabic_number_formatting",
+  "traditional_layout_patterns",
+  "islamic_business_compliance_section",
+  "islamic_report_validation",
+  "halal_data_verification",
+  "ethical_reporting_standards",
+  "column_break_65",
+  "sharia_compliance_check",
+  "community_benefit_reporting",
+  "religious_calendar_integration",
+  "collaborative_features_section",
+  "shared_reports",
+  "collaborative_editing",
+  "comment_system",
+  "column_break_71",
+  "version_control",
+  "approval_workflow",
+  "team_permissions",
+  "mobile_reporting_section",
+  "mobile_optimized",
+  "responsive_design",
+  "offline_capability",
+  "column_break_77",
+  "mobile_charts",
+  "touch_interface",
+  "arabic_mobile_layouts",
+  "advanced_analytics_section",
+  "predictive_elements",
+  "statistical_components",
+  "correlation_analysis",
+  "column_break_83",
+  "trend_forecasting",
+  "anomaly_highlighting",
+  "benchmark_comparisons",
+  "integration_section",
+  "shared_library_reporting_enhanced",
+  "arabic_business_logic_integrated",
+  "traditional_patterns_applied",
+  "islamic_compliance_verified",
+  "omani_context_validated",
+  "notes_metadata_section",
+  "remarks",
+  "created_by",
+  "created_date",
+  "last_updated_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "report_basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Report Basic Information - المعلومات الأساسية للتقرير"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series - السلسلة",
+   "options": "RPT-.YYYY.-\\nFIN-RPT-.YYYY.-\\nOPR-RPT-.YYYY.-\\nCUS-RPT-.YYYY.-\\nINV-RPT-.YYYY.-",
+   "reqd": 1,
+   "default": "RPT-.YYYY.-"
+  },
+  {
+   "fieldname": "report_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Report ID - معرف التقرير",
+   "read_only": 1
+  },
+  {
+   "fieldname": "report_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Report Name (English) - اسم التقرير",
+   "reqd": 1
+  },
+  {
+   "fieldname": "report_name_ar",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "اسم التقرير بالعربية",
+   "translatable": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "report_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Report Type - نوع التقرير",
+   "options": "Financial Report\\nOperational Report\\nCustomer Report\\nInventory Report\\nPerformance Report\\nCompliance Report\\nAnalytical Report\\nExecutive Dashboard\\nDrilldown Report\\nComparative Report",
+   "reqd": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Category - الفئة",
+   "options": "Financial\\nOperational\\nCustomer\\nTechnician\\nInventory\\nQuality\\nSales\\nMarketing\\nCompliance\\nExecutive"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status - الحالة",
+   "options": "Active\\nInactive\\nDevelopment\\nTesting\\nPublished\\nArchived",
+   "reqd": 1,
+   "default": "Development"
+  },
+  {
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Active - نشط",
+   "default": 1
+  },
+  {
+   "fieldname": "report_builder_section",
+   "fieldtype": "Section Break",
+   "label": "Report Builder Configuration - تكوين منشئ التقارير"
+  },
+  {
+   "fieldname": "visual_builder_enabled",
+   "fieldtype": "Check",
+   "label": "Visual Builder Enabled - منشئ المرئيات مفعل",
+   "default": 1
+  },
+  {
+   "fieldname": "canvas_layout",
+   "fieldtype": "Select",
+   "label": "Canvas Layout - تخطيط اللوحة",
+   "options": "Portrait\\nLandscape\\nA4 Portrait\\nA4 Landscape\\nLetter\\nCustom Size"
+  },
+  {
+   "fieldname": "report_elements",
+   "fieldtype": "Table",
+   "label": "Report Elements - عناصر التقرير",
+   "options": "Report Builder Element"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "drag_drop_enabled",
+   "fieldtype": "Check",
+   "label": "Drag & Drop Enabled - السحب والإفلات مفعل",
+   "default": 1
+  },
+  {
+   "fieldname": "rtl_support",
+   "fieldtype": "Check",
+   "label": "RTL Support - دعم الكتابة من اليمين لليسار",
+   "default": 1
+  },
+  {
+   "fieldname": "arabic_layout_mode",
+   "fieldtype": "Check",
+   "label": "Arabic Layout Mode - وضع التخطيط العربي",
+   "default": 1
+  },
+  {
+   "fieldname": "data_configuration_section",
+   "fieldtype": "Section Break",
+   "label": "Data Configuration - تكوين البيانات"
+  },
+  {
+   "fieldname": "primary_data_source",
+   "fieldtype": "Link",
+   "label": "Primary Data Source - مصدر البيانات الأساسي",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "data_filters",
+   "fieldtype": "Table",
+   "label": "Data Filters - مرشحات البيانات",
+   "options": "Report Data Filter"
+  },
+  {
+   "fieldname": "join_configurations",
+   "fieldtype": "Table",
+   "label": "Join Configurations - تكوينات الربط",
+   "options": "Report Join Configuration"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "grouping_fields",
+   "fieldtype": "Table",
+   "label": "Grouping Fields - حقول التجميع",
+   "options": "Report Grouping Field"
+  },
+  {
+   "fieldname": "sorting_configuration",
+   "fieldtype": "Table",
+   "label": "Sorting Configuration - تكوين الترتيب",
+   "options": "Report Sorting Configuration"
+  },
+  {
+   "fieldname": "calculation_fields",
+   "fieldtype": "Table",
+   "label": "Calculation Fields - حقول الحساب",
+   "options": "Report Calculation Field"
+  },
+  {
+   "fieldname": "formatting_presentation_section",
+   "fieldtype": "Section Break",
+   "label": "Formatting & Presentation - التنسيق والعرض"
+  },
+  {
+   "fieldname": "report_template",
+   "fieldtype": "Link",
+   "label": "Report Template - قالب التقرير",
+   "options": "Report Template"
+  },
+  {
+   "fieldname": "header_configuration",
+   "fieldtype": "Table",
+   "label": "Header Configuration - تكوين الرأس",
+   "options": "Report Header Configuration"
+  },
+  {
+   "fieldname": "footer_configuration",
+   "fieldtype": "Table",
+   "label": "Footer Configuration - تكوين التذييل",
+   "options": "Report Footer Configuration"
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "page_layout",
+   "fieldtype": "Select",
+   "label": "Page Layout - تخطيط الصفحة",
+   "options": "Single Column\\nTwo Columns\\nThree Columns\\nGrid Layout\\nCustom Layout"
+  },
+  {
+   "fieldname": "font_settings",
+   "fieldtype": "JSON",
+   "label": "Font Settings - إعدادات الخط"
+  },
+  {
+   "fieldname": "color_theme",
+   "fieldtype": "Select",
+   "label": "Color Theme - موضوع الألوان",
+   "options": "Default\\nProfessional\\nModern\\nClassic\\nOmani Traditional\\nArabic Elegant"
+  },
+  {
+   "fieldname": "chart_visualization_section",
+   "fieldtype": "Section Break",
+   "label": "Chart & Visualization - المخططات والمرئيات"
+  },
+  {
+   "fieldname": "chart_enabled",
+   "fieldtype": "Check",
+   "label": "Chart Enabled - المخططات مفعلة"
+  },
+  {
+   "fieldname": "chart_configurations",
+   "fieldtype": "Table",
+   "label": "Chart Configurations - تكوينات المخططات",
+   "options": "Report Chart Configuration"
+  },
+  {
+   "fieldname": "chart_library",
+   "fieldtype": "Select",
+   "label": "Chart Library - مكتبة المخططات",
+   "options": "Chart.js\\nD3.js\\nPlotly.js\\nECharts\\nHighcharts\\nGoogle Charts"
+  },
+  {
+   "fieldname": "column_break_29",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "chart_types",
+   "fieldtype": "Table",
+   "label": "Chart Types - أنواع المخططات",
+   "options": "Report Chart Type"
+  },
+  {
+   "fieldname": "chart_data_mapping",
+   "fieldtype": "Table",
+   "label": "Chart Data Mapping - ربط بيانات المخطط",
+   "options": "Report Chart Data Mapping"
+  },
+  {
+   "fieldname": "visualization_settings",
+   "fieldtype": "JSON",
+   "label": "Visualization Settings - إعدادات المرئيات"
+  },
+  {
+   "fieldname": "export_delivery_section",
+   "fieldtype": "Section Break",
+   "label": "Export & Delivery - التصدير والتسليم"
+  },
+  {
+   "fieldname": "export_formats",
+   "fieldtype": "Select",
+   "label": "Export Formats - تنسيقات التصدير",
+   "options": "PDF\\nExcel\\nCSV\\nJSON\\nWord\\nPNG\\nSVG\\nHTML\\nXML"
+  },
+  {
+   "fieldname": "delivery_methods",
+   "fieldtype": "Table",
+   "label": "Delivery Methods - طرق التسليم",
+   "options": "Report Delivery Method"
+  },
+  {
+   "fieldname": "email_configuration",
+   "fieldtype": "Table",
+   "label": "Email Configuration - تكوين البريد الإلكتروني",
+   "options": "Report Email Configuration"
+  },
+  {
+   "fieldname": "column_break_35",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ftp_configuration",
+   "fieldtype": "Table",
+   "label": "FTP Configuration - تكوين FTP",
+   "options": "Report FTP Configuration"
+  },
+  {
+   "fieldname": "api_delivery_settings",
+   "fieldtype": "Table",
+   "label": "API Delivery Settings - إعدادات تسليم API",
+   "options": "Report API Delivery"
+  },
+  {
+   "fieldname": "portal_publishing",
+   "fieldtype": "Table",
+   "label": "Portal Publishing - نشر البوابة",
+   "options": "Report Portal Publishing"
+  },
+  {
+   "fieldname": "scheduling_automation_section",
+   "fieldtype": "Section Break",
+   "label": "Scheduling & Automation - الجدولة والأتمتة"
+  },
+  {
+   "fieldname": "schedule_enabled",
+   "fieldtype": "Check",
+   "label": "Schedule Enabled - الجدولة مفعلة"
+  },
+  {
+   "fieldname": "schedule_frequency",
+   "fieldtype": "Select",
+   "label": "Schedule Frequency - تكرار الجدولة",
+   "options": "On Demand\\nDaily\\nWeekly\\nBi-weekly\\nMonthly\\nQuarterly\\nYearly\\nCustom"
+  },
+  {
+   "fieldname": "schedule_time",
+   "fieldtype": "Time",
+   "label": "Schedule Time - وقت الجدولة"
+  },
+  {
+   "fieldname": "column_break_41",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "schedule_recipients",
+   "fieldtype": "Table",
+   "label": "Schedule Recipients - مستلمو الجدولة",
+   "options": "Report Schedule Recipient"
+  },
+  {
+   "fieldname": "automation_triggers",
+   "fieldtype": "Table",
+   "label": "Automation Triggers - مشغلات الأتمتة",
+   "options": "Report Automation Trigger"
+  },
+  {
+   "fieldname": "execution_history",
+   "fieldtype": "Table",
+   "label": "Execution History - تاريخ التنفيذ",
+   "options": "Report Execution History",
+   "read_only": 1
+  },
+  {
+   "fieldname": "performance_optimization_section",
+   "fieldtype": "Section Break",
+   "label": "Performance Optimization - تحسين الأداء"
+  },
+  {
+   "fieldname": "caching_enabled",
+   "fieldtype": "Check",
+   "label": "Caching Enabled - التخزين المؤقت مفعل",
+   "default": 1
+  },
+  {
+   "fieldname": "cache_duration",
+   "fieldtype": "Int",
+   "label": "Cache Duration (Minutes) - مدة التخزين المؤقت بالدقائق",
+   "default": 60
+  },
+  {
+   "fieldname": "query_optimization",
+   "fieldtype": "Check",
+   "label": "Query Optimization - تحسين الاستعلام",
+   "default": 1
+  },
+  {
+   "fieldname": "column_break_47",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "parallel_processing",
+   "fieldtype": "Check",
+   "label": "Parallel Processing - المعالجة المتوازية"
+  },
+  {
+   "fieldname": "memory_optimization",
+   "fieldtype": "Check",
+   "label": "Memory Optimization - تحسين الذاكرة",
+   "default": 1
+  },
+  {
+   "fieldname": "execution_timeout",
+   "fieldtype": "Int",
+   "label": "Execution Timeout (Seconds) - مهلة التنفيذ بالثواني",
+   "default": 300
+  },
+  {
+   "fieldname": "security_permissions_section",
+   "fieldtype": "Section Break",
+   "label": "Security & Permissions - الأمان والأذونات"
+  },
+  {
+   "fieldname": "access_control",
+   "fieldtype": "Select",
+   "label": "Access Control - التحكم في الوصول",
+   "options": "Public\\nRole Based\\nUser Specific\\nDepartment Based\\nCustom"
+  },
+  {
+   "fieldname": "user_permissions",
+   "fieldtype": "Table",
+   "label": "User Permissions - أذونات المستخدم",
+   "options": "Report User Permission"
+  },
+  {
+   "fieldname": "role_based_access",
+   "fieldtype": "Table",
+   "label": "Role Based Access - الوصول القائم على الأدوار",
+   "options": "Report Role Access"
+  },
+  {
+   "fieldname": "column_break_53",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "data_masking",
+   "fieldtype": "Table",
+   "label": "Data Masking - إخفاء البيانات",
+   "options": "Report Data Masking"
+  },
+  {
+   "fieldname": "encryption_settings",
+   "fieldtype": "JSON",
+   "label": "Encryption Settings - إعدادات التشفير"
+  },
+  {
+   "fieldname": "audit_logging",
+   "fieldtype": "Check",
+   "label": "Audit Logging - تسجيل التدقيق",
+   "default": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "arabic_reporting_excellence_section",
+   "fieldtype": "Section Break",
+   "label": "Arabic Reporting Excellence - التميز في التقارير العربية"
+  },
+  {
+   "fieldname": "arabic_report_terminology",
+   "fieldtype": "Text",
+   "label": "Arabic Report Terminology - مصطلحات التقرير العربية"
+  },
+  {
+   "fieldname": "traditional_report_formats",
+   "fieldtype": "Text",
+   "label": "Traditional Report Formats - تنسيقات التقارير التقليدية"
+  },
+  {
+   "fieldname": "cultural_report_patterns",
+   "fieldtype": "Text",
+   "label": "Cultural Report Patterns - أنماط التقارير الثقافية"
+  },
+  {
+   "fieldname": "column_break_59",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "omani_business_formats",
+   "fieldtype": "Text",
+   "label": "Omani Business Formats - تنسيقات الأعمال العمانية"
+  },
+  {
+   "fieldname": "arabic_number_formatting",
+   "fieldtype": "Text",
+   "label": "Arabic Number Formatting - تنسيق الأرقام العربية"
+  },
+  {
+   "fieldname": "traditional_layout_patterns",
+   "fieldtype": "Text",
+   "label": "Traditional Layout Patterns - أنماط التخطيط التقليدية"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "islamic_business_compliance_section",
+   "fieldtype": "Section Break",
+   "label": "Islamic Business Compliance - الامتثال للأعمال الإسلامية"
+  },
+  {
+   "fieldname": "islamic_report_validation",
+   "fieldtype": "Check",
+   "label": "Islamic Report Validation - التحقق من التقرير الإسلامي",
+   "default": 1
+  },
+  {
+   "fieldname": "halal_data_verification",
+   "fieldtype": "Check",
+   "label": "Halal Data Verification - التحقق من البيانات الحلال"
+  },
+  {
+   "fieldname": "ethical_reporting_standards",
+   "fieldtype": "Check",
+   "label": "Ethical Reporting Standards - معايير التقرير الأخلاقية",
+   "default": 1
+  },
+  {
+   "fieldname": "column_break_65",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sharia_compliance_check",
+   "fieldtype": "Check",
+   "label": "Sharia Compliance Check - فحص الامتثال الشرعي"
+  },
+  {
+   "fieldname": "community_benefit_reporting",
+   "fieldtype": "Check",
+   "label": "Community Benefit Reporting - تقرير الفائدة المجتمعية"
+  },
+  {
+   "fieldname": "religious_calendar_integration",
+   "fieldtype": "Check",
+   "label": "Religious Calendar Integration - تكامل التقويم الديني"
+  },
+  {
+   "fieldname": "collaborative_features_section",
+   "fieldtype": "Section Break",
+   "label": "Collaborative Features - الميزات التعاونية"
+  },
+  {
+   "fieldname": "shared_reports",
+   "fieldtype": "Check",
+   "label": "Shared Reports - التقارير المشتركة"
+  },
+  {
+   "fieldname": "collaborative_editing",
+   "fieldtype": "Check",
+   "label": "Collaborative Editing - التحرير التعاوني"
+  },
+  {
+   "fieldname": "comment_system",
+   "fieldtype": "Table",
+   "label": "Comment System - نظام التعليقات",
+   "options": "Report Comment System"
+  },
+  {
+   "fieldname": "column_break_71",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "version_control",
+   "fieldtype": "Table",
+   "label": "Version Control - التحكم في الإصدار",
+   "options": "Report Version Control"
+  },
+  {
+   "fieldname": "approval_workflow",
+   "fieldtype": "Table",
+   "label": "Approval Workflow - سير عمل الموافقة",
+   "options": "Report Approval Workflow"
+  },
+  {
+   "fieldname": "team_permissions",
+   "fieldtype": "Table",
+   "label": "Team Permissions - أذونات الفريق",
+   "options": "Report Team Permission"
+  },
+  {
+   "fieldname": "mobile_reporting_section",
+   "fieldtype": "Section Break",
+   "label": "Mobile Reporting - التقارير المحمولة"
+  },
+  {
+   "fieldname": "mobile_optimized",
+   "fieldtype": "Check",
+   "label": "Mobile Optimized - محسن للهاتف المحمول",
+   "default": 1
+  },
+  {
+   "fieldname": "responsive_design",
+   "fieldtype": "Check",
+   "label": "Responsive Design - التصميم المتجاوب",
+   "default": 1
+  },
+  {
+   "fieldname": "offline_capability",
+   "fieldtype": "Check",
+   "label": "Offline Capability - القدرة على العمل دون اتصال"
+  },
+  {
+   "fieldname": "column_break_77",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mobile_charts",
+   "fieldtype": "Check",
+   "label": "Mobile Charts - مخططات الهاتف المحمول",
+   "default": 1
+  },
+  {
+   "fieldname": "touch_interface",
+   "fieldtype": "Check",
+   "label": "Touch Interface - واجهة اللمس",
+   "default": 1
+  },
+  {
+   "fieldname": "arabic_mobile_layouts",
+   "fieldtype": "Check",
+   "label": "Arabic Mobile Layouts - تخطيطات الهاتف المحمول العربية",
+   "default": 1
+  },
+  {
+   "fieldname": "advanced_analytics_section",
+   "fieldtype": "Section Break",
+   "label": "Advanced Analytics Integration - تكامل التحليلات المتقدمة"
+  },
+  {
+   "fieldname": "predictive_elements",
+   "fieldtype": "Table",
+   "label": "Predictive Elements - العناصر التنبؤية",
+   "options": "Report Predictive Element"
+  },
+  {
+   "fieldname": "statistical_components",
+   "fieldtype": "Table",
+   "label": "Statistical Components - المكونات الإحصائية",
+   "options": "Report Statistical Component"
+  },
+  {
+   "fieldname": "correlation_analysis",
+   "fieldtype": "Table",
+   "label": "Correlation Analysis - تحليل الارتباط",
+   "options": "Report Correlation Analysis"
+  },
+  {
+   "fieldname": "column_break_83",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "trend_forecasting",
+   "fieldtype": "Table",
+   "label": "Trend Forecasting - التنبؤ بالاتجاهات",
+   "options": "Report Trend Forecasting"
+  },
+  {
+   "fieldname": "anomaly_highlighting",
+   "fieldtype": "Table",
+   "label": "Anomaly Highlighting - تمييز الشذوذ",
+   "options": "Report Anomaly Highlighting"
+  },
+  {
+   "fieldname": "benchmark_comparisons",
+   "fieldtype": "Table",
+   "label": "Benchmark Comparisons - مقارنات المعايير",
+   "options": "Report Benchmark Comparison"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "integration_section",
+   "fieldtype": "Section Break",
+   "label": "Shared Library Integration - تكامل المكتبة المشتركة"
+  },
+  {
+   "default": "0",
+   "fieldname": "shared_library_reporting_enhanced",
+   "fieldtype": "Check",
+   "label": "Shared Library Reporting Enhanced - تم تعزيز التقارير بالمكتبة المشتركة",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "arabic_business_logic_integrated",
+   "fieldtype": "Check",
+   "label": "Arabic Business Logic Integrated - تم دمج منطق الأعمال العربي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "traditional_patterns_applied",
+   "fieldtype": "Check",
+   "label": "Traditional Patterns Applied - تم تطبيق الأنماط التقليدية",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "islamic_compliance_verified",
+   "fieldtype": "Check",
+   "label": "Islamic Compliance Verified - تم التحقق من الامتثال الإسلامي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "omani_context_validated",
+   "fieldtype": "Check",
+   "label": "Omani Context Validated - تم التحقق من السياق العماني",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Notes & Metadata - الملاحظات والبيانات الوصفية"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks - ملاحظات"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By - أنشأ بواسطة",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_date",
+   "fieldtype": "Date",
+   "label": "Created Date - تاريخ الإنشاء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_updated_by",
+   "fieldtype": "Link",
+   "label": "Last Updated By - آخر تحديث بواسطة",
+   "options": "User",
+   "read_only": 1
+  }
+ ],
+ "has_web_view": 1,
+ "hide_toolbar": 0,
+ "idx": 0,
+ "in_create": 0,
+ "is_submittable": 0,
+ "issingle": 0,
+ "max_attachments": 10,
+ "modified": "2025-01-04 02:15:00.000000",
+ "modified_by": "Administrator",
+ "module": "Analytics Reporting",
+ "name": "Consolidated Reporting System",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Report Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "write": 1,
+   "role": "Report User"
+  },
+  {
+   "read": 1,
+   "role": "Workshop Manager"
+  },
+  {
+   "read": 1,
+   "role": "Finance Manager"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "write": 1,
+   "role": "System Manager"
+  },
+  {
+   "read": 1,
+   "role": "Accounts User"
+  }
+ ],
+ "quick_entry": 0,
+ "route": "consolidated-reporting",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "report_name",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

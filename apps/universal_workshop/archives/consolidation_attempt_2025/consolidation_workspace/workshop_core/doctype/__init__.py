@@ -1,0 +1,1 @@
+# Workshop Core DocTypes Module

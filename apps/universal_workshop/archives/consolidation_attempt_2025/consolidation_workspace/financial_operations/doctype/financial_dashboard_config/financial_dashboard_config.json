@@ -1,0 +1,386 @@
+{
+  "actions": [],
+  "creation": "2025-01-15 18:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "section_break_1",
+    "dashboard_name",
+    "dashboard_name_ar",
+    "column_break_2",
+    "is_active",
+    "dashboard_type",
+    "layout_settings_section",
+    "layout_type",
+    "refresh_interval",
+    "column_break_3",
+    "auto_refresh",
+    "theme_color",
+    "widget_configuration_section",
+    "revenue_widget",
+    "expense_widget",
+    "column_break_4",
+    "profit_widget",
+    "cash_flow_widget",
+    "vat_widget",
+    "receivables_widget",
+    "column_break_5",
+    "payables_widget",
+    "inventory_widget",
+    "chart_configuration_section",
+    "revenue_chart_type",
+    "expense_chart_type",
+    "column_break_6",
+    "profit_chart_type",
+    "cash_flow_chart_type",
+    "time_period_settings_section",
+    "default_period",
+    "comparison_period",
+    "column_break_7",
+    "fiscal_year",
+    "currency_display",
+    "access_control_section",
+    "visible_to_roles",
+    "restrict_access",
+    "column_break_8",
+    "export_permissions",
+    "status_section",
+    "dashboard_status",
+    "created_by",
+    "column_break_9",
+    "creation_date",
+    "modified_by",
+    "modified_date"
+  ],
+  "fields": [
+    {
+      "fieldname": "section_break_1",
+      "fieldtype": "Section Break",
+      "label": "Dashboard Information"
+    },
+    {
+      "fieldname": "dashboard_name",
+      "fieldtype": "Data",
+      "label": "Dashboard Name",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "dashboard_name_ar",
+      "fieldtype": "Data",
+      "label": "اسم لوحة المعلومات",
+      "translatable": 1
+    },
+    {
+      "fieldname": "column_break_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "1",
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "label": "Is Active",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "dashboard_type",
+      "fieldtype": "Select",
+      "label": "Dashboard Type",
+      "options": "Executive\nManagerial\nOperational\nAnalytical",
+      "reqd": 1
+    },
+    {
+      "fieldname": "layout_settings_section",
+      "fieldtype": "Section Break",
+      "label": "Layout Settings"
+    },
+    {
+      "fieldname": "layout_type",
+      "fieldtype": "Select",
+      "label": "Layout Type",
+      "options": "Grid\nFlexible\nResponsive\nCustom",
+      "default": "Grid"
+    },
+    {
+      "fieldname": "refresh_interval",
+      "fieldtype": "Select",
+      "label": "Refresh Interval",
+      "options": "5 minutes\n15 minutes\n30 minutes\n1 hour\nManual",
+      "default": "15 minutes"
+    },
+    {
+      "fieldname": "column_break_3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "1",
+      "fieldname": "auto_refresh",
+      "fieldtype": "Check",
+      "label": "Auto Refresh"
+    },
+    {
+      "fieldname": "theme_color",
+      "fieldtype": "Select",
+      "label": "Theme Color",
+      "options": "Blue\nGreen\nPurple\nOrange\nRed\nCustom"
+    },
+    {
+      "fieldname": "widget_configuration_section",
+      "fieldtype": "Section Break",
+      "label": "Widget Configuration"
+    },
+    {
+      "default": "1",
+      "fieldname": "revenue_widget",
+      "fieldtype": "Check",
+      "label": "Revenue Widget"
+    },
+    {
+      "default": "1",
+      "fieldname": "expense_widget",
+      "fieldtype": "Check",
+      "label": "Expense Widget"
+    },
+    {
+      "fieldname": "column_break_4",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "1",
+      "fieldname": "profit_widget",
+      "fieldtype": "Check",
+      "label": "Profit Widget"
+    },
+    {
+      "default": "1",
+      "fieldname": "cash_flow_widget",
+      "fieldtype": "Check",
+      "label": "Cash Flow Widget"
+    },
+    {
+      "default": "1",
+      "fieldname": "vat_widget",
+      "fieldtype": "Check",
+      "label": "VAT Widget"
+    },
+    {
+      "default": "1",
+      "fieldname": "receivables_widget",
+      "fieldtype": "Check",
+      "label": "Receivables Widget"
+    },
+    {
+      "fieldname": "column_break_5",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "1",
+      "fieldname": "payables_widget",
+      "fieldtype": "Check",
+      "label": "Payables Widget"
+    },
+    {
+      "default": "1",
+      "fieldname": "inventory_widget",
+      "fieldtype": "Check",
+      "label": "Inventory Widget"
+    },
+    {
+      "fieldname": "chart_configuration_section",
+      "fieldtype": "Section Break",
+      "label": "Chart Configuration"
+    },
+    {
+      "fieldname": "revenue_chart_type",
+      "fieldtype": "Select",
+      "label": "Revenue Chart Type",
+      "options": "Line Chart\nBar Chart\nArea Chart\nPie Chart",
+      "default": "Line Chart"
+    },
+    {
+      "fieldname": "expense_chart_type",
+      "fieldtype": "Select",
+      "label": "Expense Chart Type",
+      "options": "Line Chart\nBar Chart\nArea Chart\nPie Chart",
+      "default": "Bar Chart"
+    },
+    {
+      "fieldname": "column_break_6",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "profit_chart_type",
+      "fieldtype": "Select",
+      "label": "Profit Chart Type",
+      "options": "Line Chart\nBar Chart\nArea Chart\nPie Chart",
+      "default": "Area Chart"
+    },
+    {
+      "fieldname": "cash_flow_chart_type",
+      "fieldtype": "Select",
+      "label": "Cash Flow Chart Type",
+      "options": "Line Chart\nBar Chart\nArea Chart\nWaterfall Chart",
+      "default": "Waterfall Chart"
+    },
+    {
+      "fieldname": "time_period_settings_section",
+      "fieldtype": "Section Break",
+      "label": "Time Period Settings"
+    },
+    {
+      "fieldname": "default_period",
+      "fieldtype": "Select",
+      "label": "Default Period",
+      "options": "Today\nThis Week\nThis Month\nThis Quarter\nThis Year\nLast 12 Months",
+      "default": "This Month"
+    },
+    {
+      "fieldname": "comparison_period",
+      "fieldtype": "Select",
+      "label": "Comparison Period",
+      "options": "Previous Period\nSame Period Last Year\nCustom Period\nNo Comparison"
+    },
+    {
+      "fieldname": "column_break_7",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "fiscal_year",
+      "fieldtype": "Link",
+      "label": "Fiscal Year",
+      "options": "Fiscal Year"
+    },
+    {
+      "fieldname": "currency_display",
+      "fieldtype": "Link",
+      "label": "Currency Display",
+      "options": "Currency",
+      "default": "OMR"
+    },
+    {
+      "fieldname": "access_control_section",
+      "fieldtype": "Section Break",
+      "label": "Access Control"
+    },
+    {
+      "fieldname": "visible_to_roles",
+      "fieldtype": "MultiSelect",
+      "label": "Visible to Roles",
+      "options": "System Manager\nWorkshop Manager\nAccounts User\nParts Manager\nTechnician"
+    },
+    {
+      "default": "1",
+      "fieldname": "restrict_access",
+      "fieldtype": "Check",
+      "label": "Restrict Access"
+    },
+    {
+      "fieldname": "column_break_8",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "export_permissions",
+      "fieldtype": "MultiSelect",
+      "label": "Export Permissions",
+      "options": "PDF Export\nExcel Export\nCSV Export\nPrint"
+    },
+    {
+      "fieldname": "status_section",
+      "fieldtype": "Section Break",
+      "label": "Status Information"
+    },
+    {
+      "fieldname": "dashboard_status",
+      "fieldtype": "Select",
+      "label": "Dashboard Status",
+      "options": "Draft\nPublished\nArchived",
+      "default": "Draft"
+    },
+    {
+      "fieldname": "created_by",
+      "fieldtype": "Link",
+      "label": "Created By",
+      "options": "User",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_9",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "creation_date",
+      "fieldtype": "Datetime",
+      "label": "Creation Date",
+      "read_only": 1
+    },
+    {
+      "fieldname": "modified_by",
+      "fieldtype": "Link",
+      "label": "Modified By",
+      "options": "User",
+      "read_only": 1
+    },
+    {
+      "fieldname": "modified_date",
+      "fieldtype": "Datetime",
+      "label": "Modified Date",
+      "read_only": 1
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "istable": 0,
+  "links": [],
+  "modified": "2025-01-15 18:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Billing Management",
+  "name": "Financial Dashboard Config",
+  "naming_rule": "Expression",
+  "autoname": "format:FD-{dashboard_name}",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "delete": 0,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Workshop Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 0,
+      "delete": 0,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Accounts User",
+      "share": 0,
+      "write": 0
+    }
+  ],
+  "search_fields": "dashboard_name,dashboard_type,dashboard_status",
+  "sort_field": "creation_date",
+  "sort_order": "DESC",
+  "states": [],
+  "title_field": "dashboard_name",
+  "track_changes": 1,
+  "track_seen": 1,
+  "track_views": 1
+} 

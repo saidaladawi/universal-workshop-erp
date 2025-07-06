@@ -1,0 +1,853 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:part_id",
+ "creation": "2025-01-04 00:30:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "part_basic_info_section",
+  "part_id",
+  "part_number",
+  "part_name",
+  "part_name_ar",
+  "column_break_4",
+  "part_category",
+  "part_category_ar",
+  "manufacturer",
+  "manufacturer_ar",
+  "part_specifications_section",
+  "oem_part_number",
+  "alternative_part_numbers",
+  "part_description",
+  "part_description_ar",
+  "column_break_12",
+  "technical_specifications",
+  "technical_specifications_ar",
+  "vehicle_compatibility",
+  "part_dimensions",
+  "inventory_management_section",
+  "current_stock_qty",
+  "reorder_level",
+  "max_stock_level",
+  "safety_stock",
+  "column_break_20",
+  "default_warehouse",
+  "reserved_qty",
+  "available_qty",
+  "last_purchase_date",
+  "pricing_cost_section",
+  "standard_cost",
+  "last_purchase_rate",
+  "average_cost",
+  "selling_price",
+  "column_break_28",
+  "markup_percentage",
+  "vat_rate",
+  "currency",
+  "price_valid_upto",
+  "barcode_identification_section",
+  "barcode",
+  "barcode_type",
+  "qr_code_data",
+  "column_break_36",
+  "scan_count",
+  "last_scanned_date",
+  "barcode_image",
+  "supplier_information_section",
+  "primary_supplier",
+  "supplier_part_number",
+  "lead_time_days",
+  "minimum_order_qty",
+  "column_break_43",
+  "secondary_suppliers",
+  "supplier_catalog_reference",
+  "procurement_notes",
+  "cross_reference_section",
+  "cross_references",
+  "compatible_vehicles",
+  "column_break_48",
+  "superseded_by",
+  "supersedes_parts",
+  "abc_analysis_section",
+  "abc_category",
+  "annual_usage_value",
+  "usage_frequency",
+  "turnover_ratio",
+  "column_break_55",
+  "movement_analysis",
+  "last_movement_date",
+  "stock_age_days",
+  "quality_warranty_section",
+  "quality_grade",
+  "warranty_period_months",
+  "warranty_terms",
+  "column_break_62",
+  "quality_certifications",
+  "inspection_required",
+  "shelf_life_months",
+  "arabic_cultural_context_section",
+  "arabic_part_terminology",
+  "traditional_part_naming",
+  "islamic_compliance_notes",
+  "omani_market_context",
+  "column_break_69",
+  "arabic_technical_description",
+  "cultural_usage_patterns",
+  "traditional_inventory_notes",
+  "halal_certification_section",
+  "halal_certified",
+  "halal_certification_body",
+  "halal_certificate_number",
+  "halal_expiry_date",
+  "column_break_76",
+  "islamic_supply_chain_compliance",
+  "ethical_sourcing_verified",
+  "community_benefit_score",
+  "tracking_analytics_section",
+  "stock_movements",
+  "usage_history",
+  "column_break_81",
+  "cost_analysis",
+  "performance_metrics",
+  "integration_section",
+  "shared_library_parts_enhanced",
+  "arabic_business_logic_integrated",
+  "traditional_patterns_applied",
+  "islamic_compliance_verified",
+  "barcode_system_integrated",
+  "notes_metadata_section",
+  "remarks",
+  "created_by",
+  "created_date",
+  "last_updated_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "part_basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Part Basic Information - المعلومات الأساسية للقطعة"
+  },
+  {
+   "fieldname": "part_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Part ID - معرف القطعة",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "part_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Part Number - رقم القطعة",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "part_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Part Name (English) - اسم القطعة",
+   "reqd": 1
+  },
+  {
+   "fieldname": "part_name_ar",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "اسم القطعة بالعربية",
+   "reqd": 1,
+   "translatable": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "part_category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Part Category - فئة القطعة",
+   "options": "Engine Parts\nTransmission Parts\nBrake System\nSuspension\nElectrical Components\nAir Conditioning\nExhaust System\nFuel System\nCooling System\nBody Parts\nInterior Parts\nLighting\nFilters\nFluids\nBatteries\nTires\nWheels\nAccessories",
+   "reqd": 1
+  },
+  {
+   "fieldname": "part_category_ar",
+   "fieldtype": "Data",
+   "label": "فئة القطعة بالعربية",
+   "translatable": 1
+  },
+  {
+   "fieldname": "manufacturer",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Manufacturer - الشركة المصنعة",
+   "reqd": 1
+  },
+  {
+   "fieldname": "manufacturer_ar",
+   "fieldtype": "Data",
+   "label": "الشركة المصنعة بالعربية",
+   "translatable": 1
+  },
+  {
+   "fieldname": "part_specifications_section",
+   "fieldtype": "Section Break",
+   "label": "Part Specifications - مواصفات القطعة"
+  },
+  {
+   "fieldname": "oem_part_number",
+   "fieldtype": "Data",
+   "label": "OEM Part Number - رقم القطعة الأصلية"
+  },
+  {
+   "fieldname": "alternative_part_numbers",
+   "fieldtype": "Table",
+   "label": "Alternative Part Numbers - أرقام القطع البديلة",
+   "options": "Alternative Part Number"
+  },
+  {
+   "fieldname": "part_description",
+   "fieldtype": "Text Editor",
+   "label": "Part Description - وصف القطعة"
+  },
+  {
+   "fieldname": "part_description_ar",
+   "fieldtype": "Text Editor",
+   "label": "وصف القطعة بالعربية",
+   "translatable": 1
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "technical_specifications",
+   "fieldtype": "Table",
+   "label": "Technical Specifications - المواصفات التقنية",
+   "options": "Part Technical Specification"
+  },
+  {
+   "fieldname": "technical_specifications_ar",
+   "fieldtype": "Text Editor",
+   "label": "المواصفات التقنية بالعربية",
+   "translatable": 1
+  },
+  {
+   "fieldname": "vehicle_compatibility",
+   "fieldtype": "Table",
+   "label": "Vehicle Compatibility - توافق المركبة",
+   "options": "Part Vehicle Compatibility"
+  },
+  {
+   "fieldname": "part_dimensions",
+   "fieldtype": "Table",
+   "label": "Part Dimensions - أبعاد القطعة",
+   "options": "Part Dimension"
+  },
+  {
+   "fieldname": "inventory_management_section",
+   "fieldtype": "Section Break",
+   "label": "Inventory Management - إدارة المخزون"
+  },
+  {
+   "fieldname": "current_stock_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Current Stock Qty - الكمية الحالية في المخزون",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "reorder_level",
+   "fieldtype": "Float",
+   "label": "Reorder Level - مستوى إعادة الطلب",
+   "precision": 2
+  },
+  {
+   "fieldname": "max_stock_level",
+   "fieldtype": "Float",
+   "label": "Max Stock Level - مستوى المخزون الأقصى",
+   "precision": 2
+  },
+  {
+   "fieldname": "safety_stock",
+   "fieldtype": "Float",
+   "label": "Safety Stock - مخزون الأمان",
+   "precision": 2
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_warehouse",
+   "fieldtype": "Link",
+   "label": "Default Warehouse - المستودع الافتراضي",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "reserved_qty",
+   "fieldtype": "Float",
+   "label": "Reserved Qty - الكمية المحجوزة",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "available_qty",
+   "fieldtype": "Float",
+   "label": "Available Qty - الكمية المتاحة",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_purchase_date",
+   "fieldtype": "Date",
+   "label": "Last Purchase Date - تاريخ آخر شراء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pricing_cost_section",
+   "fieldtype": "Section Break",
+   "label": "Pricing & Cost - التسعير والتكلفة"
+  },
+  {
+   "fieldname": "standard_cost",
+   "fieldtype": "Currency",
+   "label": "Standard Cost (OMR) - التكلفة المعيارية",
+   "options": "currency",
+   "precision": 3
+  },
+  {
+   "fieldname": "last_purchase_rate",
+   "fieldtype": "Currency",
+   "label": "Last Purchase Rate (OMR) - سعر آخر شراء",
+   "options": "currency",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_cost",
+   "fieldtype": "Currency",
+   "label": "Average Cost (OMR) - متوسط التكلفة",
+   "options": "currency",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "selling_price",
+   "fieldtype": "Currency",
+   "label": "Selling Price (OMR) - سعر البيع",
+   "options": "currency",
+   "precision": 3
+  },
+  {
+   "fieldname": "column_break_28",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "markup_percentage",
+   "fieldtype": "Percent",
+   "label": "Markup Percentage - نسبة الربح",
+   "precision": 2
+  },
+  {
+   "fieldname": "vat_rate",
+   "fieldtype": "Percent",
+   "label": "VAT Rate - معدل ضريبة القيمة المضافة",
+   "precision": 2,
+   "default": 5.0
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency - العملة",
+   "options": "Currency",
+   "default": "OMR"
+  },
+  {
+   "fieldname": "price_valid_upto",
+   "fieldtype": "Date",
+   "label": "Price Valid Upto - سعر صالح حتى"
+  },
+  {
+   "fieldname": "barcode_identification_section",
+   "fieldtype": "Section Break",
+   "label": "Barcode & Identification - الرمز الشريطي والتعريف"
+  },
+  {
+   "fieldname": "barcode",
+   "fieldtype": "Data",
+   "label": "Barcode - الرمز الشريطي",
+   "unique": 1
+  },
+  {
+   "fieldname": "barcode_type",
+   "fieldtype": "Select",
+   "label": "Barcode Type - نوع الرمز الشريطي",
+   "options": "Code 128\nEAN-13\nEAN-8\nUPC-A\nUPC-E\nCode 39\nCode 93\nQR Code\nData Matrix"
+  },
+  {
+   "fieldname": "qr_code_data",
+   "fieldtype": "Long Text",
+   "label": "QR Code Data - بيانات رمز الاستجابة السريعة"
+  },
+  {
+   "fieldname": "column_break_36",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "scan_count",
+   "fieldtype": "Int",
+   "label": "Scan Count - عدد مرات المسح",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_scanned_date",
+   "fieldtype": "Datetime",
+   "label": "Last Scanned Date - تاريخ آخر مسح",
+   "read_only": 1
+  },
+  {
+   "fieldname": "barcode_image",
+   "fieldtype": "Attach Image",
+   "label": "Barcode Image - صورة الرمز الشريطي"
+  },
+  {
+   "fieldname": "supplier_information_section",
+   "fieldtype": "Section Break",
+   "label": "Supplier Information - معلومات المورد"
+  },
+  {
+   "fieldname": "primary_supplier",
+   "fieldtype": "Link",
+   "label": "Primary Supplier - المورد الأساسي",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "supplier_part_number",
+   "fieldtype": "Data",
+   "label": "Supplier Part Number - رقم القطعة لدى المورد"
+  },
+  {
+   "fieldname": "lead_time_days",
+   "fieldtype": "Int",
+   "label": "Lead Time (Days) - وقت التسليم بالأيام"
+  },
+  {
+   "fieldname": "minimum_order_qty",
+   "fieldtype": "Float",
+   "label": "Minimum Order Qty - الحد الأدنى لكمية الطلب",
+   "precision": 2
+  },
+  {
+   "fieldname": "column_break_43",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "secondary_suppliers",
+   "fieldtype": "Table",
+   "label": "Secondary Suppliers - الموردون الثانويون",
+   "options": "Part Secondary Supplier"
+  },
+  {
+   "fieldname": "supplier_catalog_reference",
+   "fieldtype": "Data",
+   "label": "Supplier Catalog Reference - مرجع كتالوج المورد"
+  },
+  {
+   "fieldname": "procurement_notes",
+   "fieldtype": "Text",
+   "label": "Procurement Notes - ملاحظات المشتريات"
+  },
+  {
+   "fieldname": "cross_reference_section",
+   "fieldtype": "Section Break",
+   "label": "Cross Reference & Compatibility - المرجع المتقاطع والتوافق"
+  },
+  {
+   "fieldname": "cross_references",
+   "fieldtype": "Table",
+   "label": "Cross References - المراجع المتقاطعة",
+   "options": "Part Cross Reference Detail"
+  },
+  {
+   "fieldname": "compatible_vehicles",
+   "fieldtype": "Table",
+   "label": "Compatible Vehicles - المركبات المتوافقة",
+   "options": "Part Compatible Vehicle"
+  },
+  {
+   "fieldname": "column_break_48",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "superseded_by",
+   "fieldtype": "Link",
+   "label": "Superseded By - محل بواسطة",
+   "options": "Unified Parts Management"
+  },
+  {
+   "fieldname": "supersedes_parts",
+   "fieldtype": "Table",
+   "label": "Supersedes Parts - يحل محل القطع",
+   "options": "Superseded Part"
+  },
+  {
+   "fieldname": "abc_analysis_section",
+   "fieldtype": "Section Break",
+   "label": "ABC Analysis & Usage - تحليل ABC والاستخدام"
+  },
+  {
+   "fieldname": "abc_category",
+   "fieldtype": "Select",
+   "label": "ABC Category - تصنيف ABC",
+   "options": "A - High Value\nB - Medium Value\nC - Low Value",
+   "read_only": 1
+  },
+  {
+   "fieldname": "annual_usage_value",
+   "fieldtype": "Currency",
+   "label": "Annual Usage Value (OMR) - قيمة الاستخدام السنوي",
+   "options": "currency",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "usage_frequency",
+   "fieldtype": "Int",
+   "label": "Usage Frequency (Annual) - تكرار الاستخدام سنوياً",
+   "read_only": 1
+  },
+  {
+   "fieldname": "turnover_ratio",
+   "fieldtype": "Float",
+   "label": "Turnover Ratio - نسبة الدوران",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_55",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "movement_analysis",
+   "fieldtype": "Select",
+   "label": "Movement Analysis - تحليل الحركة",
+   "options": "Fast Moving\nSlow Moving\nNon Moving\nObsolete",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_movement_date",
+   "fieldtype": "Date",
+   "label": "Last Movement Date - تاريخ آخر حركة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "stock_age_days",
+   "fieldtype": "Int",
+   "label": "Stock Age (Days) - عمر المخزون بالأيام",
+   "read_only": 1
+  },
+  {
+   "fieldname": "quality_warranty_section",
+   "fieldtype": "Section Break",
+   "label": "Quality & Warranty - الجودة والضمان"
+  },
+  {
+   "fieldname": "quality_grade",
+   "fieldtype": "Select",
+   "label": "Quality Grade - درجة الجودة",
+   "options": "OEM Original\nOEM Equivalent\nAftermarket Premium\nAftermarket Standard\nGeneric\nRefurbished"
+  },
+  {
+   "fieldname": "warranty_period_months",
+   "fieldtype": "Int",
+   "label": "Warranty Period (Months) - فترة الضمان بالشهور"
+  },
+  {
+   "fieldname": "warranty_terms",
+   "fieldtype": "Text",
+   "label": "Warranty Terms - شروط الضمان"
+  },
+  {
+   "fieldname": "column_break_62",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "quality_certifications",
+   "fieldtype": "Table",
+   "label": "Quality Certifications - شهادات الجودة",
+   "options": "Part Quality Certification"
+  },
+  {
+   "fieldname": "inspection_required",
+   "fieldtype": "Check",
+   "label": "Inspection Required - فحص مطلوب"
+  },
+  {
+   "fieldname": "shelf_life_months",
+   "fieldtype": "Int",
+   "label": "Shelf Life (Months) - مدة الصلاحية بالشهور"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "arabic_cultural_context_section",
+   "fieldtype": "Section Break",
+   "label": "Arabic Cultural Context - السياق الثقافي العربي"
+  },
+  {
+   "fieldname": "arabic_part_terminology",
+   "fieldtype": "Text",
+   "label": "Arabic Part Terminology - المصطلحات العربية للقطعة"
+  },
+  {
+   "fieldname": "traditional_part_naming",
+   "fieldtype": "Text",
+   "label": "Traditional Part Naming - التسمية التقليدية للقطعة"
+  },
+  {
+   "fieldname": "islamic_compliance_notes",
+   "fieldtype": "Text",
+   "label": "Islamic Compliance Notes - ملاحظات الامتثال الإسلامي"
+  },
+  {
+   "fieldname": "omani_market_context",
+   "fieldtype": "Text",
+   "label": "Omani Market Context - السياق السوقي العماني"
+  },
+  {
+   "fieldname": "column_break_69",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "arabic_technical_description",
+   "fieldtype": "Text Editor",
+   "label": "Arabic Technical Description - الوصف التقني العربي"
+  },
+  {
+   "fieldname": "cultural_usage_patterns",
+   "fieldtype": "Text",
+   "label": "Cultural Usage Patterns - أنماط الاستخدام الثقافية"
+  },
+  {
+   "fieldname": "traditional_inventory_notes",
+   "fieldtype": "Text",
+   "label": "Traditional Inventory Notes - ملاحظات المخزون التقليدي"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "halal_certification_section",
+   "fieldtype": "Section Break",
+   "label": "Halal Certification & Islamic Compliance - شهادة الحلال والامتثال الإسلامي"
+  },
+  {
+   "fieldname": "halal_certified",
+   "fieldtype": "Check",
+   "label": "Halal Certified - معتمد حلال"
+  },
+  {
+   "fieldname": "halal_certification_body",
+   "fieldtype": "Data",
+   "label": "Halal Certification Body - جهة شهادة الحلال"
+  },
+  {
+   "fieldname": "halal_certificate_number",
+   "fieldtype": "Data",
+   "label": "Halal Certificate Number - رقم شهادة الحلال"
+  },
+  {
+   "fieldname": "halal_expiry_date",
+   "fieldtype": "Date",
+   "label": "Halal Expiry Date - تاريخ انتهاء شهادة الحلال"
+  },
+  {
+   "fieldname": "column_break_76",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "islamic_supply_chain_compliance",
+   "fieldtype": "Check",
+   "label": "Islamic Supply Chain Compliance - امتثال سلسلة التوريد الإسلامية",
+   "default": 1
+  },
+  {
+   "fieldname": "ethical_sourcing_verified",
+   "fieldtype": "Check",
+   "label": "Ethical Sourcing Verified - تم التحقق من المصادر الأخلاقية"
+  },
+  {
+   "fieldname": "community_benefit_score",
+   "fieldtype": "Float",
+   "label": "Community Benefit Score - درجة الفائدة المجتمعية",
+   "precision": 2
+  },
+  {
+   "fieldname": "tracking_analytics_section",
+   "fieldtype": "Section Break",
+   "label": "Tracking & Analytics - التتبع والتحليلات"
+  },
+  {
+   "fieldname": "stock_movements",
+   "fieldtype": "Table",
+   "label": "Stock Movements - حركات المخزون",
+   "options": "Part Stock Movement",
+   "read_only": 1
+  },
+  {
+   "fieldname": "usage_history",
+   "fieldtype": "Table",
+   "label": "Usage History - تاريخ الاستخدام",
+   "options": "Part Usage History",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_81",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cost_analysis",
+   "fieldtype": "Table",
+   "label": "Cost Analysis - تحليل التكلفة",
+   "options": "Part Cost Analysis",
+   "read_only": 1
+  },
+  {
+   "fieldname": "performance_metrics",
+   "fieldtype": "Table",
+   "label": "Performance Metrics - مقاييس الأداء",
+   "options": "Part Performance Metric",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "integration_section",
+   "fieldtype": "Section Break",
+   "label": "Shared Library Integration - تكامل المكتبة المشتركة"
+  },
+  {
+   "default": "0",
+   "fieldname": "shared_library_parts_enhanced",
+   "fieldtype": "Check",
+   "label": "Shared Library Parts Enhanced - تم تعزيز القطع بالمكتبة المشتركة",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "arabic_business_logic_integrated",
+   "fieldtype": "Check",
+   "label": "Arabic Business Logic Integrated - تم دمج منطق الأعمال العربي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "traditional_patterns_applied",
+   "fieldtype": "Check",
+   "label": "Traditional Patterns Applied - تم تطبيق الأنماط التقليدية",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "islamic_compliance_verified",
+   "fieldtype": "Check",
+   "label": "Islamic Compliance Verified - تم التحقق من الامتثال الإسلامي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "barcode_system_integrated",
+   "fieldtype": "Check",
+   "label": "Barcode System Integrated - تم دمج نظام الرمز الشريطي",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Notes & Metadata - الملاحظات والبيانات الوصفية"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks - ملاحظات"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By - أنشأ بواسطة",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_date",
+   "fieldtype": "Date",
+   "label": "Created Date - تاريخ الإنشاء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_updated_by",
+   "fieldtype": "Link",
+   "label": "Last Updated By - آخر تحديث بواسطة",
+   "options": "User",
+   "read_only": 1
+  }
+ ],
+ "has_web_view": 1,
+ "hide_toolbar": 0,
+ "idx": 0,
+ "in_create": 0,
+ "is_submittable": 0,
+ "issingle": 0,
+ "max_attachments": 10,
+ "modified": "2025-01-04 00:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Inventory Core",
+ "name": "Unified Parts Management",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "write": 1,
+   "role": "Stock User"
+  },
+  {
+   "read": 1,
+   "role": "Workshop Technician"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "write": 1,
+   "role": "System Manager"
+  },
+  {
+   "read": 1,
+   "role": "Purchase User"
+  }
+ ],
+ "quick_entry": 1,
+ "route": "unified-parts",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "part_name",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

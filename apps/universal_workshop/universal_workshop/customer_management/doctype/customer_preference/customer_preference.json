@@ -1,0 +1,200 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-06-15 10:30:00.123456",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "customer",
+  "preference_type",
+  "preference_category",
+  "section_break_1",
+  "preferred_service_advisor",
+  "preferred_technician",
+  "preferred_time_slot",
+  "preferred_day_of_week",
+  "section_break_2",
+  "communication_preference",
+  "language_preference",
+  "reminder_preference",
+  "section_break_3",
+  "service_preferences",
+  "parts_preference",
+  "payment_preference",
+  "section_break_4",
+  "notes",
+  "is_active",
+  "created_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "CUST-PREF-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "preference_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Preference Type",
+   "options": "Service\nCommunication\nScheduling\nPayment",
+   "reqd": 1
+  },
+  {
+   "fieldname": "preference_category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": "Primary\nSecondary\nOptional"
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Service Preferences"
+  },
+  {
+   "fieldname": "preferred_service_advisor",
+   "fieldtype": "Link",
+   "label": "Preferred Service Advisor",
+   "options": "User"
+  },
+  {
+   "fieldname": "preferred_technician",
+   "fieldtype": "Link",
+   "label": "Preferred Technician",
+   "options": "User"
+  },
+  {
+   "fieldname": "preferred_time_slot",
+   "fieldtype": "Select",
+   "label": "Preferred Time Slot",
+   "options": "8:00-10:00\n10:00-12:00\n12:00-14:00\n14:00-16:00\n16:00-18:00"
+  },
+  {
+   "fieldname": "preferred_day_of_week",
+   "fieldtype": "Select",
+   "label": "Preferred Day of Week",
+   "options": "Saturday\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "Communication Preferences"
+  },
+  {
+   "fieldname": "communication_preference",
+   "fieldtype": "Select",
+   "label": "Communication Method",
+   "options": "SMS\nEmail\nPhone Call\nWhatsApp"
+  },
+  {
+   "fieldname": "language_preference",
+   "fieldtype": "Select",
+   "label": "Language Preference",
+   "options": "Arabic\nEnglish\nBoth"
+  },
+  {
+   "fieldname": "reminder_preference",
+   "fieldtype": "Select",
+   "label": "Reminder Preference",
+   "options": "1 Day Before\n2 Days Before\n1 Week Before\nNo Reminders"
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break",
+   "label": "Service & Payment"
+  },
+  {
+   "fieldname": "service_preferences",
+   "fieldtype": "Small Text",
+   "label": "Service Preferences"
+  },
+  {
+   "fieldname": "parts_preference",
+   "fieldtype": "Select",
+   "label": "Parts Preference",
+   "options": "Original\nAftermarket\nNo Preference"
+  },
+  {
+   "fieldname": "payment_preference",
+   "fieldtype": "Select",
+   "label": "Payment Preference",
+   "options": "Cash\nCard\nBank Transfer\nNo Preference"
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break",
+   "label": "Additional Information"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active",
+   "default": 1
+  },
+  {
+   "fieldname": "created_date",
+   "fieldtype": "Date",
+   "label": "Created Date",
+   "default": "Today"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 0,
+ "links": [],
+ "modified": "2024-06-15 10:30:00.123456",
+ "modified_by": "Administrator",
+ "module": "Customer Management",
+ "name": "Customer Preference",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Customer Service Representative",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

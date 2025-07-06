@@ -1,1 +1,0 @@
-# Quality Control Document DocType

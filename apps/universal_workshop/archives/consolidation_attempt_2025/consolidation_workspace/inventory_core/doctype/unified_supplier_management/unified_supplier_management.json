@@ -1,0 +1,864 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:supplier_id",
+ "creation": "2025-01-04 01:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "supplier_basic_info_section",
+  "supplier_id",
+  "supplier_name",
+  "supplier_name_ar",
+  "supplier_type",
+  "column_break_4",
+  "supplier_category",
+  "country",
+  "tax_id",
+  "is_active",
+  "contact_information_section",
+  "primary_contact_person",
+  "primary_contact_person_ar",
+  "email",
+  "phone",
+  "column_break_13",
+  "secondary_contact",
+  "fax",
+  "website",
+  "address_details_section",
+  "address",
+  "address_ar",
+  "city",
+  "state",
+  "column_break_21",
+  "postal_code",
+  "country_code",
+  "address_type",
+  "business_registration_section",
+  "commercial_registration",
+  "vat_registration_number",
+  "trade_license",
+  "establishment_date",
+  "column_break_29",
+  "business_classification",
+  "legal_entity_type",
+  "authorized_signatory",
+  "banking_information_section",
+  "bank_name",
+  "bank_account_number",
+  "iban",
+  "swift_code",
+  "column_break_37",
+  "currency",
+  "payment_terms",
+  "credit_limit",
+  "parts_categories_section",
+  "primary_parts_category",
+  "parts_categories",
+  "oem_partnerships",
+  "column_break_43",
+  "brand_authorizations",
+  "specialty_areas",
+  "service_capabilities",
+  "performance_metrics_section",
+  "quality_rating",
+  "delivery_performance",
+  "price_competitiveness",
+  "communication_responsiveness",
+  "column_break_50",
+  "total_orders_placed",
+  "total_order_value",
+  "average_order_size",
+  "last_order_date",
+  "certification_compliance_section",
+  "iso_certifications",
+  "quality_certifications",
+  "halal_certification",
+  "column_break_58",
+  "environmental_compliance",
+  "safety_certifications",
+  "industry_memberships",
+  "arabic_cultural_context_section",
+  "arabic_business_terminology",
+  "traditional_supplier_patterns",
+  "omani_business_context",
+  "column_break_64",
+  "cultural_communication_preferences",
+  "arabic_contract_requirements",
+  "traditional_business_relationships",
+  "islamic_business_compliance_section",
+  "islamic_finance_compliant",
+  "riba_free_transactions",
+  "halal_supply_chain",
+  "ethical_business_practices",
+  "column_break_71",
+  "islamic_contract_validation",
+  "sharia_compliance_verified",
+  "community_contribution",
+  "risk_assessment_section",
+  "financial_risk_score",
+  "operational_risk_score",
+  "compliance_risk_score",
+  "overall_risk_rating",
+  "column_break_78",
+  "risk_mitigation_measures",
+  "insurance_coverage",
+  "contingency_suppliers",
+  "contract_management_section",
+  "current_contracts",
+  "contract_renewals",
+  "column_break_83",
+  "pricing_agreements",
+  "sla_agreements",
+  "evaluation_history_section",
+  "supplier_evaluations",
+  "column_break_87",
+  "performance_improvement_plans",
+  "feedback_communications",
+  "integration_section",
+  "shared_library_supplier_enhanced",
+  "arabic_business_logic_integrated",
+  "traditional_patterns_applied",
+  "islamic_compliance_verified",
+  "omani_context_validated",
+  "notes_metadata_section",
+  "remarks",
+  "created_by",
+  "created_date",
+  "last_updated_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "supplier_basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Supplier Basic Information - المعلومات الأساسية للمورد"
+  },
+  {
+   "fieldname": "supplier_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Supplier ID - معرف المورد",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "supplier_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Supplier Name (English) - اسم المورد",
+   "reqd": 1
+  },
+  {
+   "fieldname": "supplier_name_ar",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "اسم المورد بالعربية",
+   "translatable": 1
+  },
+  {
+   "fieldname": "supplier_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Supplier Type - نوع المورد",
+   "options": "OEM Original\nOEM Authorized\nAftermarket Distributor\nLocal Distributor\nRetail Supplier\nManufacturer\nImporter\nWholesaler",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "supplier_category",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Supplier Category - فئة المورد",
+   "options": "Automotive Parts\nOils & Lubricants\nTires & Wheels\nBatteries\nFilters\nElectrical Components\nBody Parts\nEngine Components\nTransmission Parts\nBrake System\nGeneral Supplies"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "Country - البلد",
+   "default": "Oman"
+  },
+  {
+   "fieldname": "tax_id",
+   "fieldtype": "Data",
+   "label": "Tax ID - الرقم الضريبي"
+  },
+  {
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Active - نشط",
+   "default": 1
+  },
+  {
+   "fieldname": "contact_information_section",
+   "fieldtype": "Section Break",
+   "label": "Contact Information - معلومات الاتصال"
+  },
+  {
+   "fieldname": "primary_contact_person",
+   "fieldtype": "Data",
+   "label": "Primary Contact Person - شخص الاتصال الأساسي"
+  },
+  {
+   "fieldname": "primary_contact_person_ar",
+   "fieldtype": "Data",
+   "label": "شخص الاتصال الأساسي بالعربية",
+   "translatable": 1
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email - البريد الإلكتروني",
+   "options": "Email"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone - الهاتف",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "secondary_contact",
+   "fieldtype": "Data",
+   "label": "Secondary Contact - جهة الاتصال الثانوية",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "fax",
+   "fieldtype": "Data",
+   "label": "Fax - الفاكس"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website - الموقع الإلكتروني",
+   "options": "URL"
+  },
+  {
+   "fieldname": "address_details_section",
+   "fieldtype": "Section Break",
+   "label": "Address Details - تفاصيل العنوان"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Address (English) - العنوان"
+  },
+  {
+   "fieldname": "address_ar",
+   "fieldtype": "Small Text",
+   "label": "العنوان بالعربية",
+   "translatable": 1
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City - المدينة"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State/Province - الولاية/المحافظة"
+  },
+  {
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "postal_code",
+   "fieldtype": "Data",
+   "label": "Postal Code - الرمز البريدي"
+  },
+  {
+   "fieldname": "country_code",
+   "fieldtype": "Data",
+   "label": "Country Code - رمز البلد"
+  },
+  {
+   "fieldname": "address_type",
+   "fieldtype": "Select",
+   "label": "Address Type - نوع العنوان",
+   "options": "Head Office\nBranch Office\nWarehouse\nFactory\nService Center"
+  },
+  {
+   "fieldname": "business_registration_section",
+   "fieldtype": "Section Break",
+   "label": "Business Registration - تسجيل الأعمال"
+  },
+  {
+   "fieldname": "commercial_registration",
+   "fieldtype": "Data",
+   "label": "Commercial Registration - السجل التجاري"
+  },
+  {
+   "fieldname": "vat_registration_number",
+   "fieldtype": "Data",
+   "label": "VAT Registration Number - رقم تسجيل ضريبة القيمة المضافة"
+  },
+  {
+   "fieldname": "trade_license",
+   "fieldtype": "Data",
+   "label": "Trade License - الرخصة التجارية"
+  },
+  {
+   "fieldname": "establishment_date",
+   "fieldtype": "Date",
+   "label": "Establishment Date - تاريخ التأسيس"
+  },
+  {
+   "fieldname": "column_break_29",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "business_classification",
+   "fieldtype": "Select",
+   "label": "Business Classification - تصنيف الأعمال",
+   "options": "Large Enterprise\nMedium Enterprise\nSmall Business\nMicro Business\nStartup\nGovernment Entity"
+  },
+  {
+   "fieldname": "legal_entity_type",
+   "fieldtype": "Select",
+   "label": "Legal Entity Type - نوع الكيان القانوني",
+   "options": "Limited Liability Company\nJoint Stock Company\nSole Proprietorship\nPartnership\nBranch Office\nRepresentative Office"
+  },
+  {
+   "fieldname": "authorized_signatory",
+   "fieldtype": "Data",
+   "label": "Authorized Signatory - المفوض بالتوقيع"
+  },
+  {
+   "fieldname": "banking_information_section",
+   "fieldtype": "Section Break",
+   "label": "Banking Information - المعلومات المصرفية"
+  },
+  {
+   "fieldname": "bank_name",
+   "fieldtype": "Data",
+   "label": "Bank Name - اسم البنك"
+  },
+  {
+   "fieldname": "bank_account_number",
+   "fieldtype": "Data",
+   "label": "Bank Account Number - رقم الحساب المصرفي"
+  },
+  {
+   "fieldname": "iban",
+   "fieldtype": "Data",
+   "label": "IBAN - رقم الحساب المصرفي الدولي"
+  },
+  {
+   "fieldname": "swift_code",
+   "fieldtype": "Data",
+   "label": "SWIFT Code - رمز SWIFT"
+  },
+  {
+   "fieldname": "column_break_37",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency - العملة",
+   "options": "Currency",
+   "default": "OMR"
+  },
+  {
+   "fieldname": "payment_terms",
+   "fieldtype": "Select",
+   "label": "Payment Terms - شروط الدفع",
+   "options": "Cash on Delivery\nAdvance Payment\nNet 15\nNet 30\nNet 60\nLetter of Credit\nBank Guarantee"
+  },
+  {
+   "fieldname": "credit_limit",
+   "fieldtype": "Currency",
+   "label": "Credit Limit (OMR) - حد الائتمان",
+   "options": "currency",
+   "precision": 3
+  },
+  {
+   "fieldname": "parts_categories_section",
+   "fieldtype": "Section Break",
+   "label": "Parts Categories & Specialization - فئات القطع والتخصص"
+  },
+  {
+   "fieldname": "primary_parts_category",
+   "fieldtype": "Select",
+   "label": "Primary Parts Category - فئة القطع الأساسية",
+   "options": "Engine Parts\nTransmission Parts\nBrake System\nSuspension\nElectrical Components\nAir Conditioning\nExhaust System\nFuel System\nCooling System\nBody Parts"
+  },
+  {
+   "fieldname": "parts_categories",
+   "fieldtype": "Table",
+   "label": "Parts Categories - فئات القطع",
+   "options": "Supplier Parts Category Detail"
+  },
+  {
+   "fieldname": "oem_partnerships",
+   "fieldtype": "Table",
+   "label": "OEM Partnerships - شراكات الشركات الأصلية",
+   "options": "Supplier OEM Partnership"
+  },
+  {
+   "fieldname": "column_break_43",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "brand_authorizations",
+   "fieldtype": "Table",
+   "label": "Brand Authorizations - تخويلات العلامات التجارية",
+   "options": "Supplier Brand Authorization"
+  },
+  {
+   "fieldname": "specialty_areas",
+   "fieldtype": "Table",
+   "label": "Specialty Areas - مجالات التخصص",
+   "options": "Supplier Specialty Area"
+  },
+  {
+   "fieldname": "service_capabilities",
+   "fieldtype": "Table",
+   "label": "Service Capabilities - قدرات الخدمة",
+   "options": "Supplier Service Capability"
+  },
+  {
+   "fieldname": "performance_metrics_section",
+   "fieldtype": "Section Break",
+   "label": "Performance Metrics - مقاييس الأداء"
+  },
+  {
+   "fieldname": "quality_rating",
+   "fieldtype": "Rating",
+   "label": "Quality Rating - تقييم الجودة"
+  },
+  {
+   "fieldname": "delivery_performance",
+   "fieldtype": "Percent",
+   "label": "Delivery Performance - أداء التسليم",
+   "precision": 2
+  },
+  {
+   "fieldname": "price_competitiveness",
+   "fieldtype": "Rating",
+   "label": "Price Competitiveness - التنافسية السعرية"
+  },
+  {
+   "fieldname": "communication_responsiveness",
+   "fieldtype": "Rating",
+   "label": "Communication Responsiveness - سرعة الاستجابة"
+  },
+  {
+   "fieldname": "column_break_50",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_orders_placed",
+   "fieldtype": "Int",
+   "label": "Total Orders Placed - إجمالي الطلبات المطلوبة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_order_value",
+   "fieldtype": "Currency",
+   "label": "Total Order Value (OMR) - إجمالي قيمة الطلبات",
+   "options": "currency",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_order_size",
+   "fieldtype": "Currency",
+   "label": "Average Order Size (OMR) - متوسط حجم الطلب",
+   "options": "currency",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_order_date",
+   "fieldtype": "Date",
+   "label": "Last Order Date - تاريخ آخر طلب",
+   "read_only": 1
+  },
+  {
+   "fieldname": "certification_compliance_section",
+   "fieldtype": "Section Break",
+   "label": "Certification & Compliance - الشهادات والامتثال"
+  },
+  {
+   "fieldname": "iso_certifications",
+   "fieldtype": "Table",
+   "label": "ISO Certifications - شهادات ISO",
+   "options": "Supplier ISO Certification"
+  },
+  {
+   "fieldname": "quality_certifications",
+   "fieldtype": "Table",
+   "label": "Quality Certifications - شهادات الجودة",
+   "options": "Supplier Quality Certification"
+  },
+  {
+   "fieldname": "halal_certification",
+   "fieldtype": "Check",
+   "label": "Halal Certification - شهادة الحلال"
+  },
+  {
+   "fieldname": "column_break_58",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "environmental_compliance",
+   "fieldtype": "Table",
+   "label": "Environmental Compliance - الامتثال البيئي",
+   "options": "Supplier Environmental Compliance"
+  },
+  {
+   "fieldname": "safety_certifications",
+   "fieldtype": "Table",
+   "label": "Safety Certifications - شهادات السلامة",
+   "options": "Supplier Safety Certification"
+  },
+  {
+   "fieldname": "industry_memberships",
+   "fieldtype": "Table",
+   "label": "Industry Memberships - العضويات الصناعية",
+   "options": "Supplier Industry Membership"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "arabic_cultural_context_section",
+   "fieldtype": "Section Break",
+   "label": "Arabic Cultural Context - السياق الثقافي العربي"
+  },
+  {
+   "fieldname": "arabic_business_terminology",
+   "fieldtype": "Text",
+   "label": "Arabic Business Terminology - المصطلحات التجارية العربية"
+  },
+  {
+   "fieldname": "traditional_supplier_patterns",
+   "fieldtype": "Text",
+   "label": "Traditional Supplier Patterns - أنماط الموردين التقليدية"
+  },
+  {
+   "fieldname": "omani_business_context",
+   "fieldtype": "Text",
+   "label": "Omani Business Context - السياق التجاري العماني"
+  },
+  {
+   "fieldname": "column_break_64",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cultural_communication_preferences",
+   "fieldtype": "Text",
+   "label": "Cultural Communication Preferences - تفضيلات التواصل الثقافي"
+  },
+  {
+   "fieldname": "arabic_contract_requirements",
+   "fieldtype": "Text",
+   "label": "Arabic Contract Requirements - متطلبات العقود العربية"
+  },
+  {
+   "fieldname": "traditional_business_relationships",
+   "fieldtype": "Text",
+   "label": "Traditional Business Relationships - العلاقات التجارية التقليدية"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "islamic_business_compliance_section",
+   "fieldtype": "Section Break",
+   "label": "Islamic Business Compliance - الامتثال للأعمال الإسلامية"
+  },
+  {
+   "fieldname": "islamic_finance_compliant",
+   "fieldtype": "Check",
+   "label": "Islamic Finance Compliant - متوافق مع التمويل الإسلامي",
+   "default": 1
+  },
+  {
+   "fieldname": "riba_free_transactions",
+   "fieldtype": "Check",
+   "label": "Riba-Free Transactions - معاملات خالية من الربا",
+   "default": 1
+  },
+  {
+   "fieldname": "halal_supply_chain",
+   "fieldtype": "Check",
+   "label": "Halal Supply Chain - سلسلة التوريد الحلال"
+  },
+  {
+   "fieldname": "ethical_business_practices",
+   "fieldtype": "Check",
+   "label": "Ethical Business Practices - ممارسات الأعمال الأخلاقية",
+   "default": 1
+  },
+  {
+   "fieldname": "column_break_71",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "islamic_contract_validation",
+   "fieldtype": "Check",
+   "label": "Islamic Contract Validation - التحقق من العقود الإسلامية"
+  },
+  {
+   "fieldname": "sharia_compliance_verified",
+   "fieldtype": "Check",
+   "label": "Sharia Compliance Verified - تم التحقق من الامتثال الشرعي"
+  },
+  {
+   "fieldname": "community_contribution",
+   "fieldtype": "Float",
+   "label": "Community Contribution Score - درجة المساهمة المجتمعية",
+   "precision": 2
+  },
+  {
+   "fieldname": "risk_assessment_section",
+   "fieldtype": "Section Break",
+   "label": "Risk Assessment - تقييم المخاطر"
+  },
+  {
+   "fieldname": "financial_risk_score",
+   "fieldtype": "Float",
+   "label": "Financial Risk Score - درجة المخاطر المالية",
+   "precision": 2
+  },
+  {
+   "fieldname": "operational_risk_score",
+   "fieldtype": "Float",
+   "label": "Operational Risk Score - درجة المخاطر التشغيلية",
+   "precision": 2
+  },
+  {
+   "fieldname": "compliance_risk_score",
+   "fieldtype": "Float",
+   "label": "Compliance Risk Score - درجة مخاطر الامتثال",
+   "precision": 2
+  },
+  {
+   "fieldname": "overall_risk_rating",
+   "fieldtype": "Select",
+   "label": "Overall Risk Rating - التقييم العام للمخاطر",
+   "options": "Low Risk\nMedium Risk\nHigh Risk\nCritical Risk",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_78",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "risk_mitigation_measures",
+   "fieldtype": "Table",
+   "label": "Risk Mitigation Measures - تدابير تخفيف المخاطر",
+   "options": "Supplier Risk Mitigation"
+  },
+  {
+   "fieldname": "insurance_coverage",
+   "fieldtype": "Table",
+   "label": "Insurance Coverage - التغطية التأمينية",
+   "options": "Supplier Insurance Coverage"
+  },
+  {
+   "fieldname": "contingency_suppliers",
+   "fieldtype": "Table",
+   "label": "Contingency Suppliers - الموردون الاحتياطيون",
+   "options": "Contingency Supplier"
+  },
+  {
+   "fieldname": "contract_management_section",
+   "fieldtype": "Section Break",
+   "label": "Contract Management - إدارة العقود"
+  },
+  {
+   "fieldname": "current_contracts",
+   "fieldtype": "Table",
+   "label": "Current Contracts - العقود الحالية",
+   "options": "Supplier Contract"
+  },
+  {
+   "fieldname": "contract_renewals",
+   "fieldtype": "Table",
+   "label": "Contract Renewals - تجديدات العقود",
+   "options": "Supplier Contract Renewal"
+  },
+  {
+   "fieldname": "column_break_83",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pricing_agreements",
+   "fieldtype": "Table",
+   "label": "Pricing Agreements - اتفاقيات الأسعار",
+   "options": "Supplier Pricing Agreement"
+  },
+  {
+   "fieldname": "sla_agreements",
+   "fieldtype": "Table",
+   "label": "SLA Agreements - اتفاقيات مستوى الخدمة",
+   "options": "Supplier SLA Agreement"
+  },
+  {
+   "fieldname": "evaluation_history_section",
+   "fieldtype": "Section Break",
+   "label": "Evaluation History - تاريخ التقييم"
+  },
+  {
+   "fieldname": "supplier_evaluations",
+   "fieldtype": "Table",
+   "label": "Supplier Evaluations - تقييمات المورد",
+   "options": "Supplier Evaluation Record"
+  },
+  {
+   "fieldname": "column_break_87",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "performance_improvement_plans",
+   "fieldtype": "Table",
+   "label": "Performance Improvement Plans - خطط تحسين الأداء",
+   "options": "Supplier Performance Improvement"
+  },
+  {
+   "fieldname": "feedback_communications",
+   "fieldtype": "Table",
+   "label": "Feedback Communications - تواصل التعليقات",
+   "options": "Supplier Feedback Communication"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "integration_section",
+   "fieldtype": "Section Break",
+   "label": "Shared Library Integration - تكامل المكتبة المشتركة"
+  },
+  {
+   "default": "0",
+   "fieldname": "shared_library_supplier_enhanced",
+   "fieldtype": "Check",
+   "label": "Shared Library Supplier Enhanced - تم تعزيز المورد بالمكتبة المشتركة",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "arabic_business_logic_integrated",
+   "fieldtype": "Check",
+   "label": "Arabic Business Logic Integrated - تم دمج منطق الأعمال العربي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "traditional_patterns_applied",
+   "fieldtype": "Check",
+   "label": "Traditional Patterns Applied - تم تطبيق الأنماط التقليدية",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "islamic_compliance_verified",
+   "fieldtype": "Check",
+   "label": "Islamic Compliance Verified - تم التحقق من الامتثال الإسلامي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "omani_context_validated",
+   "fieldtype": "Check",
+   "label": "Omani Context Validated - تم التحقق من السياق العماني",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Notes & Metadata - الملاحظات والبيانات الوصفية"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks - ملاحظات"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By - أنشأ بواسطة",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_date",
+   "fieldtype": "Date",
+   "label": "Created Date - تاريخ الإنشاء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_updated_by",
+   "fieldtype": "Link",
+   "label": "Last Updated By - آخر تحديث بواسطة",
+   "options": "User",
+   "read_only": 1
+  }
+ ],
+ "has_web_view": 1,
+ "hide_toolbar": 0,
+ "idx": 0,
+ "in_create": 0,
+ "is_submittable": 0,
+ "issingle": 0,
+ "max_attachments": 10,
+ "modified": "2025-01-04 01:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Inventory Core",
+ "name": "Unified Supplier Management",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Purchase Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "write": 1,
+   "role": "Purchase User"
+  },
+  {
+   "read": 1,
+   "role": "Stock Manager"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "write": 1,
+   "role": "System Manager"
+  },
+  {
+   "read": 1,
+   "role": "Accounts User"
+  }
+ ],
+ "quick_entry": 1,
+ "route": "unified-supplier",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "supplier_name",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

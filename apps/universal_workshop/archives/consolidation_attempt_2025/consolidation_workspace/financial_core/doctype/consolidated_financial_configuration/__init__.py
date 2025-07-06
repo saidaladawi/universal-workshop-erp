@@ -1,0 +1,1 @@
+# Consolidated Financial Configuration DocType

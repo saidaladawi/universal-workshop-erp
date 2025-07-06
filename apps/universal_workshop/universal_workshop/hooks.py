@@ -5,6 +5,12 @@ app_description = "automotive workshop management"
 app_email = "al.a.dawi@hotmail.com"
 app_license = "mit"
 
+# Fixtures
+# ------------------
+fixtures = [
+    "fixtures/user_custom_fields.json"
+]
+
 # Apps
 # ------------------
 

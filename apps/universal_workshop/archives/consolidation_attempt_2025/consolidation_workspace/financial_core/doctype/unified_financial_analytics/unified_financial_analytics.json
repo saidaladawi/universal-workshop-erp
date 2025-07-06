@@ -1,0 +1,818 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:analytics_id",
+ "creation": "2025-01-04 00:15:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "analytics_basic_info_section",
+  "analytics_id",
+  "analytics_name",
+  "analytics_name_ar",
+  "analytics_type",
+  "column_break_4",
+  "period_type",
+  "start_date",
+  "end_date",
+  "is_real_time",
+  "financial_performance_section",
+  "total_revenue",
+  "total_revenue_ar",
+  "vat_collected",
+  "net_profit",
+  "column_break_13",
+  "gross_margin",
+  "profit_margin",
+  "revenue_growth_rate",
+  "customer_analytics_section",
+  "total_customers",
+  "new_customers_period",
+  "customer_lifetime_value_avg",
+  "customer_retention_rate",
+  "column_break_21",
+  "repeat_customer_rate",
+  "customer_satisfaction_avg",
+  "top_customers_revenue",
+  "payment_analytics_section",
+  "total_invoices_issued",
+  "invoices_paid_on_time",
+  "average_payment_days",
+  "outstanding_amount_total",
+  "column_break_29",
+  "payment_method_distribution",
+  "overdue_invoices_count",
+  "collection_efficiency_rate",
+  "omani_vat_analytics_section",
+  "vat_return_period",
+  "total_vat_liability",
+  "vat_on_sales",
+  "vat_on_purchases",
+  "column_break_37",
+  "net_vat_payable",
+  "quarterly_vat_filing_status",
+  "vat_compliance_score",
+  "service_analytics_section",
+  "total_service_orders",
+  "average_service_value",
+  "service_profitability",
+  "most_profitable_services",
+  "column_break_44",
+  "service_completion_rate",
+  "average_service_duration",
+  "service_satisfaction_score",
+  "arabic_business_intelligence_section",
+  "arabic_customer_segments",
+  "traditional_payment_patterns",
+  "omani_market_penetration",
+  "column_break_51",
+  "cultural_preference_analysis",
+  "arabic_communication_effectiveness",
+  "islamic_finance_adoption",
+  "predictive_analytics_section",
+  "revenue_forecast_next_quarter",
+  "customer_churn_prediction",
+  "cash_flow_projection",
+  "column_break_58",
+  "seasonal_trends_analysis",
+  "growth_opportunity_score",
+  "risk_assessment_score",
+  "comparative_analytics_section",
+  "previous_period_comparison",
+  "industry_benchmark_comparison",
+  "column_break_63",
+  "year_over_year_growth",
+  "quarterly_performance_trends",
+  "kpi_dashboard_section",
+  "key_performance_indicators",
+  "column_break_67",
+  "performance_alerts",
+  "dashboard_visualization",
+  "cultural_analytics_section",
+  "arabic_interface_usage",
+  "bilingual_transaction_ratio",
+  "traditional_business_metrics",
+  "column_break_72",
+  "islamic_compliance_metrics",
+  "omani_cultural_adoption",
+  "arabic_customer_satisfaction",
+  "integration_section",
+  "shared_library_analytics_enhanced",
+  "arabic_business_logic_integrated",
+  "traditional_patterns_applied",
+  "islamic_compliance_verified",
+  "omani_context_validated",
+  "notes_metadata_section",
+  "analytics_notes",
+  "created_by",
+  "created_date",
+  "last_updated_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "analytics_basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Analytics Basic Information - المعلومات الأساسية للتحليلات"
+  },
+  {
+   "fieldname": "analytics_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Analytics ID - معرف التحليلات",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "analytics_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Analytics Name - اسم التحليلات",
+   "reqd": 1
+  },
+  {
+   "fieldname": "analytics_name_ar",
+   "fieldtype": "Data",
+   "label": "اسم التحليلات بالعربية",
+   "translatable": 1
+  },
+  {
+   "fieldname": "analytics_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Analytics Type - نوع التحليلات",
+   "options": "Financial Performance\nCustomer Analytics\nPayment Analytics\nVAT Compliance\nService Analytics\nPredictive Analytics\nComparative Analytics",
+   "reqd": 1,
+   "default": "Financial Performance"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "period_type",
+   "fieldtype": "Select",
+   "label": "Period Type - نوع الفترة",
+   "options": "Daily\nWeekly\nMonthly\nQuarterly\nYearly\nCustom Range",
+   "reqd": 1,
+   "default": "Monthly"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date - تاريخ البداية",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date - تاريخ النهاية",
+   "reqd": 1
+  },
+  {
+   "fieldname": "is_real_time",
+   "fieldtype": "Check",
+   "label": "Is Real-Time - في الوقت الفعلي",
+   "default": 1
+  },
+  {
+   "fieldname": "financial_performance_section",
+   "fieldtype": "Section Break",
+   "label": "Financial Performance - الأداء المالي"
+  },
+  {
+   "fieldname": "total_revenue",
+   "fieldtype": "Currency",
+   "label": "Total Revenue (OMR) - إجمالي الإيرادات",
+   "options": "OMR",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_revenue_ar",
+   "fieldtype": "Data",
+   "label": "Total Revenue (Arabic) - إجمالي الإيرادات بالعربية",
+   "read_only": 1
+  },
+  {
+   "fieldname": "vat_collected",
+   "fieldtype": "Currency",
+   "label": "VAT Collected (OMR) - ضريبة القيمة المضافة المحصلة",
+   "options": "OMR",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "net_profit",
+   "fieldtype": "Currency",
+   "label": "Net Profit (OMR) - صافي الربح",
+   "options": "OMR",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gross_margin",
+   "fieldtype": "Percent",
+   "label": "Gross Margin - الهامش الإجمالي",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "profit_margin",
+   "fieldtype": "Percent",
+   "label": "Profit Margin - هامش الربح",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "revenue_growth_rate",
+   "fieldtype": "Percent",
+   "label": "Revenue Growth Rate - معدل نمو الإيرادات",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_analytics_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Analytics - تحليلات العملاء"
+  },
+  {
+   "fieldname": "total_customers",
+   "fieldtype": "Int",
+   "label": "Total Customers - إجمالي العملاء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "new_customers_period",
+   "fieldtype": "Int",
+   "label": "New Customers (Period) - عملاء جدد (الفترة)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_lifetime_value_avg",
+   "fieldtype": "Currency",
+   "label": "Average CLV (OMR) - متوسط قيمة العميل مدى الحياة",
+   "options": "OMR",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_retention_rate",
+   "fieldtype": "Percent",
+   "label": "Customer Retention Rate - معدل الاحتفاظ بالعملاء",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "repeat_customer_rate",
+   "fieldtype": "Percent",
+   "label": "Repeat Customer Rate - معدل العملاء المتكررين",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_satisfaction_avg",
+   "fieldtype": "Float",
+   "label": "Average Customer Satisfaction - متوسط رضا العملاء",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "top_customers_revenue",
+   "fieldtype": "Table",
+   "label": "Top Customers by Revenue - أفضل العملاء حسب الإيراد",
+   "options": "Top Customer Revenue",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_analytics_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Analytics - تحليلات الدفع"
+  },
+  {
+   "fieldname": "total_invoices_issued",
+   "fieldtype": "Int",
+   "label": "Total Invoices Issued - إجمالي الفواتير الصادرة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "invoices_paid_on_time",
+   "fieldtype": "Int",
+   "label": "Invoices Paid on Time - الفواتير المدفوعة في الوقت المحدد",
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_payment_days",
+   "fieldtype": "Float",
+   "label": "Average Payment Days - متوسط أيام الدفع",
+   "precision": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "outstanding_amount_total",
+   "fieldtype": "Currency",
+   "label": "Total Outstanding (OMR) - إجمالي المبالغ المستحقة",
+   "options": "OMR",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_29",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payment_method_distribution",
+   "fieldtype": "Table",
+   "label": "Payment Method Distribution - توزيع طرق الدفع",
+   "options": "Payment Method Distribution",
+   "read_only": 1
+  },
+  {
+   "fieldname": "overdue_invoices_count",
+   "fieldtype": "Int",
+   "label": "Overdue Invoices Count - عدد الفواتير المتأخرة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "collection_efficiency_rate",
+   "fieldtype": "Percent",
+   "label": "Collection Efficiency Rate - معدل كفاءة التحصيل",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "omani_vat_analytics_section",
+   "fieldtype": "Section Break",
+   "label": "Omani VAT Analytics - تحليلات ضريبة القيمة المضافة العمانية"
+  },
+  {
+   "fieldname": "vat_return_period",
+   "fieldtype": "Select",
+   "label": "VAT Return Period - فترة إقرار ضريبة القيمة المضافة",
+   "options": "Q1 (Jan-Mar)\nQ2 (Apr-Jun)\nQ3 (Jul-Sep)\nQ4 (Oct-Dec)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_vat_liability",
+   "fieldtype": "Currency",
+   "label": "Total VAT Liability (OMR) - إجمالي التزام ضريبة القيمة المضافة",
+   "options": "OMR",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "vat_on_sales",
+   "fieldtype": "Currency",
+   "label": "VAT on Sales (OMR) - ضريبة القيمة المضافة على المبيعات",
+   "options": "OMR",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "vat_on_purchases",
+   "fieldtype": "Currency",
+   "label": "VAT on Purchases (OMR) - ضريبة القيمة المضافة على المشتريات",
+   "options": "OMR",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_37",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "net_vat_payable",
+   "fieldtype": "Currency",
+   "label": "Net VAT Payable (OMR) - صافي ضريبة القيمة المضافة المستحقة",
+   "options": "OMR",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "quarterly_vat_filing_status",
+   "fieldtype": "Select",
+   "label": "Quarterly VAT Filing Status - حالة التقديم الفصلي لضريبة القيمة المضافة",
+   "options": "Not Started\nIn Progress\nCompleted\nOverdue",
+   "read_only": 1
+  },
+  {
+   "fieldname": "vat_compliance_score",
+   "fieldtype": "Percent",
+   "label": "VAT Compliance Score - درجة الامتثال لضريبة القيمة المضافة",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "service_analytics_section",
+   "fieldtype": "Section Break",
+   "label": "Service Analytics - تحليلات الخدمة"
+  },
+  {
+   "fieldname": "total_service_orders",
+   "fieldtype": "Int",
+   "label": "Total Service Orders - إجمالي أوامر الخدمة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_service_value",
+   "fieldtype": "Currency",
+   "label": "Average Service Value (OMR) - متوسط قيمة الخدمة",
+   "options": "OMR",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "service_profitability",
+   "fieldtype": "Percent",
+   "label": "Service Profitability - ربحية الخدمة",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "most_profitable_services",
+   "fieldtype": "Table",
+   "label": "Most Profitable Services - الخدمات الأكثر ربحية",
+   "options": "Profitable Service",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_44",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "service_completion_rate",
+   "fieldtype": "Percent",
+   "label": "Service Completion Rate - معدل إنجاز الخدمة",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_service_duration",
+   "fieldtype": "Float",
+   "label": "Average Service Duration (Hours) - متوسط مدة الخدمة بالساعات",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "service_satisfaction_score",
+   "fieldtype": "Float",
+   "label": "Service Satisfaction Score - درجة رضا الخدمة",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "arabic_business_intelligence_section",
+   "fieldtype": "Section Break",
+   "label": "Arabic Business Intelligence - ذكاء الأعمال العربي"
+  },
+  {
+   "fieldname": "arabic_customer_segments",
+   "fieldtype": "Table",
+   "label": "Arabic Customer Segments - شرائح العملاء العربية",
+   "options": "Arabic Customer Segment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "traditional_payment_patterns",
+   "fieldtype": "Table",
+   "label": "Traditional Payment Patterns - أنماط الدفع التقليدية",
+   "options": "Traditional Payment Pattern",
+   "read_only": 1
+  },
+  {
+   "fieldname": "omani_market_penetration",
+   "fieldtype": "Percent",
+   "label": "Omani Market Penetration - اختراق السوق العماني",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_51",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cultural_preference_analysis",
+   "fieldtype": "Table",
+   "label": "Cultural Preference Analysis - تحليل التفضيلات الثقافية",
+   "options": "Cultural Preference Analysis",
+   "read_only": 1
+  },
+  {
+   "fieldname": "arabic_communication_effectiveness",
+   "fieldtype": "Percent",
+   "label": "Arabic Communication Effectiveness - فعالية التواصل العربي",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "islamic_finance_adoption",
+   "fieldtype": "Percent",
+   "label": "Islamic Finance Adoption - اعتماد التمويل الإسلامي",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "predictive_analytics_section",
+   "fieldtype": "Section Break",
+   "label": "Predictive Analytics - التحليلات التنبؤية"
+  },
+  {
+   "fieldname": "revenue_forecast_next_quarter",
+   "fieldtype": "Currency",
+   "label": "Revenue Forecast Next Quarter (OMR) - توقع الإيرادات للربع القادم",
+   "options": "OMR",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_churn_prediction",
+   "fieldtype": "Percent",
+   "label": "Customer Churn Prediction - توقع فقدان العملاء",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "cash_flow_projection",
+   "fieldtype": "Currency",
+   "label": "Cash Flow Projection (OMR) - توقع التدفق النقدي",
+   "options": "OMR",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_58",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "seasonal_trends_analysis",
+   "fieldtype": "Table",
+   "label": "Seasonal Trends Analysis - تحليل الاتجاهات الموسمية",
+   "options": "Seasonal Trend Analysis",
+   "read_only": 1
+  },
+  {
+   "fieldname": "growth_opportunity_score",
+   "fieldtype": "Float",
+   "label": "Growth Opportunity Score - درجة فرصة النمو",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "risk_assessment_score",
+   "fieldtype": "Float",
+   "label": "Risk Assessment Score - درجة تقييم المخاطر",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "comparative_analytics_section",
+   "fieldtype": "Section Break",
+   "label": "Comparative Analytics - التحليلات المقارنة"
+  },
+  {
+   "fieldname": "previous_period_comparison",
+   "fieldtype": "Table",
+   "label": "Previous Period Comparison - مقارنة الفترة السابقة",
+   "options": "Previous Period Comparison",
+   "read_only": 1
+  },
+  {
+   "fieldname": "industry_benchmark_comparison",
+   "fieldtype": "Table",
+   "label": "Industry Benchmark Comparison - مقارنة معايير الصناعة",
+   "options": "Industry Benchmark Comparison",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_63",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "year_over_year_growth",
+   "fieldtype": "Percent",
+   "label": "Year-over-Year Growth - النمو من سنة لأخرى",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "quarterly_performance_trends",
+   "fieldtype": "Table",
+   "label": "Quarterly Performance Trends - اتجاهات الأداء الفصلية",
+   "options": "Quarterly Performance Trend",
+   "read_only": 1
+  },
+  {
+   "fieldname": "kpi_dashboard_section",
+   "fieldtype": "Section Break",
+   "label": "KPI Dashboard - لوحة مؤشرات الأداء الرئيسية"
+  },
+  {
+   "fieldname": "key_performance_indicators",
+   "fieldtype": "Table",
+   "label": "Key Performance Indicators - مؤشرات الأداء الرئيسية",
+   "options": "Key Performance Indicator",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_67",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "performance_alerts",
+   "fieldtype": "Table",
+   "label": "Performance Alerts - تنبيهات الأداء",
+   "options": "Performance Alert",
+   "read_only": 1
+  },
+  {
+   "fieldname": "dashboard_visualization",
+   "fieldtype": "Table",
+   "label": "Dashboard Visualization - تصور لوحة القيادة",
+   "options": "Dashboard Visualization",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "cultural_analytics_section",
+   "fieldtype": "Section Break",
+   "label": "Cultural Analytics - التحليلات الثقافية"
+  },
+  {
+   "fieldname": "arabic_interface_usage",
+   "fieldtype": "Percent",
+   "label": "Arabic Interface Usage - استخدام الواجهة العربية",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "bilingual_transaction_ratio",
+   "fieldtype": "Percent",
+   "label": "Bilingual Transaction Ratio - نسبة المعاملات ثنائية اللغة",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "traditional_business_metrics",
+   "fieldtype": "Table",
+   "label": "Traditional Business Metrics - مقاييس الأعمال التقليدية",
+   "options": "Traditional Business Metric",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_72",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "islamic_compliance_metrics",
+   "fieldtype": "Table",
+   "label": "Islamic Compliance Metrics - مقاييس الامتثال الإسلامي",
+   "options": "Islamic Compliance Metric",
+   "read_only": 1
+  },
+  {
+   "fieldname": "omani_cultural_adoption",
+   "fieldtype": "Percent",
+   "label": "Omani Cultural Adoption - اعتماد الثقافة العمانية",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "arabic_customer_satisfaction",
+   "fieldtype": "Float",
+   "label": "Arabic Customer Satisfaction - رضا العملاء العرب",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "integration_section",
+   "fieldtype": "Section Break",
+   "label": "Shared Library Integration - تكامل المكتبة المشتركة"
+  },
+  {
+   "default": "0",
+   "fieldname": "shared_library_analytics_enhanced",
+   "fieldtype": "Check",
+   "label": "Shared Library Analytics Enhanced - تم تعزيز التحليلات بالمكتبة المشتركة",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "arabic_business_logic_integrated",
+   "fieldtype": "Check",
+   "label": "Arabic Business Logic Integrated - تم دمج منطق الأعمال العربي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "traditional_patterns_applied",
+   "fieldtype": "Check",
+   "label": "Traditional Patterns Applied - تم تطبيق الأنماط التقليدية",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "islamic_compliance_verified",
+   "fieldtype": "Check",
+   "label": "Islamic Compliance Verified - تم التحقق من الامتثال الإسلامي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "omani_context_validated",
+   "fieldtype": "Check",
+   "label": "Omani Context Validated - تم التحقق من السياق العماني",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Notes & Metadata - الملاحظات والبيانات الوصفية"
+  },
+  {
+   "fieldname": "analytics_notes",
+   "fieldtype": "Text",
+   "label": "Analytics Notes - ملاحظات التحليلات"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By - أنشأ بواسطة",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_date",
+   "fieldtype": "Date",
+   "label": "Created Date - تاريخ الإنشاء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_updated_by",
+   "fieldtype": "Link",
+   "label": "Last Updated By - آخر تحديث بواسطة",
+   "options": "User",
+   "read_only": 1
+  }
+ ],
+ "has_web_view": 1,
+ "hide_toolbar": 0,
+ "idx": 0,
+ "in_create": 0,
+ "is_submittable": 0,
+ "issingle": 0,
+ "max_attachments": 5,
+ "modified": "2025-01-04 00:15:00.000000",
+ "modified_by": "Administrator",
+ "module": "Financial Core",
+ "name": "Unified Financial Analytics",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Accounts User"
+  },
+  {
+   "read": 1,
+   "role": "Workshop Manager"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "write": 1,
+   "role": "System Manager"
+  }
+ ],
+ "quick_entry": 0,
+ "route": "financial-analytics",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "analytics_name",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

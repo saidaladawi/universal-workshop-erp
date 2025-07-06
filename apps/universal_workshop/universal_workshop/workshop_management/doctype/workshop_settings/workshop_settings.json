@@ -47,7 +47,10 @@
         "auto_cleanup_days",
         "column_break_32",
         "enable_api_access",
-        "api_key"
+        "api_key",
+        "frontend_settings_section",
+        "enable_frontend_v2",
+        "frontend_v2_default"
     ],
     "fields": [
         {
@@ -281,6 +284,26 @@
             "fieldtype": "Data",
             "label": "API Key",
             "read_only": 1
+        },
+        {
+            "fieldname": "frontend_settings_section",
+            "fieldtype": "Section Break",
+            "label": "Frontend Settings"
+        },
+        {
+            "fieldname": "enable_frontend_v2",
+            "fieldtype": "Check",
+            "label": "Enable Frontend V2",
+            "default": 1,
+            "description": "Enable the modern Vue.js frontend interface"
+        },
+        {
+            "fieldname": "frontend_v2_default",
+            "fieldtype": "Check",
+            "label": "Set Frontend V2 as Default",
+            "default": 0,
+            "description": "Make Frontend V2 the default interface for new users",
+            "depends_on": "enable_frontend_v2"
         }
     ],
     "index_web_pages_for_search": 1,

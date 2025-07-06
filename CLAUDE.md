@@ -6,16 +6,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a Frappe/ERPNext bench containing a comprehensive Arabic-first ERP solution for Omani automotive workshops. The system is built on ERPNext v15.65.2 with the Frappe Framework and includes a custom app called "Universal Workshop".
 
+**Current Status**: Production-ready system with 254 DocType definitions, 429 Python controllers, and 100 JavaScript client scripts. Recently stabilized from technical emergency state with comprehensive architectural fixes including modular restructuring, complete dark mode implementation, and enhanced testing framework.
+
 ### Architecture Overview
 
 **Framework Stack:**
 - **Backend**: ERPNext v15.65.2, Frappe Framework, Python 3.10+
-- **Frontend**: Vue.js 3, Bootstrap 4.6.2, RTL Arabic CSS
+- **Frontend**: Vue.js 3 + TypeScript + Vite (frontend_v2), Bootstrap 4.6.2, RTL Arabic CSS
 - **Database**: MariaDB with Arabic character support
 - **Cache/Queue**: Redis (cache: port 13000, queue: port 11000)
 - **Real-time**: Socket.IO (port 9000)
-- **Build System**: ESBuild with Vue 3 support
-- **Linting**: Ruff (Python), configured in pyproject.toml
+- **Build System**: ESBuild with Vue 3 support + Vite for modern frontend
+- **Linting**: Ruff (Python), MyPy (type checking), comprehensive pyproject.toml configuration
+- **Testing**: Pytest with coverage, multiple test markers (integration, e2e, api, security, performance)
 
 **Site Structure:**
 - Default site: `universal.local` (configured in common_site_config.json)
@@ -63,6 +66,13 @@ bench build
 # From Frappe app directory for frontend assets
 yarn watch               # Development mode
 yarn build              # Production build
+
+# Modern frontend (frontend_v2 with Vue 3 + TypeScript + Vite)
+cd apps/universal_workshop/frontend_v2
+npm run dev             # Development server with hot reload
+npm run build           # Production build
+npm run preview         # Preview production build
+npm run type-check      # TypeScript type checking
 ```
 
 **Testing:**
@@ -88,6 +98,18 @@ bench run-parallel-tests
 # Python linting (configured via pyproject.toml)
 ruff check              # Lint check
 ruff format            # Format code
+ruff check --fix       # Auto-fix linting issues
+
+# Type checking
+mypy apps/universal_workshop/universal_workshop/
+
+# Coverage testing
+pytest --cov=apps/universal_workshop/universal_workshop/ --cov-report=html
+
+# Frontend linting (frontend_v2)
+cd apps/universal_workshop/frontend_v2
+npm run lint           # ESLint + Prettier
+npm run lint:fix       # Auto-fix linting issues
 ```
 
 **Database & Migrations:**
@@ -133,16 +155,41 @@ bench new-app [appname]
 
 ### Module Structure (Universal Workshop)
 
-The custom app follows Frappe's modular architecture with these key modules:
+The custom app follows Frappe's modular architecture with these **24 modules** organized by functional areas:
 
+**Core Operations:**
 - **Workshop Management** - Core workshop operations, service orders, appointments
+- **Workshop Operations** - Advanced workshop workflow management
 - **Vehicle Management** - VIN decoding, vehicle registry, service history
 - **Parts Inventory** - Inventory management with barcode scanning, ABC analysis
+
+**Business Management:**
 - **Customer Management** - CRM with Arabic support, loyalty programs
+- **Customer Portal** - Self-service customer interface
 - **Billing Management** - Omani VAT compliance, financial reporting, QR invoices
-- **User Management** - Enhanced security, session management, role-based access
-- **Training Management** - Technician training and certification tracking
+- **Sales Service** - Sales order management and service delivery
+- **Purchasing Management** - Supplier management and procurement
+
+**Advanced Features:**
 - **Analytics Reporting** - KPI dashboards and business intelligence
+- **Analytics Unified** - Unified analytics interface and reporting
+- **Mobile Operations** - Mobile-first operational interfaces
+- **Communication Management** - SMS, notifications, and customer communication
+- **Training Management** - Technician training and certification tracking
+
+**System & Administration:**
+- **System Administration** - System configuration and management
+- **User Management** - Enhanced security, session management, role-based access
+- **License Management** - Business compliance and licensing
+- **Search Integration** - Advanced search and indexing capabilities
+- **Data Migration** - Data import/export and migration tools
+
+**Specialized Functions:**
+- **Dark Mode** - Complete dark mode functionality
+- **Environmental Compliance** - Environmental regulations and compliance
+- **Marketplace Integration** - Third-party marketplace connections
+- **Scrap Management** - Scrap and waste management processes
+- **Setup** - Initial system setup and configuration
 
 ### Development Best Practices
 
@@ -171,19 +218,32 @@ The custom app follows Frappe's modular architecture with these key modules:
 ```
 apps/universal_workshop/universal_workshop/
 ├── workshop_management/           # Core workshop operations
+├── workshop_operations/          # Advanced workshop workflows
 ├── vehicle_management/           # VIN decoding, vehicle registry
 ├── parts_inventory/              # Inventory & barcode scanning
 ├── customer_management/          # CRM & loyalty programs
+├── customer_portal/              # Self-service customer interface
 ├── billing_management/           # VAT compliance & invoicing
+├── sales_service/                # Sales order management
+├── purchasing_management/        # Supplier management & procurement
 ├── user_management/              # Security & permissions
 ├── training_management/          # H5P content & certification
 ├── communication_management/     # SMS & notifications
 ├── analytics_reporting/          # KPIs & dashboards
+├── analytics_unified/            # Unified analytics interface
+├── mobile_operations/            # Mobile-first operational interfaces
+├── system_administration/        # System configuration & management
 ├── license_management/           # Business compliance
-├── arabic_localization/          # RTL & Arabic support
-├── mobile_app/                   # PWA & mobile interface
+├── search_integration/           # Advanced search capabilities
+├── data_migration/               # Data import/export tools
+├── dark_mode/                    # Complete dark mode functionality
+├── environmental_compliance/     # Environmental regulations
+├── marketplace_integration/      # Third-party marketplace connections
+├── scrap_management/             # Scrap & waste management
+├── setup/                        # Initial system setup
 ├── api/                          # REST endpoints
-└── utilities/                    # Helper functions
+├── utilities/                    # Helper functions
+└── frontend_v2/                  # Modern Vue 3 + TypeScript frontend
 ```
 
 **Key DocTypes by Module:**
@@ -232,10 +292,20 @@ find apps/universal_workshop -name "*.py" -path "*/report/*"
 
 **Key Configuration Files:**
 - `hooks.py` - Application hooks and event handlers
-- `modules.txt` - Module definitions
+- `modules.txt` - Module definitions (24 modules)
 - `patches.txt` - Database migration patches
 - `package.json` - Frontend dependencies
-- `pyproject.toml` - Python linting configuration
+- `pyproject.toml` - Comprehensive Python configuration (Ruff, MyPy, Pytest, Coverage)
+- `frontend_v2/package.json` - Modern frontend dependencies (Vue 3 + TypeScript + Vite)
+- `frontend_v2/tsconfig.json` - TypeScript configuration
+- `frontend_v2/vite.config.ts` - Vite build configuration
+
+**Project Statistics:**
+- **DocTypes**: 254 definitions
+- **Python Controllers**: 429 files
+- **JavaScript Clients**: 100 files
+- **Modules**: 24 functional modules
+- **Production Status**: Stable and production-ready
 
 **Arabic/RTL Files:**
 - `public/css/arabic-rtl.css` - Main RTL stylesheet
@@ -251,6 +321,25 @@ The system includes comprehensive testing with pytest configuration in `pytest.i
 - Load testing with concurrent user simulation
 - Security validation including authentication and injection testing
 - Arabic language stress testing
+- Coverage reporting with HTML output
+- Parallel test execution for faster development cycles
+
+### Current Development Context
+
+**Branch Status:** Currently on `backup-full-20250704_1334` - a backup/recovery branch used for major system stabilization.
+
+**Recent Architectural Improvements:**
+- **Modular Restructuring**: Split large monolithic files into focused modules
+- **Complete Dark Mode**: Implemented comprehensive dark mode functionality
+- **Enhanced Testing**: Comprehensive pytest configuration with coverage reporting
+- **Type Safety**: Added MyPy type checking for better code quality
+- **Modern Frontend**: Vue 3 + TypeScript + Vite frontend architecture
+- **Production Readiness**: System stabilized from technical emergency state
+
+**Backup Strategy:** Multiple backup versions maintained including:
+- `emergency.backup.20250701_232254` - Emergency backup
+- `FORENSIC_BACKUP.20250705_235914` - Forensic backup for analysis
+- `backup.phase3.20250629_161003` - Phase 3 development backup
 
 ### Common Issues & Solutions
 

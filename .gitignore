@@ -51,9 +51,8 @@ logs/
 *.db
 *.rdb
 
-# ERPNext and Universal Workshop apps (managed separately)
-apps/erpnext/
-apps/universal_workshop/
+# ERPNext and Universal Workshop apps (part of monorepo)
+# Note: Apps are tracked as part of the bench repository
 
 # Node.js
 node_modules/

@@ -1,0 +1,578 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:employee_id",
+ "creation": "2025-01-03 22:45:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_info_section",
+  "employee_id",
+  "technician_name",
+  "technician_name_ar",
+  "email",
+  "column_break_4",
+  "phone",
+  "nationality",
+  "national_id",
+  "hire_date",
+  "employment_details_section",
+  "department",
+  "specialization",
+  "shift_pattern",
+  "employment_status",
+  "column_break_12",
+  "hourly_rate",
+  "supervisor",
+  "capacity_hours_per_day",
+  "emergency_contact",
+  "availability_workload_section",
+  "is_available",
+  "current_workload_hours",
+  "max_concurrent_jobs",
+  "current_assignments",
+  "column_break_18",
+  "last_assignment_date",
+  "total_jobs_completed",
+  "average_job_time_hours",
+  "efficiency_trend",
+  "performance_metrics_section",
+  "performance_rating",
+  "customer_satisfaction_score",
+  "quality_rating",
+  "punctuality_rating",
+  "column_break_26",
+  "efficiency_rating",
+  "safety_compliance_score",
+  "team_collaboration_score",
+  "continuous_improvement_score",
+  "skills_certifications_section",
+  "skills",
+  "certifications",
+  "column_break_32",
+  "training_records",
+  "specialization_areas",
+  "arabic_cultural_context_section",
+  "arabic_communication_preference",
+  "traditional_work_patterns",
+  "islamic_work_principles",
+  "omani_cultural_integration",
+  "column_break_37",
+  "ramadan_schedule_preference",
+  "prayer_time_accommodation",
+  "cultural_sensitivity_training",
+  "arabic_technical_terminology",
+  "advanced_tracking_section",
+  "daily_productivity_log",
+  "quality_incidents",
+  "customer_feedback_log",
+  "column_break_43",
+  "training_progress",
+  "career_development_plan",
+  "performance_improvement_actions",
+  "integration_section",
+  "shared_library_profile_enhanced",
+  "arabic_business_logic_integrated",
+  "traditional_patterns_applied",
+  "islamic_compliance_verified",
+  "notes_metadata_section",
+  "notes",
+  "created_by",
+  "created_date",
+  "last_updated_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information - المعلومات الأساسية"
+  },
+  {
+   "fieldname": "employee_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee ID - رقم الموظف",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "technician_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Technician Name (English)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "technician_name_ar",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "اسم الفني بالعربية",
+   "reqd": 1,
+   "translatable": 1
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email - البريد الإلكتروني",
+   "options": "Email"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone (+968) - الهاتف",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "nationality",
+   "fieldtype": "Select",
+   "label": "Nationality - الجنسية",
+   "options": "Omani\nIndian\nPakistani\nBangladeshi\nFilipino\nEgyptian\nJordanian\nSyrian\nOther"
+  },
+  {
+   "fieldname": "national_id",
+   "fieldtype": "Data",
+   "label": "National ID - الرقم المدني"
+  },
+  {
+   "fieldname": "hire_date",
+   "fieldtype": "Date",
+   "label": "Hire Date - تاريخ التوظيف",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employment_details_section",
+   "fieldtype": "Section Break",
+   "label": "Employment Details - تفاصيل التوظيف"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Department - القسم",
+   "options": "Engine\nTransmission\nBrakes\nElectrical\nAir Conditioning\nBodywork\nPainting\nGeneral Service\nDiagnostics\nHybrid/Electric Vehicles",
+   "reqd": 1
+  },
+  {
+   "fieldname": "specialization",
+   "fieldtype": "Select",
+   "label": "Primary Specialization - التخصص الرئيسي",
+   "options": "Engine Specialist\nTransmission Expert\nBrake Specialist\nElectrical Technician\nAC Specialist\nBodywork Expert\nPaint Technician\nDiagnostic Specialist\nHybrid/EV Technician\nGeneral Mechanic"
+  },
+  {
+   "fieldname": "shift_pattern",
+   "fieldtype": "Select",
+   "label": "Shift Pattern - نمط المناوبة",
+   "options": "Morning (7AM-3PM)\nAfternoon (3PM-11PM)\nNight (11PM-7AM)\nFlexible\nRotating",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employment_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Employment Status - حالة التوظيف",
+   "options": "Active\nInactive\nOn Leave\nSick Leave\nAnnual Leave\nTerminated\nProbation",
+   "reqd": 1,
+   "default": "Active"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hourly_rate",
+   "fieldtype": "Currency",
+   "label": "Hourly Rate (OMR) - الأجر بالساعة",
+   "options": "OMR",
+   "precision": 3
+  },
+  {
+   "fieldname": "supervisor",
+   "fieldtype": "Link",
+   "label": "Direct Supervisor - المشرف المباشر",
+   "options": "User"
+  },
+  {
+   "fieldname": "capacity_hours_per_day",
+   "fieldtype": "Float",
+   "label": "Capacity Hours Per Day - ساعات الطاقة يومياً",
+   "default": 8.0,
+   "precision": 1
+  },
+  {
+   "fieldname": "emergency_contact",
+   "fieldtype": "Data",
+   "label": "Emergency Contact - جهة الاتصال الطارئ"
+  },
+  {
+   "fieldname": "availability_workload_section",
+   "fieldtype": "Section Break",
+   "label": "Availability & Workload - التوفر وحمل العمل"
+  },
+  {
+   "fieldname": "is_available",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Currently Available - متاح حالياً",
+   "default": 1
+  },
+  {
+   "fieldname": "current_workload_hours",
+   "fieldtype": "Float",
+   "label": "Current Workload (Hours) - حمل العمل الحالي بالساعات",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "max_concurrent_jobs",
+   "fieldtype": "Int",
+   "label": "Max Concurrent Jobs - أقصى عدد وظائف متزامنة",
+   "default": 3
+  },
+  {
+   "fieldname": "current_assignments",
+   "fieldtype": "Int",
+   "label": "Current Assignments - التكليفات الحالية",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_assignment_date",
+   "fieldtype": "Datetime",
+   "label": "Last Assignment Date - تاريخ آخر تكليف",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_jobs_completed",
+   "fieldtype": "Int",
+   "label": "Total Jobs Completed - إجمالي الوظائف المكتملة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_job_time_hours",
+   "fieldtype": "Float",
+   "label": "Average Job Time (Hours) - متوسط وقت العمل بالساعات",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "efficiency_trend",
+   "fieldtype": "Select",
+   "label": "Efficiency Trend - اتجاه الكفاءة",
+   "options": "Improving\nStable\nDeclining\nFluctuating",
+   "read_only": 1
+  },
+  {
+   "fieldname": "performance_metrics_section",
+   "fieldtype": "Section Break",
+   "label": "Performance Metrics - مؤشرات الأداء"
+  },
+  {
+   "fieldname": "performance_rating",
+   "fieldtype": "Rating",
+   "label": "Overall Performance Rating - تقييم الأداء العام"
+  },
+  {
+   "fieldname": "customer_satisfaction_score",
+   "fieldtype": "Float",
+   "label": "Customer Satisfaction Score - درجة رضا العملاء",
+   "precision": 2
+  },
+  {
+   "fieldname": "quality_rating",
+   "fieldtype": "Rating",
+   "label": "Quality Rating - تقييم الجودة"
+  },
+  {
+   "fieldname": "punctuality_rating",
+   "fieldtype": "Rating",
+   "label": "Punctuality Rating - تقييم الالتزام بالمواعيد"
+  },
+  {
+   "fieldname": "column_break_26",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "efficiency_rating",
+   "fieldtype": "Rating",
+   "label": "Efficiency Rating - تقييم الكفاءة"
+  },
+  {
+   "fieldname": "safety_compliance_score",
+   "fieldtype": "Float",
+   "label": "Safety Compliance Score - درجة الامتثال للسلامة",
+   "precision": 2
+  },
+  {
+   "fieldname": "team_collaboration_score",
+   "fieldtype": "Float",
+   "label": "Team Collaboration Score - درجة التعاون الجماعي",
+   "precision": 2
+  },
+  {
+   "fieldname": "continuous_improvement_score",
+   "fieldtype": "Float",
+   "label": "Continuous Improvement Score - درجة التحسين المستمر",
+   "precision": 2
+  },
+  {
+   "fieldname": "skills_certifications_section",
+   "fieldtype": "Section Break",
+   "label": "Skills & Certifications - المهارات والشهادات"
+  },
+  {
+   "fieldname": "skills",
+   "fieldtype": "Table",
+   "label": "Skills Matrix - مصفوفة المهارات",
+   "options": "Enhanced Technician Skills"
+  },
+  {
+   "fieldname": "certifications",
+   "fieldtype": "Table",
+   "label": "Certifications - الشهادات",
+   "options": "Technician Certification"
+  },
+  {
+   "fieldname": "column_break_32",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "training_records",
+   "fieldtype": "Table",
+   "label": "Training Records - سجلات التدريب",
+   "options": "Technician Training Record"
+  },
+  {
+   "fieldname": "specialization_areas",
+   "fieldtype": "Small Text",
+   "label": "Specialization Areas - مجالات التخصص"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "arabic_cultural_context_section",
+   "fieldtype": "Section Break",
+   "label": "Arabic Cultural Context - السياق الثقافي العربي"
+  },
+  {
+   "fieldname": "arabic_communication_preference",
+   "fieldtype": "Select",
+   "label": "Arabic Communication Preference - تفضيل التواصل العربي",
+   "options": "Arabic Primary\nBilingual\nEnglish Primary"
+  },
+  {
+   "fieldname": "traditional_work_patterns",
+   "fieldtype": "Text",
+   "label": "Traditional Work Patterns - أنماط العمل التقليدية"
+  },
+  {
+   "fieldname": "islamic_work_principles",
+   "fieldtype": "Text",
+   "label": "Islamic Work Principles - مبادئ العمل الإسلامية"
+  },
+  {
+   "fieldname": "omani_cultural_integration",
+   "fieldtype": "Text",
+   "label": "Omani Cultural Integration - التكامل الثقافي العماني"
+  },
+  {
+   "fieldname": "column_break_37",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ramadan_schedule_preference",
+   "fieldtype": "Select",
+   "label": "Ramadan Schedule Preference - تفضيل جدول رمضان",
+   "options": "Standard Hours\nReduced Hours\nFlexible Schedule\nNight Shift Preferred"
+  },
+  {
+   "fieldname": "prayer_time_accommodation",
+   "fieldtype": "Check",
+   "label": "Prayer Time Accommodation - تسهيل أوقات الصلاة",
+   "default": 1
+  },
+  {
+   "fieldname": "cultural_sensitivity_training",
+   "fieldtype": "Select",
+   "label": "Cultural Sensitivity Training - تدريب الحساسية الثقافية",
+   "options": "Completed\nIn Progress\nRequired\nNot Applicable"
+  },
+  {
+   "fieldname": "arabic_technical_terminology",
+   "fieldtype": "Select",
+   "label": "Arabic Technical Terminology - المصطلحات التقنية العربية",
+   "options": "Fluent\nIntermediate\nBasic\nLearning"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "advanced_tracking_section",
+   "fieldtype": "Section Break",
+   "label": "Advanced Tracking - التتبع المتقدم"
+  },
+  {
+   "fieldname": "daily_productivity_log",
+   "fieldtype": "Table",
+   "label": "Daily Productivity Log - سجل الإنتاجية اليومية",
+   "options": "Technician Daily Productivity"
+  },
+  {
+   "fieldname": "quality_incidents",
+   "fieldtype": "Table",
+   "label": "Quality Incidents - حوادث الجودة",
+   "options": "Technician Quality Incident"
+  },
+  {
+   "fieldname": "customer_feedback_log",
+   "fieldtype": "Table",
+   "label": "Customer Feedback Log - سجل تعليقات العملاء",
+   "options": "Technician Customer Feedback"
+  },
+  {
+   "fieldname": "column_break_43",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "training_progress",
+   "fieldtype": "Table",
+   "label": "Training Progress - تقدم التدريب",
+   "options": "Technician Training Progress"
+  },
+  {
+   "fieldname": "career_development_plan",
+   "fieldtype": "Text Editor",
+   "label": "Career Development Plan - خطة التطوير المهني"
+  },
+  {
+   "fieldname": "performance_improvement_actions",
+   "fieldtype": "Table",
+   "label": "Performance Improvement Actions - إجراءات تحسين الأداء",
+   "options": "Performance Improvement Action"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "integration_section",
+   "fieldtype": "Section Break",
+   "label": "Shared Library Integration - تكامل المكتبة المشتركة"
+  },
+  {
+   "default": "0",
+   "fieldname": "shared_library_profile_enhanced",
+   "fieldtype": "Check",
+   "label": "Shared Library Profile Enhanced - تم تعزيز الملف الشخصي بالمكتبة المشتركة",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "arabic_business_logic_integrated",
+   "fieldtype": "Check",
+   "label": "Arabic Business Logic Integrated - تم دمج منطق الأعمال العربي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "traditional_patterns_applied",
+   "fieldtype": "Check",
+   "label": "Traditional Patterns Applied - تم تطبيق الأنماط التقليدية",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "islamic_compliance_verified",
+   "fieldtype": "Check",
+   "label": "Islamic Compliance Verified - تم التحقق من الامتثال الإسلامي",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Notes & Metadata - الملاحظات والبيانات الوصفية"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes - ملاحظات"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By - أنشأ بواسطة",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_date",
+   "fieldtype": "Date",
+   "label": "Created Date - تاريخ الإنشاء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_updated_by",
+   "fieldtype": "Link",
+   "label": "Last Updated By - آخر تحديث بواسطة",
+   "options": "User",
+   "read_only": 1
+  }
+ ],
+ "has_web_view": 0,
+ "hide_toolbar": 0,
+ "idx": 0,
+ "in_create": 0,
+ "is_submittable": 0,
+ "issingle": 0,
+ "istable": 0,
+ "max_attachments": 5,
+ "modified": "2025-01-03 22:45:00.000000",
+ "modified_by": "Administrator",
+ "module": "Workshop Core",
+ "name": "Enhanced Technician Profile",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Workshop Technician"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "write": 1,
+   "role": "System Manager"
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "write": 1,
+   "role": "HR Manager"
+  }
+ ],
+ "quick_entry": 1,
+ "route": "enhanced-technician",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "technician_name",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

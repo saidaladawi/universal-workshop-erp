@@ -1,0 +1,206 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-06-15 10:30:00.123456",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "customer",
+  "vehicle",
+  "section_break_1",
+  "relationship_type",
+  "primary_vehicle",
+  "registration_date",
+  "section_break_2",
+  "vehicle_nickname",
+  "usage_type",
+  "annual_mileage",
+  "section_break_3",
+  "insurance_provider",
+  "insurance_policy_number",
+  "insurance_expiry",
+  "section_break_4",
+  "preferred_service_location",
+  "service_history_notes",
+  "special_instructions",
+  "section_break_5",
+  "is_active",
+  "created_date",
+  "last_service_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "CUST-VEH-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vehicle",
+   "options": "Vehicle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Relationship Details"
+  },
+  {
+   "fieldname": "relationship_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Relationship Type",
+   "options": "Owner\nAuthorized User\nFamily Member\nCompany Vehicle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "primary_vehicle",
+   "fieldtype": "Check",
+   "label": "Primary Vehicle"
+  },
+  {
+   "fieldname": "registration_date",
+   "fieldtype": "Date",
+   "label": "Registration Date"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Information"
+  },
+  {
+   "fieldname": "vehicle_nickname",
+   "fieldtype": "Data",
+   "label": "Vehicle Nickname"
+  },
+  {
+   "fieldname": "usage_type",
+   "fieldtype": "Select",
+   "label": "Usage Type",
+   "options": "Personal\nCommercial\nFamily\nRental"
+  },
+  {
+   "fieldname": "annual_mileage",
+   "fieldtype": "Int",
+   "label": "Annual Mileage (KM)"
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break",
+   "label": "Insurance Details"
+  },
+  {
+   "fieldname": "insurance_provider",
+   "fieldtype": "Data",
+   "label": "Insurance Provider"
+  },
+  {
+   "fieldname": "insurance_policy_number",
+   "fieldtype": "Data",
+   "label": "Insurance Policy Number"
+  },
+  {
+   "fieldname": "insurance_expiry",
+   "fieldtype": "Date",
+   "label": "Insurance Expiry Date"
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break",
+   "label": "Service Preferences"
+  },
+  {
+   "fieldname": "preferred_service_location",
+   "fieldtype": "Data",
+   "label": "Preferred Service Location"
+  },
+  {
+   "fieldname": "service_history_notes",
+   "fieldtype": "Text",
+   "label": "Service History Notes"
+  },
+  {
+   "fieldname": "special_instructions",
+   "fieldtype": "Text",
+   "label": "Special Instructions"
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break",
+   "label": "Status"
+  },
+  {
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active",
+   "default": 1
+  },
+  {
+   "fieldname": "created_date",
+   "fieldtype": "Date",
+   "label": "Created Date",
+   "default": "Today"
+  },
+  {
+   "fieldname": "last_service_date",
+   "fieldtype": "Date",
+   "label": "Last Service Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 0,
+ "links": [],
+ "modified": "2024-06-15 10:30:00.123456",
+ "modified_by": "Administrator",
+ "module": "Customer Management",
+ "name": "Customer Vehicle",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Customer Service Representative",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

@@ -1,1 +1,0 @@
-# DocTypes for Vehicle Management

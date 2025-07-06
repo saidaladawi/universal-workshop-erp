@@ -1,1 +1,0 @@
-"""Dashboard Widget DocType Module"""

@@ -1,0 +1,739 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:customer_id",
+ "creation": "2025-01-03 23:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer_basic_info_section",
+  "customer_id",
+  "customer_name",
+  "customer_name_ar",
+  "customer_type",
+  "column_break_4",
+  "email",
+  "phone",
+  "secondary_phone",
+  "civil_id",
+  "address_information_section",
+  "address",
+  "address_ar",
+  "city",
+  "governorate",
+  "column_break_12",
+  "postal_code",
+  "country",
+  "preferred_language",
+  "business_information_section",
+  "company_name",
+  "company_name_ar",
+  "commercial_registration",
+  "tax_id",
+  "column_break_20",
+  "business_type",
+  "credit_limit",
+  "payment_terms",
+  "customer_relationships_section",
+  "account_manager",
+  "loyalty_tier",
+  "customer_since",
+  "column_break_27",
+  "total_lifetime_value",
+  "last_service_date",
+  "next_service_due",
+  "communication_preferences_section",
+  "communication_method",
+  "marketing_consent",
+  "service_reminders",
+  "column_break_34",
+  "notification_language",
+  "best_contact_time",
+  "special_instructions",
+  "loyalty_analytics_section",
+  "loyalty_points_balance",
+  "loyalty_points_earned",
+  "loyalty_points_redeemed",
+  "column_break_41",
+  "customer_segment",
+  "retention_risk_score",
+  "clv_score",
+  "vehicle_portfolio_section",
+  "primary_vehicle",
+  "vehicles",
+  "column_break_47",
+  "total_vehicles",
+  "preferred_service_bay",
+  "service_history_summary",
+  "portal_access_section",
+  "portal_enabled",
+  "portal_username",
+  "portal_last_login",
+  "column_break_53",
+  "two_factor_enabled",
+  "security_questions_set",
+  "device_registrations",
+  "arabic_cultural_context_section",
+  "arabic_communication_preference",
+  "traditional_customer_patterns",
+  "islamic_business_compliance",
+  "omani_cultural_integration",
+  "column_break_60",
+  "arabic_name_validation",
+  "islamic_calendar_preferences",
+  "halal_service_requirements",
+  "cultural_service_notes",
+  "communication_analytics_section",
+  "communication_history",
+  "feedback_history",
+  "column_break_67",
+  "satisfaction_scores",
+  "complaint_history",
+  "document_management_section",
+  "customer_documents",
+  "column_break_71",
+  "document_categories",
+  "compliance_documents",
+  "integration_section",
+  "shared_library_customer_enhanced",
+  "arabic_business_logic_integrated",
+  "traditional_patterns_applied",
+  "islamic_compliance_verified",
+  "omani_context_validated",
+  "notes_metadata_section",
+  "notes",
+  "created_by",
+  "created_date",
+  "last_updated_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer_basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Basic Information - المعلومات الأساسية للعميل"
+  },
+  {
+   "fieldname": "customer_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer ID - رقم العميل",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer Name (English)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer_name_ar",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "اسم العميل بالعربية",
+   "reqd": 1,
+   "translatable": 1
+  },
+  {
+   "fieldname": "customer_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer Type - نوع العميل",
+   "options": "Individual\nCorporate\nGovernment\nFleet\nInsurance Partner\nDiplomatic",
+   "reqd": 1,
+   "default": "Individual"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email - البريد الإلكتروني",
+   "options": "Email"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone (+968) - الهاتف",
+   "options": "Phone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "secondary_phone",
+   "fieldtype": "Data",
+   "label": "Secondary Phone - الهاتف الثاني",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "civil_id",
+   "fieldtype": "Data",
+   "label": "Civil ID - الرقم المدني",
+   "description": "8-digit Oman Civil ID"
+  },
+  {
+   "fieldname": "address_information_section",
+   "fieldtype": "Section Break",
+   "label": "Address Information - معلومات العنوان"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Address (English) - العنوان"
+  },
+  {
+   "fieldname": "address_ar",
+   "fieldtype": "Small Text",
+   "label": "العنوان بالعربية",
+   "translatable": 1
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City - المدينة"
+  },
+  {
+   "fieldname": "governorate",
+   "fieldtype": "Select",
+   "label": "Governorate - المحافظة",
+   "options": "Muscat\nDhofar\nMusandam\nAl Buraimi\nAd Dakhiliyah\nAl Batinah North\nAl Batinah South\nAsh Sharqiyah North\nAsh Sharqiyah South\nAl Dhahirah\nAl Wusta"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "postal_code",
+   "fieldtype": "Data",
+   "label": "Postal Code - الرمز البريدي"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "Country - البلد",
+   "default": "Oman"
+  },
+  {
+   "fieldname": "preferred_language",
+   "fieldtype": "Select",
+   "label": "Preferred Language - اللغة المفضلة",
+   "options": "Arabic\nEnglish\nBilingual",
+   "default": "Arabic"
+  },
+  {
+   "fieldname": "business_information_section",
+   "fieldtype": "Section Break",
+   "label": "Business Information - المعلومات التجارية"
+  },
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "label": "Company Name (English) - اسم الشركة"
+  },
+  {
+   "fieldname": "company_name_ar",
+   "fieldtype": "Data",
+   "label": "اسم الشركة بالعربية",
+   "translatable": 1
+  },
+  {
+   "fieldname": "commercial_registration",
+   "fieldtype": "Data",
+   "label": "Commercial Registration - السجل التجاري"
+  },
+  {
+   "fieldname": "tax_id",
+   "fieldtype": "Data",
+   "label": "Tax ID - الرقم الضريبي"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "business_type",
+   "fieldtype": "Select",
+   "label": "Business Type - نوع النشاط التجاري",
+   "options": "Automotive Workshop\nCar Dealership\nFleet Management\nInsurance Company\nRental Company\nLogistics Company\nGovernment Entity\nPersonal Use\nOther"
+  },
+  {
+   "fieldname": "credit_limit",
+   "fieldtype": "Currency",
+   "label": "Credit Limit (OMR) - حد الائتمان",
+   "options": "OMR",
+   "precision": 3
+  },
+  {
+   "fieldname": "payment_terms",
+   "fieldtype": "Select",
+   "label": "Payment Terms - شروط الدفع",
+   "options": "Cash\nCredit Card\nBank Transfer\nNet 15\nNet 30\nNet 60\nCustom"
+  },
+  {
+   "fieldname": "customer_relationships_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Relationships & History - العلاقات والتاريخ"
+  },
+  {
+   "fieldname": "account_manager",
+   "fieldtype": "Link",
+   "label": "Account Manager - مدير الحساب",
+   "options": "User"
+  },
+  {
+   "fieldname": "loyalty_tier",
+   "fieldtype": "Select",
+   "label": "Loyalty Tier - مستوى الولاء",
+   "options": "Bronze - برونزي\nSilver - فضي\nGold - ذهبي\nPlatinum - بلاتيني\nDiamond - الماسي"
+  },
+  {
+   "fieldname": "customer_since",
+   "fieldtype": "Date",
+   "label": "Customer Since - عميل منذ"
+  },
+  {
+   "fieldname": "column_break_27",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_lifetime_value",
+   "fieldtype": "Currency",
+   "label": "Total Lifetime Value (OMR) - القيمة الإجمالية مدى الحياة",
+   "options": "OMR",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_service_date",
+   "fieldtype": "Date",
+   "label": "Last Service Date - تاريخ آخر خدمة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "next_service_due",
+   "fieldtype": "Date",
+   "label": "Next Service Due - تاريخ الخدمة القادمة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "communication_preferences_section",
+   "fieldtype": "Section Break",
+   "label": "Communication Preferences - تفضيلات التواصل"
+  },
+  {
+   "fieldname": "communication_method",
+   "fieldtype": "Select",
+   "label": "Preferred Communication - طريقة التواصل المفضلة",
+   "options": "Phone Call\nSMS\nWhatsApp\nEmail\nIn-Person\nNo Contact"
+  },
+  {
+   "fieldname": "marketing_consent",
+   "fieldtype": "Check",
+   "label": "Marketing Consent - موافقة التسويق"
+  },
+  {
+   "fieldname": "service_reminders",
+   "fieldtype": "Check",
+   "label": "Service Reminders - تذكيرات الخدمة",
+   "default": 1
+  },
+  {
+   "fieldname": "column_break_34",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "notification_language",
+   "fieldtype": "Select",
+   "label": "Notification Language - لغة الإشعارات",
+   "options": "Arabic\nEnglish\nBilingual",
+   "default": "Arabic"
+  },
+  {
+   "fieldname": "best_contact_time",
+   "fieldtype": "Select",
+   "label": "Best Contact Time - أفضل وقت للتواصل",
+   "options": "Morning (8AM-12PM)\nAfternoon (12PM-5PM)\nEvening (5PM-9PM)\nWeekends Only\nAnytime"
+  },
+  {
+   "fieldname": "special_instructions",
+   "fieldtype": "Small Text",
+   "label": "Special Instructions - تعليمات خاصة"
+  },
+  {
+   "fieldname": "loyalty_analytics_section",
+   "fieldtype": "Section Break",
+   "label": "Loyalty & Analytics - الولاء والتحليلات"
+  },
+  {
+   "fieldname": "loyalty_points_balance",
+   "fieldtype": "Int",
+   "label": "Loyalty Points Balance - رصيد نقاط الولاء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "loyalty_points_earned",
+   "fieldtype": "Int",
+   "label": "Total Points Earned - إجمالي النقاط المكتسبة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "loyalty_points_redeemed",
+   "fieldtype": "Int",
+   "label": "Total Points Redeemed - إجمالي النقاط المستردة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_41",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer_segment",
+   "fieldtype": "Select",
+   "label": "Customer Segment - شريحة العملاء",
+   "options": "VIP\nHigh Value\nRegular\nNew Customer\nAt Risk\nInactive\nLost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "retention_risk_score",
+   "fieldtype": "Float",
+   "label": "Retention Risk Score - درجة مخاطر الاحتفاظ",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "clv_score",
+   "fieldtype": "Float",
+   "label": "CLV Score - درجة قيمة العميل",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "vehicle_portfolio_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Portfolio - محفظة المركبات"
+  },
+  {
+   "fieldname": "primary_vehicle",
+   "fieldtype": "Link",
+   "label": "Primary Vehicle - المركبة الأساسية",
+   "options": "Vehicle"
+  },
+  {
+   "fieldname": "vehicles",
+   "fieldtype": "Table",
+   "label": "Customer Vehicles - مركبات العميل",
+   "options": "Customer Vehicle"
+  },
+  {
+   "fieldname": "column_break_47",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_vehicles",
+   "fieldtype": "Int",
+   "label": "Total Vehicles - إجمالي المركبات",
+   "read_only": 1
+  },
+  {
+   "fieldname": "preferred_service_bay",
+   "fieldtype": "Link",
+   "label": "Preferred Service Bay - خليج الخدمة المفضل",
+   "options": "Service Bay"
+  },
+  {
+   "fieldname": "service_history_summary",
+   "fieldtype": "Table",
+   "label": "Service History Summary - ملخص تاريخ الخدمة",
+   "options": "Customer Service Summary"
+  },
+  {
+   "fieldname": "portal_access_section",
+   "fieldtype": "Section Break",
+   "label": "Portal Access & Security - الوصول للبوابة والأمان"
+  },
+  {
+   "fieldname": "portal_enabled",
+   "fieldtype": "Check",
+   "label": "Portal Access Enabled - تفعيل الوصول للبوابة"
+  },
+  {
+   "fieldname": "portal_username",
+   "fieldtype": "Data",
+   "label": "Portal Username - اسم المستخدم للبوابة"
+  },
+  {
+   "fieldname": "portal_last_login",
+   "fieldtype": "Datetime",
+   "label": "Last Portal Login - آخر تسجيل دخول للبوابة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_53",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "two_factor_enabled",
+   "fieldtype": "Check",
+   "label": "Two-Factor Authentication - المصادقة الثنائية"
+  },
+  {
+   "fieldname": "security_questions_set",
+   "fieldtype": "Check",
+   "label": "Security Questions Set - تم تعيين أسئلة الأمان",
+   "read_only": 1
+  },
+  {
+   "fieldname": "device_registrations",
+   "fieldtype": "Table",
+   "label": "Device Registrations - تسجيلات الأجهزة",
+   "options": "Customer Device Registration"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "arabic_cultural_context_section",
+   "fieldtype": "Section Break",
+   "label": "Arabic Cultural Context - السياق الثقافي العربي"
+  },
+  {
+   "fieldname": "arabic_communication_preference",
+   "fieldtype": "Select",
+   "label": "Arabic Communication Preference - تفضيل التواصل العربي",
+   "options": "Arabic Primary\nBilingual\nEnglish Primary",
+   "default": "Arabic Primary"
+  },
+  {
+   "fieldname": "traditional_customer_patterns",
+   "fieldtype": "Text",
+   "label": "Traditional Customer Patterns - الأنماط التقليدية للعملاء"
+  },
+  {
+   "fieldname": "islamic_business_compliance",
+   "fieldtype": "Text",
+   "label": "Islamic Business Compliance - الامتثال للأعمال الإسلامية"
+  },
+  {
+   "fieldname": "omani_cultural_integration",
+   "fieldtype": "Text",
+   "label": "Omani Cultural Integration - التكامل الثقافي العماني"
+  },
+  {
+   "fieldname": "column_break_60",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "arabic_name_validation",
+   "fieldtype": "Check",
+   "label": "Arabic Name Validation - التحقق من الاسم العربي",
+   "read_only": 1
+  },
+  {
+   "fieldname": "islamic_calendar_preferences",
+   "fieldtype": "Select",
+   "label": "Islamic Calendar Preferences - تفضيلات التقويم الإسلامي",
+   "options": "Gregorian Only\nHijri Only\nBoth Calendars"
+  },
+  {
+   "fieldname": "halal_service_requirements",
+   "fieldtype": "Text",
+   "label": "Halal Service Requirements - متطلبات الخدمة الحلال"
+  },
+  {
+   "fieldname": "cultural_service_notes",
+   "fieldtype": "Text",
+   "label": "Cultural Service Notes - ملاحظات الخدمة الثقافية"
+  },
+  {
+   "fieldname": "communication_analytics_section",
+   "fieldtype": "Section Break",
+   "label": "Communication & Feedback Analytics - تحليلات التواصل والتعليقات"
+  },
+  {
+   "fieldname": "communication_history",
+   "fieldtype": "Table",
+   "label": "Communication History - تاريخ التواصل",
+   "options": "Customer Communication History"
+  },
+  {
+   "fieldname": "feedback_history",
+   "fieldtype": "Table",
+   "label": "Feedback History - تاريخ التعليقات",
+   "options": "Customer Feedback History"
+  },
+  {
+   "fieldname": "column_break_67",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "satisfaction_scores",
+   "fieldtype": "Table",
+   "label": "Satisfaction Scores - درجات الرضا",
+   "options": "Customer Satisfaction Score"
+  },
+  {
+   "fieldname": "complaint_history",
+   "fieldtype": "Table",
+   "label": "Complaint History - تاريخ الشكاوى",
+   "options": "Customer Complaint History"
+  },
+  {
+   "fieldname": "document_management_section",
+   "fieldtype": "Section Break",
+   "label": "Document Management - إدارة الوثائق"
+  },
+  {
+   "fieldname": "customer_documents",
+   "fieldtype": "Table",
+   "label": "Customer Documents - وثائق العميل",
+   "options": "Customer Document"
+  },
+  {
+   "fieldname": "column_break_71",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "document_categories",
+   "fieldtype": "Table",
+   "label": "Document Categories - فئات الوثائق",
+   "options": "Document Category"
+  },
+  {
+   "fieldname": "compliance_documents",
+   "fieldtype": "Table",
+   "label": "Compliance Documents - وثائق الامتثال",
+   "options": "Compliance Document"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "integration_section",
+   "fieldtype": "Section Break",
+   "label": "Shared Library Integration - تكامل المكتبة المشتركة"
+  },
+  {
+   "default": "0",
+   "fieldname": "shared_library_customer_enhanced",
+   "fieldtype": "Check",
+   "label": "Shared Library Customer Enhanced - تم تعزيز العميل بالمكتبة المشتركة",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "arabic_business_logic_integrated",
+   "fieldtype": "Check",
+   "label": "Arabic Business Logic Integrated - تم دمج منطق الأعمال العربي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "traditional_patterns_applied",
+   "fieldtype": "Check",
+   "label": "Traditional Patterns Applied - تم تطبيق الأنماط التقليدية",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "islamic_compliance_verified",
+   "fieldtype": "Check",
+   "label": "Islamic Compliance Verified - تم التحقق من الامتثال الإسلامي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "omani_context_validated",
+   "fieldtype": "Check",
+   "label": "Omani Context Validated - تم التحقق من السياق العماني",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Notes & Metadata - الملاحظات والبيانات الوصفية"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes - ملاحظات"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By - أنشأ بواسطة",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_date",
+   "fieldtype": "Date",
+   "label": "Created Date - تاريخ الإنشاء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_updated_by",
+   "fieldtype": "Link",
+   "label": "Last Updated By - آخر تحديث بواسطة",
+   "options": "User",
+   "read_only": 1
+  }
+ ],
+ "has_web_view": 1,
+ "hide_toolbar": 0,
+ "idx": 0,
+ "in_create": 0,
+ "is_submittable": 0,
+ "issingle": 0,
+ "max_attachments": 10,
+ "modified": "2025-01-03 23:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Customer Vehicle Core",
+ "name": "Consolidated Customer Profile",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Customer Service Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "write": 1,
+   "role": "Customer Service Representative"
+  },
+  {
+   "read": 1,
+   "role": "Workshop Technician"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "write": 1,
+   "role": "System Manager"
+  },
+  {
+   "read": 1,
+   "role": "Customer"
+  }
+ ],
+ "quick_entry": 1,
+ "route": "consolidated-customer",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "customer_name",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1,
+ "web_view": 1
+}

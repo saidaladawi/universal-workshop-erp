@@ -1,1 +1,0 @@
-# scrap_vehicle_assessment_item DocType

@@ -1,0 +1,814 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-01-04 00:45:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "operation_basic_info_section",
+  "naming_series",
+  "operation_id",
+  "operation_type",
+  "operation_status",
+  "column_break_4",
+  "posting_date",
+  "posting_time",
+  "fiscal_year",
+  "company",
+  "stock_movement_section",
+  "source_warehouse",
+  "target_warehouse",
+  "purpose",
+  "column_break_12",
+  "reference_doctype",
+  "reference_name",
+  "total_items",
+  "operation_items_section",
+  "items",
+  "column_break_17",
+  "total_outgoing_value",
+  "total_incoming_value",
+  "value_difference",
+  "barcode_scanning_section",
+  "barcode_scanning_enabled",
+  "scan_mode",
+  "scanned_items",
+  "column_break_23",
+  "scan_session_id",
+  "mobile_scanning",
+  "batch_scan_results",
+  "abc_analysis_section",
+  "abc_analysis_triggered",
+  "affected_abc_categories",
+  "reorder_analysis",
+  "column_break_29",
+  "stock_level_alerts",
+  "cycle_count_required",
+  "movement_classification",
+  "approval_workflow_section",
+  "requires_approval",
+  "approval_status",
+  "approved_by",
+  "approval_date",
+  "column_break_36",
+  "approval_notes",
+  "rejection_reason",
+  "escalation_level",
+  "audit_compliance_section",
+  "audit_trail_enabled",
+  "compliance_category",
+  "regulatory_impact",
+  "column_break_42",
+  "ip_address",
+  "user_agent",
+  "session_tracking_id",
+  "arabic_cultural_context_section",
+  "arabic_operation_terminology",
+  "traditional_stock_patterns",
+  "islamic_compliance_notes",
+  "column_break_48",
+  "arabic_purpose_description",
+  "cultural_approval_patterns",
+  "traditional_movement_notes",
+  "islamic_business_validation_section",
+  "islamic_transaction_compliance",
+  "halal_parts_verification",
+  "ethical_sourcing_check",
+  "column_break_54",
+  "community_benefit_impact",
+  "islamic_calendar_alignment",
+  "religious_appropriateness",
+  "cost_accounting_section",
+  "cost_calculation_method",
+  "average_cost_impact",
+  "valuation_difference",
+  "column_break_60",
+  "currency",
+  "exchange_rate",
+  "total_cost_impact",
+  "quality_control_section",
+  "quality_inspection_required",
+  "inspection_status",
+  "quality_grade_impact",
+  "column_break_66",
+  "inspection_notes",
+  "quality_certification_check",
+  "shelf_life_validation",
+  "reporting_analytics_section",
+  "performance_impact",
+  "turnover_ratio_change",
+  "abc_category_changes",
+  "column_break_72",
+  "stock_age_impact",
+  "movement_analysis_update",
+  "reorder_recommendations",
+  "integration_section",
+  "shared_library_stock_enhanced",
+  "arabic_business_logic_integrated",
+  "traditional_patterns_applied",
+  "islamic_compliance_verified",
+  "barcode_system_integrated",
+  "notes_metadata_section",
+  "remarks",
+  "created_by",
+  "created_date",
+  "last_updated_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "operation_basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Operation Basic Information - المعلومات الأساسية للعملية"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series - السلسلة",
+   "options": "STE-.YYYY.-\nSTR-.YYYY.-\nSTI-.YYYY.-\nSTO-.YYYY.-\nSTC-.YYYY.-",
+   "reqd": 1,
+   "default": "STE-.YYYY.-"
+  },
+  {
+   "fieldname": "operation_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Operation ID - معرف العملية",
+   "read_only": 1
+  },
+  {
+   "fieldname": "operation_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Operation Type - نوع العملية",
+   "options": "Stock Entry\nStock Transfer\nStock Receipt\nStock Issue\nStock Return\nCycle Count\nStock Adjustment\nBarcode Scan\nABC Analysis Update",
+   "reqd": 1
+  },
+  {
+   "fieldname": "operation_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Operation Status - حالة العملية",
+   "options": "Draft\nPending Approval\nApproved\nIn Progress\nCompleted\nCancelled\nRejected",
+   "reqd": 1,
+   "default": "Draft"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Posting Date - تاريخ الترحيل",
+   "reqd": 1,
+   "default": "Today"
+  },
+  {
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Posting Time - وقت الترحيل",
+   "reqd": 1
+  },
+  {
+   "fieldname": "fiscal_year",
+   "fieldtype": "Link",
+   "label": "Fiscal Year - السنة المالية",
+   "options": "Fiscal Year"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company - الشركة",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "stock_movement_section",
+   "fieldtype": "Section Break",
+   "label": "Stock Movement Details - تفاصيل حركة المخزون"
+  },
+  {
+   "fieldname": "source_warehouse",
+   "fieldtype": "Link",
+   "label": "Source Warehouse - المستودع المصدر",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "target_warehouse",
+   "fieldtype": "Link",
+   "label": "Target Warehouse - المستودع المستهدف",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "purpose",
+   "fieldtype": "Select",
+   "label": "Purpose - الغرض",
+   "options": "Material Receipt\nMaterial Issue\nMaterial Transfer\nMaterial Transfer for Manufacture\nMaterial Consumption for Manufacture\nManufacture\nRepack\nSend to Subcontractor\nMaterial Transfer (In Transit)\nCycle Count\nABC Analysis\nStock Reconciliation"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Data",
+   "label": "Reference DocType - نوع المستند المرجعي",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reference_name",
+   "fieldtype": "Data",
+   "label": "Reference Name - اسم المرجع",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_items",
+   "fieldtype": "Int",
+   "label": "Total Items - إجمالي العناصر",
+   "read_only": 1
+  },
+  {
+   "fieldname": "operation_items_section",
+   "fieldtype": "Section Break",
+   "label": "Operation Items - عناصر العملية"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items - العناصر",
+   "options": "Stock Operation Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_outgoing_value",
+   "fieldtype": "Currency",
+   "label": "Total Outgoing Value (OMR) - إجمالي القيمة الصادرة",
+   "options": "OMR",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_incoming_value",
+   "fieldtype": "Currency",
+   "label": "Total Incoming Value (OMR) - إجمالي القيمة الواردة",
+   "options": "OMR",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "value_difference",
+   "fieldtype": "Currency",
+   "label": "Value Difference (OMR) - فرق القيمة",
+   "options": "OMR",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "barcode_scanning_section",
+   "fieldtype": "Section Break",
+   "label": "Barcode Scanning - مسح الرمز الشريطي"
+  },
+  {
+   "fieldname": "barcode_scanning_enabled",
+   "fieldtype": "Check",
+   "label": "Barcode Scanning Enabled - مسح الرمز الشريطي مفعل"
+  },
+  {
+   "fieldname": "scan_mode",
+   "fieldtype": "Select",
+   "label": "Scan Mode - وضع المسح",
+   "options": "Manual Entry\nSingle Scan\nBatch Scan\nContinuous Scan\nMobile Camera"
+  },
+  {
+   "fieldname": "scanned_items",
+   "fieldtype": "Table",
+   "label": "Scanned Items - العناصر الممسوحة",
+   "options": "Scanned Stock Item"
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "scan_session_id",
+   "fieldtype": "Data",
+   "label": "Scan Session ID - معرف جلسة المسح",
+   "read_only": 1
+  },
+  {
+   "fieldname": "mobile_scanning",
+   "fieldtype": "Check",
+   "label": "Mobile Scanning - المسح المحمول"
+  },
+  {
+   "fieldname": "batch_scan_results",
+   "fieldtype": "Table",
+   "label": "Batch Scan Results - نتائج المسح المجمع",
+   "options": "Batch Scan Result"
+  },
+  {
+   "fieldname": "abc_analysis_section",
+   "fieldtype": "Section Break",
+   "label": "ABC Analysis Impact - تأثير تحليل ABC"
+  },
+  {
+   "fieldname": "abc_analysis_triggered",
+   "fieldtype": "Check",
+   "label": "ABC Analysis Triggered - تم تفعيل تحليل ABC",
+   "read_only": 1
+  },
+  {
+   "fieldname": "affected_abc_categories",
+   "fieldtype": "Table",
+   "label": "Affected ABC Categories - فئات ABC المتأثرة",
+   "options": "Affected ABC Category",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reorder_analysis",
+   "fieldtype": "Table",
+   "label": "Reorder Analysis - تحليل إعادة الطلب",
+   "options": "Reorder Analysis Result",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_29",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "stock_level_alerts",
+   "fieldtype": "Table",
+   "label": "Stock Level Alerts - تنبيهات مستوى المخزون",
+   "options": "Stock Level Alert",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cycle_count_required",
+   "fieldtype": "Check",
+   "label": "Cycle Count Required - جرد دوري مطلوب",
+   "read_only": 1
+  },
+  {
+   "fieldname": "movement_classification",
+   "fieldtype": "Select",
+   "label": "Movement Classification - تصنيف الحركة",
+   "options": "Fast Moving\nSlow Moving\nNon Moving\nObsolete",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approval_workflow_section",
+   "fieldtype": "Section Break",
+   "label": "Approval Workflow - سير عمل الموافقة"
+  },
+  {
+   "fieldname": "requires_approval",
+   "fieldtype": "Check",
+   "label": "Requires Approval - يتطلب موافقة"
+  },
+  {
+   "fieldname": "approval_status",
+   "fieldtype": "Select",
+   "label": "Approval Status - حالة الموافقة",
+   "options": "Not Required\nPending\nApproved\nRejected\nEscalated"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By - تمت الموافقة بواسطة",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approval_date",
+   "fieldtype": "Datetime",
+   "label": "Approval Date - تاريخ الموافقة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_36",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approval_notes",
+   "fieldtype": "Text",
+   "label": "Approval Notes - ملاحظات الموافقة"
+  },
+  {
+   "fieldname": "rejection_reason",
+   "fieldtype": "Text",
+   "label": "Rejection Reason - سبب الرفض"
+  },
+  {
+   "fieldname": "escalation_level",
+   "fieldtype": "Int",
+   "label": "Escalation Level - مستوى التصعيد",
+   "read_only": 1
+  },
+  {
+   "fieldname": "audit_compliance_section",
+   "fieldtype": "Section Break",
+   "label": "Audit & Compliance - التدقيق والامتثال"
+  },
+  {
+   "fieldname": "audit_trail_enabled",
+   "fieldtype": "Check",
+   "label": "Audit Trail Enabled - سجل التدقيق مفعل",
+   "default": 1
+  },
+  {
+   "fieldname": "compliance_category",
+   "fieldtype": "Select",
+   "label": "Compliance Category - فئة الامتثال",
+   "options": "Financial\nRegulatory\nIslamic\nQuality\nSafety\nEnvironmental"
+  },
+  {
+   "fieldname": "regulatory_impact",
+   "fieldtype": "Select",
+   "label": "Regulatory Impact - التأثير التنظيمي",
+   "options": "None\nLow\nMedium\nHigh\nCritical"
+  },
+  {
+   "fieldname": "column_break_42",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ip_address",
+   "fieldtype": "Data",
+   "label": "IP Address - عنوان IP",
+   "read_only": 1
+  },
+  {
+   "fieldname": "user_agent",
+   "fieldtype": "Data",
+   "label": "User Agent - وكيل المستخدم",
+   "read_only": 1
+  },
+  {
+   "fieldname": "session_tracking_id",
+   "fieldtype": "Data",
+   "label": "Session Tracking ID - معرف تتبع الجلسة",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "arabic_cultural_context_section",
+   "fieldtype": "Section Break",
+   "label": "Arabic Cultural Context - السياق الثقافي العربي"
+  },
+  {
+   "fieldname": "arabic_operation_terminology",
+   "fieldtype": "Text",
+   "label": "Arabic Operation Terminology - المصطلحات العربية للعملية"
+  },
+  {
+   "fieldname": "traditional_stock_patterns",
+   "fieldtype": "Text",
+   "label": "Traditional Stock Patterns - أنماط المخزون التقليدية"
+  },
+  {
+   "fieldname": "islamic_compliance_notes",
+   "fieldtype": "Text",
+   "label": "Islamic Compliance Notes - ملاحظات الامتثال الإسلامي"
+  },
+  {
+   "fieldname": "column_break_48",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "arabic_purpose_description",
+   "fieldtype": "Text",
+   "label": "Arabic Purpose Description - وصف الغرض بالعربية"
+  },
+  {
+   "fieldname": "cultural_approval_patterns",
+   "fieldtype": "Text",
+   "label": "Cultural Approval Patterns - أنماط الموافقة الثقافية"
+  },
+  {
+   "fieldname": "traditional_movement_notes",
+   "fieldtype": "Text",
+   "label": "Traditional Movement Notes - ملاحظات الحركة التقليدية"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "islamic_business_validation_section",
+   "fieldtype": "Section Break",
+   "label": "Islamic Business Validation - التحقق من الأعمال الإسلامية"
+  },
+  {
+   "fieldname": "islamic_transaction_compliance",
+   "fieldtype": "Check",
+   "label": "Islamic Transaction Compliance - امتثال المعاملة الإسلامية",
+   "default": 1
+  },
+  {
+   "fieldname": "halal_parts_verification",
+   "fieldtype": "Check",
+   "label": "Halal Parts Verification - التحقق من القطع الحلال"
+  },
+  {
+   "fieldname": "ethical_sourcing_check",
+   "fieldtype": "Check",
+   "label": "Ethical Sourcing Check - فحص المصادر الأخلاقية"
+  },
+  {
+   "fieldname": "column_break_54",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "community_benefit_impact",
+   "fieldtype": "Select",
+   "label": "Community Benefit Impact - تأثير الفائدة المجتمعية",
+   "options": "None\nLow\nMedium\nHigh\nSignificant"
+  },
+  {
+   "fieldname": "islamic_calendar_alignment",
+   "fieldtype": "Check",
+   "label": "Islamic Calendar Alignment - محاذاة التقويم الإسلامي"
+  },
+  {
+   "fieldname": "religious_appropriateness",
+   "fieldtype": "Check",
+   "label": "Religious Appropriateness - الملاءمة الدينية",
+   "default": 1
+  },
+  {
+   "fieldname": "cost_accounting_section",
+   "fieldtype": "Section Break",
+   "label": "Cost Accounting - محاسبة التكلفة"
+  },
+  {
+   "fieldname": "cost_calculation_method",
+   "fieldtype": "Select",
+   "label": "Cost Calculation Method - طريقة حساب التكلفة",
+   "options": "FIFO\nLIFO\nWeighted Average\nStandard Cost\nActual Cost"
+  },
+  {
+   "fieldname": "average_cost_impact",
+   "fieldtype": "Currency",
+   "label": "Average Cost Impact (OMR) - تأثير متوسط التكلفة",
+   "options": "OMR",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "valuation_difference",
+   "fieldtype": "Currency",
+   "label": "Valuation Difference (OMR) - فرق التقييم",
+   "options": "OMR",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_60",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency - العملة",
+   "options": "Currency",
+   "default": "OMR"
+  },
+  {
+   "fieldname": "exchange_rate",
+   "fieldtype": "Float",
+   "label": "Exchange Rate - سعر الصرف",
+   "precision": 6,
+   "default": 1.0
+  },
+  {
+   "fieldname": "total_cost_impact",
+   "fieldtype": "Currency",
+   "label": "Total Cost Impact (OMR) - إجمالي تأثير التكلفة",
+   "options": "OMR",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "quality_control_section",
+   "fieldtype": "Section Break",
+   "label": "Quality Control - مراقبة الجودة"
+  },
+  {
+   "fieldname": "quality_inspection_required",
+   "fieldtype": "Check",
+   "label": "Quality Inspection Required - فحص الجودة مطلوب"
+  },
+  {
+   "fieldname": "inspection_status",
+   "fieldtype": "Select",
+   "label": "Inspection Status - حالة الفحص",
+   "options": "Not Required\nPending\nIn Progress\nCompleted\nPassed\nFailed"
+  },
+  {
+   "fieldname": "quality_grade_impact",
+   "fieldtype": "Select",
+   "label": "Quality Grade Impact - تأثير درجة الجودة",
+   "options": "No Impact\nImproved\nMaintained\nDegraded\nCritical Issue"
+  },
+  {
+   "fieldname": "column_break_66",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "inspection_notes",
+   "fieldtype": "Text",
+   "label": "Inspection Notes - ملاحظات الفحص"
+  },
+  {
+   "fieldname": "quality_certification_check",
+   "fieldtype": "Check",
+   "label": "Quality Certification Check - فحص شهادة الجودة"
+  },
+  {
+   "fieldname": "shelf_life_validation",
+   "fieldtype": "Check",
+   "label": "Shelf Life Validation - التحقق من مدة الصلاحية"
+  },
+  {
+   "fieldname": "reporting_analytics_section",
+   "fieldtype": "Section Break",
+   "label": "Reporting & Analytics - التقارير والتحليلات"
+  },
+  {
+   "fieldname": "performance_impact",
+   "fieldtype": "Table",
+   "label": "Performance Impact - تأثير الأداء",
+   "options": "Stock Performance Impact",
+   "read_only": 1
+  },
+  {
+   "fieldname": "turnover_ratio_change",
+   "fieldtype": "Float",
+   "label": "Turnover Ratio Change - تغيير نسبة الدوران",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "abc_category_changes",
+   "fieldtype": "Table",
+   "label": "ABC Category Changes - تغييرات تصنيف ABC",
+   "options": "ABC Category Change",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_72",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "stock_age_impact",
+   "fieldtype": "Int",
+   "label": "Stock Age Impact (Days) - تأثير عمر المخزون بالأيام",
+   "read_only": 1
+  },
+  {
+   "fieldname": "movement_analysis_update",
+   "fieldtype": "Select",
+   "label": "Movement Analysis Update - تحديث تحليل الحركة",
+   "options": "No Change\nImproved Movement\nReduced Movement\nBecame Non-Moving",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reorder_recommendations",
+   "fieldtype": "Table",
+   "label": "Reorder Recommendations - توصيات إعادة الطلب",
+   "options": "Reorder Recommendation",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "integration_section",
+   "fieldtype": "Section Break",
+   "label": "Shared Library Integration - تكامل المكتبة المشتركة"
+  },
+  {
+   "default": "0",
+   "fieldname": "shared_library_stock_enhanced",
+   "fieldtype": "Check",
+   "label": "Shared Library Stock Enhanced - تم تعزيز المخزون بالمكتبة المشتركة",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "arabic_business_logic_integrated",
+   "fieldtype": "Check",
+   "label": "Arabic Business Logic Integrated - تم دمج منطق الأعمال العربي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "traditional_patterns_applied",
+   "fieldtype": "Check",
+   "label": "Traditional Patterns Applied - تم تطبيق الأنماط التقليدية",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "islamic_compliance_verified",
+   "fieldtype": "Check",
+   "label": "Islamic Compliance Verified - تم التحقق من الامتثال الإسلامي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "barcode_system_integrated",
+   "fieldtype": "Check",
+   "label": "Barcode System Integrated - تم دمج نظام الرمز الشريطي",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Notes & Metadata - الملاحظات والبيانات الوصفية"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks - ملاحظات"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By - أنشأ بواسطة",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_date",
+   "fieldtype": "Date",
+   "label": "Created Date - تاريخ الإنشاء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_updated_by",
+   "fieldtype": "Link",
+   "label": "Last Updated By - آخر تحديث بواسطة",
+   "options": "User",
+   "read_only": 1
+  }
+ ],
+ "has_web_view": 0,
+ "hide_toolbar": 0,
+ "idx": 0,
+ "in_create": 0,
+ "is_submittable": 1,
+ "issingle": 0,
+ "max_attachments": 5,
+ "modified": "2025-01-04 00:45:00.000000",
+ "modified_by": "Administrator",
+ "module": "Inventory Core",
+ "name": "Consolidated Stock Operations",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "submit": 1,
+   "write": 1,
+   "role": "Stock User"
+  },
+  {
+   "read": 1,
+   "role": "Workshop Technician"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "write": 1,
+   "role": "System Manager"
+  }
+ ],
+ "quick_entry": 0,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "operation_id",
+ "track_changes": 1
+}

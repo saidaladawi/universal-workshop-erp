@@ -1,1 +1,0 @@
-# Quality Control Photo DocType

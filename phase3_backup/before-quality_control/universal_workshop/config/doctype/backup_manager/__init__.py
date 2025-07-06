@@ -1,1 +1,0 @@
-# backup_manager DocType

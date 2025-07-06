@@ -1,0 +1,393 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 1,
+    "allow_guest_to_view": 0,
+    "allow_import": 0,
+    "allow_rename": 0,
+    "autoname": "field:user",
+    "beta": 0,
+    "creation": "2025-01-02 12:30:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "document_type": "Document",
+    "engine": "InnoDB",
+    "field_order": [
+        "basic_information_section",
+        "user",
+        "customer",
+        "customer_name",
+        "email",
+        "column_break_5",
+        "phone_number",
+        "preferred_language",
+        "status",
+        "portal_access_section",
+        "portal_enabled",
+        "two_factor_enabled",
+        "last_login",
+        "column_break_11",
+        "login_attempts",
+        "account_locked",
+        "password_reset_required",
+        "permissions_section",
+        "can_view_invoices",
+        "can_book_appointments",
+        "can_view_service_history",
+        "column_break_17",
+        "can_track_vehicles",
+        "can_download_reports",
+        "can_update_profile",
+        "notification_settings_section",
+        "sms_notifications",
+        "email_notifications",
+        "whatsapp_notifications",
+        "column_break_23",
+        "service_reminders",
+        "payment_notifications",
+        "marketing_communications",
+        "device_information_section",
+        "registered_devices",
+        "security_section",
+        "api_key",
+        "api_secret",
+        "session_data",
+        "column_break_30",
+        "security_questions",
+        "backup_email",
+        "emergency_contact",
+        "activity_log_section",
+        "last_activity",
+        "activity_log",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "basic_information_section",
+            "fieldtype": "Section Break",
+            "label": "Basic Information"
+        },
+        {
+            "fieldname": "user",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "User",
+            "options": "User",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "customer",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Customer",
+            "options": "Customer",
+            "reqd": 1
+        },
+        {
+            "fieldname": "customer_name",
+            "fieldtype": "Data",
+            "fetch_from": "customer.customer_name",
+            "label": "Customer Name",
+            "read_only": 1
+        },
+        {
+            "fieldname": "email",
+            "fieldtype": "Data",
+            "label": "Email",
+            "options": "Email",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "phone_number",
+            "fieldtype": "Data",
+            "label": "Phone Number",
+            "options": "Phone"
+        },
+        {
+            "fieldname": "preferred_language",
+            "fieldtype": "Select",
+            "label": "Preferred Language",
+            "options": "English\nالعربية",
+            "default": "English"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Status",
+            "options": "Active\nInactive\nSuspended\nPending Verification",
+            "default": "Pending Verification"
+        },
+        {
+            "fieldname": "portal_access_section",
+            "fieldtype": "Section Break",
+            "label": "Portal Access"
+        },
+        {
+            "fieldname": "portal_enabled",
+            "fieldtype": "Check",
+            "label": "Portal Enabled",
+            "default": 1
+        },
+        {
+            "fieldname": "two_factor_enabled",
+            "fieldtype": "Check",
+            "label": "Two Factor Authentication Enabled"
+        },
+        {
+            "fieldname": "last_login",
+            "fieldtype": "Datetime",
+            "label": "Last Login",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_11",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "login_attempts",
+            "fieldtype": "Int",
+            "label": "Failed Login Attempts",
+            "default": 0,
+            "read_only": 1
+        },
+        {
+            "fieldname": "account_locked",
+            "fieldtype": "Check",
+            "label": "Account Locked"
+        },
+        {
+            "fieldname": "password_reset_required",
+            "fieldtype": "Check",
+            "label": "Password Reset Required"
+        },
+        {
+            "fieldname": "permissions_section",
+            "fieldtype": "Section Break",
+            "label": "Portal Permissions"
+        },
+        {
+            "fieldname": "can_view_invoices",
+            "fieldtype": "Check",
+            "label": "Can View Invoices",
+            "default": 1
+        },
+        {
+            "fieldname": "can_book_appointments",
+            "fieldtype": "Check",
+            "label": "Can Book Appointments",
+            "default": 1
+        },
+        {
+            "fieldname": "can_view_service_history",
+            "fieldtype": "Check",
+            "label": "Can View Service History",
+            "default": 1
+        },
+        {
+            "fieldname": "column_break_17",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "can_track_vehicles",
+            "fieldtype": "Check",
+            "label": "Can Track Vehicles",
+            "default": 1
+        },
+        {
+            "fieldname": "can_download_reports",
+            "fieldtype": "Check",
+            "label": "Can Download Reports",
+            "default": 1
+        },
+        {
+            "fieldname": "can_update_profile",
+            "fieldtype": "Check",
+            "label": "Can Update Profile",
+            "default": 1
+        },
+        {
+            "fieldname": "notification_settings_section",
+            "fieldtype": "Section Break",
+            "label": "Notification Settings"
+        },
+        {
+            "fieldname": "sms_notifications",
+            "fieldtype": "Check",
+            "label": "SMS Notifications",
+            "default": 1
+        },
+        {
+            "fieldname": "email_notifications",
+            "fieldtype": "Check",
+            "label": "Email Notifications",
+            "default": 1
+        },
+        {
+            "fieldname": "whatsapp_notifications",
+            "fieldtype": "Check",
+            "label": "WhatsApp Notifications"
+        },
+        {
+            "fieldname": "column_break_23",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "service_reminders",
+            "fieldtype": "Check",
+            "label": "Service Reminders",
+            "default": 1
+        },
+        {
+            "fieldname": "payment_notifications",
+            "fieldtype": "Check",
+            "label": "Payment Notifications",
+            "default": 1
+        },
+        {
+            "fieldname": "marketing_communications",
+            "fieldtype": "Check",
+            "label": "Marketing Communications"
+        },
+        {
+            "fieldname": "device_information_section",
+            "fieldtype": "Section Break",
+            "label": "Registered Devices"
+        },
+        {
+            "fieldname": "registered_devices",
+            "fieldtype": "Table",
+            "label": "Registered Devices",
+            "options": "Customer Portal Device"
+        },
+        {
+            "fieldname": "security_section",
+            "fieldtype": "Section Break",
+            "label": "Security Information"
+        },
+        {
+            "fieldname": "api_key",
+            "fieldtype": "Data",
+            "label": "API Key",
+            "read_only": 1
+        },
+        {
+            "fieldname": "api_secret",
+            "fieldtype": "Password",
+            "label": "API Secret",
+            "read_only": 1
+        },
+        {
+            "fieldname": "session_data",
+            "fieldtype": "Long Text",
+            "label": "Session Data",
+            "hidden": 1
+        },
+        {
+            "fieldname": "column_break_30",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "security_questions",
+            "fieldtype": "Table",
+            "label": "Security Questions",
+            "options": "Customer Security Question"
+        },
+        {
+            "fieldname": "backup_email",
+            "fieldtype": "Data",
+            "label": "Backup Email",
+            "options": "Email"
+        },
+        {
+            "fieldname": "emergency_contact",
+            "fieldtype": "Data",
+            "label": "Emergency Contact",
+            "options": "Phone"
+        },
+        {
+            "fieldname": "activity_log_section",
+            "fieldtype": "Section Break",
+            "label": "Activity Log"
+        },
+        {
+            "fieldname": "last_activity",
+            "fieldtype": "Datetime",
+            "label": "Last Activity",
+            "read_only": 1
+        },
+        {
+            "fieldname": "activity_log",
+            "fieldtype": "Table",
+            "label": "Activity Log",
+            "options": "Customer Portal Activity",
+            "read_only": 1
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Long Text",
+            "label": "Admin Notes"
+        }
+    ],
+    "has_web_view": 1,
+    "hide_heading": 0,
+    "hide_toolbar": 0,
+    "idx": 0,
+    "image_view": 0,
+    "in_create": 0,
+    "is_submittable": 0,
+    "issingle": 0,
+    "istable": 0,
+    "max_attachments": 3,
+    "modified": "2025-01-02 12:30:00.000000",
+    "modified_by": "Administrator",
+    "module": "Customer Management",
+    "name": "Customer Portal User",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Customer Service Representative",
+            "write": 1
+        },
+        {
+            "read": 1,
+            "role": "Customer",
+            "if_owner": 1
+        }
+    ],
+    "quick_entry": 0,
+    "restrict_to_domain": "Manufacturing",
+    "show_name_in_global_search": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "customer_name",
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1,
+    "web_view": 1
+} 

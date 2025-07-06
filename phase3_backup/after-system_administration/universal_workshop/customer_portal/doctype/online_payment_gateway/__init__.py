@@ -1,1 +1,0 @@
-# Online Payment Gateway DocType initialization 

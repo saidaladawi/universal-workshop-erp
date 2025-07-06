@@ -1,0 +1,562 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2025-01-03 22:15:00.000000",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "customer",
+  "customer_name",
+  "customer_name_ar",
+  "vehicle",
+  "vehicle_details_section",
+  "make",
+  "model",
+  "year",
+  "license_plate",
+  "vin",
+  "column_break_vehicle",
+  "current_mileage",
+  "fuel_type",
+  "color",
+  "service_information_section",
+  "service_date",
+  "estimated_completion_date",
+  "priority",
+  "service_type",
+  "service_type_ar",
+  "column_break_service",
+  "status",
+  "technician_assigned",
+  "service_bay",
+  "workshop_profile",
+  "description",
+  "description_ar",
+  "internal_notes",
+  "parts_and_labor_section",
+  "parts_used",
+  "labor_entries",
+  "calculation_section",
+  "parts_total",
+  "labor_total",
+  "subtotal",
+  "vat_rate",
+  "vat_amount",
+  "total_amount",
+  "discount_percentage",
+  "discount_amount",
+  "final_amount",
+  "cultural_context_section",
+  "arabic_service_notes",
+  "islamic_compliance_notes",
+  "omani_regulatory_notes",
+  "traditional_workflow_notes",
+  "status_tracking_section",
+  "status_history",
+  "created_on",
+  "scheduled_on",
+  "started_on",
+  "quality_check_on",
+  "completed_on",
+  "delivered_on",
+  "workflow_section",
+  "requires_approval",
+  "approved_by",
+  "approved_on",
+  "quality_checked_by",
+  "quality_check_notes",
+  "shared_library_integration_section",
+  "arabic_business_logic_applied",
+  "traditional_patterns_validated",
+  "islamic_compliance_verified",
+  "omani_context_integrated"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series - السلسلة",
+   "options": "SO-.YYYY.-\nSRV-.YYYY.-\nARB-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer - العميل",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "customer.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "customer.customer_name_ar",
+   "fieldname": "customer_name_ar",
+   "fieldtype": "Data",
+   "label": "اسم العميل",
+   "read_only": 1
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Vehicle - المركبة",
+   "options": "Vehicle",
+   "reqd": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "vehicle_details_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Details - تفاصيل المركبة"
+  },
+  {
+   "fetch_from": "vehicle.make",
+   "fieldname": "make",
+   "fieldtype": "Data",
+   "label": "Make - الصانع",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "vehicle.model",
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model - الموديل",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "vehicle.year",
+   "fieldname": "year",
+   "fieldtype": "Int",
+   "label": "Year - السنة",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "vehicle.license_plate",
+   "fieldname": "license_plate",
+   "fieldtype": "Data",
+   "label": "License Plate - رقم اللوحة",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "vehicle.vin",
+   "fieldname": "vin",
+   "fieldtype": "Data",
+   "label": "VIN - رقم الهيكل",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_vehicle",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "current_mileage",
+   "fieldtype": "Int",
+   "label": "Current Mileage (KM) - الكيلومترات الحالية",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "vehicle.fuel_type",
+   "fieldname": "fuel_type",
+   "fieldtype": "Data",
+   "label": "Fuel Type - نوع الوقود",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "vehicle.color",
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "label": "Color - اللون",
+   "read_only": 1
+  },
+  {
+   "fieldname": "service_information_section",
+   "fieldtype": "Section Break",
+   "label": "Service Information - معلومات الخدمة"
+  },
+  {
+   "default": "Today",
+   "fieldname": "service_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Service Date - تاريخ الخدمة",
+   "reqd": 1
+  },
+  {
+   "fieldname": "estimated_completion_date",
+   "fieldtype": "Datetime",
+   "label": "Estimated Completion - التاريخ المتوقع للإنجاز"
+  },
+  {
+   "default": "Medium",
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Priority - الأولوية",
+   "options": "Low\nMedium\nHigh\nUrgent"
+  },
+  {
+   "fieldname": "service_type",
+   "fieldtype": "Select",
+   "label": "Service Type - نوع الخدمة",
+   "options": "Oil Change\nBrake Service\nTransmission Service\nEngine Repair\nAir Conditioning\nElectrical\nTire Service\nGeneral Maintenance\nInspection\nEmergency Repair\nCustom Service",
+   "reqd": 1
+  },
+  {
+   "fieldname": "service_type_ar",
+   "fieldtype": "Data",
+   "label": "نوع الخدمة بالعربية",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_service",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status - الحالة",
+   "options": "Draft\nScheduled\nIn Progress\nQuality Check\nCompleted\nDelivered\nCancelled",
+   "reqd": 1
+  },
+  {
+   "fieldname": "technician_assigned",
+   "fieldtype": "Link",
+   "label": "Technician Assigned - الفني المكلف",
+   "options": "Technician"
+  },
+  {
+   "fieldname": "service_bay",
+   "fieldtype": "Link",
+   "label": "Service Bay - منطقة الخدمة",
+   "options": "Service Bay"
+  },
+  {
+   "fieldname": "workshop_profile",
+   "fieldtype": "Link",
+   "label": "Workshop Profile - ملف الورشة",
+   "options": "Workshop Profile"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Service Description"
+  },
+  {
+   "fieldname": "description_ar",
+   "fieldtype": "Text Editor",
+   "label": "وصف الخدمة"
+  },
+  {
+   "fieldname": "internal_notes",
+   "fieldtype": "Text Editor",
+   "label": "Internal Notes - ملاحظات داخلية"
+  },
+  {
+   "fieldname": "parts_and_labor_section",
+   "fieldtype": "Section Break",
+   "label": "Parts and Labor - القطع والعمالة"
+  },
+  {
+   "fieldname": "parts_used",
+   "fieldtype": "Table",
+   "label": "Parts Used - القطع المستخدمة",
+   "options": "Service Order Parts"
+  },
+  {
+   "fieldname": "labor_entries",
+   "fieldtype": "Table",
+   "label": "Labor Entries - إدخالات العمالة", 
+   "options": "Service Order Labor"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "calculation_section",
+   "fieldtype": "Section Break",
+   "label": "Calculations - الحسابات"
+  },
+  {
+   "fieldname": "parts_total",
+   "fieldtype": "Currency",
+   "label": "Parts Total - إجمالي القطع",
+   "options": "OMR",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "fieldname": "labor_total",
+   "fieldtype": "Currency",
+   "label": "Labor Total - إجمالي العمالة",
+   "options": "OMR",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "fieldname": "subtotal",
+   "fieldtype": "Currency",
+   "label": "Subtotal - المجموع الفرعي",
+   "options": "OMR",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "default": "5.0",
+   "fieldname": "vat_rate",
+   "fieldtype": "Percent",
+   "label": "VAT Rate (%) - معدل ضريبة القيمة المضافة"
+  },
+  {
+   "fieldname": "vat_amount",
+   "fieldtype": "Currency",
+   "label": "VAT Amount - مبلغ ضريبة القيمة المضافة",
+   "options": "OMR",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount - المبلغ الإجمالي",
+   "options": "OMR",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "fieldname": "discount_percentage",
+   "fieldtype": "Percent",
+   "label": "Discount % - نسبة الخصم"
+  },
+  {
+   "fieldname": "discount_amount",
+   "fieldtype": "Currency",
+   "label": "Discount Amount - مبلغ الخصم",
+   "options": "OMR",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "fieldname": "final_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Final Amount - المبلغ النهائي",
+   "options": "OMR",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "cultural_context_section",
+   "fieldtype": "Section Break",
+   "label": "Arabic Cultural Context - السياق الثقافي العربي"
+  },
+  {
+   "fieldname": "arabic_service_notes",
+   "fieldtype": "Text Editor",
+   "label": "Arabic Service Notes - ملاحظات الخدمة العربية"
+  },
+  {
+   "fieldname": "islamic_compliance_notes",
+   "fieldtype": "Text Editor",
+   "label": "Islamic Compliance Notes - ملاحظات الامتثال الإسلامي"
+  },
+  {
+   "fieldname": "omani_regulatory_notes",
+   "fieldtype": "Text Editor",
+   "label": "Omani Regulatory Notes - ملاحظات اللوائح العمانية"
+  },
+  {
+   "fieldname": "traditional_workflow_notes",
+   "fieldtype": "Text Editor",
+   "label": "Traditional Workflow Notes - ملاحظات سير العمل التقليدي"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "status_tracking_section",
+   "fieldtype": "Section Break",
+   "label": "Status Tracking - تتبع الحالة"
+  },
+  {
+   "fieldname": "status_history",
+   "fieldtype": "Table",
+   "label": "Status History - تاريخ الحالة",
+   "options": "Service Order Status History"
+  },
+  {
+   "fieldname": "created_on",
+   "fieldtype": "Datetime",
+   "label": "Created On - تاريخ الإنشاء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "scheduled_on",
+   "fieldtype": "Datetime",
+   "label": "Scheduled On - تاريخ الجدولة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "started_on",
+   "fieldtype": "Datetime",
+   "label": "Started On - تاريخ البدء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "quality_check_on",
+   "fieldtype": "Datetime",
+   "label": "Quality Check On - تاريخ فحص الجودة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "completed_on",
+   "fieldtype": "Datetime",
+   "label": "Completed On - تاريخ الإنجاز",
+   "read_only": 1
+  },
+  {
+   "fieldname": "delivered_on",
+   "fieldtype": "Datetime",
+   "label": "Delivered On - تاريخ التسليم",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "workflow_section",
+   "fieldtype": "Section Break",
+   "label": "Workflow - سير العمل"
+  },
+  {
+   "default": "0",
+   "fieldname": "requires_approval",
+   "fieldtype": "Check",
+   "label": "Requires Approval - يتطلب الموافقة"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By - تمت الموافقة من قبل",
+   "options": "User"
+  },
+  {
+   "fieldname": "approved_on",
+   "fieldtype": "Datetime",
+   "label": "Approved On - تاريخ الموافقة"
+  },
+  {
+   "fieldname": "quality_checked_by",
+   "fieldtype": "Link",
+   "label": "Quality Checked By - تم فحص الجودة من قبل",
+   "options": "User"
+  },
+  {
+   "fieldname": "quality_check_notes",
+   "fieldtype": "Text",
+   "label": "Quality Check Notes - ملاحظات فحص الجودة"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "shared_library_integration_section",
+   "fieldtype": "Section Break",
+   "label": "Shared Library Integration - تكامل المكتبة المشتركة"
+  },
+  {
+   "default": "0",
+   "fieldname": "arabic_business_logic_applied",
+   "fieldtype": "Check",
+   "label": "Arabic Business Logic Applied - تم تطبيق منطق الأعمال العربي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "traditional_patterns_validated",
+   "fieldtype": "Check",
+   "label": "Traditional Patterns Validated - تم التحقق من الأنماط التقليدية",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "islamic_compliance_verified",
+   "fieldtype": "Check",
+   "label": "Islamic Compliance Verified - تم التحقق من الامتثال الإسلامي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "omani_context_integrated",
+   "fieldtype": "Check",
+   "label": "Omani Context Integrated - تم دمج السياق العماني",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-01-03 22:15:00.000000",
+ "modified_by": "Administrator",
+ "module": "Workshop Core",
+ "name": "Consolidated Service Order",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Technician",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Customer"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Quality Control Inspector",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "customer_name",
+ "track_changes": 1
+}

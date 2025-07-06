@@ -620,17 +620,43 @@ export default {
 .admin-account-step {
   max-width: 600px;
   margin: 0 auto;
+  padding: 0 1rem;
+  
+  @media (max-width: 768px) {
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0 0.25rem;
+  }
 }
 
 .step-header {
   text-align: center;
   margin-bottom: 3rem;
+  
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+  }
+  
+  @media (max-width: 480px) {
+    margin-bottom: 1.5rem;
+  }
 }
 
 .step-icon {
   font-size: 4rem;
   margin-bottom: 1rem;
   display: block;
+  
+  @media (max-width: 768px) {
+    font-size: 3rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 2.5rem;
+  }
 }
 
 .step-title {
@@ -638,6 +664,14 @@ export default {
   font-weight: 700;
   margin: 0 0 1rem 0;
   color: #1e293b;
+  
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 }
 
 .step-description {
@@ -651,6 +685,14 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  
+  @media (max-width: 768px) {
+    gap: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 1rem;
+  }
 }
 
 .form-group {

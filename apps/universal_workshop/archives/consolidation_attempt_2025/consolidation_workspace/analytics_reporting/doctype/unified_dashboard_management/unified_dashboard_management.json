@@ -1,0 +1,959 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:dashboard_id",
+ "creation": "2025-01-04 02:30:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "dashboard_basic_info_section",
+  "dashboard_id",
+  "dashboard_name",
+  "dashboard_name_ar",
+  "dashboard_type",
+  "column_break_4",
+  "category",
+  "status",
+  "priority",
+  "is_public",
+  "layout_configuration_section",
+  "layout_type",
+  "grid_configuration",
+  "responsive_breakpoints",
+  "column_break_11",
+  "rtl_layout_mode",
+  "arabic_layout_settings",
+  "mobile_layout_config",
+  "widget_management_section",
+  "widgets",
+  "widget_library",
+  "custom_widgets",
+  "column_break_17",
+  "widget_themes",
+  "widget_positioning",
+  "drag_drop_enabled",
+  "real_time_configuration_section",
+  "real_time_updates",
+  "refresh_frequency",
+  "auto_refresh_enabled",
+  "column_break_23",
+  "websocket_connection",
+  "push_notifications",
+  "live_data_sources",
+  "chart_visualization_section",
+  "chart_library",
+  "chart_configurations",
+  "visualization_themes",
+  "column_break_29",
+  "chart_animations",
+  "interactive_charts",
+  "drill_down_enabled",
+  "data_integration_section",
+  "data_sources",
+  "data_refresh_settings",
+  "caching_configuration",
+  "column_break_35",
+  "api_integrations",
+  "external_data_sources",
+  "data_transformation",
+  "user_personalization_section",
+  "personalization_enabled",
+  "user_preferences",
+  "custom_layouts",
+  "column_break_41",
+  "bookmark_system",
+  "favorite_widgets",
+  "personal_dashboard_config",
+  "performance_optimization_section",
+  "lazy_loading",
+  "performance_monitoring",
+  "load_time_optimization",
+  "column_break_47",
+  "memory_management",
+  "caching_strategy",
+  "bandwidth_optimization",
+  "security_access_section",
+  "access_control",
+  "role_based_dashboards",
+  "user_specific_access",
+  "column_break_53",
+  "data_security",
+  "encryption_settings",
+  "audit_trail",
+  "export_sharing_section",
+  "export_formats",
+  "sharing_options",
+  "email_delivery",
+  "column_break_59",
+  "pdf_generation",
+  "scheduled_exports",
+  "api_access",
+  "arabic_dashboard_excellence_section",
+  "arabic_dashboard_terminology",
+  "traditional_dashboard_patterns",
+  "cultural_widget_designs",
+  "column_break_65",
+  "omani_dashboard_formats",
+  "arabic_chart_localization",
+  "traditional_kpi_displays",
+  "islamic_business_compliance_section",
+  "islamic_dashboard_validation",
+  "halal_data_display",
+  "ethical_visualization_standards",
+  "column_break_71",
+  "sharia_compliant_charts",
+  "community_benefit_widgets",
+  "religious_calendar_widgets",
+  "mobile_dashboard_section",
+  "mobile_optimized",
+  "touch_interface",
+  "offline_dashboard",
+  "column_break_77",
+  "mobile_widgets",
+  "swipe_gestures",
+  "arabic_mobile_interface",
+  "collaboration_section",
+  "shared_dashboards",
+  "collaborative_widgets",
+  "team_dashboards",
+  "column_break_83",
+  "comment_system",
+  "annotation_tools",
+  "discussion_threads",
+  "advanced_features_section",
+  "ai_powered_insights",
+  "predictive_widgets",
+  "anomaly_alerts",
+  "column_break_89",
+  "smart_recommendations",
+  "automated_analysis",
+  "intelligent_filtering",
+  "integration_section",
+  "shared_library_dashboard_enhanced",
+  "arabic_business_logic_integrated",
+  "traditional_patterns_applied",
+  "islamic_compliance_verified",
+  "omani_context_validated",
+  "notes_metadata_section",
+  "remarks",
+  "created_by",
+  "created_date",
+  "last_updated_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "dashboard_basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Dashboard Basic Information - المعلومات الأساسية للوحة المعلومات"
+  },
+  {
+   "fieldname": "dashboard_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Dashboard ID - معرف لوحة المعلومات",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "dashboard_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Dashboard Name (English) - اسم لوحة المعلومات",
+   "reqd": 1
+  },
+  {
+   "fieldname": "dashboard_name_ar",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "اسم لوحة المعلومات بالعربية",
+   "translatable": 1
+  },
+  {
+   "fieldname": "dashboard_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Dashboard Type - نوع لوحة المعلومات",
+   "options": "Executive Dashboard\\nOperational Dashboard\\nFinancial Dashboard\\nCustomer Dashboard\\nTechnician Dashboard\\nInventory Dashboard\\nQuality Dashboard\\nPerformance Dashboard\\nAnalytical Dashboard\\nMobile Dashboard",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Category - الفئة",
+   "options": "Financial\\nOperational\\nCustomer\\nTechnician\\nInventory\\nQuality\\nSales\\nMarketing\\nCompliance\\nExecutive"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status - الحالة",
+   "options": "Active\\nInactive\\nDevelopment\\nTesting\\nPublished\\nArchived",
+   "reqd": 1,
+   "default": "Active"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority - الأولوية",
+   "options": "Critical\\nHigh\\nMedium\\nLow",
+   "default": "Medium"
+  },
+  {
+   "fieldname": "is_public",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Public - عام"
+  },
+  {
+   "fieldname": "layout_configuration_section",
+   "fieldtype": "Section Break",
+   "label": "Layout Configuration - تكوين التخطيط"
+  },
+  {
+   "fieldname": "layout_type",
+   "fieldtype": "Select",
+   "label": "Layout Type - نوع التخطيط",
+   "options": "Grid Layout\\nFluid Layout\\nFixed Layout\\nResponsive Layout\\nMasonry Layout\\nCustom Layout",
+   "default": "Responsive Layout"
+  },
+  {
+   "fieldname": "grid_configuration",
+   "fieldtype": "JSON",
+   "label": "Grid Configuration - تكوين الشبكة"
+  },
+  {
+   "fieldname": "responsive_breakpoints",
+   "fieldtype": "JSON",
+   "label": "Responsive Breakpoints - نقاط الاستجابة"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rtl_layout_mode",
+   "fieldtype": "Check",
+   "label": "RTL Layout Mode - وضع التخطيط من اليمين لليسار",
+   "default": 1
+  },
+  {
+   "fieldname": "arabic_layout_settings",
+   "fieldtype": "JSON",
+   "label": "Arabic Layout Settings - إعدادات التخطيط العربي"
+  },
+  {
+   "fieldname": "mobile_layout_config",
+   "fieldtype": "JSON",
+   "label": "Mobile Layout Config - تكوين التخطيط المحمول"
+  },
+  {
+   "fieldname": "widget_management_section",
+   "fieldtype": "Section Break",
+   "label": "Widget Management - إدارة الأدوات"
+  },
+  {
+   "fieldname": "widgets",
+   "fieldtype": "Table",
+   "label": "Widgets - الأدوات",
+   "options": "Dashboard Widget Configuration"
+  },
+  {
+   "fieldname": "widget_library",
+   "fieldtype": "Table",
+   "label": "Widget Library - مكتبة الأدوات",
+   "options": "Dashboard Widget Library"
+  },
+  {
+   "fieldname": "custom_widgets",
+   "fieldtype": "Table",
+   "label": "Custom Widgets - الأدوات المخصصة",
+   "options": "Dashboard Custom Widget"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "widget_themes",
+   "fieldtype": "Table",
+   "label": "Widget Themes - موضوعات الأدوات",
+   "options": "Dashboard Widget Theme"
+  },
+  {
+   "fieldname": "widget_positioning",
+   "fieldtype": "JSON",
+   "label": "Widget Positioning - تموضع الأدوات"
+  },
+  {
+   "fieldname": "drag_drop_enabled",
+   "fieldtype": "Check",
+   "label": "Drag & Drop Enabled - السحب والإفلات مفعل",
+   "default": 1
+  },
+  {
+   "fieldname": "real_time_configuration_section",
+   "fieldtype": "Section Break",
+   "label": "Real-time Configuration - التكوين في الوقت الفعلي"
+  },
+  {
+   "fieldname": "real_time_updates",
+   "fieldtype": "Check",
+   "label": "Real-time Updates - التحديثات في الوقت الفعلي",
+   "default": 1
+  },
+  {
+   "fieldname": "refresh_frequency",
+   "fieldtype": "Select",
+   "label": "Refresh Frequency - تكرار التحديث",
+   "options": "Real-time\\nEvery 5 seconds\\nEvery 30 seconds\\nEvery 1 minute\\nEvery 5 minutes\\nEvery 15 minutes\\nEvery 30 minutes\\nHourly\\nManual",
+   "default": "Every 5 minutes"
+  },
+  {
+   "fieldname": "auto_refresh_enabled",
+   "fieldtype": "Check",
+   "label": "Auto Refresh Enabled - التحديث التلقائي مفعل",
+   "default": 1
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "websocket_connection",
+   "fieldtype": "Check",
+   "label": "WebSocket Connection - اتصال WebSocket"
+  },
+  {
+   "fieldname": "push_notifications",
+   "fieldtype": "Check",
+   "label": "Push Notifications - الإشعارات الفورية",
+   "default": 1
+  },
+  {
+   "fieldname": "live_data_sources",
+   "fieldtype": "Table",
+   "label": "Live Data Sources - مصادر البيانات المباشرة",
+   "options": "Dashboard Live Data Source"
+  },
+  {
+   "fieldname": "chart_visualization_section",
+   "fieldtype": "Section Break",
+   "label": "Chart & Visualization - المخططات والمرئيات"
+  },
+  {
+   "fieldname": "chart_library",
+   "fieldtype": "Select",
+   "label": "Chart Library - مكتبة المخططات",
+   "options": "Chart.js\\nD3.js\\nPlotly.js\\nECharts\\nHighcharts\\nGoogle Charts\\nArabic Charts",
+   "default": "Chart.js"
+  },
+  {
+   "fieldname": "chart_configurations",
+   "fieldtype": "Table",
+   "label": "Chart Configurations - تكوينات المخططات",
+   "options": "Dashboard Chart Configuration"
+  },
+  {
+   "fieldname": "visualization_themes",
+   "fieldtype": "Table",
+   "label": "Visualization Themes - موضوعات المرئيات",
+   "options": "Dashboard Visualization Theme"
+  },
+  {
+   "fieldname": "column_break_29",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "chart_animations",
+   "fieldtype": "Check",
+   "label": "Chart Animations - رسوم المخططات المتحركة",
+   "default": 1
+  },
+  {
+   "fieldname": "interactive_charts",
+   "fieldtype": "Check",
+   "label": "Interactive Charts - المخططات التفاعلية",
+   "default": 1
+  },
+  {
+   "fieldname": "drill_down_enabled",
+   "fieldtype": "Check",
+   "label": "Drill Down Enabled - التفصيل التدريجي مفعل",
+   "default": 1
+  },
+  {
+   "fieldname": "data_integration_section",
+   "fieldtype": "Section Break",
+   "label": "Data Integration - تكامل البيانات"
+  },
+  {
+   "fieldname": "data_sources",
+   "fieldtype": "Table",
+   "label": "Data Sources - مصادر البيانات",
+   "options": "Dashboard Data Source"
+  },
+  {
+   "fieldname": "data_refresh_settings",
+   "fieldtype": "Table",
+   "label": "Data Refresh Settings - إعدادات تحديث البيانات",
+   "options": "Dashboard Data Refresh Setting"
+  },
+  {
+   "fieldname": "caching_configuration",
+   "fieldtype": "JSON",
+   "label": "Caching Configuration - تكوين التخزين المؤقت"
+  },
+  {
+   "fieldname": "column_break_35",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "api_integrations",
+   "fieldtype": "Table",
+   "label": "API Integrations - تكاملات API",
+   "options": "Dashboard API Integration"
+  },
+  {
+   "fieldname": "external_data_sources",
+   "fieldtype": "Table",
+   "label": "External Data Sources - مصادر البيانات الخارجية",
+   "options": "Dashboard External Data Source"
+  },
+  {
+   "fieldname": "data_transformation",
+   "fieldtype": "Table",
+   "label": "Data Transformation - تحويل البيانات",
+   "options": "Dashboard Data Transformation"
+  },
+  {
+   "fieldname": "user_personalization_section",
+   "fieldtype": "Section Break",
+   "label": "User Personalization - تخصيص المستخدم"
+  },
+  {
+   "fieldname": "personalization_enabled",
+   "fieldtype": "Check",
+   "label": "Personalization Enabled - التخصيص مفعل",
+   "default": 1
+  },
+  {
+   "fieldname": "user_preferences",
+   "fieldtype": "Table",
+   "label": "User Preferences - تفضيلات المستخدم",
+   "options": "Dashboard User Preference"
+  },
+  {
+   "fieldname": "custom_layouts",
+   "fieldtype": "Table",
+   "label": "Custom Layouts - التخطيطات المخصصة",
+   "options": "Dashboard Custom Layout"
+  },
+  {
+   "fieldname": "column_break_41",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bookmark_system",
+   "fieldtype": "Check",
+   "label": "Bookmark System - نظام العلامات المرجعية",
+   "default": 1
+  },
+  {
+   "fieldname": "favorite_widgets",
+   "fieldtype": "Table",
+   "label": "Favorite Widgets - الأدوات المفضلة",
+   "options": "Dashboard Favorite Widget"
+  },
+  {
+   "fieldname": "personal_dashboard_config",
+   "fieldtype": "JSON",
+   "label": "Personal Dashboard Config - تكوين لوحة المعلومات الشخصية"
+  },
+  {
+   "fieldname": "performance_optimization_section",
+   "fieldtype": "Section Break",
+   "label": "Performance Optimization - تحسين الأداء"
+  },
+  {
+   "fieldname": "lazy_loading",
+   "fieldtype": "Check",
+   "label": "Lazy Loading - التحميل البطيء",
+   "default": 1
+  },
+  {
+   "fieldname": "performance_monitoring",
+   "fieldtype": "Check",
+   "label": "Performance Monitoring - مراقبة الأداء",
+   "default": 1
+  },
+  {
+   "fieldname": "load_time_optimization",
+   "fieldtype": "Check",
+   "label": "Load Time Optimization - تحسين وقت التحميل",
+   "default": 1
+  },
+  {
+   "fieldname": "column_break_47",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "memory_management",
+   "fieldtype": "Check",
+   "label": "Memory Management - إدارة الذاكرة",
+   "default": 1
+  },
+  {
+   "fieldname": "caching_strategy",
+   "fieldtype": "Select",
+   "label": "Caching Strategy - استراتيجية التخزين المؤقت",
+   "options": "No Cache\\nBrowser Cache\\nServer Cache\\nRedis Cache\\nMemory Cache\\nHybrid Cache",
+   "default": "Redis Cache"
+  },
+  {
+   "fieldname": "bandwidth_optimization",
+   "fieldtype": "Check",
+   "label": "Bandwidth Optimization - تحسين عرض النطاق الترددي",
+   "default": 1
+  },
+  {
+   "fieldname": "security_access_section",
+   "fieldtype": "Section Break",
+   "label": "Security & Access Control - الأمان والتحكم في الوصول"
+  },
+  {
+   "fieldname": "access_control",
+   "fieldtype": "Select",
+   "label": "Access Control - التحكم في الوصول",
+   "options": "Public\\nRole Based\\nUser Specific\\nDepartment Based\\nCustom",
+   "default": "Role Based"
+  },
+  {
+   "fieldname": "role_based_dashboards",
+   "fieldtype": "Table",
+   "label": "Role Based Dashboards - لوحات المعلومات القائمة على الأدوار",
+   "options": "Dashboard Role Access"
+  },
+  {
+   "fieldname": "user_specific_access",
+   "fieldtype": "Table",
+   "label": "User Specific Access - الوصول الخاص بالمستخدم",
+   "options": "Dashboard User Access"
+  },
+  {
+   "fieldname": "column_break_53",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "data_security",
+   "fieldtype": "Table",
+   "label": "Data Security - أمان البيانات",
+   "options": "Dashboard Data Security"
+  },
+  {
+   "fieldname": "encryption_settings",
+   "fieldtype": "JSON",
+   "label": "Encryption Settings - إعدادات التشفير"
+  },
+  {
+   "fieldname": "audit_trail",
+   "fieldtype": "Check",
+   "label": "Audit Trail - سجل التدقيق",
+   "default": 1
+  },
+  {
+   "fieldname": "export_sharing_section",
+   "fieldtype": "Section Break",
+   "label": "Export & Sharing - التصدير والمشاركة"
+  },
+  {
+   "fieldname": "export_formats",
+   "fieldtype": "Select",
+   "label": "Export Formats - تنسيقات التصدير",
+   "options": "PDF\\nPNG\\nJPEG\\nSVG\\nExcel\\nCSV\\nJSON\\nHTML"
+  },
+  {
+   "fieldname": "sharing_options",
+   "fieldtype": "Table",
+   "label": "Sharing Options - خيارات المشاركة",
+   "options": "Dashboard Sharing Option"
+  },
+  {
+   "fieldname": "email_delivery",
+   "fieldtype": "Table",
+   "label": "Email Delivery - تسليم البريد الإلكتروني",
+   "options": "Dashboard Email Delivery"
+  },
+  {
+   "fieldname": "column_break_59",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pdf_generation",
+   "fieldtype": "JSON",
+   "label": "PDF Generation Settings - إعدادات إنشاء PDF"
+  },
+  {
+   "fieldname": "scheduled_exports",
+   "fieldtype": "Table",
+   "label": "Scheduled Exports - التصديرات المجدولة",
+   "options": "Dashboard Scheduled Export"
+  },
+  {
+   "fieldname": "api_access",
+   "fieldtype": "Table",
+   "label": "API Access - وصول API",
+   "options": "Dashboard API Access"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "arabic_dashboard_excellence_section",
+   "fieldtype": "Section Break",
+   "label": "Arabic Dashboard Excellence - التميز في لوحات المعلومات العربية"
+  },
+  {
+   "fieldname": "arabic_dashboard_terminology",
+   "fieldtype": "Text",
+   "label": "Arabic Dashboard Terminology - مصطلحات لوحة المعلومات العربية"
+  },
+  {
+   "fieldname": "traditional_dashboard_patterns",
+   "fieldtype": "Text",
+   "label": "Traditional Dashboard Patterns - أنماط لوحة المعلومات التقليدية"
+  },
+  {
+   "fieldname": "cultural_widget_designs",
+   "fieldtype": "Text",
+   "label": "Cultural Widget Designs - تصاميم الأدوات الثقافية"
+  },
+  {
+   "fieldname": "column_break_65",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "omani_dashboard_formats",
+   "fieldtype": "Text",
+   "label": "Omani Dashboard Formats - تنسيقات لوحة المعلومات العمانية"
+  },
+  {
+   "fieldname": "arabic_chart_localization",
+   "fieldtype": "Text",
+   "label": "Arabic Chart Localization - توطين المخططات العربية"
+  },
+  {
+   "fieldname": "traditional_kpi_displays",
+   "fieldtype": "Text",
+   "label": "Traditional KPI Displays - عروض مؤشرات الأداء التقليدية"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "islamic_business_compliance_section",
+   "fieldtype": "Section Break",
+   "label": "Islamic Business Compliance - الامتثال للأعمال الإسلامية"
+  },
+  {
+   "fieldname": "islamic_dashboard_validation",
+   "fieldtype": "Check",
+   "label": "Islamic Dashboard Validation - التحقق من لوحة المعلومات الإسلامية",
+   "default": 1
+  },
+  {
+   "fieldname": "halal_data_display",
+   "fieldtype": "Check",
+   "label": "Halal Data Display - عرض البيانات الحلال"
+  },
+  {
+   "fieldname": "ethical_visualization_standards",
+   "fieldtype": "Check",
+   "label": "Ethical Visualization Standards - معايير المرئيات الأخلاقية",
+   "default": 1
+  },
+  {
+   "fieldname": "column_break_71",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sharia_compliant_charts",
+   "fieldtype": "Check",
+   "label": "Sharia Compliant Charts - المخططات المتوافقة مع الشريعة"
+  },
+  {
+   "fieldname": "community_benefit_widgets",
+   "fieldtype": "Check",
+   "label": "Community Benefit Widgets - أدوات الفائدة المجتمعية"
+  },
+  {
+   "fieldname": "religious_calendar_widgets",
+   "fieldtype": "Check",
+   "label": "Religious Calendar Widgets - أدوات التقويم الديني"
+  },
+  {
+   "fieldname": "mobile_dashboard_section",
+   "fieldtype": "Section Break",
+   "label": "Mobile Dashboard - لوحة المعلومات المحمولة"
+  },
+  {
+   "fieldname": "mobile_optimized",
+   "fieldtype": "Check",
+   "label": "Mobile Optimized - محسن للهاتف المحمول",
+   "default": 1
+  },
+  {
+   "fieldname": "touch_interface",
+   "fieldtype": "Check",
+   "label": "Touch Interface - واجهة اللمس",
+   "default": 1
+  },
+  {
+   "fieldname": "offline_dashboard",
+   "fieldtype": "Check",
+   "label": "Offline Dashboard - لوحة المعلومات دون اتصال"
+  },
+  {
+   "fieldname": "column_break_77",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mobile_widgets",
+   "fieldtype": "Table",
+   "label": "Mobile Widgets - أدوات الهاتف المحمول",
+   "options": "Dashboard Mobile Widget"
+  },
+  {
+   "fieldname": "swipe_gestures",
+   "fieldtype": "Check",
+   "label": "Swipe Gestures - إيماءات السحب",
+   "default": 1
+  },
+  {
+   "fieldname": "arabic_mobile_interface",
+   "fieldtype": "Check",
+   "label": "Arabic Mobile Interface - واجهة الهاتف المحمول العربية",
+   "default": 1
+  },
+  {
+   "fieldname": "collaboration_section",
+   "fieldtype": "Section Break",
+   "label": "Collaboration & Sharing - التعاون والمشاركة"
+  },
+  {
+   "fieldname": "shared_dashboards",
+   "fieldtype": "Check",
+   "label": "Shared Dashboards - لوحات المعلومات المشتركة"
+  },
+  {
+   "fieldname": "collaborative_widgets",
+   "fieldtype": "Table",
+   "label": "Collaborative Widgets - الأدوات التعاونية",
+   "options": "Dashboard Collaborative Widget"
+  },
+  {
+   "fieldname": "team_dashboards",
+   "fieldtype": "Table",
+   "label": "Team Dashboards - لوحات معلومات الفريق",
+   "options": "Dashboard Team Access"
+  },
+  {
+   "fieldname": "column_break_83",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "comment_system",
+   "fieldtype": "Table",
+   "label": "Comment System - نظام التعليقات",
+   "options": "Dashboard Comment System"
+  },
+  {
+   "fieldname": "annotation_tools",
+   "fieldtype": "Table",
+   "label": "Annotation Tools - أدوات التعليق التوضيحي",
+   "options": "Dashboard Annotation Tool"
+  },
+  {
+   "fieldname": "discussion_threads",
+   "fieldtype": "Table",
+   "label": "Discussion Threads - سلاسل النقاش",
+   "options": "Dashboard Discussion Thread"
+  },
+  {
+   "fieldname": "advanced_features_section",
+   "fieldtype": "Section Break",
+   "label": "Advanced Features - الميزات المتقدمة"
+  },
+  {
+   "fieldname": "ai_powered_insights",
+   "fieldtype": "Check",
+   "label": "AI Powered Insights - الرؤى المدعومة بالذكاء الاصطناعي"
+  },
+  {
+   "fieldname": "predictive_widgets",
+   "fieldtype": "Table",
+   "label": "Predictive Widgets - الأدوات التنبؤية",
+   "options": "Dashboard Predictive Widget"
+  },
+  {
+   "fieldname": "anomaly_alerts",
+   "fieldtype": "Check",
+   "label": "Anomaly Alerts - تنبيهات الشذوذ",
+   "default": 1
+  },
+  {
+   "fieldname": "column_break_89",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "smart_recommendations",
+   "fieldtype": "Check",
+   "label": "Smart Recommendations - التوصيات الذكية"
+  },
+  {
+   "fieldname": "automated_analysis",
+   "fieldtype": "Check",
+   "label": "Automated Analysis - التحليل الآلي"
+  },
+  {
+   "fieldname": "intelligent_filtering",
+   "fieldtype": "Check",
+   "label": "Intelligent Filtering - التصفية الذكية"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "integration_section",
+   "fieldtype": "Section Break",
+   "label": "Shared Library Integration - تكامل المكتبة المشتركة"
+  },
+  {
+   "default": "0",
+   "fieldname": "shared_library_dashboard_enhanced",
+   "fieldtype": "Check",
+   "label": "Shared Library Dashboard Enhanced - تم تعزيز لوحة المعلومات بالمكتبة المشتركة",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "arabic_business_logic_integrated",
+   "fieldtype": "Check",
+   "label": "Arabic Business Logic Integrated - تم دمج منطق الأعمال العربي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "traditional_patterns_applied",
+   "fieldtype": "Check",
+   "label": "Traditional Patterns Applied - تم تطبيق الأنماط التقليدية",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "islamic_compliance_verified",
+   "fieldtype": "Check",
+   "label": "Islamic Compliance Verified - تم التحقق من الامتثال الإسلامي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "omani_context_validated",
+   "fieldtype": "Check",
+   "label": "Omani Context Validated - تم التحقق من السياق العماني",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Notes & Metadata - الملاحظات والبيانات الوصفية"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks - ملاحظات"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By - أنشأ بواسطة",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_date",
+   "fieldtype": "Date",
+   "label": "Created Date - تاريخ الإنشاء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_updated_by",
+   "fieldtype": "Link",
+   "label": "Last Updated By - آخر تحديث بواسطة",
+   "options": "User",
+   "read_only": 1
+  }
+ ],
+ "has_web_view": 1,
+ "hide_toolbar": 0,
+ "idx": 0,
+ "in_create": 0,
+ "is_submittable": 0,
+ "issingle": 0,
+ "max_attachments": 10,
+ "modified": "2025-01-04 02:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Analytics Reporting",
+ "name": "Unified Dashboard Management",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Dashboard Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "write": 1,
+   "role": "Dashboard User"
+  },
+  {
+   "read": 1,
+   "role": "Workshop Manager"
+  },
+  {
+   "read": 1,
+   "role": "Finance Manager"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "write": 1,
+   "role": "System Manager"
+  },
+  {
+   "read": 1,
+   "role": "Accounts User"
+  }
+ ],
+ "quick_entry": 1,
+ "route": "unified-dashboard",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "dashboard_name",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

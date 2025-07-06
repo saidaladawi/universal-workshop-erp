@@ -1,1 +1,0 @@
-# Sales Channel DocType initialization 

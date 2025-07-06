@@ -1,0 +1,34 @@
+[alias]
+    # Quick status and staging
+    s = status -s
+    a = add -A
+    
+    # ERP-specific commit types
+    feat = "\!f() { git commit -m \"✨ feat($1): $2\"; }; f"
+    fix = "\!f() { git commit -m \"🐛 fix($1): $2\"; }; f"
+    docs = "\!f() { git commit -m \"📝 docs($1): $2\"; }; f"
+    arabic = "\!f() { git commit -m \"🌐 arabic($1): $2\"; }; f"
+    security = "\!f() { git commit -m \"🔒 security($1): $2\"; }; f"
+    
+    # Branch management
+    feature = "\!f() { git checkout develop && git pull && git checkout -b feature/$1; }; f"
+    hotfix = "\!f() { git checkout main && git pull && git checkout -b hotfix/$1; }; f"
+    release = "\!f() { git checkout develop && git pull && git checkout -b release/$1; }; f"
+    
+    # ERP module shortcuts
+    workshop = "\!f() { git feature workshop-$1; }; f"
+    billing = "\!f() { git feature billing-$1; }; f"
+    inventory = "\!f() { git feature inventory-$1; }; f"
+    mobile = "\!f() { git feature mobile-$1; }; f"
+    
+    # Cleanup and maintenance
+    cleanup-branches = "\!git branch --merged  < /dev/null |  grep -v '\\*\\|main\\|develop' | xargs -n 1 git branch -d"
+    backup-now = "\!f() { DATE=$(date +%Y%m%d_%H%M); git checkout -b backup-$DATE && git add -A && git commit -m \"📦 Backup: $DATE\" && git push origin backup-$DATE && git checkout -; }; f"
+    
+    # Enhanced logging
+    tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    modules = "\!git log --oneline --grep='workshop\\|billing\\|inventory\\|mobile\\|arabic' -10"
+    
+    # Arabic development helpers
+    arabic-commits = "\!git log --grep='arabic\\|عربي\\|RTL' --oneline"
+    arabic-files = "\!git ls-files | grep -E '(arabic|rtl|ar_)'"

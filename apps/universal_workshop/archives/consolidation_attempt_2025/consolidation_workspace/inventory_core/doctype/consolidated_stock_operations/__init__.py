@@ -1,0 +1,1 @@
+# Consolidated Stock Operations DocType

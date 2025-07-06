@@ -1,0 +1,270 @@
+version: '3.8'
+
+services:
+  # ERPNext Application
+  erpnext-web:
+    build:
+      context: ../../
+      dockerfile: deployment/docker/Dockerfile.production
+    container_name: workshop-erpnext-web
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - FRAPPE_SITE_NAME=${SITE_NAME:-workshop.local}
+      - DB_HOST=mariadb
+      - DB_PORT=3306
+      - DB_PASSWORD=${DB_ROOT_PASSWORD}
+      - REDIS_CACHE=redis-cache:6379
+      - REDIS_QUEUE=redis-queue:6379
+      - REDIS_SOCKETIO=redis-socketio:6379
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+    volumes:
+      - erpnext-sites:/home/frappe/frappe-bench/sites
+      - erpnext-logs:/home/frappe/frappe-bench/logs
+    depends_on:
+      - mariadb
+      - redis-cache
+      - redis-queue
+      - redis-socketio
+    networks:
+      - erpnext-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/method/ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # Background Workers
+  erpnext-worker-default:
+    build:
+      context: ../../
+      dockerfile: deployment/docker/Dockerfile.production
+    container_name: workshop-erpnext-worker-default
+    restart: unless-stopped
+    command: bench worker --queue default
+    environment:
+      - FRAPPE_SITE_NAME=${SITE_NAME:-workshop.local}
+      - DB_HOST=mariadb
+      - DB_PASSWORD=${DB_ROOT_PASSWORD}
+      - REDIS_CACHE=redis-cache:6379
+      - REDIS_QUEUE=redis-queue:6379
+    volumes:
+      - erpnext-sites:/home/frappe/frappe-bench/sites
+      - erpnext-logs:/home/frappe/frappe-bench/logs
+    depends_on:
+      - mariadb
+      - redis-queue
+    networks:
+      - erpnext-network
+
+  erpnext-worker-long:
+    build:
+      context: ../../
+      dockerfile: deployment/docker/Dockerfile.production
+    container_name: workshop-erpnext-worker-long
+    restart: unless-stopped
+    command: bench worker --queue long
+    environment:
+      - FRAPPE_SITE_NAME=${SITE_NAME:-workshop.local}
+      - DB_HOST=mariadb
+      - DB_PASSWORD=${DB_ROOT_PASSWORD}
+      - REDIS_CACHE=redis-cache:6379
+      - REDIS_QUEUE=redis-queue:6379
+    volumes:
+      - erpnext-sites:/home/frappe/frappe-bench/sites
+      - erpnext-logs:/home/frappe/frappe-bench/logs
+    depends_on:
+      - mariadb
+      - redis-queue
+    networks:
+      - erpnext-network
+
+  erpnext-worker-short:
+    build:
+      context: ../../
+      dockerfile: deployment/docker/Dockerfile.production
+    container_name: workshop-erpnext-worker-short
+    restart: unless-stopped
+    command: bench worker --queue short
+    environment:
+      - FRAPPE_SITE_NAME=${SITE_NAME:-workshop.local}
+      - DB_HOST=mariadb
+      - DB_PASSWORD=${DB_ROOT_PASSWORD}
+      - REDIS_CACHE=redis-cache:6379
+      - REDIS_QUEUE=redis-queue:6379
+    volumes:
+      - erpnext-sites:/home/frappe/frappe-bench/sites
+      - erpnext-logs:/home/frappe/frappe-bench/logs
+    depends_on:
+      - mariadb
+      - redis-queue
+    networks:
+      - erpnext-network
+
+  # Scheduler
+  erpnext-scheduler:
+    build:
+      context: ../../
+      dockerfile: deployment/docker/Dockerfile.production
+    container_name: workshop-erpnext-scheduler
+    restart: unless-stopped
+    command: bench schedule
+    environment:
+      - FRAPPE_SITE_NAME=${SITE_NAME:-workshop.local}
+      - DB_HOST=mariadb
+      - DB_PASSWORD=${DB_ROOT_PASSWORD}
+      - REDIS_CACHE=redis-cache:6379
+      - REDIS_QUEUE=redis-queue:6379
+    volumes:
+      - erpnext-sites:/home/frappe/frappe-bench/sites
+      - erpnext-logs:/home/frappe/frappe-bench/logs
+    depends_on:
+      - mariadb
+      - redis-queue
+    networks:
+      - erpnext-network
+
+  # MariaDB Database
+  mariadb:
+    image: mariadb:10.6
+    container_name: workshop-mariadb
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MYSQL_DATABASE=workshop_erp
+      - MYSQL_USER=erpnext
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - mariadb-data:/var/lib/mysql
+      - ./mariadb.cnf:/etc/mysql/mariadb.conf.d/custom.cnf:ro
+    command: 
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --skip-character-set-client-handshake
+      - --skip-innodb-read-only-compressed
+    ports:
+      - "3306:3306"
+    networks:
+      - erpnext-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${DB_ROOT_PASSWORD}"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Redis Cache
+  redis-cache:
+    image: redis:7-alpine
+    container_name: workshop-redis-cache
+    restart: unless-stopped
+    command: redis-server --appendonly yes --maxmemory 512mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis-cache-data:/data
+    networks:
+      - erpnext-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Redis Queue
+  redis-queue:
+    image: redis:7-alpine
+    container_name: workshop-redis-queue
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - redis-queue-data:/data
+    networks:
+      - erpnext-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Redis SocketIO
+  redis-socketio:
+    image: redis:7-alpine
+    container_name: workshop-redis-socketio
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - redis-socketio-data:/data
+    networks:
+      - erpnext-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Nginx Reverse Proxy
+  nginx:
+    image: nginx:alpine
+    container_name: workshop-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+      - erpnext-sites:/var/www/html/sites:ro
+    depends_on:
+      - erpnext-web
+    networks:
+      - erpnext-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Backup Service
+  backup:
+    image: alpine:latest
+    container_name: workshop-backup
+    restart: unless-stopped
+    environment:
+      - DB_HOST=mariadb
+      - DB_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - BACKUP_RETENTION_DAYS=30
+      - S3_BUCKET=${BACKUP_S3_BUCKET}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+    volumes:
+      - erpnext-sites:/backup/sites:ro
+      - backup-data:/backup/output
+      - ./scripts/backup.sh:/backup/backup.sh:ro
+    command: crond -f
+    depends_on:
+      - mariadb
+    networks:
+      - erpnext-network
+
+volumes:
+  erpnext-sites:
+    driver: local
+  erpnext-logs:
+    driver: local
+  mariadb-data:
+    driver: local
+  redis-cache-data:
+    driver: local
+  redis-queue-data:
+    driver: local
+  redis-socketio-data:
+    driver: local
+  backup-data:
+    driver: local
+
+networks:
+  erpnext-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

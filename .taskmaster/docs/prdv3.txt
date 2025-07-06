@@ -1,0 +1,522 @@
+PRODUCT NAME: Universal Workshop ERP
+VERSION: 3.0  
+DATE: January 2025
+STATUS: ENHANCEMENT & COMPLETION
+OVERVIEW:
+- Universal Workshop ERP v3.0 focuses on completing the missing core interfaces, enhancing user experience, and implementing a comprehensive visual identity system for Arabic-first automotive workshop management.
+- This version addresses critical gaps identified in the system review, including missing operational pages, incomplete role management, and visual branding inconsistencies.
+- Enhanced focus on production-ready interfaces that support daily workshop operations with improved Arabic/English dual-language experience.
+
+GOALS:
+- Reduce work-order creation time from 5 min to 2 min.
+- Raise inventory accuracy to 98% via cycle counting & barcodes.
+- Boost Customer Satisfaction Score (CSAT) to 4.5/5 within six months.
+- Lower dashboard load time to ≤ 3 seconds.
+
+NON-GOALS:
+- Integrations with payment gateways outside Oman.
+- Multi-branch support in this release.
+
+METRICS:
+- KPI 1 – dashboard load ≤ 3 s.
+- KPI 2 – critical production errors < 1% per month.
+- KPI 3 – spare-parts demand forecast accuracy ≥ 95%.
+
+RISKS / CONSTRAINTS:
+- Offline environment limits live API updates.
+- Front-end team limited to three developers.
+- ERPNext/Frappe core customisation constraints.
+
+TARGET USERS:
+- Workshop owners requiring complete operational dashboards
+- Service advisors needing streamlined sales and customer interfaces  
+- Parts managers requiring comprehensive inventory and purchasing tools
+- Financial staff needing complete billing, payment, and reporting interfaces
+- Technicians using mobile-optimized service interfaces
+- System administrators managing users, roles, and system configuration
+
+[RACI]
+| Role | R | A | C | I |
+| Eng. Saeed Al-Adawi | X | X | X | X |
+| UI/UX Designer | X |  | X |  |
+| Frontend Dev Team | X |  | X |  |
+| Beta Workshops |  |  | X | X |
+
+MODULE: Visual Identity & Branding System
+PURPOSE: Establish consistent, professional Arabic-first visual identity across all system interfaces.
+KEY CAPABILITIES:
+- Workshop logo upload system integrated into existing onboarding wizard
+- Dynamic logo injection across all ERPNext DocType forms and reports
+- Enhanced Arabic/English typography building on existing RTL infrastructure
+- Workshop-specific color scheme system with CSS variable integration
+- Dark mode support with automatic brand color adaptation
+- Branded print templates extending ERPNext's existing template system
+- Mobile-responsive branding leveraging established CSS framework
+- Professional loading animations and visual feedback systems
+- Real-time logo preview during onboarding process
+- Logo validation and optimization for web and print usage
+[ACCEPTANCE CRITERIA]
+- AC1: Workshop logo uploads successfully through onboarding wizard with format validation (PNG, JPG, SVG)
+- AC2: Logo displays consistently across all 50+ system pages within 2 seconds of navigation
+- AC3: Print templates automatically include workshop logo with proper scaling and positioning
+- AC4: Arabic RTL layout maintains perfect visual alignment with brand elements
+- AC5: Dark mode preserves brand colors and readability standards
+- AC6: Logo upload during onboarding supports PNG/SVG up to 2MB with automatic optimization
+- AC7: Print templates include workshop branding with professional layout
+- AC8: Mobile interfaces maintain brand consistency at all screen sizes
+
+[TASK SEEDS]
+- Create unified branding system with logo integration framework
+- Implement comprehensive Arabic/English typography system
+- Build professional color scheme with dark mode support
+- Develop consistent header/footer template system
+- Create workshop logo upload and management interface
+- Build branded print template system for all documents
+- Implement responsive branding for mobile interfaces
+- Develop loading animations and visual feedback components
+
+
+MODULE: Core Workshop Dashboard
+PURPOSE: Provide comprehensive operational overview and quick access to all workshop functions.
+KEY CAPABILITIES:
+- Real-time workshop performance metrics and KPIs
+- Daily/weekly/monthly revenue and service volume tracking
+- Active service orders status board with technician assignments
+- Parts inventory alerts and low stock notifications
+- Customer satisfaction scores and recent feedback display
+- Upcoming appointments and scheduling conflicts alerts
+- Financial summary with outstanding receivables
+- Quick action buttons for common tasks (new customer, service order, etc.)
+[ACCEPTANCE CRITERIA]
+- AC1: Dashboard loads completely within 3 seconds with all widgets populated
+- AC2: Real-time updates refresh every 30 seconds without page reload
+- AC3: All metrics display in Arabic/English with proper number formatting
+- AC4: Quick actions complete common tasks in under 2 clicks
+- AC5: Performance widgets provide drill-down to detailed reports
+- AC6: Dashboard adapts to different screen sizes maintaining functionality
+
+[TASK SEEDS]
+- Create main dashboard with real-time performance metrics
+- Build service orders status board with live updates
+- Implement inventory alerts and notifications system
+- Develop financial summary widgets with drill-down capability
+- Create quick action toolbar for common workflows
+- Build responsive dashboard layout for all devices
+- Implement automated refresh system for real-time data
+- Develop customizable widget system for user preferences
+
+MODULE: Sales & Service Interface
+PURPOSE: Streamline sales processes from quotation to invoice with comprehensive service order management.
+KEY CAPABILITIES:
+- Service estimate creation with parts and labor breakdown
+- Quotation approval workflow with customer authorization
+- Service order creation from estimates with automatic pricing
+- Real-time service progress tracking with customer notifications
+- Parts reservation and allocation during service creation
+- Labor time tracking with technician productivity monitoring
+- Service completion workflow with quality control checkpoints
+- Invoice generation with automatic VAT calculation and QR code
+[ACCEPTANCE CRITERIA]
+- AC1: Estimate creation completes in under 2 minutes with parts auto-suggestion
+- AC2: Service order conversion from estimate maintains 100% data accuracy
+- AC3: Real-time progress updates notify customers within 5 minutes of status change
+- AC4: Parts reservation prevents overselling with immediate inventory updates
+- AC5: Invoice generation includes Oman VAT compliance and QR code requirements
+- AC6: Mobile interface allows technicians to update progress in under 30 seconds
+
+[TASK SEEDS]
+- Create comprehensive service estimate interface with parts integration
+- Build quotation approval workflow with customer notification system
+- Implement service order management with real-time progress tracking
+- Develop parts reservation and allocation system
+- Create labor time tracking with technician productivity metrics
+- Build quality control checkpoint system with approval workflows
+- Implement automated invoice generation with VAT compliance
+- Develop mobile service progress interface for technicians
+
+MODULE: Purchasing & Supplier Management
+PURPOSE: Optimize procurement processes with intelligent supplier selection and cost management.
+KEY CAPABILITIES:
+- Purchase order creation with multi-supplier comparison
+- Supplier performance tracking with delivery and quality metrics
+- Automated reorder alerts based on inventory levels and demand forecasting
+- Purchase approval workflow with budget controls
+- Goods receipt processing with quality inspection checkpoints
+- Supplier payment tracking with terms and discounts management
+- Cost analysis with price trend monitoring
+- Mobile receiving interface for warehouse staff
+[ACCEPTANCE CRITERIA]
+- AC1: Purchase orders generate in under 3 minutes with supplier auto-selection
+- AC2: Multi-supplier comparison shows real-time pricing and availability
+- AC3: Automated reorder alerts trigger 5 days before stock-out predicted
+- AC4: Approval workflow routes orders based on amount thresholds
+- AC5: Goods receipt processing updates inventory within 2 minutes
+- AC6: Supplier performance metrics calculate automatically with monthly reports
+
+[TASK SEEDS]
+- Create purchase order interface with multi-supplier comparison
+- Build supplier performance tracking and rating system
+- Implement automated reorder system with demand forecasting
+- Develop purchase approval workflow with budget controls
+- Create goods receipt processing with quality inspection
+- Build supplier payment tracking and terms management
+- Implement cost analysis and price trend monitoring
+- Develop mobile receiving interface for warehouse operations
+
+MODULE: Inventory Management Interface
+PURPOSE: Provide comprehensive inventory control with advanced analytics and mobile accessibility.
+KEY CAPABILITIES:
+- Real-time inventory dashboard with stock levels and movements
+- Advanced search with part number, description, and vehicle compatibility
+- Cycle counting interface with barcode scanning integration
+- Stock transfer between locations with approval workflows
+- Inventory analytics with ABC analysis and slow-moving stock identification
+- Parts compatibility matrix with vehicle make/model integration
+- Supplier catalog integration with automatic part number mapping
+- Mobile inventory counting with offline capability
+[ACCEPTANCE CRITERIA]
+- AC1: Inventory search returns results in under 2 seconds with multiple criteria
+- AC2: Barcode scanning updates stock levels with 99.9% accuracy
+- AC3: Stock transfers complete approval workflow within 1 hour
+- AC4: Analytics identify slow-moving stock with 95% accuracy
+- AC5: Parts compatibility shows accurate vehicle fitment information
+- AC6: Mobile interface works offline for 4 hours with automatic sync
+
+[TASK SEEDS]
+- Create comprehensive inventory dashboard with real-time updates
+- Build advanced search interface with multiple criteria support
+- Implement cycle counting system with barcode integration
+- Develop stock transfer workflow with approval system
+- Create inventory analytics with ABC analysis capabilities
+- Build parts compatibility matrix with vehicle integration
+- Implement supplier catalog integration and mapping
+- Develop mobile inventory interface with offline capability
+
+MODULE: Customer Service Portal
+PURPOSE: Enhance customer experience through self-service capabilities and transparent communication.
+KEY CAPABILITIES:
+- Customer registration and profile management with vehicle information
+- Online appointment booking with real-time availability display
+- Service history viewing with detailed parts and labor breakdown
+- Service progress tracking with photo/video updates from technicians
+- Invoice viewing and online payment processing
+- Feedback and rating system for completed services
+- Digital document storage for warranties and service records
+- SMS/WhatsApp integration for automated notifications
+[ACCEPTANCE CRITERIA]
+- AC1: Customer registration completes in under 3 minutes with email verification
+- AC2: Appointment booking shows real-time availability with instant confirmation
+- AC3: Service progress updates include photos within 30 minutes of technician action
+- AC4: Online payments process securely with immediate confirmation
+- AC5: Customer feedback collection achieves 80% response rate
+- AC6: Digital documents remain accessible for 5 years with search capability
+
+[TASK SEEDS]
+- Create customer registration and profile management interface
+- Build online appointment booking with calendar integration
+- Implement service progress tracking with media updates
+- Develop online payment processing with security compliance
+- Create feedback and rating system with automated collection
+- Build digital document storage with long-term retention
+- Implement SMS/WhatsApp integration for customer communications
+- Develop mobile-optimized customer portal interface
+
+MODULE: Scrap Vehicle Processing
+PURPOSE: Maximize profit from vehicle dismantling through systematic processing and parts sales.
+KEY CAPABILITIES:
+- Vehicle acquisition interface with condition assessment forms
+- Dismantling workflow with parts extraction planning
+- Parts condition grading with photo documentation
+- Storage location assignment with barcode labeling
+- Online parts listing with marketplace integration
+- Sales tracking with profit margin analysis
+- Environmental compliance documentation
+- Parts demand forecasting for dismantling prioritization
+[ACCEPTANCE CRITERIA]
+- AC1: Vehicle assessment completes in under 30 minutes with standardized scoring
+- AC2: Dismantling workflow provides optimized parts extraction sequence
+- AC3: Parts grading maintains consistent quality standards across assessors
+- AC4: Storage assignment tracks exact location with barcode system
+- AC5: Marketplace integration lists parts within 1 hour of processing
+- AC6: Profit analysis calculates ROI with 95% accuracy for decision making
+
+[TASK SEEDS]
+- Create vehicle acquisition and assessment interface
+- Build dismantling workflow with extraction planning
+- Implement parts grading system with photo documentation
+- Develop storage location management with barcode integration
+- Create marketplace integration for online parts sales
+- Build profit analysis system with margin tracking
+- Implement environmental compliance documentation
+- Develop demand forecasting for dismantling prioritization
+
+MODULE: Financial Management & Reporting
+PURPOSE: Provide comprehensive financial control with automated compliance and detailed analytics.
+KEY CAPABILITIES:
+- Accounts receivable management with automated collection workflows
+- Accounts payable processing with supplier payment scheduling
+- Cash flow forecasting with scenario planning
+- Profit & loss reporting with departmental breakdown
+- VAT reporting with automated government submission preparation
+- Cost center analysis with service profitability tracking
+- Budget planning and variance analysis with alert system
+- Financial dashboard with key performance indicators
+[ACCEPTANCE CRITERIA]
+- AC1: Receivables aging updates in real-time with automated reminder scheduling
+- AC2: Payment scheduling optimizes cash flow with supplier term management
+- AC3: Cash flow forecasts provide 90% accuracy for 90-day projections
+- AC4: P&L reports generate within 5 minutes with drill-down capability
+- AC5: VAT reports comply with Oman Tax Authority (OTA) format requirements
+- AC6: Cost analysis identifies profitable services with 95% accuracy
+
+[TASK SEEDS]
+- Create accounts receivable management with collection automation
+- Build accounts payable processing with payment scheduling
+- Implement cash flow forecasting with scenario modeling
+- Develop profit & loss reporting with departmental analysis
+- Create VAT reporting system with government compliance
+- Build cost center analysis with profitability tracking
+- Implement budget planning with variance monitoring
+- Develop financial dashboard with KPI visualization
+
+MODULE: User Management & Security
+PURPOSE: Provide comprehensive user administration with role-based access control and security monitoring.
+KEY CAPABILITIES:
+- User account creation with role assignment and permission management
+- Role-based access control with page-level and function-level restrictions
+- Security monitoring with login tracking and suspicious activity detection
+- Password policy enforcement with multi-factor authentication support
+- Session management with timeout controls and concurrent login limits
+- Audit trail logging with comprehensive activity tracking
+- User training progress tracking with certification requirements
+- Emergency access procedures with audit logging
+[ACCEPTANCE CRITERIA]
+- AC1: User creation completes in under 2 minutes with email notification
+- AC2: Role permissions prevent unauthorized access with immediate blocking
+- AC3: Security monitoring detects anomalies within 60 seconds
+- AC4: Password policies enforce complexity with regular update requirements
+- AC5: Session management prevents unauthorized concurrent access
+- AC6: Audit trails maintain complete activity history with tamper protection
+
+[TASK SEEDS]
+- Create user account management with role assignment interface
+- Build role-based permission system with granular controls
+- Implement security monitoring with anomaly detection
+- Develop password policy enforcement with MFA support
+- Create session management with timeout and concurrency controls
+- Build comprehensive audit trail system with activity logging
+- Implement user training tracking with certification management
+- Develop emergency access procedures with security logging
+
+MODULE: System Configuration & Maintenance
+PURPOSE: Provide comprehensive system administration tools for optimal performance and reliability.
+KEY CAPABILITIES:
+- System settings management with configuration validation
+- Database backup and restore with automated scheduling
+- Performance monitoring with optimization recommendations
+- License management with usage tracking and renewal alerts
+- Integration management for external APIs and services
+- Error logging and debugging tools with automated alerts
+- System health monitoring with uptime tracking
+- Mobile device management for workshop tablets and phones
+[ACCEPTANCE CRITERIA]
+- AC1: Configuration changes validate immediately with rollback capability
+- AC2: Automated backups complete within 15 minutes with verification
+- AC3: Performance monitoring identifies bottlenecks with 95% accuracy
+- AC4: License tracking provides 30-day renewal advance notification
+- AC5: Integration monitoring detects failures within 2 minutes
+- AC6: System health maintains 99.9% uptime with proactive alerts
+
+[TASK SEEDS]
+- Create system settings interface with validation and rollback
+- Build automated backup and restore system with scheduling
+- Implement performance monitoring with optimization engine
+- Develop license management with tracking and renewal alerts
+- Create integration management for external API monitoring
+- Build error logging system with automated alert generation
+- Implement system health monitoring with uptime tracking
+- Develop mobile device management for workshop equipment
+
+MODULE: Reports & Analytics Engine
+PURPOSE: Deliver comprehensive business intelligence with automated insights and trend analysis.
+KEY CAPABILITIES:
+- Operational reports covering sales, service, inventory, and financial metrics
+- Custom report builder with drag-and-drop interface
+- Automated report scheduling with email delivery
+- Interactive dashboards with drill-down capabilities
+- Trend analysis with predictive modeling for business planning
+- Benchmark analysis comparing performance against industry standards
+- Export capabilities supporting PDF, Excel, and CSV formats
+- Mobile report viewing with optimized layouts
+[ACCEPTANCE CRITERIA]
+- AC1: Standard reports generate within 30 seconds for current month data
+- AC2: Custom report builder creates reports without technical knowledge required
+- AC3: Scheduled reports deliver automatically with 99% reliability
+- AC4: Interactive dashboards respond to filters within 2 seconds
+- AC5: Predictive models provide 85% accuracy for 30-day forecasts
+- AC6: Mobile reports maintain full functionality on tablet and phone screens
+
+[TASK SEEDS]
+- Create comprehensive operational reporting suite
+- Build custom report builder with intuitive interface
+- Implement automated report scheduling and delivery system
+- Develop interactive dashboards with real-time filtering
+- Create trend analysis engine with predictive modeling
+- Build benchmark analysis with industry comparison tools
+- Implement multi-format export system with formatting options
+- Develop mobile-optimized report viewing interface
+
+LOGICAL DEPENDENCY CHAIN:
+1. Visual Identity & Branding System establishes foundation for all interface development
+2. User Management & Security must be completed before operational modules
+3. Core Workshop Dashboard requires data from all operational modules
+4. Sales & Service Interface integrates with Inventory and Customer modules
+5. Purchasing & Supplier Management connects to Inventory and Financial modules
+6. Customer Service Portal depends on Sales and Service data
+7. Scrap Vehicle Processing operates independently but benefits from Inventory integration
+8. Financial Management & Reporting consolidates data from all transactional modules
+9. System Configuration & Maintenance supports all modules with administrative tools
+10. Reports & Analytics Engine provides intelligence across all modules
+
+CRITICAL MISSING INTERFACES IDENTIFIED:
+- Main operational dashboard for daily workshop management
+- Complete sales process from estimate to invoice
+- Comprehensive purchasing workflow with supplier management
+- Advanced inventory interface with analytics and mobile capability
+- Customer portal for self-service and transparency
+- Scrap processing workflow for profit maximization
+- Financial management beyond basic invoicing
+- User and role management for security and compliance
+- System administration tools for maintenance and monitoring
+- Business intelligence and reporting for decision making
+
+VISUAL IDENTITY ENHANCEMENTS (PRIORITY 1):
+- Workshop logo upload and integration system in onboarding wizard
+- Dynamic logo display in header/footer of all system pages
+- Professional Arabic/English typography with proper RTL support
+- Unified color scheme system with workshop-specific customization
+- Dark mode support with brand color preservation
+- Branded print templates for invoices, estimates, and reports
+- Loading animations and visual feedback aligned with workshop brand
+- Mobile-responsive branding elements maintaining consistency
+- Professional appearance suitable for customer-facing interfaces
+
+EXISTING FOUNDATION TO BUILD UPON:
+- Onboarding wizard with professional CSS styling (446 lines)
+- Arabic RTL support infrastructure in place
+- Mobile-responsive CSS framework established
+- ERPNext theming system available for customization
+- Print template system ready for branding integration
+
+VISUAL IDENTITY IMPLEMENTATION PLAN:
+1. Extend existing onboarding wizard to include logo upload functionality
+2. Create workshop-specific theme system building on ERPNext foundation
+3. Implement dynamic logo injection across all DocType forms
+4. Enhance existing CSS with unified color variables
+5. Add dark mode toggle with brand color preservation
+6. Create branded print templates using existing ERPNext infrastructure
+
+COMPREHENSIVE SYSTEM REVIEW & STATUS:
+
+EXISTING PAGES & INTERFACES (✅ IMPLEMENTED):
+1. Workshop Onboarding Wizard (/workshop-onboarding)
+   - Professional CSS with RTL support (446 lines)
+   - Multi-step form with progress indicators
+   - Arabic/English dual language support
+   - Validation and error handling
+   - Status: IMPLEMENTED but needs logo upload integration
+
+2. Basic DocType Forms (Workshop Profile, Vehicle, Customer, Technician)
+   - Standard ERPNext form structure
+   - Basic Arabic field support
+   - Status: IMPLEMENTED but needs visual branding
+
+3. License Management System
+   - Hardware fingerprinting functionality
+   - JWT token validation
+   - Status: IMPLEMENTED but not integrated with UI
+
+PARTIALLY IMPLEMENTED PAGES (⚠️ NEEDS COMPLETION):
+1. Main Dashboard
+   - Basic ERPNext dashboard structure exists
+   - Missing workshop-specific widgets and KPIs
+   - No real-time data visualization
+   - Needs: Complete dashboard redesign with workshop metrics
+
+2. Mobile Interfaces
+   - Basic responsive CSS exists (11KB mobile-workshop.css)
+   - Technician mobile interface partially styled
+   - Missing: Complete mobile workflow optimization
+
+3. Customer Portal
+   - Basic customer management exists
+   - Missing: Self-service portal for customers
+   - Missing: Service history and appointment booking
+
+CRITICAL MISSING PAGES (❌ NOT IMPLEMENTED):
+1. Sales & Estimation Interface
+   - No estimate creation workflow
+   - No quote-to-invoice conversion
+   - No service pricing calculator
+
+2. Purchasing & Procurement System
+   - No supplier management interface
+   - No purchase order workflow
+   - No receiving and inspection process
+
+3. Advanced Inventory Management
+   - Basic inventory exists but lacks:
+   - Parts catalog with images and specifications
+   - Stock level monitoring and alerts
+   - Demand forecasting dashboard
+
+4. Scrap & Waste Management
+   - No scrap categorization system
+   - No waste tracking and disposal workflow
+   - No scrap value calculation interface
+
+5. Financial Management Suite
+   - No comprehensive billing dashboard
+   - No payment tracking system
+   - No financial reporting interface
+
+6. Business Intelligence & Reporting
+   - No workshop performance analytics
+   - No customer satisfaction tracking
+   - No revenue and profitability reports
+
+7. User & Role Management
+   - Basic ERPNext roles exist
+   - Missing: Workshop-specific role configuration
+   - Missing: Granular permission management
+
+8. System Administration Tools
+   - No backup/restore interface
+   - No system health monitoring
+   - No license management dashboard
+
+PROPOSED NEW PAGES FOR COMPLETE SYSTEM:
+1. Workshop Operations Dashboard
+   - Real-time job status board
+   - Technician workload visualization
+   - Bay occupancy and scheduling
+
+2. Customer Relationship Management
+   - Customer communication history
+   - Service reminders and follow-ups
+   - Customer satisfaction surveys
+
+3. Quality Control Interface
+   - Service quality checklists
+   - Customer feedback integration
+   - Performance improvement tracking
+
+4. Mobile Technician App
+   - Job assignment and status updates
+   - Parts lookup and ordering
+   - Time tracking and photo documentation
+
+5. Workshop Configuration Center
+   - Service type and pricing setup
+   - Workshop layout and bay management
+   - Staff scheduling and shift planning 

@@ -1,0 +1,79 @@
+# Production-Optimized Dockerfile for ERPNext/Frappe Workshop Application
+# Multi-stage build for smaller, more secure production images
+
+# Stage 1: Base image with dependencies
+FROM frappe/erpnext:v15.latest as base
+
+# Set non-root user for security
+USER frappe
+
+# Stage 2: Development dependencies (for building)
+FROM base as builder
+
+# Switch to root for package installation
+USER root
+
+# Install build dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    python3-dev \
+    libffi-dev \
+    libssl-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Switch back to frappe user
+USER frappe
+
+# Set working directory
+WORKDIR /home/frappe/frappe-bench
+
+# Copy application code
+COPY --chown=frappe:frappe apps/universal_workshop apps/universal_workshop/
+
+# Install application dependencies
+RUN cd apps/universal_workshop && \
+    pip install --user -e . && \
+    pip install --user -r requirements.txt
+
+# Stage 3: Production image
+FROM base as production
+
+# Copy built application from builder stage
+COPY --from=builder --chown=frappe:frappe /home/frappe/.local /home/frappe/.local
+COPY --from=builder --chown=frappe:frappe /home/frappe/frappe-bench/apps/universal_workshop /home/frappe/frappe-bench/apps/universal_workshop
+
+# Set working directory
+WORKDIR /home/frappe/frappe-bench
+
+# Add application to sites
+RUN bench get-app universal_workshop
+
+# Security: Remove unnecessary packages and files
+USER root
+RUN apt-get purge -y --auto-remove \
+    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /tmp/* \
+    && rm -rf /var/tmp/*
+
+# Create non-root user for application
+USER frappe
+
+# Set environment variables
+ENV PYTHONPATH="/home/frappe/.local/lib/python3.11/site-packages:$PYTHONPATH"
+ENV PATH="/home/frappe/.local/bin:$PATH"
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD curl -f http://localhost:8000/api/method/ping || exit 1
+
+# Expose port
+EXPOSE 8000
+
+# Default command
+CMD ["bench", "start"]
+
+# Labels for metadata
+LABEL maintainer="Universal Workshop ERP Team"
+LABEL version="1.0.0"
+LABEL description="Production ERPNext/Frappe Workshop Management System"
+LABEL security.hardened="true"

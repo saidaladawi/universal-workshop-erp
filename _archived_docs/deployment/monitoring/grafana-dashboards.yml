@@ -1,0 +1,231 @@
+# Grafana Dashboard Configuration for ERPNext/Frappe Monitoring
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-dashboards
+  namespace: workshop-system
+data:
+  erpnext-overview.json: |
+    {
+      "dashboard": {
+        "id": null,
+        "title": "ERPNext Workshop System Overview",
+        "tags": ["erpnext", "frappe", "workshop"],
+        "style": "dark",
+        "timezone": "browser",
+        "panels": [
+          {
+            "id": 1,
+            "title": "System Health",
+            "type": "stat",
+            "targets": [
+              {
+                "expr": "up{job=\"erpnext\"} == 1",
+                "refId": "A"
+              }
+            ],
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "thresholds"
+                },
+                "thresholds": {
+                  "steps": [
+                    {"color": "red", "value": 0},
+                    {"color": "green", "value": 1}
+                  ]
+                }
+              }
+            },
+            "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0}
+          },
+          {
+            "id": 2,
+            "title": "Response Time",
+            "type": "graph",
+            "targets": [
+              {
+                "expr": "histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m])) * 1000",
+                "legendFormat": "95th percentile",
+                "refId": "A"
+              },
+              {
+                "expr": "histogram_quantile(0.50, rate(http_request_duration_seconds_bucket[5m])) * 1000",
+                "legendFormat": "50th percentile",
+                "refId": "B"
+              }
+            ],
+            "yAxes": [
+              {
+                "label": "Response Time (ms)",
+                "min": 0
+              }
+            ],
+            "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0}
+          },
+          {
+            "id": 3,
+            "title": "Request Rate",
+            "type": "graph",
+            "targets": [
+              {
+                "expr": "rate(http_requests_total[5m])",
+                "legendFormat": "{{method}} {{handler}}",
+                "refId": "A"
+              }
+            ],
+            "yAxes": [
+              {
+                "label": "Requests/sec",
+                "min": 0
+              }
+            ],
+            "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8}
+          },
+          {
+            "id": 4,
+            "title": "Error Rate",
+            "type": "graph",
+            "targets": [
+              {
+                "expr": "rate(http_requests_total{status=~\"5..\"}[5m]) / rate(http_requests_total[5m]) * 100",
+                "legendFormat": "Error Rate %",
+                "refId": "A"
+              }
+            ],
+            "yAxes": [
+              {
+                "label": "Error Rate (%)",
+                "min": 0,
+                "max": 100
+              }
+            ],
+            "gridPos": {"h": 8, "w": 12, "x": 12, "y": 8}
+          },
+          {
+            "id": 5,
+            "title": "Database Connections",
+            "type": "graph",
+            "targets": [
+              {
+                "expr": "mysql_global_status_threads_connected",
+                "legendFormat": "Active Connections",
+                "refId": "A"
+              },
+              {
+                "expr": "mysql_global_variables_max_connections",
+                "legendFormat": "Max Connections",
+                "refId": "B"
+              }
+            ],
+            "gridPos": {"h": 8, "w": 12, "x": 0, "y": 16}
+          },
+          {
+            "id": 6,
+            "title": "Redis Memory Usage",
+            "type": "graph",
+            "targets": [
+              {
+                "expr": "redis_memory_used_bytes / redis_memory_max_bytes * 100",
+                "legendFormat": "Memory Usage %",
+                "refId": "A"
+              }
+            ],
+            "gridPos": {"h": 8, "w": 12, "x": 12, "y": 16}
+          }
+        ],
+        "time": {
+          "from": "now-1h",
+          "to": "now"
+        },
+        "refresh": "30s"
+      }
+    }
+  
+  database-performance.json: |
+    {
+      "dashboard": {
+        "id": null,
+        "title": "Database Performance",
+        "tags": ["database", "mysql", "performance"],
+        "panels": [
+          {
+            "id": 1,
+            "title": "Query Execution Time",
+            "type": "graph",
+            "targets": [
+              {
+                "expr": "mysql_global_status_slow_queries",
+                "legendFormat": "Slow Queries",
+                "refId": "A"
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "title": "Database Locks",
+            "type": "graph",
+            "targets": [
+              {
+                "expr": "mysql_global_status_table_locks_waited",
+                "legendFormat": "Table Locks Waited",
+                "refId": "A"
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "title": "InnoDB Buffer Pool",
+            "type": "graph",
+            "targets": [
+              {
+                "expr": "mysql_global_status_innodb_buffer_pool_read_requests",
+                "legendFormat": "Buffer Pool Reads",
+                "refId": "A"
+              }
+            ]
+          }
+        ]
+      }
+    }
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-config
+  namespace: workshop-system
+data:
+  grafana.ini: |
+    [server]
+    http_port = 3000
+    domain = monitoring.workshop.local
+    
+    [database]
+    type = postgres
+    host = postgres:5432
+    name = grafana
+    user = grafana
+    password = ${GRAFANA_DB_PASSWORD}
+    
+    [security]
+    admin_user = admin
+    admin_password = ${GRAFANA_ADMIN_PASSWORD}
+    secret_key = ${GRAFANA_SECRET_KEY}
+    
+    [auth]
+    disable_login_form = false
+    disable_signout_menu = false
+    
+    [auth.anonymous]
+    enabled = false
+    
+    [alerting]
+    enabled = true
+    execute_alerts = true
+    
+    [smtp]
+    enabled = true
+    host = ${SMTP_HOST}:${SMTP_PORT}
+    user = ${SMTP_USER}
+    password = ${SMTP_PASSWORD}
+    from_address = alerts@workshop.local

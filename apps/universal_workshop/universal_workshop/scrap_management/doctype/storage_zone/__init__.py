@@ -1,0 +1,1 @@
+# DocType: storage_zone

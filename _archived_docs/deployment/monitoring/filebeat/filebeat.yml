@@ -1,0 +1,70 @@
+# Filebeat Configuration for ERPNext/Frappe Log Collection
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /var/log/frappe/*.log
+  fields:
+    service: frappe
+    environment: ${FRAPPE_ENV:production}
+  fields_under_root: true
+  multiline.pattern: '^\d{4}-\d{2}-\d{2}'
+  multiline.negate: true
+  multiline.match: after
+
+- type: log
+  enabled: true
+  paths:
+    - /var/log/nginx/access.log
+  fields:
+    service: nginx
+    log_type: access
+    environment: ${FRAPPE_ENV:production}
+  fields_under_root: true
+
+- type: log
+  enabled: true
+  paths:
+    - /var/log/nginx/error.log
+  fields:
+    service: nginx
+    log_type: error
+    environment: ${FRAPPE_ENV:production}
+  fields_under_root: true
+
+- type: docker
+  enabled: true
+  containers.ids:
+    - "*"
+  processors:
+    - add_docker_metadata:
+        host: "unix:///var/run/docker.sock"
+
+# Output to Logstash
+output.logstash:
+  hosts: ["logstash:5044"]
+
+# Elasticsearch template settings
+setup.template.settings:
+  index.number_of_shards: 1
+  index.codec: best_compression
+
+# Kibana endpoint
+setup.kibana:
+  host: "kibana:5601"
+
+# Processors
+processors:
+  - add_host_metadata:
+      when.not.contains.tags: forwarded
+  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
+
+# Logging
+logging.level: info
+logging.to_files: true
+logging.files:
+  path: /var/log/filebeat
+  name: filebeat
+  keepfiles: 7
+  permissions: 0644

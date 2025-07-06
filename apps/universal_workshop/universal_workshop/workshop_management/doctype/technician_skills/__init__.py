@@ -1,0 +1,1 @@
+# DocType: technician_skills

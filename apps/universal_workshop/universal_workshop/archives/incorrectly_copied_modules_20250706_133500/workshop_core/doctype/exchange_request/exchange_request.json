@@ -1,0 +1,472 @@
+{
+    "doctype": "DocType",
+    "name": "Exchange Request",
+    "module": "Sales Service",
+    "fields": [
+        {
+            "fieldname": "exchange_type",
+            "fieldtype": "Select",
+            "label": "نوع التبديل / Exchange Type",
+            "options": "Parts\nService\nBoth",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "section_break_1",
+            "fieldtype": "Section Break",
+            "label": "معلومات الطلب الأساسية / Basic Request Information"
+        },
+        {
+            "fieldname": "original_sales_invoice",
+            "fieldtype": "Link",
+            "label": "Original Sales Invoice / فاتورة البيع الأصلية",
+            "options": "Sales Invoice",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "customer",
+            "fieldtype": "Link",
+            "label": "Customer / العميل",
+            "options": "Customer",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "customer_name",
+            "fieldtype": "Data",
+            "label": "Customer Name / اسم العميل",
+            "fetch_from": "customer.customer_name",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "exchange_date",
+            "fieldtype": "Datetime",
+            "label": "تاريخ التبديل / Exchange Date",
+            "default": "Now()",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "exchange_status",
+            "fieldtype": "Select",
+            "label": "حالة التبديل / Exchange Status",
+            "options": "Draft\nPending Approval\nApproved\nRejected\nProcessed\nCancelled",
+            "default": "Draft",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "priority",
+            "fieldtype": "Select",
+            "label": "الأولوية / Priority",
+            "options": "Low\nMedium\nHigh\nUrgent",
+            "default": "Medium"
+        },
+        {
+            "fieldname": "section_break_2",
+            "fieldtype": "Section Break",
+            "label": "تفاصيل القطع الأصلية / Original Item Details"
+        },
+        {
+            "fieldname": "original_item_code",
+            "fieldtype": "Link",
+            "label": "Original Item Code / كود القطعة الأصلية",
+            "options": "Item",
+            "reqd": 1,
+            "depends_on": "eval:doc.exchange_type=='Parts' || doc.exchange_type=='Both'"
+        },
+        {
+            "fieldname": "original_item_name",
+            "fieldtype": "Data",
+            "label": "Original Item Name / اسم القطعة الأصلية",
+            "fetch_from": "original_item_code.item_name",
+            "read_only": 1
+        },
+        {
+            "fieldname": "original_quantity",
+            "fieldtype": "Float",
+            "label": "الكمية الأصلية / Original Quantity",
+            "reqd": 1,
+            "default": 1
+        },
+        {
+            "fieldname": "original_rate",
+            "fieldtype": "Currency",
+            "label": "السعر الأصلي / Original Rate",
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "original_service_order",
+            "fieldtype": "Link",
+            "label": "Original Service Order / أمر الخدمة الأصلي",
+            "options": "Service Order",
+            "depends_on": "eval:doc.exchange_type=='Service' || doc.exchange_type=='Both'"
+        },
+        {
+            "fieldname": "original_condition",
+            "fieldtype": "Select",
+            "label": "حالة القطعة الأصلية / Original Item Condition",
+            "options": "New\nUsed\nDefective\nDamaged\nUnopened\nOpened\nOther",
+            "depends_on": "eval:doc.exchange_type=='Parts' || doc.exchange_type=='Both'"
+        },
+        {
+            "fieldname": "return_reason",
+            "fieldtype": "Select",
+            "label": "سبب التبديل / Exchange Reason",
+            "options": "DEFECTIVE\nWRONG_ITEM\nSIZE_ISSUE\nCOLOR_ISSUE\nUPGRADE\nDOWNGRADE\nCUSTOMER_PREFERENCE\nCOMPATIBILITY\nOTHER",
+            "reqd": 1
+        },
+        {
+            "fieldname": "section_break_3",
+            "fieldtype": "Section Break",
+            "label": "تفاصيل القطعة البديلة / Exchange Item Details"
+        },
+        {
+            "fieldname": "exchange_item_code",
+            "fieldtype": "Link",
+            "label": "Exchange Item Code / كود القطعة البديلة",
+            "options": "Item",
+            "reqd": 1,
+            "depends_on": "eval:doc.exchange_type=='Parts' || doc.exchange_type=='Both'"
+        },
+        {
+            "fieldname": "exchange_item_name",
+            "fieldtype": "Data",
+            "label": "Exchange Item Name / اسم القطعة البديلة",
+            "fetch_from": "exchange_item_code.item_name",
+            "read_only": 1
+        },
+        {
+            "fieldname": "exchange_quantity",
+            "fieldtype": "Float",
+            "label": "الكمية البديلة / Exchange Quantity",
+            "reqd": 1,
+            "default": 1
+        },
+        {
+            "fieldname": "exchange_rate",
+            "fieldtype": "Currency",
+            "label": "سعر القطعة البديلة / Exchange Rate",
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "exchange_service_order",
+            "fieldtype": "Link",
+            "label": "Exchange Service Order / أمر الخدمة البديل",
+            "options": "Service Order",
+            "depends_on": "eval:doc.exchange_type=='Service' || doc.exchange_type=='Both'"
+        },
+        {
+            "fieldname": "availability_status",
+            "fieldtype": "Select",
+            "label": "حالة التوفر / Availability Status",
+            "options": "Available\nOut of Stock\nBack Order\nDiscontinued",
+            "read_only": 1
+        },
+        {
+            "fieldname": "estimated_delivery",
+            "fieldtype": "Date",
+            "label": "التسليم المتوقع / Estimated Delivery"
+        },
+        {
+            "fieldname": "section_break_4",
+            "fieldtype": "Section Break",
+            "label": "حسابات التكلفة / Cost Calculations"
+        },
+        {
+            "fieldname": "original_total_value",
+            "fieldtype": "Currency",
+            "label": "القيمة الأصلية الإجمالية / Original Total Value",
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "exchange_total_value",
+            "fieldtype": "Currency",
+            "label": "القيمة البديلة الإجمالية / Exchange Total Value",
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "price_difference",
+            "fieldtype": "Currency",
+            "label": "فرق السعر / Price Difference",
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "handling_fee",
+            "fieldtype": "Currency",
+            "label": "رسوم المعالجة / Handling Fee",
+            "options": "OMR",
+            "default": 0
+        },
+        {
+            "fieldname": "column_break_4",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "refund_amount",
+            "fieldtype": "Currency",
+            "label": "مبلغ الاسترداد / Refund Amount",
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "additional_payment",
+            "fieldtype": "Currency",
+            "label": "دفعة إضافية / Additional Payment",
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "final_amount",
+            "fieldtype": "Currency",
+            "label": "المبلغ النهائي / Final Amount",
+            "options": "OMR",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_5",
+            "fieldtype": "Section Break",
+            "label": "تأثير المخزون / Inventory Impact"
+        },
+        {
+            "fieldname": "original_warehouse",
+            "fieldtype": "Link",
+            "label": "Original Warehouse / المستودع الأصلي",
+            "options": "Warehouse",
+            "read_only": 1
+        },
+        {
+            "fieldname": "exchange_warehouse",
+            "fieldtype": "Link",
+            "label": "Exchange Warehouse / مستودع التبديل",
+            "options": "Warehouse",
+            "read_only": 1
+        },
+        {
+            "fieldname": "original_available_qty",
+            "fieldtype": "Float",
+            "label": "الكمية المتاحة الأصلية / Original Available Qty",
+            "read_only": 1
+        },
+        {
+            "fieldname": "exchange_available_qty",
+            "fieldtype": "Float",
+            "label": "الكمية المتاحة البديلة / Exchange Available Qty",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_5",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "stock_impact_original",
+            "fieldtype": "Float",
+            "label": "تأثير المخزون الأصلي / Original Stock Impact",
+            "read_only": 1
+        },
+        {
+            "fieldname": "stock_impact_exchange",
+            "fieldtype": "Float",
+            "label": "تأثير المخزون البديل / Exchange Stock Impact",
+            "read_only": 1
+        },
+        {
+            "fieldname": "requires_stock_transfer",
+            "fieldtype": "Check",
+            "label": "يتطلب نقل مخزون / Requires Stock Transfer",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_6",
+            "fieldtype": "Section Break",
+            "label": "معلومات الموافقة والمعالجة / Approval and Processing Information"
+        },
+        {
+            "fieldname": "eligible_for_exchange",
+            "fieldtype": "Check",
+            "label": "مؤهل للتبديل / Eligible for Exchange",
+            "read_only": 1
+        },
+        {
+            "fieldname": "auto_approved",
+            "fieldtype": "Check",
+            "label": "موافقة تلقائية / Auto Approved",
+            "read_only": 1
+        },
+        {
+            "fieldname": "approved_by",
+            "fieldtype": "Link",
+            "label": "موافق من قبل / Approved By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "approval_date",
+            "fieldtype": "Datetime",
+            "label": "تاريخ الموافقة / Approval Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_6",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "processed_by",
+            "fieldtype": "Link",
+            "label": "معالج من قبل / Processed By",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "fieldname": "processing_date",
+            "fieldtype": "Datetime",
+            "label": "تاريخ المعالجة / Processing Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "new_sales_invoice",
+            "fieldtype": "Link",
+            "label": "New Sales Invoice / فاتورة البيع الجديدة",
+            "options": "Sales Invoice",
+            "read_only": 1
+        },
+        {
+            "fieldname": "stock_entry",
+            "fieldtype": "Link",
+            "label": "Stock Entry / قيد المخزون",
+            "options": "Stock Entry",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_7",
+            "fieldtype": "Section Break",
+            "label": "ملاحظات وتفاصيل إضافية / Notes and Additional Details"
+        },
+        {
+            "fieldname": "exchange_reason_details",
+            "fieldtype": "Text",
+            "label": "تفاصيل سبب التبديل / Exchange Reason Details",
+            "reqd": 1
+        },
+        {
+            "fieldname": "customer_notes",
+            "fieldtype": "Text Editor",
+            "label": "ملاحظات العميل / Customer Notes"
+        },
+        {
+            "fieldname": "admin_notes",
+            "fieldtype": "Text Editor",
+            "label": "ملاحظات إدارية / Admin Notes"
+        },
+        {
+            "fieldname": "internal_notes",
+            "fieldtype": "Text Editor",
+            "label": "ملاحظات داخلية / Internal Notes"
+        },
+        {
+            "fieldname": "section_break_8",
+            "fieldtype": "Section Break",
+            "label": "معلومات التدقيق / Audit Information"
+        },
+        {
+            "fieldname": "compatibility_score",
+            "fieldtype": "Float",
+            "label": "درجة التوافق / Compatibility Score",
+            "read_only": 1,
+            "precision": 2
+        },
+        {
+            "fieldname": "risk_level",
+            "fieldtype": "Select",
+            "label": "مستوى المخاطر / Risk Level",
+            "options": "Low\nMedium\nHigh\nCritical",
+            "read_only": 1
+        },
+        {
+            "fieldname": "requires_manager_approval",
+            "fieldtype": "Check",
+            "label": "يتطلب موافقة المدير / Requires Manager Approval",
+            "read_only": 1
+        },
+        {
+            "fieldname": "exchange_complexity",
+            "fieldtype": "Select",
+            "label": "تعقيد التبديل / Exchange Complexity",
+            "options": "Simple\nModerate\nComplex\nCritical",
+            "read_only": 1
+        }
+    ],
+    "permissions": [
+        {
+            "role": "Workshop Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "submit": 1,
+            "cancel": 1,
+            "delete": 1,
+            "amend": 1
+        },
+        {
+            "role": "Service Advisor",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "submit": 1
+        },
+        {
+            "role": "Customer",
+            "read": 1,
+            "create": 1,
+            "if_owner": 1
+        },
+        {
+            "role": "Inventory Manager",
+            "read": 1,
+            "write": 1
+        },
+        {
+            "role": "Sales Manager",
+            "read": 1,
+            "write": 1
+        }
+    ],
+    "is_submittable": 1,
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1,
+    "autoname": "EX-.YYYY.-.#####",
+    "title_field": "customer_name",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "search_fields": "customer,original_sales_invoice,original_item_code,exchange_item_code",
+    "list_fields": [
+        "exchange_type",
+        "customer",
+        "original_item_code",
+        "exchange_item_code",
+        "exchange_status",
+        "price_difference",
+        "exchange_date"
+    ],
+    "module": "Sales Service",
+    "owner": "Administrator"
+}

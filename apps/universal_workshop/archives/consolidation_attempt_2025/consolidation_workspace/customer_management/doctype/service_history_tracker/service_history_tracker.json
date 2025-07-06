@@ -1,0 +1,724 @@
+{
+ "actions": [],
+ "allow_copy": 0,
+ "allow_events_in_timeline": 0,
+ "allow_guest_to_view": 0,
+ "allow_import": 0,
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "beta": 0,
+ "creation": "2024-01-01 12:00:00.000000",
+ "custom": 0,
+ "docstatus": 0,
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_info_section",
+  "naming_series",
+  "service_order",
+  "appointment",
+  "vehicle",
+  "customer",
+  "column_break_basic",
+  "status",
+  "priority",
+  "service_date",
+  "estimated_completion",
+  "actual_completion",
+  "arabic_details_section",
+  "service_description",
+  "service_description_ar",
+  "customer_notes",
+  "customer_notes_ar",
+  "column_break_arabic",
+  "technician_notes",
+  "technician_notes_ar",
+  "internal_notes",
+  "internal_notes_ar",
+  "service_details_section",
+  "service_type",
+  "department",
+  "assigned_technician",
+  "column_break_service",
+  "labor_hours",
+  "hourly_rate",
+  "labor_cost",
+  "parts_cost",
+  "total_cost",
+  "parts_and_services_section",
+  "service_items",
+  "parts_used",
+  "tracking_section",
+  "current_stage",
+  "stage_description",
+  "stage_description_ar",
+  "column_break_tracking",
+  "progress_percentage",
+  "last_update",
+  "next_update_due",
+  "automatic_updates",
+  "timeline_section",
+  "status_timeline",
+  "customer_communication_section",
+  "sms_notifications",
+  "email_notifications",
+  "portal_notifications",
+  "column_break_communication",
+  "notification_language",
+  "last_notification_sent",
+  "customer_viewed",
+  "customer_feedback_section",
+  "satisfaction_rating",
+  "customer_feedback",
+  "customer_feedback_ar",
+  "column_break_feedback",
+  "feedback_date",
+  "would_recommend",
+  "follow_up_required",
+  "quality_control_section",
+  "quality_check_status",
+  "qc_technician",
+  "qc_notes",
+  "qc_notes_ar",
+  "column_break_qc",
+  "qc_date",
+  "qc_passed",
+  "rework_required",
+  "vehicle_delivery_section",
+  "ready_for_delivery",
+  "delivery_date",
+  "delivery_method",
+  "column_break_delivery",
+  "delivered_to",
+  "delivery_notes",
+  "delivery_notes_ar",
+  "signature",
+  "billing_section",
+  "invoice_created",
+  "invoice_number",
+  "payment_status",
+  "column_break_billing",
+  "total_amount",
+  "paid_amount",
+  "balance_amount",
+  "payment_method",
+  "metadata_section",
+  "created_by",
+  "created_date",
+  "last_modified_by",
+  "last_modified_date",
+  "column_break_metadata",
+  "workshop",
+  "is_active",
+  "archived",
+  "sync_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information | المعلومات الأساسية"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "SHT-{YYYY}-{#####}",
+   "reqd": 1
+  },
+  {
+   "fieldname": "service_order",
+   "fieldtype": "Link",
+   "label": "Service Order | أمر الخدمة",
+   "options": "Service Order",
+   "reqd": 1
+  },
+  {
+   "fieldname": "appointment",
+   "fieldtype": "Link",
+   "label": "Appointment | الموعد",
+   "options": "Workshop Appointment"
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "label": "Vehicle | المركبة",
+   "options": "Vehicle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer | العميل",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status | الحالة",
+   "options": "Received\nIn Progress\nPending Parts\nQuality Check\nReady for Delivery\nCompleted\nCancelled",
+   "reqd": 1
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority | الأولوية",
+   "options": "Low\nMedium\nHigh\nUrgent"
+  },
+  {
+   "fieldname": "service_date",
+   "fieldtype": "Date",
+   "label": "Service Date | تاريخ الخدمة",
+   "reqd": 1
+  },
+  {
+   "fieldname": "estimated_completion",
+   "fieldtype": "Datetime",
+   "label": "Estimated Completion | الوقت المتوقع للإنجاز"
+  },
+  {
+   "fieldname": "actual_completion",
+   "fieldtype": "Datetime",
+   "label": "Actual Completion | الوقت الفعلي للإنجاز"
+  },
+  {
+   "fieldname": "arabic_details_section",
+   "fieldtype": "Section Break",
+   "label": "Service Details | تفاصيل الخدمة"
+  },
+  {
+   "fieldname": "service_description",
+   "fieldtype": "Text",
+   "label": "Service Description (English)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "service_description_ar",
+   "fieldtype": "Text",
+   "label": "وصف الخدمة",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer_notes",
+   "fieldtype": "Long Text",
+   "label": "Customer Notes (English)"
+  },
+  {
+   "fieldname": "customer_notes_ar",
+   "fieldtype": "Long Text",
+   "label": "ملاحظات العميل"
+  },
+  {
+   "fieldname": "column_break_arabic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "technician_notes",
+   "fieldtype": "Long Text",
+   "label": "Technician Notes (English)"
+  },
+  {
+   "fieldname": "technician_notes_ar",
+   "fieldtype": "Long Text",
+   "label": "ملاحظات الفني"
+  },
+  {
+   "fieldname": "internal_notes",
+   "fieldtype": "Long Text",
+   "label": "Internal Notes (English)"
+  },
+  {
+   "fieldname": "internal_notes_ar",
+   "fieldtype": "Long Text",
+   "label": "ملاحظات داخلية"
+  },
+  {
+   "fieldname": "service_details_section",
+   "fieldtype": "Section Break",
+   "label": "Service Information | معلومات الخدمة"
+  },
+  {
+   "fieldname": "service_type",
+   "fieldtype": "Select",
+   "label": "Service Type | نوع الخدمة",
+   "options": "Maintenance\nRepair\nInspection\nDiagnostic\nOil Change\nTire Service\nEngine Service\nTransmission Service\nAC Service\nElectrical Service"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Select",
+   "label": "Department | القسم",
+   "options": "Engine\nTransmission\nElectrical\nAC\nBody\nPainting\nTires\nGeneral"
+  },
+  {
+   "fieldname": "assigned_technician",
+   "fieldtype": "Link",
+   "label": "Assigned Technician | الفني المسؤول",
+   "options": "Technician"
+  },
+  {
+   "fieldname": "column_break_service",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "labor_hours",
+   "fieldtype": "Float",
+   "label": "Labor Hours | ساعات العمل",
+   "precision": 2
+  },
+  {
+   "fieldname": "hourly_rate",
+   "fieldtype": "Currency",
+   "label": "Hourly Rate | السعر بالساعة"
+  },
+  {
+   "fieldname": "labor_cost",
+   "fieldtype": "Currency",
+   "label": "Labor Cost | تكلفة العمالة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "parts_cost",
+   "fieldtype": "Currency",
+   "label": "Parts Cost | تكلفة القطع",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Cost | التكلفة الإجمالية",
+   "read_only": 1
+  },
+  {
+   "fieldname": "parts_and_services_section",
+   "fieldtype": "Section Break",
+   "label": "Parts and Services | القطع والخدمات"
+  },
+  {
+   "fieldname": "service_items",
+   "fieldtype": "Table",
+   "label": "Service Items | عناصر الخدمة",
+   "options": "Service History Item"
+  },
+  {
+   "fieldname": "parts_used",
+   "fieldtype": "Table",
+   "label": "Parts Used | القطع المستخدمة",
+   "options": "Service History Part"
+  },
+  {
+   "fieldname": "tracking_section",
+   "fieldtype": "Section Break",
+   "label": "Real-Time Tracking | التتبع الفوري"
+  },
+  {
+   "fieldname": "current_stage",
+   "fieldtype": "Select",
+   "label": "Current Stage | المرحلة الحالية",
+   "options": "Vehicle Received\nDiagnosis in Progress\nAwaiting Customer Approval\nParts Ordered\nWork in Progress\nQuality Check\nReady for Pickup\nCompleted"
+  },
+  {
+   "fieldname": "stage_description",
+   "fieldtype": "Text",
+   "label": "Stage Description (English)"
+  },
+  {
+   "fieldname": "stage_description_ar",
+   "fieldtype": "Text",
+   "label": "وصف المرحلة"
+  },
+  {
+   "fieldname": "column_break_tracking",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "progress_percentage",
+   "fieldtype": "Percent",
+   "label": "Progress Percentage | نسبة الإنجاز"
+  },
+  {
+   "fieldname": "last_update",
+   "fieldtype": "Datetime",
+   "label": "Last Update | آخر تحديث",
+   "read_only": 1
+  },
+  {
+   "fieldname": "next_update_due",
+   "fieldtype": "Datetime",
+   "label": "Next Update Due | موعد التحديث التالي"
+  },
+  {
+   "fieldname": "automatic_updates",
+   "fieldtype": "Check",
+   "label": "Automatic Updates | التحديثات التلقائية"
+  },
+  {
+   "fieldname": "timeline_section",
+   "fieldtype": "Section Break",
+   "label": "Status Timeline | جدول الحالات الزمني"
+  },
+  {
+   "fieldname": "status_timeline",
+   "fieldtype": "Table",
+   "label": "Status Timeline | سجل الحالات",
+   "options": "Service Status Timeline"
+  },
+  {
+   "fieldname": "customer_communication_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Communication | التواصل مع العميل"
+  },
+  {
+   "fieldname": "sms_notifications",
+   "fieldtype": "Check",
+   "label": "SMS Notifications | إشعارات الرسائل النصية"
+  },
+  {
+   "fieldname": "email_notifications",
+   "fieldtype": "Check",
+   "label": "Email Notifications | إشعارات البريد الإلكتروني"
+  },
+  {
+   "fieldname": "portal_notifications",
+   "fieldtype": "Check",
+   "label": "Portal Notifications | إشعارات البوابة"
+  },
+  {
+   "fieldname": "column_break_communication",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "notification_language",
+   "fieldtype": "Select",
+   "label": "Notification Language | لغة الإشعارات",
+   "options": "English\nArabic\nBoth"
+  },
+  {
+   "fieldname": "last_notification_sent",
+   "fieldtype": "Datetime",
+   "label": "Last Notification Sent | آخر إشعار مرسل",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_viewed",
+   "fieldtype": "Check",
+   "label": "Customer Viewed | شاهده العميل",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_feedback_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Feedback | ملاحظات العميل"
+  },
+  {
+   "fieldname": "satisfaction_rating",
+   "fieldtype": "Rating",
+   "label": "Satisfaction Rating | تقييم الرضا"
+  },
+  {
+   "fieldname": "customer_feedback",
+   "fieldtype": "Long Text",
+   "label": "Customer Feedback (English)"
+  },
+  {
+   "fieldname": "customer_feedback_ar",
+   "fieldtype": "Long Text",
+   "label": "ملاحظات العميل"
+  },
+  {
+   "fieldname": "column_break_feedback",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "feedback_date",
+   "fieldtype": "Date",
+   "label": "Feedback Date | تاريخ الملاحظات"
+  },
+  {
+   "fieldname": "would_recommend",
+   "fieldtype": "Check",
+   "label": "Would Recommend | يوصي بالخدمة"
+  },
+  {
+   "fieldname": "follow_up_required",
+   "fieldtype": "Check",
+   "label": "Follow-up Required | يحتاج متابعة"
+  },
+  {
+   "fieldname": "quality_control_section",
+   "fieldtype": "Section Break",
+   "label": "Quality Control | مراقبة الجودة"
+  },
+  {
+   "fieldname": "quality_check_status",
+   "fieldtype": "Select",
+   "label": "QC Status | حالة مراقبة الجودة",
+   "options": "Pending\nIn Progress\nPassed\nFailed\nRework Required"
+  },
+  {
+   "fieldname": "qc_technician",
+   "fieldtype": "Link",
+   "label": "QC Technician | فني مراقبة الجودة",
+   "options": "Technician"
+  },
+  {
+   "fieldname": "qc_notes",
+   "fieldtype": "Text",
+   "label": "QC Notes (English)"
+  },
+  {
+   "fieldname": "qc_notes_ar",
+   "fieldtype": "Text",
+   "label": "ملاحظات مراقبة الجودة"
+  },
+  {
+   "fieldname": "column_break_qc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qc_date",
+   "fieldtype": "Date",
+   "label": "QC Date | تاريخ مراقبة الجودة"
+  },
+  {
+   "fieldname": "qc_passed",
+   "fieldtype": "Check",
+   "label": "QC Passed | اجتاز مراقبة الجودة"
+  },
+  {
+   "fieldname": "rework_required",
+   "fieldtype": "Check",
+   "label": "Rework Required | يحتاج إعادة عمل"
+  },
+  {
+   "fieldname": "vehicle_delivery_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Delivery | تسليم المركبة"
+  },
+  {
+   "fieldname": "ready_for_delivery",
+   "fieldtype": "Check",
+   "label": "Ready for Delivery | جاهز للتسليم"
+  },
+  {
+   "fieldname": "delivery_date",
+   "fieldtype": "Datetime",
+   "label": "Delivery Date | تاريخ التسليم"
+  },
+  {
+   "fieldname": "delivery_method",
+   "fieldtype": "Select",
+   "label": "Delivery Method | طريقة التسليم",
+   "options": "Customer Pickup\nDelivery Service\nTowing Service"
+  },
+  {
+   "fieldname": "column_break_delivery",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "delivered_to",
+   "fieldtype": "Data",
+   "label": "Delivered To | تم التسليم إلى"
+  },
+  {
+   "fieldname": "delivery_notes",
+   "fieldtype": "Text",
+   "label": "Delivery Notes (English)"
+  },
+  {
+   "fieldname": "delivery_notes_ar",
+   "fieldtype": "Text",
+   "label": "ملاحظات التسليم"
+  },
+  {
+   "fieldname": "signature",
+   "fieldtype": "Signature",
+   "label": "Customer Signature | توقيع العميل"
+  },
+  {
+   "fieldname": "billing_section",
+   "fieldtype": "Section Break",
+   "label": "Billing Information | معلومات الفواتير"
+  },
+  {
+   "fieldname": "invoice_created",
+   "fieldtype": "Check",
+   "label": "Invoice Created | تم إنشاء الفاتورة"
+  },
+  {
+   "fieldname": "invoice_number",
+   "fieldtype": "Data",
+   "label": "Invoice Number | رقم الفاتورة"
+  },
+  {
+   "fieldname": "payment_status",
+   "fieldtype": "Select",
+   "label": "Payment Status | حالة الدفع",
+   "options": "Pending\nPartial\nPaid\nOverdue"
+  },
+  {
+   "fieldname": "column_break_billing",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount | المبلغ الإجمالي"
+  },
+  {
+   "fieldname": "paid_amount",
+   "fieldtype": "Currency",
+   "label": "Paid Amount | المبلغ المدفوع"
+  },
+  {
+   "fieldname": "balance_amount",
+   "fieldtype": "Currency",
+   "label": "Balance Amount | المبلغ المتبقي",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_method",
+   "fieldtype": "Select",
+   "label": "Payment Method | طريقة الدفع",
+   "options": "Cash\nCard\nBank Transfer\nCheque\nOnline Payment"
+  },
+  {
+   "fieldname": "metadata_section",
+   "fieldtype": "Section Break",
+   "label": "System Information | معلومات النظام"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Data",
+   "label": "Created By | أنشأ بواسطة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_date",
+   "fieldtype": "Date",
+   "label": "Created Date | تاريخ الإنشاء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_modified_by",
+   "fieldtype": "Data",
+   "label": "Last Modified By | آخر تعديل بواسطة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_modified_date",
+   "fieldtype": "Datetime",
+   "label": "Last Modified Date | تاريخ آخر تعديل",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_metadata",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "workshop",
+   "fieldtype": "Link",
+   "label": "Workshop | الورشة",
+   "options": "Workshop Profile"
+  },
+  {
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "default": "1",
+   "label": "Active | نشط"
+  },
+  {
+   "fieldname": "archived",
+   "fieldtype": "Check",
+   "label": "Archived | مؤرشف"
+  },
+  {
+   "fieldname": "sync_status",
+   "fieldtype": "Select",
+   "label": "Sync Status | حالة المزامنة",
+   "options": "Pending\nSynced\nError"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 0,
+ "links": [
+  {
+   "link_doctype": "Service Order",
+   "link_fieldname": "service_order"
+  },
+  {
+   "link_doctype": "Workshop Appointment",
+   "link_fieldname": "appointment"
+  },
+  {
+   "link_doctype": "Vehicle",
+   "link_fieldname": "vehicle"
+  },
+  {
+   "link_doctype": "Customer",
+   "link_fieldname": "customer"
+  }
+ ],
+ "modified": "2024-01-01 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Customer Portal",
+ "name": "Service History Tracker",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Technician",
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Customer"
+  }
+ ],
+ "quick_entry": 1,
+ "restrict_to_domain": "Workshop",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "service_description",
+ "track_changes": 1
+} 

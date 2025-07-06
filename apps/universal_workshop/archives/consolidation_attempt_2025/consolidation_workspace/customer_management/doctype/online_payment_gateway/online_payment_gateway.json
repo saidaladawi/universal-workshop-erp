@@ -1,0 +1,709 @@
+{
+    "actions": [],
+    "allow_copy": 0,
+    "allow_events_in_timeline": 0,
+    "allow_guest_to_view": 0,
+    "allow_import": 0,
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "beta": 0,
+    "creation": "2024-01-01 12:00:00.000000",
+    "custom": 0,
+    "docstatus": 0,
+    "doctype": "DocType",
+    "document_type": "Document",
+    "engine": "InnoDB",
+    "field_order": [
+        "basic_info_section",
+        "naming_series",
+        "gateway_name",
+        "gateway_name_ar",
+        "gateway_provider",
+        "column_break_basic",
+        "is_active",
+        "is_test_mode",
+        "supported_currency",
+        "default_currency",
+        "configuration_section",
+        "api_endpoint",
+        "api_key",
+        "secret_key",
+        "merchant_id",
+        "column_break_config",
+        "webhook_url",
+        "success_url",
+        "cancel_url",
+        "callback_url",
+        "payment_methods_section",
+        "card_payments",
+        "wallet_payments",
+        "bank_transfer",
+        "installment_payments",
+        "column_break_methods",
+        "supported_cards",
+        "minimum_amount",
+        "maximum_amount",
+        "transaction_fee_percentage",
+        "arabic_localization_section",
+        "arabic_interface",
+        "rtl_support",
+        "arabic_receipts",
+        "column_break_arabic",
+        "arabic_error_messages",
+        "arabic_confirmation_messages",
+        "notification_language",
+        "oman_compliance_section",
+        "omr_support",
+        "vat_handling",
+        "tax_calculation",
+        "column_break_oman",
+        "invoice_integration",
+        "receipt_format",
+        "regulatory_compliance",
+        "security_section",
+        "encryption_type",
+        "ssl_certificate",
+        "pci_compliance",
+        "column_break_security",
+        "fraud_detection",
+        "risk_assessment",
+        "security_protocols",
+        "transaction_settings_section",
+        "auto_capture",
+        "refund_enabled",
+        "partial_refunds",
+        "column_break_transaction",
+        "settlement_period",
+        "timeout_duration",
+        "retry_attempts",
+        "monitoring_section",
+        "success_rate",
+        "average_response_time",
+        "last_health_check",
+        "column_break_monitoring",
+        "total_transactions",
+        "successful_transactions",
+        "failed_transactions",
+        "notification_settings_section",
+        "email_notifications",
+        "sms_notifications",
+        "webhook_notifications",
+        "column_break_notifications",
+        "admin_email",
+        "customer_notification_template",
+        "failure_notification_template",
+        "integration_section",
+        "erpnext_integration",
+        "portal_integration",
+        "mobile_integration",
+        "column_break_integration",
+        "api_version",
+        "sdk_version",
+        "plugin_version",
+        "testing_section",
+        "test_card_numbers",
+        "test_scenarios",
+        "sandbox_mode",
+        "column_break_testing",
+        "test_results",
+        "last_tested",
+        "test_status",
+        "metadata_section",
+        "created_by",
+        "created_date",
+        "last_modified_by",
+        "last_modified_date",
+        "column_break_metadata",
+        "notes",
+        "notes_ar",
+        "maintenance_mode"
+    ],
+    "fields": [
+        {
+            "fieldname": "basic_info_section",
+            "fieldtype": "Section Break",
+            "label": "Basic Information | المعلومات الأساسية"
+        },
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "OPG-{YYYY}-{#####}",
+            "reqd": 1
+        },
+        {
+            "fieldname": "gateway_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Gateway Name (English)",
+            "reqd": 1
+        },
+        {
+            "fieldname": "gateway_name_ar",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "اسم البوابة",
+            "reqd": 1
+        },
+        {
+            "fieldname": "gateway_provider",
+            "fieldtype": "Select",
+            "label": "Provider | مقدم الخدمة",
+            "options": "Stripe\nPayTabs\nPayFort\nOmanNet\nVisa\nMasterCard\nCBK\nCustom",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_basic",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "is_active",
+            "fieldtype": "Check",
+            "default": "1",
+            "label": "Active | نشط"
+        },
+        {
+            "fieldname": "is_test_mode",
+            "fieldtype": "Check",
+            "label": "Test Mode | وضع الاختبار"
+        },
+        {
+            "fieldname": "supported_currency",
+            "fieldtype": "Select",
+            "label": "Supported Currency | العملة المدعومة",
+            "options": "OMR\nUSD\nEUR\nGBP\nAED\nSAR\nMultiple"
+        },
+        {
+            "fieldname": "default_currency",
+            "fieldtype": "Select",
+            "label": "Default Currency | العملة الافتراضية",
+            "options": "OMR\nUSD\nEUR\nGBP\nAED\nSAR"
+        },
+        {
+            "fieldname": "configuration_section",
+            "fieldtype": "Section Break",
+            "label": "API Configuration | إعدادات واجهة برمجة التطبيقات"
+        },
+        {
+            "fieldname": "api_endpoint",
+            "fieldtype": "Data",
+            "label": "API Endpoint | نقطة الاتصال"
+        },
+        {
+            "fieldname": "api_key",
+            "fieldtype": "Password",
+            "label": "API Key | مفتاح واجهة برمجة التطبيقات"
+        },
+        {
+            "fieldname": "secret_key",
+            "fieldtype": "Password",
+            "label": "Secret Key | المفتاح السري"
+        },
+        {
+            "fieldname": "merchant_id",
+            "fieldtype": "Data",
+            "label": "Merchant ID | معرف التاجر"
+        },
+        {
+            "fieldname": "column_break_config",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "webhook_url",
+            "fieldtype": "Data",
+            "label": "Webhook URL | رابط الإشعارات"
+        },
+        {
+            "fieldname": "success_url",
+            "fieldtype": "Data",
+            "label": "Success URL | رابط النجاح"
+        },
+        {
+            "fieldname": "cancel_url",
+            "fieldtype": "Data",
+            "label": "Cancel URL | رابط الإلغاء"
+        },
+        {
+            "fieldname": "callback_url",
+            "fieldtype": "Data",
+            "label": "Callback URL | رابط الإرجاع"
+        },
+        {
+            "fieldname": "payment_methods_section",
+            "fieldtype": "Section Break",
+            "label": "Payment Methods | طرق الدفع"
+        },
+        {
+            "fieldname": "card_payments",
+            "fieldtype": "Check",
+            "label": "Card Payments | الدفع بالبطاقة"
+        },
+        {
+            "fieldname": "wallet_payments",
+            "fieldtype": "Check",
+            "label": "Wallet Payments | الدفع بالمحفظة الإلكترونية"
+        },
+        {
+            "fieldname": "bank_transfer",
+            "fieldtype": "Check",
+            "label": "Bank Transfer | التحويل البنكي"
+        },
+        {
+            "fieldname": "installment_payments",
+            "fieldtype": "Check",
+            "label": "Installment Payments | الدفع بالتقسيط"
+        },
+        {
+            "fieldname": "column_break_methods",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "supported_cards",
+            "fieldtype": "Select",
+            "label": "Supported Cards | البطاقات المدعومة",
+            "options": "Visa\nMasterCard\nAmex\nCBK\nAll"
+        },
+        {
+            "fieldname": "minimum_amount",
+            "fieldtype": "Currency",
+            "label": "Minimum Amount | الحد الأدنى للمبلغ"
+        },
+        {
+            "fieldname": "maximum_amount",
+            "fieldtype": "Currency",
+            "label": "Maximum Amount | الحد الأقصى للمبلغ"
+        },
+        {
+            "fieldname": "transaction_fee_percentage",
+            "fieldtype": "Percent",
+            "label": "Transaction Fee % | نسبة رسوم المعاملة"
+        },
+        {
+            "fieldname": "arabic_localization_section",
+            "fieldtype": "Section Break",
+            "label": "Arabic Localization | التعريب"
+        },
+        {
+            "fieldname": "arabic_interface",
+            "fieldtype": "Check",
+            "label": "Arabic Interface | واجهة عربية"
+        },
+        {
+            "fieldname": "rtl_support",
+            "fieldtype": "Check",
+            "label": "RTL Support | دعم اتجاه النص من اليمين لليسار"
+        },
+        {
+            "fieldname": "arabic_receipts",
+            "fieldtype": "Check",
+            "label": "Arabic Receipts | إيصالات باللغة العربية"
+        },
+        {
+            "fieldname": "column_break_arabic",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "arabic_error_messages",
+            "fieldtype": "Check",
+            "label": "Arabic Error Messages | رسائل الخطأ بالعربية"
+        },
+        {
+            "fieldname": "arabic_confirmation_messages",
+            "fieldtype": "Check",
+            "label": "Arabic Confirmations | رسائل التأكيد بالعربية"
+        },
+        {
+            "fieldname": "notification_language",
+            "fieldtype": "Select",
+            "label": "Notification Language | لغة الإشعارات",
+            "options": "English\nArabic\nBoth"
+        },
+        {
+            "fieldname": "oman_compliance_section",
+            "fieldtype": "Section Break",
+            "label": "Oman Compliance | الامتثال العماني"
+        },
+        {
+            "fieldname": "omr_support",
+            "fieldtype": "Check",
+            "label": "OMR Support | دعم الريال العماني"
+        },
+        {
+            "fieldname": "vat_handling",
+            "fieldtype": "Check",
+            "label": "VAT Handling (5%) | معالجة ضريبة القيمة المضافة"
+        },
+        {
+            "fieldname": "tax_calculation",
+            "fieldtype": "Select",
+            "label": "Tax Calculation | حساب الضريبة",
+            "options": "Automatic\nManual\nDisabled"
+        },
+        {
+            "fieldname": "column_break_oman",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "invoice_integration",
+            "fieldtype": "Check",
+            "label": "Invoice Integration | تكامل الفواتير"
+        },
+        {
+            "fieldname": "receipt_format",
+            "fieldtype": "Select",
+            "label": "Receipt Format | تنسيق الإيصال",
+            "options": "Standard\nOman Tax Authority\nCustom"
+        },
+        {
+            "fieldname": "regulatory_compliance",
+            "fieldtype": "Check",
+            "label": "Regulatory Compliance | الامتثال التنظيمي"
+        },
+        {
+            "fieldname": "security_section",
+            "fieldtype": "Section Break",
+            "label": "Security Settings | إعدادات الأمان"
+        },
+        {
+            "fieldname": "encryption_type",
+            "fieldtype": "Select",
+            "label": "Encryption Type | نوع التشفير",
+            "options": "TLS 1.2\nTLS 1.3\nSSL\nAES"
+        },
+        {
+            "fieldname": "ssl_certificate",
+            "fieldtype": "Check",
+            "label": "SSL Certificate | شهادة الأمان"
+        },
+        {
+            "fieldname": "pci_compliance",
+            "fieldtype": "Check",
+            "label": "PCI Compliance | امتثال معايير PCI"
+        },
+        {
+            "fieldname": "column_break_security",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "fraud_detection",
+            "fieldtype": "Check",
+            "label": "Fraud Detection | كشف الاحتيال"
+        },
+        {
+            "fieldname": "risk_assessment",
+            "fieldtype": "Select",
+            "label": "Risk Assessment | تقييم المخاطر",
+            "options": "Low\nMedium\nHigh\nCustom"
+        },
+        {
+            "fieldname": "security_protocols",
+            "fieldtype": "Small Text",
+            "label": "Security Protocols | بروتوكولات الأمان"
+        },
+        {
+            "fieldname": "transaction_settings_section",
+            "fieldtype": "Section Break",
+            "label": "Transaction Settings | إعدادات المعاملات"
+        },
+        {
+            "fieldname": "auto_capture",
+            "fieldtype": "Check",
+            "label": "Auto Capture | الاقتطاع التلقائي"
+        },
+        {
+            "fieldname": "refund_enabled",
+            "fieldtype": "Check",
+            "label": "Refunds Enabled | المردودات مفعلة"
+        },
+        {
+            "fieldname": "partial_refunds",
+            "fieldtype": "Check",
+            "label": "Partial Refunds | المردودات الجزئية"
+        },
+        {
+            "fieldname": "column_break_transaction",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "settlement_period",
+            "fieldtype": "Int",
+            "label": "Settlement Period (Days) | فترة التسوية (أيام)"
+        },
+        {
+            "fieldname": "timeout_duration",
+            "fieldtype": "Int",
+            "label": "Timeout Duration (Seconds) | مهلة انتهاء الوقت (ثواني)"
+        },
+        {
+            "fieldname": "retry_attempts",
+            "fieldtype": "Int",
+            "label": "Retry Attempts | محاولات الإعادة"
+        },
+        {
+            "fieldname": "monitoring_section",
+            "fieldtype": "Section Break",
+            "label": "Performance Monitoring | مراقبة الأداء"
+        },
+        {
+            "fieldname": "success_rate",
+            "fieldtype": "Percent",
+            "label": "Success Rate | معدل النجاح",
+            "read_only": 1
+        },
+        {
+            "fieldname": "average_response_time",
+            "fieldtype": "Float",
+            "label": "Avg Response Time (ms) | متوسط وقت الاستجابة",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_health_check",
+            "fieldtype": "Datetime",
+            "label": "Last Health Check | آخر فحص صحة",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_monitoring",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "total_transactions",
+            "fieldtype": "Int",
+            "label": "Total Transactions | إجمالي المعاملات",
+            "read_only": 1
+        },
+        {
+            "fieldname": "successful_transactions",
+            "fieldtype": "Int",
+            "label": "Successful Transactions | المعاملات الناجحة",
+            "read_only": 1
+        },
+        {
+            "fieldname": "failed_transactions",
+            "fieldtype": "Int",
+            "label": "Failed Transactions | المعاملات الفاشلة",
+            "read_only": 1
+        },
+        {
+            "fieldname": "notification_settings_section",
+            "fieldtype": "Section Break",
+            "label": "Notification Settings | إعدادات الإشعارات"
+        },
+        {
+            "fieldname": "email_notifications",
+            "fieldtype": "Check",
+            "label": "Email Notifications | إشعارات البريد الإلكتروني"
+        },
+        {
+            "fieldname": "sms_notifications",
+            "fieldtype": "Check",
+            "label": "SMS Notifications | إشعارات الرسائل النصية"
+        },
+        {
+            "fieldname": "webhook_notifications",
+            "fieldtype": "Check",
+            "label": "Webhook Notifications | إشعارات الويب"
+        },
+        {
+            "fieldname": "column_break_notifications",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "admin_email",
+            "fieldtype": "Data",
+            "label": "Admin Email | بريد المدير"
+        },
+        {
+            "fieldname": "customer_notification_template",
+            "fieldtype": "Link",
+            "label": "Customer Notification Template | قالب إشعار العميل",
+            "options": "Email Template"
+        },
+        {
+            "fieldname": "failure_notification_template",
+            "fieldtype": "Link",
+            "label": "Failure Notification Template | قالب إشعار الفشل",
+            "options": "Email Template"
+        },
+        {
+            "fieldname": "integration_section",
+            "fieldtype": "Section Break",
+            "label": "Integration Settings | إعدادات التكامل"
+        },
+        {
+            "fieldname": "erpnext_integration",
+            "fieldtype": "Check",
+            "label": "ERPNext Integration | تكامل ERPNext"
+        },
+        {
+            "fieldname": "portal_integration",
+            "fieldtype": "Check",
+            "label": "Customer Portal Integration | تكامل بوابة العملاء"
+        },
+        {
+            "fieldname": "mobile_integration",
+            "fieldtype": "Check",
+            "label": "Mobile Integration | التكامل مع الهاتف المحمول"
+        },
+        {
+            "fieldname": "column_break_integration",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "api_version",
+            "fieldtype": "Data",
+            "label": "API Version | إصدار واجهة برمجة التطبيقات"
+        },
+        {
+            "fieldname": "sdk_version",
+            "fieldtype": "Data",
+            "label": "SDK Version | إصدار حزمة التطوير"
+        },
+        {
+            "fieldname": "plugin_version",
+            "fieldtype": "Data",
+            "label": "Plugin Version | إصدار الإضافة"
+        },
+        {
+            "fieldname": "testing_section",
+            "fieldtype": "Section Break",
+            "label": "Testing Configuration | إعدادات الاختبار"
+        },
+        {
+            "fieldname": "test_card_numbers",
+            "fieldtype": "Long Text",
+            "label": "Test Card Numbers | أرقام البطاقات التجريبية"
+        },
+        {
+            "fieldname": "test_scenarios",
+            "fieldtype": "Long Text",
+            "label": "Test Scenarios | سيناريوهات الاختبار"
+        },
+        {
+            "fieldname": "sandbox_mode",
+            "fieldtype": "Check",
+            "label": "Sandbox Mode | وضع الاختبار الآمن"
+        },
+        {
+            "fieldname": "column_break_testing",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "test_results",
+            "fieldtype": "Long Text",
+            "label": "Test Results | نتائج الاختبار",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_tested",
+            "fieldtype": "Datetime",
+            "label": "Last Tested | آخر اختبار",
+            "read_only": 1
+        },
+        {
+            "fieldname": "test_status",
+            "fieldtype": "Select",
+            "label": "Test Status | حالة الاختبار",
+            "options": "Not Tested\nPassed\nFailed\nIn Progress",
+            "read_only": 1
+        },
+        {
+            "fieldname": "metadata_section",
+            "fieldtype": "Section Break",
+            "label": "System Information | معلومات النظام"
+        },
+        {
+            "fieldname": "created_by",
+            "fieldtype": "Data",
+            "label": "Created By | أنشأ بواسطة",
+            "read_only": 1
+        },
+        {
+            "fieldname": "created_date",
+            "fieldtype": "Date",
+            "label": "Created Date | تاريخ الإنشاء",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_modified_by",
+            "fieldtype": "Data",
+            "label": "Last Modified By | آخر تعديل بواسطة",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_modified_date",
+            "fieldtype": "Datetime",
+            "label": "Last Modified Date | تاريخ آخر تعديل",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_metadata",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Long Text",
+            "label": "Notes (English)"
+        },
+        {
+            "fieldname": "notes_ar",
+            "fieldtype": "Long Text",
+            "label": "ملاحظات"
+        },
+        {
+            "fieldname": "maintenance_mode",
+            "fieldtype": "Check",
+            "label": "Maintenance Mode | وضع الصيانة"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 0,
+    "links": [],
+    "modified": "2024-01-01 12:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Customer Portal",
+    "name": "Online Payment Gateway",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Workshop Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "read": 1,
+            "role": "Workshop Technician"
+        },
+        {
+            "read": 1,
+            "role": "Customer"
+        }
+    ],
+    "quick_entry": 1,
+    "restrict_to_domain": "Workshop",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "gateway_name",
+    "track_changes": 1
+}

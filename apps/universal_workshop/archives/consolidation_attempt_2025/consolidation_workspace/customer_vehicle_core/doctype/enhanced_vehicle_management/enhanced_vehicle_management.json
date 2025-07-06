@@ -1,0 +1,763 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:vehicle_id",
+ "creation": "2025-01-03 23:15:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "vehicle_basic_info_section",
+  "vehicle_id",
+  "vin",
+  "license_plate",
+  "license_plate_ar",
+  "column_break_4",
+  "make",
+  "make_ar",
+  "model",
+  "model_ar",
+  "vehicle_specifications_section",
+  "year",
+  "engine_type",
+  "engine_capacity",
+  "fuel_type",
+  "column_break_13",
+  "transmission",
+  "body_type",
+  "color",
+  "color_ar",
+  "ownership_information_section",
+  "customer",
+  "ownership_type",
+  "registration_date",
+  "column_break_21",
+  "purchase_date",
+  "registration_expiry",
+  "insurance_expiry",
+  "mileage_tracking_section",
+  "current_mileage",
+  "last_service_mileage",
+  "next_service_mileage",
+  "column_break_28",
+  "mileage_unit",
+  "average_monthly_mileage",
+  "mileage_history",
+  "service_scheduling_section",
+  "service_interval_km",
+  "service_interval_months",
+  "last_service_date",
+  "column_break_35",
+  "next_service_date",
+  "service_bay_preference",
+  "technician_preference",
+  "vehicle_condition_section",
+  "overall_condition",
+  "condition_notes",
+  "condition_notes_ar",
+  "column_break_42",
+  "last_inspection_date",
+  "next_inspection_due",
+  "inspection_status",
+  "maintenance_history_section",
+  "service_records",
+  "column_break_47",
+  "inspection_records",
+  "maintenance_alerts",
+  "parts_warranty_section",
+  "warranty_information",
+  "column_break_51",
+  "parts_history",
+  "recall_information",
+  "vehicle_documents_section",
+  "registration_documents",
+  "column_break_55",
+  "insurance_documents",
+  "other_documents",
+  "vin_decode_section",
+  "vin_decode_status",
+  "vin_decode_data",
+  "decode_timestamp",
+  "column_break_61",
+  "decode_source",
+  "decode_reliability",
+  "manual_override",
+  "arabic_cultural_context_section",
+  "arabic_vehicle_terminology",
+  "traditional_naming_patterns",
+  "islamic_compliance_notes",
+  "omani_registration_context",
+  "column_break_68",
+  "arabic_service_preferences",
+  "cultural_maintenance_patterns",
+  "islamic_calendar_services",
+  "traditional_vehicle_care",
+  "analytics_insights_section",
+  "service_cost_analysis",
+  "maintenance_prediction",
+  "column_break_75",
+  "efficiency_metrics",
+  "cost_optimization_suggestions",
+  "integration_section",
+  "shared_library_vehicle_enhanced",
+  "arabic_business_logic_integrated",
+  "traditional_patterns_applied",
+  "islamic_compliance_verified",
+  "omani_context_validated",
+  "notes_metadata_section",
+  "notes",
+  "created_by",
+  "created_date",
+  "last_updated_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "vehicle_basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Basic Information - المعلومات الأساسية للمركبة"
+  },
+  {
+   "fieldname": "vehicle_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Vehicle ID - رقم المركبة",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "vin",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "VIN - رقم الهيكل",
+   "length": 17,
+   "reqd": 1
+  },
+  {
+   "fieldname": "license_plate",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "License Plate - رقم اللوحة",
+   "reqd": 1
+  },
+  {
+   "fieldname": "license_plate_ar",
+   "fieldtype": "Data",
+   "label": "رقم اللوحة بالعربية",
+   "translatable": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "make",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Make - الصانع",
+   "reqd": 1
+  },
+  {
+   "fieldname": "make_ar",
+   "fieldtype": "Data",
+   "label": "الصانع بالعربية",
+   "translatable": 1
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Model - الموديل",
+   "reqd": 1
+  },
+  {
+   "fieldname": "model_ar",
+   "fieldtype": "Data",
+   "label": "الموديل بالعربية",
+   "translatable": 1
+  },
+  {
+   "fieldname": "vehicle_specifications_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Specifications - مواصفات المركبة"
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Year - السنة",
+   "reqd": 1
+  },
+  {
+   "fieldname": "engine_type",
+   "fieldtype": "Select",
+   "label": "Engine Type - نوع المحرك",
+   "options": "Gasoline\nDiesel\nHybrid\nElectric\nCNG\nLPG\nOther"
+  },
+  {
+   "fieldname": "engine_capacity",
+   "fieldtype": "Float",
+   "label": "Engine Capacity (L) - سعة المحرك",
+   "precision": 1
+  },
+  {
+   "fieldname": "fuel_type",
+   "fieldtype": "Select",
+   "label": "Fuel Type - نوع الوقود",
+   "options": "Gasoline 91\nGasoline 95\nDiesel\nElectric\nHybrid\nCNG\nLPG"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "transmission",
+   "fieldtype": "Select",
+   "label": "Transmission - ناقل الحركة",
+   "options": "Manual\nAutomatic\nCVT\nSemi-Automatic\nDual Clutch"
+  },
+  {
+   "fieldname": "body_type",
+   "fieldtype": "Select",
+   "label": "Body Type - نوع الهيكل",
+   "options": "Sedan\nHatchback\nSUV\nPickup\nCoupe\nConvertible\nWagon\nMinivan\nTruck\nMotorcycle"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "label": "Color - اللون"
+  },
+  {
+   "fieldname": "color_ar",
+   "fieldtype": "Data",
+   "label": "اللون بالعربية",
+   "translatable": 1
+  },
+  {
+   "fieldname": "ownership_information_section",
+   "fieldtype": "Section Break",
+   "label": "Ownership Information - معلومات الملكية"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer - العميل",
+   "options": "Consolidated Customer Profile",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ownership_type",
+   "fieldtype": "Select",
+   "label": "Ownership Type - نوع الملكية",
+   "options": "Owned\nLeased\nFinanced\nRental\nCompany Fleet\nGovernment"
+  },
+  {
+   "fieldname": "registration_date",
+   "fieldtype": "Date",
+   "label": "Registration Date - تاريخ التسجيل"
+  },
+  {
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "purchase_date",
+   "fieldtype": "Date",
+   "label": "Purchase Date - تاريخ الشراء"
+  },
+  {
+   "fieldname": "registration_expiry",
+   "fieldtype": "Date",
+   "label": "Registration Expiry - انتهاء التسجيل"
+  },
+  {
+   "fieldname": "insurance_expiry",
+   "fieldtype": "Date",
+   "label": "Insurance Expiry - انتهاء التأمين"
+  },
+  {
+   "fieldname": "mileage_tracking_section",
+   "fieldtype": "Section Break",
+   "label": "Mileage Tracking - تتبع المسافة المقطوعة"
+  },
+  {
+   "fieldname": "current_mileage",
+   "fieldtype": "Float",
+   "label": "Current Mileage - المسافة المقطوعة الحالية",
+   "precision": 1
+  },
+  {
+   "fieldname": "last_service_mileage",
+   "fieldtype": "Float",
+   "label": "Last Service Mileage - مسافة آخر خدمة",
+   "precision": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "next_service_mileage",
+   "fieldtype": "Float",
+   "label": "Next Service Mileage - مسافة الخدمة القادمة",
+   "precision": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_28",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mileage_unit",
+   "fieldtype": "Select",
+   "label": "Mileage Unit - وحدة المسافة",
+   "options": "KM\nMiles",
+   "default": "KM"
+  },
+  {
+   "fieldname": "average_monthly_mileage",
+   "fieldtype": "Float",
+   "label": "Average Monthly Mileage - متوسط المسافة الشهرية",
+   "precision": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "mileage_history",
+   "fieldtype": "Table",
+   "label": "Mileage History - تاريخ المسافة المقطوعة",
+   "options": "Vehicle Mileage History"
+  },
+  {
+   "fieldname": "service_scheduling_section",
+   "fieldtype": "Section Break",
+   "label": "Service Scheduling - جدولة الخدمة"
+  },
+  {
+   "fieldname": "service_interval_km",
+   "fieldtype": "Float",
+   "label": "Service Interval (KM) - فترة الخدمة بالكيلومترات",
+   "precision": 1,
+   "default": 10000
+  },
+  {
+   "fieldname": "service_interval_months",
+   "fieldtype": "Int",
+   "label": "Service Interval (Months) - فترة الخدمة بالشهور",
+   "default": 6
+  },
+  {
+   "fieldname": "last_service_date",
+   "fieldtype": "Date",
+   "label": "Last Service Date - تاريخ آخر خدمة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_35",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "next_service_date",
+   "fieldtype": "Date",
+   "label": "Next Service Date - تاريخ الخدمة القادمة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "service_bay_preference",
+   "fieldtype": "Link",
+   "label": "Preferred Service Bay - خليج الخدمة المفضل",
+   "options": "Service Bay"
+  },
+  {
+   "fieldname": "technician_preference",
+   "fieldtype": "Link",
+   "label": "Preferred Technician - الفني المفضل",
+   "options": "Technician"
+  },
+  {
+   "fieldname": "vehicle_condition_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Condition - حالة المركبة"
+  },
+  {
+   "fieldname": "overall_condition",
+   "fieldtype": "Select",
+   "label": "Overall Condition - الحالة العامة",
+   "options": "Excellent\nGood\nFair\nPoor\nNeeds Immediate Attention"
+  },
+  {
+   "fieldname": "condition_notes",
+   "fieldtype": "Text",
+   "label": "Condition Notes - ملاحظات الحالة"
+  },
+  {
+   "fieldname": "condition_notes_ar",
+   "fieldtype": "Text",
+   "label": "ملاحظات الحالة بالعربية",
+   "translatable": 1
+  },
+  {
+   "fieldname": "column_break_42",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_inspection_date",
+   "fieldtype": "Date",
+   "label": "Last Inspection Date - تاريخ آخر فحص",
+   "read_only": 1
+  },
+  {
+   "fieldname": "next_inspection_due",
+   "fieldtype": "Date",
+   "label": "Next Inspection Due - تاريخ الفحص القادم",
+   "read_only": 1
+  },
+  {
+   "fieldname": "inspection_status",
+   "fieldtype": "Select",
+   "label": "Inspection Status - حالة الفحص",
+   "options": "Current\nDue Soon\nOverdue\nNot Required"
+  },
+  {
+   "fieldname": "maintenance_history_section",
+   "fieldtype": "Section Break",
+   "label": "Maintenance History - تاريخ الصيانة"
+  },
+  {
+   "fieldname": "service_records",
+   "fieldtype": "Table",
+   "label": "Service Records - سجلات الخدمة",
+   "options": "Vehicle Service Record"
+  },
+  {
+   "fieldname": "column_break_47",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "inspection_records",
+   "fieldtype": "Table",
+   "label": "Inspection Records - سجلات الفحص",
+   "options": "Vehicle Inspection Record"
+  },
+  {
+   "fieldname": "maintenance_alerts",
+   "fieldtype": "Table",
+   "label": "Maintenance Alerts - تنبيهات الصيانة",
+   "options": "Vehicle Maintenance Alert"
+  },
+  {
+   "fieldname": "parts_warranty_section",
+   "fieldtype": "Section Break",
+   "label": "Parts & Warranty - القطع والضمان"
+  },
+  {
+   "fieldname": "warranty_information",
+   "fieldtype": "Table",
+   "label": "Warranty Information - معلومات الضمان",
+   "options": "Vehicle Warranty Info"
+  },
+  {
+   "fieldname": "column_break_51",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "parts_history",
+   "fieldtype": "Table",
+   "label": "Parts History - تاريخ القطع",
+   "options": "Vehicle Parts History"
+  },
+  {
+   "fieldname": "recall_information",
+   "fieldtype": "Table",
+   "label": "Recall Information - معلومات الاستدعاء",
+   "options": "Vehicle Recall Info"
+  },
+  {
+   "fieldname": "vehicle_documents_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Documents - وثائق المركبة"
+  },
+  {
+   "fieldname": "registration_documents",
+   "fieldtype": "Table",
+   "label": "Registration Documents - وثائق التسجيل",
+   "options": "Vehicle Registration Document"
+  },
+  {
+   "fieldname": "column_break_55",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "insurance_documents",
+   "fieldtype": "Table",
+   "label": "Insurance Documents - وثائق التأمين",
+   "options": "Vehicle Insurance Document"
+  },
+  {
+   "fieldname": "other_documents",
+   "fieldtype": "Table",
+   "label": "Other Documents - وثائق أخرى",
+   "options": "Vehicle Other Document"
+  },
+  {
+   "fieldname": "vin_decode_section",
+   "fieldtype": "Section Break",
+   "label": "VIN Decode Information - معلومات فك رموز VIN"
+  },
+  {
+   "fieldname": "vin_decode_status",
+   "fieldtype": "Select",
+   "label": "VIN Decode Status - حالة فك رموز VIN",
+   "options": "Pending\nDecoded\nFailed\nManual Override\nExpired",
+   "default": "Pending"
+  },
+  {
+   "fieldname": "vin_decode_data",
+   "fieldtype": "JSON",
+   "label": "VIN Decode Data - بيانات فك رموز VIN",
+   "read_only": 1
+  },
+  {
+   "fieldname": "decode_timestamp",
+   "fieldtype": "Datetime",
+   "label": "Decode Timestamp - وقت فك الرموز",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_61",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "decode_source",
+   "fieldtype": "Select",
+   "label": "Decode Source - مصدر فك الرموز",
+   "options": "NHTSA\nVinDecoder.eu\nLocal Cache\nManual Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "decode_reliability",
+   "fieldtype": "Select",
+   "label": "Decode Reliability - موثوقية فك الرموز",
+   "options": "High\nMedium\nLow\nUnverified",
+   "read_only": 1
+  },
+  {
+   "fieldname": "manual_override",
+   "fieldtype": "Check",
+   "label": "Manual Override - تجاوز يدوي"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "arabic_cultural_context_section",
+   "fieldtype": "Section Break",
+   "label": "Arabic Cultural Context - السياق الثقافي العربي"
+  },
+  {
+   "fieldname": "arabic_vehicle_terminology",
+   "fieldtype": "Text",
+   "label": "Arabic Vehicle Terminology - المصطلحات العربية للمركبة"
+  },
+  {
+   "fieldname": "traditional_naming_patterns",
+   "fieldtype": "Text",
+   "label": "Traditional Naming Patterns - أنماط التسمية التقليدية"
+  },
+  {
+   "fieldname": "islamic_compliance_notes",
+   "fieldtype": "Text",
+   "label": "Islamic Compliance Notes - ملاحظات الامتثال الإسلامي"
+  },
+  {
+   "fieldname": "omani_registration_context",
+   "fieldtype": "Text",
+   "label": "Omani Registration Context - سياق التسجيل العماني"
+  },
+  {
+   "fieldname": "column_break_68",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "arabic_service_preferences",
+   "fieldtype": "Text",
+   "label": "Arabic Service Preferences - تفضيلات الخدمة العربية"
+  },
+  {
+   "fieldname": "cultural_maintenance_patterns",
+   "fieldtype": "Text",
+   "label": "Cultural Maintenance Patterns - أنماط الصيانة الثقافية"
+  },
+  {
+   "fieldname": "islamic_calendar_services",
+   "fieldtype": "Text",
+   "label": "Islamic Calendar Services - خدمات التقويم الإسلامي"
+  },
+  {
+   "fieldname": "traditional_vehicle_care",
+   "fieldtype": "Text",
+   "label": "Traditional Vehicle Care - العناية التقليدية بالمركبة"
+  },
+  {
+   "fieldname": "analytics_insights_section",
+   "fieldtype": "Section Break",
+   "label": "Analytics & Insights - التحليلات والإحصائيات"
+  },
+  {
+   "fieldname": "service_cost_analysis",
+   "fieldtype": "Table",
+   "label": "Service Cost Analysis - تحليل تكلفة الخدمة",
+   "options": "Vehicle Service Cost Analysis"
+  },
+  {
+   "fieldname": "maintenance_prediction",
+   "fieldtype": "Table",
+   "label": "Maintenance Prediction - التنبؤ بالصيانة",
+   "options": "Vehicle Maintenance Prediction"
+  },
+  {
+   "fieldname": "column_break_75",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "efficiency_metrics",
+   "fieldtype": "Table",
+   "label": "Efficiency Metrics - مقاييس الكفاءة",
+   "options": "Vehicle Efficiency Metric"
+  },
+  {
+   "fieldname": "cost_optimization_suggestions",
+   "fieldtype": "Table",
+   "label": "Cost Optimization Suggestions - اقتراحات تحسين التكلفة",
+   "options": "Vehicle Cost Optimization"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "integration_section",
+   "fieldtype": "Section Break",
+   "label": "Shared Library Integration - تكامل المكتبة المشتركة"
+  },
+  {
+   "default": "0",
+   "fieldname": "shared_library_vehicle_enhanced",
+   "fieldtype": "Check",
+   "label": "Shared Library Vehicle Enhanced - تم تعزيز المركبة بالمكتبة المشتركة",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "arabic_business_logic_integrated",
+   "fieldtype": "Check",
+   "label": "Arabic Business Logic Integrated - تم دمج منطق الأعمال العربي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "traditional_patterns_applied",
+   "fieldtype": "Check",
+   "label": "Traditional Patterns Applied - تم تطبيق الأنماط التقليدية",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "islamic_compliance_verified",
+   "fieldtype": "Check",
+   "label": "Islamic Compliance Verified - تم التحقق من الامتثال الإسلامي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "omani_context_validated",
+   "fieldtype": "Check",
+   "label": "Omani Context Validated - تم التحقق من السياق العماني",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Notes & Metadata - الملاحظات والبيانات الوصفية"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes - ملاحظات"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By - أنشأ بواسطة",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_date",
+   "fieldtype": "Date",
+   "label": "Created Date - تاريخ الإنشاء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_updated_by",
+   "fieldtype": "Link",
+   "label": "Last Updated By - آخر تحديث بواسطة",
+   "options": "User",
+   "read_only": 1
+  }
+ ],
+ "has_web_view": 1,
+ "hide_toolbar": 0,
+ "idx": 0,
+ "in_create": 0,
+ "is_submittable": 0,
+ "issingle": 0,
+ "max_attachments": 15,
+ "modified": "2025-01-03 23:15:00.000000",
+ "modified_by": "Administrator",
+ "module": "Customer Vehicle Core",
+ "name": "Enhanced Vehicle Management",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "write": 1,
+   "role": "Service Advisor"
+  },
+  {
+   "read": 1,
+   "write": 1,
+   "role": "Workshop Technician"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "write": 1,
+   "role": "System Manager"
+  },
+  {
+   "read": 1,
+   "role": "Customer"
+  }
+ ],
+ "quick_entry": 1,
+ "route": "enhanced-vehicle",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "license_plate",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1,
+ "web_view": 1
+}

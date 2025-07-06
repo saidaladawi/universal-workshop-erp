@@ -1,0 +1,496 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:control_id",
+ "creation": "2025-01-03 22:30:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "control_info_section",
+  "control_id",
+  "control_name",
+  "control_name_ar",
+  "service_order",
+  "control_type",
+  "column_break_5",
+  "inspection_stage",
+  "control_category",
+  "is_mandatory",
+  "priority_level",
+  "requirements_section",
+  "description",
+  "description_ar",
+  "inspection_requirements",
+  "approval_requirements",
+  "assignment_section",
+  "assigned_technician",
+  "assigned_supervisor",
+  "assigned_quality_inspector",
+  "column_break_18",
+  "assigned_date",
+  "due_date",
+  "estimated_duration_hours",
+  "status_section",
+  "status",
+  "completion_percentage",
+  "column_break_24",
+  "started_on",
+  "paused_on",
+  "resumed_on",
+  "completion_section",
+  "completed_by",
+  "completion_date",
+  "approval_by",
+  "approval_date",
+  "column_break_32",
+  "actual_duration_hours",
+  "quality_score",
+  "customer_impact_level",
+  "results_section",
+  "inspection_results",
+  "inspection_results_ar",
+  "approval_notes",
+  "approval_notes_ar",
+  "column_break_39",
+  "defects_found",
+  "corrective_actions",
+  "corrective_actions_ar",
+  "rework_required",
+  "documentation_section",
+  "photos",
+  "supporting_documents",
+  "column_break_45",
+  "measurements",
+  "test_results",
+  "cultural_context_section",
+  "traditional_quality_patterns",
+  "islamic_quality_compliance",
+  "omani_quality_standards",
+  "arabic_quality_notes",
+  "integration_section",
+  "shared_library_validation",
+  "arabic_business_logic_applied",
+  "traditional_patterns_verified",
+  "islamic_compliance_confirmed"
+ ],
+ "fields": [
+  {
+   "fieldname": "control_info_section",
+   "fieldtype": "Section Break",
+   "label": "Quality Control Information - معلومات مراقبة الجودة"
+  },
+  {
+   "fieldname": "control_id",
+   "fieldtype": "Data",
+   "label": "Control ID - معرف المراقبة",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "control_name",
+   "fieldtype": "Data",
+   "label": "Control Name - اسم المراقبة",
+   "reqd": 1
+  },
+  {
+   "fieldname": "control_name_ar",
+   "fieldtype": "Data",
+   "label": "اسم المراقبة بالعربية",
+   "reqd": 1
+  },
+  {
+   "fieldname": "service_order",
+   "fieldtype": "Link",
+   "label": "Service Order - أمر الخدمة",
+   "options": "Consolidated Service Order",
+   "reqd": 1
+  },
+  {
+   "fieldname": "control_type",
+   "fieldtype": "Select",
+   "label": "Control Type - نوع المراقبة",
+   "options": "Quality Checkpoint\nInspection Checklist\nPerformance Test\nSafety Verification\nCustomer Acceptance\nRegulatory Compliance",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "inspection_stage",
+   "fieldtype": "Select",
+   "label": "Inspection Stage - مرحلة الفحص",
+   "options": "Pre-Service Assessment\nInitial Inspection\nMid-Service Check\nProgress Verification\nPre-Delivery Check\nFinal Quality Control\nCustomer Handover\nPost-Delivery Follow-up",
+   "reqd": 1
+  },
+  {
+   "fieldname": "control_category",
+   "fieldtype": "Select",
+   "label": "Control Category - فئة المراقبة",
+   "options": "Technical\nSafety\nCompliance\nCustomer Service\nDocumentation\nPerformance",
+   "reqd": 1
+  },
+  {
+   "fieldname": "is_mandatory",
+   "fieldtype": "Check",
+   "label": "Mandatory Control - مراقبة إجبارية"
+  },
+  {
+   "fieldname": "priority_level",
+   "fieldtype": "Select",
+   "label": "Priority Level - مستوى الأولوية",
+   "options": "Low\nMedium\nHigh\nCritical\nUrgent",
+   "default": "Medium"
+  },
+  {
+   "fieldname": "requirements_section",
+   "fieldtype": "Section Break",
+   "label": "Requirements & Specifications - المتطلبات والمواصفات"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description - الوصف"
+  },
+  {
+   "fieldname": "description_ar",
+   "fieldtype": "Text Editor",
+   "label": "الوصف بالعربية"
+  },
+  {
+   "fieldname": "inspection_requirements",
+   "fieldtype": "Text Editor",
+   "label": "Inspection Requirements - متطلبات الفحص"
+  },
+  {
+   "fieldname": "approval_requirements",
+   "fieldtype": "Text Editor",
+   "label": "Approval Requirements - متطلبات الموافقة"
+  },
+  {
+   "fieldname": "assignment_section",
+   "fieldtype": "Section Break",
+   "label": "Assignment & Scheduling - التعيين والجدولة"
+  },
+  {
+   "fieldname": "assigned_technician",
+   "fieldtype": "Link",
+   "label": "Assigned Technician - الفني المكلف",
+   "options": "Technician"
+  },
+  {
+   "fieldname": "assigned_supervisor",
+   "fieldtype": "Link",
+   "label": "Assigned Supervisor - المشرف المكلف",
+   "options": "User"
+  },
+  {
+   "fieldname": "assigned_quality_inspector",
+   "fieldtype": "Link",
+   "label": "Quality Inspector - مفتش الجودة",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "assigned_date",
+   "fieldtype": "Datetime",
+   "label": "Assigned Date - تاريخ التكليف"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Datetime",
+   "label": "Due Date - تاريخ الاستحقاق"
+  },
+  {
+   "fieldname": "estimated_duration_hours",
+   "fieldtype": "Float",
+   "label": "Estimated Duration (Hours) - المدة المقدرة بالساعات",
+   "precision": 2
+  },
+  {
+   "fieldname": "status_section",
+   "fieldtype": "Section Break",
+   "label": "Status & Progress - الحالة والتقدم"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status - الحالة",
+   "options": "Pending\nAssigned\nIn Progress\nPaused\nUnder Review\nCompleted\nApproved\nRejected\nSkipped\nCancelled",
+   "default": "Pending",
+   "reqd": 1
+  },
+  {
+   "fieldname": "completion_percentage",
+   "fieldtype": "Percent",
+   "label": "Completion % - نسبة الإنجاز"
+  },
+  {
+   "fieldname": "column_break_24",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "started_on",
+   "fieldtype": "Datetime",
+   "label": "Started On - تاريخ البدء"
+  },
+  {
+   "fieldname": "paused_on",
+   "fieldtype": "Datetime",
+   "label": "Paused On - تاريخ الإيقاف"
+  },
+  {
+   "fieldname": "resumed_on",
+   "fieldtype": "Datetime",
+   "label": "Resumed On - تاريخ الاستئناف"
+  },
+  {
+   "fieldname": "completion_section",
+   "fieldtype": "Section Break",
+   "label": "Completion & Approval - الإنجاز والموافقة"
+  },
+  {
+   "fieldname": "completed_by",
+   "fieldtype": "Link",
+   "label": "Completed By - أنجز بواسطة",
+   "options": "User"
+  },
+  {
+   "fieldname": "completion_date",
+   "fieldtype": "Datetime",
+   "label": "Completion Date - تاريخ الإنجاز"
+  },
+  {
+   "fieldname": "approval_by",
+   "fieldtype": "Link",
+   "label": "Approved By - تمت الموافقة بواسطة",
+   "options": "User"
+  },
+  {
+   "fieldname": "approval_date",
+   "fieldtype": "Datetime",
+   "label": "Approval Date - تاريخ الموافقة"
+  },
+  {
+   "fieldname": "column_break_32",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "actual_duration_hours",
+   "fieldtype": "Float",
+   "label": "Actual Duration (Hours) - المدة الفعلية بالساعات",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "quality_score",
+   "fieldtype": "Percent",
+   "label": "Quality Score - درجة الجودة"
+  },
+  {
+   "fieldname": "customer_impact_level",
+   "fieldtype": "Select",
+   "label": "Customer Impact - التأثير على العميل",
+   "options": "None\nLow\nMedium\nHigh\nCritical"
+  },
+  {
+   "fieldname": "results_section",
+   "fieldtype": "Section Break",
+   "label": "Results & Findings - النتائج والاكتشافات"
+  },
+  {
+   "fieldname": "inspection_results",
+   "fieldtype": "Text Editor",
+   "label": "Inspection Results - نتائج الفحص"
+  },
+  {
+   "fieldname": "inspection_results_ar",
+   "fieldtype": "Text Editor",
+   "label": "نتائج الفحص بالعربية"
+  },
+  {
+   "fieldname": "approval_notes",
+   "fieldtype": "Text Editor",
+   "label": "Approval Notes - ملاحظات الموافقة"
+  },
+  {
+   "fieldname": "approval_notes_ar",
+   "fieldtype": "Text Editor",
+   "label": "ملاحظات الموافقة بالعربية"
+  },
+  {
+   "fieldname": "column_break_39",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "defects_found",
+   "fieldtype": "Int",
+   "label": "Defects Found - العيوب المكتشفة",
+   "default": "0"
+  },
+  {
+   "fieldname": "corrective_actions",
+   "fieldtype": "Text Editor",
+   "label": "Corrective Actions - الإجراءات التصحيحية"
+  },
+  {
+   "fieldname": "corrective_actions_ar",
+   "fieldtype": "Text Editor",
+   "label": "الإجراءات التصحيحية بالعربية"
+  },
+  {
+   "fieldname": "rework_required",
+   "fieldtype": "Check",
+   "label": "Rework Required - إعادة العمل مطلوبة"
+  },
+  {
+   "fieldname": "documentation_section",
+   "fieldtype": "Section Break",
+   "label": "Documentation & Evidence - التوثيق والأدلة"
+  },
+  {
+   "fieldname": "photos",
+   "fieldtype": "Table",
+   "label": "Photos - الصور",
+   "options": "Quality Control Photo"
+  },
+  {
+   "fieldname": "supporting_documents",
+   "fieldtype": "Table",
+   "label": "Supporting Documents - الوثائق المساندة",
+   "options": "Quality Control Document"
+  },
+  {
+   "fieldname": "column_break_45",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "measurements",
+   "fieldtype": "Table",
+   "label": "Measurements - القياسات",
+   "options": "Quality Control Measurement"
+  },
+  {
+   "fieldname": "test_results",
+   "fieldtype": "Table",
+   "label": "Test Results - نتائج الاختبارات",
+   "options": "Quality Control Test Result"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "cultural_context_section",
+   "fieldtype": "Section Break",
+   "label": "Cultural & Compliance Context - السياق الثقافي والامتثال"
+  },
+  {
+   "fieldname": "traditional_quality_patterns",
+   "fieldtype": "Text Editor",
+   "label": "Traditional Quality Patterns - أنماط الجودة التقليدية"
+  },
+  {
+   "fieldname": "islamic_quality_compliance",
+   "fieldtype": "Text Editor",
+   "label": "Islamic Quality Compliance - امتثال الجودة الإسلامي"
+  },
+  {
+   "fieldname": "omani_quality_standards",
+   "fieldtype": "Text Editor",
+   "label": "Omani Quality Standards - معايير الجودة العمانية"
+  },
+  {
+   "fieldname": "arabic_quality_notes",
+   "fieldtype": "Text Editor",
+   "label": "Arabic Quality Notes - ملاحظات الجودة العربية"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "integration_section",
+   "fieldtype": "Section Break",
+   "label": "Shared Library Integration - تكامل المكتبة المشتركة"
+  },
+  {
+   "default": "0",
+   "fieldname": "shared_library_validation",
+   "fieldtype": "Check",
+   "label": "Shared Library Validation Applied - تم تطبيق التحقق من المكتبة المشتركة",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "arabic_business_logic_applied",
+   "fieldtype": "Check",
+   "label": "Arabic Business Logic Applied - تم تطبيق منطق الأعمال العربي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "traditional_patterns_verified",
+   "fieldtype": "Check",
+   "label": "Traditional Patterns Verified - تم التحقق من الأنماط التقليدية",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "islamic_compliance_confirmed",
+   "fieldtype": "Check",
+   "label": "Islamic Compliance Confirmed - تم تأكيد الامتثال الإسلامي",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-03 22:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Workshop Core",
+ "name": "Quality Control Management",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Quality Control Inspector",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Workshop Technician",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Customer"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "control_name",
+ "track_changes": 1
+}

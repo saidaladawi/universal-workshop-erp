@@ -1,0 +1,1 @@
+# DocType: vat_configuration

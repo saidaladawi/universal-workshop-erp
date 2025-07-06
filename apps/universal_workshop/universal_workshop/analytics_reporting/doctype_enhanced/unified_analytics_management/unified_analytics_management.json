@@ -1,0 +1,905 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:analytics_id",
+ "creation": "2025-01-04 02:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "analytics_basic_info_section",
+  "analytics_id",
+  "analytics_name",
+  "analytics_name_ar",
+  "analytics_type",
+  "column_break_4",
+  "category",
+  "status",
+  "priority",
+  "is_active",
+  "kpi_management_section",
+  "kpi_code",
+  "kpi_description",
+  "kpi_description_ar",
+  "calculation_method",
+  "column_break_12",
+  "data_source",
+  "measurement_unit",
+  "target_value",
+  "threshold_settings",
+  "dashboard_configuration_section",
+  "dashboard_enabled",
+  "dashboard_layout",
+  "widget_configurations",
+  "column_break_20",
+  "chart_type",
+  "visualization_settings",
+  "refresh_frequency",
+  "data_sources_section",
+  "primary_data_source",
+  "data_query",
+  "filter_conditions",
+  "column_break_26",
+  "secondary_data_sources",
+  "calculation_formula",
+  "aggregation_method",
+  "reporting_configuration_section",
+  "report_templates",
+  "export_formats",
+  "schedule_settings",
+  "column_break_32",
+  "report_recipients",
+  "delivery_method",
+  "report_frequency",
+  "predictive_analytics_section",
+  "ml_model_enabled",
+  "prediction_type",
+  "model_algorithm",
+  "training_data_source",
+  "column_break_39",
+  "prediction_horizon",
+  "confidence_threshold",
+  "forecast_accuracy",
+  "model_last_trained",
+  "performance_tracking_section",
+  "current_value",
+  "previous_value",
+  "variance_percentage",
+  "trend_direction",
+  "column_break_46",
+  "performance_status",
+  "alert_conditions",
+  "last_updated",
+  "next_calculation",
+  "historical_analysis_section",
+  "historical_data",
+  "trend_analysis",
+  "benchmark_comparison",
+  "column_break_53",
+  "period_comparisons",
+  "seasonal_patterns",
+  "anomaly_detection",
+  "arabic_business_intelligence_section",
+  "arabic_analytics_terminology",
+  "traditional_business_patterns",
+  "cultural_kpi_context",
+  "column_break_59",
+  "omani_market_metrics",
+  "arabic_reporting_formats",
+  "cultural_trend_analysis",
+  "islamic_business_compliance_section",
+  "islamic_finance_metrics",
+  "halal_business_indicators",
+  "ethical_performance_tracking",
+  "column_break_65",
+  "community_benefit_metrics",
+  "sharia_compliance_scores",
+  "religious_calendar_alignment",
+  "advanced_analytics_section",
+  "statistical_analysis",
+  "correlation_analysis",
+  "regression_models",
+  "column_break_71",
+  "clustering_analysis",
+  "outlier_detection",
+  "cohort_analysis",
+  "mobile_analytics_section",
+  "mobile_dashboard_config",
+  "responsive_charts",
+  "offline_analytics",
+  "column_break_77",
+  "mobile_alerts",
+  "touch_optimized_interface",
+  "arabic_mobile_support",
+  "collaboration_sharing_section",
+  "shared_analytics",
+  "user_permissions",
+  "collaborative_insights",
+  "column_break_83",
+  "comment_discussions",
+  "insight_annotations",
+  "team_analytics_access",
+  "integration_section",
+  "shared_library_analytics_enhanced",
+  "arabic_business_logic_integrated",
+  "traditional_patterns_applied",
+  "islamic_compliance_verified",
+  "omani_context_validated",
+  "notes_metadata_section",
+  "remarks",
+  "created_by",
+  "created_date",
+  "last_updated_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "analytics_basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Analytics Basic Information - المعلومات الأساسية للتحليلات"
+  },
+  {
+   "fieldname": "analytics_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Analytics ID - معرف التحليلات",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "analytics_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Analytics Name (English) - اسم التحليلات",
+   "reqd": 1
+  },
+  {
+   "fieldname": "analytics_name_ar",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "اسم التحليلات بالعربية",
+   "translatable": 1
+  },
+  {
+   "fieldname": "analytics_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Analytics Type - نوع التحليلات",
+   "options": "KPI\\nDashboard\\nReport\\nPredictive Model\\nBenchmark Analysis\\nTrend Analysis\\nPerformance Tracking\\nCustomer Analytics\\nFinancial Analytics\\nOperational Analytics",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Category - الفئة",
+   "options": "Financial\\nOperational\\nCustomer\\nTechnician\\nInventory\\nQuality\\nSales\\nMarketing\\nCompliance\\nSecurity"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status - الحالة",
+   "options": "Active\\nInactive\\nDevelopment\\nTesting\\nArchived\\nMaintenance",
+   "reqd": 1,
+   "default": "Active"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority - الأولوية",
+   "options": "Critical\\nHigh\\nMedium\\nLow",
+   "default": "Medium"
+  },
+  {
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Active - نشط",
+   "default": 1
+  },
+  {
+   "fieldname": "kpi_management_section",
+   "fieldtype": "Section Break",
+   "label": "KPI Management - إدارة مؤشرات الأداء الرئيسية"
+  },
+  {
+   "fieldname": "kpi_code",
+   "fieldtype": "Data",
+   "label": "KPI Code - رمز مؤشر الأداء"
+  },
+  {
+   "fieldname": "kpi_description",
+   "fieldtype": "Text",
+   "label": "KPI Description - وصف مؤشر الأداء"
+  },
+  {
+   "fieldname": "kpi_description_ar",
+   "fieldtype": "Text",
+   "label": "وصف مؤشر الأداء بالعربية",
+   "translatable": 1
+  },
+  {
+   "fieldname": "calculation_method",
+   "fieldtype": "Select",
+   "label": "Calculation Method - طريقة الحساب",
+   "options": "Sum\\nAverage\\nCount\\nPercentage\\nRatio\\nGrowth Rate\\nCustom Formula"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "data_source",
+   "fieldtype": "Link",
+   "label": "Data Source - مصدر البيانات",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "measurement_unit",
+   "fieldtype": "Data",
+   "label": "Measurement Unit - وحدة القياس"
+  },
+  {
+   "fieldname": "target_value",
+   "fieldtype": "Float",
+   "label": "Target Value - القيمة المستهدفة",
+   "precision": 2
+  },
+  {
+   "fieldname": "threshold_settings",
+   "fieldtype": "Table",
+   "label": "Threshold Settings - إعدادات العتبات",
+   "options": "Analytics Threshold Setting"
+  },
+  {
+   "fieldname": "dashboard_configuration_section",
+   "fieldtype": "Section Break",
+   "label": "Dashboard Configuration - تكوين لوحة المعلومات"
+  },
+  {
+   "fieldname": "dashboard_enabled",
+   "fieldtype": "Check",
+   "label": "Dashboard Enabled - لوحة المعلومات مفعلة"
+  },
+  {
+   "fieldname": "dashboard_layout",
+   "fieldtype": "Select",
+   "label": "Dashboard Layout - تخطيط لوحة المعلومات",
+   "options": "Grid Layout\\nFluid Layout\\nFixed Layout\\nResponsive Layout\\nMasonry Layout"
+  },
+  {
+   "fieldname": "widget_configurations",
+   "fieldtype": "Table",
+   "label": "Widget Configurations - تكوينات الأدوات",
+   "options": "Dashboard Widget Config"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "chart_type",
+   "fieldtype": "Select",
+   "label": "Chart Type - نوع المخطط",
+   "options": "Line Chart\\nBar Chart\\nArea Chart\\nPie Chart\\nDoughnut Chart\\nScatter Plot\\nHeatmap\\nGauge Chart\\nWaterfall Chart\\nCandle Chart"
+  },
+  {
+   "fieldname": "visualization_settings",
+   "fieldtype": "JSON",
+   "label": "Visualization Settings - إعدادات المرئيات"
+  },
+  {
+   "fieldname": "refresh_frequency",
+   "fieldtype": "Select",
+   "label": "Refresh Frequency - تكرار التحديث",
+   "options": "Real-time\\nEvery 5 minutes\\nEvery 15 minutes\\nEvery 30 minutes\\nHourly\\nDaily\\nWeekly\\nManual"
+  },
+  {
+   "fieldname": "data_sources_section",
+   "fieldtype": "Section Break",
+   "label": "Data Sources & Calculations - مصادر البيانات والحسابات"
+  },
+  {
+   "fieldname": "primary_data_source",
+   "fieldtype": "Link",
+   "label": "Primary Data Source - المصدر الأساسي للبيانات",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "data_query",
+   "fieldtype": "Code",
+   "label": "Data Query - استعلام البيانات"
+  },
+  {
+   "fieldname": "filter_conditions",
+   "fieldtype": "Table",
+   "label": "Filter Conditions - شروط التصفية",
+   "options": "Analytics Filter Condition"
+  },
+  {
+   "fieldname": "column_break_26",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "secondary_data_sources",
+   "fieldtype": "Table",
+   "label": "Secondary Data Sources - مصادر البيانات الثانوية",
+   "options": "Analytics Data Source"
+  },
+  {
+   "fieldname": "calculation_formula",
+   "fieldtype": "Text",
+   "label": "Calculation Formula - معادلة الحساب"
+  },
+  {
+   "fieldname": "aggregation_method",
+   "fieldtype": "Select",
+   "label": "Aggregation Method - طريقة التجميع",
+   "options": "Daily\\nWeekly\\nMonthly\\nQuarterly\\nYearly\\nCustom Period"
+  },
+  {
+   "fieldname": "reporting_configuration_section",
+   "fieldtype": "Section Break",
+   "label": "Reporting Configuration - تكوين التقارير"
+  },
+  {
+   "fieldname": "report_templates",
+   "fieldtype": "Table",
+   "label": "Report Templates - قوالب التقارير",
+   "options": "Analytics Report Template"
+  },
+  {
+   "fieldname": "export_formats",
+   "fieldtype": "Select",
+   "label": "Export Formats - تنسيقات التصدير",
+   "options": "PDF\\nExcel\\nCSV\\nJSON\\nPNG\\nSVG\\nHTML\\nWord"
+  },
+  {
+   "fieldname": "schedule_settings",
+   "fieldtype": "Table",
+   "label": "Schedule Settings - إعدادات الجدولة",
+   "options": "Analytics Schedule Setting"
+  },
+  {
+   "fieldname": "column_break_32",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "report_recipients",
+   "fieldtype": "Table",
+   "label": "Report Recipients - مستلمو التقارير",
+   "options": "Analytics Report Recipient"
+  },
+  {
+   "fieldname": "delivery_method",
+   "fieldtype": "Select",
+   "label": "Delivery Method - طريقة التسليم",
+   "options": "Email\\nSMS\\nNotification\\nFTP\\nAPI\\nPrint\\nPortal"
+  },
+  {
+   "fieldname": "report_frequency",
+   "fieldtype": "Select",
+   "label": "Report Frequency - تكرار التقرير",
+   "options": "On Demand\\nDaily\\nWeekly\\nBi-weekly\\nMonthly\\nQuarterly\\nYearly"
+  },
+  {
+   "fieldname": "predictive_analytics_section",
+   "fieldtype": "Section Break",
+   "label": "Predictive Analytics - التحليلات التنبؤية"
+  },
+  {
+   "fieldname": "ml_model_enabled",
+   "fieldtype": "Check",
+   "label": "ML Model Enabled - نموذج التعلم الآلي مفعل"
+  },
+  {
+   "fieldname": "prediction_type",
+   "fieldtype": "Select",
+   "label": "Prediction Type - نوع التنبؤ",
+   "options": "Forecasting\\nClassification\\nRegression\\nClustering\\nAnomaly Detection\\nRecommendation"
+  },
+  {
+   "fieldname": "model_algorithm",
+   "fieldtype": "Select",
+   "label": "Model Algorithm - خوارزمية النموذج",
+   "options": "Linear Regression\\nRandom Forest\\nSVM\\nNeural Networks\\nARIMA\\nProphet\\nGradient Boosting\\nDecision Trees"
+  },
+  {
+   "fieldname": "training_data_source",
+   "fieldtype": "Link",
+   "label": "Training Data Source - مصدر بيانات التدريب",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "column_break_39",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "prediction_horizon",
+   "fieldtype": "Select",
+   "label": "Prediction Horizon - أفق التنبؤ",
+   "options": "1 Day\\n1 Week\\n1 Month\\n3 Months\\n6 Months\\n1 Year\\n2 Years"
+  },
+  {
+   "fieldname": "confidence_threshold",
+   "fieldtype": "Percent",
+   "label": "Confidence Threshold - عتبة الثقة",
+   "precision": 2,
+   "default": 80
+  },
+  {
+   "fieldname": "forecast_accuracy",
+   "fieldtype": "Percent",
+   "label": "Forecast Accuracy - دقة التنبؤ",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "model_last_trained",
+   "fieldtype": "Datetime",
+   "label": "Model Last Trained - آخر تدريب للنموذج",
+   "read_only": 1
+  },
+  {
+   "fieldname": "performance_tracking_section",
+   "fieldtype": "Section Break",
+   "label": "Performance Tracking - تتبع الأداء"
+  },
+  {
+   "fieldname": "current_value",
+   "fieldtype": "Float",
+   "label": "Current Value - القيمة الحالية",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "previous_value",
+   "fieldtype": "Float",
+   "label": "Previous Value - القيمة السابقة",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "variance_percentage",
+   "fieldtype": "Percent",
+   "label": "Variance Percentage - نسبة التباين",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "trend_direction",
+   "fieldtype": "Select",
+   "label": "Trend Direction - اتجاه الاتجاه",
+   "options": "Upward\\nDownward\\nStable\\nVolatile",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_46",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "performance_status",
+   "fieldtype": "Select",
+   "label": "Performance Status - حالة الأداء",
+   "options": "Excellent\\nGood\\nSatisfactory\\nNeedsImprovement\\nCritical",
+   "read_only": 1
+  },
+  {
+   "fieldname": "alert_conditions",
+   "fieldtype": "Table",
+   "label": "Alert Conditions - شروط التنبيه",
+   "options": "Analytics Alert Condition"
+  },
+  {
+   "fieldname": "last_updated",
+   "fieldtype": "Datetime",
+   "label": "Last Updated - آخر تحديث",
+   "read_only": 1
+  },
+  {
+   "fieldname": "next_calculation",
+   "fieldtype": "Datetime",
+   "label": "Next Calculation - الحساب التالي",
+   "read_only": 1
+  },
+  {
+   "fieldname": "historical_analysis_section",
+   "fieldtype": "Section Break",
+   "label": "Historical Analysis - التحليل التاريخي"
+  },
+  {
+   "fieldname": "historical_data",
+   "fieldtype": "Table",
+   "label": "Historical Data - البيانات التاريخية",
+   "options": "Analytics Historical Data"
+  },
+  {
+   "fieldname": "trend_analysis",
+   "fieldtype": "Table",
+   "label": "Trend Analysis - تحليل الاتجاه",
+   "options": "Analytics Trend Analysis"
+  },
+  {
+   "fieldname": "benchmark_comparison",
+   "fieldtype": "Table",
+   "label": "Benchmark Comparison - مقارنة المعايير",
+   "options": "Analytics Benchmark Comparison"
+  },
+  {
+   "fieldname": "column_break_53",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "period_comparisons",
+   "fieldtype": "Table",
+   "label": "Period Comparisons - مقارنات الفترة",
+   "options": "Analytics Period Comparison"
+  },
+  {
+   "fieldname": "seasonal_patterns",
+   "fieldtype": "Table",
+   "label": "Seasonal Patterns - الأنماط الموسمية",
+   "options": "Analytics Seasonal Pattern"
+  },
+  {
+   "fieldname": "anomaly_detection",
+   "fieldtype": "Table",
+   "label": "Anomaly Detection - كشف الشذوذ",
+   "options": "Analytics Anomaly Detection"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "arabic_business_intelligence_section",
+   "fieldtype": "Section Break",
+   "label": "Arabic Business Intelligence - الذكاء التجاري العربي"
+  },
+  {
+   "fieldname": "arabic_analytics_terminology",
+   "fieldtype": "Text",
+   "label": "Arabic Analytics Terminology - مصطلحات التحليلات العربية"
+  },
+  {
+   "fieldname": "traditional_business_patterns",
+   "fieldtype": "Text",
+   "label": "Traditional Business Patterns - أنماط الأعمال التقليدية"
+  },
+  {
+   "fieldname": "cultural_kpi_context",
+   "fieldtype": "Text",
+   "label": "Cultural KPI Context - السياق الثقافي لمؤشرات الأداء"
+  },
+  {
+   "fieldname": "column_break_59",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "omani_market_metrics",
+   "fieldtype": "Text",
+   "label": "Omani Market Metrics - مقاييس السوق العماني"
+  },
+  {
+   "fieldname": "arabic_reporting_formats",
+   "fieldtype": "Text",
+   "label": "Arabic Reporting Formats - تنسيقات التقارير العربية"
+  },
+  {
+   "fieldname": "cultural_trend_analysis",
+   "fieldtype": "Text",
+   "label": "Cultural Trend Analysis - تحليل الاتجاهات الثقافية"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "islamic_business_compliance_section",
+   "fieldtype": "Section Break",
+   "label": "Islamic Business Compliance - الامتثال للأعمال الإسلامية"
+  },
+  {
+   "fieldname": "islamic_finance_metrics",
+   "fieldtype": "Check",
+   "label": "Islamic Finance Metrics - مقاييس التمويل الإسلامي",
+   "default": 1
+  },
+  {
+   "fieldname": "halal_business_indicators",
+   "fieldtype": "Check",
+   "label": "Halal Business Indicators - مؤشرات الأعمال الحلال"
+  },
+  {
+   "fieldname": "ethical_performance_tracking",
+   "fieldtype": "Check",
+   "label": "Ethical Performance Tracking - تتبع الأداء الأخلاقي",
+   "default": 1
+  },
+  {
+   "fieldname": "column_break_65",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "community_benefit_metrics",
+   "fieldtype": "Float",
+   "label": "Community Benefit Metrics - مقاييس الفائدة المجتمعية",
+   "precision": 2
+  },
+  {
+   "fieldname": "sharia_compliance_scores",
+   "fieldtype": "Float",
+   "label": "Sharia Compliance Scores - درجات الامتثال الشرعي",
+   "precision": 2
+  },
+  {
+   "fieldname": "religious_calendar_alignment",
+   "fieldtype": "Check",
+   "label": "Religious Calendar Alignment - محاذاة التقويم الديني"
+  },
+  {
+   "fieldname": "advanced_analytics_section",
+   "fieldtype": "Section Break",
+   "label": "Advanced Analytics - التحليلات المتقدمة"
+  },
+  {
+   "fieldname": "statistical_analysis",
+   "fieldtype": "Table",
+   "label": "Statistical Analysis - التحليل الإحصائي",
+   "options": "Analytics Statistical Analysis"
+  },
+  {
+   "fieldname": "correlation_analysis",
+   "fieldtype": "Table",
+   "label": "Correlation Analysis - تحليل الارتباط",
+   "options": "Analytics Correlation Analysis"
+  },
+  {
+   "fieldname": "regression_models",
+   "fieldtype": "Table",
+   "label": "Regression Models - نماذج الانحدار",
+   "options": "Analytics Regression Model"
+  },
+  {
+   "fieldname": "column_break_71",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "clustering_analysis",
+   "fieldtype": "Table",
+   "label": "Clustering Analysis - تحليل التجميع",
+   "options": "Analytics Clustering Analysis"
+  },
+  {
+   "fieldname": "outlier_detection",
+   "fieldtype": "Table",
+   "label": "Outlier Detection - كشف القيم الشاذة",
+   "options": "Analytics Outlier Detection"
+  },
+  {
+   "fieldname": "cohort_analysis",
+   "fieldtype": "Table",
+   "label": "Cohort Analysis - تحليل الأفواج",
+   "options": "Analytics Cohort Analysis"
+  },
+  {
+   "fieldname": "mobile_analytics_section",
+   "fieldtype": "Section Break",
+   "label": "Mobile Analytics - التحليلات المحمولة"
+  },
+  {
+   "fieldname": "mobile_dashboard_config",
+   "fieldtype": "JSON",
+   "label": "Mobile Dashboard Config - تكوين لوحة المعلومات المحمولة"
+  },
+  {
+   "fieldname": "responsive_charts",
+   "fieldtype": "Check",
+   "label": "Responsive Charts - مخططات متجاوبة",
+   "default": 1
+  },
+  {
+   "fieldname": "offline_analytics",
+   "fieldtype": "Check",
+   "label": "Offline Analytics - التحليلات غير المتصلة"
+  },
+  {
+   "fieldname": "column_break_77",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mobile_alerts",
+   "fieldtype": "Check",
+   "label": "Mobile Alerts - التنبيهات المحمولة",
+   "default": 1
+  },
+  {
+   "fieldname": "touch_optimized_interface",
+   "fieldtype": "Check",
+   "label": "Touch Optimized Interface - واجهة محسنة للمس",
+   "default": 1
+  },
+  {
+   "fieldname": "arabic_mobile_support",
+   "fieldtype": "Check",
+   "label": "Arabic Mobile Support - دعم الهاتف المحمول بالعربية",
+   "default": 1
+  },
+  {
+   "fieldname": "collaboration_sharing_section",
+   "fieldtype": "Section Break",
+   "label": "Collaboration & Sharing - التعاون والمشاركة"
+  },
+  {
+   "fieldname": "shared_analytics",
+   "fieldtype": "Check",
+   "label": "Shared Analytics - التحليلات المشتركة"
+  },
+  {
+   "fieldname": "user_permissions",
+   "fieldtype": "Table",
+   "label": "User Permissions - أذونات المستخدم",
+   "options": "Analytics User Permission"
+  },
+  {
+   "fieldname": "collaborative_insights",
+   "fieldtype": "Table",
+   "label": "Collaborative Insights - الرؤى التعاونية",
+   "options": "Analytics Collaborative Insight"
+  },
+  {
+   "fieldname": "column_break_83",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "comment_discussions",
+   "fieldtype": "Table",
+   "label": "Comment Discussions - مناقشات التعليقات",
+   "options": "Analytics Comment Discussion"
+  },
+  {
+   "fieldname": "insight_annotations",
+   "fieldtype": "Table",
+   "label": "Insight Annotations - تعليقات الرؤى",
+   "options": "Analytics Insight Annotation"
+  },
+  {
+   "fieldname": "team_analytics_access",
+   "fieldtype": "Table",
+   "label": "Team Analytics Access - وصول التحليلات للفريق",
+   "options": "Analytics Team Access"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "integration_section",
+   "fieldtype": "Section Break",
+   "label": "Shared Library Integration - تكامل المكتبة المشتركة"
+  },
+  {
+   "default": "0",
+   "fieldname": "shared_library_analytics_enhanced",
+   "fieldtype": "Check",
+   "label": "Shared Library Analytics Enhanced - تم تعزيز التحليلات بالمكتبة المشتركة",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "arabic_business_logic_integrated",
+   "fieldtype": "Check",
+   "label": "Arabic Business Logic Integrated - تم دمج منطق الأعمال العربي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "traditional_patterns_applied",
+   "fieldtype": "Check",
+   "label": "Traditional Patterns Applied - تم تطبيق الأنماط التقليدية",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "islamic_compliance_verified",
+   "fieldtype": "Check",
+   "label": "Islamic Compliance Verified - تم التحقق من الامتثال الإسلامي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "omani_context_validated",
+   "fieldtype": "Check",
+   "label": "Omani Context Validated - تم التحقق من السياق العماني",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Notes & Metadata - الملاحظات والبيانات الوصفية"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks - ملاحظات"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By - أنشأ بواسطة",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_date",
+   "fieldtype": "Date",
+   "label": "Created Date - تاريخ الإنشاء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_updated_by",
+   "fieldtype": "Link",
+   "label": "Last Updated By - آخر تحديث بواسطة",
+   "options": "User",
+   "read_only": 1
+  }
+ ],
+ "has_web_view": 1,
+ "hide_toolbar": 0,
+ "idx": 0,
+ "in_create": 0,
+ "is_submittable": 0,
+ "issingle": 0,
+ "max_attachments": 15,
+ "modified": "2025-01-04 02:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Analytics Reporting",
+ "name": "Unified Analytics Management",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Analytics Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "write": 1,
+   "role": "Analytics User"
+  },
+  {
+   "read": 1,
+   "role": "Workshop Manager"
+  },
+  {
+   "read": 1,
+   "role": "Finance Manager"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "write": 1,
+   "role": "System Manager"
+  },
+  {
+   "read": 1,
+   "role": "Accounts User"
+  }
+ ],
+ "quick_entry": 1,
+ "route": "unified-analytics",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "analytics_name",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

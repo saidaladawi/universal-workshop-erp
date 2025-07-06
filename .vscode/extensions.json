@@ -1,0 +1,56 @@
+{
+    "recommendations": [
+        // Python Development
+        "ms-python.python",
+        "ms-python.black-formatter",
+        "ms-python.pylint",
+        "ms-python.flake8",
+        "ms-python.isort",
+        // JavaScript/Web Development
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "formulahendry.auto-rename-tag",
+        "ritwickdey.liveserver",
+        // Git & Version Control
+        "eamodio.gitlens",
+        "github.vscode-pull-request-github",
+        "github.copilot",
+        // ERPNext/Frappe Specific
+        "ms-vscode.vscode-json",
+        "redhat.vscode-yaml",
+        "samuelcolvin.jinjahtml",
+        // Arabic Language Support
+        "streetsidesoftware.code-spell-checker",
+        "streetsidesoftware.code-spell-checker-arabic",
+        "ms-ceintl.vscode-language-pack-ar",
+        // Documentation & Markdown
+        "yzhang.markdown-all-in-one",
+        "shd101wyy.markdown-preview-enhanced",
+        "davidanson.vscode-markdownlint",
+        // Database Tools
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-mysql",
+        // DevOps & Docker
+        "ms-vscode-remote.remote-containers",
+        "ms-azuretools.vscode-docker",
+        // Productivity Tools
+        "alefragnani.bookmarks",
+        "gruntfuggly.todo-tree",
+        "christian-kohler.path-intellisense",
+        "vscode-icons-team.vscode-icons",
+        // Code Quality
+        "ms-vscode.vscode-typescript-next",
+        "ms-vscode.test-adapter-converter",
+        "hbenl.vscode-test-explorer",
+        // Terminal Enhancement
+        "ms-vscode.vscode-terminal",
+        // REST API Testing
+        "humao.rest-client",
+        "rangav.vscode-thunder-client"
+    ],
+    "unwantedRecommendations": [
+        "ms-python.autopep8",
+        "ms-python.pep8",
+        "donjayamanne.python-environment-manager"
+    ]
+}

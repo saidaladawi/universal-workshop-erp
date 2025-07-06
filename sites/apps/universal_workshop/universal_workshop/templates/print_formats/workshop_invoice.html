@@ -1,0 +1,73 @@
+
+        <!-- Invoice Document Title -->
+        <h2 class="document-title">
+            {% if is_arabic %}فاتورة{% else %}INVOICE{% endif %}
+        </h2>
+        
+        <!-- Invoice Details -->
+        <div class="invoice-details" style="margin-bottom: 20px;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="width: 50%; vertical-align: top;">
+                        <strong>{% if is_arabic %}إلى:{% else %}To:{% endif %}</strong><br>
+                        {{ doc.customer_name }}<br>
+                        {% if doc.customer_address %}{{ doc.customer_address }}{% endif %}
+                    </td>
+                    <td style="width: 50%; vertical-align: top; text-align: {% if is_arabic %}left{% else %}right{% endif %};">
+                        <strong>{% if is_arabic %}رقم الفاتورة:{% else %}Invoice #:{% endif %}</strong> {{ doc.name }}<br>
+                        <strong>{% if is_arabic %}التاريخ:{% else %}Date:{% endif %}</strong> {{ doc.posting_date }}<br>
+                        {% if doc.due_date %}<strong>{% if is_arabic %}تاريخ الاستحقاق:{% else %}Due Date:{% endif %}</strong> {{ doc.due_date }}{% endif %}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Items Table -->
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+            <thead>
+                <tr class="table-header">
+                    <th style="border: 1px solid #ddd; padding: 8px;">{% if is_arabic %}الصنف{% else %}Item{% endif %}</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">{% if is_arabic %}الكمية{% else %}Qty{% endif %}</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">{% if is_arabic %}السعر{% else %}Rate{% endif %}</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">{% if is_arabic %}المجموع{% else %}Amount{% endif %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in doc.items %}
+                <tr class="table-row">
+                    <td style="border: 1px solid #ddd; padding: 8px;">{{ item.item_name }}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">{{ item.qty }}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: right;">{{ item.rate }}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: right;">{{ item.amount }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <!-- Totals Section -->
+        <div class="total-section">
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="width: 70%;"></td>
+                    <td style="width: 30%;">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td><strong>{% if is_arabic %}المجموع الفرعي:{% else %}Subtotal:{% endif %}</strong></td>
+                                <td style="text-align: right;"><strong>{{ doc.total }}</strong></td>
+                            </tr>
+                            {% if doc.total_taxes_and_charges %}
+                            <tr>
+                                <td><strong>{% if is_arabic %}الضريبة:{% else %}Tax:{% endif %}</strong></td>
+                                <td style="text-align: right;"><strong>{{ doc.total_taxes_and_charges }}</strong></td>
+                            </tr>
+                            {% endif %}
+                            <tr style="border-top: 2px solid #333;">
+                                <td><strong>{% if is_arabic %}المجموع الإجمالي:{% else %}Grand Total:{% endif %}</strong></td>
+                                <td style="text-align: right;"><strong>{{ doc.grand_total }}</strong></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        

@@ -1,0 +1,756 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:configuration_name",
+ "creation": "2025-01-04 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_configuration_section",
+  "configuration_name",
+  "configuration_name_ar",
+  "configuration_type",
+  "is_active",
+  "column_break_4",
+  "company",
+  "effective_date",
+  "expiry_date",
+  "configuration_priority",
+  "omani_vat_configuration_section",
+  "vat_enabled",
+  "omani_vat_rate",
+  "vat_registration_number",
+  "vat_calculation_method",
+  "column_break_12",
+  "tax_authority_name",
+  "tax_authority_name_ar",
+  "registration_threshold_mandatory",
+  "registration_threshold_voluntary",
+  "advanced_vat_settings_section",
+  "quarterly_filing_enabled",
+  "e_invoice_compliance_enabled",
+  "vat_exemption_categories",
+  "column_break_20",
+  "vat_account_configuration",
+  "reverse_charge_applicable",
+  "zero_rated_categories",
+  "payment_gateway_configuration_section",
+  "payment_gateways_enabled",
+  "supported_payment_methods",
+  "column_break_26",
+  "payment_processing_fees",
+  "fraud_detection_settings",
+  "currency_exchange_section",
+  "base_currency",
+  "supported_currencies",
+  "exchange_rate_source",
+  "column_break_32",
+  "auto_update_rates",
+  "rate_update_frequency",
+  "exchange_rate_buffer",
+  "qr_code_configuration_section",
+  "qr_code_enabled",
+  "qr_generation_method",
+  "tlv_encoding_version",
+  "column_break_38",
+  "qr_image_format",
+  "qr_size_configuration",
+  "compliance_validation",
+  "invoice_automation_section",
+  "auto_invoice_generation",
+  "invoice_approval_workflow",
+  "automated_reminders",
+  "column_break_44",
+  "escalation_rules",
+  "late_payment_charges",
+  "dispute_resolution_process",
+  "arabic_cultural_settings_section",
+  "arabic_invoice_template",
+  "arabic_currency_format",
+  "arabic_date_format",
+  "bilingual_support_enabled",
+  "column_break_51",
+  "rtl_layout_enabled",
+  "arabic_number_format",
+  "traditional_invoice_patterns",
+  "arabic_courtesy_messages",
+  "islamic_finance_configuration_section",
+  "islamic_finance_enabled",
+  "profit_sharing_model",
+  "interest_free_enforcement",
+  "column_break_58",
+  "halal_compliance_validation",
+  "islamic_calendar_integration",
+  "religious_appropriateness_check",
+  "traditional_business_patterns_section",
+  "traditional_payment_terms",
+  "arabic_business_terminology",
+  "omani_cultural_preferences",
+  "column_break_64",
+  "cultural_communication_protocols",
+  "traditional_document_formatting",
+  "business_relationship_patterns",
+  "compliance_reporting_section",
+  "compliance_reports_enabled",
+  "audit_trail_configuration",
+  "column_break_69",
+  "regulatory_notifications",
+  "compliance_alerts",
+  "integration_section",
+  "shared_library_config_enhanced",
+  "arabic_business_logic_integrated",
+  "traditional_patterns_applied",
+  "islamic_compliance_verified",
+  "omani_regulatory_validated",
+  "notes_metadata_section",
+  "configuration_notes",
+  "created_by",
+  "created_date",
+  "last_updated_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_configuration_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Configuration - التكوين الأساسي"
+  },
+  {
+   "fieldname": "configuration_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Configuration Name - اسم التكوين",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "configuration_name_ar",
+   "fieldtype": "Data",
+   "label": "اسم التكوين بالعربية",
+   "translatable": 1
+  },
+  {
+   "fieldname": "configuration_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Configuration Type - نوع التكوين",
+   "options": "Complete Setup\nVAT Only\nPayment Only\nCurrency Only\nCompliance Only\nCustom",
+   "reqd": 1,
+   "default": "Complete Setup"
+  },
+  {
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Active - نشط",
+   "default": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company - الشركة",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "effective_date",
+   "fieldtype": "Date",
+   "label": "Effective Date - تاريخ السريان",
+   "reqd": 1,
+   "default": "Today"
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "label": "Expiry Date - تاريخ الانتهاء"
+  },
+  {
+   "fieldname": "configuration_priority",
+   "fieldtype": "Int",
+   "label": "Configuration Priority - أولوية التكوين",
+   "default": 1
+  },
+  {
+   "fieldname": "omani_vat_configuration_section",
+   "fieldtype": "Section Break",
+   "label": "Omani VAT Configuration - إعداد ضريبة القيمة المضافة العمانية"
+  },
+  {
+   "fieldname": "vat_enabled",
+   "fieldtype": "Check",
+   "label": "VAT Enabled - ضريبة القيمة المضافة مفعلة",
+   "default": 1
+  },
+  {
+   "fieldname": "omani_vat_rate",
+   "fieldtype": "Percent",
+   "label": "Omani VAT Rate - معدل ضريبة القيمة المضافة العمانية",
+   "default": 5.0,
+   "precision": 2
+  },
+  {
+   "fieldname": "vat_registration_number",
+   "fieldtype": "Data",
+   "label": "VAT Registration Number - رقم تسجيل ضريبة القيمة المضافة",
+   "description": "Format: OMxxxxxxxxxxxxxxx"
+  },
+  {
+   "fieldname": "vat_calculation_method",
+   "fieldtype": "Select",
+   "label": "VAT Calculation Method - طريقة حساب ضريبة القيمة المضافة",
+   "options": "Exclusive\nInclusive",
+   "default": "Exclusive"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tax_authority_name",
+   "fieldtype": "Data",
+   "label": "Tax Authority Name - اسم هيئة الضرائب",
+   "default": "Oman Tax Authority"
+  },
+  {
+   "fieldname": "tax_authority_name_ar",
+   "fieldtype": "Data",
+   "label": "اسم هيئة الضرائب بالعربية",
+   "default": "هيئة الضرائب العمانية"
+  },
+  {
+   "fieldname": "registration_threshold_mandatory",
+   "fieldtype": "Currency",
+   "label": "Mandatory Registration Threshold (OMR) - حد التسجيل الإجباري",
+   "options": "OMR",
+   "precision": 3,
+   "default": 38500.000
+  },
+  {
+   "fieldname": "registration_threshold_voluntary",
+   "fieldtype": "Currency",
+   "label": "Voluntary Registration Threshold (OMR) - حد التسجيل الطوعي",
+   "options": "OMR",
+   "precision": 3,
+   "default": 19250.000
+  },
+  {
+   "fieldname": "advanced_vat_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Advanced VAT Settings - إعدادات ضريبة القيمة المضافة المتقدمة"
+  },
+  {
+   "fieldname": "quarterly_filing_enabled",
+   "fieldtype": "Check",
+   "label": "Quarterly Filing Enabled - التقديم الفصلي مفعل",
+   "default": 1
+  },
+  {
+   "fieldname": "e_invoice_compliance_enabled",
+   "fieldtype": "Check",
+   "label": "E-Invoice Compliance Enabled - امتثال الفاتورة الإلكترونية مفعل",
+   "description": "Oman e-invoice requirements (effective 2026)"
+  },
+  {
+   "fieldname": "vat_exemption_categories",
+   "fieldtype": "Table",
+   "label": "VAT Exemption Categories - فئات إعفاء ضريبة القيمة المضافة",
+   "options": "VAT Exemption Category"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vat_account_configuration",
+   "fieldtype": "Table",
+   "label": "VAT Account Configuration - إعداد حسابات ضريبة القيمة المضافة",
+   "options": "VAT Account Config"
+  },
+  {
+   "fieldname": "reverse_charge_applicable",
+   "fieldtype": "Check",
+   "label": "Reverse Charge Applicable - الرسوم العكسية قابلة للتطبيق"
+  },
+  {
+   "fieldname": "zero_rated_categories",
+   "fieldtype": "Table",
+   "label": "Zero-Rated Categories - فئات المعدل الصفري",
+   "options": "Zero Rated Category"
+  },
+  {
+   "fieldname": "payment_gateway_configuration_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Gateway Configuration - إعداد بوابة الدفع"
+  },
+  {
+   "fieldname": "payment_gateways_enabled",
+   "fieldtype": "Check",
+   "label": "Payment Gateways Enabled - بوابات الدفع مفعلة",
+   "default": 1
+  },
+  {
+   "fieldname": "supported_payment_methods",
+   "fieldtype": "Table",
+   "label": "Supported Payment Methods - طرق الدفع المدعومة",
+   "options": "Supported Payment Method"
+  },
+  {
+   "fieldname": "column_break_26",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payment_processing_fees",
+   "fieldtype": "Table",
+   "label": "Payment Processing Fees - رسوم معالجة الدفع",
+   "options": "Payment Processing Fee"
+  },
+  {
+   "fieldname": "fraud_detection_settings",
+   "fieldtype": "Table",
+   "label": "Fraud Detection Settings - إعدادات كشف الاحتيال",
+   "options": "Fraud Detection Setting"
+  },
+  {
+   "fieldname": "currency_exchange_section",
+   "fieldtype": "Section Break",
+   "label": "Currency & Exchange - العملة والصرف"
+  },
+  {
+   "fieldname": "base_currency",
+   "fieldtype": "Link",
+   "label": "Base Currency - العملة الأساسية",
+   "options": "Currency",
+   "reqd": 1,
+   "default": "OMR"
+  },
+  {
+   "fieldname": "supported_currencies",
+   "fieldtype": "Table",
+   "label": "Supported Currencies - العملات المدعومة",
+   "options": "Supported Currency"
+  },
+  {
+   "fieldname": "exchange_rate_source",
+   "fieldtype": "Select",
+   "label": "Exchange Rate Source - مصدر سعر الصرف",
+   "options": "Central Bank of Oman\nXE.com\nManual Entry\nAPI Integration"
+  },
+  {
+   "fieldname": "column_break_32",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "auto_update_rates",
+   "fieldtype": "Check",
+   "label": "Auto Update Rates - تحديث الأسعار تلقائياً"
+  },
+  {
+   "fieldname": "rate_update_frequency",
+   "fieldtype": "Select",
+   "label": "Rate Update Frequency - تكرار تحديث الأسعار",
+   "options": "Daily\nWeekly\nMonthly\nReal-time"
+  },
+  {
+   "fieldname": "exchange_rate_buffer",
+   "fieldtype": "Percent",
+   "label": "Exchange Rate Buffer - هامش سعر الصرف",
+   "precision": 2
+  },
+  {
+   "fieldname": "qr_code_configuration_section",
+   "fieldtype": "Section Break",
+   "label": "QR Code Configuration - إعداد رمز الاستجابة السريعة"
+  },
+  {
+   "fieldname": "qr_code_enabled",
+   "fieldtype": "Check",
+   "label": "QR Code Enabled - رمز الاستجابة السريعة مفعل",
+   "default": 1
+  },
+  {
+   "fieldname": "qr_generation_method",
+   "fieldtype": "Select",
+   "label": "QR Generation Method - طريقة توليد رمز الاستجابة السريعة",
+   "options": "TLV Encoding\nJSON Format\nCustom Format",
+   "default": "TLV Encoding"
+  },
+  {
+   "fieldname": "tlv_encoding_version",
+   "fieldtype": "Select",
+   "label": "TLV Encoding Version - إصدار تشفير TLV",
+   "options": "1.0\n1.1\n2.0",
+   "default": "1.0"
+  },
+  {
+   "fieldname": "column_break_38",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qr_image_format",
+   "fieldtype": "Select",
+   "label": "QR Image Format - تنسيق صورة رمز الاستجابة السريعة",
+   "options": "PNG\nJPEG\nSVG",
+   "default": "PNG"
+  },
+  {
+   "fieldname": "qr_size_configuration",
+   "fieldtype": "Table",
+   "label": "QR Size Configuration - إعداد حجم رمز الاستجابة السريعة",
+   "options": "QR Size Config"
+  },
+  {
+   "fieldname": "compliance_validation",
+   "fieldtype": "Check",
+   "label": "Compliance Validation - التحقق من الامتثال",
+   "default": 1
+  },
+  {
+   "fieldname": "invoice_automation_section",
+   "fieldtype": "Section Break",
+   "label": "Invoice Automation - أتمتة الفواتير"
+  },
+  {
+   "fieldname": "auto_invoice_generation",
+   "fieldtype": "Check",
+   "label": "Auto Invoice Generation - توليد الفواتير تلقائياً"
+  },
+  {
+   "fieldname": "invoice_approval_workflow",
+   "fieldtype": "Link",
+   "label": "Invoice Approval Workflow - سير عمل موافقة الفاتورة",
+   "options": "Workflow"
+  },
+  {
+   "fieldname": "automated_reminders",
+   "fieldtype": "Check",
+   "label": "Automated Reminders - التذكيرات التلقائية",
+   "default": 1
+  },
+  {
+   "fieldname": "column_break_44",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "escalation_rules",
+   "fieldtype": "Table",
+   "label": "Escalation Rules - قواعد التصعيد",
+   "options": "Financial Escalation Rule"
+  },
+  {
+   "fieldname": "late_payment_charges",
+   "fieldtype": "Table",
+   "label": "Late Payment Charges - رسوم التأخير في الدفع",
+   "options": "Late Payment Charge"
+  },
+  {
+   "fieldname": "dispute_resolution_process",
+   "fieldtype": "Table",
+   "label": "Dispute Resolution Process - عملية حل النزاعات",
+   "options": "Dispute Resolution Process"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "arabic_cultural_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Arabic Cultural Settings - الإعدادات الثقافية العربية"
+  },
+  {
+   "fieldname": "arabic_invoice_template",
+   "fieldtype": "Link",
+   "label": "Arabic Invoice Template - قالب الفاتورة العربية",
+   "options": "Print Format"
+  },
+  {
+   "fieldname": "arabic_currency_format",
+   "fieldtype": "Select",
+   "label": "Arabic Currency Format - تنسيق العملة العربية",
+   "options": "OMR 123.456\n123.456 ر.ع.\nر.ع. 123.456\n١٢٣.٤٥٦ ر.ع.",
+   "default": "123.456 ر.ع."
+  },
+  {
+   "fieldname": "arabic_date_format",
+   "fieldtype": "Select",
+   "label": "Arabic Date Format - تنسيق التاريخ العربي",
+   "options": "Gregorian Only\nHijri Only\nBoth (Gregorian/Hijri)",
+   "default": "Both (Gregorian/Hijri)"
+  },
+  {
+   "fieldname": "bilingual_support_enabled",
+   "fieldtype": "Check",
+   "label": "Bilingual Support Enabled - الدعم ثنائي اللغة مفعل",
+   "default": 1
+  },
+  {
+   "fieldname": "column_break_51",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rtl_layout_enabled",
+   "fieldtype": "Check",
+   "label": "RTL Layout Enabled - تخطيط من اليمين لليسار مفعل",
+   "default": 1
+  },
+  {
+   "fieldname": "arabic_number_format",
+   "fieldtype": "Select",
+   "label": "Arabic Number Format - تنسيق الأرقام العربية",
+   "options": "Western Numerals (1234)\nArabic-Indic Numerals (١٢٣٤)\nBoth",
+   "default": "Western Numerals (1234)"
+  },
+  {
+   "fieldname": "traditional_invoice_patterns",
+   "fieldtype": "Text",
+   "label": "Traditional Invoice Patterns - أنماط الفواتير التقليدية"
+  },
+  {
+   "fieldname": "arabic_courtesy_messages",
+   "fieldtype": "Table",
+   "label": "Arabic Courtesy Messages - رسائل المجاملة العربية",
+   "options": "Arabic Courtesy Message"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "islamic_finance_configuration_section",
+   "fieldtype": "Section Break",
+   "label": "Islamic Finance Configuration - إعداد التمويل الإسلامي"
+  },
+  {
+   "fieldname": "islamic_finance_enabled",
+   "fieldtype": "Check",
+   "label": "Islamic Finance Enabled - التمويل الإسلامي مفعل",
+   "default": 1
+  },
+  {
+   "fieldname": "profit_sharing_model",
+   "fieldtype": "Select",
+   "label": "Profit Sharing Model - نموذج تقاسم الأرباح",
+   "options": "Mudarabah\nMusharakah\nNot Applicable",
+   "default": "Not Applicable"
+  },
+  {
+   "fieldname": "interest_free_enforcement",
+   "fieldtype": "Check",
+   "label": "Interest-Free Enforcement - إنفاذ عدم وجود فوائد",
+   "default": 1
+  },
+  {
+   "fieldname": "column_break_58",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "halal_compliance_validation",
+   "fieldtype": "Check",
+   "label": "Halal Compliance Validation - التحقق من الامتثال الحلال",
+   "default": 1
+  },
+  {
+   "fieldname": "islamic_calendar_integration",
+   "fieldtype": "Check",
+   "label": "Islamic Calendar Integration - تكامل التقويم الإسلامي",
+   "default": 1
+  },
+  {
+   "fieldname": "religious_appropriateness_check",
+   "fieldtype": "Check",
+   "label": "Religious Appropriateness Check - فحص الملاءمة الدينية",
+   "default": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "traditional_business_patterns_section",
+   "fieldtype": "Section Break",
+   "label": "Traditional Business Patterns - أنماط الأعمال التقليدية"
+  },
+  {
+   "fieldname": "traditional_payment_terms",
+   "fieldtype": "Table",
+   "label": "Traditional Payment Terms - شروط الدفع التقليدية",
+   "options": "Traditional Payment Term"
+  },
+  {
+   "fieldname": "arabic_business_terminology",
+   "fieldtype": "Table",
+   "label": "Arabic Business Terminology - المصطلحات التجارية العربية",
+   "options": "Arabic Business Term"
+  },
+  {
+   "fieldname": "omani_cultural_preferences",
+   "fieldtype": "Text",
+   "label": "Omani Cultural Preferences - التفضيلات الثقافية العمانية"
+  },
+  {
+   "fieldname": "column_break_64",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cultural_communication_protocols",
+   "fieldtype": "Table",
+   "label": "Cultural Communication Protocols - بروتوكولات التواصل الثقافي",
+   "options": "Cultural Communication Protocol"
+  },
+  {
+   "fieldname": "traditional_document_formatting",
+   "fieldtype": "Text",
+   "label": "Traditional Document Formatting - تنسيق الوثائق التقليدي"
+  },
+  {
+   "fieldname": "business_relationship_patterns",
+   "fieldtype": "Text",
+   "label": "Business Relationship Patterns - أنماط العلاقات التجارية"
+  },
+  {
+   "fieldname": "compliance_reporting_section",
+   "fieldtype": "Section Break",
+   "label": "Compliance & Reporting - الامتثال والتقارير"
+  },
+  {
+   "fieldname": "compliance_reports_enabled",
+   "fieldtype": "Check",
+   "label": "Compliance Reports Enabled - تقارير الامتثال مفعلة",
+   "default": 1
+  },
+  {
+   "fieldname": "audit_trail_configuration",
+   "fieldtype": "Table",
+   "label": "Audit Trail Configuration - إعداد سجل التدقيق",
+   "options": "Audit Trail Config"
+  },
+  {
+   "fieldname": "column_break_69",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "regulatory_notifications",
+   "fieldtype": "Table",
+   "label": "Regulatory Notifications - الإشعارات التنظيمية",
+   "options": "Regulatory Notification"
+  },
+  {
+   "fieldname": "compliance_alerts",
+   "fieldtype": "Table",
+   "label": "Compliance Alerts - تنبيهات الامتثال",
+   "options": "Compliance Alert"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "integration_section",
+   "fieldtype": "Section Break",
+   "label": "Shared Library Integration - تكامل المكتبة المشتركة"
+  },
+  {
+   "default": "0",
+   "fieldname": "shared_library_config_enhanced",
+   "fieldtype": "Check",
+   "label": "Shared Library Config Enhanced - تم تعزيز التكوين بالمكتبة المشتركة",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "arabic_business_logic_integrated",
+   "fieldtype": "Check",
+   "label": "Arabic Business Logic Integrated - تم دمج منطق الأعمال العربي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "traditional_patterns_applied",
+   "fieldtype": "Check",
+   "label": "Traditional Patterns Applied - تم تطبيق الأنماط التقليدية",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "islamic_compliance_verified",
+   "fieldtype": "Check",
+   "label": "Islamic Compliance Verified - تم التحقق من الامتثال الإسلامي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "omani_regulatory_validated",
+   "fieldtype": "Check",
+   "label": "Omani Regulatory Validated - تم التحقق من التنظيم العماني",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Notes & Metadata - الملاحظات والبيانات الوصفية"
+  },
+  {
+   "fieldname": "configuration_notes",
+   "fieldtype": "Text",
+   "label": "Configuration Notes - ملاحظات التكوين"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By - أنشأ بواسطة",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_date",
+   "fieldtype": "Date",
+   "label": "Created Date - تاريخ الإنشاء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_updated_by",
+   "fieldtype": "Link",
+   "label": "Last Updated By - آخر تحديث بواسطة",
+   "options": "User",
+   "read_only": 1
+  }
+ ],
+ "has_web_view": 0,
+ "hide_toolbar": 0,
+ "idx": 0,
+ "in_create": 0,
+ "is_submittable": 0,
+ "issingle": 0,
+ "max_attachments": 5,
+ "modified": "2025-01-04 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Financial Core",
+ "name": "Consolidated Financial Configuration",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "write": 1,
+   "role": "Accounts User"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "write": 1,
+   "role": "System Manager"
+  }
+ ],
+ "quick_entry": 0,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "configuration_name",
+ "track_changes": 1
+}

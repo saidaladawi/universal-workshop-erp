@@ -1,0 +1,876 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-01-03 23:45:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "invoice_basic_info_section",
+  "naming_series",
+  "invoice_number",
+  "invoice_type",
+  "invoice_status",
+  "column_break_4",
+  "posting_date",
+  "due_date",
+  "currency",
+  "exchange_rate",
+  "customer_information_section",
+  "customer",
+  "customer_name",
+  "customer_name_ar",
+  "customer_address",
+  "column_break_12",
+  "customer_contact",
+  "customer_email",
+  "customer_phone",
+  "customer_vat_number",
+  "invoice_items_section",
+  "items",
+  "column_break_18",
+  "total_quantity",
+  "item_count",
+  "financial_calculations_section",
+  "base_total",
+  "discount_amount",
+  "taxes_and_charges",
+  "column_break_23",
+  "vat_amount",
+  "total_amount",
+  "paid_amount",
+  "outstanding_amount",
+  "omani_vat_compliance_section",
+  "omani_vat_rate",
+  "vat_registration_number",
+  "vat_calculation_method",
+  "column_break_31",
+  "tax_authority_reference",
+  "e_invoice_compliance",
+  "quarterly_filing_period",
+  "qr_code_generation_section",
+  "qr_code_required",
+  "qr_code_data",
+  "qr_code_image",
+  "column_break_38",
+  "qr_generation_timestamp",
+  "qr_compliance_status",
+  "tlv_encoding",
+  "payment_processing_section",
+  "payment_terms",
+  "payment_method",
+  "payment_gateway",
+  "column_break_44",
+  "payment_status",
+  "payment_reference",
+  "gateway_transaction_id",
+  "arabic_cultural_context_section",
+  "invoice_title_ar",
+  "company_name_ar",
+  "payment_terms_ar",
+  "invoice_notes_ar",
+  "column_break_51",
+  "arabic_currency_format",
+  "arabic_date_format",
+  "traditional_invoice_patterns",
+  "islamic_business_compliance",
+  "islamic_finance_section",
+  "islamic_transaction_type",
+  "profit_sharing_applicable",
+  "interest_free_transaction",
+  "column_break_58",
+  "islamic_compliance_notes",
+  "halal_service_confirmation",
+  "religious_appropriateness_check",
+  "traditional_patterns_section",
+  "arabic_business_terminology",
+  "traditional_payment_patterns",
+  "omani_cultural_context",
+  "column_break_64",
+  "cultural_communication_notes",
+  "traditional_invoice_formatting",
+  "arabic_courtesy_protocols",
+  "advanced_analytics_section",
+  "customer_lifetime_value_impact",
+  "service_profitability_analysis",
+  "column_break_69",
+  "payment_pattern_analysis",
+  "satisfaction_correlation",
+  "workflow_automation_section",
+  "approval_workflow",
+  "automated_reminders",
+  "escalation_matrix",
+  "column_break_74",
+  "notification_preferences",
+  "follow_up_schedule",
+  "dispute_resolution",
+  "document_management_section",
+  "supporting_documents",
+  "column_break_78",
+  "compliance_documents",
+  "audit_attachments",
+  "integration_section",
+  "shared_library_invoice_enhanced",
+  "arabic_business_logic_integrated",
+  "traditional_patterns_applied",
+  "islamic_compliance_verified",
+  "omani_vat_validated",
+  "notes_metadata_section",
+  "remarks",
+  "created_by",
+  "created_date",
+  "last_updated_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "invoice_basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Invoice Basic Information - المعلومات الأساسية للفاتورة"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series - السلسلة",
+   "options": "INV-.YYYY.-\nSRV-.YYYY.-\nCRP-.YYYY.-",
+   "reqd": 1,
+   "default": "INV-.YYYY.-"
+  },
+  {
+   "fieldname": "invoice_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Invoice Number - رقم الفاتورة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "invoice_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Invoice Type - نوع الفاتورة",
+   "options": "Service Invoice\nSales Invoice\nCredit Note\nDebit Note\nProforma Invoice\nFinal Invoice",
+   "reqd": 1,
+   "default": "Service Invoice"
+  },
+  {
+   "fieldname": "invoice_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Invoice Status - حالة الفاتورة",
+   "options": "Draft\nSubmitted\nPaid\nPartially Paid\nOverdue\nCancelled\nRefunded",
+   "reqd": 1,
+   "default": "Draft"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Posting Date - تاريخ الإصدار",
+   "reqd": 1,
+   "default": "Today"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Due Date - تاريخ الاستحقاق",
+   "reqd": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency - العملة",
+   "options": "Currency",
+   "reqd": 1,
+   "default": "OMR"
+  },
+  {
+   "fieldname": "exchange_rate",
+   "fieldtype": "Float",
+   "label": "Exchange Rate - سعر الصرف",
+   "precision": 6,
+   "default": 1.0
+  },
+  {
+   "fieldname": "customer_information_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Information - معلومات العميل"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer - العميل",
+   "options": "Consolidated Customer Profile",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "fetch_from": "customer.customer_name",
+   "label": "Customer Name - اسم العميل",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_name_ar",
+   "fieldtype": "Data",
+   "fetch_from": "customer.customer_name_ar",
+   "label": "اسم العميل بالعربية",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_address",
+   "fieldtype": "Small Text",
+   "label": "Customer Address - عنوان العميل"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer_contact",
+   "fieldtype": "Data",
+   "fetch_from": "customer.phone",
+   "label": "Customer Contact - جهة اتصال العميل",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_email",
+   "fieldtype": "Data",
+   "fetch_from": "customer.email",
+   "label": "Customer Email - بريد العميل الإلكتروني",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_phone",
+   "fieldtype": "Data",
+   "fetch_from": "customer.phone",
+   "label": "Customer Phone - هاتف العميل",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_vat_number",
+   "fieldtype": "Data",
+   "fetch_from": "customer.tax_id",
+   "label": "Customer VAT Number - رقم ضريبة العميل",
+   "read_only": 1
+  },
+  {
+   "fieldname": "invoice_items_section",
+   "fieldtype": "Section Break",
+   "label": "Invoice Items - عناصر الفاتورة"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items - العناصر",
+   "options": "Unified Invoice Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_quantity",
+   "fieldtype": "Float",
+   "label": "Total Quantity - الكمية الإجمالية",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "item_count",
+   "fieldtype": "Int",
+   "label": "Item Count - عدد العناصر",
+   "read_only": 1
+  },
+  {
+   "fieldname": "financial_calculations_section",
+   "fieldtype": "Section Break",
+   "label": "Financial Calculations - الحسابات المالية"
+  },
+  {
+   "fieldname": "base_total",
+   "fieldtype": "Currency",
+   "label": "Base Total (OMR) - الإجمالي الأساسي",
+   "options": "currency",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "discount_amount",
+   "fieldtype": "Currency",
+   "label": "Discount Amount (OMR) - مبلغ الخصم",
+   "options": "currency",
+   "precision": 3
+  },
+  {
+   "fieldname": "taxes_and_charges",
+   "fieldtype": "Currency",
+   "label": "Taxes and Charges (OMR) - الضرائب والرسوم",
+   "options": "currency",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vat_amount",
+   "fieldtype": "Currency",
+   "label": "VAT Amount (OMR) - مبلغ ضريبة القيمة المضافة",
+   "options": "currency",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Amount (OMR) - المبلغ الإجمالي",
+   "options": "currency",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "paid_amount",
+   "fieldtype": "Currency",
+   "label": "Paid Amount (OMR) - المبلغ المدفوع",
+   "options": "currency",
+   "precision": 3
+  },
+  {
+   "fieldname": "outstanding_amount",
+   "fieldtype": "Currency",
+   "label": "Outstanding Amount (OMR) - المبلغ المستحق",
+   "options": "currency",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "omani_vat_compliance_section",
+   "fieldtype": "Section Break",
+   "label": "Omani VAT Compliance - الامتثال لضريبة القيمة المضافة العمانية"
+  },
+  {
+   "fieldname": "omani_vat_rate",
+   "fieldtype": "Percent",
+   "label": "Omani VAT Rate - معدل ضريبة القيمة المضافة العمانية",
+   "default": 5.0,
+   "precision": 2
+  },
+  {
+   "fieldname": "vat_registration_number",
+   "fieldtype": "Data",
+   "label": "VAT Registration Number - رقم تسجيل ضريبة القيمة المضافة",
+   "description": "Format: OMxxxxxxxxxxxxxxx"
+  },
+  {
+   "fieldname": "vat_calculation_method",
+   "fieldtype": "Select",
+   "label": "VAT Calculation Method - طريقة حساب ضريبة القيمة المضافة",
+   "options": "Exclusive\nInclusive",
+   "default": "Exclusive"
+  },
+  {
+   "fieldname": "column_break_31",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tax_authority_reference",
+   "fieldtype": "Data",
+   "label": "Tax Authority Reference - مرجع هيئة الضرائب"
+  },
+  {
+   "fieldname": "e_invoice_compliance",
+   "fieldtype": "Check",
+   "label": "E-Invoice Compliance - امتثال الفاتورة الإلكترونية",
+   "description": "Oman e-invoice requirements (effective 2026)"
+  },
+  {
+   "fieldname": "quarterly_filing_period",
+   "fieldtype": "Select",
+   "label": "Quarterly Filing Period - فترة التقديم الفصلية",
+   "options": "Q1 (Jan-Mar)\nQ2 (Apr-Jun)\nQ3 (Jul-Sep)\nQ4 (Oct-Dec)"
+  },
+  {
+   "fieldname": "qr_code_generation_section",
+   "fieldtype": "Section Break",
+   "label": "QR Code Generation - توليد رمز الاستجابة السريعة"
+  },
+  {
+   "fieldname": "qr_code_required",
+   "fieldtype": "Check",
+   "label": "QR Code Required - رمز الاستجابة السريعة مطلوب",
+   "default": 1
+  },
+  {
+   "fieldname": "qr_code_data",
+   "fieldtype": "Long Text",
+   "label": "QR Code Data - بيانات رمز الاستجابة السريعة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "qr_code_image",
+   "fieldtype": "Attach Image",
+   "label": "QR Code Image - صورة رمز الاستجابة السريعة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_38",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qr_generation_timestamp",
+   "fieldtype": "Datetime",
+   "label": "QR Generation Timestamp - وقت توليد رمز الاستجابة السريعة",
+   "read_only": 1
+  },
+  {
+   "fieldname": "qr_compliance_status",
+   "fieldtype": "Select",
+   "label": "QR Compliance Status - حالة امتثال رمز الاستجابة السريعة",
+   "options": "Pending\nGenerated\nValidated\nFailed",
+   "default": "Pending"
+  },
+  {
+   "fieldname": "tlv_encoding",
+   "fieldtype": "Long Text",
+   "label": "TLV Encoding - تشفير TLV",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_processing_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Processing - معالجة الدفع"
+  },
+  {
+   "fieldname": "payment_terms",
+   "fieldtype": "Select",
+   "label": "Payment Terms - شروط الدفع",
+   "options": "Cash on Delivery\nNet 15\nNet 30\nNet 60\nAdvance Payment\nCredit Card\nBank Transfer"
+  },
+  {
+   "fieldname": "payment_method",
+   "fieldtype": "Select",
+   "label": "Payment Method - طريقة الدفع",
+   "options": "Cash\nCredit Card\nDebit Card\nBank Transfer\nCheck\nOnline Payment\nMobile Payment"
+  },
+  {
+   "fieldname": "payment_gateway",
+   "fieldtype": "Link",
+   "label": "Payment Gateway - بوابة الدفع",
+   "options": "Payment Gateway Config"
+  },
+  {
+   "fieldname": "column_break_44",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payment_status",
+   "fieldtype": "Select",
+   "label": "Payment Status - حالة الدفع",
+   "options": "Pending\nAuthorized\nCaptured\nFailed\nRefunded\nCancelled",
+   "default": "Pending"
+  },
+  {
+   "fieldname": "payment_reference",
+   "fieldtype": "Data",
+   "label": "Payment Reference - مرجع الدفع"
+  },
+  {
+   "fieldname": "gateway_transaction_id",
+   "fieldtype": "Data",
+   "label": "Gateway Transaction ID - معرف معاملة البوابة"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "arabic_cultural_context_section",
+   "fieldtype": "Section Break",
+   "label": "Arabic Cultural Context - السياق الثقافي العربي"
+  },
+  {
+   "fieldname": "invoice_title_ar",
+   "fieldtype": "Data",
+   "label": "Invoice Title (Arabic) - عنوان الفاتورة",
+   "default": "فاتورة"
+  },
+  {
+   "fieldname": "company_name_ar",
+   "fieldtype": "Data",
+   "label": "Company Name (Arabic) - اسم الشركة بالعربية"
+  },
+  {
+   "fieldname": "payment_terms_ar",
+   "fieldtype": "Text",
+   "label": "Payment Terms (Arabic) - شروط الدفع بالعربية"
+  },
+  {
+   "fieldname": "invoice_notes_ar",
+   "fieldtype": "Text",
+   "label": "Invoice Notes (Arabic) - ملاحظات الفاتورة بالعربية"
+  },
+  {
+   "fieldname": "column_break_51",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "arabic_currency_format",
+   "fieldtype": "Select",
+   "label": "Arabic Currency Format - تنسيق العملة العربية",
+   "options": "OMR 123.456\n123.456 ر.ع.\nر.ع. 123.456\n١٢٣.٤٥٦ ر.ع.",
+   "default": "123.456 ر.ع."
+  },
+  {
+   "fieldname": "arabic_date_format",
+   "fieldtype": "Select",
+   "label": "Arabic Date Format - تنسيق التاريخ العربي",
+   "options": "Gregorian Only\nHijri Only\nBoth (Gregorian/Hijri)",
+   "default": "Both (Gregorian/Hijri)"
+  },
+  {
+   "fieldname": "traditional_invoice_patterns",
+   "fieldtype": "Text",
+   "label": "Traditional Invoice Patterns - أنماط الفواتير التقليدية"
+  },
+  {
+   "fieldname": "islamic_business_compliance",
+   "fieldtype": "Text",
+   "label": "Islamic Business Compliance - الامتثال للأعمال الإسلامية"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "islamic_finance_section",
+   "fieldtype": "Section Break",
+   "label": "Islamic Finance Compliance - الامتثال للتمويل الإسلامي"
+  },
+  {
+   "fieldname": "islamic_transaction_type",
+   "fieldtype": "Select",
+   "label": "Islamic Transaction Type - نوع المعاملة الإسلامية",
+   "options": "Murabaha (Cost Plus)\nIjara (Lease)\nIstisna (Manufacturing)\nSalam (Forward Sale)\nCash Sale",
+   "default": "Cash Sale"
+  },
+  {
+   "fieldname": "profit_sharing_applicable",
+   "fieldtype": "Check",
+   "label": "Profit Sharing Applicable - تطبق المشاركة في الأرباح"
+  },
+  {
+   "fieldname": "interest_free_transaction",
+   "fieldtype": "Check",
+   "label": "Interest-Free Transaction - معاملة خالية من الفوائد",
+   "default": 1
+  },
+  {
+   "fieldname": "column_break_58",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "islamic_compliance_notes",
+   "fieldtype": "Text",
+   "label": "Islamic Compliance Notes - ملاحظات الامتثال الإسلامي"
+  },
+  {
+   "fieldname": "halal_service_confirmation",
+   "fieldtype": "Check",
+   "label": "Halal Service Confirmation - تأكيد الخدمة الحلال",
+   "default": 1
+  },
+  {
+   "fieldname": "religious_appropriateness_check",
+   "fieldtype": "Check",
+   "label": "Religious Appropriateness Check - فحص الملاءمة الدينية",
+   "default": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "traditional_patterns_section",
+   "fieldtype": "Section Break",
+   "label": "Traditional Business Patterns - أنماط الأعمال التقليدية"
+  },
+  {
+   "fieldname": "arabic_business_terminology",
+   "fieldtype": "Text",
+   "label": "Arabic Business Terminology - المصطلحات التجارية العربية"
+  },
+  {
+   "fieldname": "traditional_payment_patterns",
+   "fieldtype": "Text",
+   "label": "Traditional Payment Patterns - أنماط الدفع التقليدية"
+  },
+  {
+   "fieldname": "omani_cultural_context",
+   "fieldtype": "Text",
+   "label": "Omani Cultural Context - السياق الثقافي العماني"
+  },
+  {
+   "fieldname": "column_break_64",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cultural_communication_notes",
+   "fieldtype": "Text",
+   "label": "Cultural Communication Notes - ملاحظات التواصل الثقافي"
+  },
+  {
+   "fieldname": "traditional_invoice_formatting",
+   "fieldtype": "Text",
+   "label": "Traditional Invoice Formatting - تنسيق الفواتير التقليدي"
+  },
+  {
+   "fieldname": "arabic_courtesy_protocols",
+   "fieldtype": "Text",
+   "label": "Arabic Courtesy Protocols - بروتوكولات المجاملة العربية"
+  },
+  {
+   "fieldname": "advanced_analytics_section",
+   "fieldtype": "Section Break",
+   "label": "Advanced Analytics - التحليلات المتقدمة"
+  },
+  {
+   "fieldname": "customer_lifetime_value_impact",
+   "fieldtype": "Currency",
+   "label": "CLV Impact (OMR) - تأثير قيمة العميل مدى الحياة",
+   "options": "currency",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "service_profitability_analysis",
+   "fieldtype": "Percent",
+   "label": "Service Profitability - ربحية الخدمة",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_69",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payment_pattern_analysis",
+   "fieldtype": "Select",
+   "label": "Payment Pattern Analysis - تحليل نمط الدفع",
+   "options": "Prompt Payer\nAverage Payer\nSlow Payer\nInfrequent Payer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "satisfaction_correlation",
+   "fieldtype": "Float",
+   "label": "Satisfaction Correlation - ارتباط الرضا",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "workflow_automation_section",
+   "fieldtype": "Section Break",
+   "label": "Workflow Automation - أتمتة سير العمل"
+  },
+  {
+   "fieldname": "approval_workflow",
+   "fieldtype": "Link",
+   "label": "Approval Workflow - سير عمل الموافقة",
+   "options": "Workflow"
+  },
+  {
+   "fieldname": "automated_reminders",
+   "fieldtype": "Check",
+   "label": "Automated Reminders - التذكيرات التلقائية",
+   "default": 1
+  },
+  {
+   "fieldname": "escalation_matrix",
+   "fieldtype": "Table",
+   "label": "Escalation Matrix - مصفوفة التصعيد",
+   "options": "Invoice Escalation Matrix"
+  },
+  {
+   "fieldname": "column_break_74",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "notification_preferences",
+   "fieldtype": "Table",
+   "label": "Notification Preferences - تفضيلات الإشعارات",
+   "options": "Invoice Notification Preference"
+  },
+  {
+   "fieldname": "follow_up_schedule",
+   "fieldtype": "Table",
+   "label": "Follow-up Schedule - جدول المتابعة",
+   "options": "Invoice Follow-up Schedule"
+  },
+  {
+   "fieldname": "dispute_resolution",
+   "fieldtype": "Table",
+   "label": "Dispute Resolution - حل النزاعات",
+   "options": "Invoice Dispute Resolution"
+  },
+  {
+   "fieldname": "document_management_section",
+   "fieldtype": "Section Break",
+   "label": "Document Management - إدارة الوثائق"
+  },
+  {
+   "fieldname": "supporting_documents",
+   "fieldtype": "Table",
+   "label": "Supporting Documents - الوثائق المساندة",
+   "options": "Invoice Supporting Document"
+  },
+  {
+   "fieldname": "column_break_78",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "compliance_documents",
+   "fieldtype": "Table",
+   "label": "Compliance Documents - وثائق الامتثال",
+   "options": "Invoice Compliance Document"
+  },
+  {
+   "fieldname": "audit_attachments",
+   "fieldtype": "Table",
+   "label": "Audit Attachments - مرفقات التدقيق",
+   "options": "Invoice Audit Attachment"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "integration_section",
+   "fieldtype": "Section Break",
+   "label": "Shared Library Integration - تكامل المكتبة المشتركة"
+  },
+  {
+   "default": "0",
+   "fieldname": "shared_library_invoice_enhanced",
+   "fieldtype": "Check",
+   "label": "Shared Library Invoice Enhanced - تم تعزيز الفاتورة بالمكتبة المشتركة",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "arabic_business_logic_integrated",
+   "fieldtype": "Check",
+   "label": "Arabic Business Logic Integrated - تم دمج منطق الأعمال العربي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "traditional_patterns_applied",
+   "fieldtype": "Check",
+   "label": "Traditional Patterns Applied - تم تطبيق الأنماط التقليدية",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "islamic_compliance_verified",
+   "fieldtype": "Check",
+   "label": "Islamic Compliance Verified - تم التحقق من الامتثال الإسلامي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "omani_vat_validated",
+   "fieldtype": "Check",
+   "label": "Omani VAT Validated - تم التحقق من ضريبة القيمة المضافة العمانية",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Notes & Metadata - الملاحظات والبيانات الوصفية"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks - ملاحظات"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By - أنشأ بواسطة",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_date",
+   "fieldtype": "Date",
+   "label": "Created Date - تاريخ الإنشاء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_updated_by",
+   "fieldtype": "Link",
+   "label": "Last Updated By - آخر تحديث بواسطة",
+   "options": "User",
+   "read_only": 1
+  }
+ ],
+ "has_web_view": 1,
+ "hide_toolbar": 0,
+ "idx": 0,
+ "in_create": 0,
+ "is_submittable": 1,
+ "issingle": 0,
+ "max_attachments": 10,
+ "modified": "2025-01-03 23:45:00.000000",
+ "modified_by": "Administrator",
+ "module": "Financial Core",
+ "name": "Unified Invoice Management",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "submit": 1,
+   "write": 1,
+   "role": "Accounts User"
+  },
+  {
+   "read": 1,
+   "role": "Workshop Technician"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "write": 1,
+   "role": "System Manager"
+  },
+  {
+   "read": 1,
+   "role": "Customer"
+  }
+ ],
+ "quick_entry": 0,
+ "route": "unified-invoice",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "invoice_number",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

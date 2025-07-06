@@ -1,0 +1,1 @@
+# DocType: vehicle_document

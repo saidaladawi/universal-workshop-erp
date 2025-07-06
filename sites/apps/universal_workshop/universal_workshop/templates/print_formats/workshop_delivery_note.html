@@ -1,0 +1,60 @@
+
+        <!-- Delivery Note Document Title -->
+        <h2 class="document-title">
+            {% if is_arabic %}إشعار تسليم{% else %}DELIVERY NOTE{% endif %}
+        </h2>
+        
+        <!-- Delivery Details -->
+        <div class="delivery-details" style="margin-bottom: 20px;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="width: 50%; vertical-align: top;">
+                        <strong>{% if is_arabic %}التسليم إلى:{% else %}Deliver To:{% endif %}</strong><br>
+                        {{ doc.customer_name }}<br>
+                        {% if doc.shipping_address_name %}{{ doc.shipping_address_name }}{% endif %}
+                    </td>
+                    <td style="width: 50%; vertical-align: top; text-align: {% if is_arabic %}left{% else %}right{% endif %};">
+                        <strong>{% if is_arabic %}رقم الإشعار:{% else %}Delivery Note #:{% endif %}</strong> {{ doc.name }}<br>
+                        <strong>{% if is_arabic %}التاريخ:{% else %}Date:{% endif %}</strong> {{ doc.posting_date }}<br>
+                        {% if doc.lr_no %}<strong>{% if is_arabic %}رقم النقل:{% else %}LR No:{% endif %}</strong> {{ doc.lr_no }}{% endif %}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Items Table -->
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+            <thead>
+                <tr class="table-header">
+                    <th style="border: 1px solid #ddd; padding: 8px;">{% if is_arabic %}الصنف{% else %}Item{% endif %}</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">{% if is_arabic %}الوصف{% else %}Description{% endif %}</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">{% if is_arabic %}الكمية{% else %}Qty{% endif %}</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">{% if is_arabic %}الوحدة{% else %}UOM{% endif %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in doc.items %}
+                <tr class="table-row">
+                    <td style="border: 1px solid #ddd; padding: 8px;">{{ item.item_name }}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">{{ item.description or '' }}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">{{ item.qty }}</td>
+                    <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">{{ item.uom }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <!-- Signature Section -->
+        <div style="margin-top: 40px;">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="width: 50%; text-align: center; border-top: 1px solid #333; padding-top: 10px;">
+                        {% if is_arabic %}توقيع المستلم{% else %}Receiver's Signature{% endif %}
+                    </td>
+                    <td style="width: 50%; text-align: center; border-top: 1px solid #333; padding-top: 10px;">
+                        {% if is_arabic %}توقيع المخول{% else %}Authorized Signature{% endif %}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        

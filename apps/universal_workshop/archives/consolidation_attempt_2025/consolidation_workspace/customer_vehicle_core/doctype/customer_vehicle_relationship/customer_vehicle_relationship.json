@@ -1,0 +1,371 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:relationship_id",
+ "creation": "2025-01-03 23:30:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "relationship_basic_info_section",
+  "relationship_id",
+  "customer",
+  "vehicle",
+  "relationship_type",
+  "column_break_4",
+  "relationship_start_date",
+  "relationship_end_date",
+  "primary_contact",
+  "status",
+  "authorization_details_section",
+  "authorized_users",
+  "column_break_10",
+  "service_authorization_level",
+  "spending_limit",
+  "communication_preferences_section",
+  "preferred_communication_method",
+  "service_notifications",
+  "column_break_15",
+  "emergency_contact",
+  "backup_authorization",
+  "service_history_analytics_section",
+  "service_relationship_summary",
+  "column_break_19",
+  "loyalty_integration",
+  "satisfaction_tracking",
+  "arabic_cultural_integration_section",
+  "arabic_relationship_terminology",
+  "traditional_relationship_patterns",
+  "islamic_business_compliance",
+  "column_break_25",
+  "omani_cultural_context",
+  "cultural_service_preferences",
+  "integration_section",
+  "shared_library_relationship_enhanced",
+  "arabic_business_logic_integrated",
+  "traditional_patterns_applied",
+  "islamic_compliance_verified",
+  "notes_metadata_section",
+  "notes",
+  "created_by",
+  "created_date",
+  "last_updated_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "relationship_basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Relationship Basic Information - المعلومات الأساسية للعلاقة"
+  },
+  {
+   "fieldname": "relationship_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Relationship ID - رقم العلاقة",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer - العميل",
+   "options": "Consolidated Customer Profile",
+   "reqd": 1
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Vehicle - المركبة",
+   "options": "Enhanced Vehicle Management",
+   "reqd": 1
+  },
+  {
+   "fieldname": "relationship_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Relationship Type - نوع العلاقة",
+   "options": "Owner\nAuthorized User\nFamily Member\nEmployee\nFleet Manager\nInsurance Representative\nTemporary User",
+   "reqd": 1,
+   "default": "Owner"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "relationship_start_date",
+   "fieldtype": "Date",
+   "label": "Relationship Start Date - تاريخ بداية العلاقة",
+   "reqd": 1,
+   "default": "Today"
+  },
+  {
+   "fieldname": "relationship_end_date",
+   "fieldtype": "Date",
+   "label": "Relationship End Date - تاريخ انتهاء العلاقة"
+  },
+  {
+   "fieldname": "primary_contact",
+   "fieldtype": "Check",
+   "label": "Primary Contact - جهة الاتصال الأساسية",
+   "default": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status - الحالة",
+   "options": "Active\nInactive\nSuspended\nTerminated\nPending Approval",
+   "reqd": 1,
+   "default": "Active"
+  },
+  {
+   "fieldname": "authorization_details_section",
+   "fieldtype": "Section Break",
+   "label": "Authorization Details - تفاصيل التخويل"
+  },
+  {
+   "fieldname": "authorized_users",
+   "fieldtype": "Table",
+   "label": "Authorized Users - المستخدمون المخولون",
+   "options": "Customer Vehicle Authorized User"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "service_authorization_level",
+   "fieldtype": "Select",
+   "label": "Service Authorization Level - مستوى تخويل الخدمة",
+   "options": "Full Authorization\nBasic Services Only\nEmergency Only\nInspection Only\nNo Authorization",
+   "default": "Full Authorization"
+  },
+  {
+   "fieldname": "spending_limit",
+   "fieldtype": "Currency",
+   "label": "Spending Limit (OMR) - حد الإنفاق",
+   "options": "OMR",
+   "precision": 3
+  },
+  {
+   "fieldname": "communication_preferences_section",
+   "fieldtype": "Section Break",
+   "label": "Communication Preferences - تفضيلات التواصل"
+  },
+  {
+   "fieldname": "preferred_communication_method",
+   "fieldtype": "Select",
+   "label": "Preferred Communication - طريقة التواصل المفضلة",
+   "options": "Phone Call\nSMS\nWhatsApp\nEmail\nIn-Person\nCustomer Portal"
+  },
+  {
+   "fieldname": "service_notifications",
+   "fieldtype": "Check",
+   "label": "Service Notifications - إشعارات الخدمة",
+   "default": 1
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "emergency_contact",
+   "fieldtype": "Data",
+   "label": "Emergency Contact - جهة الاتصال الطارئ",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "backup_authorization",
+   "fieldtype": "Link",
+   "label": "Backup Authorization - التخويل الاحتياطي",
+   "options": "Consolidated Customer Profile"
+  },
+  {
+   "fieldname": "service_history_analytics_section",
+   "fieldtype": "Section Break",
+   "label": "Service History & Analytics - تاريخ الخدمة والتحليلات"
+  },
+  {
+   "fieldname": "service_relationship_summary",
+   "fieldtype": "Table",
+   "label": "Service Relationship Summary - ملخص علاقة الخدمة",
+   "options": "Customer Vehicle Service Summary"
+  },
+  {
+   "fieldname": "column_break_19",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "loyalty_integration",
+   "fieldtype": "Table",
+   "label": "Loyalty Integration - تكامل الولاء",
+   "options": "Customer Vehicle Loyalty Integration"
+  },
+  {
+   "fieldname": "satisfaction_tracking",
+   "fieldtype": "Table",
+   "label": "Satisfaction Tracking - تتبع الرضا",
+   "options": "Customer Vehicle Satisfaction"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "arabic_cultural_integration_section",
+   "fieldtype": "Section Break",
+   "label": "Arabic Cultural Integration - التكامل الثقافي العربي"
+  },
+  {
+   "fieldname": "arabic_relationship_terminology",
+   "fieldtype": "Text",
+   "label": "Arabic Relationship Terminology - المصطلحات العربية للعلاقة"
+  },
+  {
+   "fieldname": "traditional_relationship_patterns",
+   "fieldtype": "Text",
+   "label": "Traditional Relationship Patterns - أنماط العلاقات التقليدية"
+  },
+  {
+   "fieldname": "islamic_business_compliance",
+   "fieldtype": "Text",
+   "label": "Islamic Business Compliance - الامتثال للأعمال الإسلامية"
+  },
+  {
+   "fieldname": "column_break_25",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "omani_cultural_context",
+   "fieldtype": "Text",
+   "label": "Omani Cultural Context - السياق الثقافي العماني"
+  },
+  {
+   "fieldname": "cultural_service_preferences",
+   "fieldtype": "Text",
+   "label": "Cultural Service Preferences - تفضيلات الخدمة الثقافية"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "integration_section",
+   "fieldtype": "Section Break",
+   "label": "Shared Library Integration - تكامل المكتبة المشتركة"
+  },
+  {
+   "default": "0",
+   "fieldname": "shared_library_relationship_enhanced",
+   "fieldtype": "Check",
+   "label": "Shared Library Relationship Enhanced - تم تعزيز العلاقة بالمكتبة المشتركة",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "arabic_business_logic_integrated",
+   "fieldtype": "Check",
+   "label": "Arabic Business Logic Integrated - تم دمج منطق الأعمال العربي",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "traditional_patterns_applied",
+   "fieldtype": "Check",
+   "label": "Traditional Patterns Applied - تم تطبيق الأنماط التقليدية",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "islamic_compliance_verified",
+   "fieldtype": "Check",
+   "label": "Islamic Compliance Verified - تم التحقق من الامتثال الإسلامي",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Notes & Metadata - الملاحظات والبيانات الوصفية"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes - ملاحظات"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By - أنشأ بواسطة",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_date",
+   "fieldtype": "Date",
+   "label": "Created Date - تاريخ الإنشاء",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_updated_by",
+   "fieldtype": "Link",
+   "label": "Last Updated By - آخر تحديث بواسطة",
+   "options": "User",
+   "read_only": 1
+  }
+ ],
+ "has_web_view": 0,
+ "hide_toolbar": 0,
+ "idx": 0,
+ "in_create": 0,
+ "is_submittable": 0,
+ "issingle": 0,
+ "max_attachments": 5,
+ "modified": "2025-01-03 23:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Customer Vehicle Core",
+ "name": "Customer Vehicle Relationship",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Customer Service Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "write": 1,
+   "role": "Service Advisor"
+  },
+  {
+   "read": 1,
+   "role": "Workshop Technician"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "write": 1,
+   "role": "System Manager"
+  },
+  {
+   "read": 1,
+   "role": "Customer"
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "relationship_id",
+ "track_changes": 1
+}

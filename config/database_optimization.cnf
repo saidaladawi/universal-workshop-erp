@@ -1,0 +1,51 @@
+# Universal Workshop ERP Database Optimization Configuration
+# Add these settings to your MariaDB/MySQL configuration file (/etc/mysql/my.cnf)
+
+[mysqld]
+# Performance Schema
+performance_schema = ON
+
+# InnoDB Optimizations
+innodb_buffer_pool_size = 2G  # Adjust based on available RAM
+innodb_log_file_size = 256M
+innodb_log_buffer_size = 16M
+innodb_flush_method = O_DIRECT
+innodb_file_per_table = ON
+innodb_flush_log_at_trx_commit = 2
+
+# Query Cache
+query_cache_size = 128M
+query_cache_type = ON
+query_cache_limit = 2M
+
+# Connection Settings
+max_connections = 500
+thread_cache_size = 50
+connect_timeout = 60
+wait_timeout = 28800
+
+# Table and Temporary Settings
+table_open_cache = 4000
+tmp_table_size = 64M
+max_heap_table_size = 64M
+
+# Binary Logging (for replication)
+log_bin = mysql-bin
+binlog_format = ROW
+expire_logs_days = 7
+
+# Slow Query Log
+slow_query_log = ON
+slow_query_log_file = /var/log/mysql/slow.log
+long_query_time = 2
+
+# Character Set
+character_set_server = utf8mb4
+collation_server = utf8mb4_unicode_ci
+
+# Other Optimizations
+max_allowed_packet = 128M
+sort_buffer_size = 2M
+read_buffer_size = 2M
+read_rnd_buffer_size = 8M
+myisam_sort_buffer_size = 64M

@@ -1,0 +1,34 @@
+{
+  "database": {
+    "host": "${DB_HOST}",
+    "port": "${DB_PORT}",
+    "name": "${DB_NAME}",
+    "user": "${DB_USER}",
+    "password": "${DB_PASSWORD}"
+  },
+  "redis": {
+    "cache_host": "${REDIS_CACHE_HOST}",
+    "cache_port": "${REDIS_CACHE_PORT}",
+    "queue_host": "${REDIS_QUEUE_HOST}",
+    "queue_port": "${REDIS_QUEUE_PORT}"
+  },
+  "mail": {
+    "server": "${MAIL_SERVER}",
+    "port": "${MAIL_PORT}",
+    "use_tls": "${MAIL_USE_TLS}",
+    "username": "${MAIL_USERNAME}",
+    "password": "${MAIL_PASSWORD}"
+  },
+  "security": {
+    "encryption_key": "${ENCRYPTION_KEY}",
+    "secret_key": "${SECRET_KEY}",
+    "csrf_protection": true,
+    "session_timeout": 3600
+  },
+  "logging": {
+    "level": "${LOG_LEVEL}",
+    "file": "${LOG_FILE}",
+    "max_size": "100MB",
+    "backup_count": 5
+  }
+}
